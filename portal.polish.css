@@ -981,3 +981,16 @@ html.cssd-light body #vw-scholars .ctlb button.chip.clr:focus-visible{
   outline:2px solid #2C6E9E !important;
   outline-offset:2px;
 }
+
+/* P2 fix-2 · 顶栏激活态：#2E9A89 14px 字对白底 <4.5，会被 index.html 内联对比度修正脚本
+   以 style="color:#0F5B4F !important" 钉死在首屏激活的「首页」上，切路由后「首页」仍显绿（假高亮）。
+   激活/悬停字色直接用达标的 #0F5B4F，修正脚本不再介入；下划线保留 teal 识别。 */
+html.cssd-light body .sp-links button.active,
+html.cssd-light body .sp-links button[aria-current="page"]{
+  color:#0F5B4F !important;
+  border-bottom-color:#2E9A89 !important;
+  font-weight:600 !important;
+}
+html.cssd-light body .sp-links button:hover{
+  color:#0F5B4F !important;
+}
