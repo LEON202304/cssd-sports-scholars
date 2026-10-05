@@ -2,7 +2,9 @@
 
 
 ## 当前版本
-**v4.6-23**
+**v4.6-23 + polish/site-optimization**
+
+静态站点（无需构建）。样式 token 见 `portal.2e2629e7.css` / `portal.polish.css`；学术动态离线快照见 `news-snapshot.json`。
 
 ## 功能特点
 - 学者目录高级检索与筛选

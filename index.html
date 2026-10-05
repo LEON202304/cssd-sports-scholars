@@ -17,15 +17,17 @@ html:not(.cssd-boot-ready) body>*:not(#bootSplash){visibility:hidden!important;}
 html.cssd-boot-ready #bootSplash{opacity:0!important;visibility:hidden!important;pointer-events:none!important;}
 </style>
 <link rel="stylesheet" href="portal.2e2629e7.css">
+<link rel="stylesheet" href="portal.polish.css">
 <!-- 预加载关键脚本：在 head 内提前发起请求，与 HTML 解析并行，缩短首屏等待。
      注意：sports-cnki-data.*.js 不在此预加载——它只在「学术期刊 / 学术动态」两个视图按需拉取，
      首屏可省下约 900 KB（Brotli）。详见该脚本下方的 _cnkiLoad 懒加载器。 -->
 <link rel="preload" as="script" href="sports-scholars-data.9a297638.js">
 <link rel="preload" as="script" href="sports-univ-catalog.766ca372.js">
 <link rel="preload" as="script" href="portal.9149a373.js">
-<link rel="preload" as="image" href="mountains.5f7d4f16.webp" type="image/webp">
+<link rel="preload" as="image" href="mountains.5f7d4f16.webp" type="image/webp" fetchpriority="high">
 
 <title>体育学人 · 中国体育学术资源数据库</title>
+<meta name="description" content="收录 5,724 位体育学领域学者与运动医学专家，覆盖 548 家高校、医院与科研机构，含长江学者、万人计划、国家社科基金负责人等人才项目，支持学科、院校、人才称号交叉检索。">
 <!-- ═══════════ SEO / 社交分享元标签（2026-09-27 新增）═══════════ -->
 <link rel="canonical" href="https://www.tiyuxueren.com/">
 <meta name="robots" content="index,follow,max-image-preview:large">
@@ -5723,8 +5725,7 @@ a:focus-visible,button:focus-visible,[onclick]:focus-visible{
   .afchip .afx:hover{transform:none!important;}
 }
 </style>
-<meta name="description" content="中国体育学术资源平台CSSD，收录5600余位体育学领域学者与运动医学专家，覆盖541家高校、医院与科研机构，含长江学者、万人计划、国家社科基金负责人等人才项目，支持学科、院校、人才称号交叉检索">
-<meta name="theme-color" content="#07091A">
+<meta name="theme-color" content="#F5F7FA">
 
 <!-- CSSD v4.6-55 · 浅色主题变量层（置于 head，首屏即时生效，防深色闪烁） -->
 <style id="cssd-v46-55-light-vars">
@@ -5798,7 +5799,7 @@ html.cssd-light ::-webkit-scrollbar-thumb{background:rgba(31,122,108,.32)!import
   }catch(e){}
 })();
 </script>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 48 48%27%3E%3Crect width=%2748%27 height=%2748%27 rx=%2710%27 fill=%27%230b2d59%27/%3E%3Ctext x=%2724%27 y=%2733%27 text-anchor=%27middle%27 font-size=%2730%27 fill=%27white%27%3E学%3C/text%3E%3C/svg%3E"><style id="cssd-kpi-brand-ink">/* cssd-kpi-brand-ink — all page KPI/stat/result counts use brand ink */
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 48 48%27%3E%3Crect width=%2748%27 height=%2748%27 rx=%2710%27 fill=%27%232E9A89%27/%3E%3Ctext x=%2724%27 y=%2733%27 text-anchor=%27middle%27 font-size=%2730%27 fill=%27white%27%3E学%3C/text%3E%3C/svg%3E"><style id="cssd-kpi-brand-ink">/* cssd-kpi-brand-ink — all page KPI/stat/result counts use brand ink */
 html.cssd-light .proj-kpi b,html.cssd-light .mc-stat b,html.cssd-light .kpi89-n,html.cssd-light .kpi b,
 html.cssd-light .sci-kpi-n,html.cssd-light .dlab-kpi-n,html.cssd-light .kn,html.cssd-light .kpi .kn,
 html.cssd-light .sc-stat-v,html.cssd-light .l3-disc-cnt,html.cssd-light .ov-stat b,
@@ -6242,11 +6243,11 @@ html.cssd-light .nb.on{color:#2E9A89!important}
 <!-- SCHOLARS -->
 <div class="vw" id="vw-scholars">
   <div class="ph"><div class="hbg"><div class="orb o1" style="width:240px;height:240px;top:-40px;left:-40px;opacity:.09"></div><div class="grid-bg"></div></div>
-    <div class="phi"><div class="sey" style="margin-bottom:7px">SCHOLAR DIRECTORY</div><h2 class="cssd-h2v">学者目录</h2><p>收录体育院校 · 综合大学 · 师范院校 · 附属医院 · 国家研究机构</p><div class="sch-hero-tabs" id="scholarHeroTabs"></div></div>
+    <div class="phi"><div class="sch-hero-row"><div class="sch-hero-copy"><div class="sey" style="margin-bottom:7px">SCHOLAR DIRECTORY</div><h2 class="cssd-h2v">学者目录</h2><p>收录体育院校 · 综合大学 · 师范院校 · 附属医院 · 国家研究机构</p><div class="sch-hero-tabs" id="scholarHeroTabs"></div></div><div class="sch-hero-kpis" id="schHeroKpis" aria-label="学者目录概况"><div class="sch-hero-kpi"><b id="schKpiScholars">—</b><small>收录学者</small></div><div class="sch-hero-kpi"><b id="schKpiInst">—</b><small>覆盖机构</small></div><div class="sch-hero-kpi"><b id="schKpiOverseas">26</b><small>海外华人</small></div></div></div></div>
   </div>
   <div class="ctlb"><div class="ci">
     <div class="cr1">
-      <div class="sw"><span class="si">🔍</span><input type="text" id="qinp" class="fi" placeholder="搜索姓名/机构/方向/帽子/拼音首字母..." autocomplete="off"/><button id="qsrch-btn" onclick="doScholarSearch()" title="确认搜索 (Enter)">搜索</button><div id="qsugg" class="qsugg-box"></div></div>
+      <div class="sw"><span class="si">🔍</span><input type="text" id="qinp" class="fi" placeholder="搜索姓名/机构/方向/帽子/拼音首字母..." autocomplete="off" aria-label="搜索学者姓名、机构、方向或称号"/><button id="qsrch-btn" onclick="doScholarSearch()" title="确认搜索 (Enter)">搜索</button><div id="qsugg" class="qsugg-box"></div></div>
       <input id="fins" list="fins-dl" class="fsel" placeholder="&#x1F3DB; 搜索机构..." autocomplete="off" style="min-width:165px;padding-right:10px" oninput="inst=this.value.trim();_scholarsLimit=60;renderSc()"><datalist id="fins-dl"></datalist>
       <select id="fcat" class="fsel" style="min-width:118px">
         <option value="">全部类型</option>
@@ -6272,7 +6273,7 @@ html.cssd-light .nb.on{color:#2E9A89!important}
         <option value="disc">学科分类</option>
         <option value="hat">帽子优先</option>
       </select>
-      <button class="chip clr" onclick="clrAll()">✕ 清除</button>
+      <button type="button" class="chip clr" onclick="clrAll()">清除筛选</button>
     </div>
     <div class="cr2">
       <span style="font-size:.68rem;color:var(--mu);align-self:center;font-family:'DM Mono',monospace;margin-right:2px">&#x56DB;&#x5927;&#x7C7B;&#xFF1A;</span>
@@ -6284,7 +6285,7 @@ html.cssd-light .nb.on{color:#2E9A89!important}
     <div class="cr2">
       <span style="font-size:.68rem;color:var(--mu);align-self:center;font-family:'DM Mono',monospace;margin-right:2px">学科：</span>
       <button class="chip on" data-disc="" onclick="sD(this,'')">全部</button>
-      <button class="chip" data-disc="psych" onclick="sD(this,'psych')" style="border-color:rgba(168,85,247,.3);color:#A855F7">🧠 运动心理学</button>
+      <button class="chip" data-disc="psych" onclick="sD(this,'psych')">🧠 运动心理学</button>
       <button class="chip" data-disc="sci" onclick="sD(this,'sci')">🔬 运动人体科学</button>
       <button class="chip" data-disc="hu" onclick="sD(this,'hu')">🌐 体育人文社会学</button>
       <button class="chip" data-disc="train" onclick="sD(this,'train')">🏋️ 运动训练学</button>
@@ -6999,7 +7000,7 @@ html.cssd-light #vw-phdschools .phd-tab.on{
 </div>
 
 <!-- ACADEMIC NEWS 最新学术动态 -->
-<div class="vw" id="vw-academicnews">
+<div class="vw sp-news" id="vw-academicnews">
   <div class="an-wrap">
     <section class="an-hero">
       <div>
@@ -7011,6 +7012,7 @@ html.cssd-light #vw-phdschools .phd-tab.on{
         <span>今日更新</span>
         <b id="anToday">--</b>
         <em id="anRefreshNote">已按本地日期生成</em>
+        <div class="sp-news-status" id="spNewsStatus" data-state="live" role="status" aria-live="polite"><span class="sp-news-dot" aria-hidden="true"></span><span id="spNewsStatusText">实时聚合</span></div>
       </div>
     </section>
 
@@ -7229,7 +7231,7 @@ html.cssd-light #vw-phdschools .phd-tab.on{
 #consent-banner.show{transform:translateY(0);}
 #consent-banner p{flex:1;font-size:.74rem;color:#8A94A8;margin:0;line-height:1.65;min-width:220px;}
 #consent-banner a{color:#2E9A89;text-decoration:underline;cursor:pointer;}
-.consent-accept{padding:8px 22px;border-radius:8px;border:none;background:linear-gradient(135deg,#2E9A89,#7C3AED);color:#fff;font-size:.78rem;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap;transition:opacity .15s;}
+.consent-accept{padding:8px 22px;border-radius:8px;border:none;background:#2E9A89;color:#fff;font-size:.78rem;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap;transition:opacity .15s;}
 .consent-accept:hover{opacity:.88;}
 .consent-reject{padding:8px 16px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:transparent;color:#64748b;font-size:.78rem;cursor:pointer;font-family:inherit;white-space:nowrap;transition:all .15s;}
 .consent-reject:hover{border-color:rgba(255,255,255,.2);color:#8A94A8;}
@@ -8148,7 +8150,7 @@ function anRotate(list,count,seed){
 function anTypeMeta(type){
   return {
     paper:['论文','#2E9A89'],
-    journal:['期刊','#a78bfa'],
+    journal:['期刊','#2C6E9E'],
     project:['项目','#f59e0b'],
     event:['会议','#10b981']
   }[type]||['动态','#2E9A89'];
@@ -16125,22 +16127,30 @@ html.cssd-light #vw-scholars .sch-branch-tab .small{
   padding:0 !important;
   margin:0 !important;
 }
-/* 海外分栏：靛蓝色调，呼应院校机构导航的「双色胶囊」 */
+/* 海外分栏：白底墨字（禁紫），激活时仅 teal 描边 */
 html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"]{
-  border-color:rgba(99,102,241,.24) !important;
-  color:#4338CA !important;
+  background:#FFFFFF !important;
+  border-color:rgba(10,42,67,.14) !important;
+  color:#0A2A43 !important;
 }
 html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"] small{
-  color:#6366F1 !important;
+  color:#0A2A43 !important;
+  background:rgba(10,42,67,.06) !important;
 }
 html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"]:hover{
-  background:rgba(99,102,241,.07) !important;
-  border-color:rgba(99,102,241,.4) !important;
+  background:#FFFFFF !important;
+  border-color:rgba(46,154,137,.35) !important;
+  color:#0A2A43 !important;
 }
 html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"].on{
-  background:rgba(99,102,241,.1) !important;
-  border-color:rgba(99,102,241,.45) !important;
-  color:#3730A3 !important;
+  background:#FFFFFF !important;
+  border-color:rgba(46,154,137,.45) !important;
+  color:#0A2A43 !important;
+  box-shadow:none !important;
+}
+html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"].on small{
+  color:#2E9A89 !important;
+  background:rgba(46,154,137,.1) !important;
 }
 html.cssd-light #vw-scholars .sch-branch-note{
   flex-basis:100% !important;
@@ -16274,7 +16284,150 @@ html.cssd-light #vw-journals .jnl-kpi-n{
 }
 </style>
 
-<script src="portal.9149a373.js"></script><!-- offline: stripped cf -->
+
+
+<style id="cssd-polish-final">
+/* 最终层：海外 pill 白底墨字；清除链；搜索独占行兜底 */
+html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"],
+html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"]:hover,
+html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"].on{
+  background:#FFFFFF !important;
+  border-color:rgba(10,42,67,.14) !important;
+  color:#0A2A43 !important;
+  box-shadow:none !important;
+}
+html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"].on{
+  border-color:rgba(46,154,137,.45) !important;
+}
+html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"] small,
+html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"].on small{
+  color:#0A2A43 !important;
+  background:rgba(10,42,67,.06) !important;
+}
+html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"].on small{
+  color:#2E9A89 !important;
+  background:rgba(46,154,137,.10) !important;
+}
+</style>
+<script id="cssd-polish-opt-js">
+(function(){
+  function ready(fn){if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',fn,{once:true});else fn();}
+  function fmt(n){try{return Number(n).toLocaleString('zh-CN');}catch(e){return String(n);}}
+  function fillScholarKpis(){
+    var a=document.getElementById('schKpiScholars');
+    var b=document.getElementById('schKpiInst');
+    if(!a&&!b)return;
+    if(typeof S==='undefined'||!S||!S.length){setTimeout(fillScholarKpis,200);return;}
+    if(a)a.textContent=fmt(S.length);
+    if(b){
+      var set=new Set();
+      for(var i=0;i<S.length;i++){if(S[i]&&S[i].institution)set.add(S[i].institution);}
+      b.textContent=fmt(set.size);
+    }
+  }
+  function setNewsState(state,text){
+    var el=document.getElementById('spNewsStatus');
+    var tx=document.getElementById('spNewsStatusText');
+    if(el)el.setAttribute('data-state',state);
+    if(tx)tx.textContent=text;
+  }
+  function dayDiff(iso){
+    try{
+      var d=new Date(iso);var now=new Date();
+      return Math.floor((Date.UTC(now.getFullYear(),now.getMonth(),now.getDate())-Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()))/86400000);
+    }catch(e){return 999;}
+  }
+  var _snapCache=null;
+  function loadNewsSnapshot(cb){
+    if(_snapCache){cb(_snapCache);return;}
+    fetch('news-snapshot.json',{cache:'no-store'}).then(function(r){
+      if(!r.ok)throw new Error('snapshot '+r.status);
+      return r.json();
+    }).then(function(j){_snapCache=j;cb(j);}).catch(function(){cb(null);});
+  }
+  function patchAcademicNews(){
+    if(typeof window.renderAcademicNews!=='function'||window.renderAcademicNews.__spNewsPatched)return;
+    var orig=window.renderAcademicNews;
+    window.renderAcademicNews=function(force){
+      try{
+        var online=navigator.onLine!==false;
+        if(!online){
+          setNewsState('offline','离线 · 读取本地快照');
+          loadNewsSnapshot(function(snap){
+            if(!snap){setNewsState('offline','离线 · 快照不可用');}
+            else{
+              var note=document.getElementById('anRefreshNote');
+              if(note)note.textContent='离线快照 · '+ (snap.generatedAt||'');
+              var spot=document.getElementById('anSpotlight');
+              if(spot&&Array.isArray(snap.items)&&snap.items.length){
+                spot.innerHTML=snap.items.slice(0,3).map(function(it){
+                  var title=it.title||'学术动态';
+                  var desc=(it.authors?('作者：'+it.authors+' · '):'')+(it.journal||it.desc||'本地快照');
+                  var href=it.link||'javascript:void(0)';
+                  return '<article class="an-card" style="--an-c:#2C6E9E"><span class="an-card-type">快照</span><h3>'+String(title).replace(/[<>&]/g,function(c){return ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]);})+'</h3><p>'+String(desc).replace(/[<>&]/g,function(c){return ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]);})+'</p><a href="'+href+'" '+(it.link?'target="_blank" rel="noopener"':'')+'>查看详情</a></article>';
+                }).join('');
+              }
+            }
+          });
+          return;
+        }
+      }catch(e){}
+      var ret=orig.apply(this,arguments);
+      try{
+        var today=new Date();
+        var iso=today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+String(today.getDate()).padStart(2,'0');
+        // live if page can build items; stale if snapshot older than 1 day when force-failed
+        setNewsState('live','实时聚合 · 今日已更新');
+        // journal color: rewrite purple CSS vars on cards
+        document.querySelectorAll('#vw-academicnews .an-card, #vw-academicnews .an-news').forEach(function(el){
+          var c=el.style.getPropertyValue('--an-c')||'';
+          if(/a78bfa|A855F7|7c3aed/i.test(c)) el.style.setProperty('--an-c','#2C6E9E');
+        });
+        // also refresh KPI after data ready
+        fillScholarKpis();
+      }catch(e){}
+      return ret;
+    };
+    window.renderAcademicNews.__spNewsPatched=true;
+  }
+  function patchAnTypeMeta(){
+    if(typeof window.anTypeMeta!=='function'||window.anTypeMeta.__patched)return;
+    var old=window.anTypeMeta;
+    window.anTypeMeta=function(type){
+      var m=old.apply(this,arguments);
+      if(type==='journal') return ['期刊','#2C6E9E'];
+      return m;
+    };
+    window.anTypeMeta.__patched=true;
+  }
+  function onRoute(){
+    fillScholarKpis();
+    patchAcademicNews();
+    patchAnTypeMeta();
+  }
+  ready(function(){
+    onRoute();
+    setTimeout(onRoute,400);
+    setTimeout(onRoute,1200);
+    window.addEventListener('online',function(){setNewsState('live','网络已恢复 · 可刷新');});
+    window.addEventListener('offline',function(){setNewsState('offline','离线 · 读取本地快照');if(typeof renderAcademicNews==='function')renderAcademicNews(true);});
+    if(typeof go==='function' && !go.__spNewsGoPatched){
+      var og=go;
+      window.go=function(name){
+        var r=og.apply(this,arguments);
+        setTimeout(function(){
+          fillScholarKpis();
+          if(name==='academicnews'){patchAcademicNews();patchAnTypeMeta();try{renderAcademicNews();}catch(e){}}
+        },30);
+        return r;
+      };
+      go.__spNewsGoPatched=true;
+    }
+  });
+})();
+</script>
+
+<script defer src="portal.9149a373.js"></script><!-- offline: stripped cf -->
 <script id="cssd-boot-reveal">(function(){
   function reveal(){try{document.documentElement.classList.add('cssd-boot-ready');}catch(e){}}
   function onReady(){requestAnimationFrame(function(){requestAnimationFrame(reveal);});}
