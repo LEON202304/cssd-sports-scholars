@@ -281,3 +281,304 @@ html.cssd-light #vw-scholars .sch-branch-tabs{
 
 /* 图片类（若后续插入）默认懒加载友好尺寸占位由属性负责 */
 img[loading="lazy"]{content-visibility:auto;}
+
+
+/* ═════════════════════════════════════════════════════════════════
+   polish/p0 — 去紫 · chip 去 emoji · 学术动态顶空 · 390 三页
+   说明：index.html 的历史 <style> 块位于本文件之后，同权重会反压本层；
+   因此本段选择器统一以 `html.cssd-light body` 起头抬一级权重，
+   仅在宿主已用 !important 的属性上保留 !important。
+   ═════════════════════════════════════════════════════════════════ */
+:root{
+  --sp-chip-line:#E3E8EF;
+  --sp-teal-soft:rgba(46,154,137,.12);
+  --sp-teal-line:rgba(46,154,137,.40);
+  --sp-brand-soft:rgba(44,110,158,.10);
+}
+
+/* ── 1 · 去紫：青年学者徽章（A/B/C 全部） ── */
+html.cssd-light body .youth-badge,
+html.cssd-light body .youth-badge.A,
+html.cssd-light body .youth-badge.B,
+html.cssd-light body .youth-badge.C,
+html.cssd-light body #vw-youthscholar .youth-badge{
+  background:#FFFFFF !important;
+  color:var(--sp-brand-900) !important;
+  border:1px solid var(--sp-brand-500) !important;
+  box-shadow:none !important;
+}
+
+/* 青年学者页：页头小标、KPI 墨色；卡片去紫边 */
+html.cssd-light body #vw-youthscholar .youth-hero-eyebrow{
+  background:#FFFFFF !important;
+  border-color:rgba(44,110,158,.35) !important;
+}
+html.cssd-light body #vw-youthscholar .youth-hero-eyebrow span{color:var(--sp-brand-900) !important;}
+html.cssd-light body #vw-youthscholar #youthKpiRow [id^="yk"]{
+  color:var(--sp-brand-900) !important;
+  -webkit-text-fill-color:var(--sp-brand-900) !important;
+}
+html.cssd-light body #vw-youthscholar .youth-card:hover{border-color:rgba(44,110,158,.28) !important;}
+html.cssd-light body #vw-youthscholar .youth-level-A{border-top:2px solid rgba(200,162,75,.6) !important;}
+html.cssd-light body #vw-youthscholar .youth-level-B{border-top:2px solid rgba(44,110,158,.45) !important;}
+html.cssd-light body #vw-youthscholar .youth-level-C{border-top:2px solid var(--sp-chip-line) !important;}
+/* JS 模板里写死的紫色「点击查看详情」与列表姓名浅字 */
+html.cssd-light body #vw-youthscholar .youth-card [style*="139,92,246"]{
+  color:var(--sp-teal) !important;
+  border-top-color:var(--sp-line) !important;
+}
+html.cssd-light body #vw-youthscholar .youth-list-row [style*="#e2e8f0"]{color:var(--sp-brand-900) !important;}
+html.cssd-light body #vw-youthscholar [style*="#a78bfa"],
+html.cssd-light body #vw-youthscholar [style*="#8b5cf6"],
+html.cssd-light body #vw-youthscholar [style*="#8B5CF6"]{color:var(--sp-brand-900) !important;}
+/* 「推荐青年学者」主操作：实心 teal */
+html.cssd-light body #vw-youthscholar .youth-submit-btn{
+  background:var(--sp-teal) !important;
+  color:#FFFFFF !important;
+  border:0 !important;
+  font-weight:700 !important; /* 白字/teal 底为 3.3:1，粗体才过站内 contrast guard，避免被改成灰白字 */
+}
+html.cssd-light body #vw-youthscholar .youth-submit-btn:hover{filter:brightness(.95);}
+/* 级别 tab：灰边白底，激活 teal 浅底 */
+html.cssd-light body #vw-youthscholar .l1-tab{
+  background:#FFFFFF !important;
+  color:var(--sp-brand-900) !important;
+  border:1px solid var(--sp-chip-line) !important;
+  box-shadow:none !important;
+}
+html.cssd-light body #vw-youthscholar .l1-tab.on{
+  background:var(--sp-teal-soft) !important;
+  color:var(--sp-teal) !important;
+  border-color:var(--sp-teal-line) !important;
+}
+
+/* 旧导航下拉（#navEl .ndd-*）里残留的紫/靛 icon 与文字 → 品牌蓝 */
+html.cssd-light body .ndd-ico[style*="139,92,246"],
+html.cssd-light body .ndd-ico[style*="99,102,241"],
+html.cssd-light body .ndd-ico[style*="168,85,247"]{
+  background:var(--sp-brand-soft) !important;
+  color:var(--sp-brand-500) !important;
+}
+html.cssd-light body .ndd-p [style*="#a78bfa"],
+html.cssd-light body .ndd-p [style*="#818cf8"],
+html.cssd-light body .ndd-p [style*="#a5b4fc"],
+html.cssd-light body .ndd-p [style*="#A855F7"]{color:var(--sp-brand-500) !important;}
+
+/* 学科 tag：运动心理/民族传统 去紫，与其它学科同一学术蓝 */
+html.cssd-light body .td-psych,
+html.cssd-light body .td-trad{
+  background:var(--sp-brand-soft) !important;
+  color:var(--sp-brand-500) !important;
+  border:1px solid rgba(44,110,158,.22) !important;
+}
+html.cssd-light body .rCp{
+  background:var(--sp-brand-soft) !important;
+  color:var(--sp-brand-500) !important;
+  border:1px solid rgba(44,110,158,.25) !important;
+}
+
+/* ── 1b · 认领：按钮 / 提示条 / 弹窗 → 浅卡 + 实心 teal ── */
+html.cssd-light body .claim-btn{
+  background:#FFFFFF !important;
+  color:var(--sp-brand-900) !important;
+  border:1px solid var(--sp-chip-line) !important;
+}
+html.cssd-light body .claim-btn:hover{
+  background:var(--sp-teal-soft) !important;
+  color:var(--sp-teal) !important;
+  border-color:var(--sp-teal-line) !important;
+}
+html.cssd-light body [onclick^="openClaimModal"][style*="#a78bfa"]{color:var(--sp-teal) !important;}
+html.cssd-light body #claim-notice-bar.show{
+  background:#FFFFFF !important;
+  border-bottom:1px solid var(--sp-line) !important;
+}
+html.cssd-light body #claim-notice-bar.show:hover{background:var(--sp-bg) !important;}
+html.cssd-light body #claim-notice-bar .cni-text{color:var(--sp-muted) !important;}
+html.cssd-light body #claim-notice-bar .cni-text b{color:var(--sp-brand-900) !important;}
+html.cssd-light body #claim-notice-bar .cni-arrow{
+  background:var(--sp-teal) !important;
+  color:#FFFFFF !important;
+  border:0 !important;
+}
+html.cssd-light body #claim-modal{
+  background:rgba(10,42,67,.36) !important;
+  backdrop-filter:blur(4px) !important;
+}
+html.cssd-light body .claim-box{
+  background:#FFFFFF !important;
+  color:var(--sp-brand-900) !important;
+  border:1px solid var(--sp-line) !important;
+  box-shadow:0 24px 64px rgba(10,42,67,.18) !important;
+}
+html.cssd-light body .claim-box h3{color:var(--sp-brand-900) !important;}
+html.cssd-light body .claim-sub,
+html.cssd-light body .claim-field label,
+html.cssd-light body .claim-success p{color:var(--sp-muted) !important;}
+html.cssd-light body .claim-success h4{color:var(--sp-brand-900) !important;}
+html.cssd-light body .claim-field input,
+html.cssd-light body .claim-field textarea,
+html.cssd-light body .claim-field select{
+  background:#FFFFFF !important;
+  color:var(--sp-brand-900) !important;
+  border:1px solid var(--sp-chip-line) !important;
+}
+html.cssd-light body .claim-field select option{background:#FFFFFF;color:var(--sp-brand-900);}
+html.cssd-light body .claim-field input::placeholder,
+html.cssd-light body .claim-field textarea::placeholder{color:var(--sp-muted2) !important;}
+html.cssd-light body .claim-field input:focus,
+html.cssd-light body .claim-field textarea:focus,
+html.cssd-light body .claim-field select:focus{
+  border-color:var(--sp-teal) !important;
+  background:#FFFFFF !important;
+  outline:2px solid rgba(46,154,137,.25);
+  outline-offset:1px;
+}
+html.cssd-light body .claim-submit{
+  background:var(--sp-teal) !important;
+  background-image:none !important;
+  color:#FFFFFF !important;
+  border:0 !important;
+}
+html.cssd-light body .claim-cancel,
+html.cssd-light body .claim-close{
+  background:#FFFFFF !important;
+  color:var(--sp-muted) !important;
+  border:1px solid var(--sp-chip-line) !important;
+}
+html.cssd-light body .claim-cancel:hover,
+html.cssd-light body .claim-close:hover{color:var(--sp-brand-900) !important;border-color:rgba(10,42,67,.22) !important;}
+
+/* ── 2 · 学者筛选 chip：白底墨字细边；激活 teal 浅底；金色只给称号前小星 ── */
+html.cssd-light body #vw-scholars .ctlb .chip:not(.clr),
+html.cssd-light body #vw-scholars .ctlb .chip.hat:not(.clr),
+html.cssd-light body #vw-scholars .ctlb .chip.role:not(.clr),
+html.cssd-light body #vw-scholars .ctlb .chip[data-disc],
+html.cssd-light body #vw-scholars .ctlb .chip[data-gdisc],
+html.cssd-light body #vw-scholars .ctlb .chip[style*="color"],
+html.cssd-light body #youthDiscTabs .chip{
+  background:#FFFFFF !important;
+  color:var(--sp-brand-900) !important;
+  border:1px solid var(--sp-chip-line) !important;
+  box-shadow:none !important;
+  font-weight:500 !important;
+}
+html.cssd-light body #vw-scholars .ctlb .chip:not(.clr):hover,
+html.cssd-light body #youthDiscTabs .chip:hover{
+  background:#FFFFFF !important;
+  color:var(--sp-brand-900) !important;
+  border-color:rgba(10,42,67,.28) !important;
+}
+html.cssd-light body #vw-scholars .ctlb .chip.on:not(.clr),
+html.cssd-light body #vw-scholars .ctlb .chip.hat.on,
+html.cssd-light body #vw-scholars .ctlb .chip.role.on,
+html.cssd-light body #vw-scholars .ctlb .chip[data-disc].on,
+html.cssd-light body #vw-scholars .ctlb .chip[data-gdisc].on,
+html.cssd-light body #vw-scholars .ctlb .chip[aria-pressed="true"],
+html.cssd-light body #vw-scholars .ctlb .chip.is-active,
+html.cssd-light body #youthDiscTabs .chip.on{
+  background:var(--sp-teal-soft) !important;
+  color:var(--sp-teal) !important;
+  border-color:var(--sp-teal-line) !important;
+  font-weight:600 !important;
+}
+.sp-star{
+  color:var(--sp-gold);
+  font-size:.8em;
+  margin-right:3px;
+  font-family:system-ui,sans-serif;
+}
+
+/* ── 3 · 学术动态：首块距顶栏 24px（.vw 已有 72px 顶距 = 64 顶栏 + 8；原 .an-wrap 再叠 88px） ── */
+html.cssd-light body #vw-academicnews .an-wrap,
+html.cssd-light body #vw-academicnews.sp-news .an-wrap{
+  padding-top:16px !important;
+}
+
+/* ── 4 · 390 宽：首页 / 学者目录 / 学术动态 ── */
+@media (max-width:420px){
+  /* 首页快捷入口：2 列，文字可折行，不撑破 */
+  #sportsPortal .sp-quick{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+  }
+  #sportsPortal .sp-quick > *,
+  #sportsPortal .sp-quick-card{
+    min-width:0;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+    padding:12px;
+  }
+  #sportsPortal .sp-quick .sp-logo-wrap{width:34px;height:34px;}
+  #sportsPortal .sp-quick .sp-logo,
+  #sportsPortal .sp-quick .sp-logo svg{width:22px;height:22px;}
+  #sportsPortal .sp-quick b{white-space:normal;}
+  #sportsPortal .sp-quick-text small{-webkit-line-clamp:2;}
+  #sportsPortal .sp-metrics{max-width:100%;}
+  #sportsPortal .sp-metrics b{font-size:24px;}
+
+  /* 学者目录：页头 KPI 等分折行（3 项一行放得下；更多项自动 2×2），不横溢 */
+  html.cssd-light body #vw-scholars .phi .sch-hero-kpis{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(72px,1fr));
+    gap:12px;
+    width:100%;
+  }
+  html.cssd-light body #vw-scholars .ctlb .cr1 .fsel{min-width:0 !important;max-width:100%;}
+  html.cssd-light body #youthL1Tabs,
+  html.cssd-light body #youthDiscTabs{
+    flex-wrap:nowrap !important;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  html.cssd-light body #youthL1Tabs > *,
+  html.cssd-light body #youthDiscTabs > *{flex:0 0 auto;}
+
+  /* 学术动态：KPI 2×2；聚焦卡单列；tab 横滑 */
+  html.cssd-light body #vw-academicnews .an-kpis{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:10px !important;
+  }
+  html.cssd-light body #vw-academicnews .an-spotlight{grid-template-columns:1fr !important;}
+  html.cssd-light body #vw-academicnews .an-hero{
+    grid-template-columns:1fr !important;
+    padding:20px 18px !important;
+  }
+  html.cssd-light body #vw-academicnews .an-tabs{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  html.cssd-light body #vw-academicnews .an-tabs > *{flex:0 0 auto;}
+}
+
+/* 学者目录 chip 行：宿主在 ≤760 把 .cr2/.cr3 改成 grid 1fr（每个 chip 独占一行），
+   这里改回单行横滑；同断点对齐宿主，390 宽为验收目标 */
+@media (max-width:760px){
+  html.cssd-light body #vw-scholars .ctlb .cr2,
+  html.cssd-light body #vw-scholars .ctlb .cr3{
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    align-items:center;
+    gap:6px;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior-x:contain;
+    scrollbar-width:none;
+    max-height:none !important;
+    padding:2px 0 6px;
+    min-width:0 !important;
+    max-width:100% !important;
+  }
+  html.cssd-light body #vw-scholars .ctlb .ci{min-width:0 !important;max-width:100% !important;}
+  html.cssd-light body #vw-scholars .ctlb .cr2::-webkit-scrollbar,
+  html.cssd-light body #vw-scholars .ctlb .cr3::-webkit-scrollbar{display:none;}
+  html.cssd-light body #vw-scholars .ctlb .cr2 > *,
+  html.cssd-light body #vw-scholars .ctlb .cr3 > *{flex:0 0 auto !important;width:auto !important;}
+  html.cssd-light body #vw-scholars .ctlb .cr2 > span:not(.chip):not(.cdiv),
+  html.cssd-light body #vw-scholars .ctlb .cr3 > span:not(.chip):not(.cdiv){min-width:0 !important;text-align:left !important;}
+}
