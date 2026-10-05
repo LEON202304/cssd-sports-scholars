@@ -1,0 +1,14 @@
+# 体育学人 · 中国体育学术资源数据库
+# https://www.tiyuxueren.com/
+
+User-agent: *
+Allow: /
+
+# 本地开发 / 验证 / 备份目录，不应被索引（若随包上传请保持屏蔽）
+Disallow: /_verify/
+Disallow: /_boot_test/
+Disallow: /_backup_*/
+Disallow: /*.json$
+
+# 站点地图
+Sitemap: https://www.tiyuxueren.com/sitemap.xml

@@ -1,0 +1,1666 @@
+/* Sports Scholars Portal — unified design tokens (cssd-light only)
+   Locked: light gray-white surfaces; teal #2E9A89 CTA-only; gold <5%;
+   brand ink #0A2A43 for numbers/titles; hero radius 16px; no theme toggle.
+   portal.css is the single source of truth — overrides SPA skins below.
+*/
+:root{
+  /* —— Colors —— */
+  --sp-brand-900:#0A2A43;   /* brand ink — titles / KPI digits */
+  --sp-brand-700:#14476E;
+  --sp-brand-500:#2C6E9E;   /* academic blue (icons, links) */
+  --sp-brand-300:#3E82B0;
+  --sp-accent:#2E9A89;      /* teal — CTA / active only */
+  --sp-teal:var(--sp-accent);
+  --sp-accent-2:#5FB8AA;
+  --sp-gold:#C8A24B;        /* talent / hats — use sparingly */
+  --sp-gold-ink:#8A6A1A;    /* gold text on light */
+  --sp-gold-deep:#B45309;
+  --sp-bg:#F5F7FA;          /* page / hero surface */
+  --sp-card:#FFFFFF;
+  --sp-title:var(--sp-brand-900);
+  --sp-text:#1A2332;
+  --sp-muted:#5B6575;
+  --sp-muted2:#8A93A3;
+  --sp-line:#E6EAF0;
+  --sp-blue:var(--sp-brand-500);
+  --sp-blue2:var(--sp-brand-500);
+  --sp-ink:var(--sp-text);
+  --sp-border-soft:rgba(10,42,67,.10);
+  --sp-border-softer:rgba(10,42,67,.08);
+  --sp-hero-shadow:0 2px 10px rgba(10,42,67,.05);
+
+  /* —— Sizes —— */
+  --sp-nav-h:64px;
+  --sp-nav-h-sm:56px;
+  --sp-view-pad-top:72px;   /* sticky clearance under fixed nav */
+  --sp-radius:16px;         /* heroes / major banners (LOCKED) */
+  --sp-radius-md:12px;      /* cards, panels, metrics */
+  --sp-radius-sm:8px;       /* chips, small controls */
+  --r-sm:var(--sp-radius-sm);
+  --r-md:var(--sp-radius-md);
+  --r-lg:var(--sp-radius);
+
+  /* —— Elevation / type —— */
+  --sp-shadow:0 4px 16px rgba(10,42,67,.06);
+  --sp-font:Inter,system-ui,"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --sp-serif:"Noto Serif SC","Songti SC",SimSun,serif;
+  --sp-mono:"DM Mono",ui-monospace,monospace;
+  --fs-xs:.75rem;
+  --fs-sm:.875rem;
+  --fs-base:1rem;
+  --fs-lg:1.25rem;
+  --fs-xl:1.5rem;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --dur:.22s;
+  --sp-max:1240px;
+}
+
+/* SPA shell hide — keep !important (outside .sp-* exclusion) */
+html body{
+  background:var(--sp-bg)!important;
+  font-family:var(--sp-font)!important;
+  color:var(--sp-text)!important;
+  -webkit-font-smoothing:antialiased;
+}
+body:before{display:none!important}
+#navEl{display:none!important}
+.route-history-tools{top:auto!important;bottom:24px!important}
+#vw-home > :not(#sportsPortal){display:none!important}
+.ft{display:none!important}
+
+#sportsPortal,
+#vw-home{
+  background:var(--sp-bg);
+  color:var(--sp-text);
+}
+#sportsPortal{
+  padding-top:var(--sp-nav-h);
+  font-size:15px;
+  line-height:1.65;
+}
+#sportsPortal *,
+.sp-header *,
+#sp-cmd *,
+.sp-skip{box-sizing:border-box}
+#sportsPortal button,
+.sp-header button,
+#sp-cmd button{
+  font:inherit;cursor:pointer;border:0;background:none;color:inherit;
+}
+
+/* —— Skip link —— */
+.sp-skip{
+  position:absolute;left:12px;top:8px;z-index:20000;
+  padding:8px 14px;border-radius:var(--r-sm);
+  background:var(--sp-accent);color:#fff;font:600 13px/1 var(--sp-font);
+  text-decoration:none;
+  transform:translateY(-120%);
+  transition:transform var(--dur) var(--ease);
+}
+.sp-skip:focus,
+.sp-skip:focus-visible{
+  transform:translateY(0);
+  outline:2px solid var(--sp-accent);
+  outline-offset:3px;
+}
+
+/* —— Header —— */
+header.sp-header,
+.sp-header{
+  height:var(--sp-nav-h);
+  position:fixed;inset:0 0 auto;z-index:1100;
+  display:flex;align-items:center;gap:20px;
+  padding:0 max(20px,calc((100vw - var(--sp-max))/2));
+  background:#fff!important;
+  background-image:none!important;
+  border-bottom:1px solid var(--sp-line)!important;
+  box-shadow:none;
+  color:var(--sp-title)!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+.sp-brand{
+  display:flex;align-items:center;gap:10px;flex-shrink:0;text-align:left;
+}
+.sp-brandmark{
+  width:34px;height:34px;border-radius:50%;
+  display:grid;place-items:center;
+  background:linear-gradient(145deg,var(--sp-brand-900),var(--sp-accent));
+  overflow:hidden;
+}
+.sp-brandmark svg{display:block}
+.sp-brand strong{
+  display:block;
+  font:700 18px/1.15 var(--sp-serif);
+  letter-spacing:.04em;
+  color:var(--sp-title);
+}
+.sp-brand > span > small{
+  display:block;
+  font-size:10px;
+  letter-spacing:.12em;
+  color:var(--sp-muted2);
+  font-weight:500;
+  margin-top:2px;
+}
+.sp-brand-divider{
+  width:1px;height:28px;background:var(--sp-line);margin:0 4px 0 8px;
+}
+.sp-brand-sub{display:flex;flex-direction:column;justify-content:center;text-align:left}
+.sp-brand-sub b{font:600 12px/1.25 var(--sp-font);color:var(--sp-title)}
+.sp-brand-sub small{font-size:9px;letter-spacing:.06em;color:var(--sp-muted2);margin-top:2px}
+
+nav.sp-links,
+.sp-header nav.sp-links,
+header.sp-header nav.sp-links{
+  display:flex;align-items:center;justify-content:center;gap:24px;flex:1;white-space:nowrap;
+  background:transparent!important;
+  background-image:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  border:0!important;
+  box-shadow:none!important;
+  height:auto!important;
+  padding:0!important;
+  color:inherit!important;
+}
+.sp-links button{
+  height:var(--sp-nav-h);padding:0 2px;
+  border-bottom:2px solid transparent;
+  font-size:14px;font-weight:500;color:var(--sp-ink);
+  letter-spacing:.01em;
+  background:transparent;
+  transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease),opacity var(--dur) var(--ease);
+}
+.sp-links button:hover{color:var(--sp-accent)}
+.sp-links button:active{opacity:.72}
+.sp-links button.active,
+.sp-links button[aria-current="page"]{
+  color:var(--sp-accent);font-weight:600;border-color:var(--sp-accent);
+}
+
+.sp-tools{display:flex;gap:8px;align-items:center;white-space:nowrap}
+.sp-tools > button.sp-en,
+.sp-more summary{
+  font-size:13px;color:var(--sp-ink);padding:6px 8px;font-weight:500;
+}
+.sp-cmd-hint{
+  font-size:11px;color:var(--sp-muted2);padding:4px 8px;border:1px solid var(--sp-line);
+  border-radius:6px;background:var(--sp-bg);font-family:var(--sp-mono);
+}
+
+/* —— Button tokens —— */
+.sp-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:600;line-height:1;
+  border-radius:var(--r-sm);padding:8px 16px;
+  transition:filter var(--dur) var(--ease),background var(--dur) var(--ease),opacity var(--dur) var(--ease),transform var(--dur) var(--ease);
+}
+.sp-btn--primary,
+.sp-register{
+  color:#fff;
+  background:var(--sp-accent);
+  border:0;
+  font-size:13px;font-weight:600;
+  border-radius:var(--r-sm);padding:8px 16px;
+}
+.sp-btn--primary:hover,
+.sp-register:hover{filter:brightness(1.06)}
+.sp-btn--primary:active,
+.sp-register:active{filter:brightness(.96);transform:translateY(1px)}
+.sp-btn--ghost,
+.sp-login{
+  font-size:13px;font-weight:500;
+  color:var(--sp-accent);
+  background:transparent;
+  border:1px solid var(--sp-accent);
+  border-radius:var(--r-sm);padding:7px 14px;
+}
+.sp-btn--ghost:hover,
+.sp-login:hover{background:rgba(46,154,137,.08)}
+.sp-btn--ghost:active,
+.sp-login:active{background:rgba(46,154,137,.14);transform:translateY(1px)}
+
+.sp-more{position:relative}
+.sp-more summary{cursor:pointer;list-style:none}
+.sp-more summary::-webkit-details-marker{display:none}
+.sp-more div{
+  position:absolute;top:38px;right:0;width:240px;max-height:70vh;overflow:auto;
+  background:#fff;padding:10px;
+  box-shadow:0 12px 32px rgba(10,42,67,.12);
+  border:1px solid var(--sp-line);border-radius:10px;z-index:20;
+}
+.sp-more button{
+  display:block;width:100%;text-align:left;
+  padding:9px 10px;border-radius:6px;
+  font-size:13px;color:var(--sp-ink);
+}
+.sp-more button:hover{background:var(--sp-bg);color:var(--sp-accent)}
+
+.sp-wrap{max-width:var(--sp-max);margin:auto;padding:0 24px}
+#sportsPortal .sp-wrap{background:transparent}
+
+/* —— Hero —— */
+.sp-banner{
+  position:relative;isolation:isolate;
+  min-height:250px;overflow:hidden;
+  background-color:#d9e4f0;background-image:url('mountains.ccd2db92.jpg');background-image:image-set(url('mountains.5f7d4f16.webp') type('image/webp'),url('mountains.ccd2db92.jpg') type('image/jpeg'));background-position:center 42%;background-size:cover;background-repeat:no-repeat;
+  margin-bottom:24px;
+}
+.sp-banner:before{
+  content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(245,247,250,.78) 0%,rgba(245,247,250,.55) 45%,rgba(245,247,250,.72) 100%);
+}
+.sp-banner .sp-wrap{
+  position:relative;z-index:1;
+  padding-top:32px;padding-bottom:24px;
+  text-align:center;
+}
+.sp-banner h1{
+  font:700 clamp(28px,3vw,40px)/1.25 var(--sp-serif);
+  letter-spacing:.03em;margin:0;color:var(--sp-title);
+}
+.sp-slogan{
+  font-family:var(--sp-serif);
+  font-size:clamp(14px,1.3vw,17px);
+  letter-spacing:.16em;margin:10px 0 20px;
+  color:var(--sp-muted);font-weight:500;
+}
+.sp-search{
+  display:flex;align-items:center;
+  width:min(720px,92%);height:50px;margin:0 auto;padding:4px;
+  background:#fff;border:1px solid var(--sp-line);border-radius:var(--sp-radius-md);
+  box-shadow:0 8px 28px rgba(10,42,67,.10);
+}
+.sp-search span{
+  padding:0 14px;border-right:1px solid var(--sp-line);
+  font-size:13px;color:var(--sp-muted);font-weight:500;white-space:nowrap;
+}
+.sp-search input{
+  flex:1;min-width:0;height:100%;
+  background:transparent;border:0;outline:none;
+  font:inherit;padding:0 14px;color:var(--sp-text);font-size:14px;
+}
+.sp-search input::placeholder{color:var(--sp-muted2)}
+.sp-search button,
+.sp-search .sp-btn--primary,
+.sp-search .sp-btn-primary{
+  height:42px;padding:0 22px;
+  background:var(--sp-accent);border-radius:9px;
+  color:#fff;font-weight:600;font-size:14px;white-space:nowrap;
+  border:0;
+}
+.sp-search .sp-btn--primary:active,
+.sp-search button:active{filter:brightness(.96);transform:translateY(1px)}
+
+.sp-hot{
+  display:flex;gap:8px;align-items:center;justify-content:center;
+  flex-wrap:wrap;margin-top:12px;font-size:12.5px;color:var(--sp-muted);
+}
+.sp-hot button{
+  font-size:12px;color:var(--sp-ink);
+  background:rgba(255,255,255,.9);
+  border:1px solid rgba(230,234,240,.95);
+  box-shadow:none;
+  border-radius:999px;padding:5px 12px;
+}
+.sp-hot button:hover{
+  color:var(--sp-accent);
+  border-color:rgba(46,154,137,.4);
+  background:rgba(255,255,255,.98);
+}
+.sp-hot button:active{filter:brightness(.97);transform:translateY(1px)}
+
+/* —— Metrics —— */
+.sp-metrics{
+  display:grid;grid-template-columns:repeat(6,1fr);
+  background:var(--sp-bg);color:var(--sp-text);
+  padding:16px 14px;border-radius:var(--sp-radius-md);
+  border:1px solid var(--sp-line);box-shadow:var(--sp-shadow);
+  margin-bottom:0;
+}
+.sp-metrics button{
+  border-right:1px solid var(--sp-line);
+  display:flex;justify-content:center;align-items:center;gap:10px;
+  text-align:left;color:var(--sp-text);padding:4px 8px;
+}
+.sp-metrics button:last-child{border:0}
+.sp-metrics b{
+  font:700 30px/1.15 system-ui,Arial,sans-serif;display:block;
+  color:var(--sp-brand-900);letter-spacing:.01em;
+}
+.sp-metrics small{font-size:12px;color:var(--sp-muted);font-weight:500}
+.sp-metrics .sp-icon{color:var(--sp-brand-500)}
+.sp-icon{display:inline-flex;align-items:center;justify-content:center}
+.sp-icon svg{
+  width:22px;height:22px;stroke:currentColor;fill:none;
+  stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;
+}
+
+/* —— Quick entries —— */
+#sportsPortal .sp-metrics{margin-bottom:0;}
+#sportsPortal .sp-quick{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+  margin:28px 0 20px;
+  background:var(--sp-bg)!important;
+  background-image:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  border:0!important;box-shadow:none!important;
+  padding:0!important;height:auto!important;color:inherit!important;
+}
+.sp-quick button,
+.sp-quick .sp-quick-card{
+  display:flex;flex-direction:row;align-items:center;justify-content:flex-start;
+  text-align:left;gap:12px;padding:12px 14px;
+  background:var(--sp-card);border:1px solid var(--sp-line);
+  border-radius:10px;box-shadow:var(--sp-shadow);
+  transition:transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease),border-color var(--dur) var(--ease),filter var(--dur) var(--ease);
+  min-height:0;
+}
+.sp-quick button:hover,
+.sp-quick .sp-quick-card:hover{
+  border-color:rgba(46,154,137,.28);
+  box-shadow:0 6px 18px rgba(46,154,137,.10);
+  transform:translateY(-1px);
+}
+.sp-quick button:active,
+.sp-quick .sp-quick-card:active{
+  transform:translateY(0);
+  filter:brightness(.96);
+  box-shadow:var(--sp-shadow);
+}
+.sp-logo-wrap{color:var(--sp-brand-500);
+  width:42px;height:42px;border-radius:10px;
+  display:grid;place-items:center;flex-shrink:0;margin:0;
+  background:rgba(46,154,137,.10);
+}
+.sp-logo,.sp-logo svg{width:26px;height:26px;display:block}
+.sp-quick-text{min-width:0;flex:1;display:flex;flex-direction:column;gap:2px;text-align:left}
+.sp-quick b{
+  display:block;font-size:13.5px;font-weight:700;color:var(--sp-title);
+  letter-spacing:.02em;line-height:1.3;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.sp-quick small{
+  display:block;color:var(--sp-muted);font-size:11.5px;line-height:1.4;
+  font-weight:400;max-width:none;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+
+/* —— Content grid (3 panels) —— */
+.sp-grid{
+  display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:14px;padding-bottom:28px;
+}
+.sp-panel{
+  border:1px solid var(--sp-line);border-radius:var(--sp-radius-md);
+  background:var(--sp-card);padding:0;min-width:0;overflow:hidden;
+  box-shadow:var(--sp-shadow);
+  /* 三卡统一节奏：header → 副标题行 → 列表 → 底部注释（吸底对齐） */
+  display:flex;flex-direction:column;
+}
+.sp-panel > header{flex:0 0 auto}
+.sp-panel > .sp-tabs,
+.sp-panel > .sp-people,
+.sp-panel > .sp-disc,
+.sp-panel > .sp-inst,
+.sp-panel > .sp-note{flex:0 0 auto}
+#sportsPortal .sp-panel > .sp-note{margin-top:auto}
+.sp-panel > header,
+#sportsPortal .sp-panel > header{
+  display:flex;justify-content:space-between;align-items:center;gap:8px;
+  background:var(--sp-bg);
+  padding:12px 16px;border-bottom:1px solid var(--sp-line);margin:0;
+  backdrop-filter:none;-webkit-backdrop-filter:none;
+  color:var(--sp-title);
+}
+.sp-panel-titles{
+  min-width:0;flex:1;
+  border-left:3px solid var(--sp-brand-500);
+  padding-left:10px;
+}
+.sp-eyebrow{margin:0 0 4px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--sp-muted2);line-height:1.2;}
+.sp-panel h2{
+  font:600 16px/1.3 var(--sp-font);
+  border-left:0;padding-left:0;margin:0;
+  color:var(--sp-title);letter-spacing:.02em;
+}
+.sp-panel header button{font-size:12px;color:var(--sp-brand-500);font-weight:500;flex-shrink:0}
+.sp-panel header button:hover{color:var(--sp-brand-700)}
+.sp-panel > :not(header){padding-left:16px;padding-right:16px}
+.sp-panel > .sp-tabs{padding-top:12px;margin-left:16px;margin-right:16px;width:auto}
+.sp-panel > .sp-note{padding-bottom:14px}
+.sp-panel > .sp-people,
+.sp-panel > .sp-disc,
+.sp-panel > .sp-inst{padding-top:12px;padding-bottom:4px}
+
+.sp-tabs{display:flex;gap:18px;border-bottom:1px solid var(--sp-line);margin-bottom:12px}
+.sp-tabs button{
+  font-size:13px;padding:0 0 9px;
+  color:var(--sp-muted);border-bottom:2px solid transparent;font-weight:500;
+}
+.sp-tabs button.active{color:var(--sp-accent);border-color:var(--sp-accent);font-weight:600}
+/* 副标题行：与 .sp-tabs 完全同框，保证三卡列表起始线对齐 */
+.sp-tabs--static{justify-content:space-between;cursor:default}
+.sp-tabs--static span{font-size:13px;padding:0 0 9px;font-weight:600;color:var(--sp-title)}
+.sp-tabs--static small{font-size:11.5px;color:var(--sp-muted);padding:0 0 9px}
+
+.sp-people{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.sp-person{
+  display:flex;align-items:center;gap:10px;min-height:88px;
+  text-align:left;background:var(--sp-bg);border:1px solid var(--sp-line);
+  border-radius:8px;overflow:hidden;padding:10px 12px;min-width:0;
+  transition:transform var(--dur) var(--ease),border-color var(--dur) var(--ease),filter var(--dur) var(--ease);
+}
+.sp-person:hover{border-color:rgba(46,154,137,.35);transform:translateY(-1px)}
+.sp-person:active{transform:translateY(0);filter:brightness(.97)}
+.sp-avatar{
+  width:36px;height:36px;flex-shrink:0;
+  display:grid;place-items:center;border-radius:50%;
+  background:rgba(44,110,158,.12);color:var(--sp-brand-700);
+  font:600 14px/1 var(--sp-font);letter-spacing:0;
+  margin:0;
+}
+.sp-person-body{min-width:0;flex:1}
+.sp-person strong{
+  display:block;font-size:14px;line-height:1.3;color:var(--sp-title);font-weight:600;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.sp-person small{
+  display:block;color:var(--sp-muted);font-size:12px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:2px;
+  line-height:1.35;
+}
+.sp-person em{display:block;font-size:11.5px;font-style:normal;color:var(--sp-brand-500);margin-top:3px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+
+.sp-disc{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.sp-disc button{
+  background:var(--sp-bg);border:1px solid var(--sp-line);border-radius:8px;
+  padding:10px 10px;display:flex;align-items:center;gap:10px;text-align:left;color:var(--sp-ink);
+  min-height:88px;
+  transition:transform var(--dur) var(--ease),border-color var(--dur) var(--ease);
+}
+.sp-disc button:hover{border-color:rgba(46,154,137,.35);transform:translateY(-2px)}
+.sp-disc b{font-size:13px;display:block;color:var(--sp-title);font-weight:600}
+.sp-disc small{font-size:11.5px;color:var(--sp-muted)}
+
+.sp-inst{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sp-inst button{
+  padding:10px 8px;border:1px solid var(--sp-line);border-radius:8px;
+  font-size:12.5px;text-align:center;background:var(--sp-bg);color:var(--sp-title);
+  min-height:88px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transition:transform var(--dur) var(--ease),border-color var(--dur) var(--ease);
+}
+.sp-inst button:hover{border-color:rgba(46,154,137,.35);transform:translateY(-2px)}
+.sp-inst span{
+  display:grid;place-items:center;margin:0 0 8px;width:34px;height:34px;border-radius:50%;
+  background:rgba(44,110,158,.12);color:var(--sp-brand-500);font:700 14px var(--sp-serif);
+}
+.sp-note{font-size:12px;color:var(--sp-muted);line-height:1.65;margin-top:10px}
+.sp-panel [hidden]{display:none!important}
+
+/* —— Gold for talent/hats badges only —— */
+.sp-hat-badge,
+.tag.t-hat,
+html.cssd-light .tag.t-hat,
+#vw-hats .tag,
+#vw-yangtze .tag.t-hat,
+#vw-youthscholar .youth-badge{
+  color:var(--sp-brand-900)!important;
+  background:rgba(200,162,75,.16)!important;
+  border-color:rgba(200,162,75,.45)!important;
+}
+
+/* —— Footer —— */
+.sp-footer{
+  background:var(--sp-bg);color:var(--sp-muted);
+  padding:40px 0 24px;border-top:1px solid var(--sp-line);
+}
+.sp-footer .sp-wrap{display:flex;justify-content:space-between;gap:20px;align-items:center}
+.sp-footer strong{font-family:var(--sp-serif);font-size:20px;color:var(--sp-title)}
+.sp-footer p{font-size:12px;color:var(--sp-muted);margin:4px 0 0}
+.sp-footer button{font-size:13px;color:var(--sp-muted);padding:6px 8px}
+.sp-footer button:hover{color:var(--sp-accent)}
+.sp-footer small{font-size:12px;color:var(--sp-muted2)}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible{
+  outline:2px solid var(--sp-accent)!important;
+  outline-offset:2px;
+}
+
+html.cssd-light{
+  --ink:var(--sp-bg)!important;--ink2:#fff!important;--tx:var(--sp-text)!important;
+  --mu:var(--sp-muted)!important;--cyan:var(--sp-accent)!important;
+  --sur:#fff!important;--bdr:var(--sp-line)!important;
+  --accent:var(--sp-accent)!important;
+}
+
+/* ═══════════════════════════════════════════
+   SPA light skins — all major vw-* readable
+   ═══════════════════════════════════════════ */
+html.cssd-light,
+html.cssd-light body{
+  background:var(--sp-bg)!important;
+  color:var(--sp-text)!important;
+}
+
+#vw-scholars, #vw-institutions, #vw-journals, #vw-projects, #vw-disciplines,
+#vw-hats, #vw-degreepoint, #vw-founders, #vw-classify, #vw-academicnews,
+#vw-pelab, #vw-scilab, #vw-sportscolleges, #vw-yangtze, #vw-youthscholar,
+#vw-majorcat, #vw-phdschools,
+#vw-psychlab, #vw-hulab, #vw-mgmtlab, #vw-trainlab, #vw-tradlab, #vw-rehablab, #vw-englab, #vw-ranking{
+  background:var(--sp-bg)!important;
+  color:var(--sp-text)!important;
+  padding-top:var(--sp-view-pad-top);
+}
+
+html.cssd-light #vw-scholars .inn,
+html.cssd-light #vw-institutions .inn,
+html.cssd-light #vw-journals .inn,
+html.cssd-light #vw-projects .inn,
+html.cssd-light #vw-disciplines .inn,
+html.cssd-light #vw-hats .inn,
+html.cssd-light #vw-degreepoint .inn,
+html.cssd-light #vw-founders .inn,
+html.cssd-light #vw-classify .inn,
+html.cssd-light #vw-academicnews .inn,
+html.cssd-light #vw-pelab .inn,
+html.cssd-light #vw-scilab .inn,
+html.cssd-light #vw-sportscolleges .inn,
+html.cssd-light #vw-yangtze .inn,
+html.cssd-light #vw-youthscholar .inn,
+html.cssd-light #vw-majorcat .inn,
+html.cssd-light #vw-phdschools .inn,
+.vw .inn{
+  max-width:var(--sp-max)!important;
+}
+
+/* Page heroes */
+html.cssd-light .phi h1,
+#vw-scholars .phi h1, #vw-institutions .phi h1, #vw-journals .phi h1,
+#vw-projects .phi h1, #vw-disciplines .phi h1, #vw-hats .phi h1,
+#vw-degreepoint .phi h1, #vw-founders .phi h1, #vw-classify .phi h1,
+#vw-academicnews .phi h1, #vw-yangtze .phi h1, #vw-youthscholar .phi h1,
+#vw-majorcat .phi h1, #vw-phdschools .phi h1, #vw-sportscolleges .phi h1,
+#vw-pelab .phi h1, #vw-scilab .phi h1{
+  color:var(--sp-brand-900)!important;
+}
+html.cssd-light .sey,
+.vw .sey{
+  color:var(--sp-accent)!important;
+}
+html.cssd-light .phi p,
+.vw .phi p{
+  color:var(--sp-muted)!important;
+}
+
+/* Readable cards inside SPA views */
+html.cssd-light .sc2,
+html.cssd-light .card,
+html.cssd-light .pcard,
+html.cssd-light .l3-hat-card,
+html.cssd-light .youth-card,
+html.cssd-light .sci-scard,
+html.cssd-light .dlab-scard,
+#vw-scholars .sc2, #vw-institutions .card, #vw-journals .card,
+#vw-projects .card, #vw-hats .l3-hat-card, #vw-youthscholar .youth-card{
+  background:var(--sp-card)!important;
+  border:1px solid var(--sp-line)!important;
+  color:var(--sp-text)!important;
+  box-shadow:var(--sp-shadow)!important;
+}
+html.cssd-light .sc2 h3,
+html.cssd-light .sc2 .sc-name,
+html.cssd-light .sc2 .sname,
+html.cssd-light .phi h1,
+html.cssd-light [id^=vw-] > .ph h1,
+html.cssd-light [id^=vw-] > .ph h2,
+html.cssd-light .sec > .inn > h1,
+html.cssd-light .sec > .inn > h2,
+html.cssd-light .sec > .inn > h3{
+  color:var(--sp-brand-900)!important;
+}
+html.cssd-light .phi p,
+html.cssd-light .sc2 .sc-meta,
+html.cssd-light .sc2 .smeta,
+html.cssd-light .mu,
+html.cssd-light .sed,
+html.cssd-light .sey + p{
+  color:var(--sp-muted)!important;
+}
+
+/* Filter bars sticky light */
+html.cssd-light .fbar,
+html.cssd-light .filters,
+html.cssd-light .sch-filters,
+html.cssd-light [class*="filter-bar"],
+html.cssd-light .sticky-bar,
+#vw-scholars .fbar,
+#vw-scholars .filters{
+  background:rgba(255,255,255,.92)!important;
+  border-bottom:1px solid var(--sp-line)!important;
+  color:var(--sp-text)!important;
+  backdrop-filter:blur(8px);
+}
+
+/* Inputs / selects in light views */
+html.cssd-light input,
+html.cssd-light select,
+html.cssd-light textarea,
+.vw input, .vw select, .vw textarea{
+  background:#fff!important;
+  color:var(--sp-text)!important;
+  border-color:var(--sp-line)!important;
+}
+
+/* Primary SPA CTAs → teal */
+html.cssd-light .btn-primary,
+html.cssd-light button.primary,
+html.cssd-light .gb,
+html.cssd-light .sd-action.primary{
+  background:var(--sp-accent)!important;
+  border-color:var(--sp-accent)!important;
+  color:#fff!important;
+}
+
+/* Modal light-friendly */
+html.cssd-light .ov{background:rgba(10,42,67,.45)!important}
+html.cssd-light .mo,
+html.cssd-light #ov .mo{
+  background:#fff!important;
+  border:1px solid var(--sp-line)!important;
+  color:var(--sp-text)!important;
+  box-shadow:0 20px 60px rgba(10,42,67,.18)!important;
+}
+html.cssd-light .mo .mcl{
+  background:var(--sp-bg)!important;
+  color:var(--sp-muted)!important;
+  border:1px solid var(--sp-line)!important;
+}
+html.cssd-light .mo .ml{color:var(--sp-muted2)!important}
+html.cssd-light .mo .mv{color:var(--sp-text)!important}
+
+/* Command palette */
+#sp-cmd{
+  display:none;position:fixed;inset:0;z-index:12000;
+  background:rgba(10,42,67,.35);
+  align-items:flex-start;justify-content:center;
+  padding:12vh 16px 24px;
+}
+#sp-cmd.open{display:flex}
+#sp-cmd .sp-cmd-panel{
+  width:min(560px,100%);
+  background:#fff;border:1px solid var(--sp-line);
+  border-radius:var(--r-lg);box-shadow:0 24px 64px rgba(10,42,67,.18);
+  overflow:hidden;
+}
+#sp-cmd .sp-cmd-input{
+  width:100%;border:0;border-bottom:1px solid var(--sp-line);
+  padding:16px 18px;font:500 15px/1.4 var(--sp-font);
+  color:var(--sp-text);outline:none;background:#fff;
+}
+#sp-cmd .sp-cmd-list{
+  max-height:360px;overflow:auto;padding:8px;
+}
+#sp-cmd .sp-cmd-item{
+  display:flex;flex-direction:column;align-items:flex-start;gap:2px;
+  width:100%;text-align:left;padding:10px 12px;border-radius:8px;
+  color:var(--sp-text);font-size:14px;
+}
+#sp-cmd .sp-cmd-item:hover,
+#sp-cmd .sp-cmd-item.active{
+  background:rgba(46,154,137,.10);
+  color:var(--sp-brand-900);
+}
+#sp-cmd .sp-cmd-item small{color:var(--sp-muted);font-size:12px}
+#sp-cmd .sp-cmd-empty{
+  padding:24px;text-align:center;color:var(--sp-muted);font-size:13px;
+}
+#sp-cmd .sp-cmd-foot{
+  border-top:1px solid var(--sp-line);padding:8px 14px;
+  font-size:11px;color:var(--sp-muted2);display:flex;gap:12px;
+}
+
+/* Scholars floating tools */
+.sp-scholars-tools{
+  position:fixed;right:20px;bottom:24px;z-index:1050;
+  display:none;flex-direction:column;gap:8px;
+}
+.sp-scholars-tools.on{display:flex}
+.sp-scholars-tools .sp-btn{
+  box-shadow:0 8px 24px rgba(10,42,67,.12);
+}
+.sp-scholars-filter{
+  display:none;align-items:center;gap:8px;
+  margin:0 auto 14px;max-width:var(--sp-max);padding:0 20px;
+}
+.sp-scholars-filter.on{display:flex}
+.sp-scholars-filter input{
+  flex:1;height:40px;padding:0 14px;
+  border:1px solid var(--sp-line);border-radius:var(--r-sm);
+  background:#fff;color:var(--sp-text);font:inherit;
+}
+.sp-scholars-filter input:focus{
+  border-color:var(--sp-accent);
+  box-shadow:0 0 0 3px rgba(46,154,137,.15);
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,
+  .sp-quick-card,
+  .sp-quick button,
+  .sp-person,
+  .sp-btn,
+  .sp-btn--primary,
+  .sp-disc button,
+  .sp-inst button{
+    transition:none!important;
+    transform:none!important;
+    animation:none!important;
+  }
+}
+
+@media(max-width:1280px){
+  .sp-brand-sub,.sp-brand-divider{display:none}
+  .sp-cmd-hint{display:none}
+}
+@media(max-width:1100px){
+  .sp-quick{grid-template-columns:repeat(2,1fr)}
+  .sp-grid{grid-template-columns:1fr}
+  .sp-links{gap:16px}
+  .sp-links button{font-size:13px}
+}
+@media(max-width:900px){
+  .sp-links button:nth-child(n+6){display:none}
+  .sp-metrics{grid-template-columns:repeat(3,1fr);padding:16px 10px}
+  .sp-metrics button:nth-child(3){border-right:0}
+  .sp-metrics b{font-size:26px}
+  .sp-quick{gap:12px}
+}
+@media(max-width:768px){
+  .sp-quick{grid-template-columns:repeat(2,1fr)}
+  .sp-banner{min-height:220px;margin-bottom:24px}
+  .sp-banner h1{font-size:26px}
+}
+@media(max-width:620px){
+  .sp-header{height:var(--sp-nav-h-sm);padding:0 12px}
+  #sportsPortal{padding-top:56px}
+  .sp-links button{height:56px}
+  .sp-links button:nth-child(n+4){display:none}
+  .sp-register,.sp-en,.sp-login{display:none}
+  .sp-slogan{font-size:13px;letter-spacing:.08em}
+  .sp-people{grid-template-columns:1fr}
+  .sp-disc{grid-template-columns:1fr}
+  .sp-scholars-tools{right:12px;bottom:16px}
+}
+
+/* Footer must stay light gray — beat SPA dark/navy footer */
+html body #sportsPortal .sp-footer,
+#sportsPortal footer.sp-footer,
+footer.sp-footer{
+  background:var(--sp-bg) !important;
+  background-image:none !important;
+  color:var(--sp-muted) !important;
+  border-top:1px solid var(--sp-line) !important;
+  padding:40px 0 24px !important;
+  backdrop-filter:none !important;
+}
+html body #sportsPortal .sp-footer strong{color:var(--sp-brand-900) !important;}
+html body #sportsPortal .sp-footer p,
+html body #sportsPortal .sp-footer small,
+html body #sportsPortal .sp-footer button{
+  color:var(--sp-muted) !important;
+  background:transparent !important;
+}
+.ft, footer:not(.sp-footer), #ftEl, .site-footer{display:none !important;}
+
+html body #sportsPortal .sp-panel > header,
+#sportsPortal .sp-panel > header{
+  background:var(--sp-bg) !important;
+  background-image:none !important;
+  color:var(--sp-title) !important;
+  border-bottom:1px solid var(--sp-line) !important;
+  backdrop-filter:none !important;
+}
+html body #sportsPortal .sp-panel h2{
+  color:var(--sp-title) !important;
+  border-left:3px solid var(--sp-brand-500);
+  padding-left:10px;
+  margin:0;
+  font:600 16px/1.3 var(--sp-font);
+}
+html body #sportsPortal .sp-eyebrow{color:var(--sp-muted2) !important;}
+html body #sportsPortal .sp-panel header button,
+html body #sportsPortal .sp-link-more{
+  color:var(--sp-brand-500) !important;
+  background:transparent !important;
+  font-size:12px;font-weight:500;
+}
+
+#vw-home .carousel-btn,
+#vw-home [class*="carousel"] button,
+#vw-home button.arr,
+#vw-home .arr-l,
+#vw-home .arr-r,
+#vw-home .slick-arrow{
+  background:#fff !important;
+  border:1px solid var(--sp-line) !important;
+  color:var(--sp-muted) !important;
+  box-shadow:0 2px 8px rgba(10,42,67,.06) !important;
+}
+#vw-home .pager,
+#vw-home [class*="pager"],
+#sportsPortal ~ .pager{display:none!important;}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SECONDARY VIEWS — one authoritative light-hero / contrast layer
+   (deduped from prior multi-pass patches). Does NOT touch
+   #vw-home / .sp-banner / mountain brand band.
+   Prefer tokens; !important only to beat SPA inline skins.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Surfaces: class heroes + first-child ID banners */
+html.cssd-light .proj-hero,
+html.cssd-light .ov-hero,
+html.cssd-light .phd-hero,
+html.cssd-light .sci-hero,
+html.cssd-light .dlab-hero,
+html.cssd-light .fdr-hero,
+html.cssd-light .rk-hero,
+html.cssd-light .youth-hero,
+html.cssd-light .yw-hero,
+html.cssd-light .lab-hero,
+html.cssd-light .page-hero,
+html.cssd-light .dir-hero,
+html.cssd-light .crs-hero,
+html.cssd-light .jnl-hero,
+html.cssd-light .an-hero,
+html.cssd-light [id^=vw-] .phi,
+html.cssd-light #vw-sportscolleges > div > div:first-child,
+html.cssd-light #vw-degreepoint > div > div:first-child,
+html.cssd-light #vw-majorcat > div > div:first-child,
+html.cssd-light #vw-youthscholar > div > div:first-child,
+html.cssd-light #vw-yangtze > div > div:first-child,
+html.cssd-light #vw-hats > div > div:first-child,
+html.cssd-light #vw-phdschools > div > div:first-child,
+html.cssd-light #vw-classify > div > div:first-child,
+html.cssd-light #vw-institutions > div > div:first-child,
+#vw-projects .proj-hero,
+#vw-phdschools .phd-hero{
+  background:var(--sp-bg) !important;
+  background-image:none !important;
+  border:1px solid var(--sp-border-soft) !important;
+  box-shadow:var(--sp-hero-shadow) !important;
+  color:var(--sp-brand-900) !important;
+  border-radius:var(--sp-radius) !important;
+  overflow:hidden !important;
+}
+
+/* Kill dark decorative overlays on heroes */
+html.cssd-light .proj-hero::before,
+html.cssd-light .proj-hero:before,
+html.cssd-light .ov-hero::before,
+html.cssd-light .phd-hero::before,
+html.cssd-light .sci-hero::before,
+html.cssd-light .dlab-hero::before,
+html.cssd-light .fdr-hero::before,
+html.cssd-light .fdr-hero::after,
+html.cssd-light .crs-hero::before,
+html.cssd-light .jnl-hero::before,
+html.cssd-light .jnl-hero:before,
+#vw-phdschools .phd-hero::before,
+#vw-phdschools .phd-hero:before{
+  display:none !important;
+  content:none !important;
+  opacity:0 !important;
+}
+
+/* Solid / gradient dark fills inside secondary views (not home) */
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="background:#0a"]:not(.sp-banner):not(.hero),
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="background:#0A"]:not(.sp-banner):not(.hero),
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="background:#0b"]:not(.sp-banner):not(.hero),
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="background:#0B"]:not(.sp-banner):not(.hero),
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="background:#0c"]:not(.sp-banner):not(.hero),
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="background:#0d"]:not(.sp-banner):not(.hero),
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="background:#0e"]:not(.sp-banner):not(.hero),
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="background:#0f"]:not(.sp-banner):not(.hero),
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="background:#06"]:not(.sp-banner):not(.hero),
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="background:#07"]:not(.sp-banner):not(.hero),
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="background:#08"]:not(.sp-banner):not(.hero),
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="background:#09"]:not(.sp-banner):not(.hero),
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="background:#1a"]:not(.sp-banner):not(.hero),
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="background:#1A"]:not(.sp-banner):not(.hero),
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="background:#001"]:not(.sp-banner):not(.hero),
+html.cssd-light [id^=vw-]:not(#vw-home) > div > div[style*="linear-gradient(135deg,#0"],
+html.cssd-light [id^=vw-]:not(#vw-home) > div > div[style*="linear-gradient(135deg,#1"],
+html.cssd-light [id^=vw-]:not(#vw-home) > div > div[style*="linear-gradient(135deg,#060"],
+html.cssd-light [id^=vw-]:not(#vw-home) > div > div[style*="linear-gradient(135deg,#070"],
+html.cssd-light [id^=vw-]:not(#vw-home) > div > div[style*="linear-gradient(135deg,#080"],
+html.cssd-light [id^=vw-]:not(#vw-home) > div > div[style*="linear-gradient(135deg,#001"],
+html.cssd-light [id^=vw-]:not(#vw-home) .dlab-hero[style*="linear-gradient"]{
+  background:var(--sp-bg) !important;
+  background-image:none !important;
+  border:1px solid var(--sp-border-soft) !important;
+  color:var(--sp-brand-900) !important;
+}
+
+/* Absolute radial overlays on those banners */
+html.cssd-light #vw-sportscolleges > div > div:first-child > div[style*="position:absolute"],
+html.cssd-light #vw-degreepoint > div > div:first-child > div[style*="position:absolute"],
+html.cssd-light #vw-majorcat > div > div:first-child > div[style*="position:absolute"],
+html.cssd-light #vw-youthscholar > div > div:first-child > div[style*="position:absolute"],
+html.cssd-light #vw-yangtze > div > div:first-child > div[style*="position:absolute"],
+html.cssd-light #vw-hats > div > div:first-child > div[style*="position:absolute"],
+html.cssd-light #vw-institutions > div > div:first-child > div[style*="position:absolute"],
+html.cssd-light [id^=vw-]:not(#vw-home) > div > div[style*="linear-gradient(135deg,#0"] > div[style*="position:absolute"],
+html.cssd-light [id^=vw-]:not(#vw-home) > div > div[style*="linear-gradient(135deg,#1"] > div[style*="position:absolute"],
+html.cssd-light [id^=vw-]:not(#vw-home) > div > div[style*="linear-gradient(135deg,#060"] > div[style*="position:absolute"],
+html.cssd-light [id^=vw-]:not(#vw-home) > div > div[style*="linear-gradient(135deg,#070"] > div[style*="position:absolute"],
+html.cssd-light [id^=vw-]:not(#vw-home) > div > div[style*="linear-gradient(135deg,#080"] > div[style*="position:absolute"],
+html.cssd-light [id^=vw-]:not(#vw-home) > div > div[style*="linear-gradient(135deg,#001"] > div[style*="position:absolute"]{
+  background:none !important;
+  opacity:0 !important;
+  pointer-events:none !important;
+}
+
+/* Titles / kickers → brand ink */
+html.cssd-light .proj-hero h1,
+html.cssd-light .proj-hero .proj-title,
+html.cssd-light .ov-hero h1,
+html.cssd-light .ov-hero h2,
+html.cssd-light .ov-hero .ov-title,
+html.cssd-light .ov-kicker,
+html.cssd-light .phd-hero h2,
+html.cssd-light .sci-hero h2,
+html.cssd-light .dlab-hero h2,
+html.cssd-light .fdr-hero h2,
+html.cssd-light .rk-hero .rk-h2,
+html.cssd-light .rk-h2,
+html.cssd-light .rk-badge,
+html.cssd-light .crs-hero .crs-h2,
+html.cssd-light .crs-h2,
+html.cssd-light .jnl-hero h1,
+html.cssd-light .jnl-hero h2,
+html.cssd-light .jnl-hero .jnl-title,
+html.cssd-light .an-hero h1,
+html.cssd-light .an-hero h2,
+html.cssd-light .an-hero .an-title,
+html.cssd-light [id^=vw-] .phi h1,
+html.cssd-light [id^=vw-] .set,
+html.cssd-light #vw-sportscolleges > div > div:first-child h2,
+html.cssd-light #vw-degreepoint > div > div:first-child h2,
+html.cssd-light #vw-majorcat > div > div:first-child h2,
+html.cssd-light #vw-youthscholar > div > div:first-child h2,
+html.cssd-light #vw-yangtze > div > div:first-child h2,
+html.cssd-light #vw-hats > div > div:first-child h2,
+html.cssd-light #vw-institutions > div > div:first-child h2,
+html.cssd-light #vw-sportscolleges > div > div:first-child [style*="letter-spacing"],
+html.cssd-light #vw-degreepoint > div > div:first-child [style*="letter-spacing"],
+html.cssd-light #vw-majorcat > div > div:first-child [style*="letter-spacing"],
+html.cssd-light #vw-youthscholar > div > div:first-child [style*="letter-spacing"],
+html.cssd-light #vw-yangtze > div > div:first-child [style*="letter-spacing"],
+html.cssd-light #vw-hats > div > div:first-child [style*="letter-spacing"],
+html.cssd-light #vw-institutions > div > div:first-child [style*="letter-spacing"],
+#vw-projects .proj-title,
+#vw-projects .proj-hero h1,
+#vw-phdschools .phd-hero h2{
+  color:var(--sp-brand-900) !important;
+  -webkit-text-fill-color:var(--sp-brand-900) !important;
+}
+
+/* Founders gold accent span (keep) */
+html.cssd-light .fdr-hero h2 .hl-gold{
+  background:linear-gradient(90deg,var(--sp-gold),var(--sp-gold-deep)) !important;
+  -webkit-background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+  background-clip:text !important;
+  color:transparent !important;
+}
+
+/* Subtitles / muted leads */
+html.cssd-light .proj-hero .proj-sub,
+html.cssd-light .proj-hero .proj-eyebrow,
+html.cssd-light .ov-hero p,
+html.cssd-light .phd-hero p,
+html.cssd-light .sci-hero p,
+html.cssd-light .dlab-hero p,
+html.cssd-light .fdr-hero p,
+html.cssd-light .rk-sub,
+html.cssd-light .crs-sub,
+html.cssd-light .jnl-hero p,
+html.cssd-light .an-hero p,
+html.cssd-light .an-ey,
+html.cssd-light .phd-stat-lbl,
+html.cssd-light .fdr-kpi-l,
+html.cssd-light .dlab-kpi-l,
+html.cssd-light .sci-kpi-l,
+html.cssd-light .crs-kpi-l,
+html.cssd-light [id^=vw-] .sey,
+html.cssd-light [id^=vw-] .sed,
+html.cssd-light [id^=vw-] .phi p,
+html.cssd-light #vw-sportscolleges > div > div:first-child p,
+html.cssd-light #vw-degreepoint > div > div:first-child p,
+html.cssd-light #vw-majorcat > div > div:first-child p,
+html.cssd-light #vw-youthscholar > div > div:first-child p,
+html.cssd-light #vw-yangtze > div > div:first-child p,
+html.cssd-light #vw-hats > div > div:first-child p,
+html.cssd-light #vw-institutions > div > div:first-child p,
+#vw-projects .proj-sub,
+#vw-projects .proj-eyebrow,
+#vw-phdschools .phd-hero p,
+#vw-phdschools .phd-stat-lbl{
+  color:var(--sp-muted) !important;
+}
+
+/* KPI digits → brand ink (teal only for CTA/active) */
+html.cssd-light .proj-kpi b,
+html.cssd-light .mc-stat b,
+html.cssd-light .kpi89-n,
+html.cssd-light .kpi b,
+html.cssd-light .sci-kpi b,
+html.cssd-light .dlab-kpi b,
+html.cssd-light .sci-kpi-n,
+html.cssd-light .dlab-kpi-n,
+html.cssd-light .crs-kpi-n,
+html.cssd-light .kn,
+html.cssd-light .kpi .kn,
+html.cssd-light .sc-stat-v,
+html.cssd-light .l3-disc-cnt,
+html.cssd-light .ov-stat b,
+html.cssd-light #vw-overseas .ov-stat b,
+html.cssd-light #ovInfo b,
+html.cssd-light #rinfo b,
+html.cssd-light #projCount,
+html.cssd-light [class*="-kpi"] b,
+html.cssd-light [class*="stat"] > b,
+html.cssd-light [class*="stat"] b,
+html.cssd-light .phd-stat-num,
+html.cssd-light .fdr-kpi-n,
+html.cssd-light #vw-projects .proj-kpi b,
+html.cssd-light #vw-projects [class*="kpi"] b,
+html.cssd-light #vw-projects .proj-hero b,
+html.cssd-light #vw-sportscolleges > div > div:first-child [style*="DM Mono"],
+html.cssd-light #vw-degreepoint > div > div:first-child [style*="DM Mono"],
+html.cssd-light #vw-majorcat > div > div:first-child [style*="DM Mono"],
+html.cssd-light #vw-youthscholar > div > div:first-child [style*="DM Mono"],
+html.cssd-light #vw-yangtze > div > div:first-child [style*="DM Mono"],
+html.cssd-light #vw-hats > div > div:first-child [style*="DM Mono"],
+#vw-projects .proj-kpi b,
+#vw-majorcat .mc-stat b,
+#vw-phdschools .phd-stat-num{
+  color:var(--sp-brand-900) !important;
+  -webkit-text-fill-color:var(--sp-brand-900) !important;
+  background:none !important;
+  background-image:none !important;
+}
+
+/* KPI labels under digits stay muted */
+html.cssd-light #vw-sportscolleges > div > div:first-child [style*="font-size:.62rem"],
+html.cssd-light #vw-degreepoint > div > div:first-child [style*="font-size:.62rem"],
+html.cssd-light #vw-majorcat > div > div:first-child [style*="font-size:.62rem"],
+html.cssd-light #vw-youthscholar > div > div:first-child [style*="font-size:.62rem"],
+html.cssd-light #vw-yangtze > div > div:first-child [style*="font-size:.62rem"],
+html.cssd-light #vw-hats > div > div:first-child [style*="font-size:.62rem"],
+html.cssd-light .ov-stat span,
+html.cssd-light #vw-overseas .ov-stat span,
+html.cssd-light #ovInfo,
+html.cssd-light #rinfo,
+html.cssd-light #rinfo span{
+  color:var(--sp-muted) !important;
+  -webkit-text-fill-color:var(--sp-muted) !important;
+}
+/* Re-assert DM Mono KPI numbers as ink after label rule */
+html.cssd-light #vw-sportscolleges > div > div:first-child [style*="DM Mono"],
+html.cssd-light #vw-degreepoint > div > div:first-child [style*="DM Mono"],
+html.cssd-light #vw-majorcat > div > div:first-child [style*="DM Mono"],
+html.cssd-light #vw-youthscholar > div > div:first-child [style*="DM Mono"],
+html.cssd-light #vw-yangtze > div > div:first-child [style*="DM Mono"],
+html.cssd-light #vw-hats > div > div:first-child [style*="DM Mono"],
+html.cssd-light .dlab-kpi-n,
+html.cssd-light .sci-kpi-n,
+html.cssd-light .fdr-kpi-n,
+html.cssd-light .crs-kpi-n{
+  color:var(--sp-brand-900) !important;
+  -webkit-text-fill-color:var(--sp-brand-900) !important;
+}
+
+html.cssd-light .proj-chip.on,
+html.cssd-light .proj-pager .on,
+html.cssd-light .pager .on,
+html.cssd-light button.on.primary{
+  color:var(--sp-accent) !important;
+  border-color:var(--sp-accent) !important;
+}
+
+/* Pale inline text under secondary views → ink */
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:#DCE6F0"],
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:#dce6f0"],
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:#E0F2FE"],
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:#e0f2fe"],
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:#DBEAFE"],
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:#dbeafe"],
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:#F0F4FF"],
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:#f0f4ff"],
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:#F8FAFC"],
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:#f8fafc"],
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:#f5ead0"],
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:#F5EAD0"],
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:#E2E8F0"],
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:#e2e8f0"],
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:#FEF9C3"],
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:#fef9c3"],
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:#F5DEB3"],
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:#f5deb3"],
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:#f1f5f9"],
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:rgba(224,"],
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:rgba(240,244"],
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:rgba(245,234"],
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:rgba(203,213"],
+html.cssd-light [id^=vw-]:not(#vw-home) [style*="color:rgba(255,255,255"]{
+  color:var(--sp-brand-900) !important;
+  -webkit-text-fill-color:var(--sp-brand-900) !important;
+}
+
+/* Tab / chrome strips that sat on dark → light */
+html.cssd-light #vw-sportscolleges [style*="background:rgba(255,255,255,.04)"],
+html.cssd-light #vw-degreepoint [style*="background:rgba(255,255,255,.04)"],
+html.cssd-light #vw-majorcat [style*="background:rgba(255,255,255,.03)"]{
+  background:var(--sp-card) !important;
+  border-color:var(--sp-border-soft) !important;
+  color:var(--sp-muted) !important;
+}
+
+/* Ensure aitools / courses page chrome */
+html.cssd-light #vw-aitools,
+html.cssd-light #vw-courses,
+#vw-aitools, #vw-courses{
+  background:var(--sp-bg) !important;
+  color:var(--sp-text) !important;
+  padding-top:var(--sp-view-pad-top);
+}
+
+/* logo-wrap currentColor */
+.sp-logo-wrap{color:var(--sp-brand-500);}
+.sp-logo-wrap svg{color:inherit;}
+
+/* Entry icons: academic blue only (not teal) */
+.sp-logo-wrap{
+  color:var(--sp-brand-500) !important;
+  background:rgba(44,110,158,.10) !important;
+}
+.sp-quick-card:nth-child(n) .sp-logo-wrap{background:rgba(44,110,158,.10)!important;color:var(--sp-brand-500)!important;}
+/* Brand mark ring may keep accent */
+.sp-brandmark{background:linear-gradient(145deg,var(--sp-brand-900),var(--sp-accent));}
+
+
+/* Discipline pills in scholars: mute rainbow; teal only when .on; gold on talent hats */
+html.cssd-light #vw-scholars .pill,
+html.cssd-light #vw-scholars .tag:not(.t-hat):not(.t-honor),
+html.cssd-light #vw-scholars .chip:not(.on):not(.hat),
+html.cssd-light #vw-scholars .chip[data-disc],
+html.cssd-light #vw-scholars .chip[data-gdisc],
+html.cssd-light #vw-scholars [class*="disc"] span{
+  background:rgba(44,110,158,.08)!important;
+  color:var(--sp-brand-700)!important;
+  border-color:rgba(44,110,158,.18)!important;
+}
+html.cssd-light #vw-scholars .chip.on,
+html.cssd-light #vw-scholars .chip[data-disc].on,
+html.cssd-light #vw-scholars .chip[data-gdisc].on,
+html.cssd-light #vw-scholars .chip.role.on{
+  background:rgba(46,154,137,.10)!important;
+  color:var(--sp-accent)!important;
+  border-color:rgba(46,154,137,.28)!important;
+}
+html.cssd-light #vw-scholars .chip.hat:not(.on),
+html.cssd-light #vw-scholars .tag.t-hat,
+html.cssd-light #vw-scholars .tag.t-honor{
+  background:rgba(200,162,75,.10)!important;
+  color:var(--sp-gold)!important;
+  border-color:rgba(200,162,75,.28)!important;
+}
+html.cssd-light #vw-scholars .chip.hat.on{
+  background:rgba(200,162,75,.16)!important;
+  color:var(--sp-gold-ink)!important;
+  border-color:rgba(200,162,75,.4)!important;
+}
+
+/* cssd-proj-count-ink — result count uses brand ink, not accent teal */
+html.cssd-light #projCount,
+html.cssd-light #vw-projects #projCount{
+  color:var(--sp-brand-900)!important;
+  -webkit-text-fill-color:var(--sp-brand-900)!important;
+}
+
+/* ── 学科分类：4 卡 2×2（已去掉户外运动学） ── */
+html.cssd-light #vw-disciplines #discg,
+#vw-disciplines #discg{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:12px !important;
+  justify-content:stretch !important;
+}
+html.cssd-light #vw-disciplines #discg > .l3-disc-card,
+#vw-disciplines #discg > .l3-disc-card{
+  width:auto !important;
+  max-width:none !important;
+  flex:unset !important;
+}
+html.cssd-light #vw-disciplines #discg > :not(.l3-disc-card):not(.l3-disc-note),
+#vw-disciplines #discg > :not(.l3-disc-card):not(.l3-disc-note){
+  display:none !important;
+}
+html.cssd-light #vw-disciplines #discg > .l3-disc-note,
+#vw-disciplines #discg > .l3-disc-note{
+  display:block !important;
+}
+@media (max-width:720px){
+  html.cssd-light #vw-disciplines #discg,
+  #vw-disciplines #discg{
+    grid-template-columns:1fr !important;
+  }
+}
+
+
+/* ── Bug3: scholar list paint — contain offscreen rows ── */
+html.cssd-light #vw-scholars #scgrid,
+#vw-scholars #scgrid{
+  contain:content;
+}
+html.cssd-light #vw-scholars #scgrid .sc2,
+#vw-scholars #scgrid .sc2,
+html.cssd-light #vw-scholars .scholar-table tbody tr{
+  content-visibility:auto;
+  contain-intrinsic-size:auto 180px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+/* --- 5) Founders: fix light-on-light (beige panels + pale text) --- */
+html.cssd-light #vw-founders .fdr-subcol,
+html.cssd-light #vw-founders .fdr-subcol.primary,
+html.cssd-light #vw-founders .fdr-subcol.school{
+  background:var(--sp-card) !important;
+  background-image:none !important;
+  border:1px solid rgba(10,42,67,.10) !important;
+  box-shadow:0 2px 10px rgba(10,42,67,.05) !important;
+  color:var(--sp-brand-900) !important;
+}
+html.cssd-light #vw-founders .fdr-subcol:hover{
+  background:#F8FAFC !important;
+  border-color:rgba(200,162,75,.35) !important;
+}
+html.cssd-light #vw-founders .fdr-subcol-title{
+  color:var(--sp-brand-900) !important;
+}
+html.cssd-light #vw-founders .fdr-subcol-desc{
+  color:var(--sp-muted) !important;
+}
+html.cssd-light #vw-founders .fdr-subcol-num{
+  color:var(--sp-gold-ink) !important;
+}
+html.cssd-light #vw-founders .fdr-subcol.school .fdr-subcol-num{
+  color:var(--sp-brand-700) !important;
+}
+
+html.cssd-light #vw-founders .school-origin-section{
+  background:linear-gradient(180deg,#F7F4EE,#F1EBDF) !important;
+  border:1px solid rgba(10,42,67,.10) !important;
+  box-shadow:0 2px 12px rgba(10,42,67,.05) !important;
+}
+html.cssd-light #vw-founders .school-origin-head{
+  background:linear-gradient(90deg,rgba(200,162,75,.10),rgba(56,189,248,.05),transparent) !important;
+  border-bottom:1px solid rgba(10,42,67,.08) !important;
+}
+html.cssd-light #vw-founders .school-origin-title{
+  color:var(--sp-brand-900) !important;
+}
+html.cssd-light #vw-founders .school-origin-sub,
+html.cssd-light #vw-founders .school-origin-note,
+html.cssd-light #vw-founders .school-origin-role{
+  color:var(--sp-muted) !important;
+}
+html.cssd-light #vw-founders .school-origin-name{
+  color:var(--sp-brand-900) !important;
+}
+html.cssd-light #vw-founders .school-origin-person{
+  color:var(--sp-brand-700) !important;
+}
+html.cssd-light #vw-founders .school-origin-card{
+  background:var(--sp-card) !important;
+  border-color:rgba(10,42,67,.08) !important;
+}
+html.cssd-light #vw-founders .school-origin-grid{
+  background:rgba(10,42,67,.06) !important;
+}
+html.cssd-light #vw-founders .school-origin-link{
+  color:var(--sp-brand-700) !important;
+}
+html.cssd-light #vw-founders .school-origin-kicker{
+  color:var(--sp-gold-ink) !important;
+}
+
+/* --- 6) Courses / AI tools heroes + category heads --- */
+html.cssd-light .crs-badge,
+html.cssd-light .crs-h2,
+html.cssd-light .at-cat-hd h3{
+  color:var(--sp-brand-900) !important;
+}
+html.cssd-light .crs-sub,
+html.cssd-light .at-note,
+html.cssd-light .at-cat-cnt{
+  color:var(--sp-muted) !important;
+}
+html.cssd-light .crs-kpi-n{
+  color:var(--sp-brand-900) !important;
+}
+html.cssd-light .crs-card{
+  background:var(--sp-card) !important;
+  border-color:rgba(10,42,67,.10) !important;
+}
+html.cssd-light .crs-card-name{
+  color:var(--sp-brand-900) !important;
+}
+html.cssd-light .crs-card-sch{
+  color:var(--sp-muted) !important;
+}
+
+/* --- 7) Soften leftover dark chrome strips --- */
+html.cssd-light #vw-sportscolleges [style*="background:rgba(255,255,255,.04)"],
+html.cssd-light #vw-degreepoint [style*="background:rgba(255,255,255,.04)"],
+html.cssd-light #vw-majorcat [style*="background:rgba(255,255,255,.03)"]{
+  background:var(--sp-card) !important;
+  border-color:rgba(10,42,67,.10) !important;
+  color:var(--sp-muted) !important;
+}
+
+   博士点院校 (#vw-phdschools) — force light hero + ink on cards
+   Survives theme toggle hybrid (light surfaces + pale text).
+   ═══════════════════════════════════════════════════════════════ */
+#vw-phdschools .phd-hero,
+html.cssd-light #vw-phdschools .phd-hero{
+  background:var(--sp-bg) !important;
+  background-image:none !important;
+  border:1px solid rgba(10,42,67,.10) !important;
+  box-shadow:0 2px 10px rgba(10,42,67,.05) !important;
+  color:var(--sp-brand-900) !important;
+}
+#vw-phdschools .phd-hero::before,
+#vw-phdschools .phd-hero:before,
+html.cssd-light #vw-phdschools .phd-hero::before{
+  display:none !important;
+  content:none !important;
+  opacity:0 !important;
+}
+#vw-phdschools .phd-hero h2,
+html.cssd-light #vw-phdschools .phd-hero h2{
+  color:var(--sp-brand-900) !important;
+  -webkit-text-fill-color:var(--sp-brand-900) !important;
+}
+#vw-phdschools .phd-hero p,
+#vw-phdschools .phd-stat-lbl,
+html.cssd-light #vw-phdschools .phd-hero p,
+html.cssd-light #vw-phdschools .phd-stat-lbl{
+  color:var(--sp-muted) !important;
+}
+#vw-phdschools .phd-stat-num,
+html.cssd-light #vw-phdschools .phd-stat-num{
+  color:var(--sp-brand-900) !important;
+  -webkit-text-fill-color:var(--sp-brand-900) !important;
+}
+#vw-phdschools .phd-card,
+html.cssd-light #vw-phdschools .phd-card{
+  background:var(--sp-card) !important;
+  border:1px solid rgba(10,42,67,.09) !important;
+  color:var(--sp-brand-900) !important;
+}
+#vw-phdschools .phd-card-name,
+#vw-phdschools .phd-card-top,
+#vw-phdschools .phd-types,
+html.cssd-light #vw-phdschools .phd-card-name,
+html.cssd-light #vw-phdschools .phd-card-top,
+html.cssd-light #vw-phdschools .phd-types{
+  color:var(--sp-brand-900) !important;
+  -webkit-text-fill-color:var(--sp-brand-900) !important;
+}
+#vw-phdschools .phd-note,
+#vw-phdschools .phd-group-hd > span,
+#vw-phdschools .phd-legend,
+#vw-phdschools .phd-legend-item,
+html.cssd-light #vw-phdschools .phd-note,
+html.cssd-light #vw-phdschools .phd-group-hd > span,
+html.cssd-light #vw-phdschools .phd-legend-item{
+  color:var(--sp-muted) !important;
+}
+#vw-phdschools .phd-group-hd,
+html.cssd-light #vw-phdschools .phd-group-hd{
+  background:var(--sp-card) !important;
+  border-left:3px solid var(--sp-accent) !important;
+}
+#vw-phdschools .phd-lnk,
+html.cssd-light #vw-phdschools .phd-lnk{
+  color:var(--sp-brand-700) !important;
+}
+#vw-phdschools .phd-tab,
+html.cssd-light #vw-phdschools .phd-tab{
+  background:var(--sp-card) !important;
+  border-color:rgba(10,42,67,.12) !important;
+  color:var(--sp-muted) !important;
+}
+#vw-phdschools .phd-tab.on,
+html.cssd-light #vw-phdschools .phd-tab.on{
+  background:var(--sp-brand-900) !important;
+  color:var(--sp-card) !important;
+  border-color:var(--sp-brand-900) !important;
+}
+
+/* cssd-an-hero-unify — 学术动态页头与其它栏目通栏浅灰页头对齐（去掉白卡片框） */
+html.cssd-light #vw-academicnews,
+#vw-academicnews{
+  background:var(--sp-bg) !important;
+}
+html.cssd-light #vw-academicnews .an-wrap,
+#vw-academicnews .an-wrap{
+  max-width:var(--sp-max) !important;
+  margin:0 auto !important;
+  padding:88px 24px 64px !important;
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+}
+html.cssd-light #vw-academicnews .an-hero,
+#vw-academicnews .an-hero{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) minmax(160px,220px) !important;
+  gap:20px !important;
+  align-items:end !important;
+  margin:0 0 20px !important;
+  padding:28px 28px 24px !important;
+  background:var(--sp-bg) !important;
+  background-image:none !important;
+  border:1px solid rgba(10,42,67,.10) !important;
+  border-radius:var(--sp-radius);
+  box-shadow:none !important;
+  color:var(--sp-brand-900) !important;
+}
+html.cssd-light #vw-academicnews .an-hero h1,
+#vw-academicnews .an-hero h1{
+  font-family:var(--sp-serif) !important;
+  font-size:clamp(1.6rem,3vw,2.1rem) !important;
+  line-height:1.25 !important;
+  margin:0 0 8px !important;
+  color:var(--sp-brand-900) !important;
+  -webkit-text-fill-color:var(--sp-brand-900) !important;
+}
+html.cssd-light #vw-academicnews .an-ey,
+#vw-academicnews .an-ey{
+  color:var(--sp-accent) !important; /* eyebrow accent like other columns */
+  font-size:.72rem !important;
+  letter-spacing:.04em !important;
+  margin-bottom:6px !important;
+}
+html.cssd-light #vw-academicnews .an-hero p,
+#vw-academicnews .an-hero p{
+  max-width:720px !important;
+  margin:0 !important;
+  color:var(--sp-muted) !important;
+  font-size:.9rem !important;
+  line-height:1.7 !important;
+}
+/* date box → same muted chip language as other KPI side cards */
+html.cssd-light #vw-academicnews .an-datebox,
+#vw-academicnews .an-datebox{
+  border:1px solid rgba(10,42,67,.10) !important;
+  background:var(--sp-bg) !important;
+  border-radius:var(--sp-radius-md) !important;
+  padding:16px 18px !important;
+  box-shadow:none !important;
+}
+html.cssd-light #vw-academicnews .an-datebox span,
+html.cssd-light #vw-academicnews .an-datebox em,
+#vw-academicnews .an-datebox span,
+#vw-academicnews .an-datebox em{
+  color:var(--sp-muted) !important;
+  font-size:.68rem !important;
+  font-style:normal !important;
+}
+html.cssd-light #vw-academicnews .an-datebox b,
+#vw-academicnews .an-datebox b{
+  color:var(--sp-brand-900) !important;
+  -webkit-text-fill-color:var(--sp-brand-900) !important;
+  font-family:var(--sp-mono) !important;
+  font-size:1rem !important;
+  margin:6px 0 4px !important;
+}
+/* KPI row: same white panel rhythm as hero, no special frame */
+html.cssd-light #vw-academicnews .an-kpis,
+#vw-academicnews .an-kpis{
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:12px !important;
+  margin:0 0 20px !important;
+  padding:0 !important;
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+}
+html.cssd-light #vw-academicnews .an-kpis > div,
+#vw-academicnews .an-kpis > div{
+  background:var(--sp-card) !important;
+  border:1px solid rgba(10,42,67,.08) !important;
+  border-radius:var(--sp-radius-md) !important;
+  padding:16px 18px !important;
+  box-shadow:none !important;
+}
+html.cssd-light #vw-academicnews .an-kpis b,
+#vw-academicnews .an-kpis b{
+  color:var(--sp-brand-900) !important;
+  -webkit-text-fill-color:var(--sp-brand-900) !important;
+  display:block !important;
+  font-family:var(--sp-mono) !important;
+  font-size:1.35rem !important;
+  font-weight:700 !important;
+}
+html.cssd-light #vw-academicnews .an-kpis span,
+#vw-academicnews .an-kpis span{
+  color:var(--sp-muted) !important;
+  font-size:.75rem !important;
+}
+@media (max-width:720px){
+  html.cssd-light #vw-academicnews .an-hero,
+  #vw-academicnews .an-hero{
+    grid-template-columns:1fr !important;
+  }
+  html.cssd-light #vw-academicnews .an-kpis,
+  #vw-academicnews .an-kpis{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+
+/* cssd-scholars-hero-card — 学者目录页头：浅灰面板 + 16px 圆角（与栏目 hero 一致） */
+html.cssd-light #vw-scholars > .ph,
+#vw-scholars > .ph{
+  max-width:var(--sp-max,1240px);
+  width:calc(100% - 48px);
+  margin:0 auto 14px;
+  padding:28px 28px 24px !important;
+  border-radius:var(--sp-radius) !important;
+  overflow:hidden !important;
+  border:1px solid rgba(10,42,67,.10) !important;
+  background:var(--sp-bg) !important;
+  background-image:none !important;
+  box-shadow:0 2px 10px rgba(10,42,67,.05) !important;
+  color:var(--sp-brand-900) !important;
+}
+html.cssd-light #vw-scholars > .ph .hbg,
+#vw-scholars > .ph .hbg{
+  opacity:.35;
+  pointer-events:none;
+}
+html.cssd-light #vw-scholars > .ph .phi,
+#vw-scholars > .ph .phi{
+  max-width:none;
+  margin:0;
+  padding:0;
+  background:transparent !important;
+}
+/* table rows are short — tighter intrinsic size for content-visibility */
+html.cssd-light #vw-scholars .scholar-table tbody tr,
+#vw-scholars .scholar-table tbody tr{
+  content-visibility:auto;
+  contain-intrinsic-size:auto 44px;
+}
+
+/* cssd-disciplines-light — 学科分类页色与说明条 */
+html.cssd-light #vw-disciplines,
+#vw-disciplines{
+  background:var(--sp-bg,#F5F7FA) !important;
+}
+html.cssd-light #vw-disciplines > div,
+#vw-disciplines > div{
+  background:transparent !important;
+}
+html.cssd-light #vw-disciplines > div > div:first-child,
+#vw-disciplines > div > div:first-child{
+  background:#FFFFFF !important;
+  border:1px solid rgba(10,42,67,.10) !important;
+  border-radius:16px !important;
+  box-shadow:none !important;
+}
+html.cssd-light #vw-disciplines > div > div:first-child p,
+#vw-disciplines > div > div:first-child p{
+  color:var(--sp-muted,#5A6575) !important;
+  -webkit-text-fill-color:var(--sp-muted,#5A6575) !important;
+}
+html.cssd-light #vw-disciplines .l3-disc-card,
+#vw-disciplines .l3-disc-card{
+  background:#FFFFFF !important;
+  border:1px solid rgba(10,42,67,.10) !important;
+  border-radius:16px !important;
+}
+html.cssd-light #vw-disciplines .l3-disc-name,
+#vw-disciplines .l3-disc-name{
+  color:var(--sp-brand-900,#0A2A43) !important;
+}
+html.cssd-light #vw-disciplines .l3-disc-cnt,
+#vw-disciplines .l3-disc-cnt{
+  color:var(--sp-muted,#5A6575) !important;
+}
+html.cssd-light #vw-disciplines .l3-disc-elite,
+#vw-disciplines .l3-disc-elite{
+  color:var(--sp-gold-deep,#8A6A2F) !important;
+}
+/* chips: muted academic, keep readable name + count */
+html.cssd-light #vw-disciplines .l3-disc-card button,
+html.cssd-light #vw-disciplines .l3-disc-card span[style]{
+  border-color:rgba(10,42,67,.12) !important;
+  background:#F5F7FA !important;
+  color:#1B4F9C !important;
+}

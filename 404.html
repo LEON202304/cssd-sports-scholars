@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex,follow">
+<title>页面不存在 · 体育学人</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    font-family:-apple-system,"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+    background:#F5F7FA;color:#0A2A43;
+    display:flex;align-items:center;justify-content:center;
+    padding:24px;line-height:1.7;
+  }
+  .card{
+    width:min(560px,100%);background:#FFFFFF;border:1px solid rgba(10,42,67,.08);
+    border-radius:18px;padding:48px 44px;text-align:center;
+    box-shadow:0 2px 10px rgba(10,42,67,.05),0 18px 48px rgba(10,42,67,.06);
+    position:relative;overflow:hidden;
+  }
+  .card::before{
+    content:'';position:absolute;inset:0 0 auto 0;height:4px;
+    background:linear-gradient(90deg,#2E9A89,#2C6E9E);
+  }
+  .code{
+    font-family:Consolas,"Courier New",monospace;font-size:66px;font-weight:800;
+    letter-spacing:.02em;line-height:1;
+    background:linear-gradient(92deg,#2E9A89,#2C6E9E);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:#2E9A89;
+    margin-bottom:18px;
+  }
+  h1{font-size:21px;font-weight:700;letter-spacing:.01em;margin-bottom:12px}
+  p{font-size:14.5px;color:#5C7085;margin-bottom:30px}
+  .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  a{
+    display:inline-block;padding:11px 24px;border-radius:10px;
+    font-size:14.5px;font-weight:600;text-decoration:none;
+    transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+  }
+  .primary{
+    background:linear-gradient(92deg,#2E9A89,#2C6E9E);color:#fff;
+    box-shadow:0 4px 14px rgba(46,154,137,.28);
+  }
+  .primary:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(46,154,137,.34)}
+  .ghost{
+    background:#F5F7FA;color:#0A2A43;border:1px solid rgba(10,42,67,.12);
+  }
+  .ghost:hover{background:#EDF2F7;transform:translateY(-2px)}
+  .brand{
+    margin-top:34px;padding-top:20px;border-top:1px solid rgba(10,42,67,.08);
+    font-size:12.5px;color:#8A98A8;letter-spacing:.06em;
+  }
+  .brand b{color:#0A2A43;font-weight:700;letter-spacing:.08em}
+  @media(max-width:480px){
+    .card{padding:36px 24px}
+    .code{font-size:54px}
+    h1{font-size:18px}
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="code">404</div>
+    <h1>抱歉，这个页面不存在</h1>
+    <p>您访问的地址可能已更改或输入有误。<br>可以返回首页继续浏览学者库与学术资源。</p>
+    <div class="btns">
+      <a class="primary" href="/">返回首页</a>
+      <a class="ghost" href="/?view=scholars">浏览学者目录</a>
+    </div>
+    <div class="brand"><b>体育学人</b> · 中国体育学术资源数据库</div>
+  </div>
+</body>
+</html>

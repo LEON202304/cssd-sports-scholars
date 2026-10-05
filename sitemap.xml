@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 体育学人 · 中国体育学术资源数据库 · 站点地图
+     说明：本站为单页应用（SPA），学者/论文详情由前端按需渲染，
+     因此站点地图仅收录规范首页。若后续为每位学者生成独立 URL，
+     请在此逐条补充 <url> 节点。 -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.tiyuxueren.com/</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
