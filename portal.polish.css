@@ -1,0 +1,283 @@
+/* portal.polish.css — 全站灰白学术门户微调（可回退：删本文件 + 去掉 link 即可）
+   依赖 :root / .sp-* token；尽量不用 !important，仅在覆盖历史层叠时使用。 */
+
+:root{
+  --sp-teal:#2E9A89;
+  --sp-accent:var(--sp-teal);
+  --sp-gold:#C8A24B;
+  --sp-brand-900:#0A2A43;
+  --sp-brand-500:#2C6E9E;
+  --sp-bg:#F5F7FA;
+  --sp-card:#FFFFFF;
+  --sp-muted:#5B6575;
+  --sp-muted2:#8A93A3;
+  --sp-line:#E6EAF0;
+  --sp-news-live:var(--sp-teal);
+  --sp-news-stale:var(--sp-gold);
+  --sp-news-offline:#8A93A3;
+}
+
+/* —— SEO/主题色跟随浅色门户 —— */
+meta[name="theme-color"]{ /* marker only */ }
+
+/* —— Logo 环：teal —— */
+.sp-brandmark{
+  background:var(--sp-teal);
+  box-shadow:0 0 0 2px rgba(46,154,137,.22);
+}
+.sp-brandmark svg circle[stroke]{stroke:rgba(255,255,255,.45)}
+
+/* —— 首页：指标条与入口间距约 28px —— */
+#sportsPortal .sp-metrics{margin-bottom:0}
+#sportsPortal .sp-quick{margin:28px 0 20px}
+#sportsPortal .sp-link-more,
+#sportsPortal .sp-panel header button.sp-link-more{
+  background:transparent;
+  border:0;
+  padding:0;
+  color:var(--sp-brand-500);
+  font-weight:500;
+  text-decoration:none;
+  box-shadow:none;
+}
+#sportsPortal .sp-link-more:hover{color:var(--sp-brand-700,#14476E);text-decoration:underline}
+
+/* —— 学者目录：左文右数 KPI 页头 —— */
+#vw-scholars .phi .sch-hero-row{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:wrap;
+}
+#vw-scholars .phi .sch-hero-copy{flex:1 1 320px;min-width:0}
+#vw-scholars .phi .sch-hero-kpis{
+  display:flex;
+  gap:18px;
+  flex:0 0 auto;
+  margin-left:auto;
+  padding:8px 4px 0;
+}
+#vw-scholars .phi .sch-hero-kpi{
+  text-align:right;
+  min-width:72px;
+}
+#vw-scholars .phi .sch-hero-kpi b{
+  display:block;
+  font:700 1.55rem/1.15 system-ui,"DM Mono",monospace;
+  color:var(--sp-brand-900);
+  letter-spacing:.01em;
+}
+#vw-scholars .phi .sch-hero-kpi small{
+  display:block;
+  margin-top:4px;
+  font-size:.68rem;
+  color:var(--sp-muted);
+  font-weight:500;
+}
+@media (max-width:720px){
+  #vw-scholars .phi .sch-hero-kpis{width:100%;justify-content:flex-start;margin-left:0;gap:20px}
+  #vw-scholars .phi .sch-hero-kpi{text-align:left}
+}
+
+/* 海外 pill：白底墨字，禁紫 */
+html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"],
+html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"].on,
+html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"]:hover{
+  background:#FFFFFF !important;
+  border-color:rgba(10,42,67,.14) !important;
+  color:var(--sp-brand-900) !important;
+  box-shadow:none !important;
+}
+html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"] small,
+html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"].on small{
+  color:var(--sp-brand-900) !important;
+  background:rgba(10,42,67,.06) !important;
+}
+html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"].on{
+  border-color:rgba(46,154,137,.45) !important;
+}
+html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"].on small{
+  background:rgba(46,154,137,.1) !important;
+  color:var(--sp-teal) !important;
+}
+
+/* 主搜索独占一行；筛选折行；清除为文字链 */
+html.cssd-light #vw-scholars .cr1 .sw{
+  flex:1 1 100% !important;
+  width:100% !important;
+  min-width:100% !important;
+  max-width:100% !important;
+}
+html.cssd-light #vw-scholars .cr1 .fsel,
+html.cssd-light #vw-scholars .cr1 input.fsel{
+  flex:0 1 auto;
+}
+html.cssd-light #vw-scholars .chip.clr,
+html.cssd-light #vw-scholars button.chip.clr{
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  color:var(--sp-muted) !important;
+  padding:4px 6px !important;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  font-weight:500 !important;
+  min-height:auto !important;
+  height:auto !important;
+}
+html.cssd-light #vw-scholars .chip.clr:hover{
+  color:var(--sp-brand-900) !important;
+  background:transparent !important;
+  border:0 !important;
+}
+
+/* —— 学术动态 .sp-news —— */
+#vw-academicnews.sp-news .an-datebox,
+.sp-news .an-datebox{
+  background:#F5F7FA !important;
+  border:1px solid var(--sp-line) !important;
+  border-left:3px solid var(--sp-teal) !important;
+  box-shadow:none !important;
+}
+.sp-news-status{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin-top:8px;
+  font-size:.72rem;
+  color:var(--sp-muted);
+  font-weight:500;
+}
+.sp-news-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--sp-news-offline);
+  flex-shrink:0;
+}
+.sp-news-status[data-state="live"] .sp-news-dot{background:var(--sp-news-live)}
+.sp-news-status[data-state="stale"] .sp-news-dot{background:var(--sp-news-stale)}
+.sp-news-status[data-state="offline"] .sp-news-dot{background:var(--sp-news-offline)}
+
+#vw-academicnews .an-spotlight,
+.sp-news .an-spotlight{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+  align-items:stretch;
+}
+@media (max-width:900px){
+  #vw-academicnews .an-spotlight,
+  .sp-news .an-spotlight{grid-template-columns:1fr}
+}
+#vw-academicnews .an-spotlight .an-card,
+.sp-news .an-spotlight .an-card{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  min-height:168px;
+  background:#FFFFFF !important;
+  border:1px solid var(--sp-line) !important;
+  border-radius:12px;
+  padding:14px 16px;
+}
+#vw-academicnews .an-spotlight .an-card h3,
+.sp-news .an-spotlight .an-card h3{
+  color:var(--sp-brand-900) !important;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+#vw-academicnews .an-spotlight .an-card p,
+.sp-news .an-spotlight .an-card p{
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  flex:1 1 auto;
+  color:var(--sp-muted) !important;
+}
+#vw-academicnews .an-spotlight .an-card a,
+.sp-news .an-spotlight .an-card a{
+  margin-top:auto !important;
+  align-self:flex-start;
+  color:var(--sp-teal) !important;
+  font-weight:600;
+}
+
+/* 期刊类标签：学术蓝，不用紫 */
+#vw-academicnews .an-card[style*="#a78bfa"],
+#vw-academicnews .an-news[style*="#a78bfa"]{
+  --an-c:var(--sp-brand-500) !important;
+}
+
+/* —— 同意条 CTA：纯 teal，去掉紫渐变 —— */
+html.cssd-light .consent-accept,
+.consent-accept{
+  background:var(--sp-teal) !important;
+  background-image:none !important;
+  color:#fff !important;
+  border:0 !important;
+}
+html.cssd-light #consent-banner{
+  background:#FFFFFF !important;
+  border-top:1px solid var(--sp-line) !important;
+  box-shadow:0 -8px 28px rgba(10,42,67,.08) !important;
+  backdrop-filter:none !important;
+}
+
+/* —— 焦点可见 —— */
+.sp-links button:focus-visible,
+.sp-btn:focus-visible,
+.sp-quick-card:focus-visible,
+.sp-search input:focus-visible,
+#vw-scholars .fi:focus-visible,
+#vw-scholars .fsel:focus-visible,
+#vw-scholars .chip:focus-visible,
+.an-tab:focus-visible,
+.an-sync-btn:focus-visible{
+  outline:2px solid var(--sp-teal);
+  outline-offset:2px;
+}
+
+/* —— 减少彩虹色学科 chip 冲击：运动心理改学术蓝（保留功能） —— */
+html.cssd-light #vw-scholars .chip[data-disc="psych"]{
+  border-color:rgba(44,110,158,.28) !important;
+  color:var(--sp-brand-500) !important;
+  background:rgba(44,110,158,.06) !important;
+}
+html.cssd-light #vw-scholars .chip[data-disc="psych"].on{
+  background:rgba(46,154,137,.1) !important;
+  border-color:rgba(46,154,137,.4) !important;
+  color:var(--sp-teal) !important;
+}
+
+
+/* 学者页头更紧凑：去掉大灰空壳感 */
+html.cssd-light #vw-scholars > .ph .phi,
+html.cssd-light #vw-scholars .phi{
+  padding:20px 24px 18px !important;
+  margin:16px auto 14px !important;
+}
+html.cssd-light #vw-scholars .phi p{margin:0 0 10px !important;}
+html.cssd-light #vw-scholars .sch-branch-tabs{
+  background:transparent !important;
+  border:0 !important;
+  padding:0 !important;
+  margin-top:4px !important;
+}
+
+/* 首页 quick 入口更紧凑 4×2 */
+#sportsPortal .sp-quick-card{
+  min-height:0;
+  padding:12px 14px;
+}
+#sportsPortal .sp-quick-text small{
+  display:-webkit-box;
+  -webkit-line-clamp:1;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+/* 图片类（若后续插入）默认懒加载友好尺寸占位由属性负责 */
+img[loading="lazy"]{content-visibility:auto;}
