@@ -301,10 +301,11 @@ html.cssd-light body .youth-badge,
 html.cssd-light body .youth-badge.A,
 html.cssd-light body .youth-badge.B,
 html.cssd-light body .youth-badge.C,
-html.cssd-light body #vw-youthscholar .youth-badge{
+html.cssd-light body #vw-youthscholar .youth-badge,
+html.cssd-light body .sp-level-pill{
   background:#FFFFFF !important;
-  color:var(--sp-brand-900) !important;
-  border:1px solid var(--sp-brand-500) !important;
+  color:#0A2A43 !important;
+  border:1px solid #E3E8EF !important;
   box-shadow:none !important;
 }
 
@@ -597,4 +598,101 @@ html.cssd-light body #vw-youthscholar .l1-tab.on{
 html.cssd-light body #vw-youthscholar .youth-card div[style*="#2C6E9E"],
 html.cssd-light body #vw-youthscholar .youth-card div[style*="139,92,246"]{
   color:var(--sp-brand-500) !important;
+}
+
+
+/* ═════════════════════════════════════════════════════════════════
+   polish/p1 — 奖牌文字 pill · 头像灰块 · 学者390顶空 · 青年去金光
+   ═════════════════════════════════════════════════════════════════ */
+
+/* 级别文字 pill：白底墨字细边，等级只靠文案，无分色 */
+html.cssd-light body .sp-level-pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:2px 8px;
+  border-radius:999px;
+  font-size:.68rem;
+  font-weight:600;
+  letter-spacing:.02em;
+  line-height:1.4;
+  background:#FFFFFF !important;
+  color:#0A2A43 !important;
+  border:1px solid #E3E8EF !important;
+  box-shadow:none !important;
+  white-space:nowrap;
+}
+
+/* 头像字块：学者卡 / 青年卡 / 门户人物 — 统一浅灰底墨字 */
+html.cssd-light body .av,
+html.cssd-light body .sch-av,
+html.cssd-light body .youth-av,
+html.cssd-light body .sp-avatar,
+html.cssd-light body .sci-avatar,
+html.cssd-light body #vw-scholars .av,
+html.cssd-light body #vw-youthscholar .youth-av{
+  background:#F5F7FA !important;
+  background-image:none !important;
+  color:#0A2A43 !important;
+  border:1px solid #E3E8EF !important;
+  box-shadow:none !important;
+  -webkit-text-fill-color:#0A2A43 !important;
+}
+html.cssd-light body #vw-scholars .sc2:hover .av{
+  border-color:#E3E8EF !important;
+  box-shadow:none !important;
+}
+
+/* 学者目录：hero 与筛选卡间距 → 16px
+   宿主在 ≤768 给 .ctlb{top:56px}（相对定位下移，视觉空档≈64px），必须压回 top:0 */
+html.cssd-light body #vw-scholars > .ph .phi,
+html.cssd-light body #vw-scholars .phi{
+  margin-top:16px !important;
+  margin-bottom:16px !important;
+}
+html.cssd-light body #vw-scholars > .ph{
+  margin-bottom:0 !important;
+  padding-bottom:0 !important;
+}
+html.cssd-light body #vw-scholars .ctlb{
+  margin-top:0 !important;
+  top:0 !important;
+}
+@media (max-width:768px){
+  html.cssd-light body #vw-scholars .ctlb,
+  html.cssd-light body #vw-scholars .ctlb.slim{
+    top:0 !important;
+    position:relative !important;
+  }
+}
+@media (max-width:420px){
+  html.cssd-light body #vw-scholars > .ph .phi,
+  html.cssd-light body #vw-scholars .phi{
+    margin:16px auto 16px !important;
+    padding:20px 18px !important;
+  }
+  html.cssd-light body #vw-scholars .ctlb{
+    margin-top:0 !important;
+    margin-bottom:16px !important;
+    top:0 !important;
+  }
+}
+
+/* 青年页：去掉金色光芒 / 大装饰 emoji（若残留绝对定位大号 emoji） */
+html.cssd-light body #vw-youthscholar .youth-hero-glow,
+html.cssd-light body #vw-youthscholar [class*="sunburst"],
+html.cssd-light body #vw-youthscholar [class*="gold-glow"]{
+  display:none !important;
+}
+/* KPI 墨色不回潮 */
+html.cssd-light body #vw-youthscholar #youthKpiRow [id^="yk"]{
+  color:#0A2A43 !important;
+  -webkit-text-fill-color:#0A2A43 !important;
+}
+
+/* 青年卡顶部分级色条：去掉等级色差，统一细线（级别靠 pill 文案） */
+html.cssd-light body #vw-youthscholar .youth-level-A,
+html.cssd-light body #vw-youthscholar .youth-level-B,
+html.cssd-light body #vw-youthscholar .youth-level-C{
+  border-top:1px solid #E3E8EF !important;
 }
