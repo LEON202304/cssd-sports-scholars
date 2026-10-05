@@ -1360,7 +1360,7 @@ const CATS={sports:{label:'体育类专门院校',icon:'🏅',color:'#2E9A89'},n
 
 /* ═══ STATE ═══ */
 let disc='',discGroup='',hat='',inst='',gender='',q='',role='',cat='';
-const GRAD_DISC_GROUPS={edu_train:{label:'\u4f53\u80b2\u6559\u80b2\u8bad\u7ec3\u5b66',icon:'\u25cf',color:'#3E82B0',disc:['pe','train']},human:{label:'\u4f53\u80b2\u4eba\u6587\u793e\u4f1a\u5b66',icon:'\u25cf',color:'#F97316',disc:['hu','mgmt']},science:{label:'\u8fd0\u52a8\u4eba\u4f53\u79d1\u5b66',icon:'\u25cf',color:'#3E82B0',disc:['sci','rehab','psych','eng']},trad:{label:'\u6c11\u65cf\u4f20\u7edf\u4f53\u80b2\u5b66',icon:'\u25cf',color:'#A23B4E',disc:['trad']}};
+const GRAD_DISC_GROUPS={edu_train:{label:'\u4f53\u80b2\u6559\u80b2\u8bad\u7ec3\u5b66',icon:'\u25cf',color:'#2C6E9E',disc:['pe','train']},human:{label:'\u4f53\u80b2\u4eba\u6587\u793e\u4f1a\u5b66',icon:'\u25cf',color:'#2C6E9E',disc:['hu','mgmt']},science:{label:'\u8fd0\u52a8\u4eba\u4f53\u79d1\u5b66',icon:'\u25cf',color:'#2C6E9E',disc:['sci','rehab','psych','eng']},trad:{label:'\u6c11\u65cf\u4f20\u7edf\u4f53\u80b2\u5b66',icon:'\u25cf',color:'#2C6E9E',disc:['trad']}};
 
 /* ═══ HELPERS ═══ */
 function hS(h){
@@ -55633,8 +55633,8 @@ function renderSc(){
       th+='<tr data-id="'+s.id+'" style="cursor:pointer">'
         +'<td style="color:#2E9A89;" data-id="'+s.id+'">'+s.n+'</td>'
         +'<td style="color:#8A94A8;">'+s.s+'</td>'
-        +'<td><span class="tag '+DC[s.disc]+'" style="font-size:.7rem;">'+s.dL+'</span></td>'
-        +'<td>'+(s.hats.slice(0,1).map(function(h){return '<span class="tag t-hat" style="font-size:.7rem;">'+hS(h)+'</span>';}).join('')||'\u2014')+'</td>'
+        +'<td><span class="sp-disc-pill">'+s.dL+'</span></td>'
+        +'<td>'+(s.hats.slice(0,1).map(function(h){return '<span class="sp-hat-pill"><span class="sp-star" aria-hidden="true">★</span>'+hS(h)+'</span>';}).join('')||'\u2014')+'</td>'
         +'<td style="color:#8A94A8;font-size:.78rem;">'+s.title.split('\u3001')[0]+'</td>'
         +'<td onclick="event.stopPropagation()"><button class="cmp-btn" data-sid="'+s.id+'" onclick="toggleCompare('+s.id+',event)">\u2295</button></td>'
         +'</tr>';
@@ -55718,7 +55718,7 @@ function bCard(s){
       </div>
     </div>
     <div class="cb">
-      <div class="tr2"><span class="tag ${DC[s.disc]}">${esc(s.dL)}</span>${hH}${oH}${srcH}${catBadge}</div>
+      <div class="tr2"><span class="sp-card-disc">${esc(s.dL)}</span>${hH}${oH}${srcH}${catBadge}</div>
       <div class="crt">\uD83D\uDCCC ${hl(s.r)}</div>
     </div>
     <div class="cf">
@@ -55846,7 +55846,7 @@ document.getElementById('fgen').addEventListener('change',e=>{gender=e.target.va
 
 /* ═══ DISCIPLINES ═══ */
 function renderDisc(){
-  var detail={psych:{name:'\u8fd0\u52a8\u5fc3\u7406\u5b66',color:'#2C6E9E',lab:'psychlab'},sci:{name:'\u8fd0\u52a8\u4eba\u4f53\u79d1\u5b66',color:'#3E82B0',lab:'scilab'},hu:{name:'\u4f53\u80b2\u4eba\u6587\u793e\u4f1a\u5b66',color:'#F97316',lab:'hulab'},train:{name:'\u8fd0\u52a8\u8bad\u7ec3\u5b66',color:'#C8A24B',lab:'trainlab'},trad:{name:'\u6c11\u65cf\u4f20\u7edf\u4f53\u80b2\u5b66',color:'#A23B4E',lab:'tradlab'},mgmt:{name:'\u4f53\u80b2\u7ba1\u7406\u5b66',color:'#10B981',lab:'mgmtlab'},rehab:{name:'\u8fd0\u52a8\u533b\u5b66\u4e0e\u5eb7\u590d',color:'#06B6D4',lab:'rehablab'},pe:{name:'\u4f53\u80b2\u6559\u80b2\u5b66',color:'#3E82B0',lab:'pelab'},eng:{name:'\u4f53\u80b2\u5de5\u7a0b\u5b66',color:'#2C6E9E',lab:'englab'},outdoor:{name:'\u6237\u5916\u8fd0\u52a8',color:'#22C55E',lab:'scholars'}};
+  var detail={psych:{name:'\u8fd0\u52a8\u5fc3\u7406\u5b66',color:'#2C6E9E',lab:'psychlab'},sci:{name:'\u8fd0\u52a8\u4eba\u4f53\u79d1\u5b66',color:'#2C6E9E',lab:'scilab'},hu:{name:'\u4f53\u80b2\u4eba\u6587\u793e\u4f1a\u5b66',color:'#2C6E9E',lab:'hulab'},train:{name:'\u8fd0\u52a8\u8bad\u7ec3\u5b66',color:'#2C6E9E',lab:'trainlab'},trad:{name:'\u6c11\u65cf\u4f20\u7edf\u4f53\u80b2\u5b66',color:'#2C6E9E',lab:'tradlab'},mgmt:{name:'\u4f53\u80b2\u7ba1\u7406\u5b66',color:'#2C6E9E',lab:'mgmtlab'},rehab:{name:'\u8fd0\u52a8\u533b\u5b66\u4e0e\u5eb7\u590d',color:'#2C6E9E',lab:'rehablab'},pe:{name:'\u4f53\u80b2\u6559\u80b2\u5b66',color:'#2C6E9E',lab:'pelab'},eng:{name:'\u4f53\u80b2\u5de5\u7a0b\u5b66',color:'#2C6E9E',lab:'englab'},outdoor:{name:'\u6237\u5916\u8fd0\u52a8',color:'#2C6E9E',lab:'scholars'}};
   var el=document.getElementById('discg');if(!el)return;var H='';
   Object.entries(GRAD_DISC_GROUPS).forEach(function(e){
     var key=e[0],g=e[1];
@@ -56483,11 +56483,11 @@ function renderClassify(){
   if(!el) return;
 
   const DISC_META = {
-    psych:{icon:'🧠',label:'运动心理学',color:'#2C6E9E'},sci:{icon:'🔬',label:'运动人体科学',color:'#2E9A89'},
-    hu:{icon:'🌐',label:'体育人文社会学',color:'#A23B4E'},train:{icon:'🏋️',label:'运动训练学',color:'#C8A24B'},
-    trad:{icon:'🥋',label:'民族传统体育学',color:'#2C6E9E'},mgmt:{icon:'📊',label:'体育管理学',color:'#10B981'},
-    rehab:{icon:'🏥',label:'运动医学与康复',color:'#F97316'},pe:{icon:'🏫',label:'体育教育学',color:'#3E82B0'},
-    eng:{icon:'🔧',label:'体育工程学',color:'#A23B4E'}
+    psych:{icon:'🧠',label:'运动心理学',color:'#2C6E9E'},sci:{icon:'🔬',label:'运动人体科学',color:'#2C6E9E'},
+    hu:{icon:'🌐',label:'体育人文社会学',color:'#2C6E9E'},train:{icon:'🏋️',label:'运动训练学',color:'#2C6E9E'},
+    trad:{icon:'🥋',label:'民族传统体育学',color:'#2C6E9E'},mgmt:{icon:'📊',label:'体育管理学',color:'#2C6E9E'},
+    rehab:{icon:'🏥',label:'运动医学与康复',color:'#2C6E9E'},pe:{icon:'🏫',label:'体育教育学',color:'#2C6E9E'},
+    eng:{icon:'🔧',label:'体育工程学',color:'#2C6E9E'}
   };
   const CAT_META = {
     sports:{icon:'🏅',label:'体育类专门院校',color:'#C8A24B'},normal:{icon:'🏛',label:'师范类院校',color:'#3E82B0'},
@@ -56710,7 +56710,7 @@ function openMod(s){
       <div style="font-family:'Noto Serif SC','Source Han Serif SC','Songti SC','SimSun',Georgia,serif;font-size:1.38rem;font-weight:700;margin-bottom:2px">${s.url?`<a href="${s.url}" target="_blank" rel="noopener" class="sn-link" style="text-decoration:none;" title="打开官方主页">${s.n} ↗</a>`:s.n}</div>
       <div style="font-size:.75rem;color:var(--mu);margin-bottom:6px;font-family:'DM Mono',monospace">${esc(s.e)}</div>
       <div style="font-size:.8rem;color:var(--mu);margin-bottom:9px">🏛 ${esc(s.institution)} · ${esc(s.dept)}</div>
-      <div style="display:flex;flex-wrap:wrap;gap:5px"><span class="tag ${DC[s.disc]}">${esc(s.dL)}</span>${hH}${oH}${srcH}</div>
+      <div style="display:flex;flex-wrap:wrap;gap:5px"><span class="sp-card-disc">${esc(s.dL)}</span>${hH}${oH}${srcH}</div>
     
       <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;">
         <button onclick="inst='${s.institution}';q='';closeMod();go('scholars');setTimeout(renderSc,100);" style="flex:1;min-width:140px;padding:8px 12px;border-radius:8px;border:1px solid var(--accent);color:var(--accent);background:rgba(46,154,137,.06);cursor:pointer;font-size:.78rem;font-family:inherit;transition:all .15s;">🏛 ${s.s} 全部学者 (${S.filter(function(x){return x.institution===s.institution;}).length}人)</button>
@@ -57077,7 +57077,7 @@ function sciCard(s,clr){
 
 function goFirstDisc(){go('scilab');}
 
-var DCFG={"psych":{"key":"psych","name":"运动心理学","icon":"🧠","color":"#2C6E9E","hero":"linear-gradient(135deg,#1a0a2e 0%,#2d1052 50%,#1a082a 100%)","subtopics":[{"id":"all","icon":"🧠","name":"全部","desc":"运动心理学领域全部学者","keys":null},{"id":"perf","icon":"🎯","name":"竞技心理","desc":"注意调控、压力管理、运动表现优化","keys":["竞技","表现","压力","心理调控","注意"]},{"id":"cog","icon":"🧬","name":"认知神经","desc":"运动认知、脑功能成像、神经机制","keys":["认知","神经","脑","EEG","fMRI"]},{"id":"ex","icon":"💪","name":"锻炼心理","desc":"锻炼动机、情绪调节、心理健康促进","keys":["锻炼","动机","情绪","心理健康"]},{"id":"dev","icon":"👶","name":"青少年心理","desc":"青少年运动心理、体育教育心理","keys":["青少年","发展","儿童","学校"]}]},"pe":{"key":"pe","name":"体育教育学","icon":"🏫","color":"#3E82B0","hero":"linear-gradient(135deg,#071528 0%,#0f2d52 50%,#061020 100%)","subtopics":[{"id":"all","icon":"🏫","name":"全部","desc":"体育教育学领域全部学者","keys":null},{"id":"curri","icon":"📝","name":"课程与教学","desc":"体育课程设计、教学理论与方法、教学评价","keys":["课程","教学","教材","体育课"]},{"id":"school","icon":"🏫","name":"学校体育","desc":"学校体育政策、素质教育、学生体质","keys":["学校","素质","学生","中小学"]},{"id":"pe_health","icon":"❤️","name":"体育与健康","desc":"体育促进健康、运动干预、体质监测","keys":["健康","体质","干预","促进"]},{"id":"teach","icon":"👨‍🏫","name":"教师发展","desc":"教师专业发展、教学技能、培训","keys":["教师","培训","专业发展","师资"]}]},"hu":{"key":"hu","name":"体育人文社会学","icon":"📖","color":"#F97316","hero":"linear-gradient(135deg,#1a0a00 0%,#3d1a00 50%,#1a0800 100%)","subtopics":[{"id":"all","icon":"📖","name":"全部","desc":"体育人文社会学领域全部学者","keys":null},{"id":"hist","icon":"🏛","name":"体育史学","desc":"中国体育史、奥林匹克史、体育文化遗产","keys":["历史","体育史","奥林匹克","文化遗产"]},{"id":"soc","icon":"🌍","name":"体育社会学","desc":"体育与社会、体育政策、体育文化","keys":["社会学","社会","政策","文化"]},{"id":"phil","icon":"🎭","name":"体育哲学","desc":"体育本质、体育价值、体育伦理","keys":["哲学","价值","伦理","本质"]},{"id":"law","icon":"⚖️","name":"体育法学","desc":"体育法律、反兴奋剂法律、体育纠纷","keys":["法学","法律","仲裁","纠纷"]}]},"mgmt":{"key":"mgmt","name":"体育管理学","icon":"📊","color":"#10B981","hero":"linear-gradient(135deg,#001a0d 0%,#003d1a 50%,#001008 100%)","subtopics":[{"id":"all","icon":"📊","name":"全部","desc":"体育管理学领域全部学者","keys":null},{"id":"industry","icon":"💹","name":"体育产业","desc":"体育市场、体育经济、赛事运营","keys":["产业","经济","市场","赛事"]},{"id":"policy","icon":"📋","name":"体育政策","desc":"体育体制改革、政府体育政策、体育治理","keys":["政策","治理","改革","政府","体制"]},{"id":"event","icon":"🏟","name":"赛事管理","desc":"大型赛事、场馆运营、体育联赛","keys":["赛事管理","场馆","联赛","奥运会"]},{"id":"fitness","icon":"🎿","name":"全民健身","desc":"社会体育、群众体育、健身休闲","keys":["全民健身","群众","社会体育","休闲"]}]},"train":{"key":"train","name":"运动训练学","icon":"🏃","color":"#C8A24B","hero":"linear-gradient(135deg,#1a1000 0%,#3d2800 50%,#150d00 100%)","subtopics":[{"id":"all","icon":"🏃","name":"全部","desc":"运动训练学领域全部学者","keys":null},{"id":"theory","icon":"📐","name":"训练理论","desc":"训练负荷、周期化、训练方法与手段","keys":["训练理论","负荷","周期","方法"]},{"id":"strength","icon":"💪","name":"体能训练","desc":"力量、速度、耐力体能开发","keys":["体能","力量","速度","耐力"]},{"id":"tech","icon":"⚽","name":"技战术","desc":"竞技项目技战术分析与训练","keys":["技战术","战术","技术分析"]},{"id":"elite","icon":"🥇","name":"竞技备战","desc":"奥运备战、高水平运动员培养","keys":["奥运","高水平","精英","备战"]}]},"trad":{"key":"trad","name":"民族传统体育学","icon":"🥋","color":"#A23B4E","hero":"linear-gradient(135deg,#1a002e 0%,#380052 50%,#12001f 100%)","subtopics":[{"id":"all","icon":"🥋","name":"全部","desc":"民族传统体育学领域全部学者","keys":null},{"id":"wushu","icon":"🐉","name":"武术学","desc":"武术套路、散打、武术文化与传播","keys":["武术","太极","套路","散打"]},{"id":"ethnic","icon":"🌿","name":"民族体育","desc":"少数民族传统体育、非遗体育文化","keys":["民族","非遗","少数民族","传统"]},{"id":"yang","icon":"🌱","name":"传统养生","desc":"传统体育养生、气功、健身气功","keys":["养生","气功","导引"]}]},"rehab":{"key":"rehab","name":"运动医学与康复","icon":"🏥","color":"#06B6D4","hero":"linear-gradient(135deg,#001a1f 0%,#003d47 50%,#001215 100%)","subtopics":[{"id":"all","icon":"🏥","name":"全部","desc":"运动医学与康复领域全部学者","keys":null},{"id":"med","icon":"🩺","name":"运动医学","desc":"运动损伤诊治、运动员医疗保障","keys":["运动医学","损伤","手术","骨科"]},{"id":"rehab_s","icon":"🔄","name":"运动康复","desc":"运动康复理论与技术、物理治疗","keys":["康复","物理治疗","恢复","功能"]},{"id":"doping","icon":"🧪","name":"反兴奋剂","desc":"反兴奋剂科学、药物检测与防控","keys":["兴奋剂","药物","检测"]}]}};
+var DCFG={"psych":{"key":"psych","name":"运动心理学","icon":"🧠","color":"#2C6E9E","hero":"linear-gradient(#F5F7FA,#F5F7FA)","subtopics":[{"id":"all","icon":"🧠","name":"全部","desc":"运动心理学领域全部学者","keys":null},{"id":"perf","icon":"🎯","name":"竞技心理","desc":"注意调控、压力管理、运动表现优化","keys":["竞技","表现","压力","心理调控","注意"]},{"id":"cog","icon":"🧬","name":"认知神经","desc":"运动认知、脑功能成像、神经机制","keys":["认知","神经","脑","EEG","fMRI"]},{"id":"ex","icon":"💪","name":"锻炼心理","desc":"锻炼动机、情绪调节、心理健康促进","keys":["锻炼","动机","情绪","心理健康"]},{"id":"dev","icon":"👶","name":"青少年心理","desc":"青少年运动心理、体育教育心理","keys":["青少年","发展","儿童","学校"]}]},"pe":{"key":"pe","name":"体育教育学","icon":"🏫","color":"#2C6E9E","hero":"linear-gradient(#F5F7FA,#F5F7FA)","subtopics":[{"id":"all","icon":"🏫","name":"全部","desc":"体育教育学领域全部学者","keys":null},{"id":"curri","icon":"📝","name":"课程与教学","desc":"体育课程设计、教学理论与方法、教学评价","keys":["课程","教学","教材","体育课"]},{"id":"school","icon":"🏫","name":"学校体育","desc":"学校体育政策、素质教育、学生体质","keys":["学校","素质","学生","中小学"]},{"id":"pe_health","icon":"❤️","name":"体育与健康","desc":"体育促进健康、运动干预、体质监测","keys":["健康","体质","干预","促进"]},{"id":"teach","icon":"👨‍🏫","name":"教师发展","desc":"教师专业发展、教学技能、培训","keys":["教师","培训","专业发展","师资"]}]},"hu":{"key":"hu","name":"体育人文社会学","icon":"📖","color":"#2C6E9E","hero":"linear-gradient(#F5F7FA,#F5F7FA)","subtopics":[{"id":"all","icon":"📖","name":"全部","desc":"体育人文社会学领域全部学者","keys":null},{"id":"hist","icon":"🏛","name":"体育史学","desc":"中国体育史、奥林匹克史、体育文化遗产","keys":["历史","体育史","奥林匹克","文化遗产"]},{"id":"soc","icon":"🌍","name":"体育社会学","desc":"体育与社会、体育政策、体育文化","keys":["社会学","社会","政策","文化"]},{"id":"phil","icon":"🎭","name":"体育哲学","desc":"体育本质、体育价值、体育伦理","keys":["哲学","价值","伦理","本质"]},{"id":"law","icon":"⚖️","name":"体育法学","desc":"体育法律、反兴奋剂法律、体育纠纷","keys":["法学","法律","仲裁","纠纷"]}]},"mgmt":{"key":"mgmt","name":"体育管理学","icon":"📊","color":"#2C6E9E","hero":"linear-gradient(#F5F7FA,#F5F7FA)","subtopics":[{"id":"all","icon":"📊","name":"全部","desc":"体育管理学领域全部学者","keys":null},{"id":"industry","icon":"💹","name":"体育产业","desc":"体育市场、体育经济、赛事运营","keys":["产业","经济","市场","赛事"]},{"id":"policy","icon":"📋","name":"体育政策","desc":"体育体制改革、政府体育政策、体育治理","keys":["政策","治理","改革","政府","体制"]},{"id":"event","icon":"🏟","name":"赛事管理","desc":"大型赛事、场馆运营、体育联赛","keys":["赛事管理","场馆","联赛","奥运会"]},{"id":"fitness","icon":"🎿","name":"全民健身","desc":"社会体育、群众体育、健身休闲","keys":["全民健身","群众","社会体育","休闲"]}]},"train":{"key":"train","name":"运动训练学","icon":"🏃","color":"#2C6E9E","hero":"linear-gradient(#F5F7FA,#F5F7FA)","subtopics":[{"id":"all","icon":"🏃","name":"全部","desc":"运动训练学领域全部学者","keys":null},{"id":"theory","icon":"📐","name":"训练理论","desc":"训练负荷、周期化、训练方法与手段","keys":["训练理论","负荷","周期","方法"]},{"id":"strength","icon":"💪","name":"体能训练","desc":"力量、速度、耐力体能开发","keys":["体能","力量","速度","耐力"]},{"id":"tech","icon":"⚽","name":"技战术","desc":"竞技项目技战术分析与训练","keys":["技战术","战术","技术分析"]},{"id":"elite","icon":"🥇","name":"竞技备战","desc":"奥运备战、高水平运动员培养","keys":["奥运","高水平","精英","备战"]}]},"trad":{"key":"trad","name":"民族传统体育学","icon":"🥋","color":"#2C6E9E","hero":"linear-gradient(#F5F7FA,#F5F7FA)","subtopics":[{"id":"all","icon":"🥋","name":"全部","desc":"民族传统体育学领域全部学者","keys":null},{"id":"wushu","icon":"🐉","name":"武术学","desc":"武术套路、散打、武术文化与传播","keys":["武术","太极","套路","散打"]},{"id":"ethnic","icon":"🌿","name":"民族体育","desc":"少数民族传统体育、非遗体育文化","keys":["民族","非遗","少数民族","传统"]},{"id":"yang","icon":"🌱","name":"传统养生","desc":"传统体育养生、气功、健身气功","keys":["养生","气功","导引"]}]},"rehab":{"key":"rehab","name":"运动医学与康复","icon":"🏥","color":"#2C6E9E","hero":"linear-gradient(#F5F7FA,#F5F7FA)","subtopics":[{"id":"all","icon":"🏥","name":"全部","desc":"运动医学与康复领域全部学者","keys":null},{"id":"med","icon":"🩺","name":"运动医学","desc":"运动损伤诊治、运动员医疗保障","keys":["运动医学","损伤","手术","骨科"]},{"id":"rehab_s","icon":"🔄","name":"运动康复","desc":"运动康复理论与技术、物理治疗","keys":["康复","物理治疗","恢复","功能"]},{"id":"doping","icon":"🧪","name":"反兴奋剂","desc":"反兴奋剂科学、药物检测与防控","keys":["兴奋剂","药物","检测"]}]}};
 var DS={};
 function renderDiscLab(k){
   var c=DCFG[k];if(!c)return;
@@ -57943,7 +57943,7 @@ function youthRenderGrid(grid,list){
     // 职称 + 学科
     H+='<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">';
     H+='<span style="font-size:.68rem;padding:2px 7px;border-radius:4px;background:rgba(255,255,255,.06);color:#8A94A8;">'+s.title.split('、')[0]+'</span>';
-    if(DISC_LABELS[s.disc]) H+='<span style="font-size:.68rem;padding:2px 7px;border-radius:4px;background:'+s.c+'10;color:'+s.c+';">'+DISC_LABELS[s.disc]+'</span>';
+    if(DISC_LABELS[s.disc]) H+='<span class="sp-card-disc">'+DISC_LABELS[s.disc]+'</span>';
     H+='</div>';
     // 人才计划标签
     if(youthTag) H+='<div style="font-size:.68rem;color:#f59e0b;margin-bottom:6px;">⭐ '+youthTag+'</div>';
@@ -57970,7 +57970,7 @@ function youthRenderList(grid,list){
     H+='<div class="youth-av" style="width:28px;height:28px;border-radius:7px;background:#F5F7FA;color:#0A2A43;border:1px solid #E3E8EF;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;">'+s.i+'</div>';
     H+='<div><div style="font-size:.82rem;font-weight:600;color:#e2e8f0;">'+s.n+(s.g==='female'?'<span style="color:#ec4899;margin-left:3px;font-size:.62rem;">♀</span>':'')+'</div><div style="font-size:.65rem;color:#64748b;margin-top:1px;">'+s.s+' · '+s.title.split('、')[0]+'</div></div>';
     H+='<div style="font-size:.68rem;color:#f59e0b;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+youthTag+'</div>';
-    H+='<div><span style="font-size:.65rem;padding:1px 6px;border-radius:3px;background:'+s.c+'12;color:'+s.c+';">'+(DISC_LABELS[s.disc]||s.dL)+'</span></div>';
+    H+='<div><span class="sp-card-disc">'+(DISC_LABELS[s.disc]||s.dL)+'</span></div>';
     H+='<div style="text-align:right;"><span class="sp-level-pill">'+LEVEL_LABELS[s.youthLevel||'C']+'</span></div>';
     H+='</div>';
   });
@@ -58271,7 +58271,7 @@ function renderGSR(q){
 }
 
 function gsrItem(s, i, q){
-  var DISC_COLOR = {sci:'#3E82B0',psych:'#2C6E9E',hu:'#f43f5e',train:'#f59e0b',trad:'#2C6E9E',mgmt:'#10b981',rehab:'#f97316',pe:'#3b82f6',eng:'#ec4899'};
+  var DISC_COLOR = {sci:'#2C6E9E',psych:'#2C6E9E',hu:'#2C6E9E',train:'#2C6E9E',trad:'#2C6E9E',mgmt:'#2C6E9E',rehab:'#2C6E9E',pe:'#2C6E9E',eng:'#2C6E9E'};
   var dc = DISC_COLOR[s.disc] || '#64748b';
   var name = q ? s.n.replace(new RegExp(q,'g'),'<mark>'+q+'</mark>') : s.n;
   var hat = s.hats && s.hats.length ? s.hats[0] : '';
