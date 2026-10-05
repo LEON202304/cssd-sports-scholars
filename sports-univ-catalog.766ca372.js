@@ -419,7 +419,7 @@ var REGS=[
 {k:'华东',icon:'🌊',clr:'#34d399',rgb:'52,211,153',provs:'上海·江苏·浙江·安徽·福建·江西·山东'},
 {k:'华中',icon:'🌸',clr:'#f472b6',rgb:'244,114,182',provs:'河南·湖北·湖南'},
 {k:'华南',icon:'☀️',clr:'#fb923c',rgb:'251,146,60',provs:'广东·广西·海南'},
-{k:'西南',icon:'🏔️',clr:'#a78bfa',rgb:'167,139,250',provs:'重庆·四川·贵州·云南·西藏'},
+{k:'西南',icon:'🏔️',clr:'#2C6E9E',rgb:'44,110,158',provs:'重庆·四川·贵州·云南·西藏'},
 {k:'西北',icon:'🏜️',clr:'#D4AE5A',rgb:'251,191,36',provs:'陕西·甘肃·青海·宁夏·新疆'}
 ];
 var SPGRP=[
@@ -427,7 +427,7 @@ var SPGRP=[
 {k:'med',icon:'🏥',label:'医药类院校',clr:'#f87171'},
 {k:'fin',icon:'💰',label:'财经类院校',clr:'#D4AE5A'},
 {k:'law',icon:'⚖️',label:'政法类院校',clr:'#fb923c'},
-{k:'lan',icon:'🌐',label:'语言传媒类',clr:'#a78bfa'},
+{k:'lan',icon:'🌐',label:'语言传媒类',clr:'#2C6E9E'},
 {k:'eth',icon:'🏛️',label:'民族类院校',clr:'#34d399'}
 ];
 var totalUni=UNIV_CATALOG.length;
@@ -480,12 +480,12 @@ H+=jH;
 var card=function(u){
   var isMain=u.grp==='main';
   var rk=isMain?'#'+u.rk:(u.grp==='spt'?'体'+u.rk:'专'+u.rk);
-  var rkClr=!isMain?'#64748b':u.rk<=10?'#f59e0b':u.rk<=50?'#a78bfa':u.rk<=100?'#3E82B0':'#64748b';
-  var rkBg=!isMain?'rgba(71,85,105,.1)':u.rk<=10?'rgba(200,162,75,.14)':u.rk<=50?'rgba(167,139,250,.13)':u.rk<=100?'rgba(56,189,248,.12)':'rgba(71,85,105,.1)';
+  var rkClr=!isMain?'#64748b':u.rk<=10?'#f59e0b':u.rk<=50?'#2C6E9E':u.rk<=100?'#3E82B0':'#64748b';
+  var rkBg=!isMain?'rgba(71,85,105,.1)':u.rk<=10?'rgba(200,162,75,.14)':u.rk<=50?'rgba(44,110,158,.13)':u.rk<=100?'rgba(56,189,248,.12)':'rgba(71,85,105,.1)';
   var tpB='';
   if(u.tp==='985')tpB='<span style="font-size:.5rem;padding:1px 4px;border-radius:3px;background:rgba(244,63,94,.12);color:#f87171;font-weight:700;border:1px solid rgba(244,63,94,.2);">985</span>';
   else if(u.tp==='211')tpB='<span style="font-size:.5rem;padding:1px 4px;border-radius:3px;background:rgba(56,189,248,.11);color:#3E82B0;font-weight:700;border:1px solid rgba(56,189,248,.2);">211</span>';
-  else if(u.tp==='双一流')tpB='<span style="font-size:.5rem;padding:1px 4px;border-radius:3px;background:rgba(167,139,250,.12);color:#a78bfa;font-weight:700;border:1px solid rgba(167,139,250,.2);">双一流</span>';
+  else if(u.tp==='双一流')tpB='<span style="font-size:.5rem;padding:1px 4px;border-radius:3px;background:rgba(44,110,158,.12);color:#2C6E9E;font-weight:700;border:1px solid rgba(44,110,158,.2);">双一流</span>';
   var pvB='<span style="font-size:.5rem;padding:1px 4px;border-radius:3px;background:rgba(255,255,255,.05);color:#64748b;border:1px solid rgba(255,255,255,.08);">'+u.prov+'</span>';
   var nm=u.iu?'<a href="'+u.iu+'" target="_blank" rel="noopener" style="color:#e0f2fe;font-weight:600;font-size:.83rem;text-decoration:none;" onmouseenter="this.style.color=\'#3E82B0\'" onmouseleave="this.style.color=\'#e0f2fe\'">'+u.n+'</a>':'<span style="color:#B8C2D0;font-weight:600;font-size:.83rem;">'+u.n+'</span>';
   var dpt=u.url
@@ -719,7 +719,7 @@ window._ucTp='all';
   };
 
   gsrItem=function(s,i,qv){
-    var DISC_COLOR={sci:'#3E82B0',psych:'#a855f7',hu:'#f43f5e',train:'#f59e0b',trad:'#8b5cf6',mgmt:'#10b981',rehab:'#f97316',pe:'#3b82f6',eng:'#ec4899',outdoor:'#3FB39C'};
+    var DISC_COLOR={sci:'#3E82B0',psych:'#2C6E9E',hu:'#f43f5e',train:'#f59e0b',trad:'#2C6E9E',mgmt:'#10b981',rehab:'#f97316',pe:'#3b82f6',eng:'#ec4899',outdoor:'#3FB39C'};
     var dc=DISC_COLOR[s.disc]||'#64748b';
     var name=s.n;
     if(qv){

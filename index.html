@@ -61,8 +61,8 @@ html.cssd-boot-ready #bootSplash{opacity:0!important;visibility:hidden!important
   --ink:#071620;--ink2:#0C1E2E;--sur:rgba(255,255,255,.038);--sur2:rgba(255,255,255,.065);
   --bdr:rgba(255,255,255,.072);--bdr2:rgba(255,255,255,.14);
   --cyan:#2E9A89;--blue:#2C6E9E;--gold:#C8A24B;--rose:#A23B4E;
-  --violet:#8B5CF6;--em:#10B981;--or:#F97316;--sky:#3E82B0;--pink:#A23B4E;
-  --psych:#A855F7;--psych2:#7C3AED;--gp:linear-gradient(92deg,#A855F7,#7C3AED);
+  --violet:#2C6E9E;--em:#10B981;--or:#F97316;--sky:#3E82B0;--pink:#A23B4E;
+  --psych:#2C6E9E;--psych2:#14476E;--gp:linear-gradient(92deg,#2C6E9E,#14476E);
   --pe2:#2C6E9E;--pe3:#14476E;--gpe:linear-gradient(92deg,#3E82B0,#14476E);
   --tx:#F0F4FF;--mu:#8A94A8;
   --gh:linear-gradient(160deg,#060B1C 0%,#0C2236 45%,#071A2A 100%);
@@ -106,7 +106,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .orb{position:absolute;border-radius:50%;filter:blur(88px);animation:of 10s ease-in-out infinite}
 .o1{width:520px;height:520px;background:radial-gradient(circle,rgba(46,154,137,.13),transparent 68%);top:-120px;left:-60px}
 .o2{width:420px;height:420px;background:radial-gradient(circle,rgba(37,99,235,.17),transparent 68%);bottom:-80px;right:-60px;animation-delay:-4s}
-.o3{width:260px;height:260px;background:radial-gradient(circle,rgba(139,92,246,.11),transparent 68%);top:45%;left:60%;animation-delay:-7s;opacity:.7}
+.o3{width:260px;height:260px;background:radial-gradient(circle,rgba(44,110,158,.11),transparent 68%);top:45%;left:60%;animation-delay:-7s;opacity:.7}
 @keyframes of{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.04)}}
 .grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(46,154,137,.034) 1px,transparent 1px),linear-gradient(90deg,rgba(46,154,137,.034) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,black 0%,transparent 100%)}
 .hc{position:relative;z-index:1;max-width:880px;width:100%}
@@ -182,17 +182,17 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .rb-dean{background:rgba(46,154,137,.1);color:var(--cyan);border:1px solid rgba(46,154,137,.22)}
 .rb-vdean{background:rgba(56,189,248,.1);color:var(--sky);border:1px solid rgba(56,189,248,.22)}
 .rb-lead{background:rgba(16,185,129,.1);color:var(--em);border:1px solid rgba(16,185,129,.22)}
-.rb-former{background:rgba(139,92,246,.1);color:var(--violet);border:1px solid rgba(139,92,246,.22)}
+.rb-former{background:rgba(44,110,158,.1);color:var(--violet);border:1px solid rgba(44,110,158,.22)}
 .rb-vp{background:rgba(200,162,75,.1);color:var(--gold);border:1px solid rgba(200,162,75,.22)}
 .rb-govt{background:rgba(236,72,153,.1);color:var(--pink);border:1px solid rgba(236,72,153,.22)}
 .cb{padding:0 20px 14px}
 .tr2{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:9px}
 .tag{padding:2px 8px;border-radius:999px;font-size:.66rem;font-weight:700;white-space:nowrap}
 .td-sci{background:rgba(46,154,137,.09);color:#2E9A89;border:1px solid rgba(46,154,137,.2)}
-.td-psych{background:rgba(168,85,247,.09);color:#A855F7;border:1px solid rgba(168,85,247,.22)}
+.td-psych{background:rgba(44,110,158,.09);color:#2C6E9E;border:1px solid rgba(44,110,158,.22)}
 .td-hu{background:rgba(244,63,94,.08);color:#A23B4E;border:1px solid rgba(244,63,94,.2)}
 .td-train{background:rgba(200,162,75,.08);color:#C8A24B;border:1px solid rgba(200,162,75,.2)}
-.td-trad{background:rgba(139,92,246,.08);color:#8B5CF6;border:1px solid rgba(139,92,246,.2)}
+.td-trad{background:rgba(44,110,158,.08);color:#2C6E9E;border:1px solid rgba(44,110,158,.2)}
 .td-mgmt{background:rgba(16,185,129,.08);color:#10B981;border:1px solid rgba(16,185,129,.2)}
 .td-rehab{background:rgba(249,115,22,.08);color:#F97316;border:1px solid rgba(249,115,22,.2)}
 .td-pe{background:rgba(44,110,158,.08);color:#3E82B0;border:1px solid rgba(44,110,158,.2)}
@@ -214,7 +214,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .cb985{display:inline-flex;align-items:center;font-size:.62rem;padding:1px 5px;border-radius:3px;background:rgba(251,191,36,.13);color:#FBBF24;border:1px solid rgba(251,191,36,.28);margin-left:3px;font-weight:600;letter-spacing:.02em}
 .cb211{display:inline-flex;align-items:center;font-size:.62rem;padding:1px 5px;border-radius:3px;background:rgba(34,197,94,.1);color:#4ADE80;border:1px solid rgba(34,197,94,.25);margin-left:3px;font-weight:600;letter-spacing:.02em}
 .t-hat{background:rgba(200,162,75,.09);color:var(--gold);border:1px solid rgba(200,162,75,.22)}
-.t-honor{background:rgba(139,92,246,.08);color:#A78BFA;border:1px solid rgba(139,92,246,.2)}
+.t-honor{background:rgba(44,110,158,.08);color:#2C6E9E;border:1px solid rgba(44,110,158,.2)}
 .t-src{background:rgba(123,135,160,.08);color:#8b97ac;border:1px dashed rgba(123,135,160,.28);font-weight:500}
 .crt{font-size:.75rem;color:var(--mu);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .cf{padding:11px 20px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;align-items:center}
@@ -307,14 +307,14 @@ mark{background:rgba(46,154,137,.25);color:inherit;border-radius:2px}
 .inst-tabs{display:flex;gap:6px;max-width:1240px;margin:0 auto 28px;flex-wrap:wrap}
 .inst-tab{padding:8px 20px;border-radius:8px;border:1px solid var(--bdr);font-size:.82rem;font-weight:600;color:var(--mu);transition:var(--tr);background:var(--sur)}
 .inst-tab:hover{border-color:var(--bdr2);color:var(--tx)}
-.inst-tab.on{border-color:var(--psych);color:var(--psych);background:rgba(168,85,247,.07)}
+.inst-tab.on{border-color:var(--psych);color:var(--psych);background:rgba(44,110,158,.07)}
 .inst-tab.on-inst{border-color:var(--cyan);color:var(--cyan);background:rgba(46,154,137,.07)}
 
 /* Psych direction hero */
-.dir-hero{background:linear-gradient(135deg,rgba(168,85,247,.08) 0%,rgba(124,58,237,.05) 100%);border:1px solid rgba(168,85,247,.18);border-radius:20px;padding:32px 36px;margin-bottom:36px;position:relative;overflow:hidden}
+.dir-hero{background:linear-gradient(135deg,rgba(44,110,158,.08) 0%,rgba(44,110,158,.05) 100%);border:1px solid rgba(44,110,158,.18);border-radius:20px;padding:32px 36px;margin-bottom:36px;position:relative;overflow:hidden}
 .dir-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none}
 .dir-hero-content{position:relative;z-index:1}
-.dir-eyebrow{display:inline-flex;align-items:center;gap:7px;padding:4px 12px 4px 6px;background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.22);border-radius:999px;font-size:.67rem;font-weight:700;color:var(--psych);margin-bottom:14px;letter-spacing:.08em;font-family:'DM Mono',monospace}
+.dir-eyebrow{display:inline-flex;align-items:center;gap:7px;padding:4px 12px 4px 6px;background:rgba(44,110,158,.1);border:1px solid rgba(44,110,158,.22);border-radius:999px;font-size:.67rem;font-weight:700;color:var(--psych);margin-bottom:14px;letter-spacing:.08em;font-family:'DM Mono',monospace}
 .dir-dot{width:5px;height:5px;background:var(--psych);border-radius:50%;animation:pulse 2s ease-in-out infinite}
 .dir-title{font-family:'Noto Serif SC','Source Han Serif SC','Songti SC','SimSun',Georgia,serif;font-size:clamp(1.5rem,3vw,2.1rem);font-weight:900;margin-bottom:6px}
 .dir-title .hl{background:var(--gp);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -323,19 +323,19 @@ mark{background:rgba(46,154,137,.25);color:inherit;border-radius:2px}
 .dir-stat{text-align:center}
 .dir-sn{font-family:'Noto Serif SC','Source Han Serif SC','Songti SC','SimSun',Georgia,serif;font-size:1.6rem;font-weight:900;background:var(--gp);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
 .dir-sl{font-size:.65rem;color:var(--mu);margin-top:2px;font-family:'DM Mono',monospace}
-.dir-sdiv{width:1px;height:36px;background:rgba(168,85,247,.2);align-self:center}
+.dir-sdiv{width:1px;height:36px;background:rgba(44,110,158,.2);align-self:center}
 
 /* Sub-direction filter pills */
 .psych-sfbar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px}
 .psych-sf{padding:5px 13px;border-radius:999px;border:1px solid var(--bdr2);font-size:.76rem;font-weight:600;color:var(--mu);transition:var(--tr);background:var(--sur)}
-.psych-sf:hover,.psych-sf.on{border-color:var(--psych);color:var(--psych);background:rgba(168,85,247,.07)}
+.psych-sf:hover,.psych-sf.on{border-color:var(--psych);color:var(--psych);background:rgba(44,110,158,.07)}
 
 /* Tier section labels */
 .tier-sec{margin-bottom:44px}
 .tier-hd{display:flex;align-items:center;gap:10px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--bdr)}
 .tier-badge{padding:3px 12px;border-radius:6px;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'DM Mono',monospace}
 .tb-found{background:rgba(200,162,75,.1);color:var(--gold);border:1px solid rgba(200,162,75,.28)}
-.tb-lead{background:rgba(168,85,247,.1);color:var(--psych);border:1px solid rgba(168,85,247,.28)}
+.tb-lead{background:rgba(44,110,158,.1);color:var(--psych);border:1px solid rgba(44,110,158,.28)}
 .tb-young{background:rgba(16,185,129,.1);color:var(--em);border:1px solid rgba(16,185,129,.28)}
 .tb-expert{background:rgba(56,189,248,.1);color:var(--sky);border:1px solid rgba(56,189,248,.28)}
 .tier-line{flex:1;height:1px;background:var(--bdr)}
@@ -344,9 +344,9 @@ mark{background:rgba(46,154,137,.25);color:inherit;border-radius:2px}
 /* Psych scholar card */
 .pcg{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:15px}
 .pcard{background:var(--sur);border:1px solid var(--bdr);border-radius:var(--r14);overflow:hidden;transition:var(--tr);cursor:pointer}
-.pcard:hover{transform:translateY(-2px);box-shadow:var(--sh);border-color:rgba(168,85,247,.2)}
+.pcard:hover{transform:translateY(-2px);box-shadow:var(--sh);border-color:rgba(44,110,158,.2)}
 .pcard-top{padding:16px 16px 10px;display:flex;gap:11px;align-items:flex-start}
-.pav{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:700;flex-shrink:0;border:2px solid rgba(168,85,247,.25)}
+.pav{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:700;flex-shrink:0;border:2px solid rgba(44,110,158,.25)}
 .pname{font-family:'Noto Serif SC','Source Han Serif SC','Songti SC','SimSun',Georgia,serif;font-size:.98rem;font-weight:700;margin-bottom:1px}
 .pen{font-size:.65rem;color:var(--mu);font-family:'DM Mono',monospace;margin-bottom:3px}
 .pins{font-size:.73rem;color:var(--mu)}
@@ -361,17 +361,17 @@ mark{background:rgba(46,154,137,.25);color:inherit;border-radius:2px}
 .pt-cog{background:rgba(44,110,158,.08);color:#3E82B0;border:1px solid rgba(44,110,158,.2)}
 .pt-health{background:rgba(20,184,166,.08);color:#14B8A6;border:1px solid rgba(20,184,166,.2)}
 .pt-dec{background:rgba(249,115,22,.08);color:var(--or);border:1px solid rgba(249,115,22,.2)}
-.pt-assess{background:rgba(139,92,246,.08);color:var(--violet);border:1px solid rgba(139,92,246,.2)}
+.pt-assess{background:rgba(44,110,158,.08);color:var(--violet);border:1px solid rgba(44,110,158,.2)}
 .pt-bds{background:rgba(236,72,153,.08);color:var(--pink);border:1px solid rgba(236,72,153,.2)}
 .pt-hat{background:rgba(200,162,75,.09);color:var(--gold);border:1px solid rgba(200,162,75,.22)}
 .pt-who{background:rgba(16,185,129,.12);color:var(--em);border:1px solid rgba(16,185,129,.3);font-weight:800}
-.pt-diss{background:rgba(168,85,247,.08);color:var(--psych);border:1px solid rgba(168,85,247,.2)}
+.pt-diss{background:rgba(44,110,158,.08);color:var(--psych);border:1px solid rgba(44,110,158,.2)}
 .pimpact{font-size:.71rem;color:var(--psych);opacity:.8;font-style:italic;margin-top:4px;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
 .pres{font-size:.72rem;color:var(--mu);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .pcard-foot{padding:8px 16px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;align-items:center}
 .ptitle-badge{font-size:.63rem;font-weight:700;color:var(--mu);padding:2px 7px;background:var(--sur2);border-radius:4px}
-.plink{font-size:.7rem;font-weight:600;color:var(--psych);padding:3px 9px;border:1px solid rgba(168,85,247,.22);border-radius:4px;transition:var(--tr)}
-.plink:hover{background:rgba(168,85,247,.1)}
+.plink{font-size:.7rem;font-weight:600;color:var(--psych);padding:3px 9px;border:1px solid rgba(44,110,158,.22);border-radius:4px;transition:var(--tr)}
+.plink:hover{background:rgba(44,110,158,.1)}
 
 /* Other directions card */
 .odir-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
@@ -387,7 +387,7 @@ mark{background:rgba(46,154,137,.25);color:inherit;border-radius:2px}
 .pe-t-teach{background:rgba(200,162,75,.09);color:#C8A24B;border:1px solid rgba(200,162,75,.22)}
 .pe-t-fit{background:rgba(46,154,137,.09);color:#2E9A89;border:1px solid rgba(46,154,137,.22)}
 .pe-t-std{background:rgba(244,63,94,.09);color:#A23B4E;border:1px solid rgba(244,63,94,.22)}
-.pe-t-icl{background:rgba(139,92,246,.09);color:#8B5CF6;border:1px solid rgba(139,92,246,.22)}
+.pe-t-icl{background:rgba(44,110,158,.09);color:#2C6E9E;border:1px solid rgba(44,110,158,.22)}
 .pe-t-sport{background:rgba(249,115,22,.09);color:#F97316;border:1px solid rgba(249,115,22,.22)}
 .pe-t-hat{background:rgba(200,162,75,.09);color:var(--gold);border:1px solid rgba(200,162,75,.22)}
 .pe-t-eval{background:rgba(236,72,153,.09);color:#A23B4E;border:1px solid rgba(236,72,153,.22)}
@@ -407,14 +407,14 @@ mark{background:rgba(46,154,137,.25);color:inherit;border-radius:2px}
 .cj-sec-hd{font-family:'Noto Serif SC','Source Han Serif SC','Songti SC','SimSun',Georgia,serif;font-size:1.1rem;font-weight:700;color:var(--text-primary);
   padding-bottom:12px;border-bottom:2px solid;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
 .cj-sec-hd.gold{border-color:#C9A956;color:#C9A956;}
-.cj-sec-hd.violet{border-color:#818cf8;color:#818cf8;}
+.cj-sec-hd.violet{border-color:#2C6E9E;color:#2C6E9E;}
 .cj-badge{font-size:.65rem;font-weight:600;padding:2px 10px;border-radius:20px;font-family:Inter,sans-serif;}
 .cj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:36px;}
 .cj-card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:0;overflow:hidden;
   transition:all .2s ease;position:relative;display:flex;flex-direction:column;}
 .cj-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.15);}
 .cj-card-bar{height:4px;width:100%;background:linear-gradient(90deg,#C9A956,#E8C97A);}
-.cj-card-bar.violet{background:linear-gradient(90deg,#6366f1,#818cf8);}
+.cj-card-bar.violet{background:linear-gradient(90deg,#2C6E9E,#2C6E9E);}
 .cj-card-inner{padding:18px 20px;flex:1;}
 .cj-rank-badge{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--text-muted);
   background:var(--sidebar-bg);border:1px solid var(--border);border-radius:3px;padding:1px 5px;
@@ -425,7 +425,7 @@ mark{background:rgba(46,154,137,.25);color:inherit;border-radius:2px}
 .cj-inst{font-size:.82rem;color:var(--accent);font-weight:500;margin:4px 0 8px;}
 .cj-disc{display:inline-block;font-size:.7rem;padding:2px 8px;border-radius:4px;margin-bottom:8px;
   background:rgba(201,169,86,.1);color:#C9A956;border:1px solid rgba(201,169,86,.25);}
-.cj-disc.violet-disc{background:rgba(99,102,241,.1);color:#818cf8;border-color:rgba(99,102,241,.25);}
+.cj-disc.violet-disc{background:rgba(44,110,158,.1);color:#2C6E9E;border-color:rgba(44,110,158,.25);}
 .cj-note{font-size:.79rem;color:var(--text-secondary);line-height:1.55;}
 .cj-link{display:inline-flex;align-items:center;gap:4px;font-size:.72rem;color:var(--accent);
   text-decoration:none;margin-top:10px;opacity:.75;}
@@ -453,7 +453,7 @@ mark{background:rgba(46,154,137,.25);color:inherit;border-radius:2px}
 .rBp{background:rgba(34,197,94,.12);color:#3FB39C;border:1px solid rgba(34,197,94,.3);}
 .rB{background:rgba(20,184,166,.12);color:#14b8a6;border:1px solid rgba(20,184,166,.3);}
 .rBm{background:rgba(44,110,158,.12);color:#3b82f6;border:1px solid rgba(44,110,158,.3);}
-.rCp{background:rgba(139,92,246,.12);color:#8b5cf6;border:1px solid rgba(139,92,246,.3);}
+.rCp{background:rgba(44,110,158,.12);color:#2C6E9E;border:1px solid rgba(44,110,158,.3);}
 .rC{background:rgba(156,163,175,.12);color:#9ca3af;border:1px solid rgba(156,163,175,.3);}
 .rCm{background:rgba(156,163,175,.08);color:#6b7280;border:1px solid rgba(156,163,175,.2);}
 .rNew{background:rgba(16,185,129,.12);color:#10b981;border:1px solid rgba(16,185,129,.3);}
@@ -474,7 +474,7 @@ mark{background:rgba(46,154,137,.25);color:inherit;border-radius:2px}
 .phd-card:hover{border-color:rgba(46,154,137,.25);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.2);}
 .phd-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;}
 .phd-card.c-dual::before{background:linear-gradient(180deg,#3b82f6,#10b981);}
-.phd-card.c-acad::before{background:#818cf8;}
+.phd-card.c-acad::before{background:#2C6E9E;}
 .phd-card.c-prof::before{background:#f59e0b;}
 .phd-card-top{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;}
 .phd-card-name{font-family:'Noto Serif SC','Source Han Serif SC','Songti SC','SimSun',Georgia,serif;font-weight:600;font-size:.88rem;color:#0A2A43;cursor:pointer;flex:1;line-height:1.3;}
@@ -483,7 +483,7 @@ mark{background:rgba(46,154,137,.25);color:inherit;border-radius:2px}
 .phd-types{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:6px;align-items:center;}
 .phd-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:4px;font-size:.67rem;font-weight:600;}
 .pb-dual{background:rgba(16,185,129,.1);color:#10b981;border:1px solid rgba(16,185,129,.25);}
-.pb-acad{background:rgba(99,102,241,.1);color:#818cf8;border:1px solid rgba(99,102,241,.25);}
+.pb-acad{background:rgba(44,110,158,.1);color:#2C6E9E;border:1px solid rgba(44,110,158,.25);}
 .pb-prof{background:rgba(200,162,75,.1);color:#f59e0b;border:1px solid rgba(200,162,75,.25);}
 .pb-new{display:inline-block;background:rgba(16,185,129,.12);color:#10b981;font-size:.62rem;padding:1px 5px;border-radius:3px;font-weight:600;}
 .phd-note{font-size:.71rem;color:#5A6575;line-height:1.45;margin-top:5px;}
@@ -542,7 +542,7 @@ mark{background:rgba(46,154,137,.25);color:inherit;border-radius:2px}
 .sci-scard-tags{display:flex;gap:5px;flex-wrap:wrap;}
 .sci-tag{padding:1px 7px;border-radius:4px;font-size:.63rem;font-weight:600;}
 .sci-tag-hat{background:rgba(234,179,8,.1);color:#eab308;border:1px solid rgba(234,179,8,.25);}
-.sci-tag-hon{background:rgba(99,102,241,.1);color:#818cf8;border:1px solid rgba(99,102,241,.25);}
+.sci-tag-hon{background:rgba(44,110,158,.1);color:#2C6E9E;border:1px solid rgba(44,110,158,.25);}
 .sci-inst-list{display:flex;flex-direction:column;gap:7px;}
 .sci-inst-row{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--card-bg);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .15s;}
 .sci-inst-row:hover{border-color:rgba(56,189,248,.3);}
@@ -601,7 +601,7 @@ mark{background:rgba(46,154,137,.25);color:inherit;border-radius:2px}
 .dlab-scard-tags{display:flex;gap:5px;flex-wrap:wrap;}
 .dlab-tag{padding:1px 7px;border-radius:4px;font-size:.63rem;font-weight:600;}
 .dlab-tag-hat{background:rgba(234,179,8,.1);color:#eab308;border:1px solid rgba(234,179,8,.25);}
-.dlab-tag-hon{background:rgba(99,102,241,.1);color:#818cf8;border:1px solid rgba(99,102,241,.25);}
+.dlab-tag-hon{background:rgba(44,110,158,.1);color:#2C6E9E;border:1px solid rgba(44,110,158,.25);}
 .dlab-inst-list{display:flex;flex-direction:column;gap:7px;}
 .dlab-inst-row{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--card-bg);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:opacity .15s;border-left-width:3px;}
 .dlab-inst-row:hover{opacity:.8;}
@@ -649,7 +649,7 @@ mark{background:rgba(46,154,137,.25);color:inherit;border-radius:2px}
 .l3-inst-sub{font-size:.72rem;color:var(--text-muted);}
 .l3-inst-badges{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px;}
 .l3-badge{padding:2px 8px;border-radius:4px;font-size:.65rem;font-weight:600;}
-.l3-badge-phd{background:rgba(99,102,241,.1);color:#818cf8;border:1px solid rgba(99,102,241,.25);}
+.l3-badge-phd{background:rgba(44,110,158,.1);color:#2C6E9E;border:1px solid rgba(44,110,158,.25);}
 .l3-badge-rank{background:rgba(234,179,8,.1);color:#eab308;border:1px solid rgba(234,179,8,.25);}
 .l3-badge-region{background:rgba(255,255,255,.05);color:var(--text-muted);border:1px solid var(--border);}
 .l3-scholar-strip{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:8px;}
@@ -808,7 +808,7 @@ mark{background:rgba(46,154,137,.25);color:inherit;border-radius:2px}
   line-height:1.1;
 }
 .hl{
-  background:linear-gradient(90deg,#2E9A89,#7C3AED);
+  background:linear-gradient(90deg,#2E9A89,#14476E);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
@@ -840,13 +840,13 @@ mark{background:rgba(46,154,137,.25);color:inherit;border-radius:2px}
 .dp-timeline{display:flex;flex-direction:column;gap:0;margin:8px 0;}
 .dp-year-row{display:flex;gap:0;align-items:stretch;}
 .dp-year-label{width:80px;flex-shrink:0;font-family:'DM Mono',monospace;font-size:.75rem;
-  color:#818cf8;font-weight:700;padding:12px 16px 12px 0;text-align:right;
-  border-right:2px solid rgba(99,102,241,.3);}
+  color:#2C6E9E;font-weight:700;padding:12px 16px 12px 0;text-align:right;
+  border-right:2px solid rgba(44,110,158,.3);}
 .dp-year-items{flex:1;padding:8px 0 8px 16px;display:flex;flex-wrap:wrap;gap:6px;}
 .dp-inst-chip{padding:4px 10px;border-radius:5px;font-size:.73rem;
-  background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.2);
+  background:rgba(44,110,158,.1);border:1px solid rgba(44,110,158,.2);
   color:#c7d2fe;cursor:pointer;transition:all .12s;white-space:nowrap;}
-.dp-inst-chip:hover{background:rgba(99,102,241,.2);color:#DCE6F0;}
+.dp-inst-chip:hover{background:rgba(44,110,158,.2);color:#DCE6F0;}
 .dp-inst-chip.dual{background:rgba(16,185,129,.1);border-color:rgba(16,185,129,.25);color:#6ee7b7;}
 
 
@@ -861,8 +861,8 @@ mark{background:rgba(46,154,137,.25);color:inherit;border-radius:2px}
 .hb-disc:hover{background:rgba(56,189,248,.13);border-color:rgba(56,189,248,.55);transform:translateY(-1px);}
 .hb-hat{border-color:rgba(200,162,75,.3);color:#f59e0b;background:rgba(200,162,75,.06);}
 .hb-hat:hover{background:rgba(200,162,75,.13);border-color:rgba(200,162,75,.55);transform:translateY(-1px);}
-.hb-deg{border-color:rgba(99,102,241,.3);color:#818cf8;background:rgba(99,102,241,.06);}
-.hb-deg:hover{background:rgba(99,102,241,.13);border-color:rgba(99,102,241,.55);transform:translateY(-1px);}
+.hb-deg{border-color:rgba(44,110,158,.3);color:#2C6E9E;background:rgba(44,110,158,.06);}
+.hb-deg:hover{background:rgba(44,110,158,.13);border-color:rgba(44,110,158,.55);transform:translateY(-1px);}
 .hb-btn svg{opacity:.75;flex-shrink:0;}
 
 /* ══ 对比栏 ══ */
@@ -1032,7 +1032,7 @@ button { font-family:inherit; cursor:pointer; }
 .hbg { pointer-events:none; }
 .o1 { background:radial-gradient(circle,rgba(37,99,235,.15),transparent 70%); }
 .o2 { background:radial-gradient(circle,rgba(46,154,137,.12),transparent 70%); }
-.o3 { background:radial-gradient(circle,rgba(139,92,246,.1),transparent 70%); }
+.o3 { background:radial-gradient(circle,rgba(44,110,158,.1),transparent 70%); }
 .h1 {
   font-size:clamp(2.4rem,6vw,4.2rem);
   letter-spacing:-.04em;
@@ -1237,9 +1237,9 @@ button { font-family:inherit; cursor:pointer; }
   color:#f59e0b;
 }
 .chip.on.role {
-  background:rgba(99,102,241,.1);
-  border-color:rgba(99,102,241,.3);
-  color:#818cf8;
+  background:rgba(44,110,158,.1);
+  border-color:rgba(44,110,158,.3);
+  color:#2C6E9E;
 }
 
 /* 结果信息条 */
@@ -1605,14 +1605,14 @@ button { font-family:inherit; cursor:pointer; }
 /* ── 青年学者专栏 ── */
 .youth-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px;cursor:pointer;transition:all .18s;position:relative;overflow:hidden;}
 .youth-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:12px 12px 0 0;transition:opacity .2s;}
-.youth-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.35);border-color:rgba(139,92,246,.2);}
+.youth-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.35);border-color:rgba(44,110,158,.2);}
 .youth-level-A{border-top:2px solid rgba(200,162,75,.6)!important;}
-.youth-level-B{border-top:2px solid rgba(139,92,246,.4)!important;}
-.youth-level-C{border-top:2px solid rgba(99,102,241,.3)!important;}
+.youth-level-B{border-top:2px solid rgba(44,110,158,.4)!important;}
+.youth-level-C{border-top:2px solid rgba(44,110,158,.3)!important;}
 .youth-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:10px;font-size:.62rem;font-weight:700;}
-.youth-badge.A{background:rgba(200,162,75,.12);color:#f59e0b;border:1px solid rgba(200,162,75,.25);}
-.youth-badge.B{background:rgba(139,92,246,.12);color:#a78bfa;border:1px solid rgba(139,92,246,.25);}
-.youth-badge.C{background:rgba(99,102,241,.1);color:#818cf8;border:1px solid rgba(99,102,241,.2);}
+.youth-badge.A,.youth-badge.B,.youth-badge.C,.sp-level-pill{background:#FFFFFF;color:#0A2A43;border:1px solid #E3E8EF;}
+
+
 .youth-gender-f{color:#ec4899;}
 .youth-list-row{display:grid;grid-template-columns:36px 180px 1fr 120px 100px;align-items:center;gap:10px;padding:8px 12px;border-radius:8px;border:1px solid transparent;cursor:pointer;transition:all .12s;font-size:.78rem;}
 .youth-list-row:hover{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08);}
@@ -2140,7 +2140,7 @@ mark {
   --pro-cyan-glow:      rgba(46,154,137,.25);
   --pro-blue:           #2C6E9E;
   --pro-blue-dim:       rgba(37,99,235,.15);
-  --pro-indigo:         #6366F1;
+  --pro-indigo:         #2C6E9E;
   --pro-emerald:        #10B981;
   --pro-amber:          #C8A24B;
   --pro-rose:           #A23B4E;
@@ -2291,7 +2291,7 @@ nav:not([class*="sp-"]), .nav-bar, header:not(.sp-header) {
   background:
     radial-gradient(ellipse 80% 50% at 50% -10%,  rgba(46,154,137,.10) 0%, transparent 60%),
     radial-gradient(ellipse 60% 40% at 90%  50%,  rgba(37,99,235,.08)  0%, transparent 50%),
-    radial-gradient(ellipse 50% 60% at 10%  80%,  rgba(99,102,241,.06) 0%, transparent 50%);
+    radial-gradient(ellipse 50% 60% at 10%  80%,  rgba(44,110,158,.06) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
 }
@@ -3442,7 +3442,7 @@ button, .btn {
   color: #2E9A89;
 }
 .jnl-chip.cssci.on { background: rgba(200,162,75,.1); border-color: rgba(200,162,75,.3); color: #C8A24B; }
-.jnl-chip.pku.on   { background: rgba(99,102,241,.1);  border-color: rgba(99,102,241,.3);  color: #818CF8; }
+.jnl-chip.pku.on   { background: rgba(44,110,158,.1);  border-color: rgba(44,110,158,.3);  color: #2C6E9E; }
 .jnl-chip.q1.on    { background: rgba(16,185,129,.1);  border-color: rgba(16,185,129,.3);  color: #10B981; }
 .jnl-chip.q2.on    { background: rgba(56,189,248,.1);  border-color: rgba(56,189,248,.3);  color: #3E82B0; }
 
@@ -3531,10 +3531,10 @@ button, .btn {
   letter-spacing: .04em;
 }
 .jnl-badge-cssci   { background: rgba(200,162,75,.12);  color: #C8A24B; border: 1px solid rgba(200,162,75,.28); }
-.jnl-badge-pku     { background: rgba(99,102,241,.12);  color: #818CF8; border: 1px solid rgba(99,102,241,.28); }
+.jnl-badge-pku     { background: rgba(44,110,158,.12);  color: #2C6E9E; border: 1px solid rgba(44,110,158,.28); }
 .jnl-badge-ei      { background: rgba(56,189,248,.12);  color: #3E82B0; border: 1px solid rgba(56,189,248,.28); }
 .jnl-badge-sci     { background: rgba(16,185,129,.12);  color: #10B981; border: 1px solid rgba(16,185,129,.28); }
-.jnl-badge-ssci    { background: rgba(168,85,247,.12);  color: #A855F7; border: 1px solid rgba(168,85,247,.28); }
+.jnl-badge-ssci    { background: rgba(44,110,158,.12);  color: #2C6E9E; border: 1px solid rgba(44,110,158,.28); }
 .jnl-badge-new     { background: rgba(244,63,94,.1);    color: #A23B4E; border: 1px solid rgba(244,63,94,.25);  }
 .jnl-badge-cscd    { background: rgba(6,182,212,.12);   color: #06B6D4; border: 1px solid rgba(6,182,212,.28);  }
 .jnl-cn-title {
@@ -3750,8 +3750,8 @@ button, .btn {
 .jq2  { background: rgba(56,189,248,.12);  color: #3E82B0; border-color: rgba(56,189,248,.3); }
 .jq3  { background: rgba(200,162,75,.12);  color: #C8A24B; border-color: rgba(200,162,75,.3); }
 .jq4  { background: rgba(122,132,148,.1);  color: #94A3B8; border-color: rgba(122,132,148,.25); }
-.jcas1{ background: rgba(168,85,247,.12);  color: #A855F7; border-color: rgba(168,85,247,.3); }
-.jcas2{ background: rgba(99,102,241,.12);  color: #818CF8; border-color: rgba(99,102,241,.3); }
+.jcas1{ background: rgba(44,110,158,.12);  color: #2C6E9E; border-color: rgba(44,110,158,.3); }
+.jcas2{ background: rgba(44,110,158,.12);  color: #2C6E9E; border-color: rgba(44,110,158,.3); }
 .jcas3{ background: rgba(244,63,94,.1);    color: #F87171; border-color: rgba(244,63,94,.25); }
 .jcas4{ background: rgba(122,132,148,.08); color: #6B7280; border-color: rgba(122,132,148,.18);}
 .jnl-int-scope {
@@ -3899,7 +3899,7 @@ button, .btn {
   inset: 0;
   background:
     radial-gradient(ellipse 80% 50% at 20% 50%, rgba(200,162,75,.07) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 60% at 80% 30%, rgba(168,85,247,.06) 0%, transparent 60%);
+    radial-gradient(ellipse 60% 60% at 80% 30%, rgba(44,110,158,.06) 0%, transparent 60%);
   pointer-events: none;
 }
 .fdr-hero::after {
@@ -4122,7 +4122,7 @@ button, .btn {
 }
 /* 等级光环 */
 .fdr-card[data-tier="1"] .fdr-avatar { border-color: rgba(200,162,75,.55); box-shadow: 0 0 18px rgba(200,162,75,.22); }
-.fdr-card[data-tier="2"] .fdr-avatar { border-color: rgba(168,85,247,.4);  box-shadow: 0 0 14px rgba(168,85,247,.15); }
+.fdr-card[data-tier="2"] .fdr-avatar { border-color: rgba(44,110,158,.4);  box-shadow: 0 0 14px rgba(44,110,158,.15); }
 .fdr-card[data-tier="3"] .fdr-avatar { border-color: rgba(56,189,248,.35); box-shadow: 0 0 12px rgba(56,189,248,.12); }
 .fdr-card[data-tier="4"] .fdr-avatar { border-color: rgba(16,185,129,.35); box-shadow: 0 0 12px rgba(16,185,129,.12); }
 
@@ -4160,7 +4160,7 @@ button, .btn {
   border: 1px solid;
 }
 .fdr-t1 { background: rgba(200,162,75,.14); color: #C8A24B;  border-color: rgba(200,162,75,.35); }
-.fdr-t2 { background: rgba(168,85,247,.12); color: #A855F7;  border-color: rgba(168,85,247,.3);  }
+.fdr-t2 { background: rgba(44,110,158,.12); color: #2C6E9E;  border-color: rgba(44,110,158,.3);  }
 .fdr-t3 { background: rgba(56,189,248,.12); color: #3E82B0;  border-color: rgba(56,189,248,.28); }
 .fdr-t4 { background: rgba(16,185,129,.12); color: #10B981;  border-color: rgba(16,185,129,.28); }
 
@@ -4263,7 +4263,7 @@ button, .btn {
     transparent 0%,
     rgba(200,162,75,.3) 8%,
     rgba(200,162,75,.15) 50%,
-    rgba(168,85,247,.15) 85%,
+    rgba(44,110,158,.15) 85%,
     transparent 100%);
 }
 .fdr-tl-node {
@@ -4280,7 +4280,7 @@ button, .btn {
   font-size: .55rem;
 }
 .fdr-tl-node-t1 { border-color: #C8A24B; box-shadow: 0 0 8px rgba(200,162,75,.4); }
-.fdr-tl-node-t2 { border-color: #A855F7; }
+.fdr-tl-node-t2 { border-color: #2C6E9E; }
 .fdr-tl-node-t3 { border-color: #3E82B0; }
 .fdr-tl-node-t4 { border-color: #10B981; }
 
@@ -4332,14 +4332,14 @@ button, .btn {
 /* ── 0. 全局变量扩充 ─────────────────────────────────────────────────── */
 :root {
   /* 新增高级渐变色 */
-  --g-aurora: linear-gradient(135deg, #2E9A89 0%, #2C6E9E 40%, #7C3AED 80%, #A23B4E 100%);
+  --g-aurora: linear-gradient(135deg, #2E9A89 0%, #2C6E9E 40%, #14476E 80%, #A23B4E 100%);
   --g-gold:   linear-gradient(135deg, #C8A24B 0%, #FBBF24 50%, #FDE68A 100%);
   --g-deep:   linear-gradient(160deg, #03071a 0%, #060c22 40%, #05122a 70%, #030a1a 100%);
   --g-card:   linear-gradient(135deg, rgba(255,255,255,.045) 0%, rgba(255,255,255,.02) 100%);
   /* 氛围光晕 */
   --glow-cyan:   0 0 30px rgba(46,154,137,.22), 0 0 60px rgba(46,154,137,.08);
   --glow-blue:   0 0 30px rgba(37,99,235,.2),  0 0 60px rgba(37,99,235,.06);
-  --glow-violet: 0 0 30px rgba(124,58,237,.2),  0 0 60px rgba(124,58,237,.06);
+  --glow-violet: 0 0 30px rgba(44,110,158,.2),  0 0 60px rgba(44,110,158,.06);
   /* 卡片增强 */
   --card-glass: rgba(12,18,40,.72);
   --card-border: rgba(255,255,255,.09);
@@ -4357,7 +4357,7 @@ body {
   background:
     radial-gradient(ellipse 120% 80% at 50% -20%, rgba(46,154,137,.09) 0%, transparent 55%),
     radial-gradient(ellipse 80%  60% at 85%  65%, rgba(37,99,235,.09) 0%, transparent 50%),
-    radial-gradient(ellipse 70%  80% at 15%  70%, rgba(124,58,237,.07) 0%, transparent 50%),
+    radial-gradient(ellipse 70%  80% at 15%  70%, rgba(44,110,158,.07) 0%, transparent 50%),
     linear-gradient(165deg, #040918 0%, #070f26 35%, #060d22 65%, #030812 100%) !important;
   min-height: 100vh;
   display: flex;
@@ -4445,7 +4445,7 @@ body {
   font-size: clamp(1.8rem, 2.8vw, 2.6rem) !important;
   font-weight: 800 !important;
   font-family: 'DM Mono', monospace !important;
-  background: linear-gradient(135deg, #2E9A89 20%, #3E82B0 50%, #818CF8 100%) !important;
+  background: linear-gradient(135deg, #2E9A89 20%, #3E82B0 50%, #2C6E9E 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
@@ -4808,7 +4808,7 @@ body {
 
 /* ── 17. 页面进度条增强 ──────────────────────────────────────────── */
 #pageProgress {
-  background: linear-gradient(90deg, #2E9A89 0%, #2C6E9E 40%, #7C3AED 70%, #2E9A89 100%) !important;
+  background: linear-gradient(90deg, #2E9A89 0%, #2C6E9E 40%, #14476E 70%, #2E9A89 100%) !important;
   background-size: 200% 100% !important;
   animation: progressShimmer 2s linear infinite !important;
   box-shadow: 0 0 12px rgba(46,154,137,.6) !important;
@@ -4956,7 +4956,7 @@ mark {
   line-height: 1.08;
 }
 .hero .h1 .hl {
-  background: linear-gradient(100deg, #2E9A89 0%, #3E82B0 35%, #818CF8 70%, #A855F7 100%);
+  background: linear-gradient(100deg, #2E9A89 0%, #3E82B0 35%, #2C6E9E 70%, #2C6E9E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -4967,7 +4967,7 @@ mark {
   background:
     radial-gradient(ellipse 100% 65% at 50% -5%, rgba(46,154,137,.07) 0%, transparent 55%),
     radial-gradient(ellipse 55% 50% at 88% 65%, rgba(37,99,235,.08) 0%, transparent 50%),
-    radial-gradient(ellipse 45% 55% at 12% 75%, rgba(139,92,246,.06) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 55% at 12% 75%, rgba(44,110,158,.06) 0%, transparent 50%),
     linear-gradient(165deg, #04071a 0%, #080f28 50%, #060c1e 100%) !important;
 }
 
@@ -5226,7 +5226,7 @@ html.cssd-light .phi p{color:#475569!important;}
 /* ── orb animations: slightly more subtle ───────────────────────────────── */
 .o1 { background: radial-gradient(circle, rgba(37,99,235,.14), transparent 70%) !important; }
 .o2 { background: radial-gradient(circle, rgba(46,154,137,.1), transparent 70%) !important; }
-.o3 { background: radial-gradient(circle, rgba(139,92,246,.09), transparent 70%) !important; }
+.o3 { background: radial-gradient(circle, rgba(44,110,158,.09), transparent 70%) !important; }
 
 /* ╚══════════════════════════════════════════════════════════════════════════
    END FINAL DESIGN POLISH
@@ -5681,7 +5681,7 @@ a:focus-visible,button:focus-visible,[onclick]:focus-visible{
   .sc2:hover,#fltToggle:hover{transform:none!important;}
 }
 /* CSSCI扩展版徽章 */
-.jnl-badge-cssciE{background:rgba(168,85,247,.13);color:#C084FC;border:1px solid rgba(168,85,247,.3);}
+.jnl-badge-cssciE{background:rgba(44,110,158,.13);color:#2C6E9E;border:1px solid rgba(44,110,158,.3);}
 
 /* ══════ v4.9 · 当前筛选摘要条 Active Filter Summary ══════ */
 .active-filters{
@@ -5739,8 +5739,8 @@ html.cssd-light body{
   --bdr:rgba(10,42,67,.11);--bdr2:rgba(10,42,67,.2);
   --tx:#0A2A43;--mu:#475569;
   --cyan:#1F7A6C;--blue:#14476E;--gold:#C8A24B;--rose:#A23B4E;
-  --violet:#5A3FA0;--em:#1F7A6C;--or:#B5681E;--sky:#14476E;--pink:#A23B4E;
-  --psych:#7C3AED;--psych2:#5B21B6;--gp:linear-gradient(92deg,#7C3AED,#5B21B6);
+  --violet:#14476E;--em:#1F7A6C;--or:#B5681E;--sky:#14476E;--pink:#A23B4E;
+  --psych:#14476E;--psych2:#14476E;--gp:linear-gradient(92deg,#14476E,#14476E);
   --pe2:#14476E;--pe3:#0E3A5C;--gpe:linear-gradient(92deg,#2C6E9E,#14476E);
   --gh:linear-gradient(135deg,#0A2A43 0%,#0E3A5C 55%,#14476E 100%);
   --gb:linear-gradient(92deg,#1F7A6C,#14476E);
@@ -5755,7 +5755,7 @@ html.cssd-light body{
   --cssd-border:rgba(10,42,67,.12);--cssd-border-strong:rgba(31,122,108,.4);
   --cssd-text:#0A2A43;--cssd-text-soft:#33415C;--cssd-muted:#475569;--cssd-muted-2:#5A6575;
   --cssd-cyan:#1F7A6C;--cssd-blue:#14476E;--cssd-green:#1F7A6C;
-  --cssd-gold:#C8A24B;--cssd-rose:#A23B4E;--cssd-violet:#5A3FA0;
+  --cssd-gold:#C8A24B;--cssd-rose:#A23B4E;--cssd-violet:#14476E;
   --cssd-shadow:0 1px 2px rgba(10,42,67,.05),0 10px 30px rgba(10,42,67,.07);
   /* --pro-* 组件系列（v4.6-40 前的专业版变量） */
   --pro-cyan:#1F7A6C;--pro-cyan-dim:rgba(31,122,108,.12);--pro-cyan-glow:rgba(31,122,108,.22);
@@ -5866,7 +5866,7 @@ html.cssd-light .nb.on{color:#2E9A89!important}
         <button class="ndd-item" onclick="navGoScholars('female')"><span class="ndd-ico" style="background:rgba(236,72,153,.14);color:#f472b6">&#x2640;</span><span class="ndd-info"><b>&#x5973;&#x6027;&#x5B66;&#x8005;</b><small>&#x6309;&#x6027;&#x522B;&#x5FEB;&#x901F;&#x7B5B;&#x9009;</small></span></button>
         <button class="ndd-item" onclick="navGoScholars('leader')"><span class="ndd-ico" style="background:rgba(200,162,75,.14);color:#D4AE5A">&#x25CE;</span><span class="ndd-info"><b>&#x9662;&#x957F;/&#x7CFB;&#x4E3B;&#x4EFB;</b><small>&#x6CBB;&#x7406;&#x5C97;&#x4F4D; &#xB7; &#x5FEB;&#x901F;&#x7B5B;&#x9009;</small></span></button>
         <button class="ndd-item" onclick="navGoScholars('top')"><span class="ndd-ico" style="background:rgba(244,63,94,.14);color:#fb7185">&#x265B;</span><span class="ndd-info"><b>&#x9876;&#x5C16;&#x4EBA;&#x624D;</b><small>&#x957F;&#x6C5F; &#xB7; &#x4E07;&#x4EBA; &#xB7; &#x6770;&#x9752; &#xB7; &#x6D25;&#x8D34;</small></span></button>
-      </div><div class="ndd-ft" style="display:flex;flex-direction:column;gap:1px;"><button onclick="navGo('classify')" style="justify-content:flex-start;color:#818cf8;">&#x229E; &#x5B66;&#x8005;&#x5206;&#x7C7B;&#x603B;&#x89C8; &#xB7; &#x5B66;&#x79D1;/&#x804C;&#x52A1;/&#x673A;&#x6784;/&#x6027;&#x522B;</button></div></div>
+      </div><div class="ndd-ft" style="display:flex;flex-direction:column;gap:1px;"><button onclick="navGo('classify')" style="justify-content:flex-start;color:#2C6E9E;">&#x229E; &#x5B66;&#x8005;&#x5206;&#x7C7B;&#x603B;&#x89C8; &#xB7; &#x5B66;&#x79D1;/&#x804C;&#x52A1;/&#x673A;&#x6784;/&#x6027;&#x522B;</button></div></div>
     </li>
 
         <li class="ndd" id="ndd-disc">
@@ -5893,7 +5893,7 @@ html.cssd-light .nb.on{color:#2E9A89!important}
         <div class="ndd-ft" style="display:flex;flex-direction:column;gap:1px;">
           <button onclick="navGoScholars('sus')" style="justify-content:flex-start;color:#34d399;">&#x1F3C6; &#x4E0A;&#x6D77;&#x4F53;&#x80B2;&#x5927;&#x5B66;&#x6559;&#x5E08;&#x5E93; &#x00B7; 220&#x4F4D;&#x5DF2;&#x6574;&#x7406;&#x5165;&#x5E93;</button>
           <button onclick="navGo('sportscolleges')" style="justify-content:flex-start;color:#10b981;">📋 体育院校师资概览 · 本科/专科/对比</button>
-          <button onclick="navGo('phdschools')" style="justify-content:flex-start;color:#818cf8;">🎓 博士点院校卡片 · 授权年份与评级</button>
+          <button onclick="navGo('phdschools')" style="justify-content:flex-start;color:#2C6E9E;">🎓 博士点院校卡片 · 授权年份与评级</button>
         </div>
       </div>
     </li>
@@ -5913,8 +5913,8 @@ html.cssd-light .nb.on{color:#2E9A89!important}
       <div class="ndd-p" id="ndp-deg" style="min-width:260px;">
         <div class="ndd-hd">体育学学位授权点 · 2024最新</div>
         <div class="ndd-list">
-          <button class="ndd-row" onclick="navGo('degreepoint')"><span class="ndd-ico sm" style="background:rgba(99,102,241,.14);color:#818cf8">🎓</span><span class="ndd-info"><b>硕博学位点专栏</b><small>30所博士点 · 时间线 · 双授权院校</small></span><svg class="ndd-arr" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-          <button class="ndd-row" onclick="navGo('phdschools')"><span class="ndd-ico sm" style="background:rgba(99,102,241,.09);color:#a5b4fc">📋</span><span class="ndd-info"><b>博士点院校卡片</b><small>评级 · 年份 · 机构详情</small></span><svg class="ndd-arr" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+          <button class="ndd-row" onclick="navGo('degreepoint')"><span class="ndd-ico sm" style="background:rgba(44,110,158,.14);color:#2C6E9E">🎓</span><span class="ndd-info"><b>硕博学位点专栏</b><small>30所博士点 · 时间线 · 双授权院校</small></span><svg class="ndd-arr" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+          <button class="ndd-row" onclick="navGo('phdschools')"><span class="ndd-ico sm" style="background:rgba(44,110,158,.09);color:#7BA3C4">📋</span><span class="ndd-info"><b>博士点院校卡片</b><small>评级 · 年份 · 机构详情</small></span><svg class="ndd-arr" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
         <button class="ndd-row" onclick="navGo('sportscolleges')"><span class="ndd-ico sm" style="background:rgba(16,185,129,.14);color:#10b981;">&#x1F4CB;</span><span class="ndd-info"><b>体育院校师资概览</b><small>36所体育院校师资力量数据</small></span></button>
         </div>
       </div>
@@ -5925,12 +5925,12 @@ html.cssd-light .nb.on{color:#2E9A89!important}
         <div class="ndd-hd">学术期刊导航 · 国内外体育学期刊</div>
         <div class="ndd-list">
           <button class="ndd-row" onclick="navGo('journals');setTimeout(()=>jnlSwitchTab('cn'),60)"><span class="ndd-ico sm" style="background:rgba(200,162,75,.14);color:#C8A24B">📖</span><span class="ndd-info"><b>国内体育学期刊</b><small>CSSCI · 北大核心 · C刊扩展 · 21种</small></span><svg class="ndd-arr" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-          <button class="ndd-row" onclick="navGo('journals');setTimeout(()=>jnlSwitchTab('int'),60)"><span class="ndd-ico sm" style="background:rgba(168,85,247,.14);color:#A855F7">🌐</span><span class="ndd-info"><b>国际SSCI/SCI期刊</b><small>JCR分区 · 2025影响因子 · 143种</small></span><svg class="ndd-arr" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+          <button class="ndd-row" onclick="navGo('journals');setTimeout(()=>jnlSwitchTab('int'),60)"><span class="ndd-ico sm" style="background:rgba(44,110,158,.14);color:#2C6E9E">🌐</span><span class="ndd-info"><b>国际SSCI/SCI期刊</b><small>JCR分区 · 2025影响因子 · 143种</small></span><svg class="ndd-arr" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
         </div>
         <div class="ndd-list" style="padding-top:2px;border-top:1px solid rgba(255,255,255,.06);">
           <button class="ndd-row" onclick="navGo('journals');setTimeout(function(){jnlSwitchTab('cnki');cnkiInitOnce();},80)"><span class="ndd-ico sm" style="background:rgba(46,154,137,.1);color:#2E9A89">📄</span><span class="ndd-info"><b>CNKI最新论文</b><small>6,000篇 · 体育核心期刊 · 2022—2026</small></span><svg class="ndd-arr" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
           <button class="ndd-row" onclick="navGo('academicnews')"><span class="ndd-ico sm" style="background:rgba(16,185,129,.12);color:#10B981">⚡</span><span class="ndd-info"><b>最新学术动态</b><small>每日聚合 · 论文 / 期刊 / 项目 / 会议</small></span><svg class="ndd-arr" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-          <button class="ndd-row" onclick="navGo('aitools')"><span class="ndd-ico sm" style="background:rgba(168,85,247,.12);color:#A855F7">🤖</span><span class="ndd-info"><b>学术AI工具</b><small>论文写作 · 学术检索 · 文献管理导航</small></span><svg class="ndd-arr" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+          <button class="ndd-row" onclick="navGo('aitools')"><span class="ndd-ico sm" style="background:rgba(44,110,158,.12);color:#2C6E9E">🤖</span><span class="ndd-info"><b>学术AI工具</b><small>论文写作 · 学术检索 · 文献管理导航</small></span><svg class="ndd-arr" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
         </div>
         <div class="ndd-ft">
           <button onclick="navGo('journals')" style="justify-content:flex-start;color:#2E9A89;">📚 期刊学术板块总览 · 国内外体育学期刊数据库</button>
@@ -5950,7 +5950,7 @@ html.cssd-light .nb.on{color:#2E9A89!important}
             <svg class="ndd-arr" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
           </button>
           <button class="ndd-row" onclick="navGo('founders');setTimeout(()=>fdrChipClick(document.querySelector(&quot;.fdr-chip[data-era='founding']&quot;)),80)">
-            <span class="ndd-ico sm" style="background:rgba(168,85,247,.14);color:#A855F7">🏗️</span>
+            <span class="ndd-ico sm" style="background:rgba(44,110,158,.14);color:#2C6E9E">🏗️</span>
             <span class="ndd-info"><b>建国奠基期</b><small>1949–1966 · 新中国体育体制构建</small></span>
             <svg class="ndd-arr" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
           </button>
@@ -6095,7 +6095,7 @@ html.cssd-light .nb.on{color:#2E9A89!important}
           <div class="cnki-col-title">专题库</div>
           <div class="cnki-topic-grid">
             <button onclick="go('hats')" style="--topic:#f43f5e"><b>人才荣誉</b><span>长江 / 万人 / 杰青 / 优青</span></button>
-            <button onclick="go('degreepoint')" style="--topic:#8b5cf6"><b>硕博学位点</b><span>博士点 / 硕士点 / 建设能力</span></button>
+            <button onclick="go('degreepoint')" style="--topic:#2C6E9E"><b>硕博学位点</b><span>博士点 / 硕士点 / 建设能力</span></button>
             <button onclick="go('sportscolleges')" style="--topic:#06b6d4"><b>体育院校师资</b><span>本科体育院校与专科院校</span></button>
             <button onclick="go('youthscholar')" style="--topic:#10b981"><b>青年学者</b><span>青年人才计划与新锐队伍</span></button>
             <button onclick="go('academicnews')" style="--topic:#3FB39C"><b>学术动态</b><span>每日更新 / 论文 / 投稿 / 项目</span></button>
@@ -6132,8 +6132,8 @@ html.cssd-light .nb.on{color:#2E9A89!important}
     <button id="eliteStrip" onclick="go('yangtze')" style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;border:1px solid rgba(46,154,137,.25);background:rgba(46,154,137,.07);color:#2E9A89;font-size:.73rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s">🏅 长江学者 <span style="font-family:'DM Mono',monospace;opacity:.75">17人</span></button>
     <button onclick="go('hats')" style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;border:1px solid rgba(200,162,75,.25);background:rgba(200,162,75,.07);color:#C8A24B;font-size:.73rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s">🌟 万人计划 <span id="hkWanren" style="font-family:'DM Mono',monospace;opacity:.75"></span></button>
     <button onclick="go('hats')" style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;border:1px solid rgba(244,63,94,.25);background:rgba(244,63,94,.07);color:#A23B4E;font-size:.73rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s">🔬 国家杰青 <span id="hkJieqing" style="font-family:'DM Mono',monospace;opacity:.75"></span></button>
-    <button onclick="go('hats')" style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;border:1px solid rgba(139,92,246,.25);background:rgba(139,92,246,.07);color:#8B5CF6;font-size:.73rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s">⭐ 国家优青 <span id="hkYouqing" style="font-family:'DM Mono',monospace;opacity:.75"></span></button>
-    <button onclick="go('hats')" style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;border:1px solid rgba(167,139,250,.25);background:rgba(167,139,250,.07);color:#A78BFA;font-size:.73rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s">👑 院士 <span id="hkYuanshi" style="font-family:'DM Mono',monospace;opacity:.75"></span></button>
+    <button onclick="go('hats')" style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;border:1px solid rgba(44,110,158,.25);background:rgba(44,110,158,.07);color:#2C6E9E;font-size:.73rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s">⭐ 国家优青 <span id="hkYouqing" style="font-family:'DM Mono',monospace;opacity:.75"></span></button>
+    <button onclick="go('hats')" style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;border:1px solid rgba(44,110,158,.25);background:rgba(44,110,158,.07);color:#2C6E9E;font-size:.73rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s">👑 院士 <span id="hkYuanshi" style="font-family:'DM Mono',monospace;opacity:.75"></span></button>
     <button onclick="go('hats')" style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;border:1px solid rgba(101,163,13,.25);background:rgba(101,163,13,.07);color:#84cc16;font-size:.73rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s">📜 国务院津贴 <span id="hkTjin" style="font-family:'DM Mono',monospace;opacity:.75"></span></button>
   </div>
   <div class="sg" id="featg"></div>
@@ -6405,7 +6405,7 @@ html.cssd-light .nb.on{color:#2E9A89!important}
   <!-- Hero -->
   <div style="background:#F5F7FA;border-radius:16px;padding:32px;margin-bottom:20px;position:relative;overflow:hidden;">
     <div style="position:absolute;inset:0;background:radial-gradient(ellipse 40% 40% at 20% 70%,rgba(46,154,137,.06),transparent 60%);pointer-events:none;"></div>
-    <div style="position:absolute;top:16px;right:20px;font-size:4rem;opacity:.06;line-height:1;">🌟</div>
+    
     <div style="position:relative;z-index:1;">
       <div class="youth-hero-eyebrow" style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:20px;background:#FFFFFF;border:1px solid rgba(44,110,158,.35);margin-bottom:12px;">
         <span style="font-size:.7rem;color:#0A2A43;font-weight:700;letter-spacing:.08em;">RISING STARS · 体育学青年学者专栏</span>
@@ -6574,7 +6574,7 @@ html.cssd-light .nb.on{color:#2E9A89!important}
         <p style="color:rgba(224,242,254,.5);font-size:.83rem;margin:0 0 16px;">体育专业院校 · 综合高校 · 师范大学 · 医疗机构 · 科研机构</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;">
           <span id="instKpiTotal" style="font-size:.78rem;padding:4px 12px;border-radius:20px;background:rgba(46,154,137,.08);border:1px solid rgba(46,154,137,.2);color:#3E82B0;"></span>
-          <span id="instKpiPhd" style="font-size:.78rem;padding:4px 12px;border-radius:20px;background:rgba(99,102,241,.08);border:1px solid rgba(99,102,241,.2);color:#818cf8;"></span>
+          <span id="instKpiPhd" style="font-size:.78rem;padding:4px 12px;border-radius:20px;background:rgba(44,110,158,.08);border:1px solid rgba(44,110,158,.2);color:#2C6E9E;"></span>
         </div>
       </div>
     </div>
@@ -6713,7 +6713,7 @@ html.cssd-light .nb.on{color:#2E9A89!important}
         <p style="color:rgba(245,222,179,.65);font-size:.88rem;margin:0 0 24px;">教育部"长江学者奖励计划"入选的体育学领域学者 · 按获评时间排序</p>
         <div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;">
           <div style="text-align:center;"><div style="font-size:2rem;font-weight:700;color:#C9A956;font-family:'DM Mono',monospace;"><span data-cj-tenured>7</span></div><div style="font-size:.72rem;color:rgba(245,222,179,.55);margin-top:2px;">特聘教授</div></div>
-          <div style="text-align:center;"><div style="font-size:2rem;font-weight:700;color:#818cf8;font-family:'DM Mono',monospace;"><span data-cj-youth>9</span></div><div style="font-size:.72rem;color:rgba(245,222,179,.55);margin-top:2px;">青年长江学者</div></div>
+          <div style="text-align:center;"><div style="font-size:2rem;font-weight:700;color:#2C6E9E;font-family:'DM Mono',monospace;"><span data-cj-youth>9</span></div><div style="font-size:.72rem;color:rgba(245,222,179,.55);margin-top:2px;">青年长江学者</div></div>
           <div style="text-align:center;"><div style="font-size:2rem;font-weight:700;color:#34d399;font-family:'DM Mono',monospace;"><span data-cj-total>16</span></div><div style="font-size:.72rem;color:rgba(245,222,179,.55);margin-top:2px;">共收录</div></div>
           <div style="text-align:center;"><div style="font-size:2rem;font-weight:700;color:#f472b6;font-family:'DM Mono',monospace;">2011</div><div style="font-size:.72rem;color:rgba(245,222,179,.55);margin-top:2px;">首位入选年</div></div>
         </div>
@@ -6828,7 +6828,7 @@ html.cssd-light #vw-phdschools .phd-tab.on{
 </div><div class="vw" id="vw-degreepoint">
 <div style="max-width:1100px;margin:0 auto;padding:24px 16px;">
   <div style="background:#F5F7FA;border-radius:16px;padding:32px;margin-bottom:20px;position:relative;overflow:hidden;">
-    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 80% 50%,rgba(99,102,241,.14),transparent 70%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 80% 50%,rgba(44,110,158,.14),transparent 70%);pointer-events:none;"></div>
     <div style="position:relative;z-index:1;">
       <div style="font-size:.68rem;letter-spacing:.1em;color:#4F46E5;font-weight:700;margin-bottom:6px;">DEGREE PROGRAMS</div>
       <h2 style="font-family:'Noto Serif SC','Source Han Serif SC','Songti SC','SimSun',Georgia,serif;font-size:1.6rem;color:#0A2A43;margin:0 0 8px;">体育学硕博学位点专栏</h2>
@@ -6880,9 +6880,9 @@ html.cssd-light #vw-phdschools .phd-tab.on{
         <h2>运动心理学专栏</h2>
         <p id="dlabDesc_psych">加载中…</p>
         <div class="dlab-kpi-row">
-          <div class="dlab-kpi"><div id="dlabN_psych" class="dlab-kpi-n" style="color:#A855F7">—</div><div class="dlab-kpi-l">收录学者</div></div>
-          <div class="dlab-kpi"><div id="dlabE_psych" class="dlab-kpi-n" style="color:#A855F7">—</div><div class="dlab-kpi-l">人才计划入选</div></div>
-          <div class="dlab-kpi"><div id="dlabI_psych" class="dlab-kpi-n" style="color:#A855F7">—</div><div class="dlab-kpi-l">覆盖机构</div></div>
+          <div class="dlab-kpi"><div id="dlabN_psych" class="dlab-kpi-n" style="color:#2C6E9E">—</div><div class="dlab-kpi-l">收录学者</div></div>
+          <div class="dlab-kpi"><div id="dlabE_psych" class="dlab-kpi-n" style="color:#2C6E9E">—</div><div class="dlab-kpi-l">人才计划入选</div></div>
+          <div class="dlab-kpi"><div id="dlabI_psych" class="dlab-kpi-n" style="color:#2C6E9E">—</div><div class="dlab-kpi-l">覆盖机构</div></div>
         </div>
       </div>
     </div>
@@ -7147,7 +7147,7 @@ html.cssd-light #vw-phdschools .phd-tab.on{
           <button class="jnl-chip on" data-f="all" onclick="jnlIntChip(this,'all')">全部</button>
           <button class="jnl-chip q1" data-f="q1" onclick="jnlIntChip(this,'q1')">JCR Q1</button>
           <button class="jnl-chip q2" data-f="q2" onclick="jnlIntChip(this,'q2')">JCR Q2</button>
-          <button class="jnl-chip" style="--chip-on-bg:rgba(168,85,247,.1);--chip-on-bd:rgba(168,85,247,.3);--chip-on-c:#A855F7;" data-f="casq1" onclick="jnlIntChip(this,'casq1')">中科院Q1</button>
+          <button class="jnl-chip" style="--chip-on-bg:rgba(44,110,158,.1);--chip-on-bd:rgba(44,110,158,.3);--chip-on-c:#2C6E9E;" data-f="casq1" onclick="jnlIntChip(this,'casq1')">中科院Q1</button>
           <button class="jnl-chip" data-f="ssci" onclick="jnlIntChip(this,'ssci')">SSCI</button>
           <button class="jnl-chip" data-f="sci" onclick="jnlIntChip(this,'sci')">SCI</button>
         </div>
@@ -7252,17 +7252,17 @@ html.cssd-light #vw-phdschools .phd-tab.on{
 /* ── 认领/纠错弹窗 ── */
 #claim-modal{display:none;position:fixed;inset:0;z-index:10001;background:rgba(0,0,0,.82);backdrop-filter:blur(12px);padding:20px;overflow-y:auto;}
 #claim-modal.on{display:flex;align-items:center;justify-content:center;}
-.claim-box{background:rgba(10,12,30,.98);border:1px solid rgba(124,58,237,.28);border-radius:16px;max-width:540px;width:100%;padding:32px;box-shadow:0 24px 80px rgba(0,0,0,.65);position:relative;}
+.claim-box{background:rgba(10,12,30,.98);border:1px solid rgba(44,110,158,.28);border-radius:16px;max-width:540px;width:100%;padding:32px;box-shadow:0 24px 80px rgba(0,0,0,.65);position:relative;}
 .claim-box h3{font-family:'Noto Serif SC','Source Han Serif SC','Songti SC','SimSun',Georgia,serif;font-size:1.05rem;color:#DCE6F0;margin:0 0 5px;}
 .claim-sub{font-size:.72rem;color:#64748b;margin-bottom:18px;line-height:1.65;}
 .claim-field{margin-bottom:13px;}
 .claim-field label{display:block;font-size:.71rem;color:#8A94A8;margin-bottom:5px;font-weight:500;letter-spacing:.02em;}
 .claim-field input,.claim-field textarea,.claim-field select{width:100%;padding:9px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:#DCE6F0;font-size:.77rem;font-family:inherit;box-sizing:border-box;transition:border-color .15s;outline:none;}
-.claim-field input:focus,.claim-field textarea:focus,.claim-field select:focus{border-color:rgba(124,58,237,.5);background:rgba(124,58,237,.04);}
+.claim-field input:focus,.claim-field textarea:focus,.claim-field select:focus{border-color:rgba(44,110,158,.5);background:rgba(44,110,158,.04);}
 .claim-field textarea{resize:vertical;min-height:75px;}
 .claim-field select option{background:#0a0c1e;color:#DCE6F0;}
 .claim-actions{display:flex;gap:10px;margin-top:18px;}
-.claim-submit{flex:1;padding:10px;border-radius:8px;border:none;background:linear-gradient(135deg,#7C3AED,#5b21b6);color:#fff;font-size:.79rem;font-weight:600;cursor:pointer;font-family:inherit;transition:opacity .15s;}
+.claim-submit{flex:1;padding:10px;border-radius:8px;border:none;background:linear-gradient(135deg,#14476E,#5b21b6);color:#fff;font-size:.79rem;font-weight:600;cursor:pointer;font-family:inherit;transition:opacity .15s;}
 .claim-submit:hover{opacity:.87;}
 .claim-cancel{padding:10px 18px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:transparent;color:#64748b;font-size:.79rem;cursor:pointer;font-family:inherit;transition:all .15s;}
 .claim-cancel:hover{border-color:rgba(255,255,255,.2);color:#8A94A8;}
@@ -7273,8 +7273,8 @@ html.cssd-light #vw-phdschools .phd-tab.on{
 .claim-success h4{color:#DCE6F0;margin:0 0 8px;font-size:.98rem;}
 .claim-success p{color:#64748b;font-size:.74rem;line-height:1.65;margin:0;}
 /* ── 认领按钮 ── */
-.claim-btn{display:inline-flex;align-items:center;gap:4px;padding:5px 11px;border-radius:6px;font-size:.7rem;border:1px solid rgba(124,58,237,.25);background:rgba(124,58,237,.07);color:#a78bfa;cursor:pointer;font-family:inherit;transition:all .15s;white-space:nowrap;}
-.claim-btn:hover{background:rgba(124,58,237,.14);border-color:rgba(124,58,237,.4);}
+.claim-btn{display:inline-flex;align-items:center;gap:4px;padding:5px 11px;border-radius:6px;font-size:.7rem;border:1px solid rgba(44,110,158,.25);background:rgba(44,110,158,.07);color:#2C6E9E;cursor:pointer;font-family:inherit;transition:all .15s;white-space:nowrap;}
+.claim-btn:hover{background:rgba(44,110,158,.14);border-color:rgba(44,110,158,.4);}
 /* ── 页脚合规链接 ── */
 .ft-compliance{display:flex;align-items:center;justify-content:center;gap:12px;padding:6px 24px 12px;flex-wrap:wrap;}
 .ft-compliance a,.ft-compliance button{font-size:.67rem;color:#33415C;background:none;border:none;cursor:pointer;font-family:inherit;text-decoration:none;transition:color .15s;padding:2px 0;}
@@ -7292,25 +7292,25 @@ html.cssd-light #vw-phdschools .phd-tab.on{
 @media(max-width:600px){.pledge-grid{grid-template-columns:1fr;}}
 .pledge-item{display:flex;align-items:flex-start;gap:9px;padding:11px 13px;border-radius:10px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);transition:border-color .15s;}
 .pledge-item:hover{border-color:rgba(46,154,137,.18);}
-.pledge-num{min-width:20px;height:20px;border-radius:5px;background:linear-gradient(135deg,#2E9A89,#7C3AED);display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;color:#fff;flex-shrink:0;margin-top:2px;}
+.pledge-num{min-width:20px;height:20px;border-radius:5px;background:linear-gradient(135deg,#2E9A89,#14476E);display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;color:#fff;flex-shrink:0;margin-top:2px;}
 .pledge-text{font-size:.72rem;color:#8A94A8;line-height:1.65;}
 .pledge-text b{color:#DCE6F0;display:block;margin-bottom:2px;font-size:.73rem;}
 
 /* ── ② 认领提示条（学者弹窗顶部） ── */
 #claim-notice-bar{display:none;}
-#claim-notice-bar.show{display:flex;align-items:center;gap:10px;padding:10px 20px 10px 16px;background:rgba(124,58,237,.07);border-bottom:1px solid rgba(124,58,237,.18);cursor:pointer;transition:background .15s;border-radius:12px 12px 0 0;}
-#claim-notice-bar.show:hover{background:rgba(124,58,237,.13);}
+#claim-notice-bar.show{display:flex;align-items:center;gap:10px;padding:10px 20px 10px 16px;background:rgba(44,110,158,.07);border-bottom:1px solid rgba(44,110,158,.18);cursor:pointer;transition:background .15s;border-radius:12px 12px 0 0;}
+#claim-notice-bar.show:hover{background:rgba(44,110,158,.13);}
 .cni-icon{font-size:.9rem;flex-shrink:0;}
 .cni-text{flex:1;font-size:.72rem;color:#c4b5fd;line-height:1.5;}
 .cni-text b{color:#ede9fe;}
-.cni-arrow{font-size:.7rem;color:#a78bfa;flex-shrink:0;font-weight:700;white-space:nowrap;padding:3px 8px;border-radius:5px;border:1px solid rgba(124,58,237,.3);background:rgba(124,58,237,.1);}
+.cni-arrow{font-size:.7rem;color:#2C6E9E;flex-shrink:0;font-weight:700;white-space:nowrap;padding:3px 8px;border-radius:5px;border:1px solid rgba(44,110,158,.3);background:rgba(44,110,158,.1);}
 
 /* ── ③ 联系偏好（认领表单内） ── */
 .contact-pref-box{margin:14px 0 2px;padding:13px 14px;border-radius:10px;background:rgba(46,154,137,.04);border:1px solid rgba(46,154,137,.12);}
 .contact-pref-ttl{font-size:.71rem;font-weight:700;color:#5FB8AA;margin-bottom:9px;letter-spacing:.03em;}
 .contact-pref-opts{display:flex;flex-direction:column;gap:7px;}
 .contact-pref-opt{display:flex;align-items:flex-start;gap:8px;cursor:pointer;}
-.contact-pref-opt input[type=checkbox]{accent-color:#7C3AED;width:14px;height:14px;cursor:pointer;flex-shrink:0;margin-top:2px;}
+.contact-pref-opt input[type=checkbox]{accent-color:#14476E;width:14px;height:14px;cursor:pointer;flex-shrink:0;margin-top:2px;}
 .contact-pref-opt span{font-size:.72rem;color:#8A94A8;line-height:1.5;}
 .contact-pref-opt span b{color:#DCE6F0;}
 
@@ -7957,7 +7957,7 @@ function submitClaim(){
       +'<h4>申请已提交</h4>'
       +'<p>感谢您的反馈！我们将通过 <b>'+email+'</b> 与您联系核实身份，处理周期为 <b>15个工作日内</b>。</p>'
       +'<p style="margin-top:10px;color:#475569;font-size:.7rem;">申请编号：CSSD-'+Date.now().toString(36).toUpperCase()+'</p>'
-      +'<button onclick="closeClaimModal()" style="margin-top:20px;padding:9px 28px;border-radius:8px;border:none;background:linear-gradient(135deg,#7C3AED,#5b21b6);color:#fff;font-size:.8rem;font-weight:600;cursor:pointer;font-family:inherit;">关闭</button>'
+      +'<button onclick="closeClaimModal()" style="margin-top:20px;padding:9px 28px;border-radius:8px;border:none;background:linear-gradient(135deg,#14476E,#5b21b6);color:#fff;font-size:.8rem;font-weight:600;cursor:pointer;font-family:inherit;">关闭</button>'
       +'</div>';
   }
 }
@@ -7971,7 +7971,7 @@ function submitClaim(){
 .cnki-table td:last-child{border-right:1px solid rgba(255,255,255,.06);border-radius:0 8px 8px 0;}
 .cnki-title-link{color:#f1f5f9;text-decoration:none;line-height:1.55;display:block;}
 .cnki-title-link:hover{color:#5FB8AA;text-decoration:underline;}
-.cnki-author-link{color:#a78bfa;cursor:pointer;font-weight:600;white-space:nowrap;}
+.cnki-author-link{color:#2C6E9E;cursor:pointer;font-weight:600;white-space:nowrap;}
 .cnki-author-link:hover{text-decoration:underline;color:#c4b5fd;}
 .cnki-jrnl-tag{display:inline-flex;border:1px solid rgba(46,154,137,.18);background:rgba(46,154,137,.06);color:#5FB8AA;border-radius:6px;padding:2px 7px;font-size:.68rem;white-space:nowrap;}
 .cnki-scroll{overflow-x:auto;}
@@ -8385,7 +8385,7 @@ window.addEventListener('load',function(){if(document.getElementById('vw-academi
 <script>
 /* ══════ v5.0 · 全国精品课程专栏 National Sports MOOC / 国家级一流课程（updated 64门）══════ */
 (function(){
-  var CATS=[["体育基础理论", "#A23B4E"], ["运动人体科学", "#2E9A89"], ["运动训练与竞赛", "#C8A24B"], ["运动健康与康复", "#F97316"], ["大学体育", "#3E82B0"], ["体育舞蹈与艺术", "#A23B4E"], ["传统体育与武术", "#8B5CF6"], ["健身与体能", "#22C55E"]];
+  var CATS=[["体育基础理论", "#A23B4E"], ["运动人体科学", "#2E9A89"], ["运动训练与竞赛", "#C8A24B"], ["运动健康与康复", "#F97316"], ["大学体育", "#3E82B0"], ["体育舞蹈与艺术", "#A23B4E"], ["传统体育与武术", "#2C6E9E"], ["健身与体能", "#22C55E"]];
   var CMAP={}; CATS.forEach(function(c){CMAP[c[0]]=c[1];});
   var COURSES=[{"n":"体育概论","sch":"华南师范大学","t":"邓星华","plat":"中国大学MOOC","enr":"3万+","wk":"10","top":0,"cat":"体育基础理论","u":"https://www.icourse163.org/search.htm?search=%E4%BD%93%E8%82%B2%E6%A6%82%E8%AE%BA"},{"n":"体育概论","sch":"华东师范大学","t":"李琳","plat":"中国大学MOOC","enr":"5000+","wk":"14","top":0,"cat":"体育基础理论","u":"https://www.icourse163.org/search.htm?search=%E4%BD%93%E8%82%B2%E6%A6%82%E8%AE%BA"},{"n":"体育与社会","sch":"武汉体育学院","t":"张德胜","plat":"学堂在线","enr":"80万+","wk":"24","top":1,"cat":"体育基础理论","u":"https://www.xuetangx.com/search?query=%E4%BD%93%E8%82%B2%E4%B8%8E%E7%A4%BE%E4%BC%9A"},{"n":"体育心理学","sch":"扬州大学","t":"陈爱国","plat":"中国大学MOOC","enr":"3万+","wk":"17","top":1,"cat":"体育基础理论","u":"https://www.icourse163.org/search.htm?search=%E4%BD%93%E8%82%B2%E5%BF%83%E7%90%86%E5%AD%A6"},{"n":"体育舞蹈与文化","sch":"大连理工大学","t":"刘君","plat":"中国大学MOOC","enr":"3万+","wk":"14","top":1,"cat":"体育基础理论","u":"https://www.icourse163.org/search.htm?search=%E4%BD%93%E8%82%B2%E8%88%9E%E8%B9%88%E4%B8%8E%E6%96%87%E5%8C%96"},{"n":"学校体育学","sch":"上海体育大学","t":"唐炎","plat":"中国大学MOOC","enr":"5万+","wk":"18","top":1,"cat":"体育基础理论","u":"https://www.icourse163.org/search.htm?search=%E5%AD%A6%E6%A0%A1%E4%BD%93%E8%82%B2%E5%AD%A6"},{"n":"学校体育学","sch":"浙江大学","t":"于可红","plat":"中国大学MOOC","enr":"3万+","wk":"27","top":1,"cat":"体育基础理论","u":"https://www.icourse163.org/search.htm?search=%E5%AD%A6%E6%A0%A1%E4%BD%93%E8%82%B2%E5%AD%A6"},{"n":"运动生理学","sch":"北京体育大学","t":"汪军","plat":"中国大学MOOC","enr":"5万+","wk":"12","top":1,"cat":"运动人体科学","u":"https://www.icourse163.org/search.htm?search=%E8%BF%90%E5%8A%A8%E7%94%9F%E7%90%86%E5%AD%A6"},{"n":"运动生理学","sch":"湖南师范大学","t":"汤长发","plat":"智慧树","enr":"7万+","wk":"26","top":1,"cat":"运动人体科学","u":"https://www.zhihuishu.com/"},{"n":"运动生理学","sch":"苏州大学","t":"张林","plat":"中国大学MOOC","enr":"7万+","wk":"10","top":1,"cat":"运动人体科学","u":"https://www.icourse163.org/search.htm?search=%E8%BF%90%E5%8A%A8%E7%94%9F%E7%90%86%E5%AD%A6"},{"n":"运动生物力学","sch":"北京体育大学","t":"李翰君","plat":"中国大学MOOC","enr":"2万+","wk":"21","top":1,"cat":"运动人体科学","u":"https://www.icourse163.org/search.htm?search=%E8%BF%90%E5%8A%A8%E7%94%9F%E7%89%A9%E5%8A%9B%E5%AD%A6"},{"n":"运动生物力学","sch":"宁波大学","t":"顾耀东","plat":"中国大学MOOC","enr":"5000+","wk":"13","top":1,"cat":"运动人体科学","u":"https://www.icourse163.org/search.htm?search=%E8%BF%90%E5%8A%A8%E7%94%9F%E7%89%A9%E5%8A%9B%E5%AD%A6"},{"n":"运动心理学","sch":"北京体育大学","t":"张力为","plat":"学堂在线","enr":"3万+","wk":"24","top":1,"cat":"运动人体科学","u":"https://www.xuetangx.com/search?query=%E8%BF%90%E5%8A%A8%E5%BF%83%E7%90%86%E5%AD%A6"},{"n":"运动解剖学","sch":"北京体育大学","t":"罗冬梅","plat":"中国大学MOOC","enr":"4万+","wk":"14","top":1,"cat":"运动人体科学","u":"https://www.icourse163.org/search.htm?search=%E8%BF%90%E5%8A%A8%E8%A7%A3%E5%89%96%E5%AD%A6"},{"n":"运动训练学","sch":"福建师范大学","t":"陈亮","plat":"中国大学MOOC","enr":"5万+","wk":"14","top":1,"cat":"运动训练与竞赛","u":"https://www.icourse163.org/search.htm?search=%E8%BF%90%E5%8A%A8%E8%AE%AD%E7%BB%83%E5%AD%A6"},{"n":"运动训练学","sch":"温州大学","t":"袁建国","plat":"学堂在线","enr":"4万+","wk":"24","top":1,"cat":"运动训练与竞赛","u":"https://www.xuetangx.com/search?query=%E8%BF%90%E5%8A%A8%E8%AE%AD%E7%BB%83%E5%AD%A6"},{"n":"运动训练学","sch":"苏州大学","t":"张宝峰","plat":"智慧树","enr":"3万+","wk":"26","top":1,"cat":"运动训练与竞赛","u":"https://www.zhihuishu.com/"},{"n":"运动训练学","sch":"北京体育大学","t":"米靖","plat":"学堂在线","enr":"1万+","wk":"24","top":1,"cat":"运动训练与竞赛","u":"https://www.xuetangx.com/search?query=%E8%BF%90%E5%8A%A8%E8%AE%AD%E7%BB%83%E5%AD%A6"},{"n":"身体运动功能训练","sch":"首都体育学院","t":"尹军","plat":"中国大学MOOC","enr":"7万+","wk":"15","top":1,"cat":"运动训练与竞赛","u":"https://www.icourse163.org/search.htm?search=%E8%BA%AB%E4%BD%93%E8%BF%90%E5%8A%A8%E5%8A%9F%E8%83%BD%E8%AE%AD%E7%BB%83"},{"n":"足球运动与科学","sch":"清华大学","t":"孙葆洁","plat":"学堂在线","enr":"8万+","wk":"24","top":1,"cat":"运动训练与竞赛","u":"https://www.xuetangx.com/search?query=%E8%B6%B3%E7%90%83%E8%BF%90%E5%8A%A8%E4%B8%8E%E7%A7%91%E5%AD%A6"},{"n":"冰壶运动","sch":"哈尔滨工业大学","t":"冯伟","plat":"学堂在线","enr":"1万+","wk":"24","top":0,"cat":"运动训练与竞赛","u":"https://www.xuetangx.com/search?query=%E5%86%B0%E5%A3%B6%E8%BF%90%E5%8A%A8"},{"n":"运动疗法","sch":"上海体育大学","t":"王雪强","plat":"中国大学MOOC","enr":"7万+","wk":"16","top":1,"cat":"运动健康与康复","u":"https://www.icourse163.org/search.htm?search=%E8%BF%90%E5%8A%A8%E7%96%97%E6%B3%95"},{"n":"运动安全与健康","sch":"浙江大学","t":"吴叶海","plat":"智慧树","enr":"50万+","wk":"26","top":1,"cat":"运动健康与康复","u":"https://www.zhihuishu.com/"},{"n":"运动急救学","sch":"上海体育大学","t":"吴卫兵","plat":"中国大学MOOC","enr":"1万+","wk":"12","top":1,"cat":"运动健康与康复","u":"https://www.icourse163.org/search.htm?search=%E8%BF%90%E5%8A%A8%E6%80%A5%E6%95%91%E5%AD%A6"},{"n":"运动损伤学","sch":"北京体育大学","t":"张恩铭","plat":"学堂在线","enr":"8万+","wk":"24","top":0,"cat":"运动健康与康复","u":"https://www.xuetangx.com/search?query=%E8%BF%90%E5%8A%A8%E6%8D%9F%E4%BC%A4%E5%AD%A6"},{"n":"运动与健康","sch":"四川大学","t":"李箭","plat":"中国大学MOOC","enr":"10万+","wk":"15","top":0,"cat":"运动健康与康复","u":"https://www.icourse163.org/search.htm?search=%E8%BF%90%E5%8A%A8%E4%B8%8E%E5%81%A5%E5%BA%B7"},{"n":"运动与健康","sch":"大连理工大学","t":"刘海斌","plat":"中国大学MOOC","enr":"4万+","wk":"14","top":0,"cat":"运动健康与康复","u":"https://www.icourse163.org/search.htm?search=%E8%BF%90%E5%8A%A8%E4%B8%8E%E5%81%A5%E5%BA%B7"},{"n":"运动与减脂塑形","sch":"北京师范大学","t":"陈一冰","plat":"中国大学MOOC","enr":"8万+","wk":"20","top":1,"cat":"运动健康与康复","u":"https://www.icourse163.org/search.htm?search=%E8%BF%90%E5%8A%A8%E4%B8%8E%E5%87%8F%E8%84%82%E5%A1%91%E5%BD%A2"},{"n":"大学体育","sch":"华中科技大学","t":"蒋玉梅","plat":"中国大学MOOC","enr":"10万+","wk":"14","top":0,"cat":"大学体育","u":"https://www.icourse163.org/search.htm?search=%E5%A4%A7%E5%AD%A6%E4%BD%93%E8%82%B2"},{"n":"大学体育（二）","sch":"华中科技大学","t":"蒋玉梅","plat":"中国大学MOOC","enr":"9万+","wk":"14","top":0,"cat":"大学体育","u":"https://www.icourse163.org/search.htm?search=%E5%A4%A7%E5%AD%A6%E4%BD%93%E8%82%B2%EF%BC%88%E4%BA%8C%EF%BC%89"},{"n":"大学体育（1）","sch":"湖南大学","t":"田祖国","plat":"智慧树","enr":"8万+","wk":"26","top":0,"cat":"大学体育","u":"https://www.zhihuishu.com/"},{"n":"大学体育","sch":"湖南大学","t":"田祖国","plat":"学银在线","enr":"9万+","wk":"16","top":0,"cat":"大学体育","u":"https://www.xueyinonline.com/"},{"n":"大学公共体育","sch":"华南理工大学","t":"唐建倦","plat":"中国大学MOOC","enr":"20万+","wk":"17","top":0,"cat":"大学体育","u":"https://www.icourse163.org/search.htm?search=%E5%A4%A7%E5%AD%A6%E5%85%AC%E5%85%B1%E4%BD%93%E8%82%B2"},{"n":"体育与健康","sch":"北京科技大学","t":"钱娅艳","plat":"中国大学MOOC","enr":"8万+","wk":"15","top":0,"cat":"大学体育","u":"https://www.icourse163.org/search.htm?search=%E4%BD%93%E8%82%B2%E4%B8%8E%E5%81%A5%E5%BA%B7"},{"n":"大学体育——瑜伽","sch":"湖南师范大学","t":"高吟","plat":"智慧树","enr":"4万+","wk":"26","top":0,"cat":"大学体育","u":"https://www.zhihuishu.com/"},{"n":"大学体育——游泳","sch":"北京工业大学","t":"李晓甜","plat":"中国大学MOOC","enr":"3万+","wk":"15","top":0,"cat":"大学体育","u":"https://www.icourse163.org/search.htm?search=%E5%A4%A7%E5%AD%A6%E4%BD%93%E8%82%B2%E2%80%94%E2%80%94%E6%B8%B8%E6%B3%B3"},{"n":"体育舞蹈","sch":"北京师范大学","t":"姜桂萍","plat":"中国大学MOOC","enr":"3万+","wk":"16","top":1,"cat":"体育舞蹈与艺术","u":"https://www.icourse163.org/search.htm?search=%E4%BD%93%E8%82%B2%E8%88%9E%E8%B9%88"},{"n":"体育舞蹈","sch":"中国石油大学（北京）","t":"张旭","plat":"学堂在线","enr":"1万+","wk":"24","top":0,"cat":"体育舞蹈与艺术","u":"https://www.xuetangx.com/search?query=%E4%BD%93%E8%82%B2%E8%88%9E%E8%B9%88"},{"n":"体育舞蹈","sch":"北京航空航天大学","t":"袁焰","plat":"中国大学MOOC","enr":"1万+","wk":"15","top":0,"cat":"体育舞蹈与艺术","u":"https://www.icourse163.org/search.htm?search=%E4%BD%93%E8%82%B2%E8%88%9E%E8%B9%88"},{"n":"体育舞蹈","sch":"北京工业大学","t":"果梅","plat":"中国大学MOOC","enr":"5000+","wk":"107","top":0,"cat":"体育舞蹈与艺术","u":"https://www.icourse163.org/search.htm?search=%E4%BD%93%E8%82%B2%E8%88%9E%E8%B9%88"},{"n":"民族民间体育精选","sch":"云南师范大学","t":"聂真新","plat":"智慧树","enr":"4万+","wk":"26","top":1,"cat":"传统体育与武术","u":"https://www.zhihuishu.com/"},{"n":"民族健身操","sch":"云南民族大学","t":"寸亚玲","plat":"智慧树","enr":"3万+","wk":"26","top":1,"cat":"传统体育与武术","u":"https://www.zhihuishu.com/"},{"n":"民族健身操","sch":"中央民族大学","t":"李俊怡","plat":"学堂在线","enr":"1000+","wk":"24","top":0,"cat":"传统体育与武术","u":"https://www.xuetangx.com/search?query=%E6%B0%91%E6%97%8F%E5%81%A5%E8%BA%AB%E6%93%8D"},{"n":"武术健身——攻防二十四手","sch":"福建警察学院","t":"黄晓鹏","plat":"中国大学MOOC","enr":"1万+","wk":"19","top":1,"cat":"传统体育与武术","u":"https://www.icourse163.org/search.htm?search=%E6%AD%A6%E6%9C%AF%E5%81%A5%E8%BA%AB%E2%80%94%E2%80%94%E6%94%BB%E9%98%B2%E4%BA%8C%E5%8D%81%E5%9B%9B%E6%89%8B"},{"n":"中国汉唐气韵健身舞","sch":"北京体育大学","t":"许言","plat":"中国大学MOOC","enr":"3万+","wk":"14","top":0,"cat":"传统体育与武术","u":"https://www.icourse163.org/search.htm?search=%E4%B8%AD%E5%9B%BD%E6%B1%89%E5%94%90%E6%B0%94%E9%9F%B5%E5%81%A5%E8%BA%AB%E8%88%9E"},{"n":"健身气功","sch":"山东体育学院","t":"张军","plat":"智慧树","enr":"5000+","wk":"26","top":0,"cat":"传统体育与武术","u":"https://www.zhihuishu.com/"},{"n":"健身气功","sch":"四川轻化工大学","t":"—","plat":"学银在线","enr":"1000+","wk":"8","top":0,"cat":"传统体育与武术","u":"https://www.xueyinonline.com/"},{"n":"传统健身功法","sch":"武汉体育学院","t":"苏健蛟","plat":"学堂在线","enr":"1000+","wk":"24","top":0,"cat":"传统体育与武术","u":"https://www.xuetangx.com/search?query=%E4%BC%A0%E7%BB%9F%E5%81%A5%E8%BA%AB%E5%8A%9F%E6%B3%95"},{"n":"运动健身原理与方法","sch":"北京大学","t":"赫忠慧","plat":"中国大学MOOC","enr":"10万+","wk":"12","top":1,"cat":"健身与体能","u":"https://www.icourse163.org/search.htm?search=%E8%BF%90%E5%8A%A8%E5%81%A5%E8%BA%AB%E5%8E%9F%E7%90%86%E4%B8%8E%E6%96%B9%E6%B3%95"},{"n":"科学健身","sch":"西南石油大学","t":"向剑锋","plat":"中国大学MOOC","enr":"8万+","wk":"9","top":1,"cat":"健身与体能","u":"https://www.icourse163.org/search.htm?search=%E7%A7%91%E5%AD%A6%E5%81%A5%E8%BA%AB"},{"n":"健身瑜伽","sch":"北京航空航天大学","t":"陈媛","plat":"中国大学MOOC","enr":"5万+","wk":"16","top":0,"cat":"健身与体能","u":"https://www.icourse163.org/search.htm?search=%E5%81%A5%E8%BA%AB%E7%91%9C%E4%BC%BD"},{"n":"健身瑜伽","sch":"西安理工大学","t":"姚婧","plat":"智慧树","enr":"5000+","wk":"26","top":0,"cat":"健身与体能","u":"https://www.zhihuishu.com/"},{"n":"健身瑜伽","sch":"南昌师范学院","t":"程丽芬","plat":"学银在线","enr":"1000+","wk":"20","top":0,"cat":"健身与体能","u":"https://www.xueyinonline.com/"},{"n":"大学健身瑜伽","sch":"北京理工大学","t":"王娟","plat":"学堂在线","enr":"5000+","wk":"24","top":0,"cat":"健身与体能","u":"https://www.xuetangx.com/search?query=%E5%A4%A7%E5%AD%A6%E5%81%A5%E8%BA%AB%E7%91%9C%E4%BC%BD"},{"n":"健身健美","sch":"北京林业大学","t":"姜志明","plat":"中国大学MOOC","enr":"4万+","wk":"15","top":0,"cat":"健身与体能","u":"https://www.icourse163.org/search.htm?search=%E5%81%A5%E8%BA%AB%E5%81%A5%E7%BE%8E"},{"n":"科学健身法——缠丝健身功","sch":"北京体育大学","t":"武冬","plat":"中国大学MOOC","enr":"1万+","wk":"18","top":0,"cat":"健身与体能","u":"https://www.icourse163.org/search.htm?search=%E7%A7%91%E5%AD%A6%E5%81%A5%E8%BA%AB%E6%B3%95%E2%80%94%E2%80%94%E7%BC%A0%E4%B8%9D%E5%81%A5%E8%BA%AB%E5%8A%9F"},{"n":"科学健身法-缠丝健身功","sch":"北京体育大学","t":"武冬","plat":"学堂在线","enr":"5000+","wk":"24","top":0,"cat":"健身与体能","u":"https://www.xuetangx.com/search?query=%E7%A7%91%E5%AD%A6%E5%81%A5%E8%BA%AB%E6%B3%95-%E7%BC%A0%E4%B8%9D%E5%81%A5%E8%BA%AB%E5%8A%9F"},{"n":"中医健身学","sch":"南京中医药大学","t":"徐勰","plat":"中国大学MOOC","enr":"5000+","wk":"15","top":0,"cat":"健身与体能","u":"https://www.icourse163.org/search.htm?search=%E4%B8%AD%E5%8C%BB%E5%81%A5%E8%BA%AB%E5%AD%A6"},{"n":"教你成为健身达人","sch":"成都师范学院","t":"文礼波","plat":"智慧树","enr":"10万+","wk":"26","top":0,"cat":"健身与体能","u":"https://www.zhihuishu.com/"},{"n":"健身起跑线","sch":"青岛酒店管理职业技术学院","t":"夏飞","plat":"智慧树","enr":"9万+","wk":"26","top":0,"cat":"健身与体能","u":"https://www.zhihuishu.com/"},{"n":"软器械与科学健身","sch":"北京体育大学","t":"成盼攀","plat":"中国大学MOOC","enr":"5000+","wk":"15","top":0,"cat":"健身与体能","u":"https://www.icourse163.org/search.htm?search=%E8%BD%AF%E5%99%A8%E6%A2%B0%E4%B8%8E%E7%A7%91%E5%AD%A6%E5%81%A5%E8%BA%AB"},{"n":"运动解剖学","sch":"东华理工大学","t":"颉梦宁","plat":"学堂在线","enr":"1万+","wk":"19","top":1,"cat":"运动人体科学","u":"https://www.xuetangx.com/search?query=%E8%BF%90%E5%8A%A8%E8%A7%A3%E5%89%96%E5%AD%A6"},{"n":"体育保健学","sch":"江西财经大学","t":"严伟","plat":"中国大学MOOC","enr":"1万+","wk":"14","top":1,"cat":"运动健康与康复","u":"https://www.icourse163.org/course/JXUFE-1460762161"},{"n":"生命安全与救援——运动损伤防治与户外活动安全","sch":"上海交通大学","t":"姚武","plat":"中国大学MOOC","enr":"10万+","wk":"14","top":1,"cat":"运动健康与康复","u":"https://www.icourse163.org/search.htm?search=%E8%BF%90%E5%8A%A8%E6%8D%9F%E4%BC%A4%E9%98%B2%E6%B2%BB%E4%B8%8E%E6%88%B7%E5%A4%96%E6%B4%BB%E5%8A%A8%E5%AE%89%E5%85%A8"}];
   function esc(s){return String(s).replace(/[&<>"]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m];});}
@@ -8603,7 +8603,7 @@ function init(){build();addNav();}if(document.readyState==="loading")document.ad
   --cssd-green:#34d399;
   --cssd-gold:#D4AE5A;
   --cssd-rose:#fb7185;
-  --cssd-violet:#a78bfa;
+  --cssd-violet:#2C6E9E;
   --cssd-radius:12px;
   --cssd-shadow:0 18px 52px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.04);
 }
@@ -9172,7 +9172,7 @@ body.cssd-v46-40 .ft button{
         trad:{label:'\u6c11\u65cf\u4f20\u7edf\u4f53\u80b2\u5b66',icon:'\u25cf',color:'#A23B4E',disc:['trad']}
       };
       var detail={
-        psych:{name:'\u8fd0\u52a8\u5fc3\u7406\u5b66',color:'#A855F7',lab:'psychlab'},
+        psych:{name:'\u8fd0\u52a8\u5fc3\u7406\u5b66',color:'#2C6E9E',lab:'psychlab'},
         sci:{name:'\u8fd0\u52a8\u4eba\u4f53\u79d1\u5b66',color:'#3E82B0',lab:'scilab'},
         hu:{name:'\u4f53\u80b2\u4eba\u6587\u793e\u4f1a\u5b66',color:'#F97316',lab:'hulab'},
         train:{name:'\u8fd0\u52a8\u8bad\u7ec3\u5b66',color:'#C8A24B',lab:'trainlab'},
@@ -9180,7 +9180,7 @@ body.cssd-v46-40 .ft button{
         mgmt:{name:'\u4f53\u80b2\u7ba1\u7406\u5b66',color:'#10B981',lab:'mgmtlab'},
         rehab:{name:'\u8fd0\u52a8\u533b\u5b66\u4e0e\u5eb7\u590d',color:'#06B6D4',lab:'rehablab'},
         pe:{name:'\u4f53\u80b2\u6559\u80b2\u5b66',color:'#3E82B0',lab:'pelab'},
-        eng:{name:'\u4f53\u80b2\u5de5\u7a0b\u5b66',color:'#8B5CF6',lab:'englab'},
+        eng:{name:'\u4f53\u80b2\u5de5\u7a0b\u5b66',color:'#2C6E9E',lab:'englab'},
         outdoor:{name:'\u6237\u5916\u8fd0\u52a8',color:'#22C55E',lab:'scholars'}
       };
       var source=(typeof S!=='undefined')?S:[];
@@ -9756,7 +9756,7 @@ body.cssd-v46-43 #vw-home .kpi::after{
 }
 body.cssd-v46-43 #vw-home .kpi:nth-child(1){--metric-color:#2E9A89;--metric-glow:rgba(46,154,137,.15);}
 body.cssd-v46-43 #vw-home .kpi:nth-child(2){--metric-color:#60a5fa;--metric-glow:rgba(96,165,250,.14);}
-body.cssd-v46-43 #vw-home .kpi:nth-child(3){--metric-color:#a78bfa;--metric-glow:rgba(167,139,250,.16);}
+body.cssd-v46-43 #vw-home .kpi:nth-child(3){--metric-color:#2C6E9E;--metric-glow:rgba(44,110,158,.16);}
 body.cssd-v46-43 #vw-home .kpi:nth-child(4){--metric-color:#34d399;--metric-glow:rgba(52,211,153,.13);}
 body.cssd-v46-43 #vw-home .kpi:nth-child(5){--metric-color:#f59e0b;--metric-glow:rgba(200,162,75,.12);}
 body.cssd-v46-43 #vw-home .kpi:nth-child(6){--metric-color:#f472b6;--metric-glow:rgba(244,114,182,.13);}
@@ -9769,7 +9769,7 @@ body.cssd-v46-43 #vw-home .kpi .kn{
   letter-spacing:0!important;
   color:#eaf6ff!important;
   -webkit-text-fill-color:transparent!important;
-  background:linear-gradient(90deg,#2E9A89 0%,#60a5fa 64%,#a78bfa 100%)!important;
+  background:linear-gradient(90deg,#2E9A89 0%,#60a5fa 64%,#2C6E9E 100%)!important;
   -webkit-background-clip:text!important;
   background-clip:text!important;
   text-shadow:0 0 28px rgba(46,154,137,.18)!important;
@@ -10245,7 +10245,7 @@ body.cssd-v46-46 .ov-tag{display:inline-flex;align-items:center;border:1px solid
 body.cssd-v46-46 .ov-text{color:rgba(226,238,255,.72);font-size:13px;line-height:1.75}
 body.cssd-v46-46 .ov-source{justify-self:end;text-align:right;color:rgba(226,238,255,.60);font-size:12px;line-height:1.6}
 body.cssd-v46-46 .ov-cred{display:inline-flex;margin-bottom:8px;border-radius:999px;padding:5px 9px;font:900 11px/1 'DM Mono',monospace;color:#06121f;background:#2E9A89}
-body.cssd-v46-46 .ov-cred.b{background:#a78bfa;color:#fff}
+body.cssd-v46-46 .ov-cred.b{background:#2C6E9E;color:#fff}
 body.cssd-v46-46 .ov-cred.c{background:#f59e0b;color:#111827}
 body.cssd-v46-46 .ov-empty{padding:26px;text-align:center;color:rgba(226,238,255,.62);border:1px dashed rgba(255,255,255,.14);border-radius:12px}
 body.cssd-v46-46 .ov-note{margin-top:14px;color:rgba(226,238,255,.58);font-size:12px;line-height:1.8}
@@ -10992,7 +10992,7 @@ body.cssd-v46-50 .gm-public-item{padding:9px 0;border-bottom:1px solid rgba(255,
       {n:'Google Scholar',u:'https://scholar.google.com/',d:'全球学术文献搜索与引用统计',tag:'国际检索'},
       {n:'Semantic Scholar',u:'https://www.semanticscholar.org/',d:'AI驱动的学术论文语义检索',tag:'国际检索'}
     ]},
-    {name:'AI辅助文献阅读与综述',color:'#A855F7',tools:[
+    {name:'AI辅助文献阅读与综述',color:'#2C6E9E',tools:[
       {n:'秘塔AI搜索',u:'https://metaso.cn/',d:'中文AI搜索问答，支持学术模式引用溯源',tag:'AI搜索'},
       {n:'Elicit',u:'https://elicit.com/',d:'AI文献问答，自动提取论文证据与要点',tag:'文献综述'},
       {n:'Consensus',u:'https://consensus.app/',d:'基于论文证据的科研问题AI问答',tag:'证据检索'},
@@ -11073,7 +11073,7 @@ html{scroll-behavior:smooth!important}
 
 /* ── 4. 标题排版优化 ── */
 .h1{letter-spacing:-.025em!important;line-height:1.08!important}
-.h1 .hl{background:linear-gradient(90deg,#2E9A89 0%,#60A5FA 50%,#A78BFA 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important}
+.h1 .hl{background:linear-gradient(90deg,#2E9A89 0%,#60A5FA 50%,#2C6E9E 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important}
 .hs{letter-spacing:.18em!important}
 
 /* ── 5. 学者卡片 — 更大气 ── */
@@ -11354,7 +11354,7 @@ mark{background:rgba(46,154,137,.2)!important;color:inherit!important;border-rad
   position:absolute!important;
   top:0!important;left:0!important;right:0!important;
   height:3px!important;
-  background:linear-gradient(90deg,#2E9A89 0%,#2C6E9E 55%,#8B5CF6 100%)!important;
+  background:linear-gradient(90deg,#2E9A89 0%,#2C6E9E 55%,#2C6E9E 100%)!important;
   opacity:0!important;
   transition:opacity .28s ease!important;
   z-index:3!important;
@@ -11547,7 +11547,7 @@ html.cssd-light body.cssd-v46-40 .phi p{color:#5A6575!important;}
 html.cssd-light .phi h1,
 html.cssd-light .phi p{-webkit-text-fill-color:unset!important;text-fill-color:unset!important;}
 html.cssd-light .h1 .hl{
-  background:linear-gradient(94deg,#1F7A6C 0%,#14476E 56%,#5A3FA0 100%)!important;
+  background:linear-gradient(94deg,#1F7A6C 0%,#14476E 56%,#14476E 100%)!important;
   -webkit-background-clip:text!important;background-clip:text!important;
 }
 html.cssd-light .kpi .kn{
@@ -11672,7 +11672,7 @@ html.cssd-light #vw-home .h1{
   -webkit-text-fill-color:#0A2A43!important;
 }
 html.cssd-light .hero .h1 .hl{
-  background:linear-gradient(100deg,#1F7A6C 0%,#14476E 40%,#5A3FA0 100%)!important;
+  background:linear-gradient(100deg,#1F7A6C 0%,#14476E 40%,#14476E 100%)!important;
   -webkit-background-clip:text!important;
   background-clip:text!important;
   -webkit-text-fill-color:transparent!important;
@@ -12293,17 +12293,17 @@ html.cssd-light .sec > .inn > div button[style*="color: #A23B4E"]{
   background:rgba(162,59,78,.08)!important;
   border-color:rgba(162,59,78,.25)!important;
 }
-html.cssd-light .sec > .inn > div button[style*="color:#8B5CF6"],
-html.cssd-light .sec > .inn > div button[style*="color: #8B5CF6"]{
-  color:#5B21B6!important;
-  background:rgba(139,92,246,.08)!important;
-  border-color:rgba(139,92,246,.25)!important;
+html.cssd-light .sec > .inn > div button[style*="color:#2C6E9E"],
+html.cssd-light .sec > .inn > div button[style*="color: #2C6E9E"]{
+  color:#14476E!important;
+  background:rgba(44,110,158,.08)!important;
+  border-color:rgba(44,110,158,.25)!important;
 }
-html.cssd-light .sec > .inn > div button[style*="color:#A78BFA"],
-html.cssd-light .sec > .inn > div button[style*="color: #A78BFA"]{
-  color:#5B21B6!important;
-  background:rgba(167,139,250,.08)!important;
-  border-color:rgba(167,139,250,.25)!important;
+html.cssd-light .sec > .inn > div button[style*="color:#2C6E9E"],
+html.cssd-light .sec > .inn > div button[style*="color: #2C6E9E"]{
+  color:#14476E!important;
+  background:rgba(44,110,158,.08)!important;
+  border-color:rgba(44,110,158,.25)!important;
 }
 html.cssd-light .sec > .inn > div button[style*="color:#84cc16"],
 html.cssd-light .sec > .inn > div button[style*="color: #84cc16"]{
@@ -12618,8 +12618,8 @@ html.cssd-light .mo .msec p{
 /* ── J. 学科分类总览视图：内联暗色文字修正 ── */
 html.cssd-light #vw-disciplines [style*="color:#8A94A8"]{color:#5A6575!important;}
 html.cssd-light #vw-disciplines [style*="color:#c7d2fe"]{color:#3730A3!important;}
-html.cssd-light #vw-disciplines [style*="color:#818cf8"]{color:#4338CA!important;}
-html.cssd-light #vw-disciplines [style*="color:#a78bfa"]{color:#6D28D9!important;}
+html.cssd-light #vw-disciplines [style*="color:#2C6E9E"]{color:#4338CA!important;}
+html.cssd-light #vw-disciplines [style*="color:#2C6E9E"]{color:#6D28D9!important;}
 html.cssd-light #vw-disciplines [style*="background:rgba(129,140,248,.1)"]{background:rgba(67,56,202,.08)!important;}
 html.cssd-light #vw-disciplines [style*="background:rgba(129,140,248,.06)"]{background:rgba(67,56,202,.05)!important;}
 html.cssd-light #vw-disciplines .l3-disc-card{
@@ -13233,19 +13233,19 @@ html.cssd-light .sec [style*="color:rgba(46,154,137"]{color:#155E52!important;}
 html.cssd-light .sec [style*="border:1px solid rgba(46,154,137,.25)"],
 html.cssd-light .sec [style*="border:1px solid rgba(200,162,75,.25)"],
 html.cssd-light .sec [style*="border:1px solid rgba(244,63,94,.25)"],
-html.cssd-light .sec [style*="border:1px solid rgba(139,92,246,.25)"],
-html.cssd-light .sec [style*="border:1px solid rgba(167,139,250,.25)"],
+html.cssd-light .sec [style*="border:1px solid rgba(44,110,158,.25)"],
+html.cssd-light .sec [style*="border:1px solid rgba(44,110,158,.25)"],
 html.cssd-light .sec [style*="border:1px solid rgba(101,163,13,.25)"]{
   background:#FFFFFF!important;
 }
 html.cssd-light .sec button[style*="color:#2E9A89"]{color:#0F5B4F!important;}
 html.cssd-light .sec button[style*="color:#C8A24B"]{color:#8A6D1F!important;}
 html.cssd-light .sec button[style*="color:#A23B4E"]{color:#8A3A48!important;}
-html.cssd-light .sec button[style*="color:#8B5CF6"]{color:#6D3FD6!important;}
-html.cssd-light .sec button[style*="color:#A78BFA"]{color:#6D3FD6!important;}
+html.cssd-light .sec button[style*="color:#2C6E9E"]{color:#6D3FD6!important;}
+html.cssd-light .sec button[style*="color:#2C6E9E"]{color:#6D3FD6!important;}
 html.cssd-light .sec button[style*="color:#84cc16"]{color:#55801E!important;}
 html.cssd-light .sec button[style*="color:#f59e0b"]{color:#9A6A15!important;}
-html.cssd-light .sec button[style*="color:#818cf8"]{color:#4F46C8!important;}
+html.cssd-light .sec button[style*="color:#2C6E9E"]{color:#4F46C8!important;}
 /* 13.4 冷灰白面 → 暖纸面 */
 html.cssd-light .scholar-table thead th{background:#F2EDE2!important;}
 html.cssd-light .tlst .tbw{background:#F2EDE2!important;}
@@ -13567,19 +13567,19 @@ html:not(.cssd-light) ::placeholder{color:#8494A9!important;opacity:.8!important
 
 /* ── 7 · 残留清扫（浅色） ─────────────────────────────────────── */
 /* 导航下拉里残留的紫链接 */
-html.cssd-light .ndd-ft button[style*="color:#818cf8"],
-html.cssd-light .ndd-ft button[style*="color:#a78bfa"]{
+html.cssd-light .ndd-ft button[style*="color:#2C6E9E"],
+html.cssd-light .ndd-ft button[style*="color:#2C6E9E"]{
   color:#14476E!important;background:rgba(20,71,110,.05)!important;
 }
 /* 荣誉语义一色化归金：去除徽章条上的玫红/紫残留观感由细色保留 */
 html.cssd-light .sec button[style*="color:#2E9A89"]{color:#0F5B4F!important;}
 html.cssd-light .sec button[style*="color:#C8A24B"]{color:#8A6D1F!important;}
 html.cssd-light .sec button[style*="color:#A23B4E"]{color:#8A3A48!important;}
-html.cssd-light .sec button[style*="color:#8B5CF6"],
-html.cssd-light .sec button[style*="color:#A78BFA"]{color:#14476E!important;}
+html.cssd-light .sec button[style*="color:#2C6E9E"],
+html.cssd-light .sec button[style*="color:#2C6E9E"]{color:#14476E!important;}
 html.cssd-light .sec button[style*="color:#84cc16"]{color:#557A20!important;}
 html.cssd-light .sec button[style*="color:#f59e0b"]{color:#8A6D1F!important;}
-html.cssd-light .sec button[style*="color:#818cf8"]{color:#14476E!important;}
+html.cssd-light .sec button[style*="color:#2C6E9E"]{color:#14476E!important;}
 html.cssd-light .sec span[style*="color:rgba(46,154,137,.5)"]{color:#1F7A6C!important;}
 /* 正文区白透明分隔线 → 墨蓝细线 */
 html.cssd-light .sec [style*="border-bottom:1px solid rgba(255,255,255"],
@@ -13635,10 +13635,10 @@ html.cssd-light .sec [style*="border-top:1px solid rgba(255,255,255"]{
 
 /* ── 0 · 通用：内联亮色字 → 深色同色相（浅底可读） ────────────────── */
 html.cssd-light [style*="color:#2E9A89"],html.cssd-light [style*="color:#5FB8AA"]{color:#0F5B4F!important;}
-html.cssd-light [style*="color:#A855F7"],html.cssd-light [style*="color:#8B5CF6"],
-html.cssd-light [style*="color:#A78BFA"],html.cssd-light [style*="color:#C4B5FD"],
-html.cssd-light [style*="color:#7C3AED"]{color:#5B21B6!important;}
-html.cssd-light [style*="color:#818cf8"],html.cssd-light [style*="color:#6366f1"]{color:#4338CA!important;}
+html.cssd-light [style*="color:#2C6E9E"],html.cssd-light [style*="color:#2C6E9E"],
+html.cssd-light [style*="color:#2C6E9E"],html.cssd-light [style*="color:#C4B5FD"],
+html.cssd-light [style*="color:#14476E"]{color:#14476E!important;}
+html.cssd-light [style*="color:#2C6E9E"],html.cssd-light [style*="color:#2C6E9E"]{color:#4338CA!important;}
 html.cssd-light [style*="color:#22C55E"],html.cssd-light [style*="color:#4ADE80"],
 html.cssd-light [style*="color:#16A34A"],html.cssd-light [style*="color:#86EFAC"]{color:#15803D!important;}
 html.cssd-light [style*="color:#10B981"],html.cssd-light [style*="color:#34D399"],
@@ -13881,10 +13881,10 @@ html.cssd-light #vw-groupmap,#vw-aitools,#vw-projects{color:#243B4E!important;}
 
 /* ── 0 · 内联亮色字 小写/混合写 兜底（同色加深） ────────────────── */
 html.cssd-light [style*="color:#2e9a89"],html.cssd-light [style*="color:#5fb8aa"]{color:#0F5B4F!important;}
-html.cssd-light [style*="color:#a855f7"],html.cssd-light [style*="color:#8b5cf6"],
-html.cssd-light [style*="color:#a78bfa"],html.cssd-light [style*="color:#c4b5fd"],
-html.cssd-light [style*="color:#7c3aed"]{color:#5B21B6!important;}
-html.cssd-light [style*="color:#818cf8"],html.cssd-light [style*="color:#6366f1"]{color:#4338CA!important;}
+html.cssd-light [style*="color:#2C6E9E"],html.cssd-light [style*="color:#2C6E9E"],
+html.cssd-light [style*="color:#2C6E9E"],html.cssd-light [style*="color:#c4b5fd"],
+html.cssd-light [style*="color:#7c3aed"]{color:#14476E!important;}
+html.cssd-light [style*="color:#2C6E9E"],html.cssd-light [style*="color:#2C6E9E"]{color:#4338CA!important;}
 html.cssd-light [style*="color:#22c55e"],html.cssd-light [style*="color:#4ade80"],
 html.cssd-light [style*="color:#16a34a"]{color:#15803D!important;}
 html.cssd-light [style*="color:#10b981"],html.cssd-light [style*="color:#34d399"]{color:#0F766E!important;}
@@ -14544,9 +14544,9 @@ html:not(.cssd-light) #vw-journals .jnl-result-info b,
 html:not(.cssd-light) #vw-journals .jnl-tab-cnt,
 html:not(.cssd-light) #vw-journals .jnl-chip{color:#B9C6D6!important;}
 html:not(.cssd-light) #vw-home .sec span[style*="color:rgba(162,59,78"],
-html:not(.cssd-light) #vw-home .sec span[style*="color:rgba(139,92,246"],
+html:not(.cssd-light) #vw-home .sec span[style*="color:rgba(44,110,158"],
 html:not(.cssd-light) #vw-home .sec span[style*="color:#A23B4E"],
-html:not(.cssd-light) #vw-home .sec span[style*="color:#8B5CF6"]{color:#F2B3BC!important;}
+html:not(.cssd-light) #vw-home .sec span[style*="color:#2C6E9E"]{color:#F2B3BC!important;}
 html:not(.cssd-light) .ft .ft-sep{color:rgba(255,255,255,.55)!important;}
 html:not(.cssd-light) #vw-degreepoint a{color:#A6CFEA!important;}
 html:not(.cssd-light) #vw-degreepoint span{color:#A9B7C9!important;}
@@ -14561,10 +14561,10 @@ html:not(.cssd-light) #vw-sportscolleges button[style*="rgba(240, 244, 255"]{col
    ═══════════════════════════════════════════════════════════════════════ */
 html:not(.cssd-light) [style*="color:#A23B4E"],html:not(.cssd-light) [style*="color:#a23b4e"]{color:#F0A5B0!important;}
 html:not(.cssd-light) [style*="color:#3E82B0"],html:not(.cssd-light) [style*="color:#3e82b0"]{color:#A6CFEA!important;}
-html:not(.cssd-light) [style*="color:#8B5CF6"],html:not(.cssd-light) [style*="color:#8b5cf6"],
-html:not(.cssd-light) [style*="color:#A855F7"],html:not(.cssd-light) [style*="color:#a855f7"],
-html:not(.cssd-light) [style*="color:#A78BFA"],html:not(.cssd-light) [style*="color:#a78bfa"],
-html:not(.cssd-light) [style*="color:#818cf8"],html:not(.cssd-light) [style*="color:#6366f1"]{color:#D6C4FF!important;}
+html:not(.cssd-light) [style*="color:#2C6E9E"],html:not(.cssd-light) [style*="color:#2C6E9E"],
+html:not(.cssd-light) [style*="color:#2C6E9E"],html:not(.cssd-light) [style*="color:#2C6E9E"],
+html:not(.cssd-light) [style*="color:#2C6E9E"],html:not(.cssd-light) [style*="color:#2C6E9E"],
+html:not(.cssd-light) [style*="color:#2C6E9E"],html:not(.cssd-light) [style*="color:#2C6E9E"]{color:#D6C4FF!important;}
 html:not(.cssd-light) [style*="color:#2E9A89"],html:not(.cssd-light) [style*="color:#2e9a89"],
 html:not(.cssd-light) [style*="color:#1F7A6C"],html:not(.cssd-light) [style*="color:#1f7a6c"]{color:#7DE8D3!important;}
 html:not(.cssd-light) [style*="color:#C8A24B"],html:not(.cssd-light) [style*="color:#c8a24b"],
@@ -14780,7 +14780,7 @@ html.cssd-light .pledge-hdr-icon{line-height:1!important;}
     if(h>=110&&h<=200) return '#0F5B4F';   // teal/green
     if(h>=35&&h<=65)   return '#8A6D1F';   // gold
     if(h>=200&&h<=260) return '#14476E';   // blue
-    if(h>=260&&h<=320) return '#5B21B6';   // violet
+    if(h>=260&&h<=320) return '#14476E';   // violet
     return '#0A2A43';                       // fallback 墨蓝
   }
   // 深底专用：选择与 fg 色相一致的浅色字
@@ -15356,7 +15356,7 @@ html.cssd-light body.cssd-v46-40.cssd-v46-41.cssd-v46-42.cssd-v46-43.cssd-v46-45
     if(h>=110&&h<=200) return '#0F5B4F';
     if(h>=35&&h<=65)   return '#8A6D1F';
     if(h>=200&&h<=260) return '#14476E';
-    if(h>=260&&h<=320) return '#5B21B6';
+    if(h>=260&&h<=320) return '#14476E';
     return '#0A2A43';
   }
   function light(fg){
