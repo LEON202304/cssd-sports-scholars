@@ -323,9 +323,9 @@ html.cssd-light body #vw-youthscholar .youth-level-A{border-top:2px solid rgba(2
 html.cssd-light body #vw-youthscholar .youth-level-B{border-top:2px solid rgba(44,110,158,.45) !important;}
 html.cssd-light body #vw-youthscholar .youth-level-C{border-top:2px solid var(--sp-chip-line) !important;}
 /* JS 模板里写死的紫色「点击查看详情」与列表姓名浅字 */
-html.cssd-light body #vw-youthscholar .youth-card [style*="139,92,246"]{
-  color:var(--sp-teal) !important;
-  border-top-color:var(--sp-line) !important;
+html.cssd-light body #vw-youthscholar .youth-card [style*="139,92,246"],
+html.cssd-light body #vw-youthscholar .youth-card [style*="#2C6E9E"]{
+  color:var(--sp-brand-500) !important;
 }
 html.cssd-light body #vw-youthscholar .youth-list-row [style*="#e2e8f0"]{color:var(--sp-brand-900) !important;}
 html.cssd-light body #vw-youthscholar [style*="#a78bfa"],
@@ -581,4 +581,20 @@ html.cssd-light body #vw-academicnews.sp-news .an-wrap{
   html.cssd-light body #vw-scholars .ctlb .cr3 > *{flex:0 0 auto !important;width:auto !important;}
   html.cssd-light body #vw-scholars .ctlb .cr2 > span:not(.chip):not(.cdiv),
   html.cssd-light body #vw-scholars .ctlb .cr3 > span:not(.chip):not(.cdiv){min-width:0 !important;text-align:left !important;}
+}
+
+/* —— P0 补丁：激活 chip 接受对比度字色，边框保留 teal —— */
+html.cssd-light body #vw-scholars .ctlb .chip.on:not(.clr),
+html.cssd-light body #vw-scholars .ctlb .chip[aria-pressed="true"]:not(.clr),
+html.cssd-light body #vw-scholars .ctlb .chip.is-active:not(.clr),
+html.cssd-light body #youthDiscTabs .chip.on,
+html.cssd-light body #youthLevelTabs .l1-tab.on,
+html.cssd-light body #vw-youthscholar .l1-tab.on{
+  color:#0F5B4F !important;
+  border-color:#2E9A89 !important;
+  font-weight:600 !important;
+}
+html.cssd-light body #vw-youthscholar .youth-card div[style*="#2C6E9E"],
+html.cssd-light body #vw-youthscholar .youth-card div[style*="139,92,246"]{
+  color:var(--sp-brand-500) !important;
 }
