@@ -57950,7 +57950,7 @@ function youthRenderGrid(grid,list){
     // 研究方向
     if(s.r) H+='<div style="font-size:.7rem;color:#64748b;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">'+s.r+'</div>';
     // 底部：查看详情
-    H+='<div style="margin-top:8px;padding-top:7px;border-top:1px solid rgba(255,255,255,.06);font-size:.68rem;color:rgba(139,92,246,.7);">点击查看详情 →</div>';
+    H+='<div style="margin-top:8px;padding-top:7px;border-top:1px solid rgba(255,255,255,.06);font-size:.68rem;color:#2C6E9E;">点击查看详情 →</div>';
     H+='</div>';
   });
   H+='</div>';
