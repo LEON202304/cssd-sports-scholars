@@ -908,3 +908,25 @@ html.cssd-light body #vw-scholars .chip.clr:hover{
     display:none !important;
   }
 }
+
+
+/* P2 fix: 清除筛选彻底透明（压宿主 .chip 浅蓝底） */
+html.cssd-light body #vw-scholars .ctlb .chip.clr,
+html.cssd-light body #vw-scholars .ctlb button.chip.clr,
+html.cssd-light body #vw-scholars .cr1 .chip.clr{
+  background:transparent !important;
+  background-image:none !important;
+  border:0 !important;
+  box-shadow:none !important;
+  color:#2C6E9E !important;
+  text-decoration:underline !important;
+  text-underline-offset:3px;
+  padding:4px 6px !important;
+}
+html.cssd-light body #vw-scholars .sp-hat-pill,
+html.cssd-light body #vw-scholars .sp-hat-pill *{
+  color:#0A2A43 !important;
+}
+html.cssd-light body #vw-scholars .sp-hat-pill .sp-star{
+  color:#C8A24B !important;
+}
