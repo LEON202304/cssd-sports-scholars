@@ -57061,8 +57061,8 @@ function sciAllView(Ss){
 }
 function sciCard(s,clr){
   var ac=clr||"#3E82B0";
-  var tags=s.hats.slice(0,2).map(function(h){return "<span class=\"sci-tag sci-tag-hat\">"+h.slice(0,10)+"</span>";}).join("")
-    +s.hon.slice(0,1).map(function(h){return "<span class=\"sci-tag sci-tag-hon\">"+h.slice(0,12)+"</span>";}).join("");
+  var tags=s.hats.slice(0,2).map(function(h){return "<span class=\"sp-hat-pill\"><span class=\"sp-star\" aria-hidden=\"true\">\u2605</span>"+h.slice(0,10)+"</span>";}).join("")
+    +s.hon.slice(0,1).map(function(h){return "<span class=\"sp-hat-pill sp-hon-pill\">"+h.slice(0,12)+"</span>";}).join("");
   return "<div class=\"sci-scard\" onclick=\"openMod(S.find(function(x){return x.id==="+s.id+";}));\">"
     +"<div class=\"sci-scard-top\">"
     +"<div class=\"sci-avatar\" style=\"background:"+ac+"18;color:"+ac+"\">"+s.i+"</div>"
@@ -57182,8 +57182,8 @@ function dAll(Ss,c){
 }
 function dCard(s,ac){
   var tags="";
-  s.hats.slice(0,2).forEach(function(h){tags+="<span class=\"dlab-tag dlab-tag-hat\">"+h.slice(0,10)+"</span>";});
-  s.hon.slice(0,1).forEach(function(h){tags+="<span class=\"dlab-tag dlab-tag-hon\">"+h.slice(0,12)+"</span>";});
+  s.hats.slice(0,2).forEach(function(h){tags+="<span class=\"sp-hat-pill\"><span class=\"sp-star\" aria-hidden=\"true\">\u2605</span>"+h.slice(0,10)+"</span>";});
+  s.hon.slice(0,1).forEach(function(h){tags+="<span class=\"sp-hat-pill sp-hon-pill\">"+h.slice(0,12)+"</span>";});
   return "<div class=\"dlab-scard\" style=\"border-left-color:"+ac+"40\" onclick=\"openMod(S.find(function(x){return x.id==="+s.id+";}))\""+">"
     +"<div class=\"dlab-scard-top\">"
     +"<div class=\"sci-avatar\" style=\"background:"+ac+"18;color:"+ac+"\">"+s.i+"</div>"

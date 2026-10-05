@@ -930,3 +930,54 @@ html.cssd-light body #vw-scholars .sp-hat-pill *{
 html.cssd-light body #vw-scholars .sp-hat-pill .sp-star{
   color:#C8A24B !important;
 }
+
+/* P2 fix-2 · 学科专题卡（dlab / sci）：宿主 [class*="dlab-scard"] 属性选择器误中子节点 → 框套框。
+   只保留卡片根 .dlab-scard / .sci-scard 描边圆角，子行一律无框。 */
+html.cssd-light body .dlab-scard [class*="dlab-scard-"],
+html.cssd-light body .sci-scard [class*="sci-scard-"],
+html.cssd-light body [class*="dlab-scard-"],
+html.cssd-light body [class*="sci-scard-"]{
+  border:none !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  background-image:none !important;
+  box-shadow:none !important;
+}
+/* 卡内称号/荣誉 pill：白底墨字细边，金只给星（模板已输出 .sp-hat-pill + .sp-star） */
+html.cssd-light body .dlab-scard .sp-hat-pill,
+html.cssd-light body .sci-scard .sp-hat-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:3px;
+  padding:2px 8px !important;
+  border-radius:999px !important;
+  background:#FFFFFF !important;
+  color:#0A2A43 !important;
+  border:1px solid #E3E8EF !important;
+  box-shadow:none !important;
+  font-weight:500;
+  white-space:nowrap;
+}
+html.cssd-light body .dlab-scard .sp-hat-pill .sp-star,
+html.cssd-light body .sci-scard .sp-hat-pill .sp-star{
+  color:#C8A24B !important;
+}
+
+/* P2 fix-2 · 清除筛选：hover / focus / active 也不回浅蓝底 */
+html.cssd-light body #vw-scholars .ctlb button.chip.clr:hover,
+html.cssd-light body #vw-scholars .ctlb button.chip.clr:focus,
+html.cssd-light body #vw-scholars .ctlb button.chip.clr:active,
+html.cssd-light body #vw-scholars .ctlb .chip.clr:hover,
+html.cssd-light body #vw-scholars .ctlb .chip.clr:focus,
+html.cssd-light body #vw-scholars .ctlb .chip.clr:active{
+  background:transparent !important;
+  background-image:none !important;
+  border:0 !important;
+  box-shadow:none !important;
+  color:#0A2A43 !important;
+  text-decoration:underline !important;
+}
+html.cssd-light body #vw-scholars .ctlb button.chip.clr:focus-visible{
+  outline:2px solid #2C6E9E !important;
+  outline-offset:2px;
+}
