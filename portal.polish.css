@@ -696,3 +696,301 @@ html.cssd-light body #vw-youthscholar .youth-level-B,
 html.cssd-light body #vw-youthscholar .youth-level-C{
   border-top:1px solid #E3E8EF !important;
 }
+
+/* ═════════════════════════════════════════════════════════════════
+   polish/p2 — 表格称号/学科 pill · 卡片学科 tag · DCFG 浅色 · 390筛选
+   ═════════════════════════════════════════════════════════════════ */
+
+/* 1 · 学者表格表头 */
+html.cssd-light body #vw-scholars .scholar-table thead th,
+html.cssd-light body #vw-scholars table.scholar-table thead th,
+html.cssd-light body .sch-table th,
+html.cssd-light body #vw-scholars .scholar-table th{
+  background:#F5F7FA !important;
+  color:#0A2A43 !important;
+  border-bottom:1px solid #E3E8EF !important;
+  font-weight:600;
+}
+
+/* 人才称号 pill：白底墨字，金只给星 */
+html.cssd-light body .sp-hat-pill,
+html.cssd-light body #vw-scholars .sp-hat-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:3px;
+  padding:2px 8px;
+  border-radius:999px;
+  font-size:.7rem;
+  font-weight:500;
+  line-height:1.4;
+  background:#FFFFFF !important;
+  color:#0A2A43 !important;
+  border:1px solid #E3E8EF !important;
+  box-shadow:none !important;
+  white-space:nowrap;
+}
+html.cssd-light body .sp-hat-pill .sp-star,
+html.cssd-light body .sp-star{
+  color:#C8A24B !important;
+  font-size:.78em;
+  margin-right:2px;
+  line-height:1;
+}
+
+/* 表格学科列：浅灰底 + 学术蓝字 */
+html.cssd-light body .sp-disc-pill,
+html.cssd-light body #vw-scholars .sp-disc-pill{
+  display:inline-flex;
+  align-items:center;
+  padding:2px 8px;
+  border-radius:999px;
+  font-size:.7rem;
+  font-weight:500;
+  line-height:1.4;
+  background:#F5F7FA !important;
+  color:#2C6E9E !important;
+  border:1px solid #E3E8EF !important;
+  box-shadow:none !important;
+  white-space:nowrap;
+}
+
+/* 压掉旧金色称号 tag（表格/卡片残留 .t-hat）在学者表内 */
+html.cssd-light body #vw-scholars .scholar-table .t-hat{
+  background:#FFFFFF !important;
+  color:#0A2A43 !important;
+  border:1px solid #E3E8EF !important;
+}
+
+/* 2 · 卡片学科 tag：浅灰底墨字（卡片用墨；表列用蓝） */
+html.cssd-light body .sp-card-disc,
+html.cssd-light body #vw-scholars .sp-card-disc,
+html.cssd-light body #vw-youthscholar .sp-card-disc{
+  display:inline-flex;
+  align-items:center;
+  padding:2px 8px;
+  border-radius:6px;
+  font-size:.68rem;
+  font-weight:500;
+  line-height:1.4;
+  background:#F5F7FA !important;
+  color:#0A2A43 !important;
+  border:1px solid #E3E8EF !important;
+  box-shadow:none !important;
+}
+/* 旧 .td-* 彩类在卡片/列表上统一收口 */
+html.cssd-light body #vw-scholars .sc2 .td-psych,
+html.cssd-light body #vw-scholars .sc2 .td-sci,
+html.cssd-light body #vw-scholars .sc2 .td-hu,
+html.cssd-light body #vw-scholars .sc2 .td-train,
+html.cssd-light body #vw-scholars .sc2 .td-trad,
+html.cssd-light body #vw-scholars .sc2 .td-mgmt,
+html.cssd-light body #vw-scholars .sc2 .td-rehab,
+html.cssd-light body #vw-scholars .sc2 .td-pe,
+html.cssd-light body #vw-scholars .sc2 .td-eng,
+html.cssd-light body #vw-scholars .sc2 .td-outdoor,
+html.cssd-light body #vw-scholars .pcard .td-psych,
+html.cssd-light body #vw-scholars .pcard .td-sci,
+html.cssd-light body #vw-scholars .pcard .td-hu,
+html.cssd-light body #vw-scholars .pcard .td-train,
+html.cssd-light body #vw-scholars .pcard .td-trad,
+html.cssd-light body #vw-scholars .pcard .td-mgmt,
+html.cssd-light body #vw-scholars .pcard .td-rehab,
+html.cssd-light body #vw-scholars .pcard .td-pe,
+html.cssd-light body #vw-scholars .pcard .td-eng,
+html.cssd-light body #vw-youthscholar .td-psych,
+html.cssd-light body #vw-youthscholar .td-sci,
+html.cssd-light body #vw-youthscholar .td-hu,
+html.cssd-light body #vw-youthscholar .td-train,
+html.cssd-light body #vw-youthscholar .td-trad,
+html.cssd-light body #vw-youthscholar .td-mgmt,
+html.cssd-light body #vw-youthscholar .td-rehab,
+html.cssd-light body #vw-youthscholar .td-pe,
+html.cssd-light body #vw-youthscholar .td-eng{
+  background:#F5F7FA !important;
+  color:#0A2A43 !important;
+  border:1px solid #E3E8EF !important;
+}
+
+/* 3 · DCFG / 学科专题页：浅底墨字 + 学术蓝顶线 */
+html.cssd-light body .dlab-hero{
+  background:#F5F7FA !important;
+  background-image:none !important;
+  border:1px solid #E3E8EF !important;
+  border-top:3px solid #2C6E9E !important;
+  box-shadow:none !important;
+  color:#0A2A43 !important;
+}
+html.cssd-light body .dlab-hero h2,
+html.cssd-light body .dlab-hero .dlab-hero-in h2{
+  color:#0A2A43 !important;
+}
+html.cssd-light body .dlab-hero p,
+html.cssd-light body .dlab-hero .dlab-hero-in p{
+  color:#5B6575 !important;
+}
+html.cssd-light body .dlab-kpi-n{
+  color:#2C6E9E !important;
+}
+html.cssd-light body .dlab-kpi-l{
+  color:#5B6575 !important;
+}
+html.cssd-light body .dlab-btn.on{
+  background:rgba(44,110,158,.12) !important;
+  color:#2C6E9E !important;
+  border-color:rgba(44,110,158,.35) !important;
+}
+html.cssd-light body .dlab-topic-card[style*="border-color"],
+html.cssd-light body .dlab-topic-cnt,
+html.cssd-light body .dlab-sec-badge,
+html.cssd-light body .dlab-inst-cnt{
+  /* 运行时内联会写 color；兜底统一品牌蓝 */
+}
+html.cssd-light body .l3-disc-card{
+  --dc:#2C6E9E !important;
+}
+html.cssd-light body .l3-disc-chip{
+  --c:#2C6E9E !important;
+}
+
+/* 4 · 清除筛选：文字链学术蓝 */
+html.cssd-light body #vw-scholars .chip.clr,
+html.cssd-light body #vw-scholars button.chip.clr{
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  color:#2C6E9E !important;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  font-weight:500 !important;
+  padding:4px 6px !important;
+  min-height:auto !important;
+  height:auto !important;
+}
+html.cssd-light body #vw-scholars .chip.clr:hover{
+  color:#0A2A43 !important;
+  background:transparent !important;
+}
+
+/* 390 / ≤420：筛选 2 列网格；隐藏浮动导出 */
+@media (max-width:420px){
+  html.cssd-light body #vw-scholars .ctlb .cr1{
+    display:grid !important;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    align-items:stretch;
+  }
+  /* 主搜索独占整行 */
+  html.cssd-light body #vw-scholars .ctlb .cr1 .sw{
+    grid-column:1 / -1;
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+  }
+  html.cssd-light body #vw-scholars .ctlb .cr1 .fsel,
+  html.cssd-light body #vw-scholars .ctlb .cr1 input.fsel,
+  html.cssd-light body #vw-scholars .ctlb .cr1 select.fsel{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    box-sizing:border-box;
+  }
+  /* 清除筛选跨两列或贴右 */
+  html.cssd-light body #vw-scholars .ctlb .cr1 .chip.clr{
+    grid-column:1 / -1;
+    justify-self:start;
+    width:auto;
+  }
+  /* 浮动导出 CSV（#sp-scholars-tools）隐藏，保留工具条内导出 */
+  .sp-scholars-tools,
+  .sp-scholars-tools.on,
+  html.cssd-light body .sp-scholars-tools,
+  html.cssd-light body .sp-scholars-tools.on{
+    display:none !important;
+  }
+}
+
+
+/* P2 fix: 清除筛选彻底透明（压宿主 .chip 浅蓝底） */
+html.cssd-light body #vw-scholars .ctlb .chip.clr,
+html.cssd-light body #vw-scholars .ctlb button.chip.clr,
+html.cssd-light body #vw-scholars .cr1 .chip.clr{
+  background:transparent !important;
+  background-image:none !important;
+  border:0 !important;
+  box-shadow:none !important;
+  color:#2C6E9E !important;
+  text-decoration:underline !important;
+  text-underline-offset:3px;
+  padding:4px 6px !important;
+}
+html.cssd-light body #vw-scholars .sp-hat-pill,
+html.cssd-light body #vw-scholars .sp-hat-pill *{
+  color:#0A2A43 !important;
+}
+html.cssd-light body #vw-scholars .sp-hat-pill .sp-star{
+  color:#C8A24B !important;
+}
+
+/* P2 fix-2 · 学科专题卡（dlab / sci）：宿主 [class*="dlab-scard"] 属性选择器误中子节点 → 框套框。
+   只保留卡片根 .dlab-scard / .sci-scard 描边圆角，子行一律无框。 */
+html.cssd-light body .dlab-scard [class*="dlab-scard-"],
+html.cssd-light body .sci-scard [class*="sci-scard-"],
+html.cssd-light body [class*="dlab-scard-"],
+html.cssd-light body [class*="sci-scard-"]{
+  border:none !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  background-image:none !important;
+  box-shadow:none !important;
+}
+/* 卡内称号/荣誉 pill：白底墨字细边，金只给星（模板已输出 .sp-hat-pill + .sp-star） */
+html.cssd-light body .dlab-scard .sp-hat-pill,
+html.cssd-light body .sci-scard .sp-hat-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:3px;
+  padding:2px 8px !important;
+  border-radius:999px !important;
+  background:#FFFFFF !important;
+  color:#0A2A43 !important;
+  border:1px solid #E3E8EF !important;
+  box-shadow:none !important;
+  font-weight:500;
+  white-space:nowrap;
+}
+html.cssd-light body .dlab-scard .sp-hat-pill .sp-star,
+html.cssd-light body .sci-scard .sp-hat-pill .sp-star{
+  color:#C8A24B !important;
+}
+
+/* P2 fix-2 · 清除筛选：hover / focus / active 也不回浅蓝底 */
+html.cssd-light body #vw-scholars .ctlb button.chip.clr:hover,
+html.cssd-light body #vw-scholars .ctlb button.chip.clr:focus,
+html.cssd-light body #vw-scholars .ctlb button.chip.clr:active,
+html.cssd-light body #vw-scholars .ctlb .chip.clr:hover,
+html.cssd-light body #vw-scholars .ctlb .chip.clr:focus,
+html.cssd-light body #vw-scholars .ctlb .chip.clr:active{
+  background:transparent !important;
+  background-image:none !important;
+  border:0 !important;
+  box-shadow:none !important;
+  color:#0A2A43 !important;
+  text-decoration:underline !important;
+}
+html.cssd-light body #vw-scholars .ctlb button.chip.clr:focus-visible{
+  outline:2px solid #2C6E9E !important;
+  outline-offset:2px;
+}
+
+/* P2 fix-2 · 顶栏激活态：#2E9A89 14px 字对白底 <4.5，会被 index.html 内联对比度修正脚本
+   以 style="color:#0F5B4F !important" 钉死在首屏激活的「首页」上，切路由后「首页」仍显绿（假高亮）。
+   激活/悬停字色直接用达标的 #0F5B4F，修正脚本不再介入；下划线保留 teal 识别。 */
+html.cssd-light body .sp-links button.active,
+html.cssd-light body .sp-links button[aria-current="page"]{
+  color:#0F5B4F !important;
+  border-bottom-color:#2E9A89 !important;
+  font-weight:600 !important;
+}
+html.cssd-light body .sp-links button:hover{
+  color:#0F5B4F !important;
+}

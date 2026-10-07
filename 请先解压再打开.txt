@@ -7,7 +7,7 @@
   index.html                          页面主文件（879KB，原 10.4MB）
   portal.2e2629e7.css                 样式（带内容哈希 → 一年强缓存）
   portal.9149a373.js                  门户交互脚本（带内容哈希 → 一年强缓存）
-  sports-scholars-data.9a297638.js    学者库数据（带内容哈希 → 一年强缓存）
+  sports-scholars-data.1f77f68c.js    学者库数据（带内容哈希 → 一年强缓存）
                                       ⚠️ 已加 defer：不阻塞首屏解析（第五轮）
   sports-univ-catalog.766ca372.js     院校目录数据（带内容哈希 → 一年强缓存）
                                       ⚠️ 已加 defer：不阻塞首屏解析（第五轮）
