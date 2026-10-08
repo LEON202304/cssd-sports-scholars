@@ -994,3 +994,613 @@ html.cssd-light body .sp-links button[aria-current="page"]{
 html.cssd-light body .sp-links button:hover{
   color:#0F5B4F !important;
 }
+
+/* ═════════════════════════════════════════════════════════════════
+   polish/premium-v2 — 学术门户质感
+   可回退：删除从本行注释到文件末尾的整个分区即可，无需改其它文件。
+   中文标题走系统宋体栈，不引外部字体。青绿只留在 CTA / 激活下划线。
+   ═════════════════════════════════════════════════════════════════ */
+:root{
+  --sp-serif:"Songti SC","Noto Serif SC","Noto Serif CJK SC","Source Han Serif SC","STSong","SimSun",serif;
+  --sp-sans:system-ui,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --sp-hair:rgba(10,42,67,.08);
+  --sp-shadow-soft:0 1px 2px rgba(10,42,67,.04),0 8px 24px rgba(10,42,67,.04);
+}
+
+html.cssd-light body{
+  font-family:var(--sp-sans) !important;
+  line-height:1.7;
+}
+
+/* ── 标题层级：宋体标题，无衬线正文 ── */
+html.cssd-light body #sportsPortal .sp-banner h1,
+html.cssd-light body #sportsPortal .sp-slogan,
+html.cssd-light body .sp-brand strong,
+html.cssd-light body #sportsPortal .sp-panel h2,
+html.cssd-light body .cssd-h2v,
+html.cssd-light body #vw-projects .proj-title,
+html.cssd-light body #vw-academicnews .an-hero h1,
+html.cssd-light body #vw-academicnews .an-section-head h2,
+html.cssd-light body #vw-academicnews .an-news h3,
+html.cssd-light body #vw-academicnews .an-card h3,
+html.cssd-light body #vw-projects .proj-title-cell,
+html.cssd-light body #vw-scholars .scholar-table td:first-child{
+  font-family:var(--sp-serif) !important;
+  font-weight:600;
+  letter-spacing:.04em;
+  line-height:1.28;
+}
+
+/* ── 导航：半透明白 + 模糊，细下划线，间距拉开 ── */
+html.cssd-light body header.sp-header{
+  height:68px;
+  gap:36px;
+  padding:0 max(28px,calc((100vw - var(--sp-max))/2));
+  background:rgba(255,255,255,.82) !important;
+  backdrop-filter:saturate(1.4) blur(16px) !important;
+  -webkit-backdrop-filter:saturate(1.4) blur(16px) !important;
+  border-bottom:1px solid var(--sp-hair) !important;
+  box-shadow:none !important;
+}
+html.cssd-light body #sportsPortal{padding-top:68px;}
+html.cssd-light body .sp-brand{gap:12px;}
+html.cssd-light body .sp-brand strong{
+  font-size:18px;
+  letter-spacing:.12em;
+  font-weight:600;
+}
+html.cssd-light body .sp-brand > span > small{
+  letter-spacing:.18em;
+  font-size:9px;
+  color:#5B6575;
+}
+html.cssd-light body header.sp-header nav.sp-links{gap:28px;}
+html.cssd-light body .sp-links button{
+  height:68px;
+  padding:0 2px;
+  font-size:14.5px;
+  font-weight:500;
+  letter-spacing:.08em;
+  color:#1A2332;
+  border-bottom-color:transparent !important;
+  background:transparent !important;
+}
+html.cssd-light body .sp-links button:hover{
+  color:#0F5B4F !important;
+}
+html.cssd-light body .sp-links button.active,
+html.cssd-light body .sp-links button[aria-current="page"]{
+  color:#0F5B4F !important;
+  font-weight:600 !important;
+  border-bottom:0 !important;
+  box-shadow:inset 0 -1px 0 #2E9A89 !important;
+}
+
+/* ── 首页首屏：留白、大标题、轻 KPI 条 ── */
+html.cssd-light body #sportsPortal .sp-banner{
+  min-height:0;
+  margin-bottom:0;
+  background-color:#F5F7FA;
+}
+html.cssd-light body #sportsPortal .sp-banner:before{
+  background:linear-gradient(180deg,rgba(245,247,250,.94) 0%,rgba(255,255,255,.82) 46%,rgba(245,247,250,.94) 100%);
+}
+html.cssd-light body #sportsPortal .sp-banner .sp-wrap{
+  padding-top:72px;
+  padding-bottom:88px;
+}
+html.cssd-light body #sportsPortal .sp-banner h1{
+  font-size:clamp(36px,4.4vw,56px) !important;
+  font-weight:600 !important;
+  letter-spacing:.08em !important;
+  line-height:1.2 !important;
+  color:#0A2A43 !important;
+}
+html.cssd-light body #sportsPortal .sp-slogan{
+  margin:18px 0 28px;
+  font-size:15px;
+  font-weight:500;
+  letter-spacing:.32em;
+  color:#5B6575;
+}
+html.cssd-light body #sportsPortal .sp-search{
+  height:56px;
+  width:min(760px,92%);
+  border-radius:14px;
+  border:1px solid var(--sp-hair);
+  box-shadow:0 10px 30px rgba(10,42,67,.06);
+  background:#FFFFFF;
+}
+html.cssd-light body #sportsPortal .sp-search input{font-size:15px;}
+html.cssd-light body #sportsPortal .sp-search .sp-btn--primary{
+  height:46px;
+  padding:0 22px;
+  border-radius:10px;
+  letter-spacing:.06em;
+  flex:0 0 auto;
+  background:#2E9A89 !important;
+  color:#FFFFFF !important;
+  font-weight:700 !important;
+  font-size:15px !important;
+}
+html.cssd-light body #sportsPortal .sp-hot{margin-top:16px;gap:8px;}
+html.cssd-light body #sportsPortal .sp-hot > span{
+  letter-spacing:.12em;
+  font-size:12px;
+  color:#5B6575;
+}
+html.cssd-light body #sportsPortal .sp-hot button{
+  background:#FFFFFF;
+  border:1px solid var(--sp-hair);
+  color:#1A2332;
+  padding:6px 12px;
+  font-size:12.5px;
+}
+
+html.cssd-light body #sportsPortal .sp-metrics{
+  position:relative;
+  z-index:2;
+  margin-top:-48px;
+  margin-bottom:8px;
+  padding:22px 8px 18px;
+  background:#FFFFFF;
+  border:1px solid var(--sp-hair);
+  border-radius:16px;
+  box-shadow:var(--sp-shadow-soft);
+}
+html.cssd-light body #sportsPortal .sp-metrics .sp-icon{display:none;}
+html.cssd-light body #sportsPortal .sp-metrics button{
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  text-align:center;
+  border-right:1px solid rgba(10,42,67,.08);
+  padding:6px 4px;
+}
+html.cssd-light body #sportsPortal .sp-metrics button:last-child{border-right:0;}
+html.cssd-light body #sportsPortal .sp-metrics b{
+  font-family:var(--sp-serif) !important;
+  font-weight:600 !important;
+  font-size:32px !important;
+  line-height:1 !important;
+  letter-spacing:.02em !important;
+  color:#0A2A43 !important;
+  font-variant-numeric:tabular-nums;
+}
+html.cssd-light body #sportsPortal .sp-metrics small{
+  font-size:11px !important;
+  letter-spacing:.14em;
+  color:#5B6575 !important;
+  font-weight:500;
+}
+
+/* ── 卡片：统一细边、极淡阴影、悬停上浮 ── */
+html.cssd-light body #sportsPortal .sp-quick{
+  margin:36px 0 28px;
+  gap:14px;
+}
+html.cssd-light body #sportsPortal .sp-quick-card,
+html.cssd-light body #sportsPortal .sp-panel,
+html.cssd-light body #vw-projects .proj-panel,
+html.cssd-light body #vw-academicnews .an-card,
+html.cssd-light body #vw-academicnews .an-side-block{
+  background:#FFFFFF !important;
+  border:1px solid var(--sp-hair) !important;
+  border-radius:14px !important;
+  box-shadow:0 1px 2px rgba(10,42,67,.035) !important;
+}
+html.cssd-light body #sportsPortal .sp-quick-card{
+  padding:16px 16px;
+  transition:transform .22s cubic-bezier(.22,1,.36,1),box-shadow .22s cubic-bezier(.22,1,.36,1),border-color .22s ease;
+}
+html.cssd-light body #sportsPortal .sp-quick-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(10,42,67,.14) !important;
+  box-shadow:0 12px 28px rgba(10,42,67,.07) !important;
+}
+html.cssd-light body #sportsPortal .sp-quick b{
+  font-size:14px;
+  letter-spacing:.04em;
+  font-weight:600;
+}
+html.cssd-light body #sportsPortal .sp-quick small{color:#5B6575;}
+html.cssd-light body #sportsPortal .sp-grid{gap:16px;padding-bottom:48px;}
+html.cssd-light body #sportsPortal .sp-panel > header{
+  background:transparent !important;
+  border-bottom:1px solid #E6EAF0;
+  padding:18px 20px 14px;
+}
+html.cssd-light body #sportsPortal .sp-panel-titles{
+  border-left:0;
+  padding-left:0;
+}
+html.cssd-light body #sportsPortal .sp-panel h2{
+  font-size:18px;
+  letter-spacing:.06em;
+}
+html.cssd-light body #sportsPortal .sp-eyebrow{
+  letter-spacing:.18em;
+  color:#5B6575;
+}
+html.cssd-light body #sportsPortal .sp-panel > .sp-people,
+html.cssd-light body #sportsPortal .sp-panel > .sp-disc,
+html.cssd-light body #sportsPortal .sp-panel > .sp-inst{
+  padding:8px 12px 12px;
+}
+html.cssd-light body #sportsPortal .sp-person{
+  min-height:0;
+  padding:10px 8px;
+  border-radius:10px;
+}
+html.cssd-light body #sportsPortal .sp-person:hover{background:#F5F7FA;}
+
+/* ── 内页标题 ── */
+html.cssd-light body #vw-scholars .phi h2.cssd-h2v,
+html.cssd-light body #vw-academicnews .an-hero h1,
+html.cssd-light body #vw-projects .proj-title{
+  font-size:clamp(28px,3vw,40px) !important;
+  color:#0A2A43 !important;
+  -webkit-text-fill-color:#0A2A43 !important;
+  letter-spacing:.06em !important;
+}
+html.cssd-light body #vw-scholars .sey,
+html.cssd-light body #vw-academicnews .an-ey,
+html.cssd-light body #vw-projects .proj-eyebrow{
+  color:#5B6575 !important;
+  letter-spacing:.2em !important;
+  font-size:11px !important;
+  font-weight:500 !important;
+}
+html.cssd-light body #vw-scholars .phi p,
+html.cssd-light body #vw-academicnews .an-hero p,
+html.cssd-light body #vw-projects .proj-sub{
+  color:#5B6575 !important;
+  font-size:14px !important;
+  line-height:1.75 !important;
+}
+html.cssd-light body #vw-scholars .phi .sch-hero-kpi b{
+  font-family:var(--sp-serif) !important;
+  font-weight:600 !important;
+  font-size:1.7rem !important;
+  color:#0A2A43 !important;
+}
+html.cssd-light body #vw-scholars .phi .sch-hero-kpi small{
+  color:#5B6575 !important;
+  letter-spacing:.08em;
+}
+
+/* ── 学者目录：行距拉开，标题重、元信息轻 ── */
+html.cssd-light body #vw-scholars .scholar-table{
+  background:#FFFFFF !important;
+  border:1px solid var(--sp-hair) !important;
+  border-radius:14px !important;
+  box-shadow:0 1px 2px rgba(10,42,67,.035) !important;
+}
+html.cssd-light body #vw-scholars .scholar-table thead th{
+  background:#F5F7FA !important;
+  color:#5B6575 !important;
+  font-weight:500 !important;
+  font-size:12px !important;
+  letter-spacing:.08em !important;
+  border-bottom:1px solid #E6EAF0 !important;
+  padding:12px 16px !important;
+}
+html.cssd-light body #vw-scholars .scholar-table td{
+  padding:16px !important;
+  color:#1A2332 !important;
+  border-bottom:1px solid #E6EAF0 !important;
+  background:#FFFFFF !important;
+  font-size:13.5px;
+  line-height:1.55;
+}
+html.cssd-light body #vw-scholars .scholar-table td:first-child{
+  color:#0A2A43 !important;
+  font-size:15.5px !important;
+  font-weight:600 !important;
+}
+html.cssd-light body #vw-scholars .scholar-table tbody tr:hover td{
+  background:#F5F7FA !important;
+}
+html.cssd-light body #vw-scholars .sn-link{
+  color:#0A2A43 !important;
+  font-weight:600;
+}
+html.cssd-light body #vw-scholars .sn-link:hover{color:#2C6E9E !important;}
+
+/* ── 学术动态：列表化，去掉套盒 ── */
+html.cssd-light body #vw-academicnews .an-wrap{padding-top:28px !important;}
+html.cssd-light body #vw-academicnews .an-hero{
+  background:#FFFFFF !important;
+  border:1px solid var(--sp-hair) !important;
+  box-shadow:0 1px 2px rgba(10,42,67,.035) !important;
+  padding:32px 32px 28px !important;
+}
+html.cssd-light body #vw-academicnews .an-kpis{gap:12px;margin:20px 0 8px;}
+html.cssd-light body #vw-academicnews .an-kpis div{
+  background:#FFFFFF !important;
+  border:1px solid var(--sp-hair) !important;
+  box-shadow:none !important;
+  border-radius:12px !important;
+  padding:16px 14px !important;
+}
+html.cssd-light body #vw-academicnews .an-kpis b{
+  color:#0A2A43 !important;
+  -webkit-text-fill-color:#0A2A43 !important;
+  font-family:var(--sp-serif) !important;
+  font-size:26px !important;
+  font-weight:600 !important;
+}
+html.cssd-light body #vw-academicnews .an-kpis span{
+  color:#5B6575 !important;
+  letter-spacing:.06em;
+  font-size:12px !important;
+}
+html.cssd-light body #vw-academicnews .an-tab.on,
+html.cssd-light body #vw-academicnews .an-tab[aria-selected="true"]{
+  color:#0F5B4F !important;
+  border-color:#2E9A89 !important;
+  background:rgba(46,154,137,.12) !important;
+  font-weight:600 !important;
+}
+html.cssd-light body #vw-academicnews .an-stream{
+  gap:0 !important;
+  background:#FFFFFF;
+  border:1px solid var(--sp-hair);
+  border-radius:14px;
+  overflow:hidden;
+}
+html.cssd-light body #vw-academicnews .an-news{
+  border:0 !important;
+  border-radius:0 !important;
+  border-bottom:1px solid #E6EAF0 !important;
+  background:#FFFFFF !important;
+  box-shadow:none !important;
+  padding:18px 20px !important;
+  gap:18px !important;
+}
+html.cssd-light body #vw-academicnews .an-news:last-child{border-bottom:0 !important;}
+html.cssd-light body #vw-academicnews .an-news h3{
+  font-size:16px !important;
+  color:#0A2A43 !important;
+  line-height:1.5 !important;
+}
+html.cssd-light body #vw-academicnews .an-news p,
+html.cssd-light body #vw-academicnews .an-news-date{
+  color:#5B6575 !important;
+  font-size:13px !important;
+}
+html.cssd-light body #vw-academicnews .an-news-type{
+  color:#2C6E9E !important;
+  border-color:rgba(44,110,158,.28) !important;
+  background:rgba(44,110,158,.06) !important;
+  font-weight:500 !important;
+  letter-spacing:.04em;
+}
+
+/* ── 科研项目：浅色通栏列表 ── */
+html.cssd-light body #vw-projects{padding-top:84px;}
+html.cssd-light body #vw-projects .proj-hero{
+  background:#FFFFFF !important;
+  border:1px solid var(--sp-hair) !important;
+  box-shadow:0 1px 2px rgba(10,42,67,.035) !important;
+  padding:32px 32px 24px !important;
+  margin:16px auto 8px;
+  max-width:1240px;
+}
+html.cssd-light body #vw-projects .proj-kpis{gap:12px;margin-top:22px;}
+html.cssd-light body #vw-projects .proj-kpi{
+  background:#F5F7FA !important;
+  border:1px solid var(--sp-hair) !important;
+  border-radius:12px !important;
+  box-shadow:none !important;
+  padding:16px 14px !important;
+}
+html.cssd-light body #vw-projects .proj-kpi b{
+  color:#0A2A43 !important;
+  -webkit-text-fill-color:#0A2A43 !important;
+  font-family:var(--sp-serif) !important;
+  font-weight:600 !important;
+  font-size:28px !important;
+  line-height:1 !important;
+}
+html.cssd-light body #vw-projects .proj-kpi span{
+  color:#5B6575 !important;
+  font-size:12px !important;
+  letter-spacing:.06em;
+  margin-top:8px !important;
+}
+html.cssd-light body #vw-projects .proj-panel{
+  max-width:1240px;
+  margin:16px auto;
+  padding:8px 8px 16px !important;
+}
+html.cssd-light body #vw-projects .proj-hd h3{
+  font-family:var(--sp-serif) !important;
+  color:#0A2A43 !important;
+  font-size:18px !important;
+  letter-spacing:.06em;
+  font-weight:600;
+}
+html.cssd-light body #vw-projects .proj-hd p,
+html.cssd-light body #vw-projects #projCount{
+  color:#5B6575 !important;
+}
+html.cssd-light body #vw-projects .proj-chip.on{
+  color:#0F5B4F !important;
+  border-color:#2E9A89 !important;
+  background:rgba(46,154,137,.12) !important;
+  font-weight:600 !important;
+}
+html.cssd-light body #vw-projects .proj-table{
+  border-collapse:collapse !important;
+  border-spacing:0 !important;
+  min-width:0;
+}
+html.cssd-light body #vw-projects .proj-table th{
+  color:#5B6575 !important;
+  font-size:12px !important;
+  font-weight:500 !important;
+  letter-spacing:.08em;
+  padding:12px 12px 10px !important;
+  border-bottom:1px solid #E6EAF0;
+}
+html.cssd-light body #vw-projects .proj-table td{
+  background:#FFFFFF !important;
+  color:#1A2332 !important;
+  border:0 !important;
+  border-bottom:1px solid #E6EAF0 !important;
+  border-radius:0 !important;
+  padding:16px 12px !important;
+  font-size:13.5px !important;
+}
+html.cssd-light body #vw-projects .proj-title-cell{
+  color:#0A2A43 !important;
+  font-size:15px !important;
+  font-weight:600 !important;
+  line-height:1.5 !important;
+}
+html.cssd-light body #vw-projects .proj-table tbody tr:hover td{background:#F5F7FA !important;}
+html.cssd-light body #vw-projects .proj-link,
+html.cssd-light body #vw-projects .proj-scholar-link{
+  color:#2C6E9E !important;
+}
+html.cssd-light body #vw-projects .proj-note{
+  background:#F5F7FA !important;
+  border:1px solid var(--sp-hair) !important;
+  color:#5B6575 !important;
+}
+
+/* ── 页脚：两栏，更稳 ── */
+html.cssd-light body #sportsPortal footer.sp-footer{
+  background:#F5F7FA !important;
+  border-top:1px solid rgba(10,42,67,.1) !important;
+  padding:56px 0 40px !important;
+  margin-top:12px;
+}
+html.cssd-light body #sportsPortal footer.sp-footer .sp-wrap{
+  display:grid;
+  grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr);
+  align-items:start;
+  gap:48px;
+}
+html.cssd-light body #sportsPortal footer.sp-footer strong{
+  font-family:var(--sp-serif) !important;
+  font-size:26px !important;
+  font-weight:600 !important;
+  letter-spacing:.14em !important;
+  color:#0A2A43 !important;
+}
+html.cssd-light body #sportsPortal footer.sp-footer p{
+  margin-top:8px !important;
+  color:#5B6575 !important;
+  font-size:13px !important;
+  letter-spacing:.04em;
+}
+html.cssd-light body #sportsPortal footer.sp-footer .sp-wrap > div:last-child{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  gap:4px 18px;
+  padding-top:6px;
+  border-left:1px solid #E6EAF0;
+  padding-left:36px;
+}
+html.cssd-light body #sportsPortal footer.sp-footer button{
+  color:#1A2332 !important;
+  font-size:14px !important;
+  letter-spacing:.06em;
+  padding:4px 0 !important;
+}
+html.cssd-light body #sportsPortal footer.sp-footer button:hover{color:#2C6E9E !important;}
+html.cssd-light body #sportsPortal footer.sp-footer small{
+  flex-basis:100%;
+  text-align:right;
+  margin-top:10px;
+  color:#5B6575 !important;
+  line-height:1.6;
+}
+
+/* ── 焦点与减弱动效 ── */
+html.cssd-light body .sp-links button:focus-visible,
+html.cssd-light body #sportsPortal .sp-quick-card:focus-visible,
+html.cssd-light body #sportsPortal .sp-metrics button:focus-visible,
+html.cssd-light body #vw-projects .proj-chip:focus-visible,
+html.cssd-light body #vw-academicnews .an-tab:focus-visible{
+  outline:2px solid #2E9A89 !important;
+  outline-offset:2px;
+}
+@media (prefers-reduced-motion:reduce){
+  html.cssd-light body #sportsPortal .sp-quick-card,
+  html.cssd-light body #sportsPortal .sp-person,
+  html.cssd-light body .sp-links button{
+    transition:none !important;
+  }
+  html.cssd-light body #sportsPortal .sp-quick-card:hover{transform:none !important;}
+}
+
+/* ── 390：同样克制，禁止页面横向滚动 ── */
+@media (max-width:420px){
+  html.cssd-light,
+  html.cssd-light body{
+    overflow-x:clip;
+  }
+  html.cssd-light body header.sp-header{
+    height:56px;
+    gap:8px;
+    padding:0 12px;
+  }
+  html.cssd-light body #sportsPortal{padding-top:56px;}
+  html.cssd-light body .sp-links button{height:56px;font-size:13px;letter-spacing:.02em;}
+  html.cssd-light body header.sp-header nav.sp-links{gap:12px;}
+  html.cssd-light body .sp-brand > span > small{display:none !important;}
+  html.cssd-light body .sp-brand strong{font-size:16px;letter-spacing:.04em;}
+  html.cssd-light body .sp-more summary{font-size:12px;padding:4px 0;letter-spacing:0;}
+  html.cssd-light body header.sp-header nav.sp-links{gap:10px;}
+  html.cssd-light body #sportsPortal .sp-banner .sp-wrap{padding:36px 16px 64px;}
+  html.cssd-light body #sportsPortal .sp-banner h1{
+    font-size:30px !important;
+    letter-spacing:.06em !important;
+  }
+  html.cssd-light body #sportsPortal .sp-slogan{
+    letter-spacing:.12em;
+    font-size:13px;
+    margin:12px 0 18px;
+  }
+  html.cssd-light body #sportsPortal .sp-search{height:48px;width:100%;}
+  html.cssd-light body #sportsPortal .sp-search span{display:none;}
+  html.cssd-light body #sportsPortal .sp-metrics{
+    margin-top:-36px;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    padding:14px 6px;
+  }
+  html.cssd-light body #sportsPortal .sp-metrics b{font-size:22px !important;}
+  html.cssd-light body #sportsPortal .sp-metrics small{letter-spacing:.04em;font-size:10px !important;}
+  html.cssd-light body #sportsPortal .sp-metrics button:nth-child(3),
+  html.cssd-light body #sportsPortal .sp-metrics button:nth-child(6){border-right:0;}
+  html.cssd-light body #sportsPortal .sp-quick{margin:22px 0 16px;}
+  html.cssd-light body #vw-academicnews .an-hero,
+  html.cssd-light body #vw-projects .proj-hero{padding:20px 16px !important;}
+  html.cssd-light body #vw-projects{padding-left:12px;padding-right:12px;}
+  html.cssd-light body #vw-projects .proj-hero,
+  html.cssd-light body #vw-projects .proj-panel{margin-left:0;margin-right:0;max-width:100%;}
+  html.cssd-light body #vw-projects .proj-scroll{
+    max-width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  html.cssd-light body #sportsPortal footer.sp-footer{padding:32px 0 28px !important;}
+  html.cssd-light body #sportsPortal footer.sp-footer .sp-wrap{
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+  html.cssd-light body #sportsPortal footer.sp-footer .sp-wrap > div:last-child{
+    border-left:0;
+    padding-left:0;
+    justify-content:flex-start;
+    border-top:1px solid #E6EAF0;
+    padding-top:14px;
+  }
+  html.cssd-light body #sportsPortal footer.sp-footer small{text-align:left;}
+  html.cssd-light body #vw-academicnews .an-news{padding:16px 14px !important;}
+}
