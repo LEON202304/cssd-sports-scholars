@@ -1791,6 +1791,64 @@ html.cssd-light body #sportsPortal .hn-row{
 html.cssd-light body #sportsPortal .hn-row .hn-meta{margin-bottom:6px;}
 html.cssd-light body #sportsPortal .hn-row .hn-authors{margin-top:6px;font-size:12px;}
 
+
+html.cssd-light body #sportsPortal .hn-grants{
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid rgba(10,42,67,.10);
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .hn-grants-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:4px;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .hn-grants-head .hn-journal{
+  max-width:none;
+  flex:0 0 auto;
+}
+html.cssd-light body #sportsPortal .hn-grant-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .hn-grant-list li{
+  padding:6px 0 5px;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .hn-grant-title{
+  margin:0;
+  font-family:var(--sp-serif);
+  font-size:15px;
+  font-weight:600;
+  letter-spacing:.03em;
+  line-height:1.35;
+  color:#0A2A43;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+html.cssd-light body #sportsPortal .hn-grant-sub{
+  margin:2px 0 0;
+  font-size:12px;
+  line-height:1.4;
+  color:#8A93A3;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+/* 没有立项数据时左卡不要被拉高 */
+html.cssd-light body #sportsPortal .hn-layout-solo{
+  align-items:start;
+}
+html.cssd-light body #sportsPortal .hn-layout-solo .hn-lead{
+  height:auto;
+}
+
 @media (max-width:860px){
   html.cssd-light body #sportsPortal .sp-quick:has(+ .hn){margin-bottom:8px;}
   html.cssd-light body #sportsPortal .hn{margin:0 0 10px;}
@@ -1805,6 +1863,13 @@ html.cssd-light body #sportsPortal .hn-row .hn-authors{margin-top:6px;font-size:
   html.cssd-light body #sportsPortal .hn-lead{padding:16px 16px 14px;}
   html.cssd-light body #sportsPortal .hn-lead h3{font-size:20px;}
   html.cssd-light body #sportsPortal .hn-list .hn-row:nth-child(n+4){display:none;}
+  html.cssd-light body #sportsPortal .hn-grant-list li:nth-child(n+3){display:none;}
+  html.cssd-light body #sportsPortal .hn-grants{margin-top:10px;padding-top:10px;}
+  html.cssd-light body #sportsPortal .hn-lead,
+  html.cssd-light body #sportsPortal .hn-grants,
+  html.cssd-light body #sportsPortal .hn-grant-title,
+  html.cssd-light body #sportsPortal .hn-grant-sub{max-width:100%;}
+
 }
 
 @media (prefers-reduced-motion:reduce){
