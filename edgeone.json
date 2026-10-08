@@ -112,7 +112,17 @@
       ]
     },
     {
-      "_rule": "学术动态离线快照：短缓存",
+      "_rule": "期刊最新论文数据（每日自动更新）：短缓存",
+      "source": "/latest_papers.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300, stale-while-revalidate=3600"
+        }
+      ]
+    },
+    {
+      "_rule": "学术动态快照（每日自动更新，前端在线/离线都读取）：短缓存",
       "source": "/news-snapshot.json",
       "headers": [
         {

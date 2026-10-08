@@ -1,33 +1,53 @@
 name: Update Latest Papers
 
+# 每天北京时间 07:17 左右（UTC 23:17）抓取重点体育学期刊最新论文，
+# 更新 latest_papers.json / news-snapshot.json 并推送到 main，EdgeOne 随即自动部署。
 on:
   schedule:
-    - cron: '0 2 * * *'  # 每天凌晨 2 点运行
-  workflow_dispatch:   # 支持手动触发
+    - cron: '17 23 * * *'   # UTC 23:17 = 北京时间次日 07:17（GitHub 定时任务可能延迟数分钟到数十分钟）
+  workflow_dispatch:         # 支持在 Actions 页面或 `gh workflow run update-papers.yml` 手动触发
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-latest-papers
+  cancel-in-progress: false
 
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4
-          
+          pip install requests beautifulsoup4 lxml
+
       - name: Run update script
+        env:
+          TZ: Asia/Shanghai
         run: python update_latest_papers.py
-        
+
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add latest_papers.json
-          git commit -m "chore: auto update latest papers from key journals" || exit 0
-          git push
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add latest_papers.json news-snapshot.json
+          if git diff --cached --quiet; then
+            echo "数据无变化，跳过提交"
+            exit 0
+          fi
+          git commit -m "chore: 自动更新期刊最新论文 $(TZ=Asia/Shanghai date +%F)"
+          for i in 1 2 3; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            echo "push 失败，第 $i 次重试…"; sleep 5
+          done
+          exit 1
