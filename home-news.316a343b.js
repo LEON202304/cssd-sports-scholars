@@ -1,6 +1,8 @@
 /* home-news.js — 首页「学术动态」板块
-   插在 KPI 条（#sp-metrics）与功能入口（.sp-quick）之间。
-   只挂一次；板块在 #sportsPortal 内，离开首页时随门户壳隐藏。
+   插在功能入口（.sp-quick）之后、三列面板（.sp-grid：学者发现 /
+   研究方向总览 / 院校机构导航）之前。
+   只挂一次；若已存在则只校正位置，不重复插入。
+   板块在 #sportsPortal 内，离开首页时随门户壳隐藏。
    回退：删本文件，并去掉 index.html 里对应的 script。 */
 (function(){
   var MOUNTED = false;
@@ -105,22 +107,30 @@
     root.removeAttribute("hidden");
   }
 
+  function anchor(){
+    return document.querySelector("#sportsPortal .sp-grid");
+  }
+
+  function place(sec, grid){
+    if(sec.parentNode !== grid.parentNode || sec.nextElementSibling !== grid){
+      grid.parentNode.insertBefore(sec, grid);
+    }
+  }
+
   function mount(){
-    if(document.getElementById("homeNews")) return true;
-    var metrics = document.getElementById("sp-metrics");
-    if(!metrics || !metrics.parentNode) return false;
+    var grid = anchor();
+    if(!grid || !grid.parentNode) return false;
+    var existing = document.getElementById("homeNews");
+    if(existing){
+      place(existing, grid);
+      return true;
+    }
     var sec = document.createElement("section");
     sec.className = "hn";
     sec.id = "homeNews";
     sec.setAttribute("aria-labelledby", "homeNewsTitle");
     sec.hidden = true;
-    var quick = null;
-    var kids = metrics.parentNode.children;
-    for(var i=0;i<kids.length;i++){
-      if(kids[i].classList && kids[i].classList.contains("sp-quick")){ quick = kids[i]; break; }
-    }
-    if(quick) metrics.parentNode.insertBefore(sec, quick);
-    else metrics.insertAdjacentElement("afterend", sec);
+    place(sec, grid);
     MOUNTED = true;
     loadPapers().then(function(snap){
       var el = document.getElementById("homeNews");

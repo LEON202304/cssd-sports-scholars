@@ -1610,8 +1610,12 @@ html.cssd-light body #vw-academicnews .an-tab:focus-visible{
    可回退：删除从本行注释到文件末尾的整个分区，并去掉 index.html 中
    home-news.*.js 的 script 引用、删除该 js 文件。
    ═════════════════════════════════════════════════════════════════ */
+/* 功能入口紧贴学术动态：只收下面距，顶距仍用原规则 */
+html.cssd-light body #sportsPortal .sp-quick:has(+ .hn){
+  margin-bottom:10px;
+}
 html.cssd-light body #sportsPortal .hn{
-  margin:28px 0 4px;
+  margin:0 0 14px;
   min-width:0;
   max-width:100%;
 }
@@ -1625,8 +1629,8 @@ html.cssd-light body #sportsPortal .hn-head{
   display:flex;
   align-items:flex-end;
   justify-content:space-between;
-  gap:16px 28px;
-  margin-bottom:16px;
+  gap:12px 24px;
+  margin-bottom:10px;
 }
 html.cssd-light body #sportsPortal .hn-eye{
   margin:0 0 4px;
@@ -1679,7 +1683,7 @@ html.cssd-light body #sportsPortal .hn a:focus-visible{
 html.cssd-light body #sportsPortal .hn-layout{
   display:grid;
   grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
-  gap:14px;
+  gap:12px;
   align-items:stretch;
   min-width:0;
 }
@@ -1703,17 +1707,17 @@ html.cssd-light body #sportsPortal .hn-lead{
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
-  padding:32px 32px 28px;
+  padding:20px 22px 18px;
   background:
-    linear-gradient(180deg,rgba(245,247,250,.55),rgba(255,255,255,0) 42%),
+    linear-gradient(180deg,rgba(245,247,250,.55),transparent 42%),
     #FFFFFF;
 }
 html.cssd-light body #sportsPortal .hn-meta{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:12px;
-  margin-bottom:12px;
+  gap:10px;
+  margin-bottom:8px;
   min-width:0;
 }
 html.cssd-light body #sportsPortal .hn-journal{
@@ -1765,7 +1769,7 @@ html.cssd-light body #sportsPortal .hn-row h3 a:hover{
   color:#2C6E9E;
 }
 html.cssd-light body #sportsPortal .hn-authors{
-  margin:10px 0 0;
+  margin:8px 0 0;
   color:#5B6575;
   font-size:13px;
   line-height:1.5;
@@ -1777,27 +1781,28 @@ html.cssd-light body #sportsPortal .hn-authors{
 html.cssd-light body #sportsPortal .hn-list{
   display:flex;
   flex-direction:column;
-  gap:8px;
+  gap:6px;
   min-width:0;
 }
 html.cssd-light body #sportsPortal .hn-row{
   flex:1 1 auto;
-  padding:12px 16px;
+  padding:8px 14px;
 }
 html.cssd-light body #sportsPortal .hn-row .hn-meta{margin-bottom:6px;}
 html.cssd-light body #sportsPortal .hn-row .hn-authors{margin-top:6px;font-size:12px;}
 
 @media (max-width:860px){
-  html.cssd-light body #sportsPortal .hn{margin:20px 0 2px;}
+  html.cssd-light body #sportsPortal .sp-quick:has(+ .hn){margin-bottom:8px;}
+  html.cssd-light body #sportsPortal .hn{margin:0 0 10px;}
   html.cssd-light body #sportsPortal .hn-head{
     flex-direction:column;
     align-items:flex-start;
-    gap:8px;
-    margin-bottom:12px;
+    gap:6px;
+    margin-bottom:8px;
   }
   html.cssd-light body #sportsPortal .hn-titles h2{font-size:22px;}
   html.cssd-light body #sportsPortal .hn-layout{grid-template-columns:minmax(0,1fr);}
-  html.cssd-light body #sportsPortal .hn-lead{padding:20px 18px 18px;}
+  html.cssd-light body #sportsPortal .hn-lead{padding:16px 16px 14px;}
   html.cssd-light body #sportsPortal .hn-lead h3{font-size:20px;}
   html.cssd-light body #sportsPortal .hn-list .hn-row:nth-child(n+4){display:none;}
 }
