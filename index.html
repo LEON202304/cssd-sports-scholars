@@ -21,7 +21,7 @@ html.cssd-boot-ready #bootSplash{opacity:0!important;visibility:hidden!important
 <!-- 预加载关键脚本：在 head 内提前发起请求，与 HTML 解析并行，缩短首屏等待。
      注意：sports-cnki-data.*.js 不在此预加载——它只在「学术期刊 / 学术动态」两个视图按需拉取，
      首屏可省下约 900 KB（Brotli）。详见该脚本下方的 _cnkiLoad 懒加载器。 -->
-<link rel="preload" as="script" href="sports-scholars-data.1f77f68c.js">
+<link rel="preload" as="script" href="sports-scholars-data.224a8b52.js">
 <link rel="preload" as="script" href="sports-univ-catalog.766ca372.js">
 <link rel="preload" as="script" href="portal.9149a373.js">
 <link rel="preload" as="image" href="mountains.5f7d4f16.webp" type="image/webp" fetchpriority="high">
@@ -7336,8 +7336,8 @@ html.cssd-light #vw-phdschools .phd-tab.on{
     <h2 class="proj-title cssd-h2v">科研项目查询</h2>
     <p class="proj-sub">已将国家社科基金体育学项目负责人与学者目录打通：负责人优先跳转到学者目录中的对应学者；同一高校下属院系、科研处等单位别名已合并，目录未收录者则补建个人资料档案。</p>
     <div class="proj-kpis">
-      <div class="proj-kpi"><b>2,826</b><span>项目数据库记录</span></div>
-      <div class="proj-kpi"><b>2,261</b><span>项目获得者入库</span></div>
+      <div class="proj-kpi"><b>2,949</b><span>项目数据库记录</span></div>
+      <div class="proj-kpi"><b>2,274</b><span>项目获得者入库</span></div>
       <div class="proj-kpi"><b>531</b><span>对应学者项目</span></div>
       <div class="proj-kpi"><b>4,857</b><span>学者目录总量</span></div>
     </div>
@@ -7351,11 +7351,11 @@ html.cssd-light #vw-phdschools .phd-tab.on{
         <h3>立项查询</h3>
         <p>可按姓名、年份、学校/单位、批准号、项目名称进行组合查询；每页显示 40 条。</p>
       </div>
-      <div id="projCount" style="color:#0A2A43;font-family:'DM Mono',monospace;font-weight:700;">2826 项</div>
+      <div id="projCount" style="color:#0A2A43;font-family:'DM Mono',monospace;font-weight:700;">2949 项</div>
     </div>
     <div class="proj-tools">
       <input id="projSearch" class="proj-search" placeholder="关键词：项目名称 / 批准号 / 姓名 / 学校单位" oninput="dProjS()">
-      <select id="projYearSelect" class="proj-search" style="min-width:150px;flex:0 0 150px;" onchange="setNopssProjectYear(this.value)"><option value="all">全部年份</option><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option><option value="2002">2002</option><option value="2001">2001</option><option value="2000">2000</option><option value="1999">1999</option><option value="1998">1998</option><option value="1997">1997</option></select><select id="projProvSelect" class="proj-search" style="min-width:120px;flex:0 0 120px;" onchange="setNopssProjectProv(this.value)"><option value="all">全部省份</option><option value="安徽">安徽</option><option value="北京">北京</option><option value="福建">福建</option><option value="甘肃">甘肃</option><option value="广东">广东</option><option value="广西">广西</option><option value="贵州">贵州</option><option value="海南">海南</option><option value="河北">河北</option><option value="河南">河南</option><option value="黑龙江">黑龙江</option><option value="湖北">湖北</option><option value="湖南">湖南</option><option value="吉林">吉林</option><option value="江苏">江苏</option><option value="江西">江西</option><option value="辽宁">辽宁</option><option value="内蒙古">内蒙古</option><option value="宁夏">宁夏</option><option value="青海">青海</option><option value="山东">山东</option><option value="山西">山西</option><option value="陕西">陕西</option><option value="上海">上海</option><option value="四川">四川</option><option value="天津">天津</option><option value="西藏">西藏</option><option value="新疆">新疆</option><option value="云南">云南</option><option value="浙江">浙江</option><option value="重庆">重庆</option></select>
+      <select id="projYearSelect" class="proj-search" style="min-width:150px;flex:0 0 150px;" onchange="setNopssProjectYear(this.value)"><option value="all">全部年份</option><option value="2026">2026</option><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option><option value="2002">2002</option><option value="2001">2001</option><option value="2000">2000</option><option value="1999">1999</option><option value="1998">1998</option><option value="1997">1997</option></select><select id="projProvSelect" class="proj-search" style="min-width:120px;flex:0 0 120px;" onchange="setNopssProjectProv(this.value)"><option value="all">全部省份</option><option value="安徽">安徽</option><option value="北京">北京</option><option value="福建">福建</option><option value="甘肃">甘肃</option><option value="广东">广东</option><option value="广西">广西</option><option value="贵州">贵州</option><option value="海南">海南</option><option value="河北">河北</option><option value="河南">河南</option><option value="黑龙江">黑龙江</option><option value="湖北">湖北</option><option value="湖南">湖南</option><option value="吉林">吉林</option><option value="江苏">江苏</option><option value="江西">江西</option><option value="辽宁">辽宁</option><option value="内蒙古">内蒙古</option><option value="宁夏">宁夏</option><option value="青海">青海</option><option value="山东">山东</option><option value="山西">山西</option><option value="陕西">陕西</option><option value="上海">上海</option><option value="四川">四川</option><option value="天津">天津</option><option value="西藏">西藏</option><option value="新疆">新疆</option><option value="云南">云南</option><option value="浙江">浙江</option><option value="重庆">重庆</option></select>
       <button class="proj-chip on" data-proj-cat="all" onclick="setNopssProjectCat('all')">全部类别</button>
       <button class="proj-chip" data-proj-cat="重大项目" onclick="setNopssProjectCat('重大项目')">重大</button>
       <button class="proj-chip" data-proj-cat="重点项目" onclick="setNopssProjectCat('重点项目')">重点</button>
@@ -7381,7 +7381,7 @@ html.cssd-light #vw-phdschools .phd-tab.on{
     <div class="proj-hd">
       <div>
         <h3>历年项目汇总与官方下载索引</h3>
-        <p>当前已接入国家社科基金项目数据库 1997—2025 年体育学记录；近年年度公告附件继续作为校验来源。</p>
+        <p>当前已接入国家社科基金项目数据库 1997—2025 年体育学记录，并补充 2026 年一般项目立项公示中的体育学与健康管理及相关条目；近年年度公告附件继续作为校验来源。</p>
       </div>
       <a class="proj-link" href="https://www.nopss.gov.cn/GB/219555/219558/" target="_blank" rel="noopener">国家社科基金项目公告库 ↗</a>
     </div>
@@ -7704,7 +7704,7 @@ html.cssd-light #vw-phdschools .phd-tab.on{
      加 defer 后解析不再中断，整份文档（含全部样式）先解析完，脚本再按顺序执行，
      DOMContentLoaded 之前一定就绪。页面里所有对 S / JNL_* / NOPSS_* 的引用
      都带 typeof 守卫（共 30 处，已逐条核对），因此执行时机后移是安全的。 -->
-<script defer src="sports-scholars-data.1f77f68c.js"></script>
+<script defer src="sports-scholars-data.224a8b52.js"></script>
 <div class="compare-bar" id="compareBar">
   <span style="font-size:.75rem;color:#8A94A8;">📊 已选：</span>
   <span class="cmp-cnt" id="compareCnt"><b style="color:#2E9A89">0</b>/5 位学者</span>
