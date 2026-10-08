@@ -8227,7 +8227,8 @@ function renderAcademicNews(force){
   setText('anKpiProjects',projects.toLocaleString('zh-CN'));
   setText('anKpiTopics',topics.toLocaleString('zh-CN'));
   setText('anBrief','今日主题：'+anRotate(['数智体育','运动健康','学校体育','体育产业','训练科学','体育治理'],3,seed).join(' · '));
-  var spotlight=anRotate(items,3,seed+23);
+  var anLatest=items.filter(function(x){return x.latest;});
+  var spotlight=anLatest.length>=3?anLatest.slice(0,3):anRotate(items,3,seed+23);
   var spotEl=document.getElementById('anSpotlight');
   if(spotEl)spotEl.innerHTML=spotlight.map(function(item){
     var meta=anTypeMeta(item.type);
@@ -16332,20 +16333,55 @@ html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"].on small{
     if(tx)tx.textContent=text;
   }
   function dayDiff(iso){
+    /* 以北京时间日期比较，避免 new Date('YYYY-MM-DD') 按 UTC 解析导致的跨时区差一天 */
     try{
-      var d=new Date(iso);var now=new Date();
-      return Math.floor((Date.UTC(now.getFullYear(),now.getMonth(),now.getDate())-Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()))/86400000);
+      var m=String(iso||'').match(/^(\d{4})-(\d{2})-(\d{2})/);
+      if(!m)return 999;
+      var bj=new Date(Date.now()+8*3600000);
+      var today=Date.UTC(bj.getUTCFullYear(),bj.getUTCMonth(),bj.getUTCDate());
+      return Math.floor((today-Date.UTC(+m[1],+m[2]-1,+m[3]))/86400000);
     }catch(e){return 999;}
   }
   var _snapCache=null;
-  function loadNewsSnapshot(cb){
-    if(_snapCache){cb(_snapCache);return;}
+  function loadNewsSnapshot(cb,force){
+    if(_snapCache&&!force){cb(_snapCache);return;}
     fetch('news-snapshot.json',{cache:'no-store'}).then(function(r){
       if(!r.ok)throw new Error('snapshot '+r.status);
       return r.json();
-    }).then(function(j){_snapCache=j;cb(j);}).catch(function(){cb(null);});
+    }).then(function(j){_snapCache=j;cb(j);}).catch(function(){cb(_snapCache||null);});
+  }
+  /* 每日自动抓取的期刊最新论文（news-snapshot.json，由 GitHub Actions 生成）
+     → 作为「论文」动态置顶；不足 10 条时用 CNKI 论文索引轮换补齐 */
+  function patchBuildItems(){
+    if(typeof window.anBuildItems!=='function'||window.anBuildItems.__spLatest)return;
+    var ob=window.anBuildItems;
+    window.anBuildItems=function(){
+      var items=ob.apply(this,arguments);
+      var snap=window.__spNewsSnap;
+      if(!snap||!Array.isArray(snap.items)||!snap.items.length)return items;
+      var latest=snap.items.filter(function(it){return it&&it.title;}).slice(0,10).map(function(it){
+        return {type:'paper',latest:true,date:it.date||'最新',title:it.title,
+          desc:(it.authors?'作者：'+it.authors+' · ':'')+'来源：'+(it.journal||'体育学核心期刊'),
+          url:it.link||'',action:'阅读论文'};
+      });
+      var seen={};latest.forEach(function(x){seen[x.title]=1;});
+      var cnki=items.filter(function(x){return x.type==='paper'&&!seen[x.title];});
+      var rest=items.filter(function(x){return x.type!=='paper';});
+      return latest.concat(cnki).slice(0,Math.max(10,latest.length)).concat(rest);
+    };
+    window.anBuildItems.__spLatest=true;
+  }
+  function applySnapState(snap){
+    if(!snap||!snap.generatedAt){setNewsState('stale','数据稍旧 · 最新论文快照不可用');return;}
+    var dd=dayDiff(snap.generatedAt);
+    var note=document.getElementById('anRefreshNote');
+    if(note)note.textContent='期刊论文更新于 '+String(snap.generatedAt).slice(5);
+    if(dd<=0)setNewsState('live','实时聚合 · 今日已更新');
+    else if(dd===1)setNewsState('live','实时聚合 · 昨日已更新');
+    else setNewsState('stale','数据稍旧 · 更新于 '+snap.generatedAt);
   }
   function patchAcademicNews(){
+    patchBuildItems();
     if(typeof window.renderAcademicNews!=='function'||window.renderAcademicNews.__spNewsPatched)return;
     var orig=window.renderAcademicNews;
     window.renderAcademicNews=function(force){
@@ -16372,21 +16408,21 @@ html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"].on small{
           return;
         }
       }catch(e){}
-      var ret=orig.apply(this,arguments);
-      try{
-        var today=new Date();
-        var iso=today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+String(today.getDate()).padStart(2,'0');
-        // live if page can build items; stale if snapshot older than 1 day when force-failed
-        setNewsState('live','实时聚合 · 今日已更新');
-        // journal color: rewrite purple CSS vars on cards
-        document.querySelectorAll('#vw-academicnews .an-card, #vw-academicnews .an-news').forEach(function(el){
-          var c=el.style.getPropertyValue('--an-c')||'';
-          if(/a78bfa|A855F7|7c3aed/i.test(c)) el.style.setProperty('--an-c','#2C6E9E');
-        });
-        // also refresh KPI after data ready
-        fillScholarKpis();
-      }catch(e){}
-      return ret;
+      var self=this,args=arguments;
+      loadNewsSnapshot(function(snap){
+        window.__spNewsSnap=snap||null;
+        orig.apply(self,args);
+        try{
+          applySnapState(snap);
+          // journal color: rewrite purple CSS vars on cards
+          document.querySelectorAll('#vw-academicnews .an-card, #vw-academicnews .an-news').forEach(function(el){
+            var c=el.style.getPropertyValue('--an-c')||'';
+            if(/a78bfa|A855F7|7c3aed/i.test(c)) el.style.setProperty('--an-c','#2C6E9E');
+          });
+          // also refresh KPI after data ready
+          fillScholarKpis();
+        }catch(e){}
+      },!!force);
     };
     window.renderAcademicNews.__spNewsPatched=true;
   }

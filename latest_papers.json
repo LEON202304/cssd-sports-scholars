@@ -1,58 +1,191 @@
 [
   {
-    "journal": "体育科学",
-    "title": "竞技体育选材与基础培养模式进展及现实启示",
-    "authors": "陈辉, 尚磊, 陈小平",
-    "link": "http://tykx.xml-journal.net/article/doi/10.16469/J.css.2026KX017",
-    "date": "2026-06-17"
+    "journal": "天津体育学院学报",
+    "title": "“十五五”时期民族传统体育生活化的目标愿景、现实挑战与实现路径",
+    "authors": "白晋湘, 王振亮, 何涛",
+    "link": "https://tjty.cbpt.cnki.net/portal/journal/portal/client/paper/3d0f26b970a4ecc0ac6ecfe388b1ed53",
+    "date": "2026-09-29"
+  },
+  {
+    "journal": "体育学刊",
+    "title": "当前中国省级城市足球超级联赛的风险研判与路径探索",
+    "authors": "易剑东, 来晓刚",
+    "link": "https://tyxk.scnu.edu.cn/a/20260928/1047.html",
+    "date": "2026-09-28"
+  },
+  {
+    "journal": "体育学刊",
+    "title": "新时期我国城市足球联赛“热”话题的“冷”思考",
+    "authors": "郑志强, 蔡明翰, 杨京钟",
+    "link": "https://tyxk.scnu.edu.cn/a/20260928/1047.html",
+    "date": "2026-09-28"
+  },
+  {
+    "journal": "体育学刊",
+    "title": "苏超的文明属性——作为礼乐实践的足球新生态",
+    "authors": "路云亭, 周思羽",
+    "link": "https://tyxk.scnu.edu.cn/a/20260928/1047.html",
+    "date": "2026-09-28"
+  },
+  {
+    "journal": "上海体育大学学报",
+    "title": "研究范式转型与中国体育学自主知识体系构建",
+    "authors": "易剑东",
+    "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2026.05.20.0006",
+    "date": "2026-09-15"
+  },
+  {
+    "journal": "上海体育大学学报",
+    "title": "以体育规则为核心范畴构建体育法学自主知识体系",
+    "authors": "韩勇",
+    "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2026.05.16.0006",
+    "date": "2026-09-15"
+  },
+  {
+    "journal": "上海体育大学学报",
+    "title": "中国体育学自主知识体系探赜：逻辑起点、三维结构与构建向度",
+    "authors": "李博, 陈迪思, 黄泠熙, 姜哲",
+    "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2026.04.06.0002",
+    "date": "2026-09-15"
+  },
+  {
+    "journal": "北京体育大学学报",
+    "title": "基于国际话语权提升的我国国际体育组织人才培养战略研究",
+    "authors": "邰峰, 王士豪",
+    "link": "https://bjtd.chinajournal.net.cn/WKG/WebPublication/paperDigest.aspx?paperID=5acc821e-7d79-4ab9-8a96-b70e16662db1",
+    "date": "2026-09"
+  },
+  {
+    "journal": "北京体育大学学报",
+    "title": "体育强国需求下中国特色冰雪运动学科体系构建研究",
+    "authors": "卢诗卉, 方千华, 赵学峰",
+    "link": "https://bjtd.chinajournal.net.cn/WKG/WebPublication/paperDigest.aspx?paperID=3954fef9-ba07-40bc-988f-a1aa068698b3",
+    "date": "2026-09"
+  },
+  {
+    "journal": "北京体育大学学报",
+    "title": "协同治理视域下“三大球”振兴的理论逻辑、现实困境与优化路径研究",
+    "authors": "史友宽, 张岩, 张欣",
+    "link": "https://bjtd.chinajournal.net.cn/WKG/WebPublication/paperDigest.aspx?paperID=83144b13-4606-422d-82c8-d94d9ef673b9",
+    "date": "2026-09"
+  },
+  {
+    "journal": "武汉体育学院学报",
+    "title": "体育传播研究的新进路：以体育为媒介的传播",
+    "authors": "曹苏方, 张业安",
+    "link": "https://wtxb.cbpt.cnki.net/WKD/WebPublication/paperDigest.aspx?paperID=066fc7d7-4514-49e5-a607-d77c82434da1",
+    "date": "2026-09"
+  },
+  {
+    "journal": "武汉体育学院学报",
+    "title": "中华民族伟大复兴视域下体育文化创新的实践理路与行动方略",
+    "authors": "赵富学",
+    "link": "https://wtxb.cbpt.cnki.net/WKD/WebPublication/paperDigest.aspx?paperID=ea182410-160a-451b-81ba-8f8c6d128094",
+    "date": "2026-09"
+  },
+  {
+    "journal": "武汉体育学院学报",
+    "title": "球迷与职业体育俱乐部价值共创的内在逻辑、现实困境及推进路向",
+    "authors": "王文龙, 刘波, 郭振, 曹宇",
+    "link": "https://wtxb.cbpt.cnki.net/WKD/WebPublication/paperDigest.aspx?paperID=9497c0ee-93fa-42c3-b85c-dbd752177e3a",
+    "date": "2026-09"
   },
   {
     "journal": "体育科学",
-    "title": "数字新质生产力赋能全民健身公共服务体系五维优化的理论逻辑与实践进路",
-    "authors": "许文鑫, 李明, 马嘉鹏, 曾玉兰",
-    "link": "http://tykx.xml-journal.net/article/doi/10.16469/J.css.2026KX021",
-    "date": "2026-06-17"
+    "title": "运动健康促进的理论要义、实践形态与推进路径",
+    "authors": "杨桦, 祝莉",
+    "link": "http://tykx.xml-journal.net/article/doi/10.16469/J.css.2026KX077",
+    "date": "2026-08-15"
   },
   {
     "journal": "体育科学",
-    "title": "橘皮素补剂对女子格斗类运动员模拟赛前减重干预效果的研究",
-    "authors": "刘猛, 高炳宏, 章政, 崔星晨, 曹志, 曹银行, 赵璟",
-    "link": "http://tykx.xml-journal.net/article/doi/10.16469/J.css.2026KX009",
-    "date": "2026-06-17"
+    "title": "我国国民体质特征、影响因素与健康效应",
+    "authors": "王晶晶, 范超群, 聂明剑, 王梦蝶, 龙鑫, 武东明, 王欢, 徐凯, 冯强",
+    "link": "http://tykx.xml-journal.net/article/doi/10.16469/J.css.2026KX062",
+    "date": "2026-08-15"
   },
   {
     "journal": "体育科学",
-    "title": "乒乓球运动员无意识知觉加工中运动控制系统的特异性参与：一项任务态fMRI研究",
-    "authors": "史孤龙, 黄浩洁, 翁兴和, 高世英",
-    "link": "http://tykx.xml-journal.net/article/doi/10.16469/J.css.2026KX003",
-    "date": "2026-06-17"
+    "title": "运动训练数智化转型赋能奥运备战实践创新",
+    "authors": "朱丽敏, 袁守龙, 卢飞翔",
+    "link": "http://tykx.xml-journal.net/article/doi/10.16469/J.css.2026KX061",
+    "date": "2026-08-15"
   },
   {
-    "journal": "体育科学",
-    "title": "人工智能对体育产业就业影响的机制与应对策略",
-    "authors": "任波",
-    "link": "http://tykx.xml-journal.net/article/doi/10.16469/J.css.2026KX016",
-    "date": "2026-06-17"
+    "journal": "中国体育科技",
+    "title": "基于函数型数据分析的跆拳道后横踢动态特征研究：双侧不对称性对击打表现的影响",
+    "authors": "董欣冉, 梁添哲, 马勇, 贾孟尧, 叶伟帅, 熊俊",
+    "link": "https://zgty.cbpt.cnki.net/portal/journal/portal/client/paper/d2ca4702469d7649189737cb25780cfd",
+    "date": "2026-08-15"
   },
   {
-    "journal": "体育科学",
-    "title": "我国校园智慧体育何以高质量建设",
-    "authors": "王琪, 李经展, 梁嘉鹏, 柴宏琴, 刘红",
-    "link": "http://tykx.xml-journal.net/article/doi/10.16469/J.css.2026KX022",
-    "date": "2026-06-17"
+    "journal": "中国体育科技",
+    "title": "sRPE监控中国优秀女子拳击运动员教学比赛负荷的应用研究",
+    "authors": "叶成杰, 叶家驰, 许毅枭, 高炳宏",
+    "link": "https://zgty.cbpt.cnki.net/portal/journal/portal/client/paper/5390fb6dab642937005fac0bf20ffc4f",
+    "date": "2026-08-15"
   },
   {
-    "journal": "体育科学",
-    "title": "首金精神的概念建构、文化内涵与多维特征研究",
-    "authors": "黄莉",
-    "link": "http://tykx.xml-journal.net/article/doi/10.16469/J.css.2025KX090",
-    "date": "2026-06-17"
+    "journal": "中国体育科技",
+    "title": "运动对大脑神经网络的调控：从机制、功能到精准干预的整合性视角",
+    "authors": "章森, 何文柯, 林晨丽, 漆正堂, 刘微娜",
+    "link": "https://zgty.cbpt.cnki.net/portal/journal/portal/client/paper/2f638a04901fa5d2932f13505ec05f21",
+    "date": "2026-08-15"
   },
   {
-    "journal": "体育科学",
-    "title": "三星堆古蜀文明之体育元素研究",
-    "authors": "周西宽, 周鉴",
-    "link": "http://tykx.xml-journal.net/article/doi/10.16469/J.css.2025KX015",
-    "date": "2026-06-17"
+    "journal": "天津体育学院学报",
+    "title": "分散居住区基本公共体育服务标准化供给的机制与对策研究",
+    "authors": "张大超, 王贵斌",
+    "link": "https://tjty.cbpt.cnki.net/portal/journal/portal/client/paper/fb97abded24f22dc9a586955849958aa",
+    "date": "2026-08-05"
+  },
+  {
+    "journal": "天津体育学院学报",
+    "title": "面向“十五五”：城市全民健身场地设施运营管理的困境、镜鉴与路径",
+    "authors": "郑家鲲, 徐丽萍",
+    "link": "https://tjty.cbpt.cnki.net/portal/journal/portal/client/paper/288e2b83e479342944d926c93aa839a6",
+    "date": "2026-08-05"
+  },
+  {
+    "journal": "体育与科学",
+    "title": "传统体育文化主体性危机与创造性转化路径——与杨文轩教授的学术对话",
+    "authors": "杜长亮, 赵妍, 徐诺渲",
+    "link": "https://tyyk.cbpt.cnki.net/portal/journal/portal/client/paper/df4e8799565c7285266fb7d1cf156541",
+    "date": "2026-07-25"
+  },
+  {
+    "journal": "体育与科学",
+    "title": "方位、路径与机制：体育非物质文化遗产促进铸牢中华民族共同体意识的内在逻辑",
+    "authors": "马廉祯, 黄仕瑜, 袁进业",
+    "link": "https://tyyk.cbpt.cnki.net/portal/journal/portal/client/paper/3f24d7d7b495d9790b6be38e41a45000",
+    "date": "2026-07-25"
+  },
+  {
+    "journal": "体育与科学",
+    "title": "情感极化驱动体育“饭圈文化”畸形化的网络传播机制研究",
+    "authors": "陈文佳, 刘宗玉, 张矛矛",
+    "link": "https://tyyk.cbpt.cnki.net/portal/journal/portal/client/paper/ace76e4182f2817d5758e020bc26ec91",
+    "date": "2026-07-25"
+  },
+  {
+    "journal": "西安体育学院学报",
+    "title": "扬弃与立新:体育非线性教学法的内涵阐释、主要特征及实践启示",
+    "authors": "李游, 赵雪同, 李笋南, 邵婷",
+    "link": "https://xaty.cbpt.cnki.net/portal/journal/portal/client/paper/23ecc4813548b63f7ea33766be170be9",
+    "date": "2026-07-02"
+  },
+  {
+    "journal": "西安体育学院学报",
+    "title": "试论中华武术中的“击”与“舞”",
+    "authors": "邱丕相",
+    "link": "https://xaty.cbpt.cnki.net/portal/journal/portal/client/paper/838829dcfde58e565f2509e9ccf89de2",
+    "date": "2026-05-10"
+  },
+  {
+    "journal": "西安体育学院学报",
+    "title": "我国运动项目产业化的理论阐释、历史实践与发展路径",
+    "authors": "陈叙南, 杨铄, 郑芳",
+    "link": "https://xaty.cbpt.cnki.net/portal/journal/portal/client/paper/8057cc9ff9a59ebad03e60d705748552",
+    "date": "2026-05-10"
   }
 ]
