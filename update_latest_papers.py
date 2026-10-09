@@ -6,9 +6,11 @@
 由 GitHub Actions（.github/workflows/update-papers.yml）每天北京时间 07:17 左右运行，
 也可本地运行：  pip install requests beautifulsoup4 lxml && python update_latest_papers.py
 
-数据来源：各期刊官网公开的「当期目录 / 本期目次 / 网络首发」页面（玛格泰克/仁和 xml-journal、
-知网腾云 cbpt 期刊官网、WKG 期刊官网、编辑部自建站）。不访问 CNKI 检索/登录页，
-不处理验证码，不绕过任何访问控制；遇到防火墙/人机验证的源直接跳过。
+数据来源：
+  - 国内：各期刊官网公开的「当期目录 / 本期目次 / 网络首发」页面（玛格泰克/仁和 xml-journal、
+    知网腾云 cbpt 期刊官网、WKG 期刊官网、编辑部自建站）。不访问 CNKI 检索/登录页，
+    不处理验证码，不绕过任何访问控制；遇到防火墙/人机验证的源直接跳过。
+  - 国外：Crossref 公开 API（按 ISSN 拉最新 works，链接用 https://doi.org/{DOI}）。
 
 输出（字段与前端约定一致）：
   latest_papers.json   [ {journal,title,authors,link,date}, ... ]
@@ -38,16 +40,16 @@ ROOT = Path(__file__).resolve().parent
 LATEST_FILE = ROOT / "latest_papers.json"
 SNAPSHOT_FILE = ROOT / "news-snapshot.json"
 
-MAX_ITEMS = 30          # 输出总条数上限
-MAX_PER_JOURNAL = 3     # 每刊最多保留条数（9 刊 × 3 ≈ 27 条，保证各刊都能露出）
+MAX_ITEMS = 45          # 输出总条数上限（约 15 源 × 3 ≈ 45，保证中外各刊都能露出）
+MAX_PER_JOURNAL = 3     # 每刊最多保留条数
 PER_SOURCE_FETCH = 8    # 每个源最多取多少条候选
 SHOUFA_MAX_AGE_DAYS = 180  # 网络首发只取近半年的
 TIMEOUT = (10, 45)      # (连接, 读取) 秒
 RETRIES = 2
 
 BJT = dt.timezone(dt.timedelta(hours=8))
-UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
-      "Chrome/126.0 Safari/537.36 tiyuxueren-bot/1.0 (+http://tiyuxueren.com/)")
+UA = ("tiyuxueren-bot/1.0 (http://tiyuxueren.com/; mailto:admin@tiyuxueren.com) "
+      "Mozilla/5.0 (compatible; academic-portal-bot)")
 
 SESSION = requests.Session()
 SESSION.headers.update({
@@ -273,6 +275,90 @@ def src_tyxk(journal: str = "体育学刊") -> list[dict]:
     return out
 
 
+
+# ─────────────────────────── Crossref 公开 API（国外体育学期刊，按 ISSN） ───────────────────────────
+def _crossref_date(issued: dict | None) -> str:
+    """Crossref issued.date-parts → YYYY-MM-DD / YYYY-MM / YYYY（与国内源一致）。"""
+    parts = (issued or {}).get("date-parts") or []
+    if not parts or not parts[0]:
+        return ""
+    ymd = parts[0]
+    if len(ymd) >= 3 and ymd[0] and ymd[1] and ymd[2]:
+        return f"{int(ymd[0]):04d}-{int(ymd[1]):02d}-{int(ymd[2]):02d}"
+    if len(ymd) >= 2 and ymd[0] and ymd[1]:
+        return ym(ymd[0], ymd[1])
+    if ymd and ymd[0]:
+        return f"{int(ymd[0]):04d}"
+    return ""
+
+
+def _crossref_authors(authors) -> str:
+    names: list[str] = []
+    for a in authors or []:
+        given = clean(a.get("given") or "")
+        family = clean(a.get("family") or "")
+        name = clean(a.get("name") or "")
+        if family and given:
+            names.append(f"{given} {family}")
+        elif family:
+            names.append(family)
+        elif given:
+            names.append(given)
+        elif name:
+            names.append(name)
+    return ", ".join(names)
+
+
+def src_crossref(journal: str, issn: str) -> list[dict]:
+    """按 ISSN 从 Crossref 拉最新论文。单源失败由外层 try/except 跳过，不清空已有数据。"""
+    url = f"https://api.crossref.org/journals/{issn}/works"
+    params = {
+        "rows": PER_SOURCE_FETCH,
+        "sort": "published",
+        "order": "desc",
+        "select": "title,author,issued,DOI,container-title",
+    }
+    headers = {
+        "User-Agent": UA,
+        "Accept": "application/json",
+    }
+    last: Exception | None = None
+    r = None
+    for attempt in range(RETRIES + 1):
+        try:
+            r = SESSION.get(url, params=params, headers=headers, timeout=TIMEOUT)
+            r.raise_for_status()
+            break
+        except Exception as e:  # noqa: BLE001
+            last = e
+            r = None
+            if attempt < RETRIES:
+                time.sleep(2 * (attempt + 1))
+    if r is None:
+        raise last  # type: ignore[misc]
+    payload = r.json()
+    works = (payload.get("message") or {}).get("items") or []
+    out: list[dict] = []
+    for w in works:
+        titles = w.get("title") or []
+        title = titles[0] if titles else ""
+        doi = (w.get("DOI") or "").strip()
+        if not title or not doi:
+            continue
+        out.append(item(
+            journal,
+            title,
+            _crossref_authors(w.get("author")),
+            f"https://doi.org/{doi}",
+            _crossref_date(w.get("issued")),
+        ))
+        if len(out) >= PER_SOURCE_FETCH:
+            break
+    if not out:
+        raise RuntimeError(f"Crossref 返回 0 条可用作品（ISSN {issn}）")
+    return out
+
+
 SOURCES = [
     ("体育科学", lambda: src_xml_journal("体育科学", "http://tykx.xml-journal.net/")),
     ("上海体育大学学报", lambda: src_xml_journal("上海体育大学学报", "https://shtyxyxb.xml-journal.net/")),
@@ -284,6 +370,13 @@ SOURCES = [
     ("体育与科学", lambda: src_cbpt("体育与科学", "tyyk")),
     ("西安体育学院学报", lambda: src_cbpt("西安体育学院学报", "xaty")),
     # 成都体育学院学报（cdtyxb.cdsu.edu.cn）：官网启用 WAF 人机验证，按规则不抓取。
+    # 国外体育学期刊（Crossref 公开 API，按 ISSN；显示名用规范全称）
+    ("British Journal of Sports Medicine", lambda: src_crossref("British Journal of Sports Medicine", "0306-3674")),  # BJSM
+    ("Sports Medicine", lambda: src_crossref("Sports Medicine", "0112-1642")),
+    ("Journal of Sport and Health Science", lambda: src_crossref("Journal of Sport and Health Science", "2095-2546")),  # JSHS
+    ("Medicine & Science in Sports & Exercise", lambda: src_crossref("Medicine & Science in Sports & Exercise", "0195-9131")),  # MSSE
+    ("Journal of Sports Sciences", lambda: src_crossref("Journal of Sports Sciences", "0264-0414")),  # JSS
+    ("Scandinavian Journal of Medicine & Science in Sports", lambda: src_crossref("Scandinavian Journal of Medicine & Science in Sports", "0905-7188")),  # SJMSS
 ]
 
 
@@ -381,7 +474,7 @@ def main() -> int:
 
     snap = {
         "generatedAt": today_bjt().isoformat(),
-        "source": "期刊官网当期目录/网络首发自动抓取（GitHub Actions 每日）：" + "、".join(ok),
+        "source": "期刊官网 TOC + Crossref 自动抓取（GitHub Actions 每日）：" + "、".join(ok),
         "statusHint": "live",
         "items": items,
     }

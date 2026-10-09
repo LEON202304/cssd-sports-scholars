@@ -21,13 +21,21 @@
 每次更新都以 `v4.6-XX` 方式命名，方便追溯历史。
 
 ## 自动化：期刊最新论文每日更新
-- **做什么**：`update_latest_papers.py` 抓取重点体育学期刊官网公开的「当期目录 / 本期目次 / 网络首发」页面，与现有数据按标题去重合并，按日期降序保留约 30 条（每刊最多 3 条），写入 `latest_papers.json` 和 `news-snapshot.json`。前端「学术动态」页读取 `news-snapshot.json`：把这些论文置顶到「今日聚焦」和动态流，并按 `generatedAt`（北京时间日期）显示状态——当天为「实时聚合 · 今日已更新」，前一天为「昨日已更新」，更早为「数据稍旧」，断网时读本地快照显示「离线」。
-- **来源**（均为期刊官网公开页面，不访问 CNKI 检索/登录页，不处理验证码）：
-  - 仁和 xml-journal：《体育科学》tykx.xml-journal.net、《上海体育大学学报》shtyxyxb.xml-journal.net
-  - 知网腾云期刊官网 cbpt：《中国体育科技》zgty、《天津体育学院学报》tjty、《体育与科学》tyyk、《西安体育学院学报》xaty（当期目录 + 近半年网络首发）
-  - WKG 期刊官网：《北京体育大学学报》bjtd.chinajournal.net.cn、《武汉体育学院学报》wtxb.cbpt.cnki.net（本期目次，日期精确到月）
-  - 编辑部官网：《体育学刊》tyxk.scnu.edu.cn（期刊导读·目次）
-  - 未接入：《成都体育学院学报》官网启用 WAF 人机验证，按规则不抓取
+- **做什么**：`update_latest_papers.py` 抓取重点体育学期刊最新论文，与现有数据按标题去重合并，按日期降序保留约 45 条（每刊最多 3 条，保证中外各刊都能露出），写入 `latest_papers.json` 和 `news-snapshot.json`。前端「学术动态」页读取 `news-snapshot.json`：把这些论文置顶到「今日聚焦」和动态流，并按 `generatedAt`（北京时间日期）显示状态——当天为「实时聚合 · 今日已更新」，前一天为「昨日已更新」，更早为「数据稍旧」，断网时读本地快照显示「离线」。
+- **来源**：
+  - **国内官网 TOC**（公开页面，不访问 CNKI 检索/登录页，不处理验证码）：
+    - 仁和 xml-journal：《体育科学》tykx.xml-journal.net、《上海体育大学学报》shtyxyxb.xml-journal.net
+    - 知网腾云期刊官网 cbpt：《中国体育科技》zgty、《天津体育学院学报》tjty、《体育与科学》tyyk、《西安体育学院学报》xaty（当期目录 + 近半年网络首发）
+    - WKG 期刊官网：《北京体育大学学报》bjtd.chinajournal.net.cn、《武汉体育学院学报》wtxb.cbpt.cnki.net（本期目次，日期精确到月）
+    - 编辑部官网：《体育学刊》tyxk.scnu.edu.cn（期刊导读·目次）
+    - 未接入：《成都体育学院学报》官网启用 WAF 人机验证，按规则不抓取
+  - **国外 Crossref（按 ISSN 公开 API，链接为 doi.org）**：
+    - British Journal of Sports Medicine（BJSM，ISSN 0306-3674）
+    - Sports Medicine（ISSN 0112-1642）
+    - Journal of Sport and Health Science（JSHS，ISSN 2095-2546）
+    - Medicine & Science in Sports & Exercise（MSSE，ISSN 0195-9131）
+    - Journal of Sports Sciences（JSS，ISSN 0264-0414）
+    - Scandinavian Journal of Medicine & Science in Sports（SJMSS，ISSN 0905-7188）
 - **何时跑**：GitHub Actions `.github/workflows/update-papers.yml`，每天 UTC 23:17（北京时间 07:17 左右，GitHub 定时任务可能延后几分钟到几十分钟）。有变化才提交到 `main`，EdgeOne 自动部署；两个 JSON 在 `edgeone.json` 中为 5 分钟短缓存。
 - **容错**：每个源独立超时与重试，单源失败不影响其他源；全部失败或抓到 0 条时不改动任何文件，前端会因日期变旧自动显示「数据稍旧」。
 - **手动触发**：GitHub 仓库 → Actions → Update Latest Papers → Run workflow；或命令行 `gh workflow run update-papers.yml -R LEON202304/cssd-sports-scholars`。
