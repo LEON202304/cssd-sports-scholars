@@ -2200,3 +2200,75 @@ html.cssd-light body #vw-journals .jnl-table-wrap{
     flex-shrink:0;
   }
 }
+
+/* ═════════════════════════════════════════════════════════════════
+   alt-bands — 首页整幅通栏白 / 浅灰交替底色（参考 lipind 介绍页）
+   只改分区底色节奏与分区上下内边距，不改布局、卡片、数字样式。
+   顺序：hero（原样）→ 数字栏+功能入口 白 → 学术动态 浅灰 → 三列面板 白 → 页脚 浅灰（原样）
+   通栏做法：box-shadow 0 0 0 100vmax 铺色 + clip-path 只向左右放开，
+   不产生横向滚动；两段之间无分隔线。
+   可回退：删除从本行注释到文件末尾的整个分区即可。
+   ═════════════════════════════════════════════════════════════════ */
+html.cssd-light body #sportsPortal{
+  --ab-white:#FFFFFF;
+  --ab-gray:#F5F7FA;
+  --ab-overlap:48px;   /* 与 .sp-metrics 的负上边距一致：白带从 hero 底边开始 */
+  --ab-pad:44px;
+}
+/* 白带 1：数字栏下半 + 八个功能入口 + 三列面板（同一个 .sp-wrap 容器）。
+   用伪元素铺底，避免 clip-path 裁掉跨在 hero 边上的数字栏 */
+html.cssd-light body #sportsPortal > .sp-wrap{
+  position:relative;
+  isolation:isolate;
+}
+html.cssd-light body #sportsPortal > .sp-wrap::before{
+  content:"";
+  position:absolute;
+  top:var(--ab-overlap);
+  right:0;bottom:0;left:0;
+  z-index:-1;
+  pointer-events:none;
+  background:var(--ab-white);
+  box-shadow:0 0 0 100vmax var(--ab-white);
+  clip-path:inset(0 -100vmax);
+}
+/* 功能入口原本自带浅灰底，在白带里改透明，卡片细边保持 */
+html.cssd-light body #sportsPortal > .sp-wrap > .sp-quick{
+  background:transparent !important;
+  margin-bottom:var(--ab-pad) !important;
+}
+/* 灰带：学术动态。卡片保持白底，与灰底形成层次。
+   同样用伪元素铺底（页面脚本会给有底色的块加内联阴影，伪元素不受影响） */
+html.cssd-light body #sportsPortal > .sp-wrap > .hn{
+  position:relative;
+  isolation:isolate;
+  margin:0 !important;
+  padding:var(--ab-pad) 0;
+}
+html.cssd-light body #sportsPortal > .sp-wrap > .hn::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:var(--ab-gray);
+  box-shadow:0 0 0 100vmax var(--ab-gray);
+  clip-path:inset(0 -100vmax);
+}
+/* 白带 2：三列面板 */
+html.cssd-light body #sportsPortal > .sp-wrap > .sp-grid{
+  padding-top:var(--ab-pad) !important;
+  padding-bottom:var(--ab-pad) !important;
+}
+/* 页脚紧接白带，用浅灰收尾，去掉中间缝隙 */
+html.cssd-light body #sportsPortal > .sp-footer{
+  margin-top:0 !important;
+  background:var(--ab-gray) !important;
+  border-top:0 !important;
+}
+@media (max-width:860px){
+  html.cssd-light body #sportsPortal{--ab-pad:32px;}
+}
+@media (max-width:420px){
+  html.cssd-light body #sportsPortal{--ab-overlap:36px;--ab-pad:28px;}
+}
