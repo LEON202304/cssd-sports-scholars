@@ -1882,3 +1882,344 @@ html.cssd-light body #sportsPortal .hn-layout-solo .hn-lead{
     transform:none;
   }
 }
+
+/* ═════════════════════════════════════════════════════════════════
+   trust-minimal — 参考图风格：大留白 · 数字并排 · 细边四卡
+   可回退：删除从本行注释到文件末尾的整个分区即可恢复。
+   范围：首页 KPI / 八入口 / 三列面板边框 / 学术动态边框阴影收束
+   ═════════════════════════════════════════════════════════════════ */
+
+/* —— Banner：更克制的留白与居中层次 —— */
+html.cssd-light body #sportsPortal .sp-banner{
+  background-color:#FFFFFF;
+  min-height:0;
+  margin-bottom:0;
+}
+html.cssd-light body #sportsPortal .sp-banner:before{
+  background:linear-gradient(180deg,rgba(255,255,255,.92) 0%,rgba(245,247,250,.78) 48%,rgba(255,255,255,.96) 100%);
+}
+html.cssd-light body #sportsPortal .sp-banner .sp-wrap{
+  padding-top:80px;
+  padding-bottom:56px;
+  text-align:center;
+}
+html.cssd-light body #sportsPortal .sp-banner h1{
+  font-size:clamp(34px,4.2vw,52px) !important;
+  font-weight:700 !important;
+  letter-spacing:.06em !important;
+  line-height:1.22 !important;
+  color:#0A2A43 !important;
+}
+html.cssd-light body #sportsPortal .sp-slogan{
+  margin:14px auto 32px;
+  max-width:36em;
+  font-size:15px;
+  font-weight:400;
+  letter-spacing:.18em;
+  color:#6B7280;
+  line-height:1.7;
+}
+html.cssd-light body #sportsPortal .sp-search{
+  margin-left:auto;
+  margin-right:auto;
+  box-shadow:0 1px 2px rgba(10,42,67,.04),0 8px 24px rgba(10,42,67,.05);
+  border:1px solid #E5E7EB;
+  border-radius:12px;
+}
+html.cssd-light body #sportsPortal .sp-hot{
+  justify-content:center;
+  margin-top:18px;
+}
+html.cssd-light body #sportsPortal .sp-hot button{
+  border:1px solid #E5E7EB;
+  background:#FFFFFF;
+  color:#4B5563;
+  border-radius:999px;
+}
+
+/* —— KPI：参考图「超大数字 + 右侧小号标签」并排；保留全部 6 个真实数字 ——
+   判断：参考图是 3 个主数字+大留白；本站有 6 个均有价值的指标。
+   做成居中 flex 换行（宽屏约一行，中屏两行×3），数字并排标签、去掉外框卡片，
+   比硬收成 3 个更贴「数字+标签」骨架，又不挤掉数据。若要严格 3 主数字可再裁。 */
+html.cssd-light body #sportsPortal .sp-metrics{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,auto));
+  justify-content:center;
+  justify-items:start;
+  align-items:center;
+  column-gap:56px;
+  row-gap:28px;
+  margin:-8px auto 8px;
+  padding:28px 24px 12px;
+  max-width:920px;
+  width:100%;
+  background:transparent !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  position:relative;
+  z-index:2;
+}
+html.cssd-light body #sportsPortal .sp-metrics .sp-icon{display:none !important;}
+html.cssd-light body #sportsPortal .sp-metrics button{
+  display:inline-flex !important;
+  flex-direction:row !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  gap:0;
+  text-align:left !important;
+  border:0 !important;
+  border-right:0 !important;
+  background:transparent !important;
+  padding:4px 2px !important;
+  min-width:0;
+  cursor:pointer;
+}
+html.cssd-light body #sportsPortal .sp-metrics button > span{
+  display:inline-flex !important;
+  flex-direction:row !important;
+  align-items:center !important;
+  gap:12px;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .sp-metrics b{
+  font-family:var(--sp-sans) !important;
+  font-weight:800 !important;
+  font-size:clamp(36px,3.6vw,52px) !important;
+  line-height:1 !important;
+  letter-spacing:-.02em !important;
+  color:#0A2A43 !important;
+  font-variant-numeric:tabular-nums;
+  flex:0 0 auto;
+}
+html.cssd-light body #sportsPortal .sp-metrics small{
+  display:block !important;
+  max-width:4.6em;
+  font-size:12px !important;
+  font-weight:400 !important;
+  line-height:1.35 !important;
+  letter-spacing:.04em !important;
+  color:#6B7280 !important;
+  white-space:normal !important;
+  text-align:left !important;
+}
+
+/* —— 八入口：两行四列细边白卡，图标上 / 标题中 / 说明浅灰 —— */
+html.cssd-light body #sportsPortal .sp-quick{
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:16px !important;
+  margin:28px 0 24px !important;
+  padding:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+html.cssd-light body #sportsPortal .sp-quick:has(+ .hn){margin-bottom:16px !important;}
+html.cssd-light body #sportsPortal .sp-quick-card,
+html.cssd-light body #sportsPortal .sp-quick > button.sp-quick-card{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  text-align:center !important;
+  gap:12px !important;
+  padding:28px 18px 24px !important;
+  min-height:168px;
+  background:#FFFFFF !important;
+  border:1px solid #E5E7EB !important;
+  border-radius:12px !important;
+  box-shadow:0 1px 2px rgba(10,42,67,.03) !important;
+  transition:transform .2s cubic-bezier(.22,1,.36,1),box-shadow .2s ease,border-color .2s ease;
+}
+html.cssd-light body #sportsPortal .sp-quick-card:hover{
+  transform:translateY(-2px);
+  border-color:#D1D5DB !important;
+  box-shadow:0 8px 20px rgba(10,42,67,.06) !important;
+}
+html.cssd-light body #sportsPortal .sp-quick .sp-logo-wrap{
+  width:44px !important;
+  height:44px !important;
+  margin:0 auto !important;
+  border-radius:10px !important;
+  background:transparent !important;
+  color:#4B5563 !important;
+  display:grid !important;
+  place-items:center;
+}
+html.cssd-light body #sportsPortal .sp-quick .sp-logo,
+html.cssd-light body #sportsPortal .sp-quick .sp-logo svg{
+  width:28px !important;
+  height:28px !important;
+  filter:grayscale(1) contrast(1.05);
+  opacity:.85;
+}
+html.cssd-light body #sportsPortal .sp-quick-text{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  gap:6px !important;
+  text-align:center !important;
+  width:100%;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .sp-quick b{
+  display:block !important;
+  font-size:15px !important;
+  font-weight:700 !important;
+  letter-spacing:.02em !important;
+  line-height:1.35 !important;
+  color:#0A2A43 !important;
+  white-space:normal !important;
+  overflow:visible !important;
+  text-overflow:unset !important;
+}
+html.cssd-light body #sportsPortal .sp-quick small{
+  display:-webkit-box !important;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  overflow:hidden;
+  white-space:normal !important;
+  text-overflow:unset !important;
+  max-width:16em;
+  margin:0 auto;
+  font-size:12.5px !important;
+  font-weight:400 !important;
+  line-height:1.55 !important;
+  color:#6B7280 !important;
+}
+
+/* —— 三列面板：同风格细边、几乎无阴影 —— */
+html.cssd-light body #sportsPortal .sp-grid{gap:16px;padding-bottom:56px;}
+html.cssd-light body #sportsPortal .sp-panel{
+  background:#FFFFFF !important;
+  border:1px solid #E5E7EB !important;
+  border-radius:12px !important;
+  box-shadow:0 1px 2px rgba(10,42,67,.03) !important;
+}
+html.cssd-light body #sportsPortal .sp-panel > header{
+  background:transparent !important;
+  border-bottom:1px solid #E5E7EB;
+  padding:18px 20px 14px;
+}
+html.cssd-light body #sportsPortal .sp-panel h2{
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.04em;
+  color:#0A2A43;
+}
+html.cssd-light body #sportsPortal .sp-eyebrow{color:#6B7280;}
+
+/* —— 学术动态：功能不变，边框/阴影向参考图收 —— */
+html.cssd-light body #sportsPortal .hn-lead,
+html.cssd-light body #sportsPortal .hn-row{
+  border:1px solid #E5E7EB !important;
+  border-radius:12px !important;
+  box-shadow:0 1px 2px rgba(10,42,67,.03) !important;
+  background:#FFFFFF !important;
+}
+html.cssd-light body #sportsPortal .hn-lead{
+  background:#FFFFFF !important;
+}
+html.cssd-light body #sportsPortal .hn-lead:hover,
+html.cssd-light body #sportsPortal .hn-row:hover{
+  transform:translateY(-2px);
+  border-color:#D1D5DB !important;
+  box-shadow:0 8px 20px rgba(10,42,67,.06) !important;
+}
+html.cssd-light body #sportsPortal .hn-titles h2{
+  font-weight:700;
+  letter-spacing:.04em;
+}
+html.cssd-light body #sportsPortal .hn-eye{color:#6B7280;}
+
+/* —— Focus / reduced motion —— */
+html.cssd-light body #sportsPortal .sp-metrics button:focus-visible,
+html.cssd-light body #sportsPortal .sp-quick-card:focus-visible{
+  outline:2px solid #2C6E9E;
+  outline-offset:3px;
+  border-radius:8px;
+}
+@media (prefers-reduced-motion:reduce){
+  html.cssd-light body #sportsPortal .sp-quick-card,
+  html.cssd-light body #sportsPortal .hn-lead,
+  html.cssd-light body #sportsPortal .hn-row{
+    transition:none !important;
+  }
+  html.cssd-light body #sportsPortal .sp-quick-card:hover,
+  html.cssd-light body #sportsPortal .hn-lead:hover,
+  html.cssd-light body #sportsPortal .hn-row:hover{
+    transform:none !important;
+  }
+}
+
+/* —— 中屏：KPI 两行×3；入口仍四列 —— */
+@media (max-width:1100px){
+  html.cssd-light body #sportsPortal .sp-metrics{
+    column-gap:36px;
+    row-gap:22px;
+    padding:22px 12px 8px;
+    max-width:100%;
+  }
+  html.cssd-light body #sportsPortal .sp-metrics b{font-size:40px !important;}
+}
+
+/* —— 手机：KPI 2×3；入口 2 列；不横溢 —— */
+@media (max-width:860px){
+  html.cssd-light body #sportsPortal .sp-banner .sp-wrap{
+    padding-top:56px;
+    padding-bottom:36px;
+  }
+  html.cssd-light body #sportsPortal .sp-metrics{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px 12px;
+    margin:0 auto 4px;
+    padding:18px 4px 4px;
+    max-width:100%;
+    justify-items:start;
+  }
+  html.cssd-light body #sportsPortal .sp-metrics b{font-size:28px !important;}
+  html.cssd-light body #sportsPortal .sp-metrics small{
+    max-width:4.2em;
+    font-size:11px !important;
+  }
+  html.cssd-light body #sportsPortal .sp-quick{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:10px !important;
+    margin:18px 0 14px !important;
+  }
+  html.cssd-light body #sportsPortal .sp-quick-card,
+  html.cssd-light body #sportsPortal .sp-quick > button.sp-quick-card{
+    min-height:0;
+    padding:18px 12px 16px !important;
+    gap:8px !important;
+  }
+  html.cssd-light body #sportsPortal .sp-quick .sp-logo-wrap{
+    width:36px !important;
+    height:36px !important;
+  }
+  html.cssd-light body #sportsPortal .sp-quick .sp-logo,
+  html.cssd-light body #sportsPortal .sp-quick .sp-logo svg{
+    width:22px !important;
+    height:22px !important;
+  }
+  html.cssd-light body #sportsPortal .sp-quick b{font-size:13.5px !important;}
+  html.cssd-light body #sportsPortal .sp-quick small{
+    font-size:11.5px !important;
+    max-width:100%;
+  }
+  html.cssd-light body #sportsPortal .sp-quick:has(+ .hn){margin-bottom:10px !important;}
+}
+
+@media (max-width:390px){
+  html.cssd-light body #sportsPortal .sp-metrics{
+    gap:14px 8px;
+    padding:14px 0 2px;
+  }
+  html.cssd-light body #sportsPortal .sp-metrics b{font-size:24px !important;}
+  html.cssd-light body #sportsPortal .sp-metrics button > span{gap:8px;}
+  html.cssd-light body #sportsPortal .sp-quick{
+    gap:8px !important;
+  }
+}
