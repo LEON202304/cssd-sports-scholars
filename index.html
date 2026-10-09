@@ -21,13 +21,13 @@ html.cssd-boot-ready #bootSplash{opacity:0!important;visibility:hidden!important
 <!-- 预加载关键脚本：在 head 内提前发起请求，与 HTML 解析并行，缩短首屏等待。
      注意：sports-cnki-data.*.js 不在此预加载——它只在「学术期刊 / 学术动态」两个视图按需拉取，
      首屏可省下约 900 KB（Brotli）。详见该脚本下方的 _cnkiLoad 懒加载器。 -->
-<link rel="preload" as="script" href="sports-scholars-data.224a8b52.js">
+<link rel="preload" as="script" href="sports-scholars-data.4f849bd6.js">
 <link rel="preload" as="script" href="sports-univ-catalog.766ca372.js">
 <link rel="preload" as="script" href="portal.9149a373.js">
 <link rel="preload" as="image" href="mountains.5f7d4f16.webp" type="image/webp" fetchpriority="high">
 
 <title>体育学人 · 中国体育学术资源数据库</title>
-<meta name="description" content="收录 5,724 位体育学领域学者与运动医学专家，覆盖 548 家高校、医院与科研机构，含长江学者、万人计划、国家社科基金负责人等人才项目，支持学科、院校、人才称号交叉检索。">
+<meta name="description" content="收录 5,849 位体育学领域学者与运动医学专家，覆盖 548 家高校、医院与科研机构，含长江学者、万人计划、国家社科基金负责人等人才项目，支持学科、院校、人才称号交叉检索。">
 <!-- ═══════════ SEO / 社交分享元标签（2026-09-27 新增）═══════════ -->
 <link rel="canonical" href="https://www.tiyuxueren.com/">
 <meta name="robots" content="index,follow,max-image-preview:large">
@@ -7337,9 +7337,9 @@ html.cssd-light #vw-phdschools .phd-tab.on{
     <p class="proj-sub">已将国家社科基金体育学项目负责人与学者目录打通：负责人优先跳转到学者目录中的对应学者；同一高校下属院系、科研处等单位别名已合并，目录未收录者则补建个人资料档案。</p>
     <div class="proj-kpis">
       <div class="proj-kpi"><b>3,056</b><span>项目数据库记录</span></div>
-      <div class="proj-kpi"><b>2,274</b><span>项目获得者入库</span></div>
-      <div class="proj-kpi"><b>531</b><span>对应学者项目</span></div>
-      <div class="proj-kpi"><b>4,857</b><span>学者目录总量</span></div>
+      <div class="proj-kpi"><b>2,420</b><span>项目获得者入库</span></div>
+      <div class="proj-kpi"><b>636</b><span>对应学者项目</span></div>
+      <div class="proj-kpi"><b>5,849</b><span>学者目录总量</span></div>
     </div>
   </section>
 
@@ -7704,7 +7704,7 @@ html.cssd-light #vw-phdschools .phd-tab.on{
      加 defer 后解析不再中断，整份文档（含全部样式）先解析完，脚本再按顺序执行，
      DOMContentLoaded 之前一定就绪。页面里所有对 S / JNL_* / NOPSS_* 的引用
      都带 typeof 守卫（共 30 处，已逐条核对），因此执行时机后移是安全的。 -->
-<script defer src="sports-scholars-data.224a8b52.js"></script>
+<script defer src="sports-scholars-data.4f849bd6.js"></script>
 <div class="compare-bar" id="compareBar">
   <span style="font-size:.75rem;color:#8A94A8;">📊 已选：</span>
   <span class="cmp-cnt" id="compareCnt"><b style="color:#2E9A89">0</b>/5 位学者</span>
