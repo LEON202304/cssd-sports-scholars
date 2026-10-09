@@ -1604,3 +1604,281 @@ html.cssd-light body #vw-academicnews .an-tab:focus-visible{
   html.cssd-light body #sportsPortal footer.sp-footer small{text-align:left;}
   html.cssd-light body #vw-academicnews .an-news{padding:16px 14px !important;}
 }
+
+/* ═════════════════════════════════════════════════════════════════
+   home-news — 首页学术动态
+   可回退：删除从本行注释到文件末尾的整个分区，并去掉 index.html 中
+   home-news.*.js 的 script 引用、删除该 js 文件。
+   ═════════════════════════════════════════════════════════════════ */
+/* 功能入口紧贴学术动态：只收下面距，顶距仍用原规则 */
+html.cssd-light body #sportsPortal .sp-quick:has(+ .hn){
+  margin-bottom:10px;
+}
+html.cssd-light body #sportsPortal .hn{
+  margin:0 0 14px;
+  min-width:0;
+  max-width:100%;
+}
+html.cssd-light body #sportsPortal .hn-head{
+  background:transparent !important;
+  background-image:none !important;
+  border:0 !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+  box-shadow:none !important;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:12px 24px;
+  margin-bottom:10px;
+}
+html.cssd-light body #sportsPortal .hn-eye{
+  margin:0 0 4px;
+  font-family:var(--sp-sans);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.2em;
+  color:#5B6575;
+}
+html.cssd-light body #sportsPortal .hn-titles h2{
+  margin:0;
+  font-family:var(--sp-serif);
+  font-size:26px;
+  font-weight:600;
+  letter-spacing:.08em;
+  line-height:1.2;
+  color:#0A2A43;
+}
+html.cssd-light body #sportsPortal .hn-aside{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  flex:0 0 auto;
+  font-size:13px;
+  color:#5B6575;
+}
+html.cssd-light body #sportsPortal .hn-updated{
+  letter-spacing:.04em;
+  font-variant-numeric:tabular-nums;
+}
+html.cssd-light body #sportsPortal .hn-all{
+  color:#2C6E9E;
+  text-decoration:none;
+  font-weight:500;
+  letter-spacing:.06em;
+  background:transparent;
+  border:0;
+  padding:2px 0;
+}
+html.cssd-light body #sportsPortal .hn-all:hover{
+  text-decoration:underline;
+  color:#14476E;
+}
+html.cssd-light body #sportsPortal .hn-all:focus-visible,
+html.cssd-light body #sportsPortal .hn a:focus-visible{
+  outline:2px solid #2C6E9E;
+  outline-offset:3px;
+  border-radius:2px;
+}
+html.cssd-light body #sportsPortal .hn-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
+  gap:12px;
+  align-items:stretch;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .hn-lead,
+html.cssd-light body #sportsPortal .hn-row{
+  background:#FFFFFF;
+  border:1px solid rgba(10,42,67,.08);
+  border-radius:14px;
+  box-shadow:0 1px 2px rgba(10,42,67,.04),0 8px 24px rgba(10,42,67,.04);
+  min-width:0;
+  max-width:100%;
+  transition:transform .22s cubic-bezier(.22,1,.36,1),box-shadow .22s cubic-bezier(.22,1,.36,1),border-color .22s ease;
+}
+html.cssd-light body #sportsPortal .hn-lead:hover,
+html.cssd-light body #sportsPortal .hn-row:hover{
+  transform:translateY(-3px);
+  border-color:rgba(10,42,67,.14);
+  box-shadow:0 12px 28px rgba(10,42,67,.07);
+}
+html.cssd-light body #sportsPortal .hn-lead{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  padding:20px 22px 18px;
+  background:
+    linear-gradient(180deg,rgba(245,247,250,.55),transparent 42%),
+    #FFFFFF;
+}
+html.cssd-light body #sportsPortal .hn-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:8px;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .hn-journal{
+  display:inline-block;
+  max-width:70%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  padding:3px 8px;
+  border-radius:999px;
+  border:1px solid #E6EAF0;
+  background:#F5F7FA;
+  color:#2C6E9E;
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.04em;
+  line-height:1.4;
+}
+html.cssd-light body #sportsPortal .hn-meta time{
+  flex:0 0 auto;
+  font-size:12px;
+  letter-spacing:.04em;
+  color:#8A93A3;
+  font-variant-numeric:tabular-nums;
+}
+html.cssd-light body #sportsPortal .hn-lead h3,
+html.cssd-light body #sportsPortal .hn-row h3{
+  margin:0;
+  font-family:var(--sp-serif);
+  font-weight:600;
+  letter-spacing:.04em;
+  line-height:1.35;
+  color:#0A2A43;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  overflow:hidden;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .hn-lead h3{font-size:26px;}
+html.cssd-light body #sportsPortal .hn-row h3{font-size:15px;}
+html.cssd-light body #sportsPortal .hn-lead h3 a,
+html.cssd-light body #sportsPortal .hn-row h3 a{
+  color:#0A2A43;
+  text-decoration:none;
+}
+html.cssd-light body #sportsPortal .hn-lead h3 a:hover,
+html.cssd-light body #sportsPortal .hn-row h3 a:hover{
+  color:#2C6E9E;
+}
+html.cssd-light body #sportsPortal .hn-authors{
+  margin:8px 0 0;
+  color:#5B6575;
+  font-size:13px;
+  line-height:1.5;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .hn-list{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .hn-row{
+  flex:1 1 auto;
+  padding:8px 14px;
+}
+html.cssd-light body #sportsPortal .hn-row .hn-meta{margin-bottom:6px;}
+html.cssd-light body #sportsPortal .hn-row .hn-authors{margin-top:6px;font-size:12px;}
+
+
+html.cssd-light body #sportsPortal .hn-grants{
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid rgba(10,42,67,.10);
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .hn-grants-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:4px;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .hn-grants-head .hn-journal{
+  max-width:none;
+  flex:0 0 auto;
+}
+html.cssd-light body #sportsPortal .hn-grant-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .hn-grant-list li{
+  padding:6px 0 5px;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .hn-grant-title{
+  margin:0;
+  font-family:var(--sp-serif);
+  font-size:15px;
+  font-weight:600;
+  letter-spacing:.03em;
+  line-height:1.35;
+  color:#0A2A43;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+html.cssd-light body #sportsPortal .hn-grant-sub{
+  margin:2px 0 0;
+  font-size:12px;
+  line-height:1.4;
+  color:#8A93A3;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+/* 没有立项数据时左卡不要被拉高 */
+html.cssd-light body #sportsPortal .hn-layout-solo{
+  align-items:start;
+}
+html.cssd-light body #sportsPortal .hn-layout-solo .hn-lead{
+  height:auto;
+}
+
+@media (max-width:860px){
+  html.cssd-light body #sportsPortal .sp-quick:has(+ .hn){margin-bottom:8px;}
+  html.cssd-light body #sportsPortal .hn{margin:0 0 10px;}
+  html.cssd-light body #sportsPortal .hn-head{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:6px;
+    margin-bottom:8px;
+  }
+  html.cssd-light body #sportsPortal .hn-titles h2{font-size:22px;}
+  html.cssd-light body #sportsPortal .hn-layout{grid-template-columns:minmax(0,1fr);}
+  html.cssd-light body #sportsPortal .hn-lead{padding:16px 16px 14px;}
+  html.cssd-light body #sportsPortal .hn-lead h3{font-size:20px;}
+  html.cssd-light body #sportsPortal .hn-list .hn-row:nth-child(n+4){display:none;}
+  html.cssd-light body #sportsPortal .hn-grant-list li:nth-child(n+3){display:none;}
+  html.cssd-light body #sportsPortal .hn-grants{margin-top:10px;padding-top:10px;}
+  html.cssd-light body #sportsPortal .hn-lead,
+  html.cssd-light body #sportsPortal .hn-grants,
+  html.cssd-light body #sportsPortal .hn-grant-title,
+  html.cssd-light body #sportsPortal .hn-grant-sub{max-width:100%;}
+
+}
+
+@media (prefers-reduced-motion:reduce){
+  html.cssd-light body #sportsPortal .hn-lead,
+  html.cssd-light body #sportsPortal .hn-row{
+    transition:none;
+  }
+  html.cssd-light body #sportsPortal .hn-lead:hover,
+  html.cssd-light body #sportsPortal .hn-row:hover{
+    transform:none;
+  }
+}
