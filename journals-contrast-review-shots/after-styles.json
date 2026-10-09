@@ -1,0 +1,196 @@
+{
+  "styles": {
+    "title": {
+      "sel": ".jnl-int-title",
+      "text": "British Journal of Sports Medicine",
+      "inlineColor": null,
+      "color": "rgb(10, 42, 67)",
+      "fontWeight": "700",
+      "fontSize": "16px",
+      "effBgSolid": "rgb(255, 255, 255)"
+    },
+    "pub": {
+      "sel": ".jnl-int-pub",
+      "text": "BJSM · BMJ Publishing Group · 英国",
+      "inlineColor": null,
+      "color": "rgb(75, 85, 99)",
+      "effBgSolid": "rgb(255, 255, 255)"
+    },
+    "ifVal": {
+      "sel": ".jnl-if-val.if-high",
+      "text": "15.500",
+      "inlineColor": null,
+      "color": "rgb(10, 42, 67)",
+      "fontSize": "16px",
+      "fontWeight": "700",
+      "effBgSolid": "rgb(248, 250, 252)"
+    },
+    "if5": {
+      "text": "19.2",
+      "color": "rgb(51, 65, 85)",
+      "fontSize": "14px",
+      "inlineColor": "rgb(138, 148, 168)",
+      "effBgSolid": "rgb(248, 250, 252)"
+    },
+    "ifLbl": {
+      "sel": ".jnl-if-lbl",
+      "text": "IF 2023",
+      "inlineColor": null,
+      "color": "rgb(75, 85, 99)",
+      "effBgSolid": "rgb(248, 250, 252)"
+    },
+    "rank": {
+      "sel": ".jnl-int-rank-badge",
+      "text": "# 1",
+      "inlineColor": null,
+      "color": "rgb(10, 42, 67)",
+      "backgroundColor": "rgba(10, 42, 67, 0.06)",
+      "effBgSolid": "rgb(255, 255, 255)"
+    },
+    "issn": {
+      "sel": ".jnl-int-issn",
+      "text": "ISSN 0306-3674 / e-ISSN 1473-0480",
+      "inlineColor": null,
+      "color": "rgb(75, 85, 99)",
+      "effBgSolid": "rgb(255, 255, 255)"
+    },
+    "btn": {
+      "sel": ".jnl-visit-btn",
+      "text": "访问官网 ↗",
+      "inlineColor": null,
+      "color": "rgb(15, 91, 79)",
+      "backgroundColor": "rgb(255, 255, 255)",
+      "borderColor": "rgb(46, 154, 137)",
+      "fontWeight": "700",
+      "effBgSolid": "rgb(255, 255, 255)"
+    },
+    "scope": {
+      "sel": ".jnl-int-scope",
+      "text": "运动医学、运动损伤预防、运动康复、竞技体育健康、物理治疗",
+      "inlineColor": null,
+      "color": "rgb(51, 65, 85)",
+      "effBgSolid": "rgb(255, 255, 255)"
+    },
+    "tag": {
+      "sel": ".jnl-int-tag",
+      "text": "运动医学",
+      "inlineColor": null,
+      "color": "rgb(51, 65, 85)",
+      "backgroundColor": "rgba(10, 42, 67, 0.05)",
+      "effBgSolid": "rgb(255, 255, 255)"
+    },
+    "q": {
+      "sel": ".jnl-q-badge.jq1, .jnl-q-badge",
+      "text": "JCR Q1",
+      "inlineColor": null,
+      "color": "rgb(15, 91, 79)",
+      "backgroundColor": "rgba(46, 154, 137, 0.12)",
+      "effBgSolid": "rgb(255, 255, 255)"
+    },
+    "note": {
+      "sel": ".jnl-int-body > div[style*=\"font-style\"]",
+      "text": "💡 体育医学领域全球影响因子最高期刊，发表运动损伤预防与康复领域顶级研究",
+      "inlineColor": "rgba(46, 154, 137, 0.65)",
+      "color": "rgb(15, 91, 79)",
+      "effBgSolid": "rgb(255, 255, 255)"
+    }
+  },
+  "contrast": {
+    "title": {
+      "fg": "rgb(10, 42, 67)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": 14.74,
+      "pass": true,
+      "text": "British Journal of Sports Medicine",
+      "inline": null
+    },
+    "pub": {
+      "fg": "rgb(75, 85, 99)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": 7.56,
+      "pass": true,
+      "text": "BJSM · BMJ Publishing Group · 英国",
+      "inline": null
+    },
+    "ifVal": {
+      "fg": "rgb(10, 42, 67)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": 14.08,
+      "pass": true,
+      "text": "15.500",
+      "inline": null
+    },
+    "if5": {
+      "fg": "rgb(51, 65, 85)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": 9.9,
+      "pass": true,
+      "text": "19.2",
+      "inline": "rgb(138, 148, 168)"
+    },
+    "ifLbl": {
+      "fg": "rgb(75, 85, 99)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": 7.22,
+      "pass": true,
+      "text": "IF 2023",
+      "inline": null
+    },
+    "rank": {
+      "fg": "rgb(10, 42, 67)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": 14.74,
+      "pass": true,
+      "text": "# 1",
+      "inline": null
+    },
+    "issn": {
+      "fg": "rgb(75, 85, 99)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": 7.56,
+      "pass": true,
+      "text": "ISSN 0306-3674 / e-ISSN 1473-0480",
+      "inline": null
+    },
+    "btn": {
+      "fg": "rgb(15, 91, 79)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": 7.99,
+      "pass": true,
+      "text": "访问官网 ↗",
+      "inline": null
+    },
+    "scope": {
+      "fg": "rgb(51, 65, 85)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": 10.35,
+      "pass": true,
+      "text": "运动医学、运动损伤预防、运动康复、竞技体育健康、物理治疗",
+      "inline": null
+    },
+    "tag": {
+      "fg": "rgb(51, 65, 85)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": 10.35,
+      "pass": true,
+      "text": "运动医学",
+      "inline": null
+    },
+    "q": {
+      "fg": "rgb(15, 91, 79)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": 7.99,
+      "pass": true,
+      "text": "JCR Q1",
+      "inline": null
+    },
+    "note": {
+      "fg": "rgb(15, 91, 79)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": 7.99,
+      "pass": true,
+      "text": "💡 体育医学领域全球影响因子最高期刊，发表运动损伤预防与康复领域顶级研究",
+      "inline": "rgba(46, 154, 137, 0.65)"
+    }
+  }
+}

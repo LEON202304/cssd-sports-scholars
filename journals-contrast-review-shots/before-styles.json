@@ -1,0 +1,72 @@
+{
+  "title": {
+    "text": "British Journal of Sports Medicine",
+    "color": "rgb(71, 85, 105)",
+    "fontWeight": "700",
+    "fontSize": "16px"
+  },
+  "pub": {
+    "text": "BJSM · BMJ Publishing Group · 英国",
+    "color": "rgb(51, 65, 92)",
+    "fontSize": "11px"
+  },
+  "ifVal": {
+    "text": "15.500",
+    "color": "rgb(15, 91, 79)",
+    "fontSize": "16px",
+    "fontWeight": "700"
+  },
+  "ifLbl": {
+    "text": "IF 2023",
+    "color": "rgb(51, 65, 92)",
+    "fontSize": "8.96px"
+  },
+  "rank": {
+    "text": "# 1",
+    "color": "color(srgb 0.0611765 0.155098 0.239412)",
+    "backgroundColor": "rgba(10, 42, 67, 0.05)",
+    "borderColor": "rgba(10, 42, 67, 0.09)"
+  },
+  "issn": {
+    "text": "ISSN 0306-3674 / e-ISSN 1473-0480",
+    "color": "rgb(51, 65, 92)"
+  },
+  "btn": {
+    "text": "访问官网 ↗",
+    "color": "rgb(15, 91, 79)",
+    "backgroundColor": "rgba(46, 154, 137, 0.06)",
+    "borderColor": "rgba(46, 154, 137, 0.22)",
+    "fontWeight": "600"
+  },
+  "scope": {
+    "text": "运动医学、运动损伤预防、运动康复、竞技体育健康、物理治疗",
+    "color": "rgb(51, 65, 92)"
+  },
+  "tag": {
+    "text": "运动医学",
+    "color": "rgb(71, 85, 105)",
+    "backgroundColor": "rgba(10, 42, 67, 0.05)"
+  },
+  "q": {
+    "text": "JCR Q1",
+    "color": "color(srgb 0.0611765 0.155098 0.239412)",
+    "backgroundColor": "rgba(16, 185, 129, 0.12)",
+    "borderColor": "rgba(16, 185, 129, 0.3)"
+  },
+  "card": {
+    "text": "# 1British Journal of Sports MedicineBJSM · BMJ Publishing Group · 英国15.500I",
+    "backgroundColor": "rgba(10, 42, 67, 0.04)",
+    "borderColor": "rgba(10, 42, 67, 0.08)"
+  },
+  "chipOn": {
+    "text": "全部",
+    "color": "rgb(15, 91, 79)",
+    "backgroundColor": "rgba(31, 122, 108, 0.1)",
+    "borderColor": "rgba(31, 122, 108, 0.32)"
+  },
+  "tabOn": {
+    "text": "国际SSCI/SCI期刊 143",
+    "color": "rgb(15, 91, 79)",
+    "backgroundColor": "rgba(31, 122, 108, 0.1)"
+  }
+}
