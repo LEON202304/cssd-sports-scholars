@@ -18,6 +18,7 @@ html.cssd-boot-ready #bootSplash{opacity:0!important;visibility:hidden!important
 </style>
 <link rel="stylesheet" href="portal.2e2629e7.css">
 <link rel="stylesheet" href="portal.polish.css">
+<link rel="stylesheet" href="portal.premium.css">
 <!-- 预加载关键脚本：在 head 内提前发起请求，与 HTML 解析并行，缩短首屏等待。
      注意：sports-cnki-data.*.js 不在此预加载——它只在「学术期刊 / 学术动态」两个视图按需拉取，
      首屏可省下约 900 KB（Brotli）。详见该脚本下方的 _cnkiLoad 懒加载器。 -->
@@ -16281,7 +16282,7 @@ html.cssd-light #vw-journals .jnl-kpi-l{
 }
 /* KPI 数字保持墨蓝/青绿层次 */
 html.cssd-light #vw-journals .jnl-kpi-n{
-  font-family:'DM Mono','Inter',ui-monospace,monospace !important;
+  font-family:'Noto Serif SC','Source Han Serif SC','Songti SC',Georgia,serif !important;
 }
 </style>
 
@@ -16483,7 +16484,7 @@ html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"].on small{
 
 <script defer src="portal.9149a373.js"></script><!-- offline: stripped cf -->
 <script defer src="home-news.373aee49.js"></script>
-<script defer src="home-xuejie.623670f2.js"></script>
+<script defer src="home-xuejie.f886a191.js"></script>
 <script id="cssd-boot-reveal">(function(){
   function reveal(){try{document.documentElement.classList.add('cssd-boot-ready');}catch(e){}}
   function onReady(){requestAnimationFrame(function(){requestAnimationFrame(reveal);});}
