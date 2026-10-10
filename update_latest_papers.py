@@ -12,14 +12,17 @@
     不处理验证码，不绕过任何访问控制；遇到防火墙/人机验证的源直接跳过。
   - 国外：Crossref 公开 API（按 ISSN 拉最新 works，链接用 https://doi.org/{DOI}）。
 
-输出（字段与前端约定一致）：
-  latest_papers.json   [ {journal,title,authors,link,date}, ... ]
+输出（字段与前端约定一致；向后兼容）：
+  latest_papers.json   [ {journal,title,authors,link,date[,journalZh,titleZh]}, ... ]
   news-snapshot.json   {generatedAt, source, statusHint, items:[同上]}
+  国外刊带 journalZh（中文刊名）与 titleZh（英文题机翻中文，失败则省略）；
+  国内中文刊一般不写这两个字段。
 
 安全约束：
   - 每个源独立 try/except + 超时，单源失败不影响其他源；
   - 所有源都失败或本次抓到 0 条时不写任何文件（绝不清空），正常退出并打印告警；
   - 与现有数据按标题/链接合并去重，按日期降序，每刊最多 MAX_PER_JOURNAL 条，总计 MAX_ITEMS 条；
+  - 英文题翻译优先复用旧条目同标题的 titleZh，避免每日重复调用翻译接口；
   - latest_papers.json 内容不变时不重写，避免无意义 diff。
 """
 from __future__ import annotations
@@ -112,6 +115,100 @@ def item(journal: str, title: str, authors: str, link: str, date: str) -> dict:
         "link": link,
         "date": date,
     }
+
+
+# 国外刊规范中文名（固定表；国内中文刊不写 journalZh）
+JOURNAL_ZH = {
+    "British Journal of Sports Medicine": "《英国运动医学杂志》",
+    "Sports Medicine": "《运动医学》",
+    "Journal of Sport and Health Science": "《运动与健康科学》",
+    "Medicine & Science in Sports & Exercise": "《运动医学与科学》",
+    "Journal of Sports Sciences": "《体育科学杂志》",
+    "Scandinavian Journal of Medicine & Science in Sports": "《斯堪的纳维亚运动医学与科学杂志》",
+}
+
+_ITEM_FIELDS = ("journal", "title", "authors", "link", "date", "journalZh", "titleZh")
+
+
+def looks_english(title: str) -> bool:
+    """标题是否以拉丁字母为主（需机翻）；含大量汉字则视为中文题。"""
+    s = clean(title)
+    if not s:
+        return False
+    letters = sum(1 for c in s if ("A" <= c <= "Z") or ("a" <= c <= "z"))
+    cjk = sum(1 for c in s if "\u4e00" <= c <= "\u9fff")
+    if cjk >= 4:
+        return False
+    return letters >= 8 and letters > cjk * 2
+
+
+def translate_en_zh(text: str) -> str:
+    """MyMemory 公开接口（免密钥）。失败返回空串，调用方不写 titleZh。"""
+    q = clean(text)
+    if not q:
+        return ""
+    # MyMemory 单次建议不超过 ~500 字符
+    if len(q) > 450:
+        q = q[:450]
+    try:
+        r = SESSION.get(
+            "https://api.mymemory.translated.net/get",
+            params={"q": q, "langpair": "en|zh-CN"},
+            timeout=TIMEOUT,
+            headers={"User-Agent": UA, "Accept": "application/json"},
+        )
+        r.raise_for_status()
+        data = r.json()
+        out = clean((data.get("responseData") or {}).get("translatedText") or "")
+        # 接口偶发原样回传或报错串
+        if not out or out.lower() == q.lower():
+            return ""
+        if "MYMEMORY WARNING" in out.upper() or out.startswith("QUERY LENGTH"):
+            return ""
+        return out
+    except Exception as e:  # noqa: BLE001
+        log(f"    [translate] 失败：{type(e).__name__}: {str(e)[:120]}")
+        return ""
+
+
+def enrich_zh(items: list[dict], old: list[dict]) -> list[dict]:
+    """为国外刊补 journalZh；对英文题补 titleZh（优先复用旧数据同标题译文）。"""
+    old_zh: dict[str, str] = {}
+    for it in old or []:
+        t = it.get("title") or ""
+        tz = it.get("titleZh") or ""
+        if t and tz:
+            old_zh[key_of({"title": t})] = tz
+
+    out: list[dict] = []
+    translated = 0
+    reused = 0
+    for it in items:
+        row = {f: it.get(f, "") for f in ("journal", "title", "authors", "link", "date")}
+        j = row["journal"]
+        jzh = JOURNAL_ZH.get(j) or it.get("journalZh") or ""
+        if jzh:
+            row["journalZh"] = jzh
+        title = row["title"]
+        title_zh = ""
+        if looks_english(title):
+            k = key_of(row)
+            if k in old_zh:
+                title_zh = old_zh[k]
+                reused += 1
+            else:
+                title_zh = translate_en_zh(title)
+                if title_zh:
+                    translated += 1
+                    time.sleep(0.35)  # 礼貌限速
+                # 失败则不写 titleZh
+        if title_zh:
+            row["titleZh"] = title_zh
+        out.append(row)
+    log(f"中文对照：journalZh {sum(1 for x in out if x.get('journalZh'))} 条；"
+        f"titleZh 新译 {translated}、复用 {reused}、合计 {sum(1 for x in out if x.get('titleZh'))}")
+    return out
+
 
 
 # ─────────────────────────── 仁和 xml-journal 平台（体育科学、上海体育大学学报） ───────────────────────────
@@ -409,7 +506,12 @@ def merge(new: list[dict], old: list[dict]) -> list[dict]:
         seen_title.add(k)
         if link:
             seen_link.add(link)
-        merged.append({f: it.get(f, "") for f in ("journal", "title", "authors", "link", "date")})
+        row = {f: it.get(f, "") for f in ("journal", "title", "authors", "link", "date")}
+        if it.get("journalZh"):
+            row["journalZh"] = it["journalZh"]
+        if it.get("titleZh"):
+            row["titleZh"] = it["titleZh"]
+        merged.append(row)
     merged.sort(key=lambda x: date_key(x["date"]), reverse=True)  # 稳定排序：同日期保持页面原顺序
     per: dict[str, int] = {}
     out: list[dict] = []
@@ -464,6 +566,8 @@ def main() -> int:
     if not items:
         log("::warning::合并后为 0 条，不写文件。")
         return 0
+
+    items = enrich_zh(items, old)
 
     latest_txt = dump(items)
     if not LATEST_FILE.exists() or LATEST_FILE.read_text(encoding="utf-8") != latest_txt:
