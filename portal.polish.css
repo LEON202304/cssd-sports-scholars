@@ -1684,7 +1684,8 @@ html.cssd-light body #sportsPortal .hn-layout{
   display:grid;
   grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
   gap:12px;
-  align-items:stretch;
+  /* 顶对齐：左卡高度随内容，不被右列（英中双行）撑出底部空白 */
+  align-items:start;
   min-width:0;
 }
 html.cssd-light body #sportsPortal .hn-lead,
@@ -1707,7 +1708,9 @@ html.cssd-light body #sportsPortal .hn-lead{
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
+  align-self:start;
   padding:20px 22px 18px;
+  height:auto;
   background:
     linear-gradient(180deg,rgba(245,247,250,.55),transparent 42%),
     #FFFFFF;
@@ -1785,7 +1788,7 @@ html.cssd-light body #sportsPortal .hn-list{
   min-width:0;
 }
 html.cssd-light body #sportsPortal .hn-row{
-  flex:1 1 auto;
+  flex:0 0 auto;
   padding:8px 14px;
 }
 html.cssd-light body #sportsPortal .hn-row .hn-meta{margin-bottom:6px;}
@@ -1817,7 +1820,7 @@ html.cssd-light body #sportsPortal .hn-grant-list{
   min-width:0;
 }
 html.cssd-light body #sportsPortal .hn-grant-list li{
-  padding:6px 0 5px;
+  padding:5px 0 4px;
   min-width:0;
 }
 html.cssd-light body #sportsPortal .hn-grant-title{
@@ -1833,6 +1836,63 @@ html.cssd-light body #sportsPortal .hn-grant-title{
   text-overflow:ellipsis;
 }
 html.cssd-light body #sportsPortal .hn-grant-sub{
+  margin:2px 0 0;
+  font-size:12px;
+  line-height:1.4;
+  color:#8A93A3;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+/* 左卡「更多论文」：紧凑条目，填立项下方，不靠空 padding */
+html.cssd-light body #sportsPortal .hn-more{
+  margin-top:10px;
+  padding-top:10px;
+  border-top:1px solid rgba(10,42,67,.10);
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .hn-more-head{
+  margin-bottom:4px;
+}
+html.cssd-light body #sportsPortal .hn-more-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .hn-more-list li{
+  padding:5px 0 4px;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .hn-more-title{
+  margin:0;
+  font-family:var(--sp-serif);
+  font-size:14px;
+  font-weight:600;
+  letter-spacing:.03em;
+  line-height:1.35;
+  color:#0A2A43;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  overflow:hidden;
+}
+html.cssd-light body #sportsPortal .hn-more-title a{
+  color:#0A2A43;
+  text-decoration:none;
+}
+html.cssd-light body #sportsPortal .hn-more-title a:hover{color:#2C6E9E;}
+html.cssd-light body #sportsPortal .hn-more-zh{
+  margin:2px 0 0;
+  font-size:12px;
+  line-height:1.4;
+  color:#5B6575;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:1;
+  overflow:hidden;
+}
+html.cssd-light body #sportsPortal .hn-more-sub{
   margin:2px 0 0;
   font-size:12px;
   line-height:1.4;
@@ -1864,11 +1924,16 @@ html.cssd-light body #sportsPortal .hn-layout-solo .hn-lead{
   html.cssd-light body #sportsPortal .hn-lead h3{font-size:20px;}
   html.cssd-light body #sportsPortal .hn-list .hn-row:nth-child(n+4){display:none;}
   html.cssd-light body #sportsPortal .hn-grant-list li:nth-child(n+3){display:none;}
+  html.cssd-light body #sportsPortal .hn-more-list li:nth-child(n+2){display:none;}
   html.cssd-light body #sportsPortal .hn-grants{margin-top:10px;padding-top:10px;}
+  html.cssd-light body #sportsPortal .hn-more{margin-top:8px;padding-top:8px;}
   html.cssd-light body #sportsPortal .hn-lead,
   html.cssd-light body #sportsPortal .hn-grants,
+  html.cssd-light body #sportsPortal .hn-more,
   html.cssd-light body #sportsPortal .hn-grant-title,
-  html.cssd-light body #sportsPortal .hn-grant-sub{max-width:100%;}
+  html.cssd-light body #sportsPortal .hn-grant-sub,
+  html.cssd-light body #sportsPortal .hn-more-title,
+  html.cssd-light body #sportsPortal .hn-more-sub{max-width:100%;}
 
 }
 
@@ -2261,4 +2326,258 @@ html.cssd-light #vw-academicnews .an-news .an-title-zh{font-size:13px;margin-top
 @media (max-width:860px){
   html.cssd-light body #sportsPortal .hn-lead .hn-title-zh{font-size:13px;}
   html.cssd-light body #sportsPortal .hn-journal-zh{font-size:10px;}
+}
+
+/* ═════════════════════════════════════════════════════════════════
+   xuejie-mock — 首页「学界动态」设计稿（占位，未接抓取）
+   可回退：删除从本行注释到文件末尾的整个分区，并去掉 index.html 中
+   home-xuejie.*.js 的 script 引用、删除该 js 文件。
+   ═════════════════════════════════════════════════════════════════ */
+html.cssd-light body #sportsPortal .hn:has(+ .xj){
+  margin-bottom:10px;
+}
+html.cssd-light body #sportsPortal .xj{
+  margin:0 0 14px;
+  min-width:0;
+  max-width:100%;
+}
+html.cssd-light body #sportsPortal .xj-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:12px 24px;
+  margin-bottom:8px;
+}
+html.cssd-light body #sportsPortal .xj-eye{
+  margin:0 0 4px;
+  font-family:var(--sp-sans);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.2em;
+  color:#5B6575;
+}
+html.cssd-light body #sportsPortal .xj-titles h2{
+  margin:0;
+  font-family:var(--sp-serif);
+  font-size:26px;
+  font-weight:600;
+  letter-spacing:.08em;
+  line-height:1.2;
+  color:#0A2A43;
+}
+html.cssd-light body #sportsPortal .xj-aside{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex:0 0 auto;
+  font-size:13px;
+  color:#5B6575;
+}
+html.cssd-light body #sportsPortal .xj-mock-badge{
+  display:inline-block;
+  padding:3px 9px;
+  border-radius:999px;
+  border:1px dashed rgba(10,42,67,.22);
+  background:#F5F7FA;
+  color:#5B6575;
+  font-size:12px;
+  letter-spacing:.04em;
+  white-space:nowrap;
+}
+html.cssd-light body #sportsPortal .xj-all{
+  color:#2C6E9E;
+  text-decoration:none;
+  font-weight:500;
+  letter-spacing:.06em;
+  background:transparent;
+  border:0;
+  padding:2px 0;
+  cursor:default;
+  opacity:.72;
+}
+html.cssd-light body #sportsPortal .xj-all:focus-visible,
+html.cssd-light body #sportsPortal .xj a:focus-visible{
+  outline:2px solid #2C6E9E;
+  outline-offset:3px;
+  border-radius:2px;
+}
+html.cssd-light body #sportsPortal .xj-note{
+  margin:0 0 10px;
+  font-size:12px;
+  line-height:1.5;
+  color:#8A93A3;
+  letter-spacing:.02em;
+}
+html.cssd-light body #sportsPortal .xj-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
+  gap:12px;
+  align-items:start;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .xj-lead,
+html.cssd-light body #sportsPortal .xj-row{
+  background:#FFFFFF;
+  border:1px solid rgba(10,42,67,.08);
+  border-radius:14px;
+  box-shadow:0 1px 2px rgba(10,42,67,.04),0 8px 24px rgba(10,42,67,.04);
+  min-width:0;
+  max-width:100%;
+  transition:transform .22s cubic-bezier(.22,1,.36,1),box-shadow .22s cubic-bezier(.22,1,.36,1),border-color .22s ease;
+}
+html.cssd-light body #sportsPortal .xj-lead:hover,
+html.cssd-light body #sportsPortal .xj-row:hover{
+  transform:translateY(-3px);
+  border-color:rgba(10,42,67,.14);
+  box-shadow:0 12px 28px rgba(10,42,67,.07);
+}
+html.cssd-light body #sportsPortal .xj-lead{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-self:start;
+  padding:20px 22px 18px;
+  background:
+    linear-gradient(180deg,rgba(245,247,250,.55),transparent 42%),
+    #FFFFFF;
+  height:auto;
+}
+html.cssd-light body #sportsPortal .xj-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:8px;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .xj-tag{
+  display:inline-block;
+  padding:3px 8px;
+  border-radius:999px;
+  border:1px solid #E6EAF0;
+  background:#F5F7FA;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.06em;
+  line-height:1.4;
+}
+html.cssd-light body #sportsPortal .xj-tag-honor{
+  color:#0F5B4F;
+  background:rgba(46,154,137,.10);
+  border-color:rgba(46,154,137,.32);
+}
+html.cssd-light body #sportsPortal .xj-tag-event{
+  color:#14476E;
+  background:rgba(44,110,158,.10);
+  border-color:rgba(44,110,158,.30);
+}
+html.cssd-light body #sportsPortal .xj-tag-meet{
+  color:#8A6D1F;
+  background:rgba(200,162,75,.12);
+  border-color:rgba(200,162,75,.34);
+}
+html.cssd-light body #sportsPortal .xj-meta time{
+  flex:0 0 auto;
+  font-size:12px;
+  letter-spacing:.04em;
+  color:#8A93A3;
+  font-variant-numeric:tabular-nums;
+}
+html.cssd-light body #sportsPortal .xj-lead h3,
+html.cssd-light body #sportsPortal .xj-row h3{
+  margin:0;
+  font-family:var(--sp-serif);
+  font-weight:600;
+  letter-spacing:.04em;
+  line-height:1.35;
+  color:#0A2A43;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  overflow:hidden;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .xj-lead h3{font-size:24px;}
+html.cssd-light body #sportsPortal .xj-row h3{font-size:15px;}
+html.cssd-light body #sportsPortal .xj-sub{
+  margin:8px 0 0;
+  color:#5B6575;
+  font-size:13px;
+  line-height:1.5;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .xj-unit{color:#5B6575;}
+html.cssd-light body #sportsPortal .xj-list{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .xj-row{
+  flex:0 0 auto;
+  padding:8px 14px;
+}
+html.cssd-light body #sportsPortal .xj-row .xj-meta{margin-bottom:6px;}
+html.cssd-light body #sportsPortal .xj-row .xj-sub{margin-top:6px;font-size:12px;}
+
+/* 左卡内紧凑副条：填满头条下方，不靠拉高空卡 */
+html.cssd-light body #sportsPortal .xj-side{
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid rgba(10,42,67,.10);
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .xj-side-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .xj-side-list li{
+  padding:6px 0 5px;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .xj-side-list .xj-meta{
+  margin-bottom:4px;
+}
+html.cssd-light body #sportsPortal .xj-side-list h3{
+  font-size:15px;
+  -webkit-line-clamp:1;
+}
+html.cssd-light body #sportsPortal .xj-side-list .xj-sub{
+  margin-top:2px;
+  font-size:12px;
+}
+
+@media (max-width:860px){
+  html.cssd-light body #sportsPortal .hn:has(+ .xj){margin-bottom:8px;}
+  html.cssd-light body #sportsPortal .xj{margin:0 0 10px;}
+  html.cssd-light body #sportsPortal .xj-head{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:6px;
+    margin-bottom:6px;
+  }
+  html.cssd-light body #sportsPortal .xj-titles h2{font-size:22px;}
+  html.cssd-light body #sportsPortal .xj-aside{flex-wrap:wrap;gap:8px 12px;}
+  html.cssd-light body #sportsPortal .xj-layout{grid-template-columns:minmax(0,1fr);}
+  html.cssd-light body #sportsPortal .xj-lead{padding:16px 16px 14px;}
+  html.cssd-light body #sportsPortal .xj-lead h3{font-size:20px;}
+  html.cssd-light body #sportsPortal .xj-list .xj-row:nth-child(n+4){display:none;}
+  html.cssd-light body #sportsPortal .xj-side-list li:nth-child(n+3){display:none;}
+  html.cssd-light body #sportsPortal .xj-note{font-size:11px;margin-bottom:8px;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html.cssd-light body #sportsPortal .xj-lead,
+  html.cssd-light body #sportsPortal .xj-row{
+    transition:none;
+  }
+  html.cssd-light body #sportsPortal .xj-lead:hover,
+  html.cssd-light body #sportsPortal .xj-row:hover{
+    transform:none;
+  }
 }
