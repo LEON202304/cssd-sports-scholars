@@ -21,7 +21,7 @@
 每次更新都以 `v4.6-XX` 方式命名，方便追溯历史。
 
 ## 自动化：期刊最新论文每日更新
-- **做什么**：`update_latest_papers.py` 抓取重点体育学期刊最新论文，与现有数据按标题去重合并，按日期降序保留约 45 条（每刊最多 3 条，保证中外各刊都能露出），写入 `latest_papers.json` 和 `news-snapshot.json`。前端「学术动态」页读取 `news-snapshot.json`：把这些论文置顶到「今日聚焦」和动态流，并按 `generatedAt`（北京时间日期）显示状态——当天为「实时聚合 · 今日已更新」，前一天为「昨日已更新」，更早为「数据稍旧」，断网时读本地快照显示「离线」。
+- **做什么**：`update_latest_papers.py / update_xuejie_news.py（学界动态）` 抓取重点体育学期刊最新论文，与现有数据按标题去重合并，按日期降序保留约 45 条（每刊最多 3 条，保证中外各刊都能露出），写入 `latest_papers.json` 和 `news-snapshot.json`。前端「学术动态」页读取 `news-snapshot.json`：把这些论文置顶到「今日聚焦」和动态流，并按 `generatedAt`（北京时间日期）显示状态——当天为「实时聚合 · 今日已更新」，前一天为「昨日已更新」，更早为「数据稍旧」，断网时读本地快照显示「离线」。
 - **来源**：
   - **国内官网 TOC**（公开页面，不访问 CNKI 检索/登录页，不处理验证码）：
     - 仁和 xml-journal：《体育科学》tykx.xml-journal.net、《上海体育大学学报》shtyxyxb.xml-journal.net
