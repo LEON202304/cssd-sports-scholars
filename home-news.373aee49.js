@@ -4,11 +4,11 @@
    只挂一次；若已存在则只校正位置，不重复插入。
    板块在 #sportsPortal 内，离开首页时随门户壳隐藏。
    左卡头条下的「最新立项」读页面已加载的 NOPSS_SPORTS_PROJECTS，
-   不另请求数据文件。没有项目时不渲染该分区，左卡高度跟随内容。
+   不另请求数据文件。没有项目时不渲染该分区。左卡高度跟随内容，不靠 stretch 假对齐。
    回退：删本文件，并去掉 index.html 里对应的 script。 */
 (function(){
   var MOUNTED = false;
-  var GRANT_LIMIT = 6;
+  var GRANT_LIMIT = 4;
 
   function esc(s){
     return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){
@@ -64,7 +64,7 @@
   }
 
   /* 固定选法：2026 年国社科一般项目里，批准号为「2026-序号NNNN」的条目，
-     按序号从小到大取前 GRANT_LIMIT 条（桌面 6，手机 CSS 限 3）。不读会议，也不另拉数据文件。 */
+     按序号从小到大取前 GRANT_LIMIT 条（桌面 4，手机 CSS 限 2）。不读会议，也不另拉数据文件。 */
   function latestGrants(){
     var src;
     try{ src = window.NOPSS_SPORTS_PROJECTS; }catch(e){ src = null; }
@@ -147,7 +147,8 @@
       if(da === db) return 0;
       return da < db ? 1 : -1;
     });
-    items = items.slice(0, 6);
+    /* 1 头条 + 3 右列；左卡只放立项，高度随内容（align-items:start），不靠 stretch */
+    items = items.slice(0, 4);
     if(!items.length){ root.remove(); return; }
     var grants = [];
     try{ grants = latestGrants(); }catch(e){ grants = []; }

@@ -1684,7 +1684,8 @@ html.cssd-light body #sportsPortal .hn-layout{
   display:grid;
   grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
   gap:12px;
-  align-items:stretch;
+  /* 顶对齐：左卡高度随内容，不被右列（英中双行）撑出底部空白 */
+  align-items:start;
   min-width:0;
 }
 html.cssd-light body #sportsPortal .hn-lead,
@@ -1707,6 +1708,7 @@ html.cssd-light body #sportsPortal .hn-lead{
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
+  align-self:start;
   padding:20px 22px 18px;
   height:auto;
   background:
@@ -1786,7 +1788,7 @@ html.cssd-light body #sportsPortal .hn-list{
   min-width:0;
 }
 html.cssd-light body #sportsPortal .hn-row{
-  flex:1 1 auto;
+  flex:0 0 auto;
   padding:8px 14px;
 }
 html.cssd-light body #sportsPortal .hn-row .hn-meta{margin-bottom:6px;}
@@ -1842,6 +1844,63 @@ html.cssd-light body #sportsPortal .hn-grant-sub{
   overflow:hidden;
   text-overflow:ellipsis;
 }
+/* 左卡「更多论文」：紧凑条目，填立项下方，不靠空 padding */
+html.cssd-light body #sportsPortal .hn-more{
+  margin-top:10px;
+  padding-top:10px;
+  border-top:1px solid rgba(10,42,67,.10);
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .hn-more-head{
+  margin-bottom:4px;
+}
+html.cssd-light body #sportsPortal .hn-more-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .hn-more-list li{
+  padding:5px 0 4px;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .hn-more-title{
+  margin:0;
+  font-family:var(--sp-serif);
+  font-size:14px;
+  font-weight:600;
+  letter-spacing:.03em;
+  line-height:1.35;
+  color:#0A2A43;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  overflow:hidden;
+}
+html.cssd-light body #sportsPortal .hn-more-title a{
+  color:#0A2A43;
+  text-decoration:none;
+}
+html.cssd-light body #sportsPortal .hn-more-title a:hover{color:#2C6E9E;}
+html.cssd-light body #sportsPortal .hn-more-zh{
+  margin:2px 0 0;
+  font-size:12px;
+  line-height:1.4;
+  color:#5B6575;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:1;
+  overflow:hidden;
+}
+html.cssd-light body #sportsPortal .hn-more-sub{
+  margin:2px 0 0;
+  font-size:12px;
+  line-height:1.4;
+  color:#8A93A3;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
 /* 没有立项数据时左卡不要被拉高 */
 html.cssd-light body #sportsPortal .hn-layout-solo{
   align-items:start;
@@ -1864,12 +1923,17 @@ html.cssd-light body #sportsPortal .hn-layout-solo .hn-lead{
   html.cssd-light body #sportsPortal .hn-lead{padding:16px 16px 14px;}
   html.cssd-light body #sportsPortal .hn-lead h3{font-size:20px;}
   html.cssd-light body #sportsPortal .hn-list .hn-row:nth-child(n+4){display:none;}
-  html.cssd-light body #sportsPortal .hn-grant-list li:nth-child(n+4){display:none;}
+  html.cssd-light body #sportsPortal .hn-grant-list li:nth-child(n+3){display:none;}
+  html.cssd-light body #sportsPortal .hn-more-list li:nth-child(n+2){display:none;}
   html.cssd-light body #sportsPortal .hn-grants{margin-top:10px;padding-top:10px;}
+  html.cssd-light body #sportsPortal .hn-more{margin-top:8px;padding-top:8px;}
   html.cssd-light body #sportsPortal .hn-lead,
   html.cssd-light body #sportsPortal .hn-grants,
+  html.cssd-light body #sportsPortal .hn-more,
   html.cssd-light body #sportsPortal .hn-grant-title,
-  html.cssd-light body #sportsPortal .hn-grant-sub{max-width:100%;}
+  html.cssd-light body #sportsPortal .hn-grant-sub,
+  html.cssd-light body #sportsPortal .hn-more-title,
+  html.cssd-light body #sportsPortal .hn-more-sub{max-width:100%;}
 
 }
 
@@ -2348,7 +2412,7 @@ html.cssd-light body #sportsPortal .xj-layout{
   display:grid;
   grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
   gap:12px;
-  align-items:stretch;
+  align-items:start;
   min-width:0;
 }
 html.cssd-light body #sportsPortal .xj-lead,
@@ -2371,6 +2435,7 @@ html.cssd-light body #sportsPortal .xj-lead{
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
+  align-self:start;
   padding:20px 22px 18px;
   background:
     linear-gradient(180deg,rgba(245,247,250,.55),transparent 42%),
@@ -2452,7 +2517,7 @@ html.cssd-light body #sportsPortal .xj-list{
   min-width:0;
 }
 html.cssd-light body #sportsPortal .xj-row{
-  flex:1 1 auto;
+  flex:0 0 auto;
   padding:8px 14px;
 }
 html.cssd-light body #sportsPortal .xj-row .xj-meta{margin-bottom:6px;}
