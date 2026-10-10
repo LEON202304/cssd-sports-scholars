@@ -2584,3 +2584,53 @@ html.cssd-light body #sportsPortal .xj-side-list .xj-sub{
     transform:none;
   }
 }
+
+/* —— header-register-compass ——
+   顶栏：注册改白底描边；品牌圆标内为指南针（SVG 在 portal JS） */
+html.cssd-light body .sp-brandmark{
+  background:var(--sp-teal) !important;
+  box-shadow:0 0 0 2px rgba(46,154,137,.22);
+}
+html.cssd-light body .sp-brandmark svg circle[stroke]{
+  stroke:rgba(255,255,255,.45);
+}
+
+/* 注册：白底 + 墨色字 + 细灰边，与登录协调；悬停淡青绿 */
+html.cssd-light body header.sp-header .sp-tools .sp-register,
+html.cssd-light body .sp-tools .sp-register.sp-btn--primary,
+html.cssd-light body .sp-tools button.sp-register{
+  background:#FFFFFF !important;
+  background-image:none !important;
+  color:#0A2A43 !important;
+  border:1px solid #D1D5DB !important;
+  box-shadow:none !important;
+  filter:none !important;
+  font-weight:600 !important;
+}
+html.cssd-light body header.sp-header .sp-tools .sp-register:hover,
+html.cssd-light body .sp-tools .sp-register.sp-btn--primary:hover,
+html.cssd-light body .sp-tools button.sp-register:hover{
+  background:rgba(46,154,137,.08) !important;
+  background-image:none !important;
+  color:#0F5B4F !important;
+  border-color:var(--sp-teal) !important;
+  box-shadow:none !important;
+  filter:none !important;
+  transform:translateY(-1px) !important;
+}
+html.cssd-light body header.sp-header .sp-tools .sp-register:active,
+html.cssd-light body .sp-tools button.sp-register:active{
+  transform:translateY(0) !important;
+  background:rgba(46,154,137,.12) !important;
+  filter:none !important;
+}
+
+@media (max-width:390px){
+  html.cssd-light body header.sp-header .sp-tools .sp-register,
+  html.cssd-light body .sp-tools button.sp-register{
+    background:#FFFFFF !important;
+    color:#0A2A43 !important;
+    border:1px solid #D1D5DB !important;
+  }
+}
+

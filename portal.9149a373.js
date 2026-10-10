@@ -481,7 +481,7 @@ function start(){
   const moreFiltered=moreItems.filter(n=>!topSet.has(n[0]));
   head.innerHTML=
     '<button class="sp-brand" onclick="spNavigate(\'home\')" aria-label="体育学人首页">'+
-      '<span class="sp-brandmark" aria-hidden="true"><svg viewBox="0 0 48 48" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="22" stroke="rgba(255,255,255,.35)" stroke-width="2"/><path d="M24 10c4 6 8 10 8 16a8 8 0 1 1-16 0c0-6 4-10 8-16z" fill="#F6C453"/><path d="M24 18c2.2 3.5 4.5 6 4.5 9.2a4.5 4.5 0 1 1-9 0c0-3.2 2.3-5.7 4.5-9.2z" fill="#FFE9A8"/><path d="M20 34h8v3h-8z" fill="#fff" opacity=".9"/></svg></span>'+
+      '<span class="sp-brandmark" aria-hidden="true"><svg viewBox="0 0 48 48" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="22" stroke="rgba(255,255,255,.35)" stroke-width="2"/><circle cx="24" cy="24" r="15" stroke="rgba(255,255,255,.5)" stroke-width="1.25"/><path d="M24 8.5v3.2M24 36.3v3.2M8.5 24h3.2M36.3 24h3.2" stroke="rgba(255,255,255,.65)" stroke-width="1.5" stroke-linecap="round"/><path d="M24 11L28.5 24.5 24 22.2 19.5 24.5Z" fill="#F6C453"/><path d="M24 37L19.5 23.5 24 25.8 28.5 23.5Z" fill="#FFFFFF" opacity=".92"/><path d="M37 24L24 20.8 24 27.2Z" fill="rgba(255,255,255,.45)"/><path d="M11 24L24 20.8 24 27.2Z" fill="rgba(255,255,255,.45)"/><circle cx="24" cy="24" r="3.2" fill="#FFFFFF"/><circle cx="24" cy="24" r="1.4" fill="#0A2A43"/></svg></span>'+
       '<span><strong>体育学人</strong><small>SPORTS SCHOLARS</small></span>'+
       '<span class="sp-brand-divider" aria-hidden="true"></span>'+
       '<span class="sp-brand-sub"><b>中国体育学术资源数据库</b><small>CHINA SPORTS ACADEMIC RESOURCES DATABASE</small></span>'+
