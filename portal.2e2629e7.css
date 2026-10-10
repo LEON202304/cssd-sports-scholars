@@ -244,7 +244,7 @@ header.sp-header nav.sp-links{
 .sp-banner{
   position:relative;isolation:isolate;
   min-height:250px;overflow:hidden;
-  background-color:#d9e4f0;background-image:url('mountains.ccd2db92.jpg');background-image:image-set(url('mountains.5f7d4f16.webp') type('image/webp'),url('mountains.ccd2db92.jpg') type('image/jpeg'));background-position:center 42%;background-size:cover;background-repeat:no-repeat;
+  background-color:#d9e4f0;background-image:url('mountains.5f7d4f16.webp');background-position:center 42%;background-size:cover;background-repeat:no-repeat;
   margin-bottom:24px;
 }
 .sp-banner:before{
