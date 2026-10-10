@@ -8,7 +8,7 @@
    回退：删本文件，并去掉 index.html 里对应的 script。 */
 (function(){
   var MOUNTED = false;
-  var GRANT_LIMIT = 4;
+  var GRANT_LIMIT = 6;
 
   function esc(s){
     return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){
@@ -64,7 +64,7 @@
   }
 
   /* 固定选法：2026 年国社科一般项目里，批准号为「2026-序号NNNN」的条目，
-     按序号从小到大取前 GRANT_LIMIT 条。不读会议，也不另拉数据文件。 */
+     按序号从小到大取前 GRANT_LIMIT 条（桌面 6，手机 CSS 限 3）。不读会议，也不另拉数据文件。 */
   function latestGrants(){
     var src;
     try{ src = window.NOPSS_SPORTS_PROJECTS; }catch(e){ src = null; }
