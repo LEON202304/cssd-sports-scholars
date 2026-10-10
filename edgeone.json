@@ -130,6 +130,16 @@
           "value": "public, max-age=300, stale-while-revalidate=3600"
         }
       ]
+    },
+    {
+      "_rule": "学界动态快照（每日自动更新）：短缓存",
+      "source": "/xuejie-snapshot.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300, stale-while-revalidate=3600"
+        }
+      ]
     }
   ]
 }

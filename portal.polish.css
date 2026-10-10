@@ -2329,9 +2329,9 @@ html.cssd-light #vw-academicnews .an-news .an-title-zh{font-size:13px;margin-top
 }
 
 /* ═════════════════════════════════════════════════════════════════
-   xuejie-mock — 首页「学界动态」设计稿（占位，未接抓取）
+   xuejie — 首页「学界动态」（荣誉 / 活动 / 会议，读 xuejie-snapshot.json）
    可回退：删除从本行注释到文件末尾的整个分区，并去掉 index.html 中
-   home-xuejie.*.js 的 script 引用、删除该 js 文件。
+   home-xuejie.*.js 的 script 引用、删除该 js 文件与 xuejie-snapshot.json。
    ═════════════════════════════════════════════════════════════════ */
 html.cssd-light body #sportsPortal .hn:has(+ .xj){
   margin-bottom:10px;
@@ -2373,15 +2373,10 @@ html.cssd-light body #sportsPortal .xj-aside{
   font-size:13px;
   color:#5B6575;
 }
-html.cssd-light body #sportsPortal .xj-mock-badge{
-  display:inline-block;
-  padding:3px 9px;
-  border-radius:999px;
-  border:1px dashed rgba(10,42,67,.22);
-  background:#F5F7FA;
+html.cssd-light body #sportsPortal .xj-updated{
   color:#5B6575;
   font-size:12px;
-  letter-spacing:.04em;
+  letter-spacing:.02em;
   white-space:nowrap;
 }
 html.cssd-light body #sportsPortal .xj-all{
@@ -2392,21 +2387,17 @@ html.cssd-light body #sportsPortal .xj-all{
   background:transparent;
   border:0;
   padding:2px 0;
-  cursor:default;
-  opacity:.72;
+  cursor:pointer;
+  opacity:1;
+}
+html.cssd-light body #sportsPortal .xj-all:hover{
+  text-decoration:underline;
 }
 html.cssd-light body #sportsPortal .xj-all:focus-visible,
 html.cssd-light body #sportsPortal .xj a:focus-visible{
   outline:2px solid #2C6E9E;
   outline-offset:3px;
   border-radius:2px;
-}
-html.cssd-light body #sportsPortal .xj-note{
-  margin:0 0 10px;
-  font-size:12px;
-  line-height:1.5;
-  color:#8A93A3;
-  letter-spacing:.02em;
 }
 html.cssd-light body #sportsPortal .xj-layout{
   display:grid;
@@ -2449,6 +2440,18 @@ html.cssd-light body #sportsPortal .xj-meta{
   gap:10px;
   margin-bottom:8px;
   min-width:0;
+}
+html.cssd-light body #sportsPortal .xj-lead h3 a,
+html.cssd-light body #sportsPortal .xj-row h3 a,
+html.cssd-light body #sportsPortal .xj-side-list h3 a{
+  color:inherit;
+  text-decoration:none;
+}
+html.cssd-light body #sportsPortal .xj-lead h3 a:hover,
+html.cssd-light body #sportsPortal .xj-row h3 a:hover,
+html.cssd-light body #sportsPortal .xj-side-list h3 a:hover{
+  color:#2C6E9E;
+  text-decoration:underline;
 }
 html.cssd-light body #sportsPortal .xj-tag{
   display:inline-block;
