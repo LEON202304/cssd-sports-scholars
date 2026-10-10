@@ -5997,248 +5997,414 @@ html.cssd-light .nb.on{color:#2E9A89!important}
 
 <!-- HOME -->
 <div class="vw on" id="vw-home">
-  <section class="hero">
-    <div class="hbg"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div><div class="grid-bg"></div></div>
-    <div class="hc">
-      <div class="ey"><span class="pd"></span>2026&#x5E74;&#x7248; &#x00B7; v4.6 &#x00B7; <span id="heroLiveDate">&#x6301;&#x7EED;&#x66F4;&#x65B0;</span></div>
-      <h2 class="h1 cssd-h2v">&#x4E2D;&#x56FD;<span class="hl">&#x4F53;&#x80B2;&#x5B66;</span>&#x4EBA;&#x624D;<br>&#x7EFC;&#x5408;&#x6570;&#x636E;&#x5E93;</h2>
-      <p class="hs">CHINA SPORTS ACADEMIC RESOURCE PLATFORM · CSSD V4.6-87</p>
-      <p class="hd" id="heroDesc">面向体育学学科建设、师资队伍分析、院校对标与人才评价的综合知识库。持续收录全国体育学者，支持按学科方向、院校类型、人才项目、学位授权点和研究主题进行交叉检索与分析。</p>
-      <div class="hb">
-        <button class="bp" onclick="go('scholars')">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          浏览全部学者
-        </button>
-        <button class="hb-btn hb-inst" onclick="go('institutions')">
-          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>
-          按院校查看
-        </button>
-        <button class="hb-btn hb-disc" onclick="go('disciplines')">
-          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          按学科查看
-        </button>
-        <button class="hb-btn hb-hat" onclick="go('hats')">
-          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          人才项目
-        </button>
-        <button class="hb-btn hb-deg" onclick="go('degreepoint')">
-          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-          硕博学位点
-        </button>
+
+<div class="vw on" id="vw-home">
+<!-- ===== 新版 Home 视图（设计稿还原：浅蓝白卡风格） ===== -->
+<style>
+#vw-home{
+  background:
+    radial-gradient(1200px 500px at 80% -10%, #DCEBFB 0%, rgba(220,235,251,0) 60%),
+    linear-gradient(180deg,#EAF3FC 0%, #F6FAFF 40%, #FFFFFF 100%)!important;
+  padding:0!important;
+}
+#vw-home .cssd-newhome{
+  max-width:1280px;margin:0 auto;padding:28px 24px 60px;
+  font-family:'PingFang SC','Microsoft YaHei',sans-serif;
+}
+/* Hero */
+#vw-home .cssd-hero{text-align:center;padding:36px 0 8px}
+#vw-home .cssd-hero .ey{font-size:13px;font-weight:700;letter-spacing:.28em;color:#2E9A89}
+#vw-home .cssd-hero h1{font-size:44px;font-weight:900;color:#15324F;margin:14px 0 8px;letter-spacing:.01em}
+#vw-home .cssd-hero h1 span{color:#1E8A6D}
+#vw-home .cssd-hero .sub{font-size:13.5px;font-weight:600;letter-spacing:.2em;color:#5B6B80}
+#vw-home .cssd-hero .desc{max-width:720px;margin:16px auto 0;font-size:15px;line-height:1.9;color:#5B6B80}
+#vw-home .cssd-search{
+  max-width:720px;margin:24px auto 0;display:flex;gap:10px;align-items:center;
+  background:#fff;border-radius:16px;box-shadow:0 8px 24px rgba(35,85,140,.10);padding:8px 8px 8px 20px;
+}
+#vw-home .cssd-search input{flex:1;border:none;outline:none;font-size:15px;background:transparent;color:#15324F}
+#vw-home .cssd-search button{
+  background:#1E8A6D;color:#fff;border:none;border-radius:12px;padding:12px 28px;font-size:15px;font-weight:600;cursor:pointer;
+  box-shadow:0 4px 12px rgba(30,138,109,.3);
+}
+#vw-home .cssd-hottags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+#vw-home .cssd-hottags span{
+  padding:5px 14px;border-radius:20px;background:#fff;border:1px solid #E6EEF7;font-size:13px;color:#5B6B80;cursor:pointer;
+}
+/* 统计条 */
+#vw-home .cssd-stats{
+  background:#fff;border-radius:24px;box-shadow:0 12px 40px rgba(35,85,140,.10);padding:26px 10px;
+  margin-top:30px;display:grid;grid-template-columns:repeat(6,1fr);gap:0;
+}
+#vw-home .cssd-stat{display:flex;align-items:center;gap:12px;padding:6px 18px;border-right:1px solid #E6EEF7;cursor:pointer}
+#vw-home .cssd-stat:last-child{border-right:none}
+#vw-home .cssd-stat .dot{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
+#vw-home .cssd-stat b{font-size:26px;font-weight:800;line-height:1.1;color:#15324F}
+#vw-home .cssd-stat small{display:flex;align-items:center;gap:3px;font-size:13px;color:#5B6B80;font-weight:600;margin-top:3px}
+/* 功能卡 */
+#vw-home .cssd-features{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px}
+#vw-home .cssd-feature{
+  background:#fff;border-radius:22px;box-shadow:0 12px 40px rgba(35,85,140,.10);padding:26px 24px;
+  position:relative;overflow:hidden;cursor:pointer;transition:transform .18s;
+}
+#vw-home .cssd-feature:hover{transform:translateY(-4px)}
+#vw-home .cssd-feature::after{
+  content:"";position:absolute;right:-30px;bottom:-30px;width:150px;height:150px;border-radius:50%;
+  background:radial-gradient(circle,rgba(46,154,137,.10),transparent 70%);
+}
+#vw-home .cssd-feature .ficon{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+#vw-home .cssd-feature h3{font-size:19px;font-weight:800;display:inline-block;margin-right:8px;color:#15324F}
+#vw-home .cssd-feature .arrow{position:absolute;top:24px;right:22px;width:30px;height:30px;border-radius:50%;background:#F0F5FB;display:flex;align-items:center;justify-content:center;color:#5B6B80}
+#vw-home .cssd-feature .en{font-size:11px;font-weight:700;letter-spacing:.16em;color:#9FB2C8;margin-top:2px}
+#vw-home .cssd-feature p{margin-top:12px;font-size:14px;color:#5B6B80;line-height:1.7}
+/* 卡片区块 */
+#vw-home .cssd-card{
+  background:#fff;border-radius:24px;box-shadow:0 12px 40px rgba(35,85,140,.10);padding:30px;margin-top:26px;
+}
+#vw-home .cssd-sec-head{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+#vw-home .cssd-sec-head .ico{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none}
+#vw-home .cssd-sec-head h2{font-size:22px;font-weight:800;color:#15324F}
+#vw-home .cssd-sec-head .en{font-size:12px;font-weight:700;letter-spacing:.2em;color:#9FB2C8;margin-left:4px}
+#vw-home .cssd-sec-head .more{margin-left:auto;font-size:14px;color:#1E8A6D;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:4px}
+/* 标签页 */
+#vw-home .cssd-tabs{display:flex;gap:26px;border-bottom:1px solid #E6EEF7;margin-bottom:20px}
+#vw-home .cssd-tab{padding:0 2px 14px;font-size:16px;font-weight:700;color:#5B6B80;cursor:pointer;position:relative}
+#vw-home .cssd-tab.active{color:#1E8A6D}
+#vw-home .cssd-tab.active::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;border-radius:3px;background:#1E8A6D}
+/* 新闻列表 */
+#vw-home .cssd-news-item{display:flex;gap:20px;padding:18px 0;border-bottom:1px solid #E6EEF7;align-items:flex-start}
+#vw-home .cssd-news-item:last-child{border-bottom:none}
+#vw-home .cssd-news-thumb{width:150px;height:96px;border-radius:12px;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px}
+#vw-home .cssd-news-body h4{font-size:17px;font-weight:700;line-height:1.5;color:#15324F}
+#vw-home .cssd-news-meta{display:flex;justify-content:space-between;margin-top:8px;font-size:13.5px;color:#5B6B80}
+/* 学者卡 */
+#vw-home .cssd-scholars{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+#vw-home .cssd-scholar{display:flex;gap:16px;align-items:center;background:#FBFDFF;border:1px solid #E6EEF7;border-radius:16px;padding:16px 18px;cursor:pointer}
+#vw-home .cssd-avatar{width:64px;height:64px;border-radius:14px;flex:none;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#fff}
+#vw-home .cssd-scholar b{font-size:18px;font-weight:800;color:#15324F}
+#vw-home .cssd-scholar .org{font-size:13.5px;color:#5B6B80;margin-top:4px;display:flex;align-items:center;gap:6px}
+#vw-home .cssd-tag{display:inline-block;margin-top:10px;padding:5px 14px;border-radius:20px;background:rgba(46,154,137,.12);color:#1E8A6D;font-size:13px;font-weight:600}
+/* 研究方向 */
+#vw-home .cssd-dirs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+#vw-home .cssd-dir{background:#FBFDFF;border:1px solid #E6EEF7;border-radius:16px;padding:22px 18px;text-align:left}
+#vw-home .cssd-dir .dicon{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+#vw-home .cssd-dir b{font-size:17px;font-weight:800;display:flex;align-items:center;gap:8px;color:#15324F}
+#vw-home .cssd-dir b::before{content:"";width:3px;height:16px;background:#3B82F6;border-radius:2px}
+#vw-home .cssd-dir small{display:flex;align-items:center;gap:6px;margin-top:10px;font-size:13.5px;color:#5B6B80;font-weight:600}
+/* 院校圆形 */
+#vw-home .cssd-univs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+#vw-home .cssd-univ{text-align:center;padding:10px}
+#vw-home .cssd-univ .circle{
+  width:130px;height:130px;border-radius:50%;margin:0 auto 12px;
+  background:linear-gradient(160deg,#DCEBFA,#C3DBF5);border:4px solid #fff;box-shadow:0 8px 20px rgba(40,90,150,.12);
+  display:flex;align-items:center;justify-content:center;color:#7A93B5;font-size:12px;font-weight:600;letter-spacing:.1em;
+}
+#vw-home .cssd-univ .city{display:flex;align-items:center;justify-content:center;gap:4px;font-size:13px;color:#5B6B80;font-weight:600}
+#vw-home .cssd-univ b{display:block;margin-top:6px;font-size:16.5px;font-weight:800;color:#15324F}
+/* 期刊横幅 */
+#vw-home .cssd-journal-banner{
+  background:#fff;border-radius:24px;box-shadow:0 12px 40px rgba(35,85,140,.10);padding:34px 40px;
+  display:flex;align-items:center;gap:34px;flex-wrap:wrap;position:relative;overflow:hidden;margin-top:26px;
+}
+#vw-home .cssd-journal-banner::before{content:"";position:absolute;left:0;right:0;bottom:0;height:90px;background:linear-gradient(180deg,transparent,rgba(216,233,250,.6))}
+#vw-home .cssd-jb-icon{width:56px;height:56px;border-radius:14px;background:#FDF3E0;display:flex;align-items:center;justify-content:center;flex:none}
+#vw-home .cssd-jb-title b{font-size:24px;font-weight:800;display:block;color:#15324F}
+#vw-home .cssd-jb-title small{font-size:12px;font-weight:700;letter-spacing:.2em;color:#9FB2C8}
+#vw-home .cssd-jb-stats{display:flex;gap:0;margin-left:auto}
+#vw-home .cssd-jb-stat{padding:0 26px;border-right:1px solid #E6EEF7;text-align:center}
+#vw-home .cssd-jb-stat:last-child{border-right:none}
+#vw-home .cssd-jb-stat b{font-size:26px;font-weight:800;color:#15324F}
+#vw-home .cssd-jb-stat small{display:block;font-size:12.5px;color:#5B6B80;margin-top:4px;font-weight:600}
+#vw-home .cssd-jb-btn{margin-left:10px;padding:12px 26px;border-radius:14px;border:1.5px solid #1E8A6D;color:#1E8A6D;font-weight:700;background:#fff;cursor:pointer;display:flex;align-items:center;gap:8px}
+/* 响应式 */
+@media (max-width:980px){
+  #vw-home .cssd-stats{grid-template-columns:repeat(3,1fr);row-gap:20px}
+  #vw-home .cssd-stat{border-right:none}
+  #vw-home .cssd-features{grid-template-columns:1fr}
+  #vw-home .cssd-scholars{grid-template-columns:1fr}
+  #vw-home .cssd-dirs{grid-template-columns:1fr 1fr}
+  #vw-home .cssd-univs{grid-template-columns:1fr 1fr}
+  #vw-home .cssd-jb-stats{flex-wrap:wrap;gap:14px}
+  #vw-home .cssd-hero h1{font-size:32px}
+}
+</style>
+
+<div class="cssd-newhome">
+
+  <!-- Hero -->
+  <header class="cssd-hero">
+    <div class="ey">CSSD v4.6-87 · 2026 年版 · 持续更新</div>
+    <h1>中国<span>体育学</span>人才综合数据库</h1>
+    <p class="sub">CHINA SPORTS ACADEMIC RESOURCE PLATFORM</p>
+    <p class="desc">面向体育学学科建设、师资队伍分析、院校对标与人才评价的综合知识库，持续收录全国体育学者，支持按学科方向、院校类型、人才项目、学位授权点与研究主题进行交叉检索与分析。</p>
+    <div class="cssd-search">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9FB2C8" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="搜索学者姓名、院校机构、研究方向、期刊、项目、关键词...">
+      <button onclick="go('scholars')">搜索</button>
+    </div>
+    <div class="cssd-hottags">
+      <span>青少年体育</span><span>运动心理</span><span>体育教育</span><span>运动训练</span><span>全民健身</span><span>体育产业</span>
+    </div>
+  </header>
+
+  <!-- 统计条 -->
+  <section class="cssd-stats" id="kpis">
+    <div class="cssd-stat" onclick="go('scholars')">
+      <div class="dot" style="background:rgba(59,130,246,.14);color:#3B82F6">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>
       </div>
+      <div><b>5,849</b><small>收录学者 ›</small></div>
+    </div>
+    <div class="cssd-stat" onclick="go('institutions')">
+      <div class="dot" style="background:rgba(16,185,129,.14);color:#10B981">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14"/></svg>
       </div>
+      <div><b>565</b><small>覆盖机构 ›</small></div>
+    </div>
+    <div class="cssd-stat" onclick="go('journals')">
+      <div class="dot" style="background:rgba(245,158,11,.16);color:#F59E0B">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V4H6.5A2.5 2.5 0 004 6.5z"/></svg>
+      </div>
+      <div><b>164</b><small>收录期刊 ›</small></div>
+    </div>
+    <div class="cssd-stat" onclick="go('projects')">
+      <div class="dot" style="background:rgba(44,110,158,.14);color:#2C6E9E">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/></svg>
+      </div>
+      <div><b>3,056</b><small>项目记录 ›</small></div>
+    </div>
+    <div class="cssd-stat" onclick="go('disciplines')">
+      <div class="dot" style="background:rgba(212,167,44,.16);color:#D4A72C">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 17v4M17 4H7v6a5 5 0 0010 0z"/></svg>
+      </div>
+      <div><b>4</b><small>研究生学科大类 ›</small></div>
+    </div>
+    <div class="cssd-stat" onclick="go('majorcat')">
+      <div class="dot" style="background:rgba(16,185,129,.14);color:#10B981">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      </div>
+      <div><b>18</b><small>本科专业目录 ›</small></div>
+    </div>
   </section>
-  <div class="kpis hstrip" id="kpis"></div>
 
-  <div class="sec cnki-home-directory" id="home-dashboard"><div class="inn">
-    <div class="cnki-dir-shell">
-      <div class="cnki-dir-head">
-        <div>
-          <div class="sey">RESOURCE NAVIGATION</div>
-          <h2 class="set">体育学人才资源总目录</h2>
-          <p class="sed">面向学科建设、师资对标与人才遴选的检索型入口：以“查、筛、比、证”为主线组织全库资源。</p>
-        </div>
-        <div class="cnki-dir-update">
-          <span>CSSD v4.6-87</span>
-          <b id="homeUpdateDate">持续更新</b>
-          <em>数据更新</em>
-        </div>
+  <!-- 功能入口 3×2 -->
+  <section class="cssd-features">
+    <div class="cssd-feature" onclick="go('scholars')">
+      <div class="arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 18l6-6-6-6"/></svg></div>
+      <div class="ficon" style="background:rgba(59,130,246,.14);color:#3B82F6">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>
       </div>
-
-      <div class="cnki-search-panel">
-        <div class="cnki-search-main" onclick="openGlobalSearch()">
-          <span class="cnki-search-icon">
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          </span>
-          <div>
-            <b>一站式检索</b>
-            <span>输入姓名、机构、研究方向、人才称号，快速定位学者档案</span>
-          </div>
-          <kbd>/</kbd>
-        </div>
-        <div class="cnki-search-actions">
-          <button onclick="go('scholars')">学者高级筛选</button>
-          <button onclick="go('institutions')">院校机构导航</button>
-          <button onclick="go('classify')">多维分类统计</button>
-        </div>
-      </div>
-
-      <div class="cnki-dir-layout">
-        <div class="cnki-primary-index">
-          <div class="cnki-col-title">核心目录</div>
-          <button class="cnki-index-row accent-cyan" onclick="go('scholars')">
-            <span class="cnki-row-code">A01</span>
-            <span class="cnki-row-title">学者目录</span>
-            <span class="cnki-row-desc">姓名 / 单位 / 方向 / 称号</span>
-            <span class="cnki-row-go">进入</span>
-          </button>
-          <button class="cnki-index-row accent-green" onclick="go('institutions')">
-            <span class="cnki-row-code">A02</span>
-            <span class="cnki-row-title">院校机构</span>
-            <span class="cnki-row-desc">体育院校 / 师范 / 综合大学 / 科研机构</span>
-            <span class="cnki-row-go">进入</span>
-          </button>
-          <button class="cnki-index-row accent-blue" onclick="go('disciplines')">
-            <span class="cnki-row-code">A03</span>
-            <span class="cnki-row-title">研究生学科</span>
-            <span class="cnki-row-desc">四大学科门类与专题方向</span>
-            <span class="cnki-row-go">进入</span>
-          </button>
-          <button class="cnki-index-row accent-amber" onclick="go('majorcat')">
-            <span class="cnki-row-code">A04</span>
-            <span class="cnki-row-title">本科专业目录</span>
-            <span class="cnki-row-desc">0402 体育学类 18 个专业</span>
-            <span class="cnki-row-go">进入</span>
-          </button>
-        <div class="cnki-index-note"><span>使用说明：左侧 A01–A04 为资源总览编号，与上方目录条目一一对应；点击任一目录行的「进入」即可前往对应资源库。</span></div></div>
-
-        <div class="cnki-topic-board">
-          <div class="cnki-col-title">专题库</div>
-          <div class="cnki-topic-grid">
-            <button onclick="go('hats')" style="--topic:#f43f5e"><b>人才荣誉</b><span>长江 / 万人 / 杰青 / 优青</span></button>
-            <button onclick="go('degreepoint')" style="--topic:#2C6E9E"><b>硕博学位点</b><span>博士点 / 硕士点 / 建设能力</span></button>
-            <button onclick="go('sportscolleges')" style="--topic:#06b6d4"><b>体育院校师资</b><span>本科体育院校与专科院校</span></button>
-            <button onclick="go('youthscholar')" style="--topic:#10b981"><b>青年学者</b><span>青年人才计划与新锐队伍</span></button>
-            <button onclick="go('academicnews')" style="--topic:#3FB39C"><b>学术动态</b><span>每日更新 / 论文 / 投稿 / 项目</span></button>
-          </div>
-          <div class="cnki-meta-strip">
-            <span><b id="homeTotalCount">--</b> 收录学者</span>
-            <span><b id="homeInstCount">--</b> 覆盖机构</span>
-            <span><b>4</b> 研究生大类</span>
-            <span><b>18</b> 本科专业</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cnki-quick-strip" aria-label="常用入口">
-        <button onclick="go('scholars')">按人才计划筛选</button>
-        <button onclick="go('institutions')">按院校类型浏览</button>
-        <button onclick="go('disciplines')">按学科方向聚合</button>
-        <button onclick="go('degreepoint')">按学位点对标</button>
-        <button onclick="openGlobalSearch()">打开全库检索</button>
-      </div>
+      <h3>学者目录</h3><div class="en">SCHOLAR DIRECTORY</div>
+      <p>检索与浏览学者信息，按姓名、机构、研究方向与人才称号多维筛选。</p>
     </div>
-  </div></div>
-  <div class="sec alt"><div class="inn">
-    <div class="sey">GRADUATE DISCIPLINES</div><h2 class="set">&#x7814;&#x7A76;&#x751F;&#x5B66;&#x79D1;&#x56DB;&#x5927;&#x7C7B;</h2><p class="sed">&#x6309;&#x4F53;&#x80B2;&#x6559;&#x80B2;&#x8BAD;&#x7EC3;&#x5B66;&#x3001;&#x4F53;&#x80B2;&#x4EBA;&#x6587;&#x793E;&#x4F1A;&#x5B66;&#x3001;&#x8FD0;&#x52A8;&#x4EBA;&#x4F53;&#x79D1;&#x5B66;&#x3001;&#x6C11;&#x65CF;&#x4F20;&#x7EDF;&#x4F53;&#x80B2;&#x5B66;&#x8FDB;&#x884C;&#x4E00;&#x7EA7;&#x5F52;&#x7C7B;&#x3002;</p>
-    <div class="tlst" id="tlist"></div>
-  </div></div>
-  <div class="sec"><div class="inn">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px;margin-bottom:28px">
-      <div><div class="sey">FEATURED SCHOLARS</div><h2 class="set">精选学者（综合评级排序）</h2></div>
-      <button class="bs2" style="padding:7px 16px;font-size:.8rem" onclick="go('scholars')">查看全部 →</button>
+    <div class="cssd-feature" onclick="go('disciplines')">
+      <div class="arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 18l6-6-6-6"/></svg></div>
+      <div class="ficon" style="background:rgba(16,185,129,.14);color:#10B981">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <h3>学科分类总览</h3><div class="en">DISCIPLINE CATEGORIES</div>
+      <p>深入的学科、学科领域，研究生四大类与本科专业的交叉视图。</p>
     </div>
-    <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:12px 0 20px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:20px;">
-    <span style="font-size:.68rem;color:rgba(46,154,137,.5);font-weight:700;letter-spacing:.06em;flex-basis:100%;margin-bottom:2px">★ 顶尖人才计划分布</span>
-    <button id="eliteStrip" onclick="go('yangtze')" style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;border:1px solid rgba(46,154,137,.25);background:rgba(46,154,137,.07);color:#2E9A89;font-size:.73rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s">🏅 长江学者 <span style="font-family:'DM Mono',monospace;opacity:.75">17人</span></button>
-    <button onclick="go('hats')" style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;border:1px solid rgba(200,162,75,.25);background:rgba(200,162,75,.07);color:#C8A24B;font-size:.73rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s">🌟 万人计划 <span id="hkWanren" style="font-family:'DM Mono',monospace;opacity:.75"></span></button>
-    <button onclick="go('hats')" style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;border:1px solid rgba(244,63,94,.25);background:rgba(244,63,94,.07);color:#A23B4E;font-size:.73rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s">🔬 国家杰青 <span id="hkJieqing" style="font-family:'DM Mono',monospace;opacity:.75"></span></button>
-    <button onclick="go('hats')" style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;border:1px solid rgba(44,110,158,.25);background:rgba(44,110,158,.07);color:#2C6E9E;font-size:.73rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s">⭐ 国家优青 <span id="hkYouqing" style="font-family:'DM Mono',monospace;opacity:.75"></span></button>
-    <button onclick="go('hats')" style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;border:1px solid rgba(44,110,158,.25);background:rgba(44,110,158,.07);color:#2C6E9E;font-size:.73rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s">👑 院士 <span id="hkYuanshi" style="font-family:'DM Mono',monospace;opacity:.75"></span></button>
-    <button onclick="go('hats')" style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;border:1px solid rgba(101,163,13,.25);background:rgba(101,163,13,.07);color:#84cc16;font-size:.73rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s">📜 国务院津贴 <span id="hkTjin" style="font-family:'DM Mono',monospace;opacity:.75"></span></button>
-  </div>
-  <div class="sg" id="featg"></div>
-  </div></div>
+    <div class="cssd-feature" onclick="go('institutions')">
+      <div class="arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 18l6-6-6-6"/></svg></div>
+      <div class="ficon" style="background:rgba(44,110,158,.14);color:#2C6E9E">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14"/></svg>
+      </div>
+      <h3>院校机构导航</h3><div class="en">INSTITUTION NAVIGATION</div>
+      <p>高校、科研机构、体育组织，按地区与机构类型快速定位。</p>
+    </div>
+    <div class="cssd-feature" onclick="go('journals')">
+      <div class="arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 18l6-6-6-6"/></svg></div>
+      <div class="ficon" style="background:rgba(245,158,11,.16);color:#F59E0B">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V4H6.5A2.5 2.5 0 004 6.5z"/></svg>
+      </div>
+      <h3>期刊数据库</h3><div class="en">JOURNAL DATABASE</div>
+      <p>收录国内外高质量体育学期刊，含分区、影响因子与官网直链。</p>
+    </div>
+    <div class="cssd-feature" onclick="go('projects')">
+      <div class="arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 18l6-6-6-6"/></svg></div>
+      <div class="ficon" style="background:rgba(139,92,246,.14);color:#8B5CF6">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </div>
+      <h3>科研项目查询</h3><div class="en">RESEARCH PROJECTS</div>
+      <p>国家级、省部级、纵向横向，国家社科基金体育学项目逐年检索。</p>
+    </div>
+    <div class="cssd-feature" onclick="go('news')">
+      <div class="arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 18l6-6-6-6"/></svg></div>
+      <div class="ficon" style="background:rgba(16,185,129,.14);color:#10B981">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 5 5.6.8-4 4 1 5.6L12 14.8 6 17.4l1-5.6-4-4 5.6-.8z"/></svg>
+      </div>
+      <h3>学术动态</h3><div class="en">ACADEMIC NEWS</div>
+      <p>会议、通知、成果、新闻，重点期刊最新论文每日自动更新。</p>
+    </div>
+  </section>
 
-  <!-- ① 红线承诺区块 -->
-  <div style="padding:0 20px 28px;max-width:1200px;margin:0 auto;">
-  <section class="pledge-section">
-    <div class="pledge-hdr">
-      <span class="pledge-hdr-icon">🛡️</span>
-      <div>
-        <div class="pledge-hdr-title">CSSD 对学者的六项公开承诺</div>
-        <div class="pledge-hdr-sub">这是我们不可逾越的红线，写入产品设计，对每一位收录学者永久有效</div>
+  <!-- 学术动态 -->
+  <section class="cssd-card">
+    <div class="cssd-sec-head">
+      <div class="ico" style="background:rgba(245,158,11,.16);color:#F59E0B">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/></svg>
       </div>
+      <h2>学术动态</h2><span class="en">ACADEMIC NEWS</span>
+      <span class="more">查看更多 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
     </div>
-    <div class="pledge-grid">
-      <div class="pledge-item">
-        <div class="pledge-num">①</div>
-        <div class="pledge-text"><b>学者主页永不展示商业广告</b>您的个人档案页面，绝不出现任何广告内容，永久有效。</div>
+    <div class="cssd-tabs">
+      <span class="cssd-tab active">最新发布</span>
+      <span class="cssd-tab">会议通知</span>
+      <span class="cssd-tab">科研动态</span>
+      <span class="cssd-tab">成果新闻</span>
+    </div>
+    <div id="home-news-list">
+      <div class="cssd-news-item">
+        <div class="cssd-news-thumb" style="background:linear-gradient(135deg,#3B82F6,#1E40AF)">新闻配图</div>
+        <div class="cssd-news-body">
+          <h4>第十届中国体育博士高层论坛论文拟录取通知</h4>
+          <div class="cssd-news-meta"><span>中国体育科学学会</span><span>2026-09-30</span></div>
+        </div>
       </div>
-      <div class="pledge-item">
-        <div class="pledge-num">②</div>
-        <div class="pledge-text"><b>联系方式不直接暴露给第三方</b>所有与企业或机构的联系，均通过平台内部消息中转，不泄露您的真实联系方式。</div>
+      <div class="cssd-news-item">
+        <div class="cssd-news-thumb" style="background:linear-gradient(135deg,#10B981,#047857)">新闻配图</div>
+        <div class="cssd-news-body">
+          <h4>第十届全国青年体育科学学术会议论文拟录取通知</h4>
+          <div class="cssd-news-meta"><span>中国体育科学学会</span><span>2026-09-30</span></div>
+        </div>
       </div>
-      <div class="pledge-item">
-        <div class="pledge-num">③</div>
-        <div class="pledge-text"><b>不与任何商业活动强制关联</b>未经您本人明确同意，平台不会将您与任何品牌、广告或商业活动进行关联展示。</div>
-      </div>
-      <div class="pledge-item">
-        <div class="pledge-num">④</div>
-        <div class="pledge-text"><b>可随时一键删除全部数据</b>您有权随时提交删除申请，平台承诺 72小时内完成全部相关数据的清除并确认。</div>
-      </div>
-      <div class="pledge-item">
-        <div class="pledge-num">⑤</div>
-        <div class="pledge-text"><b>学者基础功能永久免费</b>个人主页展示、信息认领与更正，对所有学者永久免费，不存在隐性收费。</div>
-      </div>
-      <div class="pledge-item">
-        <div class="pledge-num">⑥</div>
-        <div class="pledge-text"><b>学者是服务对象，不是商品</b>平台盈利来自机构与企业端服务费，学者数据不会被出售或用于商业牟利。</div>
+      <div class="cssd-news-item">
+        <div class="cssd-news-thumb" style="background:linear-gradient(135deg,#F59E0B,#B45309)">新闻配图</div>
+        <div class="cssd-news-body">
+          <h4>广州体育学院主办体育康养论坛暨系列教材研讨会 专家学者齐聚</h4>
+          <div class="cssd-news-meta"><span>广州体育学院</span><span>2026-09-28</span></div>
+        </div>
       </div>
     </div>
   </section>
-  </div>
 
-<div class="sec alt" id="siteNav">
-  <div class="inn">
-    <div class="sey">WEBSITE DIRECTORY</div>
-    <h2 class="set">常用网站导航</h2>
-    <p class="sed">汇聚体育科研与人文社科相关的政府机关、行业学会、学术机构与文献数据库入口，点击即直达外部官方网站。</p>
-    <div class="site-nav-grid">
-      <div class="site-nav-card">
-        <div class="site-nav-hd">🏛 政府与主管部门</div>
-        <a class="site-nav-item" href="https://www.sport.gov.cn/" target="_blank" rel="noopener"><b>国家体育总局</b><span>体育政策法规 · 全民健身 · 竞技体育 · 公告</span></a>
-        <a class="site-nav-item" href="https://www.moe.gov.cn/" target="_blank" rel="noopener"><b>教育部</b><span>教育政策 · 学科建设 · 学位与研究生</span></a>
-        <a class="site-nav-item" href="https://www.nopss.gov.cn/" target="_blank" rel="noopener"><b>全国哲学社会科学工作办公室</b><span>国家社科基金项目申报 · 立项 · 结项</span></a>
-        <a class="site-nav-item" href="https://www.nsfc.gov.cn/" target="_blank" rel="noopener"><b>国家自然科学基金委员会</b><span>自然科学基金申报 · 评审 · 资助</span></a>
+  <!-- 学者发现 -->
+  <section class="cssd-card">
+    <div class="cssd-sec-head">
+      <div class="ico" style="background:rgba(46,154,137,.14);color:#1E8A6D">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
       </div>
-      <div class="site-nav-card">
-        <div class="site-nav-hd">🏫 行业学会 · 科研机构</div>
-        <a class="site-nav-item" href="https://www.csss.cn/" target="_blank" rel="noopener"><b>中国体育科学学会</b><span>体育科技学术团体 · 学术会议 · 期刊</span></a>
-        <a class="site-nav-item" href="https://www.ciss.cn/" target="_blank" rel="noopener"><b>国家体育总局体育科学研究所</b><span>运动科学研究 · 国家队科技保障</span></a>
-        <a class="site-nav-item" href="https://www.olympic.cn/" target="_blank" rel="noopener"><b>中国奥委会 / 中华全国体育总会</b><span>奥运 · 竞技体育 · 对外交流</span></a>
-        <a class="site-nav-item" href="https://www.bsu.edu.cn/" target="_blank" rel="noopener"><b>北京体育大学</b><span>体育院校信息 · 学科动态 · 招生</span></a>
+      <h2>学者发现</h2><span class="en">SCHOLARS</span>
+      <span class="more">查看更多 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </div>
+    <div class="cssd-tabs">
+      <span class="cssd-tab active">学者浏览</span>
+      <span class="cssd-tab">长江学者</span>
+      <span class="cssd-tab">青年学者</span>
+      <span class="cssd-tab">海外学者</span>
+    </div>
+    <div class="cssd-scholars" id="featg">
+      <div class="cssd-scholar">
+        <div class="cssd-avatar" style="background:linear-gradient(135deg,#3B82F6,#1E40AF)">刘</div>
+        <div><b>刘宇</b><div class="org">上海体育大学</div><span class="cssd-tag">运动人体科学</span></div>
       </div>
-      <div class="site-nav-card">
-        <div class="site-nav-hd">📚 学术文献数据库</div>
-        <a class="site-nav-item" href="https://www.cnki.net/" target="_blank" rel="noopener"><b>中国知网 CNKI</b><span>期刊 · 学位 · 会议 · 体育专辑检索</span></a>
-        <a class="site-nav-item" href="https://www.wanfangdata.com.cn/" target="_blank" rel="noopener"><b>万方数据</b><span>期刊 · 学位论文 · 科技报告</span></a>
-        <a class="site-nav-item" href="https://www.cqvip.com/" target="_blank" rel="noopener"><b>维普中文期刊</b><span>中文期刊全文 · 引文分析</span></a>
-        <a class="site-nav-item" href="https://www.rdfybk.com/" target="_blank" rel="noopener"><b>人大复印报刊资料</b><span>人文社科二次文献 · 转载索引</span></a>
+      <div class="cssd-scholar">
+        <div class="cssd-avatar" style="background:linear-gradient(135deg,#10B981,#047857)">周</div>
+        <div><b>周成林</b><div class="org">上海体育大学</div><span class="cssd-tag">运动心理学</span></div>
       </div>
-      <div class="site-nav-card">
-        <div class="site-nav-hd">🧭 人文社科与体育相关</div>
-        <a class="site-nav-item" href="http://cass.cssn.cn/" target="_blank" rel="noopener"><b>中国社会科学院</b><span>人文社科综合研究 · 学术前沿</span></a>
-        <a class="site-nav-item" href="https://www.nopss.gov.cn/" target="_blank" rel="noopener"><b>全国哲社办（体育专项）</b><span>体育学 · 体育人文社会学课题检索</span></a>
-        <a class="site-nav-item" href="https://www.cssn.cn/" target="_blank" rel="noopener"><b>中国社会科学网</b><span>哲学社会科学资讯 · 学术观点</span></a>
-        <a class="site-nav-item" href="https://www.cnki.net/" target="_blank" rel="noopener"><b>体育期刊专题</b><span>《体育科学》《中国体育科技》等文献</span></a>
+      <div class="cssd-scholar">
+        <div class="cssd-avatar" style="background:linear-gradient(135deg,#8B5CF6,#5B21B6)">陈</div>
+        <div><b>陈佩杰</b><div class="org">上海体育大学</div><span class="cssd-tag">运动康复学</span></div>
+      </div>
+      <div class="cssd-scholar">
+        <div class="cssd-avatar" style="background:linear-gradient(135deg,#F59E0B,#B45309)">郭</div>
+        <div><b>郭亮</b><div class="org">上海体育大学</div><span class="cssd-tag">运动人体科学</span></div>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- 研究方向总览 -->
+  <section class="cssd-card">
+    <div class="cssd-sec-head">
+      <div class="ico" style="background:rgba(59,130,246,.14);color:#3B82F6">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/></svg>
+      </div>
+      <h2>研究方向总览</h2><span class="en">RESEARCH DIRECTIONS</span>
+      <span class="more">查看更多 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </div>
+    <div class="cssd-dirs" id="tlist">
+      <div class="cssd-dir">
+        <div class="dicon" style="background:rgba(59,130,246,.14);color:#3B82F6">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="3"/><path d="M12 10v6M8 21l4-5 4 5"/></svg>
+        </div>
+        <b>运动人体科学</b>
+        <small>646 位学者</small>
+      </div>
+      <div class="cssd-dir">
+        <div class="dicon" style="background:rgba(16,185,129,.14);color:#10B981">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 00-4 10.5V17h8v-3.5A6 6 0 0012 3zM9 21h6"/></svg>
+        </div>
+        <b>运动心理学</b>
+        <small>111 位学者</small>
+      </div>
+      <div class="cssd-dir">
+        <div class="dicon" style="background:rgba(245,158,11,.16);color:#F59E0B">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10L12 5 2 10l10 5 10-5zM6 12v5c3 2 9 2 12 0v-5"/></svg>
+        </div>
+        <b>体育教育学</b>
+        <small>1617 位学者</small>
+      </div>
+      <div class="cssd-dir">
+        <div class="dicon" style="background:rgba(212,167,44,.16);color:#D4A72C">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V4H6.5A2.5 2.5 0 004 6.5z"/></svg>
+        </div>
+        <b>体育人文社会学</b>
+        <small>782 位学者</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- 院校机构导航 -->
+  <section class="cssd-card">
+    <div class="cssd-sec-head">
+      <div class="ico" style="background:rgba(44,110,158,.14);color:#2C6E9E">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14"/></svg>
+      </div>
+      <h2>院校机构导航</h2><span class="en">INSTITUTIONS</span>
+      <span class="more">查看更多 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </div>
+    <div class="cssd-univs">
+      <div class="cssd-univ">
+        <div class="circle">校徽位</div>
+        <div class="city">北京</div>
+        <b>北京体育大学</b>
+      </div>
+      <div class="cssd-univ">
+        <div class="circle">校徽位</div>
+        <div class="city">上海</div>
+        <b>上海体育大学</b>
+      </div>
+      <div class="cssd-univ">
+        <div class="circle">校徽位</div>
+        <div class="city">武汉</div>
+        <b>武汉体育学院</b>
+      </div>
+      <div class="cssd-univ">
+        <div class="circle">校徽位</div>
+        <div class="city">成都</div>
+        <b>成都体育学院</b>
+      </div>
+    </div>
+  </section>
+
+  <!-- 期刊数据库横幅 -->
+  <section class="cssd-journal-banner">
+    <div class="cssd-jb-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B45309" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V4H6.5A2.5 2.5 0 004 6.5z"/></svg>
+    </div>
+    <div class="cssd-jb-title"><b>期刊数据库</b><small>ACADEMIC JOURNALS</small></div>
+    <div class="cssd-jb-stats">
+      <div class="cssd-jb-stat"><b>20</b><small>国内外高质量期刊</small></div>
+      <div class="cssd-jb-stat"><b>143</b><small>SSCI / SCI 期刊</small></div>
+      <div class="cssd-jb-stat"><b>35</b><small>CSSCI 期刊</small></div>
+      <div class="cssd-jb-stat"><b>15.5</b><small>最高影响因子</small></div>
+    </div>
+    <button class="cssd-jb-btn" onclick="go('journals')">进入期刊数据库 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  </section>
+
 </div>
 
-  <footer class="ft">
-    <div class="fti">
-      <div class="ftn">中国体育学人数据库 CSSD v4.6-87 · 数据来源于各高校及医院官方网站 · 仅供学术参考</div>
-      <div style="font-size:.7rem;color:var(--mu);font-family:'DM Mono',monospace">© 2026</div>
-    </div>
-    <div class="ft-compliance">
-      <button onclick="openPrivacyModal()">🔒 隐私政策</button>
-      <span class="ft-sep">·</span>
-      <button onclick="openPrivacyModal('data')">📋 数据来源声明</button>
-      <span class="ft-sep">·</span>
-      <button onclick="openClaimModal(null)">✏️ 信息纠错 / 学者认领</button>
-      <span class="ft-sep">·</span>
-      <span style="font-size:.67rem;color:#1e293b;">数据仅供学术参考，不用于商业目的</span>
-    </div>
-    <div class="quality-row">
-      <span class="qbadge">✅ 本人申请 24h处理</span>
-      <span class="qbadge">✅ 第三方举报 48h核实</span>
-      <span class="qbadge">✅ 数据准确率 ≥95%</span>
-      <span class="qbadge">✅ 删除申请 72h完成</span>
-      <span class="qbadge">✅ 联系方式不直接暴露</span>
-    </div>
-  </footer>
 </div>
 
 <!-- SCHOLARS -->
