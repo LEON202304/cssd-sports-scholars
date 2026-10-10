@@ -120,12 +120,20 @@
 
   function itemHtml(it, lead, extra){
     var d = parseDate(it.date);
-    var journal = it.journal ? '<span class="hn-journal">' + esc(it.journal) + "</span>" : "";
+    var journal = "";
+    if(it.journal || it.journalZh){
+      journal = '<span class="hn-journal-block">' +
+        (it.journal ? '<span class="hn-journal">' + esc(it.journal) + "</span>" : "") +
+        (it.journalZh ? '<span class="hn-journal-zh">' + esc(it.journalZh) + "</span>" : "") +
+      "</span>";
+    }
     var time = d ? '<time datetime="' + esc(d.iso) + '">' + esc(d.label) + "</time>" : "";
     var title = esc(it.title);
-    var heading = it.link
-      ? '<h3><a href="' + esc(it.link) + '" target="_blank" rel="noopener">' + title + "</a></h3>"
-      : "<h3>" + title + "</h3>";
+    var titleLink = it.link
+      ? '<a href="' + esc(it.link) + '" target="_blank" rel="noopener">' + title + "</a>"
+      : title;
+    var titleZh = it.titleZh ? '<p class="hn-title-zh">' + esc(it.titleZh) + "</p>" : "";
+    var heading = "<h3>" + titleLink + "</h3>" + titleZh;
     var authors = it.authors ? '<p class="hn-authors">' + esc(it.authors) + "</p>" : "";
     var cls = lead ? "hn-lead" : "hn-row";
     return '<article class="' + cls + '"><div class="hn-meta">' + journal + time + "</div>" + heading + authors + (extra || "") + "</article>";

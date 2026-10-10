@@ -2200,3 +2200,65 @@ html.cssd-light body #vw-journals .jnl-table-wrap{
     flex-shrink:0;
   }
 }
+
+
+/* ══════════════════════════════════════════════════════════════
+   intl-zh · 国外期刊英文刊名 / 英文题下的中文对照
+   有 journalZh / titleZh 字段才显示；无字段时页面保持原样。
+   ══════════════════════════════════════════════════════════════ */
+html.cssd-light body #sportsPortal .hn-journal-block{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:2px;
+  max-width:78%;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .hn-journal-block .hn-journal{
+  max-width:100%;
+}
+html.cssd-light body #sportsPortal .hn-journal-zh{
+  display:block;
+  padding:0 2px;
+  color:#8A93A3;
+  font-size:11px;
+  font-weight:400;
+  letter-spacing:.02em;
+  line-height:1.35;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width:100%;
+}
+html.cssd-light body #sportsPortal .hn-title-zh{
+  margin:4px 0 0;
+  color:#5B6575;
+  font-family:var(--sp-sans,inherit);
+  font-size:13px;
+  font-weight:400;
+  letter-spacing:.02em;
+  line-height:1.45;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  overflow:hidden;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .hn-lead .hn-title-zh{font-size:15px;margin-top:6px;}
+html.cssd-light body #sportsPortal .hn-row .hn-title-zh{font-size:12px;margin-top:3px;-webkit-line-clamp:1;}
+
+html.cssd-light #vw-academicnews .an-title-zh{
+  margin:6px 0 0;
+  color:#5B6575 !important;
+  font-size:13px;
+  font-weight:400;
+  letter-spacing:.02em;
+  line-height:1.45;
+}
+html.cssd-light #vw-academicnews .an-card .an-title-zh{font-size:14px;}
+html.cssd-light #vw-academicnews .an-news .an-title-zh{font-size:13px;margin-top:4px;}
+
+@media (max-width:860px){
+  html.cssd-light body #sportsPortal .hn-lead .hn-title-zh{font-size:13px;}
+  html.cssd-light body #sportsPortal .hn-journal-zh{font-size:10px;}
+}

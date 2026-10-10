@@ -16360,8 +16360,11 @@ html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"].on small{
       var snap=window.__spNewsSnap;
       if(!snap||!Array.isArray(snap.items)||!snap.items.length)return items;
       var latest=snap.items.filter(function(it){return it&&it.title;}).slice(0,10).map(function(it){
-        return {type:'paper',latest:true,date:it.date||'最新',title:it.title,
-          desc:(it.authors?'作者：'+it.authors+' · ':'')+'来源：'+(it.journal||'体育学核心期刊'),
+        var src=it.journal||'体育学核心期刊';
+        if(it.journalZh) src=src+' · '+it.journalZh;
+        return {type:'paper',latest:true,date:it.date||'最新',title:it.title,titleZh:it.titleZh||'',
+          journal:it.journal||'',journalZh:it.journalZh||'',
+          desc:(it.authors?'作者：'+it.authors+' · ':'')+'来源：'+src,
           url:it.link||'',action:'阅读论文'};
       });
       var seen={};latest.forEach(function(x){seen[x.title]=1;});
@@ -16419,6 +16422,21 @@ html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"].on small{
             var c=el.style.getPropertyValue('--an-c')||'';
             if(/a78bfa|A855F7|7c3aed/i.test(c)) el.style.setProperty('--an-c','#2C6E9E');
           });
+          // 英文论文：标题下补中文对照（来自 news-snapshot 的 titleZh）
+          try{
+            var byTitle={};
+            (snap&&snap.items||[]).forEach(function(it){
+              if(it&&it.title&&it.titleZh) byTitle[it.title]=it.titleZh;
+            });
+            document.querySelectorAll('#vw-academicnews .an-card h3, #vw-academicnews .an-news h3').forEach(function(h){
+              var t=h.textContent||'';
+              if(!byTitle[t]||h.parentNode.querySelector('.an-title-zh')) return;
+              var p=document.createElement('p');
+              p.className='an-title-zh';
+              p.textContent=byTitle[t];
+              h.insertAdjacentElement('afterend',p);
+            });
+          }catch(eZh){}
           // also refresh KPI after data ready
           fillScholarKpis();
         }catch(e){}
@@ -16464,7 +16482,7 @@ html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"].on small{
 </script>
 
 <script defer src="portal.9149a373.js"></script><!-- offline: stripped cf -->
-<script defer src="home-news.666b7547.js"></script>
+<script defer src="home-news.15c28518.js"></script>
 <script id="cssd-boot-reveal">(function(){
   function reveal(){try{document.documentElement.classList.add('cssd-boot-ready');}catch(e){}}
   function onReady(){requestAnimationFrame(function(){requestAnimationFrame(reveal);});}
