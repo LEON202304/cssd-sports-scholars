@@ -33,7 +33,9 @@ import os
 import re
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
+from threading import local
 from urllib.parse import urljoin
 
 import requests
@@ -54,16 +56,25 @@ BJT = dt.timezone(dt.timedelta(hours=8))
 UA = ("tiyuxueren-bot/1.0 (http://tiyuxueren.com/; mailto:admin@tiyuxueren.com) "
       "Mozilla/5.0 (compatible; academic-portal-bot)")
 
-SESSION = requests.Session()
-SESSION.headers.update({
-    "User-Agent": UA,
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.6",
-})
+_THREAD_SESSION = local()
+
+
+def current_session() -> requests.Session:
+    sess = getattr(_THREAD_SESSION, "session", None)
+    if sess is None:
+        sess = requests.Session()
+        sess.headers.update({
+            "User-Agent": UA,
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.6",
+        })
+        _THREAD_SESSION.session = sess
+    return sess
 
 
 def log(msg: str) -> None:
-    print(msg, flush=True)
+    safe = msg.replace("✓", "OK").replace("✗", "ERR")
+    print(safe, flush=True)
 
 
 def today_bjt() -> dt.date:
@@ -71,10 +82,11 @@ def today_bjt() -> dt.date:
 
 
 def fetch(url: str) -> requests.Response:
+    session = current_session()
     last: Exception | None = None
     for attempt in range(RETRIES + 1):
         try:
-            r = SESSION.get(url, timeout=TIMEOUT, allow_redirects=True)
+            r = session.get(url, timeout=TIMEOUT, allow_redirects=True)
             r.raise_for_status()
             if not r.encoding or r.encoding.lower() in ("iso-8859-1", "ascii"):
                 r.encoding = r.apparent_encoding or "utf-8"
@@ -151,7 +163,8 @@ def translate_en_zh(text: str) -> str:
     if len(q) > 450:
         q = q[:450]
     try:
-        r = SESSION.get(
+        session = current_session()
+        r = session.get(
             "https://api.mymemory.translated.net/get",
             params={"q": q, "langpair": "en|zh-CN"},
             timeout=TIMEOUT,
@@ -537,22 +550,40 @@ def dump(obj) -> str:
     return json.dumps(obj, ensure_ascii=False, indent=2) + "\n"
 
 
+def run_source(name: str, fn) -> tuple[str, list[dict], bool, float, str | None]:
+    t0 = time.time()
+    try:
+        got = [x for x in fn() if x["title"]]
+        if not got:
+            raise RuntimeError("解析结果为 0 条（页面结构可能变化）")
+        return name, got, True, time.time() - t0, None
+    except Exception as e:  # noqa: BLE001
+        return name, [], False, time.time() - t0, f"{type(e).__name__}: {str(e)[:160]}"
+
+
 def main() -> int:
     log(f"== 体育学人 · 最新论文抓取  {dt.datetime.now(BJT):%Y-%m-%d %H:%M} 北京时间")
     new: list[dict] = []
     ok, bad = [], []
-    for name, fn in SOURCES:
-        t0 = time.time()
-        try:
-            got = [x for x in fn() if x["title"]]
-            if not got:
-                raise RuntimeError("解析结果为 0 条（页面结构可能变化）")
+    results: list[tuple[str, list[dict], bool, float, str | None]] = [None] * len(SOURCES)  # type: ignore[list-item]
+    max_workers = min(8, max(1, len(SOURCES)))
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {
+            executor.submit(run_source, name, fn): idx
+            for idx, (name, fn) in enumerate(SOURCES)
+        }
+        for future in as_completed(futures):
+            idx = futures[future]
+            results[idx] = future.result()
+
+    for name, got, succeeded, elapsed, error in results:
+        if succeeded:
             new.extend(got)
             ok.append(name)
-            log(f"  ✓ {name:<10} {len(got):>2} 条  {time.time()-t0:5.1f}s  最新 {max(date_key(x['date']) for x in got)}")
-        except Exception as e:  # noqa: BLE001
+            log(f"  ✓ {name:<10} {len(got):>2} 条  {elapsed:5.1f}s  最新 {max(date_key(x['date']) for x in got)}")
+        else:
             bad.append(name)
-            log(f"  ✗ {name:<10} 失败  {time.time()-t0:5.1f}s  {type(e).__name__}: {str(e)[:160]}")
+            log(f"  ✗ {name:<10} 失败  {elapsed:5.1f}s  {error or 'Unknown error'}")
 
     log(f"可用源 {len(ok)}/{len(SOURCES)}：{'、'.join(ok) or '无'}；失败：{'、'.join(bad) or '无'}")
     if not new:
