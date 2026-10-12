@@ -38,11 +38,28 @@ CSSD 是一个纯静态、可离线运行的学术资源数据库，系统整理
 - **数据分层**：
   - `sports-*.js`：主数据（学者、机构、期刊、项目），文件名带内容哈希，可长缓存
   - `latest_papers.json` / `news-snapshot.json` / `xuejie-snapshot.json` / `daily-dynamics.json`：每日更新的动态数据（短缓存）
-  - `portal.*.css/js`：界面样式与交互
+  - `portal.<hash>.css/js`、`portal.premium.<hash>.css`、`home-news/xuejie.<hash>.js`：界面与首页脚本（内容哈希，immutable）
+  - `portal.polish.css` / `home-daily.js`：迭代用固定名（短缓存）
 - **部署**：
   - 主站由 **EdgeOne Pages** 托管（国内加速、HTTPS、安全响应头与缓存策略见 `edgeone.json`）
   - 镜像由 **GitHub Pages** 自动构建
   - 二者均以本仓库 `main` 分支为唯一内容源
+
+## 缓存与发布（cache-bust）
+
+EdgeOne 对带内容哈希的资产（`portal.<hash>.js/css`、`sports-*.js`、`home-news.<hash>.js`、`home-xuejie.<hash>.js`、`portal.premium.<hash>.css`）下发 `Cache-Control: immutable; max-age=31536000`。**内容变了必须换新文件名**，并同步更新 `index.html` 里的 `<link>` / `<script>` / `preload`；禁止把新字节写回旧的 immutable 文件名（否则用户普通刷新仍可能拿到旧壳）。
+
+固定短缓存、本脚本不哈希的文件：`portal.polish.css`、`home-daily.js`，以及每日 JSON（`latest_papers.json` / `news-snapshot.json` / `xuejie-snapshot.json` / `daily-dynamics.json`）。
+
+**改完壳或数据后的发布步骤：**
+
+1. 编辑资产（如 `portal.*.js`、数据脚本等）
+2. 在仓库根目录执行：`node scripts/cache-bust.mjs`（会按 sha256 前 8 位重命名，并改 HTML 引用）
+3. 可选自检：`node scripts/cache-bust.mjs --check`（有漂移则 exit 1）
+4. 把**新文件名 + 更新后的 HTML** 一起提交并推到 `main`（旧 hash 文件可留在 Git 历史；CDN 上旧对象自然过期即可）
+5. EdgeOne / GitHub Pages 随 `main` 发布；勿只覆盖旧 immutable 路径
+
+`--dry` 可只看计划不落盘。
 
 ## 自动化：学术动态每日更新
 
