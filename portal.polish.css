@@ -2893,17 +2893,20 @@ html.cssd-light body header.sp-header .sp-tools .sp-cmd-hint{display:none;}
 }
 
 /* ═════════════════════════════════════════════════════════════════
-   news-columns-align — 学术动态 / 学界动态 左右底部齐平
-   策略：栅格 stretch 等高；右栏 flex 均分填满；左卡内容贴顶不拉空白
+   news-columns-align / hn-row-stack-fix —
+   学术动态 / 学界动态：左右可齐高，但右卡子项不得被 flex 收缩叠字。
+   根因：曾用 .hn-row{flex:1 1 0;min-height:0} + 子项 -webkit-line-clamp，
+   把 titleZh 与 authors 压成一层。改为子项 flex:0 0 auto + block，
+   等高用 min-height，不靠压扁子项。
    ═════════════════════════════════════════════════════════════════ */
 html.cssd-light body #sportsPortal .hn-layout,
 html.cssd-light body #sportsPortal .xj-layout{
-  align-items:stretch;
+  align-items:start;
 }
 html.cssd-light body #sportsPortal .hn-lead,
 html.cssd-light body #sportsPortal .xj-lead{
   height:auto;
-  align-self:stretch;
+  align-self:start;
   justify-content:flex-start;
 }
 html.cssd-light body #sportsPortal .hn-list,
@@ -2911,20 +2914,87 @@ html.cssd-light body #sportsPortal .xj-list{
   display:flex;
   flex-direction:column;
   gap:8px;
-  min-height:100%;
-  height:100%;
-  align-self:stretch;
+  height:auto;
+  min-height:0;
+  align-self:start;
 }
+/* 右卡：纵向排列但不均分高度；内容贴顶，高度随内容 */
 html.cssd-light body #sportsPortal .hn-row,
 html.cssd-light body #sportsPortal .xj-row{
-  flex:1 1 0;
+  flex:0 0 auto;
   display:flex;
   flex-direction:column;
-  justify-content:center;
+  justify-content:flex-start;
   min-height:0;
+  gap:0;
+}
+/* 英题 / 中题 / 作者 各占一块，禁止 flex 收缩叠压 */
+html.cssd-light body #sportsPortal .hn-row > .hn-meta,
+html.cssd-light body #sportsPortal .hn-row > h3,
+html.cssd-light body #sportsPortal .hn-row > .hn-title-zh,
+html.cssd-light body #sportsPortal .hn-row > .hn-authors,
+html.cssd-light body #sportsPortal .xj-row > .xj-meta,
+html.cssd-light body #sportsPortal .xj-row > h3,
+html.cssd-light body #sportsPortal .xj-row > .xj-authors{
+  flex:0 0 auto;
+  position:relative;
+  z-index:1;
+  min-height:unset;
+  max-height:none;
+}
+html.cssd-light body #sportsPortal .hn-row > h3,
+html.cssd-light body #sportsPortal .xj-row > h3{
+  display:block;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  overflow:hidden;
+  margin:0;
+}
+/* 右栏中文题：独立一行（block + 单行省略），勿再 -webkit-box 参与 flex 收缩 */
+html.cssd-light body #sportsPortal .hn-row > .hn-title-zh{
+  display:block !important;
+  margin:4px 0 0 !important;
+  line-height:1.45 !important;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  -webkit-line-clamp:unset;
+  -webkit-box-orient:unset;
+  max-height:1.45em;
+}
+html.cssd-light body #sportsPortal .hn-row > .hn-authors,
+html.cssd-light body #sportsPortal .xj-row > .xj-authors{
+  display:block !important;
+  margin:6px 0 0 !important;
+  line-height:1.45 !important;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
 }
 html.cssd-light body #sportsPortal .hn-layout-solo{
-  align-items:stretch;
+  align-items:start;
+}
+
+/* 学术动态全页：注入的中文题与描述/作者各占块 */
+html.cssd-light #vw-academicnews .an-card .an-title-zh,
+html.cssd-light #vw-academicnews .an-news .an-title-zh{
+  display:block !important;
+  position:relative;
+  z-index:1;
+  flex:0 0 auto;
+  margin:6px 0 0;
+  line-height:1.45;
+  overflow:hidden;
+}
+html.cssd-light #vw-academicnews .an-card > h3,
+html.cssd-light #vw-academicnews .an-news > h3,
+html.cssd-light #vw-academicnews .an-card > p,
+html.cssd-light #vw-academicnews .an-news > p{
+  display:block;
+  position:relative;
+  z-index:1;
+  flex:0 0 auto;
 }
 
 @media (max-width:860px){
