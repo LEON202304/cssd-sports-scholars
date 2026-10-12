@@ -2823,7 +2823,7 @@ html.cssd-light body .cnki-table .cnki-jrnl-tag{
 }
 
 /* ═════════════════════════════════════════════════════════════════
-   header-nav-promote — 去副标题；主链紧凑（平铺三项已迁入分组下拉）
+   header-nav-promote — 去副标题；主链含奠基人/精品课程/学术AI；窄屏后三项回全部导航
    ═════════════════════════════════════════════════════════════════ */
 /* 副标题整块移除（JS 已不渲染；CSS 兜底） */
 html.cssd-light body header.sp-header .sp-brand-sub,

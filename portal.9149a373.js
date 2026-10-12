@@ -18,19 +18,27 @@ trend:`<svg viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height=
 };
 const icon=(k,cls='')=>'<span class="sp-logo'+(cls?' '+cls:'')+'" aria-hidden="true">'+logos[k]+'</span>';
 
-/* Top IA 方案2：主链 6 项 + 「人才与学者」「学位与专业」两组下拉；
-   #26 平铺的奠基人/精品课程/学术AI 撤出主链，分别进对应分组。 */
+/* Top IA 方案2（用户拍板）：主链保留奠基人/精品课程/学术AI；
+   另加「人才与学者」「学位与专业」两组下拉收全部导航剩余项。 */
+const navPromoteIds=new Set(['founders','courses','aitools']);
 const nav=[
   ['home','首页'],
   ['scholars','学者库'],
   ['institutions','院校机构'],
   ['journals','期刊数据库'],
   ['projects','科研项目'],
-  ['disciplines','学科分类']
+  ['disciplines','学科分类'],
+  ['founders','体育学奠基人'],
+  ['courses','精品课程'],
+  ['aitools','学术 AI 工具']
+];
+const navPromote=[
+  ['founders','体育学奠基人'],
+  ['courses','精品课程'],
+  ['aitools','学术 AI 工具']
 ];
 const navGroups=[
   {id:'talent',label:'人才与学者',items:[
-    ['founders','体育学奠基人'],
     ['hats','人才计划'],
     ['yangtze','长江学者'],
     ['youthscholar','青年学者'],
@@ -41,9 +49,7 @@ const navGroups=[
   {id:'degree',label:'学位与专业',items:[
     ['degreepoint','学位点专栏'],
     ['majorcat','本科专业目录'],
-    ['phdschools','博士授权院校'],
-    ['courses','精品课程'],
-    ['aitools','学术 AI 工具']
+    ['phdschools','博士授权院校']
   ]}
 ];
 const navGroupRouteIds=new Set(navGroups.flatMap(g=>g.items.map(i=>i[0])));
@@ -57,7 +63,7 @@ const quick=[
   ['degreepoint','学位点专栏','博士点、硕士点、学科评估','cap'],
   ['hats','人才计划','院士、长江、青年项目','star']
 ];
-/* 窄屏全部导航：由分组展开；桌面主栏已有分组下拉 */
+/* 窄屏全部导航：分组项 + #26 后三项回填；桌面主栏有分组下拉与三项平铺 */
 const moreExtra=navGroups.flatMap(g=>g.items);
 const routeJumps=[
   ['home','首页'],['scholars','学者库'],['institutions','院校机构'],['journals','期刊数据库'],
@@ -489,6 +495,7 @@ function start(){
   const head=document.createElement('header');
   head.className='sp-header';
   const topSet=new Set(nav.map(n=>n[0]));
+  /* 窄屏全部导航：分组项 + 主栏后三项（桌面由 CSS 隐藏 sp-more-promoted） */
   const moreGroupedHtml=navGroups.map(g=>{
     const btns=g.items.filter(n=>!topSet.has(n[0])).map(n=>
       '<button class="sp-more-grouped" data-route="'+n[0]+'" onclick="spNavigate(\''+n[0]+'\')">'+n[1]+'</button>'
@@ -496,7 +503,11 @@ function start(){
     if(!btns) return '';
     return '<div class="sp-more-group-label">'+g.label+'</div>'+btns;
   }).join('');
-  const moreEmpty=!moreGroupedHtml.trim()?' sp-more--empty':'';
+  const morePromoteHtml=navPromote.map(n=>
+    '<button class="sp-more-promoted" data-route="'+n[0]+'" onclick="spNavigate(\''+n[0]+'\')">'+n[1]+'</button>'
+  ).join('');
+  const moreInner=moreGroupedHtml+morePromoteHtml;
+  const moreEmpty=!moreInner.trim()?' sp-more--empty':'';
   const groupHtml=navGroups.map(g=>{
     const routes=g.items.map(i=>i[0]).join(',');
     const panel=g.items.map(n=>
@@ -514,9 +525,10 @@ function start(){
     '</button>'+
     '<nav class="sp-links" aria-label="主要导航">'+
       nav.map(n=>{
+        const promo=navPromoteIds.has(n[0])?' sp-nav-promoted':'';
         const act=n[0]==='home'?' active':'';
         const cur=n[0]==='home'?'aria-current="page" ':'';
-        return '<button type="button" data-route="'+n[0]+'" class="'+act.trim()+'" '+cur+'onclick="spNavigate(\''+n[0]+'\')">'+n[1]+'</button>';
+        return '<button type="button" data-route="'+n[0]+'" class="'+(promo+act).trim()+'" '+cur+'onclick="spNavigate(\''+n[0]+'\')">'+n[1]+'</button>';
       }).join('')+
       groupHtml+
     '</nav>'+
@@ -525,7 +537,7 @@ function start(){
       '<button type="button" class="sp-en" title="Language">EN</button>'+
       '<button type="button" class="sp-btn sp-btn--ghost sp-login" onclick="if(typeof openClaimModal===\'function\')openClaimModal(null);">登录</button>'+
       '<button type="button" class="sp-btn sp-btn--primary sp-register" onclick="if(typeof openClaimModal===\'function\')openClaimModal(null);">注册</button>'+
-      '<details class="sp-more'+moreEmpty+'"><summary>全部导航</summary><div>'+moreGroupedHtml+'</div></details>'+
+      '<details class="sp-more'+moreEmpty+'"><summary>全部导航</summary><div>'+moreInner+'</div></details>'+
     '</div>';
   document.body.prepend(head);
 
