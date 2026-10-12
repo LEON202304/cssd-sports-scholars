@@ -1,8 +1,15 @@
 {
-  "generatedAt": "2026-10-11",
+  "generatedAt": "2026-10-12",
   "source": "cssd-xuejie-scraper",
   "statusHint": "live",
   "items": [
+    {
+      "type": "meet",
+      "title": "马克思主义学院召开 “优秀运动队思想政治工作研究” 专题研讨会",
+      "org": "南京体育学院",
+      "date": "2026-10-11",
+      "link": "https://www.nsi.edu.cn/6b/9f/c2342a93087/page.htm"
+    },
     {
       "type": "meet",
       "title": "第十届中国体育博士高层论坛论文拟录取通知",

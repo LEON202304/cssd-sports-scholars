@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11",
+  "generatedAt": "2026-10-12",
   "source": "期刊官网 TOC + Crossref 自动抓取（GitHub Actions 每日）：体育科学、上海体育大学学报、中国体育科技、北京体育大学学报、武汉体育学院学报、体育学刊、天津体育学院学报、体育与科学、西安体育学院学报、British Journal of Sports Medicine、Sports Medicine、Journal of Sport and Health Science、Medicine & Science in Sports & Exercise、Journal of Sports Sciences、Scandinavian Journal of Medicine & Science in Sports",
   "statusHint": "live",
   "items": [
@@ -29,6 +29,29 @@
       "date": "2026-12",
       "journalZh": "《运动与健康科学》",
       "titleZh": "人类发展和性别不平等与心肺健康有关：对V O2峰的全球系统评价"
+    },
+    {
+      "journal": "Sports Medicine",
+      "title": "Effect Size Calculation Procedures in Exercise Intervention Meta-Analyses: A Scoping Review",
+      "authors": "Simon Nolte, Theresa Siepe, Jennifer Murphy, Oliver J. Quittmann, Daniel Memmert, Robert Rein",
+      "link": "https://doi.org/10.1007/s40279-026-02549-7",
+      "date": "2026-10-11",
+      "journalZh": "《运动医学》",
+      "titleZh": "运动干预荟萃分析中的效应大小计算程序：范围界定综述"
+    },
+    {
+      "journal": "体育与科学",
+      "title": "从内在认同到外在践行:竞技体育后备人才道德认同的结构维度与影响机制",
+      "authors": "籍婷暄, 马艳红",
+      "link": "https://tyyk.cbpt.cnki.net/portal/journal/portal/client/paper/9e236d6e6242f52ab142611824236e83",
+      "date": "2026-10-10"
+    },
+    {
+      "journal": "体育与科学",
+      "title": "作为共享文明的赛场:基于网球项目观赛秩序建构的考察",
+      "authors": "董嘉颖, 李爱群",
+      "link": "https://tyyk.cbpt.cnki.net/portal/journal/portal/client/paper/6e25474d6c2d5ffd11c01d965f5a328f",
+      "date": "2026-10-10"
     },
     {
       "journal": "Medicine & Science in Sports & Exercise",
@@ -83,15 +106,6 @@
       "date": "2026-10-06",
       "journalZh": "《运动医学》",
       "titleZh": "单纯1型糖尿病最大强度运动期间的氧输送级联：叙事综述"
-    },
-    {
-      "journal": "Sports Medicine",
-      "title": "Breaking Barriers: What is the Probability of Achieving Mile World Records in the Near Future?",
-      "authors": "Alejandro Alda-Blanco, Andrew M. Jones, Fernando González-Mohíno",
-      "link": "https://doi.org/10.1007/s40279-026-02545-x",
-      "date": "2026-10-06",
-      "journalZh": "《运动医学》",
-      "titleZh": "打破障碍：在不久的将来实现里程世界纪录的可能性有多大？"
     },
     {
       "journal": "Journal of Sports Sciences",
@@ -317,20 +331,6 @@
       "title": "传统体育文化主体性危机与创造性转化路径——与杨文轩教授的学术对话",
       "authors": "杜长亮, 赵妍, 徐诺渲",
       "link": "https://tyyk.cbpt.cnki.net/portal/journal/portal/client/paper/df4e8799565c7285266fb7d1cf156541",
-      "date": "2026-07-25"
-    },
-    {
-      "journal": "体育与科学",
-      "title": "方位、路径与机制：体育非物质文化遗产促进铸牢中华民族共同体意识的内在逻辑",
-      "authors": "马廉祯, 黄仕瑜, 袁进业",
-      "link": "https://tyyk.cbpt.cnki.net/portal/journal/portal/client/paper/3f24d7d7b495d9790b6be38e41a45000",
-      "date": "2026-07-25"
-    },
-    {
-      "journal": "体育与科学",
-      "title": "情感极化驱动体育“饭圈文化”畸形化的网络传播机制研究",
-      "authors": "陈文佳, 刘宗玉, 张矛矛",
-      "link": "https://tyyk.cbpt.cnki.net/portal/journal/portal/client/paper/ace76e4182f2817d5758e020bc26ec91",
       "date": "2026-07-25"
     },
     {
