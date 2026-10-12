@@ -3257,3 +3257,33 @@ html.cssd-light body header.sp-header .sp-more.sp-more--empty{display:none !impo
 @media (max-width:1439px) and (min-width:901px){
   html.cssd-light body header.sp-header nav.sp-links details.sp-nav-group > summary{font-size:12.5px;}
 }
+
+
+/* ═════════════════════════════════════════════════════════════════
+   hn-row-stack-fix — 学术动态右栏英/中/作者分行不叠字（加固）
+   #27 已合入主线；此处保证本分支 polish 亦禁止均分压扁。
+   ═════════════════════════════════════════════════════════════════ */
+html.cssd-light body #sportsPortal .hn-layout{align-items:start !important;}
+html.cssd-light body #sportsPortal .hn-list{
+  display:flex;flex-direction:column;gap:8px;height:auto !important;min-height:0;align-self:start;
+}
+html.cssd-light body #sportsPortal .hn-row{
+  display:grid !important;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto auto;
+  flex:0 0 auto !important;height:auto !important;min-height:0 !important;overflow:visible !important;
+  padding:12px 14px !important;justify-content:start;align-content:start;
+}
+html.cssd-light body #sportsPortal .hn-row > .hn-meta{grid-row:1;margin:0 0 6px !important;}
+html.cssd-light body #sportsPortal .hn-row > h3{
+  grid-row:2;display:-webkit-box !important;-webkit-box-orient:vertical !important;-webkit-line-clamp:2 !important;
+  margin:0 !important;line-height:1.4 !important;overflow:hidden !important;position:static !important;
+}
+html.cssd-light body #sportsPortal .hn-row > .hn-title-zh{
+  grid-row:3;display:block !important;margin:6px 0 0 !important;line-height:1.45 !important;
+  overflow:hidden !important;text-overflow:ellipsis !important;white-space:nowrap !important;
+  position:static !important;color:#5B6575 !important;-webkit-text-fill-color:#5B6575 !important;
+}
+html.cssd-light body #sportsPortal .hn-row > .hn-authors{
+  grid-row:4;display:block !important;margin:6px 0 0 !important;line-height:1.45 !important;
+  overflow:hidden !important;text-overflow:ellipsis !important;white-space:nowrap !important;
+  position:static !important;color:#8A93A3 !important;-webkit-text-fill-color:#8A93A3 !important;
+}
