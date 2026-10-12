@@ -1,4 +1,12 @@
 (function(){
+/* Shared KPI number formatter (zh-CN thousand separators). Also set from polish-opt-js. */
+if(typeof window.cssdFormatNumber!=='function'){
+  window.cssdFormatNumber=function(n){
+    var x=Number(n);
+    if(!isFinite(x)) return String(n);
+    return x.toLocaleString('zh-CN');
+  };
+}
 const spSet=(id,html)=>{const el=document.getElementById(id);if(el)el.innerHTML=html;};
 const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 /* Quiet linear logos — brand blues + teal/gold accents */
@@ -212,7 +220,7 @@ function spRefresh(){
     [4,'研究生学科大类','layers','disciplines'],
     [18,'本科专业目录','cap','majorcat']
   ];
-  spSet('sp-metrics',metrics.map(m=>'<button onclick="spNavigate(\''+m[3]+'\')">'+strokeIcon(m[2])+'<span><b>'+m[0].toLocaleString('zh-CN')+'</b><small>'+m[1]+'</small></span></button>').join(''));
+  spSet('sp-metrics',metrics.map(m=>'<button onclick="spNavigate(\''+m[3]+'\')">'+strokeIcon(m[2])+'<span><b>'+window.cssdFormatNumber(m[0])+'</b><small>'+m[1]+'</small></span></button>').join(''));
   spPeople('all');
   const ds=[
     ['sci','运动人体科学','flask'],['psych','运动心理学','user'],['pe','体育教育学','cap'],['hu','体育人文社会学','book'],
