@@ -24,7 +24,7 @@ html.cssd-boot-ready #bootSplash{opacity:0!important;visibility:hidden!important
      首屏可省下约 900 KB（Brotli）。详见该脚本下方的 _cnkiLoad 懒加载器。 -->
 <link rel="preload" as="script" href="sports-scholars-data.3e48c01b.js">
 <link rel="preload" as="script" href="sports-univ-catalog.246ac284.js">
-<link rel="preload" as="script" href="portal.bf803f3b.js">
+<link rel="preload" as="script" href="portal.3bbae0fc.js">
 <link rel="preload" as="image" href="mountains.5f7d4f16.webp" type="image/webp" fetchpriority="high">
 
 <title>体育学人 · 中国体育学术资源数据库</title>
@@ -7892,13 +7892,12 @@ html.cssd-light #vw-phdschools .phd-tab.on{
 <!-- ═══════════════ 合规弹窗 HTML ═══════════════ -->
 
 <!-- A. 首次访问同意横幅 -->
-<div id="consent-banner">
-  <p>本平台收录数据来源于各高校及医院<b>官方公开网站</b>，仅供学术研究与师资参考使用，不用于任何商业目的。继续使用即表示您已阅读并同意我们的
-    <a onclick="openPrivacyModal()">隐私政策</a>与<a onclick="openPrivacyModal('data')">数据来源声明</a>。
-    如您是收录学者本人，可通过「<a onclick="openClaimModal(null);dismissConsent()">信息认领</a>」通道行使查阅、更正或删除权利。
+<div id="consent-banner" role="dialog" aria-label="隐私与数据说明">
+  <p>本平台数据来自高校及医院<strong>官方公开网站</strong>，仅供学术研究与师资参考，不用于商业目的。
+    <a class="consent-more" onclick="openPrivacyModal()">了解更多</a>
   </p>
-  <button class="consent-reject" onclick="dismissConsent()">仅浏览</button>
-  <button class="consent-accept" onclick="acceptConsent()">我已了解，继续</button>
+  <button type="button" class="consent-reject" onclick="dismissConsent()">仅浏览</button>
+  <button type="button" class="consent-accept" onclick="acceptConsent()">我已了解，继续</button>
 </div>
 
 <!-- B. 隐私政策 Modal -->
@@ -16892,7 +16891,7 @@ html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"].on small{
 })();
 </script>
 
-<script defer src="portal.bf803f3b.js"></script><!-- offline: stripped cf -->
+<script defer src="portal.3bbae0fc.js"></script><!-- offline: stripped cf -->
 <script defer src="home-news.d47253ff.js"></script>
 <script defer src="home-xuejie.f886a191.js"></script>
 <script defer src="home-daily.js"></script>
