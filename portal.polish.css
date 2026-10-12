@@ -10,7 +10,7 @@
   --sp-bg:#F5F7FA;
   --sp-card:#FFFFFF;
   --sp-muted:#5B6575;
-  --sp-muted2:#8A93A3;
+  --sp-muted2:#64748B; /* P2-5: was #8A93A3 (~3.1:1); now ~4.8:1 on white */
   --sp-line:#E6EAF0;
   --sp-news-live:var(--sp-teal);
   --sp-news-stale:var(--sp-gold);
@@ -1845,7 +1845,7 @@ html.cssd-light body #sportsPortal .hn-meta time{
   flex:0 0 auto;
   font-size:12px;
   letter-spacing:.04em;
-  color:#8A93A3;
+  color:var(--sp-muted2);
   font-variant-numeric:tabular-nums;
 }
 html.cssd-light body #sportsPortal .hn-lead h3,
@@ -1962,7 +1962,7 @@ html.cssd-light body #sportsPortal .hn-grant-sub{
   margin:2px 0 0;
   font-size:12px;
   line-height:1.4;
-  color:#8A93A3;
+  color:var(--sp-muted2);
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
@@ -2019,7 +2019,7 @@ html.cssd-light body #sportsPortal .hn-more-sub{
   margin:2px 0 0;
   font-size:12px;
   line-height:1.4;
-  color:#8A93A3;
+  color:var(--sp-muted2);
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
@@ -2340,7 +2340,8 @@ html.cssd-light body #vw-journals .jnl-search{
   border-color:rgba(10,42,67,.16) !important;
 }
 html.cssd-light body #vw-journals .jnl-search::placeholder{
-  color:#6B7280 !important;
+  color:var(--sp-muted2) !important;
+  -webkit-text-fill-color:var(--sp-muted2) !important;
   opacity:1 !important;
 }
 html.cssd-light body #vw-journals .jnl-search-ico,
@@ -2408,7 +2409,7 @@ html.cssd-light body #sportsPortal .hn-journal-block .hn-journal{
 html.cssd-light body #sportsPortal .hn-journal-zh{
   display:block;
   padding:0 2px;
-  color:#8A93A3;
+  color:var(--sp-muted2);
   font-size:11px;
   font-weight:400;
   letter-spacing:.02em;
@@ -2616,7 +2617,7 @@ html.cssd-light body #sportsPortal .xj-meta time{
   flex:0 0 auto;
   font-size:12px;
   letter-spacing:.04em;
-  color:#8A93A3;
+  color:var(--sp-muted2);
   font-variant-numeric:tabular-nums;
 }
 html.cssd-light body #sportsPortal .xj-lead h3,
@@ -2779,7 +2780,7 @@ html.cssd-light body #sportsPortal .dy-col h3{margin:4px 0 2px;font-size:14px;li
   display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;}
 html.cssd-light body #sportsPortal .dy-col h3 a{color:#0A2A43;text-decoration:none;}
 html.cssd-light body #sportsPortal .dy-col h3 a:hover{color:#2C6E9E;text-decoration:underline;}
-html.cssd-light body #sportsPortal .dy-col .xj-sub{font-size:12px;color:#8A93A3;margin:0;}
+html.cssd-light body #sportsPortal .dy-col .xj-sub{font-size:12px;color:var(--sp-muted2);margin:0;}
 html.cssd-light body #sportsPortal .dy .xj-aside .dy-more,
 html.cssd-light body #sportsPortal .dy-more{
   color:#2C6E9E;font-weight:600;text-decoration:none;background:none;border:0;
@@ -2862,16 +2863,16 @@ html.cssd-light body #vw-daily .dy-row-title{
 html.cssd-light body #vw-daily .dy-row-title a{color:inherit;text-decoration:none;}
 html.cssd-light body #vw-daily .dy-row-title a:hover{color:#2C6E9E;text-decoration:underline;}
 html.cssd-light body #vw-daily .dy-row-date{
-  font-size:12px;color:#8A93A3;font-variant-numeric:tabular-nums;white-space:nowrap;
+  font-size:12px;color:var(--sp-muted2);font-variant-numeric:tabular-nums;white-space:nowrap;
   padding-top:2px;
 }
 html.cssd-light body #vw-daily .dy-row-source{
   grid-column:2 / 4;
-  margin:0;font-size:12px;color:#8A93A3;line-height:1.4;
+  margin:0;font-size:12px;color:var(--sp-muted2);line-height:1.4;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 html.cssd-light body #vw-daily .dy-empty{
-  padding:36px 20px;text-align:center;color:#8A93A3;font-size:14px;
+  padding:36px 20px;text-align:center;color:var(--sp-muted2);font-size:14px;
 }
 @media (max-width:640px){
   html.cssd-light body #vw-daily .dy-row{
@@ -2910,7 +2911,7 @@ html.cssd-light body details.sp-nav-group > summary::after{
   content:"▾";
   font-size:10px;
   line-height:1;
-  color:#8A93A3;
+  color:var(--sp-muted2);
   margin-left:2px;
 }
 html.cssd-light body details.sp-nav-group.is-active > summary,
@@ -3188,7 +3189,7 @@ html.cssd-light #vw-aitools .at-hero-input,
   line-height:1.4;
 }
 #vw-aitools .at-hero-input::placeholder{
-  color:var(--sp-muted2, #8A93A3);
+  color:var(--sp-muted2, #64748B);
   font-weight:400;
 }
 html.cssd-light #vw-aitools .at-hero-hint,
@@ -3248,7 +3249,7 @@ html.cssd-light #vw-aitools .at-cat-cnt,
 #vw-aitools .at-cat-cnt{
   font-family:'DM Mono',ui-monospace,monospace;
   font-size:.68rem;
-  color:var(--sp-muted2, #8A93A3) !important;
+  color:var(--sp-muted2, #64748B) !important;
   background:rgba(10,42,67,.04) !important;
   padding:2px 8px;
   border-radius:20px;
@@ -3707,4 +3708,43 @@ html.cssd-light body #vw-home .cssd-news-meta{
   html.cssd-light body #sportsPortal .xj-row:hover{
     transform:none;
   }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   search/secondary-contrast · P2-5
+   浅色主题：搜框 placeholder / 次要文案对比度 ≥4.5:1
+   统一走 --sp-muted2（#64748B），禁页内写死灰阶；opacity 必须为 1。
+   ═══════════════════════════════════════════════════════════════ */
+html.cssd-light body ::placeholder,
+html.cssd-light body input::placeholder,
+html.cssd-light body textarea::placeholder{
+  color:var(--sp-muted2) !important;
+  -webkit-text-fill-color:var(--sp-muted2) !important;
+  opacity:1 !important;
+}
+
+/* 覆盖 index.html 内 #94A3B8 / #7A8494 / opacity:.8 等低对比写死 */
+html.cssd-light body .ctlb input::placeholder,
+html.cssd-light body #vw-scholars .fi::placeholder,
+html.cssd-light body .fi::placeholder,
+html.cssd-light body #sportsPortal .sp-search input::placeholder,
+html.cssd-light body .cssd-dark-search input::placeholder,
+html.cssd-light body #qinp::placeholder,
+html.cssd-light body #globalSearchInput::placeholder,
+html.cssd-light body #vw-journals .jnl-search::placeholder,
+html.cssd-light body #vw-founders .fdr-search::placeholder,
+html.cssd-light body #vw-aitools .at-hero-input::placeholder,
+html.cssd-light body .claim-field input::placeholder,
+html.cssd-light body .claim-field textarea::placeholder{
+  color:var(--sp-muted2) !important;
+  -webkit-text-fill-color:var(--sp-muted2) !important;
+  opacity:1 !important;
+}
+
+/* 全局搜 / 深色遗留搜框：浅底上的输入字也走墨色，避免落到浅灰 */
+html.cssd-light body #globalSearchInput,
+html.cssd-light body .cssd-dark-search input,
+html.cssd-light body #qinp{
+  color:var(--sp-brand-900, #0A2A43) !important;
+  -webkit-text-fill-color:var(--sp-brand-900, #0A2A43) !important;
 }
