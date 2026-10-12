@@ -6,6 +6,35 @@
   var LABEL = {all:"全部", journal:"期刊", univ:"院校"};
   var HOME_CAP = 5; /* 首页每列条数（等量截断） */
 
+
+  /* 脏标题过滤（与 update_daily_dynamics.is_noise_title 对齐）
+     MIN_TITLE_LEN=6：丢弃 <6 字壳标题；短词精确匹配，≥4 字短语可子串命中。 */
+  var MIN_TITLE_LEN = 6;
+  var TITLE_EXACT_BLOCK = {
+    "首页":1, "更多":1, "版权":1, "网站地图":1, "无标题":1,
+    "untitled":1, "no title":1, "通知公告":1, "期刊新闻":1,
+    "期刊导读":1, "动态速递":1, "null":1, "none":1, "n/a":1, "na":1,
+    "-":1, "—":1, "–":1
+  };
+  var TITLE_CONTAIN_BLOCK = ["通知公告","期刊新闻","期刊导读","动态速递","网站地图","无标题"];
+
+  function isNoiseTitle(title){
+    var t = String(title == null ? "" : title).replace(/\s+/g, " ").trim();
+    if(!t) return true;
+    if(t.length < MIN_TITLE_LEN) return true;
+    var low = t.toLowerCase();
+    if(TITLE_EXACT_BLOCK[t] || TITLE_EXACT_BLOCK[low]) return true;
+    for(var i = 0; i < TITLE_CONTAIN_BLOCK.length; i++){
+      var p = TITLE_CONTAIN_BLOCK[i];
+      if(t.indexOf(p) !== -1 || low.indexOf(p.toLowerCase()) !== -1) return true;
+    }
+    return false;
+  }
+
+  function isUsableItem(it){
+    return !!(it && it.link && it.title && !isNoiseTitle(it.title));
+  }
+
   function esc(s){
     return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){
       return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
@@ -44,9 +73,7 @@
   }
 
   function usable(snap){
-    return !!(snap && Array.isArray(snap.items) && snap.items.some(function(it){
-      return it && it.title && it.link;
-    }));
+    return !!(snap && Array.isArray(snap.items) && snap.items.some(isUsableItem));
   }
 
   var _snapPromise = null;
@@ -111,9 +138,7 @@
   }
 
   function paintHome(root, snap){
-    var items = sortItems((snap.items || []).filter(function(it){
-      return it && it.title && it.link;
-    }));
+    var items = sortItems((snap.items || []).filter(isUsableItem));
     var journals = items.filter(function(it){ return catOf(it) === "journal"; }).slice(0, HOME_CAP);
     var univs = items.filter(function(it){ return catOf(it) === "univ"; }).slice(0, HOME_CAP);
     if(!journals.length && !univs.length){ root.remove(); return; }
@@ -306,9 +331,7 @@
       if(list) list.innerHTML = '<li class="dy-empty">暂无日报条目</li>';
       return;
     }
-    var items = sortItems((_pageSnap.items || []).filter(function(it){
-      return it && it.title && it.link;
-    }));
+    var items = sortItems((_pageSnap.items || []).filter(isUsableItem));
     items = filterItems(items, currentTab);
     if(!list) return;
     if(!items.length){

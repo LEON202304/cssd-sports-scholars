@@ -62,6 +62,37 @@ def clean(s: str | None) -> str:
     return re.sub(r"\s+", " ", (s or "")).strip()
 
 
+# —— 脏标题过滤（抓取侧）————————————————————————————
+# 规则：strip 后为空、长度 < MIN_TITLE_LEN、或命中黑名单（短词仅精确匹配，
+# ≥4 字短语允许子串命中）。MIN_TITLE_LEN=6：4 字壳标题（动态速递/期刊新闻/
+# 期刊导读/通知公告）一律丢弃；6 字及以上真实标题（如「干部任前公示」）保留。
+MIN_TITLE_LEN = 6
+_TITLE_EXACT_BLOCK = {
+    "首页", "更多", "版权", "网站地图", "无标题", "untitled", "no title",
+    "通知公告", "期刊新闻", "期刊导读", "动态速递",
+    "null", "none", "n/a", "na", "-", "—", "–",
+}
+_TITLE_CONTAIN_BLOCK = (
+    "通知公告", "期刊新闻", "期刊导读", "动态速递", "网站地图", "无标题",
+)
+
+
+def is_noise_title(title: str | None) -> bool:
+    """True = 应丢弃的壳/噪声标题。"""
+    t = clean(title)
+    if not t:
+        return True
+    if len(t) < MIN_TITLE_LEN:
+        return True
+    low = t.lower()
+    if t in _TITLE_EXACT_BLOCK or low in _TITLE_EXACT_BLOCK:
+        return True
+    for phrase in _TITLE_CONTAIN_BLOCK:
+        if phrase in t or phrase.lower() in low:
+            return True
+    return False
+
+
 def date_key(d: str) -> str:
     d = (d or "").strip()
     if re.fullmatch(r"\d{4}-\d{2}", d):
@@ -89,9 +120,12 @@ def collect(src: dict) -> list[dict]:
     for a in arts:
         if a.note or not a.url or not a.title:
             continue
+        title = clean(a.title)
+        if is_noise_title(title):
+            continue
         out.append({"cat": "期刊" if src.get("category", "期刊") == "期刊" else "院校",
                     "source": a.source_name, "section": a.section,
-                    "title": clean(a.title), "date": a.date,
+                    "title": title, "date": a.date,
                     "link": a.url})
     return out
 
