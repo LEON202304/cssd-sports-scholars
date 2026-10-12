@@ -3539,3 +3539,29 @@ html.cssd-light body #univCatalogPanel .uc-swatch--md{
 html.cssd-light body #univCatalogPanel a .uc-swatch{
   margin-right:4px;
 }
+
+/* ═════════════════════════════════════════════════════════════════
+   hotfix · 全国高校目录浅底对比度
+   暗色主题残留（#e0f2fe 等）在浅底不可读；JS 已改为 brand ink，
+   本分区作安全网 + 搜框 placeholder。可回退：删本分区 + 还原 catalog JS。
+   ═════════════════════════════════════════════════════════════════ */
+html.cssd-light body #univCatalogPanel [style*="color:#e0f2fe"],
+html.cssd-light body #univCatalogPanel [style*="color: #e0f2fe"]{
+  color:var(--sp-brand-900,#0A2A43) !important;
+}
+html.cssd-light body #univCatalogPanel [style*="color:#B8C2D0"]{
+  color:#5B6575 !important;
+}
+html.cssd-light body #univCatalogPanel #ucSearch{
+  background:#FFFFFF !important;
+  border:1px solid var(--sp-line,#E6EAF0) !important;
+  color:var(--sp-brand-900,#0A2A43) !important;
+}
+html.cssd-light body #univCatalogPanel #ucSearch::placeholder{
+  color:#667788 !important;
+  opacity:1;
+}
+html.cssd-light body #univCatalogPanel #ucSearch:focus{
+  border-color:rgba(46,154,137,.4) !important;
+  outline:none;
+}

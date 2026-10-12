@@ -378,9 +378,9 @@ window._ucTp=tp;
 ['all','985','211','双一流','url'].forEach(function(k){
   var b=document.getElementById('ucf-'+k);if(!b)return;
   var on=k===tp;
-  b.style.background=on?'rgba(46,154,137,.12)':'rgba(255,255,255,.04)';
-  b.style.borderColor=on?'rgba(46,154,137,.3)':'rgba(255,255,255,.09)';
-  b.style.color=on?'#2E9A89':'#8A94A8';
+  b.style.background=on?'rgba(46,154,137,.12)':'#F5F7FA';
+  b.style.borderColor=on?'rgba(46,154,137,.3)':'#E6EAF0';
+  b.style.color=on?'#2E9A89':'#5B6575';
 });
 var s=document.getElementById('ucSearch');
 filterCatalog(s?s.value:'',tp);
@@ -440,7 +440,7 @@ H+='<div style="background:linear-gradient(135deg,rgba(46,154,137,.065) 0%,rgba(
 +'<div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:14px;">'
 +'<div>'
 +'<div style="font-size:.62rem;letter-spacing:.15em;color:rgba(46,154,137,.65);font-family:\'DM Mono\',monospace;font-weight:700;margin-bottom:5px;text-transform:uppercase;">National University Sports Dept Directory</div>'
-+'<div style="font-family:\'Noto Serif SC\',serif;font-size:1.05rem;font-weight:700;color:#e0f2fe;margin-bottom:5px;">全国高校体育学院 · 体育部门目录</div>'
++'<div style="font-family:\'Noto Serif SC\',serif;font-size:1.05rem;font-weight:700;color:#0A2A43;margin-bottom:5px;">全国高校体育学院 · 体育部门目录</div>'
 +'<div style="font-size:.7rem;color:#475569;">数据来源：2025 软科中国大学排名 · 含体育专业类院校 · 信息仅供参考</div>'
 +'</div>'
 +'<div style="display:flex;gap:20px;flex-wrap:wrap;">'
@@ -453,26 +453,26 @@ H+='<div style="background:linear-gradient(135deg,rgba(46,154,137,.065) 0%,rgba(
 H+='<div style="margin-bottom:14px;">'
 +'<div style="position:relative;margin-bottom:9px;">'
 +'<span style="position:absolute;left:11px;top:50%;transform:translateY(-50%);color:#64748b;font-size:.84rem;pointer-events:none;">🔍</span>'
-+'<input id="ucSearch" type="text" placeholder="搜索院校名称、省份…" oninput="filterCatalog(this.value,window._ucTp||\'all\')" style="width:100%;padding:9px 12px 9px 34px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:9px;font-size:.84rem;color:#e0f2fe;outline:none;font-family:inherit;transition:border-color .2s;" onfocus="this.style.borderColor=\'rgba(46,154,137,.4)\'" onblur="this.style.borderColor=\'rgba(255,255,255,.09)\'">'
++'<input id="ucSearch" type="text" placeholder="搜索院校名称、省份…" oninput="filterCatalog(this.value,window._ucTp||\'all\')" style="width:100%;padding:9px 12px 9px 34px;background:#FFFFFF;border:1px solid #E6EAF0;border-radius:9px;font-size:.84rem;color:#0A2A43;outline:none;font-family:inherit;transition:border-color .2s;" onfocus="this.style.borderColor=\'rgba(46,154,137,.4)\'" onblur="this.style.borderColor=\'#E6EAF0\'">'
 +'</div>'
 +'<div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">'
 +'<span style="font-size:.67rem;color:#475569;flex-shrink:0;">筛选：</span>'
 +'<button id="ucf-all"   onclick="setUcFilter(\'all\')"   style="padding:4px 11px;border-radius:999px;border:1px solid rgba(46,154,137,.3);background:rgba(46,154,137,.12);color:#2E9A89;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;">全部</button>'
-+'<button id="ucf-985"   onclick="setUcFilter(\'985\')"   style="padding:4px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.04);color:#8A94A8;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;">985</button>'
-+'<button id="ucf-211"   onclick="setUcFilter(\'211\')"   style="padding:4px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.04);color:#8A94A8;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;">211</button>'
-+'<button id="ucf-双一流" onclick="setUcFilter(\'双一流\')" style="padding:4px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.04);color:#8A94A8;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;">双一流</button>'
-+'<button id="ucf-url"   onclick="setUcFilter(\'url\')"   style="padding:4px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.04);color:#8A94A8;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;">🔗 有体育官网</button>'
++'<button id="ucf-985"   onclick="setUcFilter(\'985\')"   style="padding:4px 11px;border-radius:999px;border:1px solid #E6EAF0;background:#F5F7FA;color:#5B6575;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;">985</button>'
++'<button id="ucf-211"   onclick="setUcFilter(\'211\')"   style="padding:4px 11px;border-radius:999px;border:1px solid #E6EAF0;background:#F5F7FA;color:#5B6575;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;">211</button>'
++'<button id="ucf-双一流" onclick="setUcFilter(\'双一流\')" style="padding:4px 11px;border-radius:999px;border:1px solid #E6EAF0;background:#F5F7FA;color:#5B6575;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;">双一流</button>'
++'<button id="ucf-url"   onclick="setUcFilter(\'url\')"   style="padding:4px 11px;border-radius:999px;border:1px solid #E6EAF0;background:#F5F7FA;color:#5B6575;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;">🔗 有体育官网</button>'
 +'<span id="ucResultCount" style="margin-left:auto;font-size:.68rem;color:#475569;font-family:\'DM Mono\',monospace;">共 '+totalUni+' 所院校</span>'
 +'</div></div>';
 // ── 3. Region Quick-Jump Bar ──
-var jH='<div style="display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin-bottom:22px;padding:9px 13px;background:rgba(255,255,255,.03);border-radius:9px;border:1px solid rgba(255,255,255,.06);">'
+var jH='<div style="display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin-bottom:22px;padding:9px 13px;background:#F5F7FA;border-radius:9px;border:1px solid #E6EAF0;">'
 +'<span style="font-size:.64rem;color:#475569;white-space:nowrap;flex-shrink:0;margin-right:2px;">快速跳转 ›</span>';
 REGS.forEach(function(r){
   jH+='<a href="#" onclick="event.preventDefault();var e=document.getElementById(\'ucr-'+r.k+'\');if(e)e.scrollIntoView({behavior:\'smooth\',block:\'start\'});" style="font-size:.7rem;padding:3px 9px;border-radius:6px;background:rgba('+r.rgb+',.08);color:'+r.clr+';text-decoration:none;white-space:nowrap;transition:opacity .15s;" onmouseenter="this.style.opacity=\'.7\'" onmouseleave="this.style.opacity=\'1\'">'+'<span class="uc-swatch" style="background:'+r.clr+'" aria-hidden="true"></span> '+r.k+'</a>';
 });
 jH+='<span style="color:#33415C;padding:0 2px;font-size:.7rem;">·</span>';
 SPGRP.forEach(function(sg){
-  jH+='<a href="#" onclick="event.preventDefault();var e=document.getElementById(\'ucr-'+sg.k+'\');if(e)e.scrollIntoView({behavior:\'smooth\',block:\'start\'});" style="font-size:.7rem;padding:3px 9px;border-radius:6px;background:rgba(255,255,255,.03);color:#64748b;text-decoration:none;white-space:nowrap;border:1px solid rgba(255,255,255,.06);transition:all .15s;" onmouseenter="this.style.color=\''+sg.clr+'\';this.style.borderColor=\''+sg.clr+'\'" onmouseleave="this.style.color=\'#64748b\';this.style.borderColor=\'rgba(255,255,255,.06)\'">'+'<span class="uc-swatch" style="background:'+sg.clr+'" title="'+sg.label+'" aria-label="'+sg.label+'"></span></a>';
+  jH+='<a href="#" onclick="event.preventDefault();var e=document.getElementById(\'ucr-'+sg.k+'\');if(e)e.scrollIntoView({behavior:\'smooth\',block:\'start\'});" style="font-size:.7rem;padding:3px 9px;border-radius:6px;background:#FFFFFF;color:#5B6575;text-decoration:none;white-space:nowrap;border:1px solid #E6EAF0;transition:all .15s;" onmouseenter="this.style.color=\''+sg.clr+'\';this.style.borderColor=\''+sg.clr+'\'" onmouseleave="this.style.color=\'#5B6575\';this.style.borderColor=\'#E6EAF0\'">'+'<span class="uc-swatch" style="background:'+sg.clr+'" title="'+sg.label+'" aria-label="'+sg.label+'"></span></a>';
 });
 jH+='</div>';
 H+=jH;
@@ -486,12 +486,12 @@ var card=function(u){
   if(u.tp==='985')tpB='<span style="font-size:.5rem;padding:1px 4px;border-radius:3px;background:rgba(244,63,94,.12);color:#f87171;font-weight:700;border:1px solid rgba(244,63,94,.2);">985</span>';
   else if(u.tp==='211')tpB='<span style="font-size:.5rem;padding:1px 4px;border-radius:3px;background:rgba(56,189,248,.11);color:#3E82B0;font-weight:700;border:1px solid rgba(56,189,248,.2);">211</span>';
   else if(u.tp==='双一流')tpB='<span style="font-size:.5rem;padding:1px 4px;border-radius:3px;background:rgba(44,110,158,.12);color:#2C6E9E;font-weight:700;border:1px solid rgba(44,110,158,.2);">双一流</span>';
-  var pvB='<span style="font-size:.5rem;padding:1px 4px;border-radius:3px;background:rgba(255,255,255,.05);color:#64748b;border:1px solid rgba(255,255,255,.08);">'+u.prov+'</span>';
-  var nm=u.iu?'<a href="'+u.iu+'" target="_blank" rel="noopener" style="color:#e0f2fe;font-weight:600;font-size:.83rem;text-decoration:none;" onmouseenter="this.style.color=\'#3E82B0\'" onmouseleave="this.style.color=\'#e0f2fe\'">'+u.n+'</a>':'<span style="color:#B8C2D0;font-weight:600;font-size:.83rem;">'+u.n+'</span>';
+  var pvB='<span style="font-size:.5rem;padding:1px 4px;border-radius:3px;background:#F5F7FA;color:#5B6575;border:1px solid #E6EAF0;">'+u.prov+'</span>';
+  var nm=u.iu?'<a href="'+u.iu+'" target="_blank" rel="noopener" style="color:#0A2A43;font-weight:600;font-size:.83rem;text-decoration:none;" onmouseenter="this.style.color=\'#3E82B0\'" onmouseleave="this.style.color=\'#0A2A43\'">'+u.n+'</a>':'<span style="color:#5B6575;font-weight:600;font-size:.83rem;">'+u.n+'</span>';
   var dpt=u.url
     ?'<a href="'+u.url+'" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;font-size:.65rem;color:#2E9A89;padding:2px 7px;border-radius:5px;background:rgba(46,154,137,.07);border:1px solid rgba(46,154,137,.15);margin-top:5px;text-decoration:none;transition:background .15s;" onmouseenter="this.style.background=\'rgba(46,154,137,.15)\'" onmouseleave="this.style.background=\'rgba(46,154,137,.07)\'">🔗 '+u.dept+'</a>'
     :'<span style="display:inline-flex;align-items:center;gap:3px;font-size:.65rem;color:#33415C;margin-top:5px;" title="暂无体育部门官网">🔒 '+u.dept+'</span>';
-  return '<div class="uc-card" data-n="'+u.n+'" data-prov="'+u.prov+'" data-tp="'+u.tp+'" data-url="'+(u.url?'1':'0')+'" style="background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.055);border-radius:9px;padding:11px 13px;transition:border-color .15s,background .15s;" onmouseenter="this.style.borderColor=\'rgba(46,154,137,.22)\';this.style.background=\'rgba(46,154,137,.03)\'" onmouseleave="this.style.borderColor=\'rgba(255,255,255,.055)\';this.style.background=\'rgba(255,255,255,.025)\'">'
+  return '<div class="uc-card" data-n="'+u.n+'" data-prov="'+u.prov+'" data-tp="'+u.tp+'" data-url="'+(u.url?'1':'0')+'" style="background:#FFFFFF;border:1px solid #E6EAF0;border-radius:9px;padding:11px 13px;transition:border-color .15s,background .15s;" onmouseenter="this.style.borderColor=\'rgba(46,154,137,.22)\';this.style.background=\'rgba(46,154,137,.03)\'" onmouseleave="this.style.borderColor=\'#E6EAF0\';this.style.background=\'#FFFFFF\'">'
   +'<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:6px;margin-bottom:1px;">'
   +'<div style="min-width:0;flex:1;">'
   +nm
@@ -833,14 +833,14 @@ function openProjPersonMod(name,unit){
     var lnk=p.articleUrl
       ?'<a href="'+p.articleUrl+'" target="_blank" rel="noopener" style="font-size:.62rem;color:#64748b;text-decoration:none;padding:1px 5px;border-radius:4px;border:1px solid rgba(255,255,255,.1);">&#8599; 原文</a>'
       :'';
-    return '<div style="padding:9px 12px;border-radius:8px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);margin-bottom:7px;">'
+    return '<div style="padding:9px 12px;border-radius:8px;background:#FFFFFF;border:1px solid #E6EAF0;margin-bottom:7px;">'
       +'<div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:5px;">'
       +'<span style="font-size:.68rem;font-family:DM Mono,monospace;color:#8A94A8;flex-shrink:0;">'+(p.year||'--')+'</span>'
       +'<span style="font-size:.62rem;padding:1px 6px;border-radius:4px;background:rgba(46,154,137,.1);color:#2E9A89;border:1px solid rgba(46,154,137,.18);">'+(p.category||'')+'</span>'
       +(p.code?'<span style="font-size:.6rem;color:#64748b;font-family:DM Mono,monospace;">'+p.code+'</span>':'')
       +lnk
       +'</div>'
-      +'<div style="font-size:.82rem;color:#e0f2fe;line-height:1.5;">'+(p.projectTitle||'')+'</div>'
+      +'<div style="font-size:.82rem;color:#0A2A43;line-height:1.5;">'+(p.projectTitle||'')+'</div>'
       +'</div>';
   }).join('');
   var mtp=document.getElementById('mtp');
