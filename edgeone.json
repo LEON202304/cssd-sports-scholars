@@ -1,5 +1,5 @@
 {
-  "_comment": "EdgeOne Pages 项目配置：缓存策略 + 安全响应头。放在项目根目录，随项目一起部署。若你的部署方式不支持本文件，请在 EdgeOne 控制台的「规则引擎 / 响应头配置」中按同样内容手工添加。",
+  "_comment": "EdgeOne Pages 项目配置：缓存策略 + 安全响应头。放在项目根目录，随项目一起部署。带内容哈希的 JS/CSS（portal.<hash>.*、sports-*、home-news.*、home-xuejie.*、portal.premium.<hash>.css）一律 immutable 长缓存——内容变更必须换新文件名并同步改 HTML（见 scripts/cache-bust.mjs），禁止同名覆盖。若部署方式不支持本文件，请在 EdgeOne 控制台的「规则引擎 / 响应头配置」中按同样内容手工添加。",
   "headers": [
     {
       "_rule": "全站基础安全响应头",
@@ -98,6 +98,46 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=604800"
+        }
+      ]
+    },
+    {
+      "_rule": "首页学术动态脚本（内容哈希）：一年长缓存",
+      "source": "/home-news.*.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "_rule": "首页学界动态脚本（内容哈希）：一年长缓存",
+      "source": "/home-xuejie.*.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "_rule": "每日动态脚本：短缓存（固定文件名，便于日更）",
+      "source": "/home-daily.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300, stale-while-revalidate=3600"
+        }
+      ]
+    },
+    {
+      "_rule": "每日动态 JSON：短缓存",
+      "source": "/daily-dynamics.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300, stale-while-revalidate=3600"
         }
       ]
     },
