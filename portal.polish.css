@@ -3438,17 +3438,31 @@ html.cssd-light body #vw-projects .sp-panel-titles{
 }
 /* App 列表标题字重/色走 token，压过机构页残留内联色 */
 html.cssd-light body #vw-scholars .sp-panel-titles h2.cssd-h2v,
+html.cssd-light body #vw-institutions .sp-panel-titles h2.cssd-h2v,
 html.cssd-light body #vw-institutions .sp-panel-titles h2,
 html.cssd-light body #vw-projects .sp-panel-titles .proj-title{
   color:var(--sp-brand-900, #0A2A43) !important;
   -webkit-text-fill-color:var(--sp-brand-900, #0A2A43) !important;
   font-weight:600 !important;
 }
+/* 院校 h2 字号走同一套 clamp，不再靠内联 1.6rem */
+html.cssd-light body #vw-institutions .sp-panel-titles h2.cssd-h2v,
+html.cssd-light body #vw-institutions .sp-panel-titles h2{
+  font-size:clamp(1.35rem, 2.4vw, 1.75rem) !important;
+}
 html.cssd-light body #vw-scholars .sp-panel-titles .sey,
 html.cssd-light body #vw-institutions .sp-panel-titles > div:first-child,
 html.cssd-light body #vw-projects .sp-panel-titles .proj-eyebrow{
   color:var(--sp-muted, #5B6575) !important;
   font-weight:500 !important;
+}
+/* 院校 hero 副标题：浅底上禁浅蓝半透明，走 muted token */
+html.cssd-light body #vw-institutions .sp-panel-titles p{
+  color:var(--sp-muted, #5B6575) !important;
+}
+/* 院校筛区「按地区/类型」小标题：浅底上禁白字，走 muted token */
+html.cssd-light body #vw-institutions .iv-filter-label{
+  color:var(--sp-muted, #5B6575) !important;
 }
 /* 期刊 marketing hero 保持居中，不套左竖条 */
 html.cssd-light body #vw-journals .jnl-hero,
