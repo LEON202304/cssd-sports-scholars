@@ -1,6 +1,6 @@
 {
   "generatedAt": "2026-10-12",
-  "source": "期刊官网 TOC + Crossref 自动抓取（GitHub Actions 每日）：体育科学、上海体育大学学报、中国体育科技、北京体育大学学报、武汉体育学院学报、体育学刊、天津体育学院学报、体育与科学、西安体育学院学报、British Journal of Sports Medicine、Sports Medicine、Journal of Sport and Health Science、Medicine & Science in Sports & Exercise、Journal of Sports Sciences、Scandinavian Journal of Medicine & Science in Sports",
+  "source": "期刊官网 TOC + Crossref 自动抓取（GitHub Actions 每日）：体育科学、上海体育大学学报、中国体育科技、北京体育大学学报、沈阳体育学院学报、体育学研究、体育学刊、天津体育学院学报、体育与科学、西安体育学院学报、British Journal of Sports Medicine、Sports Medicine、Journal of Sport and Health Science、Medicine & Science in Sports & Exercise、Journal of Sports Sciences、Scandinavian Journal of Medicine & Science in Sports",
   "statusHint": "live",
   "items": [
     {
@@ -38,6 +38,15 @@
       "date": "2026-10-11",
       "journalZh": "《运动医学》",
       "titleZh": "运动干预荟萃分析中的效应大小计算程序：范围界定综述"
+    },
+    {
+      "journal": "Journal of Sports Sciences",
+      "title": "Scanning in junior elite ice hockey players: In-situ analysis of gaze behaviour",
+      "authors": "Vladislav A. Bespomoshchnov, Jean Lemoyne, Geir Jordet, Christian Vater",
+      "link": "https://doi.org/10.1080/02640414.2026.2744018",
+      "date": "2026-10-11",
+      "journalZh": "《体育科学杂志》",
+      "titleZh": "初级精英冰球运动员的扫描：凝视行为的原位分析"
     },
     {
       "journal": "体育与科学",
@@ -115,15 +124,6 @@
       "date": "2026-10-06",
       "journalZh": "《体育科学杂志》",
       "titleZh": "由集体效能调节的教练创造的激励氛围对精英五人制足球运动员团队韧性的影响"
-    },
-    {
-      "journal": "Journal of Sports Sciences",
-      "title": "Assessment of perceived competence in aquatic education: Aspects of reliability and validity of the Perceived Swimming Competence Assessment Scale",
-      "authors": "Monika Haga, Håvard Lorås, Jon Sundan",
-      "link": "https://doi.org/10.1080/02640414.2026.2740990",
-      "date": "2026-10-06",
-      "journalZh": "《体育科学杂志》",
-      "titleZh": "水上教育感知能力评估：感知游泳能力评估量表的可靠性和有效性方面"
     },
     {
       "journal": "British Journal of Sports Medicine",
@@ -271,6 +271,13 @@
       "date": "2026-09"
     },
     {
+      "journal": "体育学研究",
+      "title": "中国体育口述史知识生产的再语境化逻辑与实...",
+      "authors": "",
+      "link": "http://ntxb.nsi.edu.cn/tyxyj/njtyxyxbsk/article/abstract/202608210000001",
+      "date": "2026-08-21"
+    },
+    {
       "journal": "体育科学",
       "title": "运动健康促进的理论要义、实践形态与推进路径",
       "authors": "杨桦, 祝莉",
@@ -327,6 +334,13 @@
       "date": "2026-08-05"
     },
     {
+      "journal": "体育学研究",
+      "title": "全球体育治理变革下中国体育文化国际传播的...",
+      "authors": "",
+      "link": "http://ntxb.nsi.edu.cn/tyxyj/njtyxyxbsk/article/abstract/202607250000002",
+      "date": "2026-07-25"
+    },
+    {
       "journal": "体育与科学",
       "title": "传统体育文化主体性危机与创造性转化路径——与杨文轩教授的学术对话",
       "authors": "杜长亮, 赵妍, 徐诺渲",
@@ -339,20 +353,6 @@
       "authors": "李游, 赵雪同, 李笋南, 邵婷",
       "link": "https://xaty.cbpt.cnki.net/portal/journal/portal/client/paper/23ecc4813548b63f7ea33766be170be9",
       "date": "2026-07-02"
-    },
-    {
-      "journal": "西安体育学院学报",
-      "title": "试论中华武术中的“击”与“舞”",
-      "authors": "邱丕相",
-      "link": "https://xaty.cbpt.cnki.net/portal/journal/portal/client/paper/838829dcfde58e565f2509e9ccf89de2",
-      "date": "2026-05-10"
-    },
-    {
-      "journal": "西安体育学院学报",
-      "title": "我国运动项目产业化的理论阐释、历史实践与发展路径",
-      "authors": "陈叙南, 杨铄, 郑芳",
-      "link": "https://xaty.cbpt.cnki.net/portal/journal/portal/client/paper/8057cc9ff9a59ebad03e60d705748552",
-      "date": "2026-05-10"
     }
   ]
 }
