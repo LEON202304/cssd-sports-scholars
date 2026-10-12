@@ -3748,3 +3748,45 @@ html.cssd-light body #qinp{
   color:var(--sp-brand-900, #0A2A43) !important;
   -webkit-text-fill-color:var(--sp-brand-900, #0A2A43) !important;
 }
+
+/* ── P2: 院校全称截断 + title ─────────────────────────────────
+   学者卡/表/机构卡/榜单：溢出省略，悬停 title 看全称。
+   父级需 min-width:0（机构卡 hd 已有）；表格格限宽防撑破。 */
+html.cssd-light .cssd-org-trunc,
+html.cssd-light body #sportsPortal .cssd-org-trunc{
+  display:inline-block;
+  max-width:100%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  vertical-align:bottom;
+}
+html.cssd-light .l3-inst-name,
+html.cssd-light .sc-inst-name,
+html.cssd-light .sci-inst-name,
+html.cssd-light .dlab-inst-name,
+html.cssd-light .cins .cssd-org-trunc,
+html.cssd-light .pins .cssd-org-trunc,
+html.cssd-light .l3-hat-inst .cssd-org-trunc,
+html.cssd-light .sci-scard-inst .cssd-org-trunc,
+html.cssd-light .dlab-scard-inst .cssd-org-trunc,
+html.cssd-light .gsr-sub .cssd-org-trunc{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  max-width:100%;
+}
+html.cssd-light .l3-inst-name,
+html.cssd-light .sc-inst-name{
+  display:block;
+}
+html.cssd-light td.cssd-org-trunc{
+  display:table-cell;
+  max-width:12em;
+}
+html.cssd-light .cins{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  max-width:100%;
+}

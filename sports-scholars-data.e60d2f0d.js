@@ -132,6 +132,10 @@ function hl(t){
   if(!q)return x;
   try{return x.replace(new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'),'<mark>$1</mark>');}catch(e){return x;}
 }
+/* P2: 院校全称截断 + title */
+function orgFull(s){return String((s&&(s.institution||s.s))||'');}
+function orgTrunc(s,cls){var f=orgFull(s);if(!f)return '';var c=cls||'cssd-org-trunc';return '<span class="'+c+'" title="'+esc(f)+'">'+esc(f)+'</span>';}
+function orgTruncHl(s,cls){var f=orgFull(s);if(!f)return '';var c=cls||'cssd-org-trunc';return '<span class="'+c+'" title="'+esc(f)+'">'+hl(f)+'</span>';}
 function filt(){
   /* Fast path: opening 学者库 with no filters — skip full scan/alloc */
   if(!discGroup&&!disc&&!hat&&!inst&&!gender&&!cat&&!role&&!prov&&!q&&!sortMode)return S;
@@ -674,7 +678,7 @@ function renderSc(){
     displayList.forEach(function(s){
       th+='<tr data-id="'+s.id+'" style="cursor:pointer">'
         +'<td style="color:#2E9A89;" data-id="'+s.id+'">'+s.n+'</td>'
-        +'<td style="color:#8A94A8;">'+s.s+'</td>'
+        +'<td class="cssd-org-trunc" style="color:#8A94A8;max-width:12em" title="'+esc(orgFull(s))+'">'+esc(orgFull(s))+'</td>'
         +'<td><span class="sp-disc-pill">'+s.dL+'</span></td>'
         +'<td>'+(s.hats.slice(0,1).map(function(h){return '<span class="sp-hat-pill"><span class="sp-star" aria-hidden="true">★</span>'+hS(h)+'</span>';}).join('')||'\u2014')+'</td>'
         +'<td style="color:#8A94A8;font-size:.78rem;">'+s.title.split('\u3001')[0]+'</td>'
@@ -756,7 +760,7 @@ function bCard(s){
         ${rb}
         <div class="cn sn-link">${hl(s.n)}</div>
         <div class="cen">${esc(s.e)}</div>
-        <div class="cins">\uD83C\uDFDB ${hl(s.s)} \u00b7 ${esc(s.dept)}</div>
+        <div class="cins">\uD83C\uDFDB ${orgTruncHl(s)} \u00b7 ${esc(s.dept)}</div>
       </div>
     </div>
     <div class="cb">
@@ -1033,7 +1037,7 @@ function hatFilter2(key,L1,HDEFS){
       }).join("");
       H+="<div class=\"l3-hat-card\" style=\"border-left-color:"+ac+"\" onclick=\"openMod(S.find(function(x){return x.id==="+s.id+";}))\""+">";
       H+="<div class=\"l3-hat-hd\"><div class=\"sci-avatar\" style=\"background:"+ac+"18;color:"+ac+";width:34px;height:34px;font-size:.85rem\">"+s.i+"</div>";
-      H+="<div><div class=\"l3-hat-name sn-link\" onclick=\"event.stopPropagation();openMod(S.find(function(x){return x.id==="+s.id+";})||S[0])\">"+s.n+"</div><div class=\"l3-hat-inst\">🏛 "+s.s+"</div></div></div>";
+      H+="<div><div class=\"l3-hat-name sn-link\" onclick=\"event.stopPropagation();openMod(S.find(function(x){return x.id==="+s.id+";})||S[0])\">"+s.n+"</div><div class=\"l3-hat-inst\">🏛 "+orgTrunc(s)+"</div></div></div>";
       H+="<div style=\"display:flex;gap:4px;flex-wrap:wrap;margin-bottom:5px\">"+tags+"</div>";
       H+="<div class=\"l3-hat-r\">"+s.r+"</div></div>";
     });
@@ -1180,7 +1184,7 @@ function instRenderCards(instList,cat,CATS){
       H+="<div class=\"l3-inst-card-hd\">";
       H+="<div class=\"l3-inst-icon l2-swatch\" style=\"background:"+cd.color+"\" aria-hidden=\"true\"></div>";
       H+="<div style=\"flex:1;min-width:0\">";
-      H+="<div class=\"l3-inst-name\">"+inst.name+"</div>";
+      H+="<div class=\"l3-inst-name\" title=\""+esc(inst.name)+"\">"+inst.name+"</div>";
       H+="<div class=\"l3-inst-sub\">"+inst.short+"</div>";
       H+="</div></div>";
       H+="<div class=\"l3-inst-badges\">";
@@ -1251,7 +1255,7 @@ function instRenderCardsEx(instList,cat,CATS,regionInfo){
       H+='<div class="l3-inst-card-hd">';
       H+='<div class="l3-inst-icon l2-swatch" style="background:'+cd.color+'" aria-hidden="true"></div>';
       H+='<div style="flex:1;min-width:0">';
-      H+='<div class="l3-inst-name">'+inst.name+provLabel+'</div>';
+      H+='<div class="l3-inst-name" title="'+esc(inst.name)+'">'+inst.name+provLabel+'</div>';
       H+='<div class="l3-inst-sub">'+inst.short+'</div>';
       H+='</div></div>';
       H+='<div class="l3-inst-badges">';
@@ -1314,7 +1318,7 @@ function renderPsychDir(){
     }).join('');
     const tierDot=s.pt==='found'?'🏛':s.pt==='young'?'🌱':'⭐';
     const impact=s.hon[0]?`<div class="pimpact">⭐ ${s.hon[0].length>40?s.hon[0].slice(0,40)+'…':s.hon[0]}</div>`:'';
-    return '<div class="pcard"><div class="pcard-top"><div class="pav">'+s.i+'</div><div style="flex:1;min-width:0"><div class="pname">'+tierDot+' '+s.n+'</div><div class="pins">🏛 '+s.s+' · '+s.dept+'</div></div></div><div class="pcard-body"><div class="ptags">'+plTags+'</div><div class="pres">📌 '+s.r+'</div>'+impact+'</div></div>';
+    return '<div class="pcard"><div class="pcard-top"><div class="pav">'+s.i+'</div><div style="flex:1;min-width:0"><div class="pname">'+tierDot+' '+s.n+'</div><div class="pins">🏛 '+orgTrunc(s)+' · '+esc(s.dept||'')+'</div></div></div><div class="pcard-body"><div class="ptags">'+plTags+'</div><div class="pres">📌 '+s.r+'</div>'+impact+'</div></div>';
   }).join('');
 
   const fCount=(arr)=>arr.filter(s=>matchSF(s,psychSF)).length;
@@ -1405,7 +1409,7 @@ function buildPECard(s){
       <div style="flex:1;min-width:0">${rb}
         <div class="pname">${tierIcon} ${s.n}</div>
         <div class="pen">${s.e}</div>
-        <div class="pins">🏛 ${s.s} · ${s.dept}</div>
+        <div class="pins">🏛 ${orgTrunc(s)} · ${esc(s.dept)}</div>
       </div>
     </div>
     <div class="pcard-body">
@@ -1659,7 +1663,7 @@ function renderClassify(){
           <span style="font-size:.72rem;font-family:'DM Mono',monospace;color:var(--mu)">${arr.length}人</span>
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:6px">
-          ${arr.map(s=>`<span onclick="openMod(${JSON.stringify(s).replace(/'/g,"\\'")})" style="padding:4px 10px;border-radius:5px;background:${color}12;border:1px solid ${color}30;font-size:.78rem;cursor:pointer;color:var(--tx);transition:var(--tr)" onmouseover="this.style.borderColor='${color}'" onmouseout="this.style.borderColor='${color}30'">${s.n}<span style="font-size:.65rem;color:${color};margin-left:3px">${s.s}</span></span>`).join('')}
+          ${arr.map(s=>`<span onclick="openMod(${JSON.stringify(s).replace(/'/g,"\\'")})" style="padding:4px 10px;border-radius:5px;background:${color}12;border:1px solid ${color}30;font-size:.78rem;cursor:pointer;color:var(--tx);transition:var(--tr)" onmouseover="this.style.borderColor='${color}'" onmouseout="this.style.borderColor='${color}30'">${s.n}<span style="font-size:.65rem;color:${color};margin-left:3px" class="cssd-org-trunc" title="${esc(orgFull(s))}">${esc(orgFull(s))}</span></span>`).join('')}
         </div>
       </div>`;
     }).join('')
@@ -2089,7 +2093,7 @@ function sciInstView(Ss){
     +sorted.map(function(ins,i){
       return "<div class=\"sci-inst-row\" onclick=\"filterToInst('"+ins.name+"')\">"
         +"<span class=\"sci-inst-rank\">"+(i+1)+"</span>"
-        +"<span class=\"sci-inst-name\">"+ins.name+"</span>"
+        +"<span class=\"sci-inst-name\" title=\""+esc(ins.name)+"\">"+ins.name+"</span>"
         +"<div class=\"sci-inst-bar\"><div class=\"sci-inst-bar-fill\" style=\"width:"+Math.round(ins.count/mx*100)+"%\"></div></div>"
         +"<span class=\"sci-inst-cnt\">"+ins.count+"人</span>"
         +"</div>";
@@ -2110,7 +2114,7 @@ function sciCard(s,clr){
     +"<div class=\"sci-avatar\" style=\"background:"+ac+"18;color:"+ac+"\">"+s.i+"</div>"
     +"<div class=\"sci-scard-meta\">"
     +"<div class=\"sci-scard-name\">"+s.n+"</div>"
-    +"<div class=\"sci-scard-inst\">🏛 "+s.s+"</div>"
+    +"<div class=\"sci-scard-inst\">🏛 "+orgTrunc(s)+"</div>"
     +"</div></div>"
     +"<div class=\"sci-scard-r\">📌 "+s.r+"</div>"
     +"<div class=\"sci-scard-tags\">"+tags+"</div>"
@@ -2209,7 +2213,7 @@ function dInst(Ss,c){
   rows.forEach(function(r,i){
     H+="<div class=\"dlab-inst-row\" data-n=\""+r.n+"\" onclick=\"dlabInstClick(this)\" style=\"border-left-color:"+c.color+"40\">";
     H+="<span class=\"dlab-inst-rank\">"+(i+1)+"</span>";
-    H+="<span class=\"dlab-inst-name\">"+r.n+"</span>";
+    H+="<span class=\"dlab-inst-name\" title=\""+esc(r.n)+"\">"+r.n+"</span>";
     H+="<div class=\"dlab-inst-bar\"><div class=\"dlab-inst-bar-fill\" style=\"width:"+Math.round(r.cnt/mx*100)+"%;background:"+c.color+"\"></div></div>";
     H+="<span class=\"dlab-inst-cnt\" style=\"color:"+c.color+"\">"+r.cnt+"人</span></div>";
   });
@@ -2230,7 +2234,7 @@ function dCard(s,ac){
     +"<div class=\"dlab-scard-top\">"
     +"<div class=\"sci-avatar\" style=\"background:"+ac+"18;color:"+ac+"\">"+s.i+"</div>"
     +"<div class=\"dlab-scard-meta\"><div class=\"dlab-scard-name\">"+s.n+"</div>"
-    +"<div class=\"dlab-scard-inst\">🏛 "+s.s+"</div></div></div>"
+    +"<div class=\"dlab-scard-inst\">🏛 "+orgTrunc(s)+"</div></div></div>"
     +"<div class=\"dlab-scard-r\">📌 "+s.r+"</div>"
     +"<div class=\"dlab-scard-tags\">"+tags+"</div></div>";
 }
@@ -2312,7 +2316,7 @@ function showCompareTable(){
   var scholars=compareList.map(function(id){return S.find(function(s){return s.id===id;});}).filter(Boolean);
   var H='<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:.81rem;">';
   H+='<thead><tr><th style="padding:9px 12px;background:#0a1530;color:#8A94A8;text-align:left;border-bottom:2px solid #1e2d50;min-width:80px;">\u7ef4\u5ea6</th>';
-  scholars.forEach(function(s){H+='<th style="padding:9px 12px;background:#0a1530;color:#e2e8f0;text-align:left;border-bottom:2px solid #1e2d50;min-width:160px;"><div style="font-weight:700;">'+s.n+'</div><div style="font-size:.7rem;color:#64748b;">'+s.s+'</div></th>';});
+  scholars.forEach(function(s){H+='<th style="padding:9px 12px;background:#0a1530;color:#e2e8f0;text-align:left;border-bottom:2px solid #1e2d50;min-width:160px;"><div style="font-weight:700;">'+s.n+'</div><div style="font-size:.7rem;color:#64748b;" class="cssd-org-trunc" title="'+esc(orgFull(s))+'">'+esc(orgFull(s))+'</div></th>';});
   H+='</tr></thead><tbody>';
   var dims=[{l:'\u673a\u6784',f:function(s){return s.institution;}},{l:'\u804c\u79f0',f:function(s){return s.title||'\u2014';}},
     {l:'\u4eba\u624d\u8ba1\u5212',f:function(s){return s.hats.length?s.hats.map(function(h){return '<span style="padding:1px 5px;border-radius:3px;background:rgba(200,162,75,.1);color:#f59e0b;font-size:.7rem;margin:1px;display:inline-block;">'+h+'</span>';}).join(''):'\u2014';}},
@@ -2763,7 +2767,7 @@ function mcBuildDetail(major,scholars,instMap){
     H+='<div style="display:flex;align-items:center;gap:5px;">';
     H+='<div style="width:22px;height:22px;border-radius:5px;background:'+s.c+'22;color:'+s.c+';display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;flex-shrink:0;">'+s.i+'</div>';
     H+='<div style="min-width:0;"><div style="font-size:.77rem;font-weight:600;color:#e2e8f0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">'+s.n+'</div>';
-    H+='<div style="font-size:.6rem;color:#64748b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">'+s.s+'</div></div></div>';
+    H+='<div style="font-size:.6rem;color:#64748b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" class="cssd-org-trunc" title="'+esc(orgFull(s))+'">'+esc(orgFull(s))+'</div></div></div>';
     if(s.hats&&s.hats.length)H+='<div style="font-size:.59rem;color:#f59e0b;margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">&#x2B50; '+s.hats[0]+'</div>';
     H+='</div>';
   });
@@ -3010,7 +3014,7 @@ function youthRenderList(grid,list){
     var youthTag=allTags.find(function(t){return YOUTH_KEYWORDS.some(function(k){return t.includes(k);});})||'—';
     H+='<div class="youth-list-row" onclick="var f=S.find(function(x){return x.id==='+s.id+';});if(!f){f=YOUTH_EXTRA_DATA.find(function(x){return x.id==='+s.id+';});}if(f)openMod(f);">';
     H+='<div class="youth-av" style="width:28px;height:28px;border-radius:7px;background:#F5F7FA;color:#0A2A43;border:1px solid #E3E8EF;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;">'+s.i+'</div>';
-    H+='<div><div style="font-size:.82rem;font-weight:600;color:#e2e8f0;">'+s.n+(s.g==='female'?'<span style="color:#ec4899;margin-left:3px;font-size:.62rem;">♀</span>':'')+'</div><div style="font-size:.65rem;color:#64748b;margin-top:1px;">'+s.s+' · '+s.title.split('、')[0]+'</div></div>';
+    H+='<div><div style="font-size:.82rem;font-weight:600;color:#e2e8f0;">'+s.n+(s.g==='female'?'<span style="color:#ec4899;margin-left:3px;font-size:.62rem;">♀</span>':'')+'</div><div style="font-size:.65rem;color:#64748b;margin-top:1px;" title="'+esc(orgFull(s))+'"><span class="cssd-org-trunc">'+esc(orgFull(s))+'</span> · '+esc(s.title.split('、')[0])+'</div></div>';
     H+='<div style="font-size:.68rem;color:#f59e0b;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+youthTag+'</div>';
     H+='<div><span class="sp-card-disc">'+(DISC_LABELS[s.disc]||s.dL)+'</span></div>';
     H+='<div style="text-align:right;"><span class="sp-level-pill">'+LEVEL_LABELS[s.youthLevel||'C']+'</span></div>';
@@ -3068,7 +3072,7 @@ function scInstCard(name,d){
   var rc=d.rank4?RANK_COLORS[d.rank4]:'#64748b';
   var H='<div class="sc-inst-card" style="border-top:3px solid '+rc+';">';
   H+='<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:8px;">';
-  H+='<div><div class="sc-inst-name">'+name+'</div>';
+  H+='<div><div class="sc-inst-name" title="'+esc(name)+'">'+name+'</div>';
   H+='<div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:3px;">';
   H+='<span style="font-size:.62rem;padding:1px 5px;border-radius:3px;background:rgba(255,255,255,.06);color:#64748b;">'+d.level+'</span>';
   if(d.rank4)H+='<span class="sc-rank-badge" style="background:'+rc+'18;color:'+rc+';border:1px solid '+rc+'30;">第四轮评估 '+d.rank4+'</span>';
@@ -3319,7 +3323,7 @@ function gsrItem(s, i, q){
   var hat = s.hats && s.hats.length ? s.hats[0] : '';
   return '<div class="gsr-item" data-idx="'+i+'" onmouseenter="_gsr_idx='+i+';updateGSRActive()" onclick="gsrOpen('+i+')">' +
     '<div class="gsr-av" style="background:'+s.c+'22;color:'+s.c+'">'+s.i+'</div>' +
-    '<div style="flex:1;min-width:0"><div class="gsr-name">'+name+'</div><div class="gsr-sub">'+s.s + (hat ? ' · ⭐ '+hat : '') +'</div></div>' +
+    '<div style="flex:1;min-width:0"><div class="gsr-name">'+name+'</div><div class="gsr-sub" title="'+esc(orgFull(s))+'"><span class="cssd-org-trunc">'+esc(orgFull(s))+'</span>' + (hat ? ' · ⭐ '+hat : '') +'</div></div>' +
     '<div class="gsr-disc-tag" style="background:'+dc+'15;color:'+dc+';border:1px solid '+dc+'25;">'+s.dL+'</div>' +
   '</div>';
 }
