@@ -3565,3 +3565,146 @@ html.cssd-light body #univCatalogPanel #ucSearch:focus{
   border-color:rgba(46,154,137,.4) !important;
   outline:none;
 }
+
+/* ═════════════════════════════════════════════════════════════════
+   P2 · 新闻卡节奏降权（首页学术动态 / 学界动态 / 每日动态）
+   减双层阴影与悬停上浮，压头条字号/字重，收紧栏间距；
+   让位学者与 KPI，保持可读、学术、不稀疏。可回退：删本分区。
+   ═════════════════════════════════════════════════════════════════ */
+
+/* —— 学术动态 .hn —— */
+html.cssd-light body #sportsPortal .hn-layout{gap:10px;}
+html.cssd-light body #sportsPortal .hn-list{gap:4px;}
+html.cssd-light body #sportsPortal .hn-lead,
+html.cssd-light body #sportsPortal .hn-row{
+  border:1px solid rgba(10,42,67,.06);
+  border-radius:12px;
+  box-shadow:0 1px 2px rgba(10,42,67,.028);
+}
+html.cssd-light body #sportsPortal .hn-lead:hover,
+html.cssd-light body #sportsPortal .hn-row:hover{
+  transform:translateY(-1px);
+  border-color:rgba(10,42,67,.10);
+  box-shadow:0 3px 10px rgba(10,42,67,.04);
+}
+html.cssd-light body #sportsPortal .hn-lead{
+  padding:16px 18px 14px;
+  background:#FFFFFF;
+}
+html.cssd-light body #sportsPortal .hn-lead h3{
+  font-size:22px;
+  font-weight:600;
+  letter-spacing:.03em;
+}
+html.cssd-light body #sportsPortal .hn-row{
+  padding:7px 12px;
+}
+html.cssd-light body #sportsPortal .hn-row h3{
+  font-size:14px;
+  font-weight:500;
+}
+html.cssd-light body #sportsPortal .hn-lead .hn-title-zh{font-size:14px;margin-top:4px;}
+html.cssd-light body #sportsPortal .hn{margin:0 0 12px;}
+
+/* —— 学界动态 .xj —— */
+html.cssd-light body #sportsPortal .xj-layout{gap:10px;}
+html.cssd-light body #sportsPortal .xj-list{gap:4px;}
+html.cssd-light body #sportsPortal .xj-lead,
+html.cssd-light body #sportsPortal .xj-row{
+  border:1px solid rgba(10,42,67,.06);
+  border-radius:12px;
+  box-shadow:0 1px 2px rgba(10,42,67,.028);
+}
+html.cssd-light body #sportsPortal .xj-lead:hover,
+html.cssd-light body #sportsPortal .xj-row:hover{
+  transform:translateY(-1px);
+  border-color:rgba(10,42,67,.10);
+  box-shadow:0 3px 10px rgba(10,42,67,.04);
+}
+html.cssd-light body #sportsPortal .xj-lead{
+  padding:16px 18px 14px;
+  background:#FFFFFF;
+}
+html.cssd-light body #sportsPortal .xj-lead h3{
+  font-size:20px;
+  font-weight:600;
+  letter-spacing:.03em;
+}
+html.cssd-light body #sportsPortal .xj-row{
+  padding:7px 12px;
+}
+html.cssd-light body #sportsPortal .xj-row h3{
+  font-size:14px;
+  font-weight:500;
+}
+html.cssd-light body #sportsPortal .xj{margin:0 0 12px;}
+
+/* —— 每日动态预览 .dy —— */
+html.cssd-light body #sportsPortal .dy-cols{gap:12px;margin-top:10px;}
+html.cssd-light body #sportsPortal .dy-col{
+  border:1px solid rgba(10,42,67,.06);
+  border-radius:12px;
+  padding:12px 14px 10px;
+  box-shadow:0 1px 2px rgba(10,42,67,.028);
+}
+html.cssd-light body #sportsPortal .dy-col-title{
+  font-size:14px;
+  font-weight:600;
+  margin:0 0 8px;
+}
+html.cssd-light body #sportsPortal .dy-col li{padding:6px 2px;}
+html.cssd-light body #sportsPortal .dy-col h3{font-size:13px;font-weight:500;}
+
+/* —— 学术动态页 spotlight 卡：略收阴影感（已白底细边） —— */
+html.cssd-light body #vw-academicnews .an-spotlight .an-card,
+html.cssd-light body .sp-news .an-spotlight .an-card{
+  border-radius:12px;
+  box-shadow:none;
+  min-height:152px;
+  padding:12px 14px;
+}
+html.cssd-light body #vw-academicnews .an-spotlight .an-card h3,
+html.cssd-light body .sp-news .an-spotlight .an-card h3{
+  font-weight:600;
+  font-size:.88rem;
+}
+
+/* —— 首页静态占位新闻条（JS 未灌入前） —— */
+html.cssd-light body #vw-home .cssd-news-item{
+  gap:14px;
+  padding:12px 0;
+}
+html.cssd-light body #vw-home .cssd-news-thumb{
+  width:112px;
+  height:72px;
+  border-radius:10px;
+  font-size:12px;
+  font-weight:600;
+  opacity:.9;
+}
+html.cssd-light body #vw-home .cssd-news-body h4{
+  font-size:15px;
+  font-weight:600;
+  line-height:1.45;
+}
+html.cssd-light body #vw-home .cssd-news-meta{
+  margin-top:6px;
+  font-size:12.5px;
+}
+
+@media (max-width:860px){
+  html.cssd-light body #sportsPortal .hn-lead h3{font-size:18px;}
+  html.cssd-light body #sportsPortal .xj-lead h3{font-size:18px;}
+  html.cssd-light body #sportsPortal .hn-lead,
+  html.cssd-light body #sportsPortal .xj-lead{padding:14px 14px 12px;}
+  html.cssd-light body #vw-home .cssd-news-thumb{width:88px;height:60px;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html.cssd-light body #sportsPortal .hn-lead:hover,
+  html.cssd-light body #sportsPortal .hn-row:hover,
+  html.cssd-light body #sportsPortal .xj-lead:hover,
+  html.cssd-light body #sportsPortal .xj-row:hover{
+    transform:none;
+  }
+}
