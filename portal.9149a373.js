@@ -44,7 +44,8 @@ const navGroups=[
     ['youthscholar','青年学者'],
     ['classify','学者分类总览'],
     ['sportscolleges','体育院校师资'],
-    ['academicnews','学术动态']
+    ['academicnews','学术动态'],
+    ['daily','每日动态']
   ]},
   {id:'degree',label:'学位与专业',items:[
     ['degreepoint','学位点专栏'],
@@ -70,7 +71,7 @@ const routeJumps=[
   ['projects','科研项目'],['disciplines','学科分类'],['hats','人才计划'],['degreepoint','学位点'],
   ['founders','奠基人'],['classify','分类总览'],['academicnews','学术动态'],['courses','精品课程'],
   ['sportscolleges','体育院校'],['aitools','学术工具'],['yangtze','长江学者'],['youthscholar','青年学者'],
-  ['majorcat','专业目录'],['phdschools','博士授权']
+  ['majorcat','专业目录'],['phdschools','博士授权'],['daily','每日动态']
 ];
 
 const strokePaths={user:'M20 21v-2a7 7 0 0 0-14 0v2M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0',school:'M3 21h18M5 21V8l7-5 7 5v13M9 10h1m4 0h1m-6 4h1m4 0h1m-4 7v-4h2v4',book:'M12 5C7 2 3 3 2 4v16c3-2 7-1 10 1 3-2 7-3 10-1V4c-2-1-6-2-10 1v16',layers:'m12 3 10 5-10 5L2 8l10-5M2 12l10 5 10-5M2 16l10 5 10-5',flask:'M9 3h6m-5 0v7l-6 9q-1 2 2 2h12q3 0 2-2l-6-9V3M8 15h8',star:'m12 2 3 7 7 1-5 5 1 7-6-4-6 4 1-7-5-5 7-1 3-7',news:'M4 3h16v18H4zM8 7h8M8 11h8M8 15h5',cap:'m2 9 10-5 10 5-10 5L2 9m4 3v6l6 3 6-3v-6M22 9v8',search:'M19 19l-4-4M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0'};
@@ -557,6 +558,31 @@ function start(){
       '<details class="sp-more'+moreEmpty+'"><summary>全部导航</summary><div>'+moreInner+'</div></details>'+
     '</div>';
   document.body.prepend(head);
+
+  /* 导航分组：同屏只开一个；Escape / 点外关闭（点击切换，非悬停） */
+  (function bindNavGroups(){
+    var groups=[].slice.call(document.querySelectorAll('details.sp-nav-group'));
+    if(!groups.length) return;
+    groups.forEach(function(g){
+      g.addEventListener('toggle', function(){
+        if(!g.open) return;
+        groups.forEach(function(o){ if(o!==g) o.open=false; });
+        var more=document.querySelector('details.sp-more');
+        if(more) more.open=false;
+      });
+    });
+    document.addEventListener('pointerdown', function(e){
+      var t=e.target;
+      if(!t || !t.closest) return;
+      if(t.closest('details.sp-nav-group')) return;
+      groups.forEach(function(g){ g.open=false; });
+    }, true);
+    document.addEventListener('keydown', function(e){
+      if(e.key!=='Escape') return;
+      groups.forEach(function(g){ g.open=false; });
+    });
+  })();
+
 
   const portal=document.createElement('main');
   portal.id='sportsPortal';

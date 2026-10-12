@@ -1,10 +1,10 @@
-/* home-daily.js — 首页「每日动态」频道（体育学C刊官网 + 全国体育院校官网日报）
-   插在 #homeXuejie（学界动态）之后、.sp-grid（三列面板）之前。
-   数据：daily-dynamics.json（GitHub Actions 每日抓取生成：cat=期刊|院校）。
-   左列：期刊最新发表；右列：院校新闻公告。抓取失败或无条目时隐藏整块。
+/* home-daily.js — 首页「每日动态」预览 + 独立页 #vw-daily
+   数据：daily-dynamics.json（cat=期刊|院校）
+   路由：go('daily') / #daily / #daily/journal / #daily/univ
    回退：删本文件，并去掉 index.html 里对应的 script。 */
 (function(){
-  var LABEL = {journal:"期刊", univ:"院校"};
+  var LABEL = {all:"全部", journal:"期刊", univ:"院校"};
+  var HOME_CAP = 5; /* 首页每列条数（等量截断） */
 
   function esc(s){
     return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){
@@ -49,35 +49,55 @@
     }));
   }
 
+  var _snapPromise = null;
   function loadSnap(){
-    return loadJson("daily-dynamics.json").then(asSnap).catch(function(){ return null; });
+    if(!_snapPromise){
+      _snapPromise = loadJson("daily-dynamics.json").then(asSnap).catch(function(){ return null; });
+    }
+    return _snapPromise;
   }
 
   function catOf(it){
     return (it.cat === "期刊") ? "journal" : "univ";
   }
 
-  function metaHtml(it){
+  function sortItems(items){
+    return items.slice().sort(function(a, b){
+      var da = (parseDate(a.date) || {sort:"0000-00-00"}).sort;
+      var db = (parseDate(b.date) || {sort:"0000-00-00"}).sort;
+      if(da === db) return 0;
+      return da < db ? 1 : -1;
+    });
+  }
+
+  function filterItems(items, tab){
+    if(tab === "journal") return items.filter(function(it){ return catOf(it) === "journal"; });
+    if(tab === "univ") return items.filter(function(it){ return catOf(it) === "univ"; });
+    return items;
+  }
+
+  function goDaily(tab){
+    try{
+      if(typeof window.spNavigate === "function") window.spNavigate("daily");
+      else if(typeof window.go === "function") window.go("daily");
+    }catch(e){}
+    if(tab && tab !== "all") setTab(tab, true);
+  }
+
+  /* ── 首页预览 ─────────────────────────────────────────────── */
+  function homeRowHtml(it){
+    var unit = it.source ? '<span class="xj-unit">' + esc(it.source) + "</span>" : "";
     var c = catOf(it);
     var tag = '<span class="xj-tag ' + (c === "journal" ? "xj-tag-journal" : "xj-tag-univ") + '">' +
       esc(LABEL[c] || it.cat || "院校") + "</span>";
     var d = parseDate(it.date);
     var time = d ? '<time datetime="' + esc(d.iso) + '">' + esc(d.label) + "</time>" : "";
-    return '<div class="xj-meta">' + tag + time + "</div>";
-  }
-
-  function titleHtml(it){
-    var t = esc(it.title);
-    if(it.link){
-      return '<a href="' + esc(it.link) + '" target="_blank" rel="noopener">' + t + "</a>";
-    }
-    return t;
-  }
-
-  function rowHtml(it){
-    var unit = it.source ? '<span class="xj-unit">' + esc(it.source) + "</span>" : "";
-    return "<li>" + metaHtml(it) +
-      "<h3>" + titleHtml(it) + "</h3>" +
+    var title = it.link
+      ? '<a href="' + esc(it.link) + '" target="_blank" rel="noopener">' + esc(it.title) + "</a>"
+      : esc(it.title);
+    return "<li>" +
+      '<div class="xj-meta">' + tag + time + "</div>" +
+      "<h3>" + title + "</h3>" +
       '<p class="xj-sub">' + unit + "</p>" +
     "</li>";
   }
@@ -86,22 +106,16 @@
     if(!rows.length) return "";
     return '<section class="dy-col ' + cls + '">' +
       '<h3 class="dy-col-title">' + esc(title) + "</h3>" +
-      '<ul>' + rows.map(rowHtml).join("") + "</ul>" +
+      "<ul>" + rows.map(homeRowHtml).join("") + "</ul>" +
     "</section>";
   }
 
-  function paint(root, snap){
-    var items = (snap.items || []).filter(function(it){
+  function paintHome(root, snap){
+    var items = sortItems((snap.items || []).filter(function(it){
       return it && it.title && it.link;
-    });
-    items.sort(function(a, b){
-      var da = (parseDate(a.date) || {sort:"0000-00-00"}).sort;
-      var db = (parseDate(b.date) || {sort:"0000-00-00"}).sort;
-      if(da === db) return 0;
-      return da < db ? 1 : -1;
-    });
-    var journals = items.filter(function(it){ return catOf(it) === "journal"; }).slice(0, 6);
-    var univs = items.filter(function(it){ return catOf(it) === "univ"; }).slice(0, 8);
+    }));
+    var journals = items.filter(function(it){ return catOf(it) === "journal"; }).slice(0, HOME_CAP);
+    var univs = items.filter(function(it){ return catOf(it) === "univ"; }).slice(0, HOME_CAP);
     if(!journals.length && !univs.length){ root.remove(); return; }
     var gen = fmtGenerated(snap.generatedAt);
     var updated = gen ? '<span class="xj-updated">更新于 ' + esc(gen) + "</span>" : "";
@@ -111,12 +125,16 @@
           '<p class="xj-eye">DAILY DYNAMICS</p>' +
           '<h2 id="homeDailyTitle">每日动态</h2>' +
         "</div>" +
-        '<div class="xj-aside">' + updated + "</div>" +
+        '<div class="xj-aside">' + updated +
+          '<button type="button" class="dy-more" data-dy-more>查看全部</button>' +
+        "</div>" +
       "</div>" +
       '<div class="dy-cols">' +
         colHtml("期刊最新发表", "dy-col-journals", journals) +
         colHtml("院校新闻公告", "dy-col-univs", univs) +
       "</div>";
+    var more = root.querySelector("[data-dy-more]");
+    if(more) more.addEventListener("click", function(){ goDaily("all"); });
     root.removeAttribute("hidden");
   }
 
@@ -124,7 +142,7 @@
     return document.getElementById("homeXuejie") || document.getElementById("homeNews");
   }
 
-  function place(sec){
+  function placeHome(sec){
     var anchor = afterBlock();
     if(anchor && anchor.parentNode){
       if(sec.parentNode !== anchor.parentNode || anchor.nextElementSibling !== sec){
@@ -142,10 +160,10 @@
     return false;
   }
 
-  function ensureSec(){
+  function ensureHomeSec(){
     var existing = document.getElementById("homeDaily");
     if(existing){
-      place(existing);
+      placeHome(existing);
       return existing;
     }
     var sec = document.createElement("section");
@@ -153,15 +171,15 @@
     sec.id = "homeDaily";
     sec.setAttribute("aria-labelledby", "homeDailyTitle");
     sec.hidden = true;
-    if(!place(sec)) return null;
+    if(!placeHome(sec)) return null;
     return sec;
   }
 
-  function mount(){
-    var sec = ensureSec();
+  function mountHome(){
+    var sec = ensureHomeSec();
     if(!sec) return false;
     if(sec.getAttribute("data-dy-loaded") === "1"){
-      place(sec);
+      placeHome(sec);
       return true;
     }
     sec.setAttribute("data-dy-loaded", "1");
@@ -169,20 +187,212 @@
       var el = document.getElementById("homeDaily");
       if(!el) return;
       if(!usable(snap)){ if(el.parentNode) el.remove(); return; }
-      try{ paint(el, snap); }
+      try{ paintHome(el, snap); }
       catch(e){ if(el.parentNode) el.remove(); }
     });
     return true;
   }
 
-  function watch(){
-    if(mount()) return;
+  /* ── 独立页 #vw-daily ──────────────────────────────────────── */
+  var currentTab = "all";
+
+  function parseHashTab(){
+    var h = String(location.hash || "").replace(/^#\/?/, "");
+    if(h === "daily" || h === "vw-daily") return "all";
+    var m = h.match(/^daily\/(all|journal|univ)$/);
+    return m ? m[1] : null;
+  }
+
+  function setHash(tab, replace){
+    var next = (!tab || tab === "all") ? "#daily" : ("#daily/" + tab);
+    try{
+      if(replace) history.replaceState({view:"daily", dailyTab: tab || "all"}, "", next);
+      else if(location.hash !== next) history.pushState({view:"daily", dailyTab: tab || "all"}, "", next);
+    }catch(e){
+      try{ location.hash = next.replace(/^#/, ""); }catch(err){}
+    }
+  }
+
+  function setTab(tab, replaceHash){
+    currentTab = tab || "all";
+    if(replaceHash !== false) setHash(currentTab, true);
+    paintPage();
+  }
+
+  function pageRowHtml(it){
+    var c = catOf(it);
+    var badgeCls = c === "journal" ? "is-journal" : "is-univ";
+    var d = parseDate(it.date);
+    var title = it.link
+      ? '<a href="' + esc(it.link) + '" target="_blank" rel="noopener">' + esc(it.title) + "</a>"
+      : esc(it.title);
+    var source = it.source ? esc(it.source) : "";
+    if(it.section) source = source ? (source + " · " + esc(it.section)) : esc(it.section);
+    return '<li class="dy-row">' +
+      '<span class="dy-row-badge ' + badgeCls + '">' + esc(LABEL[c] || it.cat || "院校") + "</span>" +
+      '<h3 class="dy-row-title">' + title + "</h3>" +
+      (d ? '<time class="dy-row-date" datetime="' + esc(d.iso) + '">' + esc(d.label) + "</time>" : '<span class="dy-row-date"></span>') +
+      '<p class="dy-row-source">' + source + "</p>" +
+    "</li>";
+  }
+
+  function ensurePage(){
+    var v = document.getElementById("vw-daily");
+    if(v) return v;
+    v = document.createElement("div");
+    v.className = "vw";
+    v.id = "vw-daily";
+    v.innerHTML =
+      '<div class="dy-page">' +
+        '<header class="dy-page-hero">' +
+          '<p class="dy-page-eye">DAILY DYNAMICS</p>' +
+          "<h1>每日动态</h1>" +
+          '<p class="dy-page-sub">体育学 C 刊官网与全国体育院校官网日报 · 列表不含摘要</p>' +
+          '<p class="dy-page-sub" id="dyPageUpdated" hidden></p>' +
+        "</header>" +
+        '<div class="dy-tabs" role="tablist" aria-label="每日动态分类" id="dyTabs">' +
+          '<button type="button" class="dy-tab on" role="tab" aria-selected="true" data-dy-tab="all">全部</button>' +
+          '<button type="button" class="dy-tab" role="tab" aria-selected="false" data-dy-tab="journal">期刊</button>' +
+          '<button type="button" class="dy-tab" role="tab" aria-selected="false" data-dy-tab="univ">院校</button>' +
+        "</div>" +
+        '<ul class="dy-list" id="dyList" aria-live="polite"></ul>' +
+      "</div>";
+    var anchor = document.getElementById("vw-academicnews") ||
+      document.getElementById("vw-journals") ||
+      document.getElementById("vw-home");
+    if(anchor && anchor.parentNode){
+      anchor.parentNode.insertBefore(v, anchor.nextSibling);
+    }else{
+      document.body.appendChild(v);
+    }
+    var tabs = v.querySelector("#dyTabs");
+    if(tabs){
+      tabs.addEventListener("click", function(e){
+        var btn = e.target && e.target.closest && e.target.closest("[data-dy-tab]");
+        if(!btn) return;
+        setTab(btn.getAttribute("data-dy-tab") || "all", true);
+      });
+    }
+    return v;
+  }
+
+  var _pageSnap = null;
+  function paintPage(){
+    var v = ensurePage();
+    var list = v.querySelector("#dyList");
+    var tabs = v.querySelectorAll("[data-dy-tab]");
+    tabs.forEach(function(b){
+      var on = b.getAttribute("data-dy-tab") === currentTab;
+      b.classList.toggle("on", on);
+      b.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    var upd = v.querySelector("#dyPageUpdated");
+    if(!_pageSnap){
+      if(list) list.innerHTML = '<li class="dy-empty">加载中…</li>';
+      loadSnap().then(function(snap){
+        _pageSnap = snap;
+        paintPage();
+      });
+      return;
+    }
+    if(upd){
+      var gen = fmtGenerated(_pageSnap.generatedAt);
+      if(gen){
+        upd.hidden = false;
+        upd.textContent = "更新于 " + gen + (_pageSnap.source ? (" · " + _pageSnap.source) : "");
+      }
+    }
+    if(!usable(_pageSnap)){
+      if(list) list.innerHTML = '<li class="dy-empty">暂无日报条目</li>';
+      return;
+    }
+    var items = sortItems((_pageSnap.items || []).filter(function(it){
+      return it && it.title && it.link;
+    }));
+    items = filterItems(items, currentTab);
+    if(!list) return;
+    if(!items.length){
+      list.innerHTML = '<li class="dy-empty">该分类暂无条目</li>';
+      return;
+    }
+    list.innerHTML = items.map(pageRowHtml).join("");
+  }
+
+  function showDaily(){
+    var tab = parseHashTab();
+    if(tab) currentTab = tab;
+    ensurePage();
+    paintPage();
+    setHash(currentTab, true);
+  }
+
+  function patchGo(){
+    if(typeof window.go !== "function") return false;
+    if(window.go.__dyPatched) return true;
+    var orig = window.go;
+    window.go = function(name, opts){
+      if(name === "daily") ensurePage();
+      var r = orig.apply(this, arguments);
+      if(name === "daily"){
+        try{ showDaily(); }catch(e){}
+      }
+      return r;
+    };
+    window.go.__dyPatched = true;
+    return true;
+  }
+
+  function bootFromHash(){
+    var tab = parseHashTab();
+    if(tab == null) return;
+    ensurePage();
+    currentTab = tab;
+    if(typeof window.go === "function"){
+      try{ window.go("daily"); }catch(e){ showDaily(); }
+    }else{
+      showDaily();
+      var v = document.getElementById("vw-daily");
+      if(v){
+        document.querySelectorAll(".vw").forEach(function(el){ el.classList.remove("on"); });
+        v.classList.add("on");
+      }
+    }
+  }
+
+  function watchHome(){
+    if(mountHome()) return;
     var obs = new MutationObserver(function(){
-      if(mount()) obs.disconnect();
+      if(mountHome()) obs.disconnect();
     });
     obs.observe(document.documentElement, {childList:true, subtree:true});
   }
 
-  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", watch, {once:true});
-  else watch();
+  function start(){
+    ensurePage(); /* 让 #daily 哈希启动时 vw-daily 已存在 */
+    patchGo();
+    if(!window.go || !window.go.__dyPatched){
+      var n = 0;
+      var t = setInterval(function(){
+        if(patchGo() || ++n > 40) clearInterval(t);
+      }, 100);
+    }
+    watchHome();
+    bootFromHash();
+    window.addEventListener("hashchange", function(){
+      var tab = parseHashTab();
+      if(tab == null) return;
+      currentTab = tab;
+      if(typeof window.go === "function") window.go("daily");
+      else showDaily();
+    });
+    window.addEventListener("popstate", function(){
+      var tab = parseHashTab();
+      if(tab == null) return;
+      currentTab = tab;
+      paintPage();
+    });
+  }
+
+  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", start, {once:true});
+  else start();
 })();
