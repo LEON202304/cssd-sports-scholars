@@ -3033,3 +3033,278 @@ html.cssd-light body #vw-scholars .ctlb.slim .cr3,
 html.cssd-light body #vw-scholars .ctlb.slim #moreFiltersBtn{
   display:none !important;
 }
+
+
+/* ═══════════════════════════════════════════════════════════
+   polish/aitools-hero — 学术 AI 工具页主入口（只动 #vw-aitools）
+   借海鲸「大入口卡 + 留白工具卡」气质；色板仅用青绿/brand，禁渐变紫
+   ═══════════════════════════════════════════════════════════ */
+html.cssd-light #vw-aitools .at-wrap,
+#vw-aitools .at-wrap{
+  max-width:1120px;
+  margin:0 auto;
+  padding:28px 20px 64px;
+}
+html.cssd-light #vw-aitools .at-hero-search,
+#vw-aitools .at-hero-search{
+  max-width:640px;
+  margin:8px auto 36px;
+  text-align:center;
+}
+#vw-aitools .at-hero-label{
+  position:absolute;
+  width:1px;height:1px;
+  padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);
+  white-space:nowrap;border:0;
+}
+html.cssd-light #vw-aitools .at-hero-box,
+#vw-aitools .at-hero-box{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 18px;
+  border-radius:16px;
+  background:#FFFFFF;
+  border:1px solid rgba(10,42,67,.10);
+  box-shadow:0 10px 28px rgba(10,42,67,.06);
+  transition:border-color .15s ease, box-shadow .15s ease;
+}
+html.cssd-light #vw-aitools .at-hero-box:focus-within,
+#vw-aitools .at-hero-box:focus-within{
+  border-color:var(--sp-teal);
+  box-shadow:0 0 0 3px var(--sp-teal-soft,rgba(46,154,137,.12)), 0 12px 28px rgba(10,42,67,.08);
+}
+#vw-aitools .at-hero-ico{
+  font-size:1.05rem;
+  line-height:1;
+  opacity:.85;
+  flex:0 0 auto;
+}
+html.cssd-light #vw-aitools .at-hero-input,
+#vw-aitools .at-hero-input{
+  flex:1 1 auto;
+  min-width:0;
+  border:0;
+  outline:0;
+  background:transparent;
+  font-size:1rem;
+  font-weight:500;
+  color:var(--sp-brand-900, #0A2A43);
+  line-height:1.4;
+}
+#vw-aitools .at-hero-input::placeholder{
+  color:var(--sp-muted2, #8A93A3);
+  font-weight:400;
+}
+html.cssd-light #vw-aitools .at-hero-hint,
+#vw-aitools .at-hero-hint{
+  margin:10px 0 14px;
+  font-size:.78rem;
+  color:var(--sp-muted, #5B6575);
+  line-height:1.5;
+}
+html.cssd-light #vw-aitools .at-suggest,
+#vw-aitools .at-suggest{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+}
+html.cssd-light #vw-aitools .at-suggest-chip,
+#vw-aitools .at-suggest-chip{
+  appearance:none;
+  border:1px solid var(--sp-line, #E6EAF0);
+  background:#F5F7FA;
+  color:var(--sp-brand-900, #0A2A43);
+  font-size:.78rem;
+  font-weight:500;
+  padding:6px 12px;
+  border-radius:999px;
+  cursor:pointer;
+  transition:background .15s ease, border-color .15s ease, color .15s ease;
+}
+html.cssd-light #vw-aitools .at-suggest-chip:hover,
+#vw-aitools .at-suggest-chip:hover,
+html.cssd-light #vw-aitools .at-suggest-chip:focus-visible,
+#vw-aitools .at-suggest-chip:focus-visible{
+  background:var(--sp-teal-soft, rgba(46,154,137,.12));
+  border-color:var(--sp-teal-line, rgba(46,154,137,.40));
+  color:var(--sp-teal, #2E9A89);
+  outline:none;
+}
+
+/* 分区标题：再轻一档 */
+html.cssd-light #vw-aitools .at-cat-hd,
+#vw-aitools .at-cat-hd{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin:28px 0 14px;
+}
+html.cssd-light #vw-aitools .at-cat-hd h3,
+#vw-aitools .at-cat-hd h3{
+  font-size:.9rem !important;
+  font-weight:600 !important;
+  color:var(--sp-muted, #5B6575) !important;
+  letter-spacing:.02em;
+  margin:0 !important;
+}
+html.cssd-light #vw-aitools .at-cat-cnt,
+#vw-aitools .at-cat-cnt{
+  font-family:'DM Mono',ui-monospace,monospace;
+  font-size:.68rem;
+  color:var(--sp-muted2, #8A93A3) !important;
+  background:rgba(10,42,67,.04) !important;
+  padding:2px 8px;
+  border-radius:20px;
+}
+html.cssd-light #vw-aitools .at-cat-dot,
+#vw-aitools .at-cat-dot{
+  width:8px;height:8px;border-radius:50%;
+  opacity:.85;
+}
+
+/* 等宽圆角工具卡：只改本页 grid，不影响精品课程 */
+html.cssd-light #vw-aitools .crs-grid,
+#vw-aitools .crs-grid{
+  display:grid !important;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr)) !important;
+  gap:20px !important;
+}
+html.cssd-light #vw-aitools .crs-card.at-card,
+#vw-aitools .crs-card.at-card{
+  position:relative;
+  display:block;
+  text-decoration:none;
+  background:#FFFFFF !important;
+  border:1px solid rgba(10,42,67,.08) !important;
+  border-radius:14px !important;
+  overflow:hidden;
+  box-shadow:0 6px 18px rgba(10,42,67,.04);
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+html.cssd-light #vw-aitools .crs-card.at-card:hover,
+#vw-aitools .crs-card.at-card:hover{
+  transform:translateY(-3px);
+  border-color:color-mix(in srgb, var(--cc, var(--sp-teal)) 40%, transparent) !important;
+  box-shadow:0 14px 30px rgba(10,42,67,.08);
+}
+html.cssd-light #vw-aitools .at-card-bd,
+#vw-aitools .at-card-bd{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:16px 16px 15px !important;
+}
+html.cssd-light #vw-aitools .at-card-ico,
+#vw-aitools .at-card-ico{
+  flex:0 0 auto;
+  width:40px;height:40px;
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.15rem;
+  background:color-mix(in srgb, var(--cc, var(--sp-teal)) 14%, #FFFFFF);
+  border:1px solid color-mix(in srgb, var(--cc, var(--sp-teal)) 22%, transparent);
+}
+html.cssd-light #vw-aitools .at-card-body,
+#vw-aitools .at-card-body{
+  flex:1 1 auto;
+  min-width:0;
+}
+html.cssd-light #vw-aitools .crs-card.at-card .crs-card-name,
+#vw-aitools .crs-card.at-card .crs-card-name{
+  font-size:.95rem !important;
+  font-weight:700 !important;
+  color:var(--sp-brand-900, #0A2A43) !important;
+  -webkit-text-fill-color:var(--sp-brand-900, #0A2A43) !important;
+  line-height:1.35 !important;
+  margin:0 0 6px !important;
+  padding-right:0 !important;
+}
+html.cssd-light #vw-aitools .crs-card.at-card .crs-card-sch,
+#vw-aitools .crs-card.at-card .crs-card-sch{
+  font-size:.78rem !important;
+  color:var(--sp-muted, #5B6575) !important;
+  line-height:1.45 !important;
+  margin:0 0 10px !important;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+html.cssd-light #vw-aitools .crs-card.at-card .crs-card-ft,
+#vw-aitools .crs-card.at-card .crs-card-ft{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+html.cssd-light #vw-aitools .crs-card.at-card .crs-tag,
+#vw-aitools .crs-card.at-card .crs-tag{
+  font-size:.64rem !important;
+  font-weight:600 !important;
+  color:var(--sp-teal, #2E9A89) !important;
+  background:var(--sp-teal-soft, rgba(46,154,137,.12)) !important;
+  border:1px solid var(--sp-teal-line, rgba(46,154,137,.28)) !important;
+  padding:2px 8px;
+  border-radius:6px;
+}
+html.cssd-light #vw-aitools .crs-card.at-card .crs-go,
+#vw-aitools .crs-card.at-card .crs-go{
+  font-size:.72rem;
+  color:var(--sp-brand-500, #2C6E9E);
+  opacity:.75;
+}
+html.cssd-light #vw-aitools .crs-card.at-card:hover .crs-go,
+#vw-aitools .crs-card.at-card:hover .crs-go{
+  opacity:1;
+  color:var(--sp-teal, #2E9A89);
+}
+
+/* 空态 */
+html.cssd-light #vw-aitools .at-empty,
+#vw-aitools .at-empty{
+  text-align:center;
+  padding:48px 16px 40px;
+  border:1px dashed var(--sp-line, #E6EAF0);
+  border-radius:16px;
+  background:#FAFBFC;
+  margin-top:8px;
+}
+html.cssd-light #vw-aitools .at-empty-title,
+#vw-aitools .at-empty-title{
+  margin:0 0 6px;
+  font-size:1rem;
+  font-weight:700;
+  color:var(--sp-brand-900, #0A2A43);
+}
+html.cssd-light #vw-aitools .at-empty-hint,
+#vw-aitools .at-empty-hint{
+  margin:0 0 16px;
+  font-size:.8rem;
+  color:var(--sp-muted, #5B6575);
+}
+html.cssd-light #vw-aitools .at-source,
+#vw-aitools .at-source{
+  margin-top:28px;
+  font-size:.72rem;
+  color:var(--sp-muted, #5B6575);
+  line-height:1.7;
+}
+html.cssd-light #vw-aitools .at-source a,
+#vw-aitools .at-source a{
+  color:var(--sp-brand-500, #2C6E9E);
+}
+html.cssd-light #vw-aitools .at-note,
+#vw-aitools .at-note{
+  font-size:.7rem !important;
+  color:var(--sp-muted, #5B6575) !important;
+  line-height:1.7;
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px solid var(--sp-line, #E6EAF0);
+}
+@media (prefers-reduced-motion:reduce){
+  #vw-aitools .crs-card.at-card:hover{transform:none !important;}
+}
