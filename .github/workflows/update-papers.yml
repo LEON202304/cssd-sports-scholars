@@ -3,6 +3,7 @@ name: Update Latest Papers
 # 每天北京时间 07:17 左右（UTC 23:17）抓取：
 #   1) 重点体育学期刊最新论文 → latest_papers.json / news-snapshot.json
 #   2) 学界动态（荣誉/活动/会议）→ xuejie-snapshot.json
+#   3) 每日动态日报 → daily-dynamics.json
 # 推送到 main 后 EdgeOne 自动部署。
 on:
   schedule:
