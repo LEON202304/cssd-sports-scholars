@@ -5990,10 +5990,7 @@ html.cssd-light .nb.on{color:#2E9A89!important}
     <span></span><span></span><span></span>
   </button>
 </nav>
-<div class="route-history-tools" aria-label="页面历史导航">
-  <button type="button" onclick="cssdRouteBack()" title="后退" aria-label="后退">‹</button>
-  <button type="button" onclick="cssdRouteForward()" title="前进" aria-label="前进">›</button>
-</div>
+<!-- P0 迭代 A：已删除右下角 ‹ › 翻屏控件（方案 A）；回顶保留 #backToTop -->
 
 <!-- HOME -->
 <div class="vw on" id="vw-home">
@@ -6461,7 +6458,8 @@ html.cssd-light .nb.on{color:#2E9A89!important}
       <button class="chip" data-disc="eng" onclick="sD(this,'eng')">体育工程学</button>
       <button class="chip" data-disc="outdoor" onclick="sD(this,'outdoor')">户外运动</button>
     </div>
-    <div class="cr3">
+    <button type="button" id="moreFiltersBtn" aria-expanded="false" aria-controls="scholarsMoreFilters" onclick="(function(btn){var c=document.querySelector('#vw-scholars .ctlb');if(!c)return;var open=c.classList.toggle('more-open');btn.setAttribute('aria-expanded',open?'true':'false');btn.textContent=open?'▴ 收起筛选':'▾ 更多筛选（称号 / 省级 / 角色）';})(this)">▾ 更多筛选（称号 / 省级 / 角色）</button>
+    <div class="cr3" id="scholarsMoreFilters">
       <span style="font-size:.68rem;color:var(--mu);align-self:center;font-family:'DM Mono',monospace;margin-right:2px"><span class="sp-star" aria-hidden="true">★</span>称号：</span>
       <button class="chip hat on" data-hat="" onclick="sH(this,'')">全部</button>
       <button class="chip hat" data-hat="长江学者" onclick="sH(this,'长江学者')">长江学者</button>
@@ -8419,6 +8417,31 @@ function renderAcademicNews(force){
   }
 }
 window.addEventListener('load',function(){if(document.getElementById('vw-academicnews')&&document.getElementById('vw-academicnews').classList.contains('on'))renderAcademicNews();});
+</script>
+
+<script>
+/* P0 迭代 A · 头像 fallback 安全网：无汉字/数字 i 一律重算为首字 */
+(function(){
+  function avatarInitial(name){
+    var n=String(name==null?'':name).trim();
+    if(!n)return '学';
+    var m=n.match(/[\u4e00-\u9fff\u3400-\u4dbf]/);
+    if(m)return m[0];
+    var ch=n.charAt(0);
+    return /^\d$/.test(ch)?'学':ch;
+  }
+  function run(){
+    if(typeof S==='undefined'||!S||!S.length)return;
+    for(var i=0;i<S.length;i++){
+      var s=S[i]; if(!s)continue;
+      var cur=s.i;
+      if(typeof cur!=='string'||!cur||/^\d+$/.test(String(cur))) s.i=avatarInitial(s.n);
+    }
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);
+  else run();
+  window.addEventListener('load',run);
+})();
 </script>
 <script>
 /* ══ v4.8 · 可收起筛选栏 Collapsible Filter Bar ══ */

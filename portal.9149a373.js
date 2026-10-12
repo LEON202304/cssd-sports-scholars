@@ -167,12 +167,29 @@ window.spPeople=function(type){
     });
   });
   else if(type==='yangtze')list=list.filter(s=>(s.hats||[]).some(h=>h.includes('长江')));
-  spSet('sp-people',list.slice(0,8).map(person).join(''));
+  /* P0: 学者发现跨校抽样，同校最多 2 人 */
+  (function(){
+    const out=[], perInst={}, maxPer=2, target=8;
+    for(let i=0;i<list.length&&out.length<target;i++){
+      const s=list[i], key=String(s.institution||s.s||'');
+      const n=perInst[key]||0;
+      if(n>=maxPer)continue;
+      perInst[key]=n+1;
+      out.push(s);
+    }
+    list=out;
+  })();
+  spSet('sp-people',list.map(person).join(''));
   document.querySelectorAll('.sp-tabs button').forEach(b=>b.classList.toggle('active',b.dataset.kind===type));
 };
 function person(s){
-  const nm=String(s.n||'');
-  const av=nm.slice(0,1);
+  const nm=String(s.n||'').trim();
+  let av='学';
+  if(nm){
+    const m=nm.match(/[\u4e00-\u9fff\u3400-\u4dbf]/);
+    av=m?m[0]:nm.charAt(0);
+    if(/^\d$/.test(av))av='学';
+  }
   const inst=String(s.institution||'');
   return '<button class="sp-person" onclick="spOpen('+Number(s.id)+')"><span class="sp-avatar" aria-hidden="true">'+safe(av)+'</span><span class="sp-person-body"><strong title="'+safe(nm)+'">'+safe(nm)+'</strong><small title="'+safe(inst)+'">'+safe(inst)+'</small><em>'+safe(s.dL||s.title||'体育学')+'</em></span></button>';
 }

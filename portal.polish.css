@@ -656,12 +656,13 @@ html.cssd-light body #vw-scholars > .ph{
 }
 html.cssd-light body #vw-scholars .ctlb{
   margin-top:0 !important;
-  top:0 !important;
+  top:68px !important; /* = header.sp-header height；避免与固定顶栏叠字 */
+  z-index:1100 !important;
 }
 @media (max-width:768px){
   html.cssd-light body #vw-scholars .ctlb,
   html.cssd-light body #vw-scholars .ctlb.slim{
-    top:0 !important;
+    top:0 !important; /* relative 下不需要顶栏偏移 */
     position:relative !important;
   }
 }
@@ -1036,11 +1037,12 @@ html.cssd-light body header.sp-header{
   height:68px;
   gap:36px;
   padding:0 max(28px,calc((100vw - var(--sp-max))/2));
-  background:rgba(255,255,255,.82) !important;
+  background:rgba(255,255,255,.96) !important;
   backdrop-filter:saturate(1.4) blur(16px) !important;
   -webkit-backdrop-filter:saturate(1.4) blur(16px) !important;
   border-bottom:1px solid var(--sp-hair) !important;
-  box-shadow:none !important;
+  box-shadow:0 1px 0 rgba(255,255,255,.85) inset, 0 4px 18px rgba(10,42,67,.06) !important;
+  z-index:1200 !important;
 }
 html.cssd-light body #sportsPortal{padding-top:68px;}
 html.cssd-light body .sp-brand{gap:12px;}
@@ -2613,3 +2615,155 @@ html.cssd-light body #sportsPortal .dy-col h3{margin:6px 0 2px;font-size:15px;li
 html.cssd-light body #sportsPortal .dy-col h3 a{color:#0A2A43;text-decoration:none;}
 html.cssd-light body #sportsPortal .dy-col h3 a:hover{color:#2C6E9E;text-decoration:underline;}
 html.cssd-light body #sportsPortal .dy-col .xj-sub{font-size:12px;color:#8A93A3;margin:0;}
+
+/* ═══════════════════════════════════════════════════════════════
+   P0 迭代 A · sticky 顶栏 / 删翻屏 / 筛选折叠 / 清除描边 / 头像无关 CSS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* 1 · 顶栏不透底（补强）：任何残留半透明一律压成近白 */
+html.cssd-light body header.sp-header,
+html.cssd-light body .sp-header{
+  background:rgba(255,255,255,.96) !important;
+  background-image:none !important;
+  z-index:1200 !important;
+}
+html.cssd-light body #sportsPortal,
+html.cssd-light body #vw-home,
+html.cssd-light body .vw{
+  /* 主内容避开固定顶栏；#sportsPortal 已有 padding-top，.vw 补齐 */
+}
+html.cssd-light body #sportsPortal{padding-top:68px !important;}
+html.cssd-light body .vw.on{scroll-margin-top:68px;}
+
+/* 院校机构等次级 sticky 筛选/芯片条：top = 顶栏高 */
+html.cssd-light body #vw-institutions .ctlb,
+html.cssd-light body #vw-institutions .sticky-bar,
+html.cssd-light body #vw-institutions [class*="filter-bar"],
+html.cssd-light body #vw-institutions .filters,
+html.cssd-light body #vw-journals .ctlb,
+html.cssd-light body #vw-journals .sticky-bar{
+  top:68px !important;
+  z-index:1100 !important;
+}
+@media (max-width:768px){
+  html.cssd-light body header.sp-header,
+  html.cssd-light body .sp-header{height:56px !important;}
+  html.cssd-light body #sportsPortal{padding-top:56px !important;}
+  html.cssd-light body #vw-institutions .ctlb,
+  html.cssd-light body #vw-institutions .sticky-bar,
+  html.cssd-light body #vw-institutions [class*="filter-bar"],
+  html.cssd-light body #vw-journals .ctlb,
+  html.cssd-light body #vw-journals .sticky-bar{
+    top:56px !important;
+  }
+}
+
+/* 导航分组下拉：阴影压住英雄区 */
+html.cssd-light body details.sp-nav-group > div,
+html.cssd-light body details.sp-nav-group .sp-nav-panel,
+html.cssd-light body .ndd-p,
+html.cssd-light body details.sp-more > div{
+  box-shadow:0 12px 36px rgba(10,42,67,.14), 0 2px 8px rgba(10,42,67,.06) !important;
+  background:#FFFFFF !important;
+  z-index:1300 !important;
+}
+
+/* 2 · 方案 A：删除右下角 ‹ › 翻屏控件（保留 #backToTop / 导出 CSV） */
+html.cssd-light body .route-history-tools,
+body .route-history-tools,
+.route-history-tools{
+  display:none !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+  width:0 !important;
+  height:0 !important;
+  overflow:hidden !important;
+}
+
+/* 4 · 清除筛选：描边 + 中性灰（禁止青绿实心） */
+html.cssd-light body #vw-scholars .chip.clr,
+html.cssd-light body #vw-scholars button.chip.clr,
+html.cssd-light body #vw-scholars .ctlb .chip.clr,
+html.cssd-light body #vw-scholars .ctlb button.chip.clr,
+html.cssd-light body #vw-scholars .cr1 .chip.clr{
+  background:transparent !important;
+  background-image:none !important;
+  border:1px solid #E3E8EF !important;
+  box-shadow:none !important;
+  color:#5B6575 !important;
+  text-decoration:none !important;
+  font-weight:500 !important;
+  padding:6px 12px !important;
+  border-radius:999px !important;
+  min-height:auto !important;
+  height:auto !important;
+}
+html.cssd-light body #vw-scholars .chip.clr:hover,
+html.cssd-light body #vw-scholars button.chip.clr:hover,
+html.cssd-light body #vw-scholars .ctlb .chip.clr:hover,
+html.cssd-light body #vw-scholars .ctlb button.chip.clr:hover,
+html.cssd-light body #vw-scholars .ctlb button.chip.clr:focus,
+html.cssd-light body #vw-scholars .ctlb button.chip.clr:active{
+  background:#F5F7FA !important;
+  border-color:#D0D7E2 !important;
+  color:#0A2A43 !important;
+  text-decoration:none !important;
+}
+
+/* 4 · 称号/省级/角色默认折叠；展开靠 .ctlb.more-open */
+html.cssd-light body #vw-scholars .ctlb > .ci > .cr3,
+html.cssd-light body #vw-scholars .ctlb .cr3{
+  display:none !important;
+}
+html.cssd-light body #vw-scholars .ctlb.more-open > .ci > .cr3,
+html.cssd-light body #vw-scholars .ctlb.more-open .cr3{
+  display:flex !important;
+  flex-wrap:wrap !important;
+}
+/* 「更多筛选」按钮 */
+html.cssd-light body #vw-scholars #moreFiltersBtn{
+  display:inline-flex !important;
+  align-items:center;
+  gap:6px;
+  margin:4px 0 8px;
+  padding:6px 12px !important;
+  border:1px solid #E3E8EF !important;
+  border-radius:999px !important;
+  background:#FFFFFF !important;
+  color:#5B6575 !important;
+  font-size:.78rem !important;
+  font-weight:600 !important;
+  cursor:pointer;
+}
+html.cssd-light body #vw-scholars #moreFiltersBtn:hover{
+  background:#F5F7FA !important;
+  color:#0A2A43 !important;
+}
+html.cssd-light body #vw-scholars .ctlb.more-open #moreFiltersBtn{
+  border-color:rgba(46,154,137,.35) !important;
+  color:#0F5B4F !important;
+}
+/* 角色标签与 chip 换行：cr3 内标签独占行首宽 */
+html.cssd-light body #vw-scholars .ctlb .cr3{
+  align-items:flex-start !important;
+  row-gap:8px !important;
+}
+html.cssd-light body #vw-scholars .ctlb .cr3 > span:not(.chip):not(.cdiv){
+  flex:0 0 auto !important;
+  display:inline-block !important;
+  min-width:3.2em;
+  margin-top:4px;
+}
+html.cssd-light body #vw-scholars .ctlb .cr3 .cdiv{
+  flex:0 0 100% !important;
+  width:100% !important;
+  height:0 !important;
+  margin:4px 0 !important;
+  border:0 !important;
+  background:transparent !important;
+}
+/* slim 滚动收起时仍可隐藏更多行，但不隐藏已用 more-open 的语义冲突——slim 优先生效 */
+html.cssd-light body #vw-scholars .ctlb.slim .cr3,
+html.cssd-light body #vw-scholars .ctlb.slim #moreFiltersBtn{
+  display:none !important;
+}
