@@ -22,8 +22,8 @@ html.cssd-boot-ready #bootSplash{opacity:0!important;visibility:hidden!important
 <!-- 预加载关键脚本：在 head 内提前发起请求，与 HTML 解析并行，缩短首屏等待。
      注意：sports-cnki-data.*.js 不在此预加载——它只在「学术期刊 / 学术动态」两个视图按需拉取，
      首屏可省下约 900 KB（Brotli）。详见该脚本下方的 _cnkiLoad 懒加载器。 -->
-<link rel="preload" as="script" href="sports-scholars-data.3e48c01b.js">
-<link rel="preload" as="script" href="sports-univ-catalog.246ac284.js">
+<link rel="preload" as="script" href="sports-scholars-data.2ba8d411.js">
+<link rel="preload" as="script" href="sports-univ-catalog.dbfbc8e8.js">
 <link rel="preload" as="script" href="portal.3bbae0fc.js">
 <link rel="preload" as="image" href="mountains.5f7d4f16.webp" type="image/webp" fetchpriority="high">
 
@@ -6405,7 +6405,7 @@ html.cssd-light .nb.on{color:#2E9A89!important}
 <!-- SCHOLARS -->
 <div class="vw" id="vw-scholars">
   <div class="ph"><div class="hbg"><div class="orb o1" style="width:240px;height:240px;top:-40px;left:-40px;opacity:.09"></div><div class="grid-bg"></div></div>
-    <div class="phi"><div class="sch-hero-row"><div class="sch-hero-copy"><div class="sey" style="margin-bottom:7px">SCHOLAR DIRECTORY</div><h2 class="cssd-h2v">学者目录</h2><p>收录体育院校 · 综合大学 · 师范院校 · 附属医院 · 国家研究机构</p><div class="sch-hero-tabs" id="scholarHeroTabs"></div></div><div class="sch-hero-kpis" id="schHeroKpis" aria-label="学者目录概况"><div class="sch-hero-kpi"><b id="schKpiScholars">—</b><small>收录学者</small></div><div class="sch-hero-kpi"><b id="schKpiInst">—</b><small>覆盖机构</small></div><div class="sch-hero-kpi"><b id="schKpiOverseas">26</b><small>海外华人</small></div></div></div></div>
+    <div class="phi"><div class="sch-hero-row"><div class="sch-hero-copy sp-panel-titles"><div class="sey" style="margin-bottom:7px">SCHOLAR DIRECTORY</div><h2 class="cssd-h2v">学者目录</h2><p>收录体育院校 · 综合大学 · 师范院校 · 附属医院 · 国家研究机构</p><div class="sch-hero-tabs" id="scholarHeroTabs"></div></div><div class="sch-hero-kpis" id="schHeroKpis" aria-label="学者目录概况"><div class="sch-hero-kpi"><b id="schKpiScholars">—</b><small>收录学者</small></div><div class="sch-hero-kpi"><b id="schKpiInst">—</b><small>覆盖机构</small></div><div class="sch-hero-kpi"><b id="schKpiOverseas">26</b><small>海外华人</small></div></div></div></div>
   </div>
   <div class="ctlb"><div class="ci">
     <div class="cr1">
@@ -6731,10 +6731,10 @@ html.cssd-light .nb.on{color:#2E9A89!important}
   <div style="max-width:1200px;margin:0 auto;padding:24px 16px;">
     <div style="background:#F5F7FA;border-radius:16px;padding:28px 32px;margin-bottom:20px;position:relative;overflow:hidden;">
       <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 30% 50%,rgba(46,154,137,.12),transparent 70%);pointer-events:none;"></div>
-      <div style="position:relative;z-index:1;">
+      <div class="sp-panel-titles" style="position:relative;z-index:1;">
         <div style="font-size:.7rem;letter-spacing:.1em;color:#1F7A6C;font-weight:700;margin-bottom:6px;">INSTITUTION NAVIGATOR</div>
-        <h2 style="font-family:'Noto Serif SC','Source Han Serif SC','Songti SC','SimSun',Georgia,serif;font-size:1.6rem;color:#0A2A43;margin:0 0 6px;">院校机构导航</h2>
-        <p style="color:rgba(224,242,254,.5);font-size:.83rem;margin:0 0 16px;">体育专业院校 · 综合高校 · 师范大学 · 医疗机构 · 科研机构</p>
+        <h2 class="cssd-h2v" style="margin:0 0 6px;">院校机构导航</h2>
+        <p style="font-size:.83rem;margin:0 0 16px;">体育专业院校 · 综合高校 · 师范大学 · 医疗机构 · 科研机构</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;">
           <span id="instKpiTotal" style="font-size:.78rem;padding:4px 12px;border-radius:20px;background:rgba(46,154,137,.08);border:1px solid rgba(46,154,137,.2);color:#3E82B0;"></span>
           <span id="instKpiPhd" style="font-size:.78rem;padding:4px 12px;border-radius:20px;background:rgba(44,110,158,.08);border:1px solid rgba(44,110,158,.2);color:#2C6E9E;"></span>
@@ -6744,8 +6744,8 @@ html.cssd-light .nb.on{color:#2E9A89!important}
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;"></div>
 <!-- 院校视图切换 -->
 <div style="display:flex;gap:5px;margin-bottom:16px;background:#FFFFFF;border-radius:10px;padding:4px;border:1px solid rgba(255,255,255,.07);">
-  <button id="ivt-scholars" onclick="switchInstView('scholars')" style="flex:1;padding:8px 12px;border-radius:7px;border:none;font-family:inherit;font-size:.8rem;font-weight:700;cursor:pointer;background:rgba(46,154,137,.15);color:#2E9A89;transition:all .2s;">🏛 学者院校</button>
-  <button id="ivt-catalog" onclick="switchInstView('catalog')" style="flex:1;padding:8px 12px;border-radius:7px;border:none;font-family:inherit;font-size:.8rem;font-weight:500;cursor:pointer;background:transparent;color:#8A94A8;transition:all .2s;">📋 全国高校目录 <span style="font-size:.7rem;opacity:.7;">(300+)</span></button>
+  <button id="ivt-scholars" onclick="switchInstView('scholars')" style="flex:1;padding:8px 12px;border-radius:7px;border:none;font-family:inherit;font-size:.8rem;font-weight:700;cursor:pointer;background:rgba(46,154,137,.15);color:#2E9A89;transition:all .2s;">学者院校</button>
+  <button id="ivt-catalog" onclick="switchInstView('catalog')" style="flex:1;padding:8px 12px;border-radius:7px;border:none;font-family:inherit;font-size:.8rem;font-weight:500;cursor:pointer;background:transparent;color:#8A94A8;transition:all .2s;">全国高校目录 <span style="font-size:.7rem;opacity:.7;">(300+)</span></button>
 </div>
 <!-- 全国高校目录面板 -->
 <div id="univCatalogPanel" style="display:none;"></div><div id="instMapBlock" style="margin-bottom:20px;">
@@ -6855,11 +6855,11 @@ html.cssd-light .nb.on{color:#2E9A89!important}
   </div>
 </div>
     <div style="margin-bottom:12px;">
-      <div style="font-size:.68rem;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:8px;">📍 按地区筛选</div>
+      <div class="iv-filter-label" style="font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;">按地区筛选</div>
       <div id="instRegionTabs" style="display:flex;gap:6px;flex-wrap:wrap;"></div>
     </div>
     <div style="margin-bottom:12px;">
-      <div style="font-size:.68rem;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:8px;">🏛 按机构类型筛选</div>
+      <div class="iv-filter-label" style="font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;">按机构类型筛选</div>
       <div id="instTypeTabs" style="display:flex;gap:6px;flex-wrap:wrap;"></div>
     </div>
     <div id="instg" class="instg"></div>
@@ -7495,8 +7495,10 @@ html.cssd-light #vw-phdschools .phd-tab.on{
 .sn-link-plain:hover{color:#DCE6F0;text-decoration:underline;}</style>
 <div class="vw" id="vw-projects">
   <section class="proj-hero">
+    <div class="sp-panel-titles">
     <div class="proj-eyebrow">NOPSS PROJECT DATABASE · 国家社科基金</div>
     <h2 class="proj-title cssd-h2v">科研项目查询</h2>
+    </div>
     <p class="proj-sub">已将国家社科基金体育学项目负责人与学者目录打通：负责人优先跳转到学者目录中的对应学者；同一高校下属院系、科研处等单位别名已合并，目录未收录者则补建个人资料档案。</p>
     <div class="proj-kpis">
       <div class="proj-kpi"><b>3,056</b><span>项目数据库记录</span></div>
@@ -7867,7 +7869,7 @@ html.cssd-light #vw-phdschools .phd-tab.on{
      加 defer 后解析不再中断，整份文档（含全部样式）先解析完，脚本再按顺序执行，
      DOMContentLoaded 之前一定就绪。页面里所有对 S / JNL_* / NOPSS_* 的引用
      都带 typeof 守卫（共 30 处，已逐条核对），因此执行时机后移是安全的。 -->
-<script defer src="sports-scholars-data.3e48c01b.js"></script>
+<script defer src="sports-scholars-data.2ba8d411.js"></script>
 <div class="compare-bar" id="compareBar">
   <span style="font-size:.75rem;color:#8A94A8;">📊 已选：</span>
   <span class="cmp-cnt" id="compareCnt"><b style="color:#2E9A89">0</b>/5 位学者</span>
@@ -7875,7 +7877,7 @@ html.cssd-light #vw-phdschools .phd-tab.on{
   <button class="cmp-clear" onclick="clearCompare()">✕ 清空</button>
   <span style="font-size:.7rem;color:#64748b;margin-left:auto;">多选模式 · 最多5位</span>
 </div>
-<!-- 外置数据（带内容哈希 → EdgeOne 自动长缓存） --><script defer src="sports-univ-catalog.246ac284.js"></script>
+<!-- 外置数据（带内容哈希 → EdgeOne 自动长缓存） --><script defer src="sports-univ-catalog.dbfbc8e8.js"></script>
 
 <!-- Back to top button -->
 <script>
