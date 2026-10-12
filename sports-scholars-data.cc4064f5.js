@@ -104,6 +104,27 @@ function hS(h){
   if(h.includes('国家级青年人才'))return'国家级青年人才';
   return h.length>14?h.slice(0,14)+'…':h;
 }
+function avatarInitial(name){
+  var n=String(name==null?'':name).trim();
+  if(!n)return '\u5b66';
+  var m=n.match(/[\u4e00-\u9fff\u3400-\u4dbf]/);
+  if(m)return m[0];
+  var ch=n.charAt(0);
+  if(/^\d$/.test(ch))return '\u5b66';
+  return ch;
+}
+function normalizeScholarAvatars(list){
+  if(!list||!list.length)return;
+  for(var i=0;i<list.length;i++){
+    var s=list[i];
+    if(!s)continue;
+    var cur=s.i;
+    if(typeof cur!=='string'||!cur||/^\d+$/.test(String(cur))){
+      s.i=avatarInitial(s.n);
+    }
+  }
+}
+if(typeof S!=='undefined'&&Array.isArray(S))normalizeScholarAvatars(S);
 function esc(t){return String(t==null?'':t).replace(/[&<>"']/g,function(c){return({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];});}
 function realHats(s){return (s&&Array.isArray(s.hats))?s.hats:[];}
 function hl(t){
@@ -597,7 +618,30 @@ function initHome(){
   const groups=[['edu_train','\u4f53\u80b2\u6559\u80b2\u8bad\u7ec3\u5b66','#3E82B0','pe','train'],['human','\u4f53\u80b2\u4eba\u6587\u793e\u4f1a\u5b66','#F97316','hu','mgmt'],['science','\u8fd0\u52a8\u4eba\u4f53\u79d1\u5b66','#3E82B0','sci','rehab','psych','eng'],['trad','\u6c11\u65cf\u4f20\u7edf\u4f53\u80b2\u5b66','#A23B4E','trad']].map(function(g){return {key:g[0],label:g[1],color:g[2],cnt:S.filter(function(s){return g.slice(3).includes(s.disc);}).length};}).sort(function(a,b){return b.cnt-a.cnt;});
   const max=groups[0].cnt;
   document.getElementById('tlist').innerHTML=groups.map(function(d,i){return '<div class="tr3" onclick="navGoGradDisc(\''+d.key+'\')"><span class="trk">'+String(i+1).padStart(2,'0')+'</span><span class="tdd" style="background:'+d.color+'"></span><span class="tdn">'+d.label+'</span><div class="tbw"><div class="tbar" style="background:'+d.color+';width:'+Math.round(d.cnt/max*100)+'%"></div></div><span class="tc">'+d.cnt+' \u4eba</span></div>';}).join('');
-  const feat=[...S].filter(function(s){return s.hats.length>0||s.hon.length>0;}).sort(function(a,b){return (b.hats.length+b.hon.length)-(a.hats.length+a.hon.length);}).slice(0,8);
+  const feat=(function(){
+    var pool=[...S].filter(function(s){return s.n&&s.institution&&(s.hats.length>0||s.hon.length>0);})
+      .sort(function(a,b){return (b.hats.length+b.hon.length)-(a.hats.length+a.hon.length);});
+    var out=[], perInst={}, maxPer=2, target=8;
+    for(var i=0;i<pool.length&&out.length<target;i++){
+      var s=pool[i], key=s.institution||s.s||'';
+      var n=perInst[key]||0;
+      if(n>=maxPer)continue;
+      perInst[key]=n+1;
+      out.push(s);
+    }
+    /* 若精英池机构过少，用无称号学者补齐跨校 */
+    if(out.length<target){
+      var rest=S.filter(function(s){return s.n&&s.institution&&out.indexOf(s)<0;});
+      for(var j=0;j<rest.length&&out.length<target;j++){
+        var t=rest[j], k=t.institution||t.s||'';
+        var c=perInst[k]||0;
+        if(c>=maxPer)continue;
+        perInst[k]=c+1;
+        out.push(t);
+      }
+    }
+    return out;
+  })();
   document.getElementById('featg').innerHTML=feat.map(function(s){return bCard(s);}).join('');
   if(typeof syncLiveMetrics==='function')syncLiveMetrics();
 }
