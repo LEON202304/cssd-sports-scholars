@@ -1,13 +1,17 @@
 name: Update Latest Papers
 
-# 每天北京时间 07:17 左右（UTC 23:17）抓取：
+# 每天两班抓取（GitHub cron 可能延迟数分钟到数十分钟）：
+#   早班 UTC 23:17 ≈ 北京时间 07:17
+#   晚班 UTC 11:17 ≈ 北京时间 19:17
+# 内容：
 #   1) 重点体育学期刊最新论文 → latest_papers.json / news-snapshot.json
 #   2) 学界动态（荣誉/活动/会议）→ xuejie-snapshot.json
 #   3) 每日动态日报 → daily-dynamics.json
-# 推送到 main 后 EdgeOne 自动部署。
+# 有变更才推 main，EdgeOne 自动部署。
 on:
   schedule:
-    - cron: '17 23 * * *'   # UTC 23:17 = 北京时间次日 07:17（GitHub 定时任务可能延迟数分钟到数十分钟）
+    - cron: '17 23 * * *'   # UTC 23:17 ≈ 北京 07:17
+    - cron: '17 11 * * *'   # UTC 11:17 ≈ 北京 19:17
   workflow_dispatch:         # 支持在 Actions 页面或 `gh workflow run update-papers.yml` 手动触发
 
 permissions:
