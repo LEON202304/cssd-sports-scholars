@@ -636,11 +636,14 @@ function start(){
       '</div>'+
     '</div>'+
     '<footer class="sp-footer"><div class="sp-wrap">'+
-      '<div><strong>体育学人</strong><p>中国体育学术资源数据库 · SPORTS SCHOLARS</p></div>'+
+      '<div><strong>体育学人</strong><p>中国体育学术资源数据库 · SPORTS SCHOLARS</p>'+
+        '<p class="sp-footer-copy">© '+(new Date().getFullYear())+' 体育学人</p></div>'+
       '<div>'+
-        '<button onclick="spNavigate(\'founders\')">学科溯源</button>'+
-        '<button onclick="spNavigate(\'classify\')">分类统计</button>'+
-        '<button onclick="spNavigate(\'journals\')">学术资源</button>'+
+        '<button type="button" onclick="spNavigate(\'founders\')">学科溯源</button>'+
+        '<button type="button" onclick="spNavigate(\'classify\')">分类统计</button>'+
+        '<button type="button" onclick="spNavigate(\'journals\')">学术资源</button>'+
+        '<button type="button" onclick="if(typeof openPrivacyModal===\'function\')openPrivacyModal()">隐私政策</button>'+
+        '<button type="button" onclick="if(typeof openClaimModal===\'function\')openClaimModal(null)">信息认领/纠错</button>'+
         '<br><small>数据沿用所提供资料，统计反映当前收录记录。</small>'+
       '</div>'+
     '</div></footer>';
