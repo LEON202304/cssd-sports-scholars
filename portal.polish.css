@@ -2821,3 +2821,122 @@ html.cssd-light body .cnki-table .cnki-jrnl-tag{
   font-weight:600 !important;
   opacity:1 !important;
 }
+
+/* ═════════════════════════════════════════════════════════════════
+   header-nav-promote — 去副标题；奠基人/精品课程/学术AI 上主菜单
+   ═════════════════════════════════════════════════════════════════ */
+/* 副标题整块移除（JS 已不渲染；CSS 兜底） */
+html.cssd-light body header.sp-header .sp-brand-sub,
+html.cssd-light body header.sp-header .sp-brand-divider,
+header.sp-header .sp-brand-sub,
+header.sp-header .sp-brand-divider{
+  display:none !important;
+}
+
+/* 主菜单 9 项：1440 桌面完整显示；收左右 padding 给 9 项腾位 */
+html.cssd-light body header.sp-header{
+  gap:12px;
+  padding-left:28px !important;
+  padding-right:28px !important;
+}
+html.cssd-light body header.sp-header nav.sp-links{
+  gap:8px;
+  flex-wrap:nowrap;
+  flex:1 1 auto;
+  min-width:0;
+  overflow:visible;
+}
+html.cssd-light body .sp-links button{
+  font-size:12px;
+  letter-spacing:0;
+  padding:0;
+  white-space:nowrap;
+  flex:0 0 auto;
+}
+html.cssd-light body .sp-brand{
+  flex:0 0 auto;
+  gap:8px;
+  margin-right:4px;
+}
+html.cssd-light body .sp-brand strong{font-size:16px;letter-spacing:.08em;}
+html.cssd-light body header.sp-header .sp-tools{
+  flex:0 0 auto;
+  gap:8px;
+}
+html.cssd-light body header.sp-header .sp-tools .sp-cmd-hint{display:none;}
+
+/* 桌面：全部导航不重复展示已上主栏的三项 */
+@media (min-width:901px){
+  html.cssd-light body .sp-more .sp-more-promoted{
+    display:none !important;
+  }
+}
+
+/* ≤900：主栏后三项收进全部导航（与现有 nth-child 隐藏配合） */
+@media (max-width:900px){
+  html.cssd-light body .sp-links button.sp-nav-promoted{
+    display:none !important;
+  }
+  html.cssd-light body .sp-more .sp-more-promoted{
+    display:block !important;
+  }
+}
+
+/* 1200–1439：再略收一点间距 */
+@media (max-width:1439px) and (min-width:901px){
+  html.cssd-light body header.sp-header nav.sp-links{gap:10px;}
+  html.cssd-light body .sp-links button{
+    font-size:12.5px;
+    letter-spacing:.02em;
+  }
+  html.cssd-light body header.sp-header{gap:14px;}
+}
+
+/* ═════════════════════════════════════════════════════════════════
+   news-columns-align — 学术动态 / 学界动态 左右底部齐平
+   策略：栅格 stretch 等高；右栏 flex 均分填满；左卡内容贴顶不拉空白
+   ═════════════════════════════════════════════════════════════════ */
+html.cssd-light body #sportsPortal .hn-layout,
+html.cssd-light body #sportsPortal .xj-layout{
+  align-items:stretch;
+}
+html.cssd-light body #sportsPortal .hn-lead,
+html.cssd-light body #sportsPortal .xj-lead{
+  height:auto;
+  align-self:stretch;
+  justify-content:flex-start;
+}
+html.cssd-light body #sportsPortal .hn-list,
+html.cssd-light body #sportsPortal .xj-list{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  min-height:100%;
+  height:100%;
+  align-self:stretch;
+}
+html.cssd-light body #sportsPortal .hn-row,
+html.cssd-light body #sportsPortal .xj-row{
+  flex:1 1 0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:0;
+}
+html.cssd-light body #sportsPortal .hn-layout-solo{
+  align-items:stretch;
+}
+
+@media (max-width:860px){
+  html.cssd-light body #sportsPortal .hn-list,
+  html.cssd-light body #sportsPortal .xj-list{
+    height:auto;
+    min-height:0;
+  }
+  html.cssd-light body #sportsPortal .hn-row,
+  html.cssd-light body #sportsPortal .xj-row{
+    flex:0 0 auto;
+  }
+  /* 学术动态右栏第 5 条（第 4 小卡）窄屏仍藏 */
+  html.cssd-light body #sportsPortal .hn-list .hn-row:nth-child(n+4){display:none;}
+}
