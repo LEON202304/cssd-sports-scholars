@@ -3424,3 +3424,104 @@ html.cssd-light body #sportsPortal .sp-panel h2{
   border-left:0 !important;
   padding-left:0 !important;
 }
+
+/* ── polish/p1-template-titles：App 列表页复用 .sp-panel-titles 左竖条 + 筛标去 emoji ──
+   验收：标题只走共享 .sp-panel-titles / :root token；不改 SPA nav/header；
+   期刊 .jnl-hero 保持 marketing 居中；学者/机构/项目左对齐共享标题条；
+   机构类型/地区筛标 icon 已清空 → --tab-clr / .l2-swatch / .uc-swatch 色块。 */
+html.cssd-light body #vw-scholars .sp-panel-titles,
+html.cssd-light body #vw-institutions .sp-panel-titles,
+html.cssd-light body #vw-projects .sp-panel-titles{
+  border-left:3px solid var(--sp-brand-500, #2C6E9E);
+  padding-left:12px;
+  box-sizing:border-box;
+}
+/* App 列表标题字重/色走 token，压过机构页残留内联色 */
+html.cssd-light body #vw-scholars .sp-panel-titles h2.cssd-h2v,
+html.cssd-light body #vw-institutions .sp-panel-titles h2,
+html.cssd-light body #vw-projects .sp-panel-titles .proj-title{
+  color:var(--sp-brand-900, #0A2A43) !important;
+  -webkit-text-fill-color:var(--sp-brand-900, #0A2A43) !important;
+  font-weight:600 !important;
+}
+html.cssd-light body #vw-scholars .sp-panel-titles .sey,
+html.cssd-light body #vw-institutions .sp-panel-titles > div:first-child,
+html.cssd-light body #vw-projects .sp-panel-titles .proj-eyebrow{
+  color:var(--sp-muted, #5B6575) !important;
+  font-weight:500 !important;
+}
+/* 期刊 marketing hero 保持居中，不套左竖条 */
+html.cssd-light body #vw-journals .jnl-hero,
+html.cssd-light body #vw-journals .jnl-hero-in{
+  text-align:center;
+}
+
+/* 机构页地区/类型筛标：左侧色块 token（替代 emoji） */
+html.cssd-light body #instRegionTabs .l1-tab,
+html.cssd-light body #instTypeTabs .l1-tab{
+  display:inline-flex !important;
+  align-items:center;
+  gap:7px;
+}
+html.cssd-light body #instRegionTabs .l1-tab::before,
+html.cssd-light body #instTypeTabs .l1-tab::before{
+  content:"";
+  width:8px;
+  height:8px;
+  border-radius:2px;
+  background:var(--tab-clr, var(--sp-brand-500, #2C6E9E));
+  flex-shrink:0;
+  box-shadow:0 0 0 1px rgba(10,42,67,.08);
+}
+html.cssd-light body #instTypeTabs .l1-tab[data-cat="all"]::before,
+html.cssd-light body #instRegionTabs .l1-tab[data-region="all"]::before{
+  background:var(--sp-chip-line, #E3E8EF);
+}
+/* 分组头 / 卡片色块（JS 写入 .l2-swatch，色来自数据 clr/color） */
+html.cssd-light body #vw-institutions .l2-swatch,
+html.cssd-light body #vw-institutions .l2-icon.l2-swatch,
+html.cssd-light body #vw-institutions .l3-inst-icon.l2-swatch{
+  display:inline-block;
+  width:10px;
+  height:10px;
+  min-width:10px;
+  border-radius:2px;
+  padding:0 !important;
+  margin:0 2px 0 0;
+  font-size:0 !important;
+  line-height:0;
+  vertical-align:middle;
+  box-shadow:0 0 0 1px rgba(10,42,67,.08);
+}
+html.cssd-light body #vw-institutions .l2-swatch--lg{
+  width:14px;
+  height:14px;
+  min-width:14px;
+  border-radius:3px;
+}
+html.cssd-light body #vw-institutions .l3-inst-icon.l2-swatch{
+  width:12px;
+  height:12px;
+  min-width:12px;
+  border-radius:3px;
+  flex-shrink:0;
+}
+
+/* 全国高校目录：跳转条 / 分区头色块 */
+html.cssd-light body #univCatalogPanel .uc-swatch{
+  display:inline-block;
+  width:8px;
+  height:8px;
+  border-radius:2px;
+  vertical-align:middle;
+  margin-right:5px;
+  box-shadow:0 0 0 1px rgba(10,42,67,.10);
+}
+html.cssd-light body #univCatalogPanel .uc-swatch--md{
+  width:10px;
+  height:10px;
+  border-radius:2px;
+}
+html.cssd-light body #univCatalogPanel a .uc-swatch{
+  margin-right:4px;
+}

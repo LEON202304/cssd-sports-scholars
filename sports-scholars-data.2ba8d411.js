@@ -1050,14 +1050,14 @@ function renderInst(){
   var INST_PROV={"北京体育大学":"北京","首都体育学院":"北京","北京师范大学":"北京","北京大学":"北京","清华大学":"北京","中国人民大学":"北京","北京外国语大学":"北京","首都师范大学":"北京","北京大学第三医院":"北京","教育部体卫艺司":"北京","国家体育总局体育科学研究所":"北京","国家体育总局":"北京","国家体育总局体育文化发展中心":"北京","中国教育科学研究院":"北京","中国科学院心理研究所":"北京","中国地质大学（北京）":"北京","天津体育学院":"天津","天津师范大学":"天津","河北师范大学":"河北","华北理工大学":"河北","山西大学":"山西","山西师范大学":"山西","内蒙古师范大学":"内蒙古","内蒙古大学":"内蒙古","沈阳体育学院":"辽宁","辽宁师范大学":"辽宁","大连理工大学":"辽宁","沈阳师范大学":"辽宁","大连大学":"辽宁","吉林体育学院":"吉林","东北师范大学":"吉林","吉林大学":"吉林","长春师范大学":"吉林","哈尔滨体育学院":"黑龙江","黑龙江大学":"黑龙江","哈尔滨师范大学":"黑龙江","东北财经大学":"辽宁","上海体育大学":"上海","华东师范大学":"上海","复旦大学附属华山医院":"上海","上海交通大学":"上海","上海大学":"上海","同济大学":"上海","华东理工大学":"上海","上海师范大学":"上海","上海政法学院":"上海","上海交通大学附属第六人民医院":"上海","南京体育学院":"江苏","南京师范大学":"江苏","苏州大学":"江苏","扬州大学":"江苏","江苏师范大学":"江苏","南通大学":"江苏","南京理工大学":"江苏","南京医科大学第一附属医院":"江苏","南京鼓楼医院":"江苏","常州大学":"江苏","浙江大学":"浙江","浙江师范大学":"浙江","宁波大学":"浙江","杭州师范大学":"浙江","安徽师范大学":"安徽","集美大学":"福建","福建师范大学":"福建","华侨大学":"福建","江西师范大学":"江西","山东体育学院":"山东","山东大学":"山东","曲阜师范大学":"山东","山东师范大学":"山东","中国海洋大学":"山东","郑州大学":"河南","河南大学":"河南","河南师范大学":"河南","河南财经政法大学":"河南","武汉体育学院":"湖北","华中师范大学":"湖北","武汉大学":"湖北","华中科技大学":"湖北","中南财经政法大学":"湖北","湖北大学":"湖北","黄冈师范学院":"湖北","中国地质大学（武汉）":"湖北","四川大学华西医院":"四川","湖南师范大学":"湖南","中南大学":"湖南","吉首大学":"湖南","湖南大学":"湖南","广州体育学院":"广东","华南师范大学":"广东","中山大学":"广东","深圳大学":"广东","华南理工大学":"广东","广西师范大学":"广西","广西民族大学":"广西","成都体育学院":"四川","四川大学":"四川","西南大学":"重庆","四川师范大学":"四川","西南交通大学":"四川","贵州师范大学":"贵州","贵州大学":"贵州","云南师范大学":"云南","西安体育学院":"陕西","陕西师范大学":"陕西","西安交通大学":"陕西","西安翻译学院":"陕西","国防科技大学":"湖南","西北师范大学":"甘肃","兰州大学":"甘肃","天水师范学院":"甘肃","新疆师范大学":"新疆","（资深）":"北京","复旦大学":"上海","南京大学":"江苏","中国科学技术大学":"安徽","北京航空航天大学":"北京","北京理工大学":"北京","哈尔滨工业大学":"黑龙江","东南大学":"江苏","天津大学":"天津","西北工业大学":"陕西","南开大学":"天津","厦门大学":"福建","中国农业大学":"北京","南方科技大学":"广东","电子科技大学":"四川","重庆大学":"重庆","北京科技大学":"北京","南京航空航天大学":"江苏","东北大学":"辽宁","西安电子科技大学":"陕西","上海科技大学":"上海","北京交通大学":"北京","哈尔滨工程大学":"黑龙江","华中农业大学":"湖北","武汉理工大学":"湖北","中国石油大学（北京）":"北京","江南大学":"江苏","暨南大学":"广东","中国矿业大学":"江苏","北京邮电大学":"北京","浙江工业大学":"浙江","北京化工大学":"北京","河海大学":"江苏","中国石油大学（华东）":"山东","云南大学":"云南","西北大学":"陕西","西北农林科技大学":"陕西","北京工业大学":"北京","南昌大学":"江西","东华大学":"上海","中国矿业大学（北京）":"北京","福州大学":"福建","合肥工业大学":"安徽","南京邮电大学":"江苏","江苏大学":"江苏","华北电力大学":"北京","长安大学":"陕西","北京林业大学":"北京","广西大学":"广西","南京林业大学":"江苏","海南大学":"海南","南京工业大学":"江苏","南京信息工程大学":"江苏","广东工业大学":"广东","杭州电子科技大学":"浙江","安徽大学":"安徽","华南农业大学":"广东","太原理工大学":"山西","广州大学":"广东","湘潭大学":"湖南","上海理工大学":"上海","河北工业大学":"天津","大连海事大学":"辽宁","青岛大学":"山东","燕山大学":"河北","东北林业大学":"黑龙江","西安建筑科技大学":"陕西","昆明理工大学":"云南","西安理工大学":"陕西","武汉科技大学":"湖北","东北农业大学":"黑龙江","西南石油大学":"四川","福建农林大学":"福建","温州大学":"浙江","长沙理工大学":"湖南","河北大学":"河北","山东科技大学":"山东","辽宁大学":"辽宁","成都理工大学":"四川","山东农业大学":"山东","宁夏大学":"宁夏","天津工业大学":"天津","长春理工大学":"吉林","石河子大学":"新疆","四川农业大学":"四川","上海海洋大学":"上海","江苏科技大学":"江苏","齐鲁工业大学":"山东","中国计量大学":"浙江","安徽农业大学":"安徽","湖北工业大学":"湖北","浙江农林大学":"浙江","湖南农业大学":"湖南","河南农业大学":"河南","重庆邮电大学":"重庆","哈尔滨理工大学":"黑龙江","汕头大学":"广东","青岛科技大学":"山东","三峡大学":"湖北","延边大学":"吉林","沈阳农业大学":"辽宁","河南科技大学":"河南","中北大学":"山西","济南大学":"山东","华东交通大学":"江西","上海海事大学":"上海","南昌航空大学":"江西","天津理工大学":"天津","湖南科技大学":"湖南","吉林农业大学":"吉林","武汉纺织大学":"湖北","武汉工程大学":"湖北","天津科技大学":"天津","北京建筑大学":"北京","沈阳航空航天大学":"辽宁","河南理工大学":"河南","长江大学":"湖北","上海电力大学":"上海","南华大学":"湖南","沈阳工业大学":"辽宁","重庆交通大学":"重庆","安徽工业大学":"安徽","江西理工大学":"江西","西安科技大学":"陕西","安徽理工大学":"安徽","山东理工大学":"山东","西藏大学":"西藏","江西农业大学":"江西","河北农业大学":"河北","青海大学":"青海","兰州理工大学":"甘肃","西安邮电大学":"陕西","桂林电子科技大学":"广西","浙江理工大学":"浙江","北京信息科技大学":"北京","烟台大学":"山东","苏州科技大学":"江苏","中南林业科技大学":"湖南","西南科技大学":"四川","兰州交通大学":"甘肃","青岛理工大学":"山东","湖州师范学院":"浙江","西安工业大学":"陕西","东华理工大学":"江西","北方工业大学":"北京","北京电子科技学院":"北京","东北石油大学":"黑龙江","重庆师范大学":"重庆","沈阳建筑大学":"辽宁","内蒙古农业大学":"内蒙古","大连工业大学":"辽宁","石家庄铁道大学":"河北","河南工业大学":"河南","嘉兴学院":"浙江","海南师范大学":"海南","山西农业大学":"山西","青岛农业大学":"山东","东北电力大学":"吉林","浙江海洋大学":"浙江","浙江科技大学":"浙江","成都大学":"四川","上海工程技术大学":"上海","西安石油大学":"陕西","上海应用技术大学":"上海","河北科技大学":"河北","佛山大学":"广东","青海师范大学":"青海","甘肃农业大学":"甘肃","东莞理工学院":"广东","中国民航大学":"天津","重庆理工大学":"重庆","华北水利水电大学":"河南","武汉轻工大学":"湖北","鲁东大学":"山东","赣南师范大学":"江西","山东建筑大学":"山东","江汉大学":"湖北","浙大城市学院":"浙江","聊城大学":"山东","沈阳化工大学":"辽宁","桂林理工大学":"广西","成都信息工程大学":"四川","西安工程大学":"陕西","郑州轻工业大学":"河南","安徽工程大学":"安徽","西华师范大学":"四川","大连交通大学":"辽宁","南京工程学院":"江苏","上海海关学院":"上海","辽宁石油化工大学":"辽宁","沈阳理工大学":"辽宁","绍兴文理学院":"浙江","延安大学":"陕西","内蒙古工业大学":"内蒙古","沈阳大学":"辽宁","厦门理工学院":"福建","西华大学":"四川","长春工业大学":"吉林","安徽建筑大学":"安徽","湖南工业大学":"湖南","井冈山大学":"江西","辽宁工程技术大学":"辽宁","北京农学院":"北京","浙大宁波理工学院":"浙江","福建理工大学":"福建","常熟理工学院":"江苏","中原工学院":"河南","合肥大学":"安徽","重庆科技大学":"重庆","渤海大学":"辽宁","云南农业大学":"云南","台州学院":"浙江","大理大学":"云南","太原科技大学":"山西","黑龙江八一农垦大学":"黑龙江","宁波工程学院":"浙江","深圳技术大学":"广东","河北工程大学":"河北","辽宁科技大学":"辽宁","北京联合大学":"北京","北京石油化工学院":"北京","新疆农业大学":"新疆","辽宁工业大学":"辽宁","北京协和医学院":"北京","首都医科大学":"北京","南方医科大学":"广东","南京医科大学":"江苏","天津医科大学":"天津","中国医科大学":"辽宁","哈尔滨医科大学":"黑龙江","广州医科大学":"广东","温州医科大学":"浙江","中国药科大学":"江苏","重庆医科大学":"重庆","大连医科大学":"辽宁","河北医科大学":"河北","福建医科大学":"福建","安徽医科大学":"安徽","上海财经大学":"上海","中央财经大学":"北京","对外经济贸易大学":"北京","西南财经大学":"四川","江西财经大学":"江西","浙江工商大学":"浙江","首都经济贸易大学":"北京","南京财经大学":"江苏","中国政法大学":"北京","华东政法大学":"上海","西南政法大学":"重庆","上海外国语大学":"上海","中国传媒大学":"北京","外交学院":"北京","北京语言大学":"北京","广东外语外贸大学":"广东","中央民族大学":"北京"};
   var PROV_REGION={"北京":"华北","天津":"华北","河北":"华北","山西":"华北","内蒙古":"华北","辽宁":"东北","吉林":"东北","黑龙江":"东北","上海":"华东","江苏":"华东","浙江":"华东","安徽":"华东","福建":"华东","江西":"华东","山东":"华东","河南":"华中","湖北":"华中","湖南":"华中","广东":"华南","广西":"华南","海南":"华南","重庆":"西南","四川":"西南","贵州":"西南","云南":"西南","西藏":"西南","陕西":"西北","甘肃":"西北","青海":"西北","宁夏":"西北","新疆":"西北"};
   var REGIONS_LIST=[
-    {k:'all',label:'全国',icon:'🗺',color:'#8A94A8'},
-    {k:'华北',label:'华北',icon:'🏙',color:'#60a5fa',provs:['北京','天津','河北','山西','内蒙古']},
-    {k:'东北',label:'东北',icon:'❄',color:'#3E82B0',provs:['辽宁','吉林','黑龙江']},
-    {k:'华东',label:'华东',icon:'🌊',color:'#34d399',provs:['上海','江苏','浙江','安徽','福建','江西','山东']},
-    {k:'华中',label:'华中',icon:'🌸',color:'#f472b6',provs:['河南','湖北','湖南']},
-    {k:'华南',label:'华南',icon:'☀',color:'#fb923c',provs:['广东','广西','海南']},
-    {k:'西南',label:'西南',icon:'🏔',color:'#2C6E9E',provs:['重庆','四川','贵州','云南','西藏']},
-    {k:'西北',label:'西北',icon:'🏜',color:'#D4AE5A',provs:['陕西','甘肃','青海','宁夏','新疆']},
+    {k:'all',label:'全国',icon:'',color:'#8A94A8'},
+    {k:'华北',label:'华北',icon:'',color:'#60a5fa',provs:['北京','天津','河北','山西','内蒙古']},
+    {k:'东北',label:'东北',icon:'',color:'#3E82B0',provs:['辽宁','吉林','黑龙江']},
+    {k:'华东',label:'华东',icon:'',color:'#34d399',provs:['上海','江苏','浙江','安徽','福建','江西','山东']},
+    {k:'华中',label:'华中',icon:'',color:'#f472b6',provs:['河南','湖北','湖南']},
+    {k:'华南',label:'华南',icon:'',color:'#fb923c',provs:['广东','广西','海南']},
+    {k:'西南',label:'西南',icon:'',color:'#2C6E9E',provs:['重庆','四川','贵州','云南','西藏']},
+    {k:'西北',label:'西北',icon:'',color:'#D4AE5A',provs:['陕西','甘肃','青海','宁夏','新疆']},
   ];
   /* 机构类型按名称判定（学者的 cat 字段是层次/来源标签，不能用于机构归类） */
   function instTypeOf(n){
@@ -1081,11 +1081,11 @@ function renderInst(){
     inst.region=inst.prov?PROV_REGION[inst.prov]||'其他':'其他';
   });
   var CATS=[
-    {k:'sports',icon:'🏆',label:'体育专业院校',color:'#2E9A89'},
-    {k:'normal',icon:'🏫',label:'师范类院校',color:'#3E82B0'},
-    {k:'comprehensive',icon:'🏛',label:'综合类院校',color:'#10B981'},
-    {k:'medical',icon:'🏥',label:'医疗机构',color:'#A23B4E'},
-    {k:'gov',icon:'📋',label:'科研机构',color:'#C8A24B'},
+    {k:'sports',icon:'',label:'体育专业院校',color:'#2E9A89'},
+    {k:'normal',icon:'',label:'师范类院校',color:'#3E82B0'},
+    {k:'comprehensive',icon:'',label:'综合类院校',color:'#10B981'},
+    {k:'medical',icon:'',label:'医疗机构',color:'#A23B4E'},
+    {k:'gov',icon:'',label:'科研机构',color:'#C8A24B'},
   ];
 
   // ── 地区Tab初始化 ──
@@ -1098,7 +1098,7 @@ function renderInst(){
       var b=document.createElement('button');
       b.className='l1-tab'+(reg.k==='all'?' on':'');
       b.dataset.region=reg.k;
-      b.innerHTML=reg.icon+' '+reg.label+' <span style="font-family:DM Mono,monospace;font-size:.68rem;opacity:.65">'+cnt+'</span>';
+      b.innerHTML=reg.label+' <span style="font-family:DM Mono,monospace;font-size:.68rem;opacity:.65">'+cnt+'</span>';
       b.style.setProperty('--tab-clr',reg.color);
       b.addEventListener('click',function(){
         regionRow.querySelectorAll('.l1-tab').forEach(function(x){x.classList.remove('on');});
@@ -1125,8 +1125,8 @@ function renderInst(){
       var b=document.createElement('button');
       b.className='l1-tab'+(cd.k==='all'?' on':'');
       b.dataset.cat=cd.k;
-      b.innerHTML=(cd.icon?cd.icon+' ':'')+cd.label+' <span class="l1-cnt">'+cnt+'</span>';
-      if(cd.color) b.dataset.color=cd.color;
+      b.innerHTML=cd.label+' <span class="l1-cnt">'+cnt+'</span>';
+      if(cd.color){b.dataset.color=cd.color;b.style.setProperty('--tab-clr',cd.color);}
       b.addEventListener('click',function(){
         var cat=this.dataset.cat;
         tabRow.querySelectorAll('.l1-tab').forEach(function(x){x.classList.remove('on');});
@@ -1146,11 +1146,11 @@ function renderInst(){
 
 function instRenderCards(instList,cat,CATS){
   var CATS2=CATS||[
-    {k:"sports",icon:"🏆",label:"体育专业院校",color:"#2E9A89"},
-    {k:"normal",icon:"🏫",label:"师范类院校",color:"#3E82B0"},
-    {k:"comprehensive",icon:"🏛",label:"综合类院校",color:"#10B981"},
-    {k:"medical",icon:"🏥",label:"医疗机构",color:"#A23B4E"},
-    {k:"gov",icon:"📋",label:"科研机构",color:"#C8A24B"},
+    {k:"sports",icon:"",label:"体育专业院校",color:"#2E9A89"},
+    {k:"normal",icon:"",label:"师范类院校",color:"#3E82B0"},
+    {k:"comprehensive",icon:"",label:"综合类院校",color:"#10B981"},
+    {k:"medical",icon:"",label:"医疗机构",color:"#A23B4E"},
+    {k:"gov",icon:"",label:"科研机构",color:"#C8A24B"},
   ];
   var filtered=cat==="all"?instList:instList.filter(function(i){return i.cat===cat;});
   var kt=document.getElementById("instKpiTotal");
@@ -1165,7 +1165,7 @@ function instRenderCards(instList,cat,CATS){
     grp.sort(function(a,b){var ra=getInstRank(a.name),rb=getInstRank(b.name);if(ra!==rb)return ra-rb;return (b.scholars?b.scholars.length:0)-(a.scholars?a.scholars.length:0);});
     H+="<div class=\"l2-group\">";
     H+="<div class=\"l2-group-hd\" style=\"border-left-color:"+cd.color+"\">";
-    H+="<span class=\"l2-icon\">"+cd.icon+"</span>";
+    H+="<span class=\"l2-icon l2-swatch\" style=\"background:"+cd.color+"\" aria-hidden=\"true\"></span>";
     H+="<div><div class=\"l2-title\" style=\"color:"+cd.color+"\">"+cd.label+"</div></div>";
     H+="<span class=\"l2-cnt\">"+grp.length+"所</span></div>";
     H+="<div class=\"l3-grid-inst\">";
@@ -1178,7 +1178,7 @@ function instRenderCards(instList,cat,CATS){
         .filter(function(s,i,a){return a.indexOf(s)===i;}).slice(0,6);
       H+="<div class=\"l3-inst-card\" style=\"border-left:3px solid "+cd.color+"25\">";
       H+="<div class=\"l3-inst-card-hd\">";
-      H+="<div class=\"l3-inst-icon\" style=\"background:"+cd.color+"14\">"+cd.icon+"</div>";
+      H+="<div class=\"l3-inst-icon l2-swatch\" style=\"background:"+cd.color+"\" aria-hidden=\"true\"></div>";
       H+="<div style=\"flex:1;min-width:0\">";
       H+="<div class=\"l3-inst-name\">"+inst.name+"</div>";
       H+="<div class=\"l3-inst-sub\">"+inst.short+"</div>";
@@ -1211,7 +1211,7 @@ function instRenderCards(instList,cat,CATS){
   document.getElementById("instg").innerHTML=H;
 }
 function instRenderCardsEx(instList,cat,CATS,regionInfo){
-  var CATS2=CATS||[{k:'sports',icon:'🏆',label:'体育专业院校',color:'#2E9A89'},{k:'normal',icon:'🏫',label:'师范类院校',color:'#3E82B0'},{k:'comprehensive',icon:'🏛',label:'综合类院校',color:'#10B981'},{k:'medical',icon:'🏥',label:'医疗机构',color:'#A23B4E'},{k:'gov',icon:'📋',label:'科研机构',color:'#C8A24B'}];
+  var CATS2=CATS||[{k:'sports',icon:'',label:'体育专业院校',color:'#2E9A89'},{k:'normal',icon:'',label:'师范类院校',color:'#3E82B0'},{k:'comprehensive',icon:'',label:'综合类院校',color:'#10B981'},{k:'medical',icon:'',label:'医疗机构',color:'#A23B4E'},{k:'gov',icon:'',label:'科研机构',color:'#C8A24B'}];
   var filtered=cat==='all'?instList:instList.filter(function(i){return i.cat===cat;});
   var kt=document.getElementById('instKpiTotal');
   var kp=document.getElementById('instKpiPhd');
@@ -1221,7 +1221,7 @@ function instRenderCardsEx(instList,cat,CATS,regionInfo){
   // 地区 Hero 条（当选择具体地区时显示）
   if(regionInfo){
     H+='<div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(255,255,255,.04);border-radius:10px;border:1px solid rgba(255,255,255,.08);margin-bottom:14px;">';
-    H+='<span style="font-size:1.3rem;">'+regionInfo.icon+'</span>';
+    H+='<span class="l2-swatch l2-swatch--lg" style="background:'+regionInfo.color+'" aria-hidden="true"></span>';
     H+='<div><div style="font-size:.88rem;font-weight:700;color:'+regionInfo.color+';">'+regionInfo.label+'地区</div>';
     H+='<div style="font-size:.7rem;color:#64748b;margin-top:1px;">'+(regionInfo.provs||[]).join(' · ')+'</div></div>';
     H+='<div style="margin-left:auto;text-align:right;"><div style="font-family:DM Mono,monospace;font-size:1.1rem;font-weight:700;color:'+regionInfo.color+';">'+filtered.length+'</div><div style="font-size:.63rem;color:#64748b;">所院校</div></div>';
@@ -1234,7 +1234,7 @@ function instRenderCardsEx(instList,cat,CATS,regionInfo){
     grp.sort(function(a,b){var ra=getInstRank(a.name),rb=getInstRank(b.name);if(ra!==rb)return ra-rb;return (b.scholars?b.scholars.length:0)-(a.scholars?a.scholars.length:0);});
     H+='<div class="l2-group">';
     H+='<div class="l2-group-hd" style="border-left-color:'+cd.color+'">';
-    H+='<span class="l2-icon">'+cd.icon+'</span>';
+    H+='<span class="l2-icon l2-swatch" style="background:'+cd.color+'" aria-hidden="true"></span>';
     H+='<div><div class="l2-title" style="color:'+cd.color+'">'+cd.label+'</div>';
     if(regionInfo) H+='<div class="l2-sub">'+regionInfo.label+'地区 · '+grp.length+'所</div>';
     H+='</div>';
@@ -1249,7 +1249,7 @@ function instRenderCardsEx(instList,cat,CATS,regionInfo){
       var provLabel=inst.prov?('<span style="font-size:.62rem;padding:1px 5px;border-radius:3px;background:rgba(255,255,255,.07);color:#8A94A8;margin-left:4px;">'+inst.prov+'</span>'):'';
       H+='<div class="l3-inst-card" style="border-left:3px solid '+cd.color+'25">';
       H+='<div class="l3-inst-card-hd">';
-      H+='<div class="l3-inst-icon" style="background:'+cd.color+'14">'+cd.icon+'</div>';
+      H+='<div class="l3-inst-icon l2-swatch" style="background:'+cd.color+'" aria-hidden="true"></div>';
       H+='<div style="flex:1;min-width:0">';
       H+='<div class="l3-inst-name">'+inst.name+provLabel+'</div>';
       H+='<div class="l3-inst-sub">'+inst.short+'</div>';
@@ -2581,17 +2581,17 @@ function initMapRegionList(){
   if(!el||el.dataset.init) return;
   el.dataset.init='1';
   var REGS=[
-    {k:'华北',icon:'🏙',c:'#4A8EE0',cnt:23,provs:'北京·天津·河北·山西·内蒙'},
-    {k:'东北',icon:'❄',c:'#5EC8E5',cnt:12,provs:'辽宁·吉林·黑龙江'},
-    {k:'华东',icon:'🌊',c:'#3DBD8C',cnt:34,provs:'沪·苏·浙·皖·闽·赣·鲁'},
-    {k:'华中',icon:'🌸',c:'#E96FA0',cnt:17,provs:'河南·湖北·湖南'},
-    {k:'华南',icon:'☀',c:'#F4923C',cnt:7, provs:'广东·广西·海南'},
-    {k:'西南',icon:'🏔',c:'#4DA85E',cnt:8, provs:'渝·川·黔·滇·藏'},
-    {k:'西北',icon:'🏜',c:'#9B7FD4',cnt:8, provs:'陕·甘·青·宁·新'},
+    {k:'华北',icon:'',c:'#4A8EE0',cnt:23,provs:'北京·天津·河北·山西·内蒙'},
+    {k:'东北',icon:'',c:'#5EC8E5',cnt:12,provs:'辽宁·吉林·黑龙江'},
+    {k:'华东',icon:'',c:'#3DBD8C',cnt:34,provs:'沪·苏·浙·皖·闽·赣·鲁'},
+    {k:'华中',icon:'',c:'#E96FA0',cnt:17,provs:'河南·湖北·湖南'},
+    {k:'华南',icon:'',c:'#F4923C',cnt:7, provs:'广东·广西·海南'},
+    {k:'西南',icon:'',c:'#4DA85E',cnt:8, provs:'渝·川·黔·滇·藏'},
+    {k:'西北',icon:'',c:'#9B7FD4',cnt:8, provs:'陕·甘·青·宁·新'},
   ];
   el.innerHTML=REGS.map(function(r){
     return '<div onclick="mapClickRegion(\''+r.k+'\')" style="display:grid;grid-template-columns:26px 1fr auto;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;cursor:pointer;border:1px solid transparent;margin-bottom:3px;transition:all .12s;" class="map-list-row" data-region="'+r.k+'">'
-      +'<div style="width:26px;height:26px;border-radius:7px;background:'+r.c+'22;display:flex;align-items:center;justify-content:center;font-size:.82rem;">'+r.icon+'</div>'
+      +'<div style="width:26px;height:26px;border-radius:7px;background:'+r.c+';display:flex;align-items:center;justify-content:center;width:10px;height:10px;padding:0;border-radius:2px;flex-shrink:0;" aria-hidden="true"></div>'
       +'<div><div style="font-size:.79rem;font-weight:700;color:'+r.c+';">'+r.k+'</div>'
       +'<div style="font-size:.6rem;color:#64748b;margin-top:1px;">'+r.provs+'</div></div>'
       +'<div style="font-family:DM Mono,monospace;font-size:.95rem;font-weight:700;color:'+r.c+';">'+r.cnt+'<span style="font-size:.6rem;opacity:.55;font-weight:400;">所</span></div>'
