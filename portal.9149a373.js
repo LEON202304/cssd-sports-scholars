@@ -18,7 +18,8 @@ trend:`<svg viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height=
 };
 const icon=(k,cls='')=>'<span class="sp-logo'+(cls?' '+cls:'')+'" aria-hidden="true">'+logos[k]+'</span>';
 
-/* Top IA: 首页…学科分类 + 奠基人/精品课程/学术AI；窄屏后三项回全部导航 */
+/* Top IA 方案2（用户拍板）：主链保留奠基人/精品课程/学术AI；
+   另加「人才与学者」「学位与专业」两组下拉收全部导航剩余项。 */
 const navPromoteIds=new Set(['founders','courses','aitools']);
 const nav=[
   ['home','首页'],
@@ -36,6 +37,22 @@ const navPromote=[
   ['courses','精品课程'],
   ['aitools','学术 AI 工具']
 ];
+const navGroups=[
+  {id:'talent',label:'人才与学者',items:[
+    ['hats','人才计划'],
+    ['yangtze','长江学者'],
+    ['youthscholar','青年学者'],
+    ['classify','学者分类总览'],
+    ['sportscolleges','体育院校师资'],
+    ['academicnews','学术动态']
+  ]},
+  {id:'degree',label:'学位与专业',items:[
+    ['degreepoint','学位点专栏'],
+    ['majorcat','本科专业目录'],
+    ['phdschools','博士授权院校']
+  ]}
+];
+const navGroupRouteIds=new Set(navGroups.flatMap(g=>g.items.map(i=>i[0])));
 const quick=[
   ['scholars','学者目录','检索与浏览学者信息','user'],
   ['classify','学者分类总览','按人才计划、学术领域','chart'],
@@ -46,17 +63,8 @@ const quick=[
   ['degreepoint','学位点专栏','博士点、硕士点、学科评估','cap'],
   ['hats','人才计划','院士、长江、青年项目','star']
 ];
-const moreExtra=[
-  ['hats','人才计划'],
-  ['degreepoint','学位点专栏'],
-  ['classify','学者分类总览'],
-  ['academicnews','学术动态'],
-  ['sportscolleges','体育院校师资'],
-  ['yangtze','长江学者'],
-  ['youthscholar','青年学者'],
-  ['majorcat','本科专业目录'],
-  ['phdschools','博士授权院校']
-];
+/* 窄屏全部导航：分组项 + #26 后三项回填；桌面主栏有分组下拉与三项平铺 */
+const moreExtra=navGroups.flatMap(g=>g.items);
 const routeJumps=[
   ['home','首页'],['scholars','学者库'],['institutions','院校机构'],['journals','期刊数据库'],
   ['projects','科研项目'],['disciplines','学科分类'],['hats','人才计划'],['degreepoint','学位点'],
@@ -83,10 +91,14 @@ function spSyncShell(route){
   if(home && isHome && !home.classList.contains('on')){
     /* go() already toggles .vw.on; keep portal visible when home */
   }
-  document.querySelectorAll('.sp-links button').forEach(b=>{
+  document.querySelectorAll('.sp-links > button[data-route], .sp-links .sp-nav-panel button[data-route]').forEach(b=>{
     const on=b.dataset.route===route;
     b.classList.toggle('active',on);
     if(on)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');
+  });
+  document.querySelectorAll('details.sp-nav-group').forEach(g=>{
+    const routes=(g.dataset.routes||'').split(',').filter(Boolean);
+    g.classList.toggle('is-active',routes.includes(route));
   });
   const tools=document.getElementById('sp-scholars-tools');
   const filter=document.getElementById('sp-scholars-filter');
@@ -105,6 +117,7 @@ function spSyncShell(route){
 window.spNavigate=function(route){
   if(typeof go==='function')go(route);
   document.querySelectorAll('.sp-more').forEach(d=>d.open=false);
+  document.querySelectorAll('details.sp-nav-group').forEach(d=>d.open=false);
   spSyncShell(route||'home');
   if(route==='home'){
     /* defer home portal refresh so route paint wins first */
@@ -481,10 +494,30 @@ function start(){
 
   const head=document.createElement('header');
   head.className='sp-header';
-  const moreItems=moreExtra.slice();
-  /* dedupe against top nav */
   const topSet=new Set(nav.map(n=>n[0]));
-  const moreFiltered=moreItems.filter(n=>!topSet.has(n[0]));
+  /* 窄屏全部导航：分组项 + 主栏后三项（桌面由 CSS 隐藏 sp-more-promoted） */
+  const moreGroupedHtml=navGroups.map(g=>{
+    const btns=g.items.filter(n=>!topSet.has(n[0])).map(n=>
+      '<button class="sp-more-grouped" data-route="'+n[0]+'" onclick="spNavigate(\''+n[0]+'\')">'+n[1]+'</button>'
+    ).join('');
+    if(!btns) return '';
+    return '<div class="sp-more-group-label">'+g.label+'</div>'+btns;
+  }).join('');
+  const morePromoteHtml=navPromote.map(n=>
+    '<button class="sp-more-promoted" data-route="'+n[0]+'" onclick="spNavigate(\''+n[0]+'\')">'+n[1]+'</button>'
+  ).join('');
+  const moreInner=moreGroupedHtml+morePromoteHtml;
+  const moreEmpty=!moreInner.trim()?' sp-more--empty':'';
+  const groupHtml=navGroups.map(g=>{
+    const routes=g.items.map(i=>i[0]).join(',');
+    const panel=g.items.map(n=>
+      '<button type="button" data-route="'+n[0]+'" onclick="spNavigate(\''+n[0]+'\')">'+n[1]+'</button>'
+    ).join('');
+    return '<details class="sp-nav-group" data-group="'+g.id+'" data-routes="'+routes+'">'+
+      '<summary>'+g.label+'</summary>'+
+      '<div class="sp-nav-panel">'+panel+'</div>'+
+    '</details>';
+  }).join('');
   head.innerHTML=
     '<button class="sp-brand" onclick="spNavigate(\'home\')" aria-label="体育学人首页">'+
       '<span class="sp-brandmark" aria-hidden="true"><svg viewBox="0 0 48 48" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="22" stroke="rgba(255,255,255,.35)" stroke-width="2"/><circle cx="24" cy="24" r="15" stroke="rgba(255,255,255,.5)" stroke-width="1.25"/><path d="M24 8.5v3.2M24 36.3v3.2M8.5 24h3.2M36.3 24h3.2" stroke="rgba(255,255,255,.65)" stroke-width="1.5" stroke-linecap="round"/><path d="M24 11L28.5 24.5 24 22.2 19.5 24.5Z" fill="#F6C453"/><path d="M24 37L19.5 23.5 24 25.8 28.5 23.5Z" fill="#FFFFFF" opacity=".92"/><path d="M37 24L24 20.8 24 27.2Z" fill="rgba(255,255,255,.45)"/><path d="M11 24L24 20.8 24 27.2Z" fill="rgba(255,255,255,.45)"/><circle cx="24" cy="24" r="3.2" fill="#FFFFFF"/><circle cx="24" cy="24" r="1.4" fill="#0A2A43"/></svg></span>'+
@@ -493,20 +526,18 @@ function start(){
     '<nav class="sp-links" aria-label="主要导航">'+
       nav.map(n=>{
         const promo=navPromoteIds.has(n[0])?' sp-nav-promoted':'';
-        const act=n[0]==='home'?'active':'';
+        const act=n[0]==='home'?' active':'';
         const cur=n[0]==='home'?'aria-current="page" ':'';
-        return '<button data-route="'+n[0]+'" class="'+(act+promo).trim()+'" '+cur+'onclick="spNavigate(\''+n[0]+'\')">'+n[1]+'</button>';
+        return '<button type="button" data-route="'+n[0]+'" class="'+(promo+act).trim()+'" '+cur+'onclick="spNavigate(\''+n[0]+'\')">'+n[1]+'</button>';
       }).join('')+
+      groupHtml+
     '</nav>'+
     '<div class="sp-tools">'+
       '<span class="sp-cmd-hint" title="打开命令面板" onclick="spOpenCmd()">/</span>'+
       '<button type="button" class="sp-en" title="Language">EN</button>'+
       '<button type="button" class="sp-btn sp-btn--ghost sp-login" onclick="if(typeof openClaimModal===\'function\')openClaimModal(null);">登录</button>'+
       '<button type="button" class="sp-btn sp-btn--primary sp-register" onclick="if(typeof openClaimModal===\'function\')openClaimModal(null);">注册</button>'+
-      '<details class="sp-more"><summary>全部导航</summary><div>'+
-        moreFiltered.map(n=>'<button onclick="spNavigate(\''+n[0]+'\')">'+n[1]+'</button>').join('')+
-        navPromote.map(n=>'<button class="sp-more-promoted" onclick="spNavigate(\''+n[0]+'\')">'+n[1]+'</button>').join('')+
-      '</div></details>'+
+      '<details class="sp-more'+moreEmpty+'"><summary>全部导航</summary><div>'+moreInner+'</div></details>'+
     '</div>';
   document.body.prepend(head);
 
