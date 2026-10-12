@@ -2634,3 +2634,190 @@ html.cssd-light body .sp-tools button.sp-register:active{
   }
 }
 
+
+/* ══════════════════════════════════════════════════════════════
+   univ-dir-papers-contrast · 全国高校目录 + 最新论文表可读性
+   对标学者院校校名墨色 #0A2A43、journals-contrast 刊名对比度。
+   布局不动；覆盖暗色底遗留浅字（含卡片内联 color）。
+   ══════════════════════════════════════════════════════════════ */
+
+/* —— 全国高校目录 (#univCatalogPanel / .uc-card) —— */
+html.cssd-light body #univCatalogPanel .uc-card{
+  background:#FFFFFF !important;
+  border:1px solid rgba(10,42,67,.12) !important;
+  box-shadow:0 1px 2px rgba(10,42,67,.04) !important;
+}
+html.cssd-light body #univCatalogPanel .uc-card:hover{
+  border-color:rgba(46,154,137,.28) !important;
+  background:#FFFFFF !important;
+  box-shadow:0 6px 18px rgba(10,42,67,.07) !important;
+}
+
+/* 校名：覆盖内联 #e0f2fe / #B8C2D0 → 墨色，对标 .sc-inst-name / .l3-inst-name */
+html.cssd-light body #univCatalogPanel .uc-card a[href],
+html.cssd-light body #univCatalogPanel .uc-card a[style*="color:#e0f2fe"],
+html.cssd-light body #univCatalogPanel .uc-card a[style*="color: #e0f2fe"],
+html.cssd-light body #univCatalogPanel .uc-card span[style*="color:#B8C2D0"],
+html.cssd-light body #univCatalogPanel .uc-card span[style*="color: #B8C2D0"],
+html.cssd-light body #univCatalogPanel .uc-card span[style*="font-weight:600"][style*="font-size:.83rem"]{
+  color:#0A2A43 !important;
+  -webkit-text-fill-color:#0A2A43 !important;
+  font-weight:700 !important;
+  opacity:1 !important;
+}
+html.cssd-light body #univCatalogPanel .uc-card a[href]:hover{
+  color:#0F5B4F !important;
+  -webkit-text-fill-color:#0F5B4F !important;
+}
+
+/* 顶栏中文标题（内联 #e0f2fe） */
+html.cssd-light body #univCatalogPanel [style*="color:#e0f2fe"],
+html.cssd-light body #univCatalogPanel [style*="color: #e0f2fe"]{
+  color:#0A2A43 !important;
+  -webkit-text-fill-color:#0A2A43 !important;
+}
+
+/* 搜索框：浅字 → 墨色；占位符可读灰 */
+html.cssd-light body #univCatalogPanel #ucSearch{
+  color:#0A2A43 !important;
+  -webkit-text-fill-color:#0A2A43 !important;
+  background:#FFFFFF !important;
+  border:1px solid rgba(10,42,67,.16) !important;
+}
+html.cssd-light body #univCatalogPanel #ucSearch::placeholder{
+  color:#6B7280 !important;
+  opacity:1 !important;
+}
+
+/* 筛选芯片：未选加深；激活保持青绿可读 */
+html.cssd-light body #univCatalogPanel button[id^="ucf-"]{
+  color:#334155 !important;
+  -webkit-text-fill-color:#334155 !important;
+  background:#F8FAFC !important;
+  border:1px solid rgba(10,42,67,.14) !important;
+  font-weight:600 !important;
+}
+html.cssd-light body #univCatalogPanel button#ucf-all,
+html.cssd-light body #univCatalogPanel button[id^="ucf-"][style*="rgba(46,154,137"]{
+  color:#0F5B4F !important;
+  -webkit-text-fill-color:#0F5B4F !important;
+  background:rgba(46,154,137,.12) !important;
+  border-color:rgba(46,154,137,.32) !important;
+}
+
+/* 省份 / 次要标签 */
+html.cssd-light body #univCatalogPanel .uc-card span[style*="color:#64748b"],
+html.cssd-light body #univCatalogPanel .uc-card span[style*="color: #64748b"]{
+  color:#4B5563 !important;
+  -webkit-text-fill-color:#4B5563 !important;
+  background:rgba(10,42,67,.05) !important;
+  border-color:rgba(10,42,67,.14) !important;
+}
+
+/* 体育部链接：深绿字，对比可读 */
+html.cssd-light body #univCatalogPanel .uc-card a[href][style*="color:#2E9A89"],
+html.cssd-light body #univCatalogPanel .uc-card a[href][style*="color: #2E9A89"]{
+  color:#0F5B4F !important;
+  -webkit-text-fill-color:#0F5B4F !important;
+  background:rgba(46,154,137,.10) !important;
+  border-color:rgba(46,154,137,.28) !important;
+  font-weight:600 !important;
+}
+html.cssd-light body #univCatalogPanel .uc-card span[title*="暂无"]{
+  color:#64748B !important;
+  -webkit-text-fill-color:#64748B !important;
+}
+
+/* 985 标签保留红相，加深 */
+html.cssd-light body #univCatalogPanel .uc-card span[style*="color:#f87171"],
+html.cssd-light body #univCatalogPanel .uc-card span[style*="color: #f87171"]{
+  color:#B91C1C !important;
+  -webkit-text-fill-color:#B91C1C !important;
+}
+
+/* —— 最新论文表 (#vw-journals .cnki-table) —— */
+html.cssd-light body #vw-journals .cnki-table th,
+html.cssd-light body #jnl-panel-cnki .cnki-table th,
+html.cssd-light body .cnki-table th{
+  color:#4B5563 !important;
+  -webkit-text-fill-color:#4B5563 !important;
+  font-weight:700 !important;
+  opacity:1 !important;
+}
+html.cssd-light body #vw-journals .cnki-table td,
+html.cssd-light body #jnl-panel-cnki .cnki-table td,
+html.cssd-light body .cnki-table td{
+  color:#334155 !important;
+  -webkit-text-fill-color:#334155 !important;
+  background:#FFFFFF !important;
+  border-top:1px solid rgba(10,42,67,.08) !important;
+  border-bottom:1px solid rgba(10,42,67,.08) !important;
+  opacity:1 !important;
+}
+html.cssd-light body #vw-journals .cnki-table td:first-child,
+html.cssd-light body .cnki-table td:first-child{
+  color:#4B5563 !important;
+  -webkit-text-fill-color:#4B5563 !important;
+  border-left:1px solid rgba(10,42,67,.08) !important;
+  font-weight:600 !important;
+}
+html.cssd-light body #vw-journals .cnki-table td:last-child,
+html.cssd-light body .cnki-table td:last-child{
+  border-right:1px solid rgba(10,42,67,.08) !important;
+}
+html.cssd-light body #vw-journals .cnki-table tr:hover td,
+html.cssd-light body .cnki-table tr:hover td{
+  background:rgba(46,154,137,.05) !important;
+}
+
+/* 论文标题：墨色加粗（覆盖暗色底 #f1f5f9 / 浅灰遗留） */
+html.cssd-light body #vw-journals .cnki-title-link,
+html.cssd-light body #vw-journals a.cnki-title-link,
+html.cssd-light body #vw-journals span.cnki-title-link,
+html.cssd-light body #jnl-panel-cnki .cnki-title-link,
+html.cssd-light body .cnki-table .cnki-title-link{
+  color:#0A2A43 !important;
+  -webkit-text-fill-color:#0A2A43 !important;
+  font-weight:700 !important;
+  opacity:1 !important;
+}
+html.cssd-light body #vw-journals .cnki-title-link:hover,
+html.cssd-light body #vw-journals a.cnki-title-link:hover,
+html.cssd-light body #jnl-panel-cnki .cnki-title-link:hover,
+html.cssd-light body .cnki-table .cnki-title-link:hover{
+  color:#0F5B4F !important;
+  -webkit-text-fill-color:#0F5B4F !important;
+  text-decoration:underline;
+}
+html.cssd-light body #vw-journals .cnki-title-link span,
+html.cssd-light body .cnki-table .cnki-title-link span{
+  opacity:.7 !important;
+  color:inherit !important;
+}
+
+/* 作者：保持学术蓝 */
+html.cssd-light body #vw-journals .cnki-author-link,
+html.cssd-light body #jnl-panel-cnki .cnki-author-link,
+html.cssd-light body .cnki-table .cnki-author-link{
+  color:#2C6E9E !important;
+  -webkit-text-fill-color:#2C6E9E !important;
+  font-weight:600 !important;
+  opacity:1 !important;
+}
+html.cssd-light body #vw-journals .cnki-author-link:hover,
+html.cssd-light body .cnki-table .cnki-author-link:hover{
+  color:#1D4F73 !important;
+  -webkit-text-fill-color:#1D4F73 !important;
+}
+
+/* 期刊标签：深绿字，对标 journals-contrast CTA 可读性 */
+html.cssd-light body #vw-journals .cnki-jrnl-tag,
+html.cssd-light body #jnl-panel-cnki .cnki-jrnl-tag,
+html.cssd-light body .cnki-table .cnki-jrnl-tag{
+  color:#0F5B4F !important;
+  -webkit-text-fill-color:#0F5B4F !important;
+  background:rgba(46,154,137,.12) !important;
+  border:1px solid rgba(46,154,137,.32) !important;
+  font-weight:600 !important;
+  opacity:1 !important;
+}
