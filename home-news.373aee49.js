@@ -147,8 +147,8 @@
       if(da === db) return 0;
       return da < db ? 1 : -1;
     });
-    /* 1 头条 + 3 右列；左卡只放立项，高度随内容（align-items:start），不靠 stretch */
-    items = items.slice(0, 4);
+    /* 1 头条 + 4 右列；右栏多一条便于与左卡（立项）底部齐平 */
+    items = items.slice(0, 5);
     if(!items.length){ root.remove(); return; }
     var grants = [];
     try{ grants = latestGrants(); }catch(e){ grants = []; }

@@ -18,14 +18,23 @@ trend:`<svg viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height=
 };
 const icon=(k,cls='')=>'<span class="sp-logo'+(cls?' '+cls:'')+'" aria-hidden="true">'+logos[k]+'</span>';
 
-/* Top IA: 首页 学者库 院校机构 期刊数据库 科研项目 学科分类 — rest in 全部导航 */
+/* Top IA: 首页…学科分类 + 奠基人/精品课程/学术AI；窄屏后三项回全部导航 */
+const navPromoteIds=new Set(['founders','courses','aitools']);
 const nav=[
   ['home','首页'],
   ['scholars','学者库'],
   ['institutions','院校机构'],
   ['journals','期刊数据库'],
   ['projects','科研项目'],
-  ['disciplines','学科分类']
+  ['disciplines','学科分类'],
+  ['founders','体育学奠基人'],
+  ['courses','精品课程'],
+  ['aitools','学术 AI 工具']
+];
+const navPromote=[
+  ['founders','体育学奠基人'],
+  ['courses','精品课程'],
+  ['aitools','学术 AI 工具']
 ];
 const quick=[
   ['scholars','学者目录','检索与浏览学者信息','user'],
@@ -40,12 +49,9 @@ const quick=[
 const moreExtra=[
   ['hats','人才计划'],
   ['degreepoint','学位点专栏'],
-  ['founders','体育学奠基人'],
   ['classify','学者分类总览'],
   ['academicnews','学术动态'],
-  ['courses','精品课程'],
   ['sportscolleges','体育院校师资'],
-  ['aitools','学术 AI 工具'],
   ['yangtze','长江学者'],
   ['youthscholar','青年学者'],
   ['majorcat','本科专业目录'],
@@ -483,11 +489,14 @@ function start(){
     '<button class="sp-brand" onclick="spNavigate(\'home\')" aria-label="体育学人首页">'+
       '<span class="sp-brandmark" aria-hidden="true"><svg viewBox="0 0 48 48" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="22" stroke="rgba(255,255,255,.35)" stroke-width="2"/><circle cx="24" cy="24" r="15" stroke="rgba(255,255,255,.5)" stroke-width="1.25"/><path d="M24 8.5v3.2M24 36.3v3.2M8.5 24h3.2M36.3 24h3.2" stroke="rgba(255,255,255,.65)" stroke-width="1.5" stroke-linecap="round"/><path d="M24 11L28.5 24.5 24 22.2 19.5 24.5Z" fill="#F6C453"/><path d="M24 37L19.5 23.5 24 25.8 28.5 23.5Z" fill="#FFFFFF" opacity=".92"/><path d="M37 24L24 20.8 24 27.2Z" fill="rgba(255,255,255,.45)"/><path d="M11 24L24 20.8 24 27.2Z" fill="rgba(255,255,255,.45)"/><circle cx="24" cy="24" r="3.2" fill="#FFFFFF"/><circle cx="24" cy="24" r="1.4" fill="#0A2A43"/></svg></span>'+
       '<span><strong>体育学人</strong><small>SPORTS SCHOLARS</small></span>'+
-      '<span class="sp-brand-divider" aria-hidden="true"></span>'+
-      '<span class="sp-brand-sub"><b>中国体育学术资源数据库</b><small>CHINA SPORTS ACADEMIC RESOURCES DATABASE</small></span>'+
     '</button>'+
     '<nav class="sp-links" aria-label="主要导航">'+
-      nav.map(n=>'<button data-route="'+n[0]+'" class="'+(n[0]==='home'?'active':'')+'" '+(n[0]==='home'?'aria-current="page" ':'')+'onclick="spNavigate(\''+n[0]+'\')">'+n[1]+'</button>').join('')+
+      nav.map(n=>{
+        const promo=navPromoteIds.has(n[0])?' sp-nav-promoted':'';
+        const act=n[0]==='home'?'active':'';
+        const cur=n[0]==='home'?'aria-current="page" ':'';
+        return '<button data-route="'+n[0]+'" class="'+(act+promo).trim()+'" '+cur+'onclick="spNavigate(\''+n[0]+'\')">'+n[1]+'</button>';
+      }).join('')+
     '</nav>'+
     '<div class="sp-tools">'+
       '<span class="sp-cmd-hint" title="打开命令面板" onclick="spOpenCmd()">/</span>'+
@@ -496,7 +505,7 @@ function start(){
       '<button type="button" class="sp-btn sp-btn--primary sp-register" onclick="if(typeof openClaimModal===\'function\')openClaimModal(null);">注册</button>'+
       '<details class="sp-more"><summary>全部导航</summary><div>'+
         moreFiltered.map(n=>'<button onclick="spNavigate(\''+n[0]+'\')">'+n[1]+'</button>').join('')+
-        
+        navPromote.map(n=>'<button class="sp-more-promoted" onclick="spNavigate(\''+n[0]+'\')">'+n[1]+'</button>').join('')+
       '</div></details>'+
     '</div>';
   document.body.prepend(head);
