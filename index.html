@@ -5929,7 +5929,7 @@ html.cssd-light .nb.on{color:#2E9A89!important}
           <button class="ndd-row" onclick="navGo('journals');setTimeout(()=>jnlSwitchTab('int'),60)"><span class="ndd-ico sm" style="background:rgba(44,110,158,.14);color:#2C6E9E">🌐</span><span class="ndd-info"><b>国际SSCI/SCI期刊</b><small>JCR分区 · 2025影响因子 · 143种</small></span><svg class="ndd-arr" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
         </div>
         <div class="ndd-list" style="padding-top:2px;border-top:1px solid rgba(255,255,255,.06);">
-          <button class="ndd-row" onclick="navGo('journals');setTimeout(function(){jnlSwitchTab('cnki');cnkiInitOnce();},80)"><span class="ndd-ico sm" style="background:rgba(46,154,137,.1);color:#2E9A89">📄</span><span class="ndd-info"><b>CNKI最新论文</b><small>6,000篇 · 体育核心期刊 · 2022—2026</small></span><svg class="ndd-arr" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+          <button class="ndd-row" onclick="navGo('journals');setTimeout(function(){jnlSwitchTab('cnki');cnkiInitOnce();},80)"><span class="ndd-ico sm" style="background:rgba(46,154,137,.1);color:#2E9A89">📄</span><span class="ndd-info"><b>CNKI最新论文</b><small id="navCnkiCnt">体育核心期刊 · 2022—2026</small></span><svg class="ndd-arr" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
           <button class="ndd-row" onclick="navGo('academicnews')"><span class="ndd-ico sm" style="background:rgba(16,185,129,.12);color:#10B981">⚡</span><span class="ndd-info"><b>最新学术动态</b><small>每日聚合 · 论文 / 期刊 / 项目 / 会议</small></span><svg class="ndd-arr" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
           <button class="ndd-row" onclick="navGo('aitools')"><span class="ndd-ico sm" style="background:rgba(44,110,158,.12);color:#2C6E9E">🤖</span><span class="ndd-info"><b>学术AI工具</b><small>论文写作 · 学术检索 · 文献管理导航</small></span><svg class="ndd-arr" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
         </div>
@@ -6405,7 +6405,7 @@ html.cssd-light .nb.on{color:#2E9A89!important}
 <!-- SCHOLARS -->
 <div class="vw" id="vw-scholars">
   <div class="ph"><div class="hbg"><div class="orb o1" style="width:240px;height:240px;top:-40px;left:-40px;opacity:.09"></div><div class="grid-bg"></div></div>
-    <div class="phi"><div class="sch-hero-row"><div class="sch-hero-copy sp-panel-titles"><div class="sey" style="margin-bottom:7px">SCHOLAR DIRECTORY</div><h2 class="cssd-h2v">学者目录</h2><p>收录体育院校 · 综合大学 · 师范院校 · 附属医院 · 国家研究机构</p><div class="sch-hero-tabs" id="scholarHeroTabs"></div></div><div class="sch-hero-kpis" id="schHeroKpis" aria-label="学者目录概况"><div class="sch-hero-kpi"><b id="schKpiScholars">—</b><small>收录学者</small></div><div class="sch-hero-kpi"><b id="schKpiInst">—</b><small>覆盖机构</small></div><div class="sch-hero-kpi"><b id="schKpiOverseas">26</b><small>海外华人</small></div></div></div></div>
+    <div class="phi"><div class="sch-hero-row"><div class="sch-hero-copy sp-panel-titles"><div class="sey" style="margin-bottom:7px">SCHOLAR DIRECTORY</div><h2 class="cssd-h2v">学者目录</h2><p>收录体育院校 · 综合大学 · 师范院校 · 附属医院 · 国家研究机构</p><div class="sch-hero-tabs" id="scholarHeroTabs"></div></div><div class="sch-hero-kpis" id="schHeroKpis" aria-label="学者目录概况"><div class="sch-hero-kpi"><b id="schKpiScholars">—</b><small>收录学者</small></div><div class="sch-hero-kpi"><b id="schKpiInst">—</b><small>覆盖机构</small></div><div class="sch-hero-kpi"><b id="schKpiOverseas">—</b><small>海外华人</small></div></div></div></div>
   </div>
   <div class="ctlb"><div class="ci">
     <div class="cr1">
@@ -7266,7 +7266,7 @@ html.cssd-light #vw-phdschools .phd-tab.on{
         </button>
         <button class="jnl-tab" id="jnl-tab-cnki" onclick="jnlSwitchTab('cnki');cnkiInitOnce()">
           <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          最新论文 <span class="jnl-tab-cnt">6000</span>
+          最新论文 <span class="jnl-tab-cnt">—</span>
         </button>
       </div>
       <div class="jnl-view-toggle" id="jnlViewToggle">
@@ -8213,7 +8213,10 @@ function submitClaim(){
    失败时置 _cnkiFail=true，页面降级为「不含 CNKI 论文」的正常渲染，不会白屏或死循环。 */
 var _cnkiLoadP=null,_cnkiFail=false;
 function _cnkiLoad(){
-  if(typeof CNKI_P!=='undefined')return Promise.resolve();
+  if(typeof CNKI_P!=='undefined'){
+    try{ if(window.cssdFillSiteKpis) window.cssdFillSiteKpis(); }catch(e){}
+    return Promise.resolve();
+  }
   if(_cnkiFail)return Promise.reject(new Error('cnki-load-failed'));
   if(_cnkiLoadP)return _cnkiLoadP;
   _cnkiLoadP=new Promise(function(res,rej){
@@ -8221,7 +8224,10 @@ function _cnkiLoad(){
     s.src='sports-cnki-data.ea3da788.js';
     s.async=true;
     s.onload=function(){
-      if(typeof CNKI_P!=='undefined'){res();}
+      if(typeof CNKI_P!=='undefined'){
+        try{ if(window.cssdFillSiteKpis) window.cssdFillSiteKpis(); }catch(e){}
+        res();
+      }
       else{_cnkiFail=true;_cnkiLoadP=null;rej(new Error('cnki-empty'));}
     };
     s.onerror=function(){_cnkiFail=true;_cnkiLoadP=null;rej(new Error('cnki-load-failed'));};
@@ -8253,6 +8259,7 @@ function cnkiInitOnce(){
   var ySel=document.getElementById('cnkiYearSel');
   yrs.forEach(function(y){var o=document.createElement('option');o.value=y;o.textContent=y+'年';ySel.appendChild(o);});
   cnkiFilter();
+  try{ if(window.cssdFillSiteKpis) window.cssdFillSiteKpis(); }catch(e){}
 }
 function cnkiFilter(){
   if(typeof CNKI_P==='undefined')return;
@@ -10660,7 +10667,7 @@ body.cssd-v46-47 #scholarOverseasNavItem b{color:#eafcff}
     btn.id='scholarOverseasNavItem';
     btn.type='button';
     btn.onclick=goOverseas;
-    btn.innerHTML='<span class="ndd-ico">🌐</span><span class="ndd-info"><b>海外华人学者</b><small>ICSPAH · 国际学术网络 · 26位</small></span>';
+    btn.innerHTML='<span class="ndd-ico">🌐</span><span class="ndd-info"><b>海外华人学者</b><small id="scholarOverseasNavCnt">ICSPAH · 国际学术网络</small></span>';
     grid.appendChild(btn);
   }
   function setBranchActive(active){
@@ -10674,7 +10681,7 @@ body.cssd-v46-47 #scholarOverseasNavItem b{color:#eafcff}
     var tabs=document.createElement('div');
     tabs.className='sch-branch-tabs';
     tabs.id='scholarBranchTabs';
-    tabs.innerHTML='<button class="sch-branch-tab on" data-branch="main" type="button"><span>国内学者目录</span><small>5000+</small></button><button class="sch-branch-tab" data-branch="overseas" type="button"><span>海外华人学者</span><small>26</small></button><span class="sch-branch-note">海外板块作为学者目录下的独立分栏，不并入国内主库统计</span>';
+    tabs.innerHTML='<button class="sch-branch-tab on" data-branch="main" type="button"><span>国内学者目录</span><small>5000+</small></button><button class="sch-branch-tab" data-branch="overseas" type="button"><span>海外华人学者</span><small id="schBranchOverseasCnt">—</small></button><span class="sch-branch-note">海外板块作为学者目录下的独立分栏，不并入国内主库统计</span>';
     host.appendChild(tabs);
     var main=tabs.querySelector('[data-branch="main"]');
     var overseas=tabs.querySelector('[data-branch="overseas"]');
@@ -10696,6 +10703,7 @@ body.cssd-v46-47 #scholarOverseasNavItem b{color:#eafcff}
     removeTopOverseas();
     addScholarDropdownItem();
     addScholarBranchTabs();
+    try{ if(window.cssdFillOverseasKpis) window.cssdFillOverseasKpis(); }catch(e){}
     patchGoActive();
     var ov=document.getElementById('vw-overseas');
     if(ov)ov.setAttribute('data-parent','scholars');
@@ -10937,6 +10945,10 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
   function install(){
     patchVersion();
     render();
+    try{
+      if(window.cssdFillOverseasKpis) window.cssdFillOverseasKpis();
+      else if(window.cssdFillSiteKpis) window.cssdFillSiteKpis();
+    }catch(e){}
     ['ovQ','ovUniv','ovField','ovCred'].forEach(function(id){
       var el=document.getElementById(id);
       if(el&&!el.__cssdV49Bound){el.addEventListener(id==='ovQ'?'input':'change',function(){setTimeout(render,0);});el.__cssdV49Bound=true;}
@@ -16680,21 +16692,39 @@ html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"].on small{
     return {total:projects.length, winners:uniq.size, matched:matched};
   }
   function setText(el,val){ if(el) el.textContent=val; }
+  function overseasCount(){
+    var d=window.CSSD_OVERSEAS_SCHOLARS;
+    return (Array.isArray(d)&&d.length)?d.length:0;
+  }
+  function fillOverseasKpis(){
+    var n=overseasCount();
+    if(!n)return;
+    var o=document.getElementById('schKpiOverseas');
+    if(o)o.textContent=fmt(n);
+    var br=document.getElementById('schBranchOverseasCnt')
+      ||document.querySelector('#scholarBranchTabs .sch-branch-tab[data-branch="overseas"] small');
+    if(br)br.textContent=fmt(n);
+    var nav=document.getElementById('scholarOverseasNavCnt');
+    if(nav)nav.textContent='ICSPAH · 国际学术网络 · '+fmt(n)+'位';
+  }
   function fillScholarKpis(){
     var a=document.getElementById('schKpiScholars');
     var b=document.getElementById('schKpiInst');
-    if(!a&&!b)return;
+    var o=document.getElementById('schKpiOverseas');
+    if(!a&&!b&&!o)return;
     if(typeof S==='undefined'||!S||!S.length){setTimeout(fillScholarKpis,200);return;}
     if(a)a.textContent=fmt(S.length);
     if(b)b.textContent=fmt(instSetSize());
+    fillOverseasKpis();
   }
-  /* Single-source fill for home banner / journals / projects KPIs (scholars hero above).
-     Overseas #schKpiOverseas stays hardcoded — do not touch. */
+  /* Single-source fill for home banner / journals / projects KPIs + overseas + CNKI tab. */
   function fillSiteKpis(){
     if(typeof S==='undefined'||!S||!S.length){setTimeout(fillSiteKpis,200);return;}
     var js=jnlStats();
     var ps=projStats();
     var papers=(typeof CNKI_P!=='undefined'&&CNKI_P)?CNKI_P.length:null;
+
+    fillOverseasKpis();
 
     /* Home journal banner (.cssd-jb-stat) */
     var jb=document.querySelectorAll('#vw-home .cssd-jb-stat b');
@@ -16717,7 +16747,16 @@ html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"].on small{
     if(tabs.length>=2){
       setText(tabs[0], fmt(js.cn));
       setText(tabs[1], fmt(js.intl));
-      if(tabs.length>=3 && papers!=null) setText(tabs[2], fmt(papers));
+      /* CNKI tab: only write after lazy load — never invent a placeholder count */
+      if(tabs.length>=3){
+        if(papers!=null) setText(tabs[2], fmt(papers));
+        else setText(tabs[2], '—');
+      }
+    }
+    var navCnki=document.getElementById('navCnkiCnt');
+    if(navCnki){
+      if(papers!=null) navCnki.textContent=fmt(papers)+'篇 · 体育核心期刊 · 2022—2026';
+      else navCnki.textContent='体育核心期刊 · 2022—2026';
     }
 
     /* Projects page KPIs */
@@ -16738,6 +16777,8 @@ html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"].on small{
       setText(kpiBs[3], fmt(ps.total));
     }
   }
+  window.cssdFillSiteKpis=fillSiteKpis;
+  window.cssdFillOverseasKpis=fillOverseasKpis;
   function setNewsState(state,text){
     var el=document.getElementById('spNewsStatus');
     var tx=document.getElementById('spNewsStatusText');
