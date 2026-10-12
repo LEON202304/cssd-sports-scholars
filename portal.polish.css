@@ -2587,31 +2587,45 @@ html.cssd-light body #sportsPortal .xj-side-list h3 a:hover{
   color:#2C6E9E;
   text-decoration:underline;
 }
+/* 学界动态类型徽章：pill 形制对齐 sp-hat-pill；文案标签保证非纯色识别 */
 html.cssd-light body #sportsPortal .xj-tag{
-  display:inline-block;
-  padding:3px 8px;
+  display:inline-flex;
+  align-items:center;
+  gap:2px;
+  padding:2px 8px;
   border-radius:999px;
-  border:1px solid #E6EAF0;
-  background:#F5F7FA;
-  font-size:12px;
+  border:1px solid #E3E8EF;
+  background:#FFFFFF;
+  color:#0A2A43;
+  font-size:11px;
   font-weight:600;
-  letter-spacing:.06em;
+  letter-spacing:.04em;
   line-height:1.4;
+  white-space:nowrap;
+  flex:0 0 auto;
 }
 html.cssd-light body #sportsPortal .xj-tag-honor{
   color:#0F5B4F;
   background:rgba(46,154,137,.10);
   border-color:rgba(46,154,137,.32);
 }
-html.cssd-light body #sportsPortal .xj-tag-event{
+html.cssd-light body #sportsPortal .xj-tag-event,
+html.cssd-light body #sportsPortal .xj-tag-paper,
+html.cssd-light body #sportsPortal .xj-tag-project{
   color:#14476E;
   background:rgba(44,110,158,.10);
   border-color:rgba(44,110,158,.30);
 }
 html.cssd-light body #sportsPortal .xj-tag-meet{
-  color:#8A6D1F;
-  background:rgba(200,162,75,.12);
-  border-color:rgba(200,162,75,.34);
+  /* 金底字色加深，小字对比 ≥4.5:1 */
+  color:#6B5618;
+  background:rgba(200,162,75,.14);
+  border-color:rgba(200,162,75,.40);
+}
+html.cssd-light body #sportsPortal .xj-tag-other{
+  color:#14476E;
+  background:#F5F7FA;
+  border-color:#E3E8EF;
 }
 html.cssd-light body #sportsPortal .xj-meta time{
   flex:0 0 auto;
@@ -2767,7 +2781,7 @@ html.cssd-light body #sportsPortal .xj-tag-journal{
   color:#0F5B4F;background:rgba(46,154,137,.10);border-color:rgba(46,154,137,.32);
 }
 html.cssd-light body #sportsPortal .xj-tag-univ{
-  color:#8A6D1F;background:rgba(200,162,75,.12);border-color:rgba(200,162,75,.34);
+  color:#6B5618;background:rgba(200,162,75,.14);border-color:rgba(200,162,75,.40);
 }
 html.cssd-light body #sportsPortal .dy-col ul{
   list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0;flex:1 1 auto;
