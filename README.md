@@ -28,6 +28,7 @@ CSSD 是一个纯静态、可离线运行的学术资源数据库，系统整理
 - **学科体系**：研究生四大类（体育教育训练学、体育人文社会学、运动人体科学、民族传统体育学）与本科体育学类 18 个专业
 - **人才专栏**：长江学者、青年人才、博士点院校、学位授权点
 - **学术动态**：重点期刊最新论文与学界会议/荣誉，每日自动更新
+- **每日动态**：体育学 12 种 C 刊官网 + 全国 14 所体育院校官网新闻公告的当日聚合（首页频道）
 - **期刊导航**：国内体育 C 刊/北大核心与国际 SSCI/SCI 期刊（含中科院分区、影响因子）
 - **项目查询**：国家社科基金体育学项目（1997—至今），与学者目录打通
 
@@ -36,7 +37,7 @@ CSSD 是一个纯静态、可离线运行的学术资源数据库，系统整理
 - **纯静态站点，无构建步骤**：HTML / CSS / 原生 JavaScript，直接由 CDN 托管
 - **数据分层**：
   - `sports-*.js`：主数据（学者、机构、期刊、项目），文件名带内容哈希，可长缓存
-  - `latest_papers.json` / `news-snapshot.json` / `xuejie-snapshot.json`：每日更新的动态数据（短缓存）
+  - `latest_papers.json` / `news-snapshot.json` / `xuejie-snapshot.json` / `daily-dynamics.json`：每日更新的动态数据（短缓存）
   - `portal.*.css/js`：界面样式与交互
 - **部署**：
   - 主站由 **EdgeOne Pages** 托管（国内加速、HTTPS、安全响应头与缓存策略见 `edgeone.json`）
@@ -45,16 +46,19 @@ CSSD 是一个纯静态、可离线运行的学术资源数据库，系统整理
 
 ## 自动化：学术动态每日更新
 
-每日由 **GitHub Actions**（`.github/workflows/update-papers.yml`，北京时间约 07:17）自动运行 `update_latest_papers.py` 与 `update_xuejie_news.py`，抓取期刊最新论文与学界动态，按标题去重合并（每刊最多 3 条，保留约 45 条），写入三个 JSON；**有变化才提交到 `main`，随后 EdgeOne 主站与 GitHub Pages 镜像自动发布**。
+每日由 **GitHub Actions**（`.github/workflows/update-papers.yml`，北京时间约 07:17）自动运行 `update_latest_papers.py`、`update_xuejie_news.py` 与 `update_daily_dynamics.py`，抓取期刊最新论文、学界动态与每日动态日报，按标题去重合并写入四个 JSON；**有变化才提交到 `main`，随后 EdgeOne 主站与 GitHub Pages 镜像自动发布**。
 
 **数据来源（均为公开页面，不处理登录与验证码）：**
 
 - **国内期刊官网目录（TOC）**：
   - 仁和 xml-journal：《体育科学》《上海体育大学学报》
   - 知网腾云 cbpt：《中国体育科技》《天津体育学院学报》《体育与科学》《西安体育学院学报》
-  - WKG 期刊官网：《北京体育大学学报》《武汉体育学院学报》
+  - 玛格泰克 magtech：《武汉体育学院学报》《沈阳体育学院学报》
+  - 南京体育学院期刊中心 nsi：《体育学研究》
+  - WKG 期刊官网：《北京体育大学学报》
   - 编辑部官网：《体育学刊》
   - （《成都体育学院学报》官网启用人机验证，按规则不抓取）
+- **院校官网（每日动态频道，14 所）**：北京体育大学、上海体育大学、武汉体育学院、成都体育学院、沈阳体育学院、天津体育学院、广州体育学院、西安体育学院、首都体育学院、南京体育学院、山东体育学院、河北体育学院、吉林体育学院、哈尔滨体育学院
 - **国外期刊（Crossref 公开 API，链接指向 doi.org）**：
   *British Journal of Sports Medicine*、*Sports Medicine*、*Journal of Sport and Health Science*、*Medicine & Science in Sports & Exercise*、*Journal of Sports Sciences*、*Scandinavian Journal of Medicine & Science in Sports*
 
