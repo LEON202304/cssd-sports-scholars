@@ -1686,8 +1686,8 @@ html.cssd-light body #sportsPortal .hn-layout{
   display:grid;
   grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
   gap:12px;
-  /* 顶对齐：左卡高度随内容，不被右列（英中双行）撑出底部空白 */
-  align-items:start;
+  /* 外层等高；栏内顶对齐。禁止再对 .hn-row 用 flex:1 1 0 压扁文字（#27） */
+  align-items:stretch;
   min-width:0;
 }
 html.cssd-light body #sportsPortal .hn-lead,
@@ -1710,12 +1710,18 @@ html.cssd-light body #sportsPortal .hn-lead{
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
-  align-self:start;
+  align-self:stretch;
   padding:20px 22px 18px;
   height:auto;
+  min-height:100%;
   background:
     linear-gradient(180deg,rgba(245,247,250,.55),transparent 42%),
     #FFFFFF;
+}
+/* 立项条钉在左卡底，填满矮侧空白，不压标题行 */
+html.cssd-light body #sportsPortal .hn-lead > .hn-grants,
+html.cssd-light body #sportsPortal .hn-lead > .hn-more{
+  margin-top:auto;
 }
 html.cssd-light body #sportsPortal .hn-meta{
   display:flex;
@@ -1788,10 +1794,31 @@ html.cssd-light body #sportsPortal .hn-list{
   flex-direction:column;
   gap:6px;
   min-width:0;
+  min-height:100%;
+  height:100%;
+  align-self:stretch;
+  justify-content:flex-start;
 }
 html.cssd-light body #sportsPortal .hn-row{
-  flex:0 0 auto;
+  flex:0 0 auto; /* 勿改回 flex:1 1 0 —— 会叠字 */
   padding:8px 14px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  min-height:0;
+}
+/* 仅拉长最后一张卡的外壳空白，子项仍 flex:0 0 auto */
+html.cssd-light body #sportsPortal .hn-list > .hn-row:last-child{
+  flex:1 1 auto;
+}
+html.cssd-light body #sportsPortal .hn-row > .hn-meta,
+html.cssd-light body #sportsPortal .hn-row > h3,
+html.cssd-light body #sportsPortal .hn-row > .hn-title-zh,
+html.cssd-light body #sportsPortal .hn-row > .hn-authors{
+  flex:0 0 auto;
+  flex-shrink:0;
+  min-height:unset;
+  max-height:none;
 }
 html.cssd-light body #sportsPortal .hn-row .hn-meta{margin-bottom:6px;}
 html.cssd-light body #sportsPortal .hn-row .hn-authors{margin-top:6px;font-size:12px;}
@@ -2312,7 +2339,13 @@ html.cssd-light body #sportsPortal .hn-title-zh{
   min-width:0;
 }
 html.cssd-light body #sportsPortal .hn-lead .hn-title-zh{font-size:15px;margin-top:6px;}
-html.cssd-light body #sportsPortal .hn-row .hn-title-zh{font-size:12px;margin-top:3px;-webkit-line-clamp:1;}
+html.cssd-light body #sportsPortal .hn-row .hn-title-zh{
+  display:block !important;
+  font-size:12px;margin-top:3px;
+  line-height:1.45 !important;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  -webkit-line-clamp:unset;
+}
 
 html.cssd-light #vw-academicnews .an-title-zh{
   margin:6px 0 0;
@@ -2405,7 +2438,7 @@ html.cssd-light body #sportsPortal .xj-layout{
   display:grid;
   grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
   gap:12px;
-  align-items:start;
+  align-items:stretch;
   min-width:0;
 }
 html.cssd-light body #sportsPortal .xj-lead,
@@ -2428,12 +2461,16 @@ html.cssd-light body #sportsPortal .xj-lead{
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
-  align-self:start;
+  align-self:stretch;
   padding:20px 22px 18px;
   background:
     linear-gradient(180deg,rgba(245,247,250,.55),transparent 42%),
     #FFFFFF;
   height:auto;
+  min-height:100%;
+}
+html.cssd-light body #sportsPortal .xj-lead > .xj-side{
+  margin-top:auto;
 }
 html.cssd-light body #sportsPortal .xj-meta{
   display:flex;
@@ -2520,10 +2557,30 @@ html.cssd-light body #sportsPortal .xj-list{
   flex-direction:column;
   gap:6px;
   min-width:0;
+  min-height:100%;
+  height:100%;
+  align-self:stretch;
+  justify-content:flex-start;
 }
 html.cssd-light body #sportsPortal .xj-row{
   flex:0 0 auto;
   padding:8px 14px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  min-height:0;
+}
+html.cssd-light body #sportsPortal .xj-list > .xj-row:last-child{
+  flex:1 1 auto;
+}
+html.cssd-light body #sportsPortal .xj-row > .xj-meta,
+html.cssd-light body #sportsPortal .xj-row > h3,
+html.cssd-light body #sportsPortal .xj-row > .xj-sub,
+html.cssd-light body #sportsPortal .xj-row > .xj-authors{
+  flex:0 0 auto;
+  flex-shrink:0;
+  min-height:unset;
+  max-height:none;
 }
 html.cssd-light body #sportsPortal .xj-row .xj-meta{margin-bottom:6px;}
 html.cssd-light body #sportsPortal .xj-row .xj-sub{margin-top:6px;font-size:12px;}
@@ -2587,34 +2644,243 @@ html.cssd-light body #sportsPortal .xj-side-list .xj-sub{
   }
 }
 
-/* ── 每日动态频道（home-daily.js） ─────────────────────────────── */
-html.cssd-light body #sportsPortal .dy-cols{display:flex;gap:28px;flex-wrap:wrap;margin-top:18px;}
-html.cssd-light body #sportsPortal .dy-col{flex:1 1 300px;min-width:0;}
-html.cssd-light body #sportsPortal .dy-col-title{font-size:15px;font-weight:700;color:#14476E;margin:0 0 12px;padding-left:10px;border-left:3px solid #2E9A89;}
+/* ── 每日动态频道（home-daily.js 首页预览） ───────────────────── */
+html.cssd-light body #sportsPortal .dy-cols{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:16px;
+  margin-top:12px;
+  align-items:stretch;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .dy-col{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  background:#FFFFFF;
+  border:1px solid rgba(10,42,67,.08);
+  border-radius:14px;
+  padding:14px 16px 12px;
+  box-shadow:0 1px 2px rgba(10,42,67,.04),0 8px 24px rgba(10,42,67,.04);
+}
+html.cssd-light body #sportsPortal .dy-col-title{
+  font-size:15px;font-weight:700;color:#14476E;margin:0 0 10px;
+  padding-left:10px;border-left:3px solid #2E9A89;
+}
 html.cssd-light body #sportsPortal .dy-col-univs .dy-col-title{border-left-color:#14476E;}
-html.cssd-light body #sportsPortal .xj-tag-journal{color:#0F5B4F;background:rgba(46,154,137,.10);border-color:rgba(46,154,137,.32);}
-html.cssd-light body #sportsPortal .xj-tag-univ{color:#8A6D1F;background:rgba(200,162,75,.12);border-color:rgba(200,162,75,.34);}
-html.cssd-light body #sportsPortal .dy-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px;}
-html.cssd-light body #sportsPortal .dy-col li{padding:10px 2px;border-bottom:1px dashed rgba(10,42,67,.08);}
+html.cssd-light body #sportsPortal .xj-tag-journal{
+  color:#0F5B4F;background:rgba(46,154,137,.10);border-color:rgba(46,154,137,.32);
+}
+html.cssd-light body #sportsPortal .xj-tag-univ{
+  color:#8A6D1F;background:rgba(200,162,75,.12);border-color:rgba(200,162,75,.34);
+}
+html.cssd-light body #sportsPortal .dy-col ul{
+  list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0;flex:1 1 auto;
+}
+html.cssd-light body #sportsPortal .dy-col li{
+  padding:8px 2px;border-bottom:1px dashed rgba(10,42,67,.08);
+}
 html.cssd-light body #sportsPortal .dy-col li:last-child{border-bottom:none;}
-html.cssd-light body #sportsPortal .dy-col h3{margin:6px 0 2px;font-size:15px;line-height:1.5;}
+html.cssd-light body #sportsPortal .dy-col h3{margin:4px 0 2px;font-size:14px;line-height:1.45;
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;}
 html.cssd-light body #sportsPortal .dy-col h3 a{color:#0A2A43;text-decoration:none;}
 html.cssd-light body #sportsPortal .dy-col h3 a:hover{color:#2C6E9E;text-decoration:underline;}
 html.cssd-light body #sportsPortal .dy-col .xj-sub{font-size:12px;color:#8A93A3;margin:0;}
-/* ── 每日动态频道（home-daily.js） ─────────────────────────────── */
-html.cssd-light body #sportsPortal .dy-cols{display:flex;gap:28px;flex-wrap:wrap;margin-top:18px;}
-html.cssd-light body #sportsPortal .dy-col{flex:1 1 300px;min-width:0;}
-html.cssd-light body #sportsPortal .dy-col-title{font-size:15px;font-weight:700;color:#14476E;margin:0 0 12px;padding-left:10px;border-left:3px solid #2E9A89;}
-html.cssd-light body #sportsPortal .dy-col-univs .dy-col-title{border-left-color:#14476E;}
-html.cssd-light body #sportsPortal .xj-tag-journal{color:#0F5B4F;background:rgba(46,154,137,.10);border-color:rgba(46,154,137,.32);}
-html.cssd-light body #sportsPortal .xj-tag-univ{color:#8A6D1F;background:rgba(200,162,75,.12);border-color:rgba(200,162,75,.34);}
-html.cssd-light body #sportsPortal .dy-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px;}
-html.cssd-light body #sportsPortal .dy-col li{padding:10px 2px;border-bottom:1px dashed rgba(10,42,67,.08);}
-html.cssd-light body #sportsPortal .dy-col li:last-child{border-bottom:none;}
-html.cssd-light body #sportsPortal .dy-col h3{margin:6px 0 2px;font-size:15px;line-height:1.5;}
-html.cssd-light body #sportsPortal .dy-col h3 a{color:#0A2A43;text-decoration:none;}
-html.cssd-light body #sportsPortal .dy-col h3 a:hover{color:#2C6E9E;text-decoration:underline;}
-html.cssd-light body #sportsPortal .dy-col .xj-sub{font-size:12px;color:#8A93A3;margin:0;}
+html.cssd-light body #sportsPortal .dy .xj-aside .dy-more,
+html.cssd-light body #sportsPortal .dy-more{
+  color:#2C6E9E;font-weight:600;text-decoration:none;background:none;border:0;
+  padding:2px 0;cursor:pointer;font-size:13px;
+}
+html.cssd-light body #sportsPortal .dy-more:hover{text-decoration:underline;}
+@media (max-width:860px){
+  html.cssd-light body #sportsPortal .dy-cols{grid-template-columns:minmax(0,1fr);}
+}
+
+/* ── 每日动态独立页 #vw-daily ─────────────────────────────────── */
+html.cssd-light body #vw-daily{
+  background:#F5F7FA;
+  min-height:60vh;
+}
+html.cssd-light body #vw-daily .dy-page{
+  max-width:1100px;margin:0 auto;padding:28px 20px 64px;
+}
+html.cssd-light body #vw-daily .dy-page-hero{
+  background:#FFFFFF;
+  border:1px solid rgba(10,42,67,.08);
+  border-radius:16px;
+  padding:22px 24px 18px;
+  margin-bottom:18px;
+  box-shadow:0 1px 2px rgba(10,42,67,.04),0 8px 24px rgba(10,42,67,.04);
+}
+html.cssd-light body #vw-daily .dy-page-eye{
+  margin:0 0 4px;font-size:11px;font-weight:500;letter-spacing:.2em;color:#5B6575;
+}
+html.cssd-light body #vw-daily .dy-page-hero h1{
+  margin:0;font-family:var(--sp-serif,Georgia,serif);font-size:26px;font-weight:600;
+  letter-spacing:.06em;color:#0A2A43;line-height:1.25;
+}
+html.cssd-light body #vw-daily .dy-page-sub{
+  margin:8px 0 0;font-size:13px;color:#5B6575;line-height:1.55;
+}
+html.cssd-light body #vw-daily .dy-tabs{
+  display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px;
+}
+html.cssd-light body #vw-daily .dy-tab{
+  border:1px solid #E3E8EF;background:#FFFFFF;color:#5B6575;
+  border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;
+  cursor:pointer;
+}
+html.cssd-light body #vw-daily .dy-tab:hover{background:#F5F7FA;color:#0A2A43;}
+html.cssd-light body #vw-daily .dy-tab[aria-selected="true"],
+html.cssd-light body #vw-daily .dy-tab.on{
+  background:rgba(46,154,137,.12);border-color:rgba(46,154,137,.35);color:#0F5B4F;
+}
+html.cssd-light body #vw-daily .dy-list{
+  list-style:none;margin:0;padding:0;
+  background:#FFFFFF;border:1px solid rgba(10,42,67,.08);border-radius:14px;
+  overflow:hidden;
+}
+html.cssd-light body #vw-daily .dy-row{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:8px 14px;
+  align-items:start;
+  padding:14px 16px;
+  border-bottom:1px solid rgba(10,42,67,.06);
+}
+html.cssd-light body #vw-daily .dy-row:last-child{border-bottom:0;}
+html.cssd-light body #vw-daily .dy-row-badge{
+  grid-row:1 / span 2;
+  display:inline-block;padding:3px 8px;border-radius:999px;font-size:12px;font-weight:600;
+  letter-spacing:.04em;line-height:1.4;white-space:nowrap;
+  border:1px solid #E6EAF0;background:#F5F7FA;color:#14476E;
+}
+html.cssd-light body #vw-daily .dy-row-badge.is-journal{
+  color:#0F5B4F;background:rgba(46,154,137,.10);border-color:rgba(46,154,137,.32);
+}
+html.cssd-light body #vw-daily .dy-row-badge.is-univ{
+  color:#8A6D1F;background:rgba(200,162,75,.12);border-color:rgba(200,162,75,.34);
+}
+html.cssd-light body #vw-daily .dy-row-title{
+  margin:0;font-size:15px;font-weight:600;line-height:1.45;color:#0A2A43;
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;
+}
+html.cssd-light body #vw-daily .dy-row-title a{color:inherit;text-decoration:none;}
+html.cssd-light body #vw-daily .dy-row-title a:hover{color:#2C6E9E;text-decoration:underline;}
+html.cssd-light body #vw-daily .dy-row-date{
+  font-size:12px;color:#8A93A3;font-variant-numeric:tabular-nums;white-space:nowrap;
+  padding-top:2px;
+}
+html.cssd-light body #vw-daily .dy-row-source{
+  grid-column:2 / 4;
+  margin:0;font-size:12px;color:#8A93A3;line-height:1.4;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+html.cssd-light body #vw-daily .dy-empty{
+  padding:36px 20px;text-align:center;color:#8A93A3;font-size:14px;
+}
+@media (max-width:640px){
+  html.cssd-light body #vw-daily .dy-row{
+    grid-template-columns:auto 1fr;
+  }
+  html.cssd-light body #vw-daily .dy-row-date{grid-column:2;justify-self:start;}
+  html.cssd-light body #vw-daily .dy-row-source{grid-column:2;}
+  html.cssd-light body #vw-daily .dy-row-badge{grid-row:auto;}
+}
+
+/* ── 导航分组：竖排浮层（勿插进 .sp-links 横排） ─────────────── */
+html.cssd-light body details.sp-nav-group{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  flex:0 0 auto;
+}
+html.cssd-light body details.sp-nav-group > summary{
+  list-style:none;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  height:68px;
+  padding:0 2px;
+  font-size:14px;
+  font-weight:500;
+  letter-spacing:.02em;
+  color:#5B6575;
+  background:transparent;
+  border:0;
+  white-space:nowrap;
+}
+html.cssd-light body details.sp-nav-group > summary::-webkit-details-marker{display:none;}
+html.cssd-light body details.sp-nav-group > summary::after{
+  content:"▾";
+  font-size:10px;
+  line-height:1;
+  color:#8A93A3;
+  margin-left:2px;
+}
+html.cssd-light body details.sp-nav-group.is-active > summary,
+html.cssd-light body details.sp-nav-group[open] > summary{
+  color:#0A2A43;
+  font-weight:600;
+}
+html.cssd-light body details.sp-nav-group .sp-nav-panel{
+  position:absolute;
+  top:100%;
+  left:0;
+  display:none;
+  flex-direction:column;
+  align-items:stretch;
+  gap:2px;
+  min-width:220px;
+  max-width:min(320px,90vw);
+  padding:8px;
+  margin:0;
+  background:#FFFFFF !important;
+  border:1px solid #E3E8EF;
+  border-radius:12px;
+  box-shadow:0 12px 36px rgba(10,42,67,.14), 0 2px 8px rgba(10,42,67,.06) !important;
+  z-index:1300 !important;
+}
+html.cssd-light body details.sp-nav-group[open] > .sp-nav-panel{
+  display:flex !important;
+}
+html.cssd-light body details.sp-nav-group .sp-nav-panel button{
+  display:block !important;
+  width:100%;
+  text-align:left;
+  white-space:nowrap;
+  height:auto !important;
+  min-height:36px;
+  padding:8px 12px !important;
+  margin:0;
+  border:0;
+  border-radius:8px;
+  background:transparent;
+  color:#0A2A43;
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:.02em;
+  cursor:pointer;
+  flex:0 0 auto !important;
+}
+html.cssd-light body details.sp-nav-group .sp-nav-panel button:hover{
+  background:#F5F7FA;
+  color:#0F5B4F;
+}
+html.cssd-light body details.sp-nav-group .sp-nav-panel button.active,
+html.cssd-light body details.sp-nav-group .sp-nav-panel button[aria-current="page"]{
+  background:rgba(46,154,137,.10);
+  color:#0F5B4F;
+  font-weight:600;
+}
+/* 打开时主链宽度不变：panel 脱离文档流 */
+html.cssd-light body header.sp-header nav.sp-links{
+  align-items:center;
+}
+@media (max-width:1100px){
+  html.cssd-light body details.sp-nav-group > summary{height:56px;font-size:13px;}
+}
 
 /* ═══════════════════════════════════════════════════════════════
    P0 迭代 A · sticky 顶栏 / 删翻屏 / 筛选折叠 / 清除描边 / 头像无关 CSS
