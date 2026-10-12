@@ -1213,13 +1213,25 @@ html.cssd-light body #sportsPortal .sp-panel > header{
   border-bottom:1px solid #E6EAF0;
   padding:18px 20px 14px;
 }
+/* 首页三块标题：统一单竖条（清点+双竖线） */
 html.cssd-light body #sportsPortal .sp-panel-titles{
-  border-left:0;
-  padding-left:0;
+  border-left:3px solid var(--sp-brand-500, #2C6E9E) !important;
+  padding-left:10px !important;
+  position:relative;
+}
+html.cssd-light body #sportsPortal .sp-panel-titles:before{
+  content:none !important;
+  display:none !important;
 }
 html.cssd-light body #sportsPortal .sp-panel h2{
   font-size:18px;
   letter-spacing:.06em;
+  border-left:0 !important;
+  padding-left:0 !important;
+}
+html.cssd-light body #sportsPortal .sp-panel .sp-eyebrow:before{
+  content:none !important;
+  display:none !important;
 }
 html.cssd-light body #sportsPortal .sp-eyebrow{
   letter-spacing:.18em;
@@ -3307,4 +3319,26 @@ html.cssd-light #vw-aitools .at-note,
 }
 @media (prefers-reduced-motion:reduce){
   #vw-aitools .crs-card.at-card:hover{transform:none !important;}
+}
+
+/* ── polish/panel-title-bar：首页三块标题统一单竖条 ──
+   根因：premium .sp-panel-titles:before + base h2 border-left + eyebrow 圆点叠成「点+双竖线」。
+   只留 .sp-panel-titles 的 3px brand 竖条；清 h2 左边线与伪元素点/竖条。 */
+html.cssd-light body #sportsPortal .sp-panel-titles{
+  border-left:3px solid var(--sp-brand-500, #2C6E9E) !important;
+  padding-left:10px !important;
+}
+html.cssd-light body #sportsPortal .sp-panel-titles:before,
+html.cssd-light body #sportsPortal .sp-panel .sp-eyebrow:before{
+  content:none !important;
+  display:none !important;
+  width:0 !important;
+  height:0 !important;
+  margin:0 !important;
+  box-shadow:none !important;
+  background:none !important;
+}
+html.cssd-light body #sportsPortal .sp-panel h2{
+  border-left:0 !important;
+  padding-left:0 !important;
 }
