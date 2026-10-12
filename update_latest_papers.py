@@ -373,6 +373,65 @@ def src_tyxk(journal: str = "体育学刊") -> list[dict]:
 
 
 
+# ─────────────────────────── 玛格泰克 magtech 期刊官网（沈阳体育学院学报 等） ───────────────────────────
+# 文章锚点形式：/CN/Y2026/V50/I3/页码 或 /CN/10.xxxx（DOI）。同一文章会有标题、DOI号、
+# 摘要等多个锚点；跳过纯 DOI 文本锚点，并按 URL 取最长标题，避免 DOI 编号混入标题。
+JUNK_ANCHOR = ("HTML全文", "PDF全文", "摘要", "全文", "PDF", "HTML", "引用本文", "下载", "分享")
+
+
+def _magtech_parse(journal: str, url: str) -> list[dict]:
+    s = BeautifulSoup(fetch(url).text, "lxml")
+    best: dict[str, str] = {}
+    for a in s.find_all("a", href=True):
+        href = urljoin(url, a["href"].strip())
+        if not re.search(r"/CN/(?:Y\d{4}/V\d+/I\d+/|10\.\d+)", href):
+            continue
+        if re.search(r"(?:/CN/current|/CN/home)", href):
+            continue
+        title = clean(a.get_text())
+        if len(title) < 4 or title in JUNK_ANCHOR:
+            continue
+        if re.match(r"^10\.\d{4,}/\S+$", title):  # 纯 DOI 编号锚点
+            continue
+        key = href.split("?")[0]
+        if len(title) > len(best.get(key, "")):
+            best[key] = title
+    return [item(journal, t, "", u, "") for u, t in best.items()]
+
+
+def src_magtech(journal: str, url: str, alt_url: str = "") -> list[dict]:
+    """玛格泰克平台：当期目录。url 为主目录页（部分刊带 ISSN 路径），alt_url 为备用。"""
+    out = _magtech_parse(journal, url)
+    if not out and alt_url:
+        out = _magtech_parse(journal, alt_url)
+    if not out:
+        raise RuntimeError("magtech 当期目录解析为 0 条")
+    return out[:PER_SOURCE_FETCH]
+
+
+# ─────────────────────────── 南京体育学院期刊中心 nsi（体育学研究） ───────────────────────────
+def src_nsi(journal: str, base: str) -> list[dict]:
+    s = soup_of(fetch(base))
+    out: list[dict] = []
+    for a in s.find_all("a", href=True):
+        href = urljoin(base, a["href"].strip())
+        m = re.search(r"/abstract/(\d{8})", href)
+        if not m:
+            continue
+        title = clean(a.get_text())
+        if len(title) < 4 or title in JUNK_ANCHOR:
+            continue
+        if re.match(r"^10\.\d{4,}/\S+$", title):
+            continue
+        d = f"{m.group(1)[:4]}-{m.group(1)[4:6]}-{m.group(1)[6:8]}"
+        out.append(item(journal, title, "", href, d))
+        if len(out) >= PER_SOURCE_FETCH:
+            break
+    if not out:
+        raise RuntimeError("nsi 当期目录解析为 0 条")
+    return out
+
+
 # ─────────────────────────── Crossref 公开 API（国外体育学期刊，按 ISSN） ───────────────────────────
 def _crossref_date(issued: dict | None) -> str:
     """Crossref issued.date-parts → YYYY-MM-DD / YYYY-MM / YYYY（与国内源一致）。"""
@@ -461,7 +520,13 @@ SOURCES = [
     ("上海体育大学学报", lambda: src_xml_journal("上海体育大学学报", "https://shtyxyxb.xml-journal.net/")),
     ("中国体育科技", lambda: src_cbpt("中国体育科技", "zgty")),
     ("北京体育大学学报", lambda: src_wkg("北京体育大学学报", "https://bjtd.chinajournal.net.cn/WKG/WebPublication/index.aspx?mid=bjtd")),
-    ("武汉体育学院学报", lambda: src_wkg("武汉体育学院学报", "https://wtxb.cbpt.cnki.net/WKD/WebPublication/index.aspx?mid=wtxb")),
+    ("武汉体育学院学报", lambda: src_magtech("武汉体育学院学报",
+                                           "http://xuebao.whsu.edu.cn/CN/1000-520X/current.shtml",
+                                           "http://xuebao.whsu.edu.cn/CN/1000-520X/home.shtml")),
+    ("沈阳体育学院学报", lambda: src_magtech("沈阳体育学院学报",
+                                          "https://stxb.magtech.com.cn/CN/current",
+                                          "https://stxb.magtech.com.cn/CN/home")),
+    ("体育学研究", lambda: src_nsi("体育学研究", "http://ntxb.nsi.edu.cn/ch/index.aspx?meeting_id=")),
     ("体育学刊", lambda: src_tyxk("体育学刊")),
     ("天津体育学院学报", lambda: src_cbpt("天津体育学院学报", "tjty")),
     ("体育与科学", lambda: src_cbpt("体育与科学", "tyyk")),

@@ -44,11 +44,17 @@ jobs:
         run: python update_xuejie_news.py
         continue-on-error: true
 
+      - name: Run daily dynamics (每日动态日报) update script
+        env:
+          TZ: Asia/Shanghai
+        run: python update_daily_dynamics.py
+        continue-on-error: true
+
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add latest_papers.json news-snapshot.json xuejie-snapshot.json
+          git add latest_papers.json news-snapshot.json xuejie-snapshot.json daily-dynamics.json
           if git diff --cached --quiet; then
             echo "数据无变化，跳过提交"
             exit 0

@@ -284,8 +284,20 @@ SOURCES: list[tuple[str, str, str, str | None]] = [
     ("cupes-xshd", "首都体育学院", "https://www.cupes.edu.cn/kxyj/xshd/index.htm", None),
     ("cupes-news", "首都体育学院", "https://news.cupes.edu.cn/", None),
     ("gzsport-home", "广州体育学院", "https://www.gzsport.edu.cn/", None),
+    ("gzsport-news", "广州体育学院", "https://news.gzsport.edu.cn/node/1234", None),
     ("nsi-home", "南京体育学院", "https://www.nsi.edu.cn/", None),
+    ("nsi-xy", "南京体育学院", "https://www.nsi.edu.cn/xysh/list.htm", None),
     ("tjus-xxyw", "天津体育学院", "https://www.tjus.edu.cn/xwzx/xxyw.htm", None),
+    ("syty-news", "沈阳体育学院", "https://www.syty.edu.cn/xwzx/xxxw.htm", None),
+    ("syty-tz", "沈阳体育学院", "https://www.syty.edu.cn/xwzx/tztg.htm", None),
+    ("hrbipe-tz", "哈尔滨体育学院", "https://www.hrbipe.edu.cn/index/tzgg.htm", None),
+    ("hrbipe-home", "哈尔滨体育学院", "https://www.hrbipe.edu.cn/", None),
+    ("jlsu-jtyw", "吉林体育学院", "https://www.jlsu.edu.cn/index/jtyw.htm", None),
+    ("jlsu-tz", "吉林体育学院", "https://www.jlsu.edu.cn/index/tzgg.htm", None),
+    ("sdpei-home", "山东体育学院", "https://www.sdpei.edu.cn/", None),
+    ("hepec-tz", "河北体育学院", "https://www.hepec.edu.cn/columns/365111dc-9479-4d47-8b5a-d816fe466465/index.html", None),
+    ("hepec-news", "河北体育学院", "https://www.hepec.edu.cn/", None),
+    ("xaipe-home", "西安体育学院", "https://www.xaipe.edu.cn/index.htm", None),
 ]
 
 
