@@ -5,8 +5,16 @@
    左卡：头条 + 至多 3 条紧凑；右列至多 4 条。
    回退：删本文件、index.html 对应 script，以及 portal.polish.css 中 xuejie 分区。 */
 (function(){
-  var TYPE_LABEL = {honor:"荣誉", event:"活动", meet:"会议"};
-  var TYPE_CLS = {honor:"xj-tag-honor", event:"xj-tag-event", meet:"xj-tag-meet"};
+  /* 类型徽章：既有口径 honor/event/meet；别名兼容 paper/journal/project/conference */
+  var TYPE_LABEL = {
+    honor:"荣誉", event:"活动", meet:"会议",
+    paper:"论文", journal:"期刊", project:"项目", conference:"会议"
+  };
+  var TYPE_CLS = {
+    honor:"xj-tag-honor", event:"xj-tag-event", meet:"xj-tag-meet",
+    paper:"xj-tag-paper", journal:"xj-tag-journal", project:"xj-tag-project",
+    conference:"xj-tag-meet"
+  };
 
   function esc(s){
     return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){
@@ -56,8 +64,11 @@
   }
 
   function metaHtml(it){
-    var tag = '<span class="xj-tag ' + (TYPE_CLS[it.type] || "") + '">' +
-      esc(TYPE_LABEL[it.type] || it.type) + "</span>";
+    var key = String(it.type || "").trim().toLowerCase();
+    var label = TYPE_LABEL[key] || (key ? key : "动态");
+    var cls = TYPE_CLS[key] || "xj-tag-other";
+    var tag = '<span class="xj-tag ' + cls + '" title="' + esc(label) + '">' +
+      esc(label) + "</span>";
     var d = parseDate(it.date);
     var time = d ? '<time datetime="' + esc(d.iso) + '">' + esc(d.label) + "</time>" : "";
     return '<div class="xj-meta">' + tag + time + "</div>";
