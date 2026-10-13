@@ -10743,7 +10743,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 </style>
 <script id="cssd-v46-48-overseas-profile-js">
 (function(){
-  var VERSION='v4.6-90';
+  var VERSION='v4.6-91';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var ENRICH={
     A001:{url:'https://www.uta.edu/academics/faculty/profile?username=xiangligu',url_status:'ok',url_checked_at:'2026-10-13',bio:'美国德州大学阿灵顿分校运动机能学系副教授，研究聚焦儿童青少年身体活动、健康促进与学校体育干预；现任 ICSPAH President(2025-2026)。',urlNote:'UTA 官方教师主页'},
@@ -10789,9 +10789,9 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
   function patchVersion(){
     document.documentElement.classList.add('cssd-v46-48');
     if(document.body)document.body.classList.add('cssd-v46-48');
-    document.title=document.title.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-90');
+    document.title=document.title.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-91');
     document.querySelectorAll('.bsb,#brandStats,.hs,.ftn,.pv-date,.cnki-dir-update span').forEach(function(el){
-      if(el&&el.textContent)el.textContent=el.textContent.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-90');
+      if(el&&el.textContent)el.textContent=el.textContent.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-91');
     });
     if(document.body){
       var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
@@ -10801,7 +10801,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
       }});
       var nodes=[],node;
       while((node=walker.nextNode()))nodes.push(node);
-      nodes.forEach(function(n){n.nodeValue=n.nodeValue.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-90');});
+      nodes.forEach(function(n){n.nodeValue=n.nodeValue.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-91');});
     }
   }
   function enrichData(){
@@ -10833,10 +10833,10 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
         btn='<span class="ov-profile-btn dead" aria-disabled="true">链失效</span>';
         note='<div class="ov-link-note dead">'+esc((d.urlNote?d.urlNote+' · ':'')+'链失效（保留原址备查）')+'</div>';
       }else if(linkable&&pending){
-        btn='<a class="ov-profile-btn" href="'+esc(d.url)+'" target="_blank" rel="noopener noreferrer'+profileBtnLabel(d.url)+'</a>';
+        btn='<a class="ov-profile-btn" href="'+esc(d.url)+'" target="_blank" rel="noopener noreferrer">'+profileBtnLabel(d.url)+'</a>';
         note='<div class="ov-link-note warn">'+esc((d.urlNote?d.urlNote+' · ':'')+'待核链')+'</div>';
       }else if(linkable){
-        btn='<a class="ov-profile-btn" href="'+esc(d.url)+'" target="_blank" rel="noopener noreferrer'+profileBtnLabel(d.url)+'</a>';
+        btn='<a class="ov-profile-btn" href="'+esc(d.url)+'" target="_blank" rel="noopener noreferrer">'+profileBtnLabel(d.url)+'</a>';
         note='<div class="ov-link-note">'+esc(d.urlNote||'官方主页')+'</div>';
       }else{
         btn='<span class="ov-profile-btn muted">主页待补</span>';
@@ -10872,7 +10872,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 <!-- CSSD v4.6-49 overseas candidates from screenshots -->
 <script id="cssd-v46-49-overseas-screenshot-candidates-js">
 (function(){
-  var VERSION='v4.6-90';
+  var VERSION='v4.6-91';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var EXTRA=[
     {id:'A038',cn:'刘沅龙',en:'Yuanlong Liu',title:'Assistant Professor',univ:'Western Michigan University',role:'海外华人体育学者候选；截图线索：美国密歇根州 Kalamazoo',field:'体育教育、教师教育、体育课程与教学',source:'Western Michigan University 官方教师主页；截图线索复核',cred:'B-官方主页确认',url:'https://wmich.edu/humanperformance/directory/liu',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Western Michigan University 官方主页',bio:'西密歇根大学人类表现与健康教育相关学院助理教授，研究方向与体育教育、教师教育、课程教学和身体活动促进相关；由截图“刘沅龙 Yuanlong Liu”线索核验补入。'},
@@ -10965,7 +10965,30 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
     {id:'A125',cn:'Nicky Wu',en:'Nicky Wu',title:'Faculty',univ:'Illinois State University',role:'美国任职；ISU KNR 教职员（康乐方向）',field:'休闲行为与自然资源管理、GIS/VR 与游憩决策、体育休闲管理',source:'Illinois State University 官方教师主页/目录',cred:'C-需进一步核实',url:'https://news.illinoisstate.edu/2020/11/cast-new-faculty-profile-series-dr-nicky-wu-kinesiology-and-recreation/',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Illinois State University 官方主页',bio:'校方简介：成长于台湾；台湾师范大学运动休闲管理硕士、Michigan State 博士；ISU KNR 教职员（康乐方向）。研究方向：休闲行为与自然资源管理；GIS/VR 与游憩决策；体育休闲管理。'},
     {id:'A126',cn:'Zhong Liu',en:'Zhong Liu',title:'Teaching Assistant Professor',univ:'Appalachian State University',role:'美国任职；App State Kinesiology Teaching Assistant Professor',field:'人体解剖学教学、运动解剖学实验、预防医学背景的运动科学教学',source:'Appalachian State University 官方教师主页/目录',cred:'C-需进一步核实',url:'https://phes.appstate.edu/faculty-staff/zhong-liu-md',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Appalachian State University 官方主页',bio:'App State Kinesiology Teaching Assistant Professor；东南大学预防医学学士/人体解剖学硕士；偏教学岗，非研究教授。研究方向：人体解剖学教学；运动解剖学实验；预防医学背景的运动科学教学。'},
     {id:'A127',cn:'Shenghui Wu',en:'Shenghui Wu',title:'Professor',univ:'Appalachian State University',role:'美国任职；App State 公共卫生教授（体力活动相关研究）',field:'身体活动与慢性病流行病学、生活方式与癌症/代谢风险、体力活动指南依从',source:'Appalachian State University 官方教师主页/目录',cred:'C-需进一步核实',url:'https://phes.appstate.edu/faculty-staff/shenghui-wu-md-phd',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Appalachian State University 官方主页',bio:'App State 公共卫生教授；东南大学本硕、港中文流行病学博士；研究含体力活动，主职 Public Health（与 Kinesiology 同学院）。研究方向：身体活动与慢性病流行病学；生活方式与癌症/代谢风险；体力活动指南依从。'},
-    {id:'A128',cn:'Fuzhong Li',en:'Fuzhong Li',title:'Senior Scientist',univ:'Oregon Research Institute',role:'美国任职；ORI Senior Scientist；太极与防跌倒研究',field:'太极/运动干预与防跌倒、老龄化身体功能、身体活动流行病学与转化',source:'Oregon Research Institute 官方教师主页/目录',cred:'C-需进一步核实',url:'https://www.ori.org/project/li-fuzhong/',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Oregon Research Institute 官方主页',bio:'ORI Senior Scientist；长期 NIH/CDC 太极与防跌倒项目；与上海体育大学等有中外合作发表；教职员页未详列中国学历，故标 C 待核。研究方向：太极/运动干预与防跌倒；老龄化身体功能；身体活动流行病学与转化。'}
+    {id:'A128',cn:'Fuzhong Li',en:'Fuzhong Li',title:'Senior Scientist',univ:'Oregon Research Institute',role:'美国任职；ORI Senior Scientist；太极与防跌倒研究',field:'太极/运动干预与防跌倒、老龄化身体功能、身体活动流行病学与转化',source:'Oregon Research Institute 官方教师主页/目录',cred:'C-需进一步核实',url:'https://www.ori.org/project/li-fuzhong/',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Oregon Research Institute 官方主页',bio:'ORI Senior Scientist；长期 NIH/CDC 太极与防跌倒项目；与上海体育大学等有中外合作发表；教职员页未详列中国学历，故标 C 待核。研究方向：太极/运动干预与防跌倒；老龄化身体功能；身体活动流行病学与转化。'},
+    {id:'A129',cn:'Zhujun Pan',en:'Zhujun Pan',title:'Associate Professor',univ:'Mississippi State University',role:'美国任职；Associate Professor',field:'神经运动控制、老年与帕金森运动功能、双手协调与学习迁移、特殊人群运动干预',source:'Mississippi State University 官方教师主页/目录',cred:'A-官方主页确认',url:'https://www.kinesiology.msstate.edu/directory/zp147',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Mississippi State University 官方主页',bio:'官网副教授。研究方向：神经运动控制；老年与帕金森运动功能；双手协调与学习迁移；特殊人群运动干预。'},
+    {id:'A130',cn:'Xi Jin',en:'Xi Jin',title:'Assistant Professor',univ:'Louisiana State University Shreveport',role:'美国任职；Assistant Professor',field:'身体活动、肥胖、营养、运动能量消耗预测与流行病学',source:'Louisiana State University Shreveport 官方教师主页/目录',cred:'A-官方主页确认',url:'https://www.lsus.edu/xi-jin-phd',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Louisiana State University Shreveport 官方主页',bio:'官网助理教授（Kinesiology & Health Science / Public Health & Human Performance）。研究方向：身体活动；肥胖；营养；运动能量消耗预测与流行病学。'},
+    {id:'A131',cn:'Yiyang Chen',en:'Yiyang Chen',title:'Assistant Professor',univ:'University of Memphis',role:'美国任职；Assistant Professor',field:'运动生物力学、性别差异与疲劳、可穿戴技术、全身重复性动作协同与损伤预防',source:'University of Memphis 官方教师主页/目录',cred:'A-官方主页确认',url:'https://www.memphis.edu/healthsciences/overview/faculty/yiyangchen.php',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'University of Memphis 官方主页',bio:'官网助理教授（Exercise, Sport & Movement Sciences）。研究方向：运动生物力学；性别差异与疲劳；可穿戴技术；全身重复性动作协同与损伤预防。'},
+    {id:'A132',cn:'Sisi Chen',en:'Sisi Chen',title:'Assistant Professor',univ:'Brenau University',role:'美国任职；Assistant Professor',field:'身体活动与公共卫生、运动发展与学习、特殊人群运动、测试评价与体适能',source:'Brenau University 官方教师主页/目录',cred:'A-官方主页确认',url:'https://www.brenau.edu/people/sisi-chen-ph-d/',url_status:'blocked',url_checked_at:'2026-10-13',urlNote:'Brenau University 官方主页',bio:'官网助理教授（Exercise Science）。研究方向：身体活动与公共卫生；运动发展与学习；特殊人群运动；测试评价与体适能。'},
+    {id:'A133',cn:'Guorun (Dante) Xing',en:'Guorun (Dante) Xing',title:'Assistant Professor',univ:'University of Wisconsin–La Crosse',role:'美国任职；Assistant Professor',field:'运动营养、营养与认知功能、表现提升、体重管理、战术运动员训练、力量与体能',source:'University of Wisconsin–La Crosse 官方教师主页/目录',cred:'A-官方主页确认',url:'https://www.uwlax.edu/profile/gxing/',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'University of Wisconsin–La Crosse 官方主页',bio:'官网助理教授（Exercise & Sport Science）。研究方向：运动营养；营养与认知功能；表现提升；体重管理；战术运动员训练；力量与体能。'},
+    {id:'A134',cn:'Peixing Jiang',en:'Peixing Jiang',title:'Clinical Associate Professor',univ:'Valparaiso University',role:'美国任职；Clinical Associate Professor',field:'人体运动生物力学（步态与运动技能）、力量训练体系与周期化、运动表现',source:'Valparaiso University 官方教师主页/目录',cred:'A-官方主页确认',url:'https://www.valpo.edu/profiles/peixing-jiang-ed-d/',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Valparaiso University 官方主页',bio:'官网临床副教授（Exercise Science）。研究方向：人体运动生物力学（步态与运动技能）；力量训练体系与周期化；运动表现。'},
+    {id:'A135',cn:'Jiabei Zhang',en:'Jiabei Zhang',title:'Professor',univ:'Western Michigan University',role:'美国任职；Professor',field:'适应体育、特殊体育教育研究生项目协调、残疾儿童身体活动',source:'Western Michigan University 官方教师主页/目录',cred:'A-官方主页确认',url:'https://wmich.edu/humanperformance/directory/zhang',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Western Michigan University 官方主页',bio:'官网教授（Adapted Physical Education）。研究方向：适应体育；特殊体育教育研究生项目协调；残疾儿童身体活动。'},
+    {id:'A136',cn:'Junhai Xu',en:'Junhai Xu',title:'Assistant Professor',univ:'Louisiana Tech University',role:'美国任职；Assistant Professor',field:'运动生理学、抗阻训练与心肌耗氧、运动处方与表现',source:'Louisiana Tech University 官方教师主页/目录',cred:'A-官方主页确认',url:'https://www.latech.edu/directory/junhai-xu.php',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Louisiana Tech University 官方主页',bio:'官网助理教授（Kinesiology）。研究方向：运动生理学；抗阻训练与心肌耗氧；运动处方与表现。'},
+    {id:'A137',cn:'Zhijing Chen',en:'Zhijing Chen',title:'Assistant Professor',univ:'Southern Illinois University Carbondale',role:'美国任职；Assistant Professor',field:'体育管理、体育营销与消费者行为、运动员行动主义、体育博彩与决策',source:'Southern Illinois University Carbondale 官方教师主页/目录',cred:'A-官方主页确认',url:'https://provost.siu.edu/about/new-faculty/tenure-faculty-2024.php',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Southern Illinois University Carbondale 官方主页',bio:'SIU 2024 新晋 tenure-track 体育管理助理教授（College of Health and Human Sciences）。研究方向：体育管理；体育营销与消费者行为；运动员行动主义；体育博彩与决策。'},
+    {id:'A138',cn:'Fan Gao',en:'Fan Gao',title:'Associate Professor',univ:'University of Kentucky',role:'美国任职；Associate Professor',field:'临床生物力学、卒中/脑瘫/截肢/糖尿病与老龄化运动障碍评估与干预、步态与矫形',source:'University of Kentucky 官方教师主页/目录',cred:'A-官方主页确认',url:'https://education.uky.edu/people/fan-gao',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'University of Kentucky 官方主页',bio:'官网副教授（Kinesiology and Health Promotion，兼 Biomedical Engineering）。研究方向：临床生物力学；卒中/脑瘫/截肢/糖尿病与老龄化运动障碍评估与干预；步态与矫形。'},
+    {id:'A139',cn:'Ye Liu',en:'Ye Liu',title:'Associate Professor',univ:'University of Cincinnati',role:'美国任职；Associate Professor',field:'临床解剖与生物力学、运动科学/解剖教学、神经解剖与运动系统康复教育',source:'University of Cincinnati 官方教师主页/目录',cred:'A-官方主页确认',url:'https://researchdirectory.uc.edu/p/liu6y4',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'University of Cincinnati 官方主页',bio:'官网副教授（Rehabilitation, Exercise and Nutrition Sciences）。研究方向：临床解剖与生物力学；运动科学/解剖教学；神经解剖与运动系统康复教育。'},
+    {id:'A140',cn:'Qing-Hui Chen',en:'Qing-Hui Chen',title:'Professor',univ:'Michigan Technological University',role:'美国任职；Professor',field:'心血管/神经生理与运动科学、运动训练对自主神经与心血管功能调节、心衰与代谢紊乱神经机制',source:'Michigan Technological University 官方教师主页/目录',cred:'A-官方主页确认',url:'https://www.mtu.edu/kip/area/faculty-staff/faculty/chen/index.html',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Michigan Technological University 官方主页',bio:'官网教授（Kinesiology and Integrative Physiology）。研究方向：心血管/神经生理与运动科学；运动训练对自主神经与心血管功能调节；心衰与代谢紊乱神经机制。'},
+    {id:'A141',cn:'Zhiying (Jenny) Shan',en:'Zhiying (Jenny) Shan',title:'Professor',univ:'Michigan Technological University',role:'美国任职；Professor',field:'盐敏感性高血压中枢机制、脑肾素原受体与 orexin、应激/神经炎症与代谢综合征、分子运动生理学相关教学',source:'Michigan Technological University 官方教师主页/目录',cred:'A-官方主页确认',url:'https://www.mtu.edu/kip/area/faculty-staff/faculty/shan/',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Michigan Technological University 官方主页',bio:'官网教授（KIP）。研究方向：盐敏感性高血压中枢机制；脑肾素原受体与 orexin；应激/神经炎症与代谢综合征；分子运动生理学相关教学。'},
+    {id:'A142',cn:'Yu-Ping Chen',en:'Yu-Ping Chen',title:'Professor',univ:'Georgia State University',role:'美国任职；Professor',field:'儿童脑瘫上肢功能康复、虚拟现实与机器人干预、婴儿抓伸运动约束因素、应用运动学',source:'Georgia State University 官方教师主页/目录；Google Scholar 备用',cred:'A-官方主页确认',url:'https://scholar.google.com/citations?user=7PHKATUAAAAJ&hl=en',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Google Scholar',bio:'官网教授（Physical Therapy）兼 Health Sciences 博士项目主任；台湾大学物理治疗学士、Boston University 应用运动学 ScD；华人（台湾）背景。研究方向：儿童脑瘫上肢功能康复；虚拟现实与机器人干预；婴儿抓伸运动约束因素；应用运动学。'},
+    {id:'A143',cn:'Jiaying Wang',en:'Jiaying Wang',title:'Assistant Professor',univ:'Missouri Southern State University',role:'美国任职；Assistant Professor',field:'体育消费者行为、体育传播、体育全球化、体育营销与场馆/风险管理',source:'Missouri Southern State University 官方教师主页/目录',cred:'B-官方主页确认',url:'https://www.mssu.edu/academics/education/kinesiology/kinesiology-faculty.php',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Missouri Southern State University 官方主页',bio:'官网助理教授兼 Sport & Recreation Management 研究生协调人。研究方向：体育消费者行为；体育传播；体育全球化；体育营销与场馆/风险管理。'},
+    {id:'A144',cn:'Weiqing Ge',en:'Weiqing Ge',title:'Chair',univ:'Central Michigan University',role:'美国任职；Chair',field:'物理治疗教育与文化谦逊、肌骨超声、生物医学工程交叉、肩/胸骨皮肤应变与肩部运动生物力学',source:'Central Michigan University 官方教师主页/目录',cred:'A-官方主页确认',url:'https://www.cmich.edu/people/WEIQING-GE',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Central Michigan University 官方主页',bio:'CMU Physical Therapy Program Chairperson。研究方向：物理治疗教育与文化谦逊；肌骨超声；生物医学工程交叉；肩/胸骨皮肤应变与肩部运动生物力学。'},
+    {id:'A145',cn:'Shih-Chun (Alvin) Kao',en:'Shih-Chun (Alvin) Kao',title:'Associate Professor',univ:'Purdue University',role:'美国任职；Associate Professor',field:'身体活动与认知、运动心理生理学、执行功能与记忆、学校/职场多模态运动+正念干预',source:'Purdue University 官方教师主页/目录',cred:'A-官方主页确认',url:'https://hhs.purdue.edu/directory/alvin-kao/',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Purdue University 官方主页',bio:'官网副教授（Health and Kinesiology）。研究方向：身体活动与认知；运动心理生理学；执行功能与记忆；学校/职场多模态运动+正念干预。'},
+    {id:'A146',cn:'Bo Li',en:'Bo Li',title:'Associate Professor',univ:'Southern Methodist University',role:'美国任职；Associate Professor',field:'数字媒体与体育品牌、体育消费者行为、奥运/赛事媒介呈现、全球体育治理与管理',source:'Southern Methodist University 官方教师主页/目录',cred:'A-官方主页确认',url:'https://www.smu.edu/simmons/about-us/directory/applied-physiology-and-sport-management/li',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Southern Methodist University 官方主页',bio:'官网副教授兼体育管理硕士项目主任。研究方向：数字媒体与体育品牌；体育消费者行为；奥运/赛事媒介呈现；全球体育治理与管理。'},
+    {id:'A147',cn:'Hanhan Xue',en:'Hanhan Xue',title:'Associate Professor',univ:'University of Kansas',role:'美国任职；Associate Professor',field:'体育组织战略管理、国际体育商业、电竞管理与产业经济文化、质性研究方法',source:'University of Kansas 官方教师主页/目录',cred:'A-官方主页确认',url:'https://hses.ku.edu/people/hanhan-xue',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'University of Kansas 官方主页',bio:'官网副教授（2026 自 FSU 转任 KU）。研究方向：体育组织战略管理；国际体育商业；电竞管理与产业经济文化；质性研究方法。'},
+    {id:'A148',cn:'Bo Yu',en:'Bo Yu',title:'Assistant Professor',univ:'University of Minnesota Twin Cities',role:'美国任职；Assistant Professor',field:'运动员品牌与创新技术、电竞营销、直播/VR/AI 与粉丝参与、运动员福祉与 NIL 教育',source:'University of Minnesota Twin Cities 官方教师主页/目录',cred:'A-官方主页确认',url:'https://kin.umn.edu/bo-yu',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'University of Minnesota Twin Cities 官方主页',bio:'官网助理教授（Sport Management）。研究方向：运动员品牌与创新技术；电竞营销；直播/VR/AI 与粉丝参与；运动员福祉与 NIL 教育。'},
+    {id:'A149',cn:'Chang Liu',en:'Chang Liu',title:'Assistant Professor',univ:'University of Illinois Chicago',role:'美国任职；Assistant Professor',field:'老龄化与神经疾病移动能力、跌倒风险、步态扰动平衡、运动捕捉/可穿戴传感与移动脑成像 EEG',source:'University of Illinois Chicago 官方教师主页/目录',cred:'B-官方主页确认',url:'https://ahs.uic.edu/profiles/liu-chang/',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'University of Illinois Chicago 官方主页',bio:'官网助理教授（Kinesiology and Nutrition）。研究方向：老龄化与神经疾病移动能力；跌倒风险；步态扰动平衡；运动捕捉/可穿戴传感与移动脑成像 EEG。'},
+    {id:'A150',cn:'Zhaojing Chen',en:'Zhaojing Chen',title:'Associate Professor',univ:'California State University, San Bernardino',role:'美国任职；Associate Professor',field:'运动与骨肌代谢、骨质疏松/肌少症、老年骨折风险与预防、运动生理学',source:'California State University, San Bernardino 官方教师主页/目录',cred:'A-官方主页确认',url:'https://www.csusb.edu/profile/zhaojing.chen',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'California State University, San Bernardino 官方主页',bio:'官网副教授（Kinesiology）。研究方向：运动与骨肌代谢；骨质疏松/肌少症；老年骨折风险与预防；运动生理学。'}
+
   ];
   var UPDATES={
     A013:{bio:'犹他大学健康与运动机能相关学院副教授，研究方向包括身体活动测量、健康行为和干预评价；截图中的“Yang Bai—UVM”与其早期/曾任机构线索相符，当前库内按现职 University of Utah 记录。',source:'2025/2023 Newsletter；University of Utah 官方主页；截图 UVM 线索复核'},
@@ -10984,7 +11007,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
   function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
   function norm(s){return String(s||'').toLowerCase();}
   function credClass(v){return /^C/.test(v)?'c':(/^B/.test(v)?'b':'');}
-  var URL_STATUS={A001:'ok',A002:'ok',A003:'dead',A004:'dead',A005:'unknown',A006:'dead',A007:'unknown',A008:'blocked',A009:'dead',A010:'ok',A011:'unknown',A012:'dead',A013:'dead',A018:'ok',A019:'ok',A020:'dead',A021:'ok',A022:'ok',A024:'dead',A025:'dead',A027:'ok',A033:'dead',A034:'unknown',A035:'ok',A036:'unknown',A037:'dead',A038:'dead',A039:'ok',A040:'dead',A041:'dead',A042:'ok',A043:'ok',A044:'ok',A045:'ok',A046:'ok',A047:'ok',A048:'ok',A049:'ok',A050:'ok',A051:'ok',A052:'ok',A053:'ok',A054:'ok',A055:'ok',A056:'ok',A057:'ok',A058:'ok',A059:'ok',A060:'ok',A061:'ok',A062:'ok',A063:'unknown',A064:'unknown',A065:'ok',A066:'ok',A067:'ok',A068:'ok',A069:'ok',A070:'ok',A071:'blocked',A072:'blocked',A073:'ok',A074:'ok',A075:'ok',A076:'ok',A077:'ok',A078:'ok',A079:'ok',A080:'ok',A081:'ok',A082:'ok',A083:'blocked',A084:'ok',A085:'ok',A086:'ok',A087:'ok',A088:'ok',A089:'ok',A090:'ok',A091:'blocked',A092:'dead',A093:'ok',A094:'ok',A095:'ok',A096:'ok',A097:'ok',A098:'blocked',A099:'blocked',A100:'ok',A101:'ok',A102:'ok',A103:'ok',A104:'ok',A105:'ok',A106:'ok',A107:'ok',A108:'blocked',A109:'ok',A110:'ok',A111:'ok',A112:'ok',A113:'ok',A114:'ok',A115:'ok',A116:'ok',A117:'ok',A118:'ok',A119:'ok',A120:'ok',A121:'ok',A122:'ok',A123:'ok',A124:'ok',A125:'ok',A126:'ok',A127:'ok',A128:'ok'};
+  var URL_STATUS={A001:'ok',A002:'ok',A003:'dead',A004:'dead',A005:'unknown',A006:'dead',A007:'unknown',A008:'blocked',A009:'dead',A010:'ok',A011:'unknown',A012:'dead',A013:'dead',A018:'ok',A019:'ok',A020:'dead',A021:'ok',A022:'ok',A024:'dead',A025:'dead',A027:'ok',A033:'dead',A034:'unknown',A035:'ok',A036:'unknown',A037:'dead',A038:'dead',A039:'ok',A040:'dead',A041:'dead',A042:'ok',A043:'ok',A044:'ok',A045:'ok',A046:'ok',A047:'ok',A048:'ok',A049:'ok',A050:'ok',A051:'ok',A052:'ok',A053:'ok',A054:'ok',A055:'ok',A056:'ok',A057:'ok',A058:'ok',A059:'ok',A060:'ok',A061:'ok',A062:'ok',A063:'unknown',A064:'unknown',A065:'ok',A066:'ok',A067:'ok',A068:'ok',A069:'ok',A070:'ok',A071:'blocked',A072:'blocked',A073:'ok',A074:'ok',A075:'ok',A076:'ok',A077:'ok',A078:'ok',A079:'ok',A080:'ok',A081:'ok',A082:'ok',A083:'blocked',A084:'ok',A085:'ok',A086:'ok',A087:'ok',A088:'ok',A089:'ok',A090:'ok',A091:'blocked',A092:'dead',A093:'ok',A094:'ok',A095:'ok',A096:'ok',A097:'ok',A098:'blocked',A099:'blocked',A100:'ok',A101:'ok',A102:'ok',A103:'ok',A104:'ok',A105:'ok',A106:'ok',A107:'ok',A108:'blocked',A109:'ok',A110:'ok',A111:'ok',A112:'ok',A113:'ok',A114:'ok',A115:'ok',A116:'ok',A117:'ok',A118:'ok',A119:'ok',A120:'ok',A121:'ok',A122:'ok',A123:'ok',A124:'ok',A125:'ok',A126:'ok',A127:'ok',A128:'ok',A129:'ok',A130:'ok',A131:'ok',A132:'blocked',A133:'ok',A134:'ok',A135:'ok',A136:'ok',A137:'ok',A138:'ok',A139:'ok',A140:'ok',A141:'ok',A142:'ok',A143:'ok',A144:'ok',A145:'ok',A146:'ok',A147:'ok',A148:'ok',A149:'ok',A150:'ok'};
   var URL_CHECKED_AT='2026-10-13';
   function patchData(){
     var data=window.CSSD_OVERSEAS_SCHOLARS;if(!Array.isArray(data))return [];
@@ -11005,7 +11028,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
   function patchVersion(){
     document.documentElement.classList.add('cssd-v46-49');
     if(document.body)document.body.classList.add('cssd-v46-49');
-    document.title=document.title.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-90');
+    document.title=document.title.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-91');
     if(!document.body)return;
     var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
       var p=n.parentNode&&n.parentNode.nodeName;
@@ -11014,7 +11037,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
     }});
     var nodes=[],node;
     while((node=walker.nextNode()))nodes.push(node);
-    nodes.forEach(function(n){n.nodeValue=n.nodeValue.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-90');});
+    nodes.forEach(function(n){n.nodeValue=n.nodeValue.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-91');});
   }
   function patchStats(data){
     var nums=document.querySelectorAll('.ov-stat b');
@@ -11055,10 +11078,10 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
         btn='<span class="ov-profile-btn dead" aria-disabled="true">链失效</span>';
         note='<div class="ov-link-note dead">'+esc((d.urlNote?d.urlNote+' · ':'')+'链失效（保留原址备查）')+'</div>';
       }else if(linkable&&pending){
-        btn='<a class="ov-profile-btn" href="'+esc(d.url)+'" target="_blank" rel="noopener noreferrer'+profileBtnLabel(d.url)+'</a>';
+        btn='<a class="ov-profile-btn" href="'+esc(d.url)+'" target="_blank" rel="noopener noreferrer">'+profileBtnLabel(d.url)+'</a>';
         note='<div class="ov-link-note warn">'+esc((d.urlNote?d.urlNote+' · ':'')+'待核链')+'</div>';
       }else if(linkable){
-        btn='<a class="ov-profile-btn" href="'+esc(d.url)+'" target="_blank" rel="noopener noreferrer'+profileBtnLabel(d.url)+'</a>';
+        btn='<a class="ov-profile-btn" href="'+esc(d.url)+'" target="_blank" rel="noopener noreferrer">'+profileBtnLabel(d.url)+'</a>';
         note='<div class="ov-link-note">'+esc(d.urlNote||'官方主页')+'</div>';
       }else{
         btn='<span class="ov-profile-btn muted">主页待补</span>';
