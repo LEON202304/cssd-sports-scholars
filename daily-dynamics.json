@@ -1,8 +1,32 @@
 {
-  "generatedAt": "2026-10-12",
+  "generatedAt": "2026-10-13",
   "source": "C刊官网 + 体育院校官网（GitHub Actions 每日）",
   "statusHint": "live",
   "items": [
+    {
+      "cat": "院校",
+      "source": "南京体育学院",
+      "section": "学校主页",
+      "title": "担当复兴大任 成就时代新人 ——校党委副书记魏萍走进思政课堂为大学生讲授专题思政课",
+      "date": "2026-10-13",
+      "link": "https://www.nsi.edu.cn/6b/ba/c2342a93114/page.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "南京体育学院",
+      "section": "学校主页",
+      "title": "沐晨光升国旗 砺青春担使命——运动训练学院举行升旗仪式",
+      "date": "2026-10-13",
+      "link": "https://www.nsi.edu.cn/6b/b7/c2342a93111/page.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "广州体育学院",
+      "section": "公告栏",
+      "title": "2026年教职员工中秋国庆节日慰问品采购项目公示",
+      "date": "2026-10-13",
+      "link": "http://www.gzsport.edu.cn:80/info/17855"
+    },
     {
       "cat": "院校",
       "source": "西安体育学院",
@@ -26,22 +50,6 @@
       "title": "2026-年秋季学期第七周会议安排表",
       "date": "2026-10-12",
       "link": "https://www.xaipe.edu.cn/info/1039/134854.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "南京体育学院",
-      "section": "学校主页",
-      "title": "马克思主义学院召开 “优秀运动队思想政治工作研究” 专题研讨会",
-      "date": "2026-10-11",
-      "link": "https://www.nsi.edu.cn/6b/9f/c2342a93087/page.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "南京体育学院",
-      "section": "学校主页",
-      "title": "赓续长征红色薪火 砥砺体育奋进初心——体育产业与休闲学院组织师生收看高校党组织示范微党课",
-      "date": "2026-10-11",
-      "link": "https://www.nsi.edu.cn/6b/a0/c2342a93088/page.htm"
     },
     {
       "cat": "院校",
@@ -127,7 +135,7 @@
       "cat": "院校",
       "source": "山东体育学院",
       "section": "学校主页",
-      "title": "喜报！山体附中校友李海洋斩获亚运会柔道团体铜牌",
+      "title": "山体附中校友李海洋斩获亚运会柔道团体铜牌",
       "date": "2026-10-10",
       "link": "https://www.sdpei.edu.cn/2026/1010/c367a48958/page.htm"
     },
@@ -157,11 +165,19 @@
     },
     {
       "cat": "院校",
-      "source": "北京体育大学",
-      "section": "通知公告",
-      "title": "北京体育大学后勤管理处扫路车采购项目​询价公告",
+      "source": "首都体育学院",
+      "section": "新闻网",
+      "title": "党建引领聚合力 银发增辉展风采——首都体育学院退休第九党支部协办社区居民趣味运动...",
       "date": "2026-10-09",
-      "link": "https://www.bsu.edu.cn/tzgg/ea12d312ceba4fa487ab993f481b2fcd.htm"
+      "link": "https://news.cupes.edu.cn/jjxy/55b9f41890e64899b3e858757b8a559b.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "首都体育学院",
+      "section": "通知公告",
+      "title": "首都体育学院教室实验室实训室多媒体教学设备运行托管服务项目比选结果公示",
+      "date": "2026-10-09",
+      "link": "https://www.cupes.edu.cn/docs/2026-10/a0e55a4a4562482a9fa9f3604a9861e6.pdf"
     },
     {
       "cat": "院校",
@@ -173,11 +189,35 @@
     },
     {
       "cat": "院校",
+      "source": "首都体育学院",
+      "section": "新闻网",
+      "title": "附属竞技体校助力企业科学研究",
+      "date": "2026-10-08",
+      "link": "https://news.cupes.edu.cn/jjxy/8c0a2bced5df45f89ca1ff878cf0cda7.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "首都体育学院",
+      "section": "新闻网",
+      "title": "首都体育学院附属竞技体校开展武术套路高水平交流比赛",
+      "date": "2026-10-08",
+      "link": "https://news.cupes.edu.cn/jjxy/bdf4fb840bf543e48c8b896df39785fa.htm"
+    },
+    {
+      "cat": "院校",
       "source": "南京体育学院",
       "section": "通知公告",
       "title": "计算机采购项目流标公告",
       "date": "2026-10-08",
       "link": "https://www.nsi.edu.cn/6b/7d/c2349a93053/page.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "首都体育学院",
+      "section": "通知公告",
+      "title": "内部控制管理提升咨询服务项目比选公告(服务类)",
+      "date": "2026-10-08",
+      "link": "https://www.cupes.edu.cn/docs/2026-10/e7edbbf64d1544c99d35153d436f0646.pdf"
     },
     {
       "cat": "院校",
@@ -260,14 +300,6 @@
       "link": "http://www.gzsport.edu.cn:80/info/17817"
     },
     {
-      "cat": "院校",
-      "source": "北京体育大学",
-      "section": "通知公告",
-      "title": "北京体育大学阿尔伯塔国际休闲体育与旅游学院2025年度办学报告",
-      "date": "2026-09-29",
-      "link": "https://www.bsu.edu.cn/tzgg/4b4c406ce9714a539fad50f39861a6bb.htm"
-    },
-    {
       "cat": "期刊",
       "source": "天津体育学院学报",
       "section": "网络首发",
@@ -276,28 +308,12 @@
       "link": "https://tjty.cbpt.cnki.net/portal/journal/portal/client/paper/3d0f26b970a4ecc0ac6ecfe388b1ed53"
     },
     {
-      "cat": "院校",
-      "source": "广州体育学院",
-      "section": "公告栏",
-      "title": "工程验收公示(清远校区（筹）10号、11号学生宿舍修缮工程)",
-      "date": "2026-09-29",
-      "link": "http://www.gzsport.edu.cn:80/info/17809"
-    },
-    {
       "cat": "期刊",
       "source": "体育学刊",
       "section": "新闻公告",
       "title": "体育学刊2026年第5期目次",
       "date": "2026-09-28",
       "link": "https://tyxk.scnu.edu.cn/a/20260928/1047.html"
-    },
-    {
-      "cat": "院校",
-      "source": "山东体育学院",
-      "section": "学校主页",
-      "title": "练俊杰亚运成功卫冕，学子马英龙田径赛场再添奖牌！",
-      "date": "2026-09-28",
-      "link": "https://www.sdpei.edu.cn/2026/0928/c592a48830/page.htm"
     },
     {
       "cat": "院校",
@@ -354,22 +370,6 @@
       "title": "扬弃与立新:体育非线性教学法的内涵阐释、主要特征及实践启示",
       "date": "2026-07-02",
       "link": "https://xaty.cbpt.cnki.net/portal/journal/portal/client/paper/23ecc4813548b63f7ea33766be170be9"
-    },
-    {
-      "cat": "院校",
-      "source": "北京体育大学",
-      "section": "通知公告",
-      "title": "北京体育大学国家训练基地2026年厨房设备采购项目询价公告",
-      "date": "2026-06-12",
-      "link": "https://www.bsu.edu.cn/tzgg/2524d2e0fead46539db0422ac93d3bc7.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "北京体育大学",
-      "section": "通知公告",
-      "title": "北京体育大学国家训练基地2026年体外除颤仪（AED）采购项目询价公告",
-      "date": "2026-06-10",
-      "link": "https://www.bsu.edu.cn/tzgg/6aedcf96547d4c78b1848d66d9d55c99.htm"
     },
     {
       "cat": "期刊",
@@ -597,22 +597,6 @@
     },
     {
       "cat": "院校",
-      "source": "北京体育大学",
-      "section": "校园要闻",
-      "title": "北京体育大学2027年硕士研究生“三大球”实验班单独考试招生工作方案",
-      "date": "",
-      "link": "https://www.bsu.edu.cn/xyyw/ea906e2b5db440a497687e843af30af2.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "北京体育大学",
-      "section": "校园要闻",
-      "title": "阿根廷博卡青年俱乐部篮球部主席一行访问北京体育大学",
-      "date": "",
-      "link": "https://www.bsu.edu.cn/xyyw/037773c4cf134195b342aa1b7a16db3f.htm"
-    },
-    {
-      "cat": "院校",
       "source": "哈尔滨体育学院",
       "section": "学校主页",
       "title": "09 19 国家冰雪运动学院建设 哈尔滨体育学院建校70周年高质量发展大会隆重举行",
@@ -626,6 +610,14 @@
       "title": "09 18 怀爱回馈 献礼七秩|优秀校友时凤轩情系母校捐赠70万元",
       "date": "",
       "link": "https://www.hrbipe.edu.cn/info/1045/8598.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "山东体育学院",
+      "section": "学校主页",
+      "title": "11金5银6铜！山体健儿闪耀名古屋亚运会 第二十届亚运会于9月19日至10月4日在日本名古屋举行。中国体育代表团共815名运动员参加本届运动会，共获得169枚金牌、89枚银牌、83枚铜牌，341枚奖牌，位居金牌榜、奖牌榜首位，创中国境外参加亚运会历史最佳战绩，实现了亚运“十二连冠”。本届亚运会上，山东省共有104名运动员入选中国体育代表团，获32枚金牌、11枚银牌、18枚铜牌，共61枚奖牌，创造了我省运动员境外参加亚运会历史最佳成绩，奖牌数位居全国首位。山东体育学院作为山东省体育人才培养的核心阵地、竞技体育发展的关键支撑、体育强省建设的重要力量，本届亚运会共有14名在读学子、40名校友入选中国体育代表团。",
+      "date": "",
+      "link": "https://www.sdpei.edu.cn/2026/1005/c592a48826/page.htm"
     },
     {
       "cat": "期刊",

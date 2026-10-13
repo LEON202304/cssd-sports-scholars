@@ -10501,7 +10501,7 @@ body.cssd-v46-46 #nb-overseas.active,body.cssd-v46-46 #nb-overseas.on{color:#061
     {"id":"A033","cn":"陈昂","en":"Ang Chen","title":"Professor","univ":"University of North Carolina at Greensboro","role":"社群核心成员；AAHPERD Research Fellow","field":"K-12 体育学习、动机、体育素养、课程干预","source":"UNCG 主页; RQES 会议","cred":"B-社群/会议确认"},
     {"id":"A034","cn":"向萍","en":"Ping Xiang","title":"Professor","univ":"Texas A&M University","role":"体育教学法资深学者(常与李卫东/张涛合作发表)","field":"成就动机、跨文化比较、PETE","source":"TAMU 主页; RQES 会议","cred":"B-社群/会议确认"},
     {"id":"A035","cn":"邓晓芬","en":"Xiaofen Deng Hamilton (Keating)","title":"Professor","univ":"University of Texas at Austin","role":"社群核心成员","field":"健身教育、K-16 身体活动促进、PETE 技术","source":"UT Austin 主页","cred":"B-社群确认(★原名单大学信息有误)"},
-    {"id":"A036","cn":"黄超群","en":"Chaoqun Huang","title":"Associate Professor","univ":"Oklahoma State University","role":"会议合作发表(曾在 University of Utah)","field":"体育教学","source":"RQES 会议记录","cred":"C-需进一步核实"},
+    {"id":"A036","cn":"黄超群","en":"Chaoqun Huang","title":"Associate Professor","univ":"Wayland Baptist University","role":"会议合作发表(曾在 University of Utah)","field":"体育教学","source":"RQES 会议记录","cred":"C-需进一步核实"},
     {"id":"A037","cn":"陈森林","en":"Senlin Chen","title":"Professor","univ":"Louisiana State University","role":"社群核心成员(王宝福博导)","field":"体育教学、体育素养","source":"2023 Newsletter; LSU","cred":"B-社群确认"}
   ];
   window.CSSD_OVERSEAS_SCHOLARS=DATA;
@@ -10743,7 +10743,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 </style>
 <script id="cssd-v46-48-overseas-profile-js">
 (function(){
-  var VERSION='v4.6-91';
+  var VERSION='v4.6-93';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var ENRICH={
     A001:{url:'https://www.uta.edu/academics/faculty/profile?username=xiangligu',url_status:'ok',url_checked_at:'2026-10-13',bio:'美国德州大学阿灵顿分校运动机能学系副教授，研究聚焦儿童青少年身体活动、健康促进与学校体育干预；现任 ICSPAH President(2025-2026)。',urlNote:'UTA 官方教师主页'},
@@ -10789,9 +10789,9 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
   function patchVersion(){
     document.documentElement.classList.add('cssd-v46-48');
     if(document.body)document.body.classList.add('cssd-v46-48');
-    document.title=document.title.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-91');
+    document.title=document.title.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-93');
     document.querySelectorAll('.bsb,#brandStats,.hs,.ftn,.pv-date,.cnki-dir-update span').forEach(function(el){
-      if(el&&el.textContent)el.textContent=el.textContent.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-91');
+      if(el&&el.textContent)el.textContent=el.textContent.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-93');
     });
     if(document.body){
       var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
@@ -10801,7 +10801,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
       }});
       var nodes=[],node;
       while((node=walker.nextNode()))nodes.push(node);
-      nodes.forEach(function(n){n.nodeValue=n.nodeValue.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-91');});
+      nodes.forEach(function(n){n.nodeValue=n.nodeValue.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-93');});
     }
   }
   function enrichData(){
@@ -10872,13 +10872,13 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 <!-- CSSD v4.6-49 overseas candidates from screenshots -->
 <script id="cssd-v46-49-overseas-screenshot-candidates-js">
 (function(){
-  var VERSION='v4.6-91';
+  var VERSION='v4.6-93';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var EXTRA=[
-    {id:'A038',cn:'刘沅龙',en:'Yuanlong Liu',title:'Assistant Professor',univ:'Western Michigan University',role:'海外华人体育学者候选；截图线索：美国密歇根州 Kalamazoo',field:'体育教育、教师教育、体育课程与教学',source:'Western Michigan University 官方教师主页；截图线索复核',cred:'B-官方主页确认',url:'https://wmich.edu/humanperformance/directory/liu',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Western Michigan University 官方主页',bio:'西密歇根大学人类表现与健康教育相关学院助理教授，研究方向与体育教育、教师教育、课程教学和身体活动促进相关；由截图“刘沅龙 Yuanlong Liu”线索核验补入。'},
+    {id:'A038',cn:'刘沅龙',en:'Yuanlong Liu',title:'Assistant Professor',univ:'Western Michigan University',role:'海外华人体育学者候选；截图线索：美国密歇根州 Kalamazoo',field:'体育教育、教师教育、体育课程与教学',source:'Western Michigan University 官方教师主页；截图线索复核',cred:'B-官方主页确认',url:'https://wmich.edu/humanperformance/directory/liu',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'WMU HPHE directory Yuanlong Liu',bio:'西密歇根大学人类表现与健康教育相关学院助理教授，研究方向与体育教育、教师教育、课程教学和身体活动促进相关；由截图“刘沅龙 Yuanlong Liu”线索核验补入。'},
     {id:'A039',cn:'王玉冰',en:'Yubing Wang',title:'Assistant Professor',univ:'Old Dominion University',role:'海外华人体育学者；ODU Human Movement Studies 助理教授（原 UW-Whitewater 截图线索已升格）',field:'体育教学、身体活动行为改变、身心健康',source:'Old Dominion University 官方教师目录',cred:'B-官方主页确认',url:'https://www.odu.edu/directory/yubing-wang',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Old Dominion University 官方主页',bio:'弗吉尼亚州奥多明尼昂大学 Human Movement Studies 助理教授。官方目录确认现职；早期截图中的 UW-Whitewater 线索视为既往机构线索，本轮按 ODU 现职更新并去掉待核标记。'},
-    {id:'A040',cn:'陈翰',en:'Han Chen',title:'Professor',univ:'Valdosta State University',role:'海外华人体育学者候选；截图线索：美国佛罗里达/佐治亚区域',field:'体育教育、身体活动、教师教育',source:'Valdosta State University 官方教师页；截图线索复核',cred:'B-官方主页确认',url:'https://www.valdosta.edu/about/directory/profile/hanchen',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Valdosta State University 官方主页',bio:'瓦尔多斯塔州立大学教授，研究与体育教育、身体活动促进、教师教育及学生健康行为相关；由截图“Han / 陈翰”线索核验补入。'},
-    {id:'A041',cn:'高勇',en:'Yong Gao',title:'Professor',univ:'Boise State University',role:'ICSPAH Former President / 社群核心成员；截图线索：Yong Gao, ICSPAH President',field:'运动人体科学、身体活动、公共健康',source:'Boise State University 官方教师主页；ICSPAH 线索复核',cred:'B-官方主页确认',url:'https://www.boisestate.edu/kinesiology/faculty-and-staff/yong-gao/',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Boise State University 官方主页',bio:'博伊西州立大学教授，研究涉及身体活动、健康促进、公共健康和运动人体科学相关主题；截图显示其为 ICSPAH President 相关身份，页面中按 Former President/社群核心成员口径标注。'},
+    {id:'A040',cn:'陈翰',en:'Han Chen',title:'Professor',univ:'Valdosta State University',role:'海外华人体育学者候选；截图线索：美国佛罗里达/佐治亚区域',field:'体育教育、身体活动、教师教育',source:'Valdosta State University 官方教师页；截图线索复核',cred:'B-官方主页确认',url:'https://www.valdosta.edu/about/directory/profile/hanchen',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Valdosta directory profile Han Chen',bio:'瓦尔多斯塔州立大学教授，研究与体育教育、身体活动促进、教师教育及学生健康行为相关；由截图“Han / 陈翰”线索核验补入。'},
+    {id:'A041',cn:'高勇',en:'Yong Gao',title:'Professor',univ:'Boise State University',role:'ICSPAH Former President / 社群核心成员；截图线索：Yong Gao, ICSPAH President',field:'运动人体科学、身体活动、公共健康',source:'Boise State University 官方教师主页；ICSPAH 线索复核',cred:'B-官方主页确认',url:'https://www.boisestate.edu/kinesiology/faculty-and-staff/yong-gao/',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Boise State School of Kinesiology Yong Gao',bio:'博伊西州立大学教授，研究涉及身体活动、健康促进、公共健康和运动人体科学相关主题；截图显示其为 ICSPAH President 相关身份，页面中按 Former President/社群核心成员口径标注。'},
     {id:'A042',cn:'李立',en:'Li Li',title:'Research Professor',univ:'Georgia Southern University',role:'运动生物力学资深学者；曾任 ICSPAH 相关领导职务（中文报道）',field:'运动生物力学、步态与姿势控制、神经康复',source:'Georgia Southern University 官方教师主页；COSM 博士导师目录',cred:'B-官方主页确认',url:'https://www.georgiasouthern.edu/colleges/science-mathematics/degrees-programs/phd-faculty/li-li-ph-d-cosm',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Georgia Southern University 官方主页',bio:'佐治亚南方大学健康科学与运动机能学系研究教授，研究人体运动生物力学、步态、姿势控制、跑步损伤及病理条件下的运动适应。'},
     {id:'A043',cn:'朱西鹤',en:'Xihe Zhu',title:'Professor',univ:'Old Dominion University',role:'ODU Human Movement Sciences 教授；体育教育研究生项目主任',field:'体育教育、动机、体质健康、身体活动促进',source:'Old Dominion University 官方教师目录',cred:'B-官方主页确认',url:'https://www.odu.edu/directory/xihe-zhu',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Old Dominion University 官方主页',bio:'奥多明尼昂大学教授，研究学校体育中的动机、体质与健康知识、身体活动促进及融合体育相关议题；中文名按音译暂标待核。'},
     {id:'A044',cn:'刘文浩',en:'Wenhao Liu',title:'Professor',univ:'Slippery Rock University',role:'ICSPAH Past President；ACSM Fellow；体育活动与健康促进学者',field:'身体活动与健康促进、体育教育学',source:'Slippery Rock University 官方新闻/学院报道；西北工业大学讲学报道',cred:'B-官方主页确认',url:'https://www.sru.edu/news/good-news-050322a',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Slippery Rock University 官方新闻页（职务确认）',bio:'宾州滑石大学体育与健康系教授，研究方向为身体活动与健康促进、体育教育学；曾担任 ICSPAH 会长，并有 ACSM Fellow 等记录。'},
@@ -10909,7 +10909,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
     {id:'A069',cn:'Eugene Wang (Jian Wang)',en:'Eugene Wang (Jian Wang)',title:'Faculty',univ:'California State University, Bakersfield',role:'美国任职',field:'体育教学与教练效能、动作技能与身体活动促进',source:'California State University, Bakersfield 官方教师主页/目录',cred:'C-中文名待核',url:'https://www.csub.edu/kinesiology/directory.shtml',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'California State University, Bakersfield 官方主页',bio:'CSUB目录：武汉体院本科、广州体院硕士、University of South Carolina体育教育学博士（中文名待后续对照官网中英署名再核。）'},
     {id:'A070',cn:'Jing-Sheng Li',en:'Jing-Sheng Li',title:'Faculty',univ:'Seattle University',role:'美国任职',field:'运动生物力学、负重关节肌肉骨骼影像与治疗',source:'Seattle University 官方教师主页/目录',cred:'C-中文名待核',url:'https://www.seattleu.edu/directory/profiles/jing-sheng-li-phd.php',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Seattle University 官方主页',bio:'官网：中国医药大学（台中）物理治疗学士、阳明大学生物医学工程硕士；台湾华人背景（中文名待后续对照官网中英署名再核。）'},
     {id:'A071',cn:'Vincent Chen',en:'Vincent Chen',title:'Faculty',univ:'Georgian Court University',role:'美国任职',field:'运动科学、运动生理学、运动营养与健康管理',source:'Georgian Court University 官方教师主页/目录',cred:'C-中文名待核',url:'https://georgian.edu/academics/faculty/vincent-chen/',url_status:'blocked',url_checked_at:'2026-10-13',urlNote:'Georgian Court University 官方主页',bio:'官网：高雄大学运动健康学士、Texas A&M健康与运动学博士；曾任NATPA北美台湾教授协会副主席（中文名待后续对照官网中英署名再核。）'},
-    {id:'A072',cn:'Jianhua Wu',en:'Jianhua Wu',title:'Faculty',univ:'Georgia State University',role:'美国任职；系主任',field:'步态与姿势、儿童运动发展与残疾儿童运动',source:'Georgia State University 官方教师主页/目录',cred:'C-中文名待核',url:'https://scholar.google.com/citations?user=JrjfouEAAAAJ&hl=en',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Google Scholar（官网 blocked；现职 UTA）',bio:'GSU教职员页；公开履历含中国高校学位；外讯称其转任UT Arlington运动学系主任（中文名待后续对照官网中英署名再核。）'},
+    {id:'A072',cn:'Jianhua Wu',en:'Jianhua Wu',title:'Faculty',univ:'The University of Texas at Arlington',role:'美国任职；系主任',field:'步态与姿势、儿童运动发展与残疾儿童运动',source:'Georgia State University 官方教师主页/目录',cred:'C-中文名待核',url:'https://www.uta.edu/academics/schools-colleges/conhi/people/directory',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'UTA CONHI 教职员目录（现职 Chair；原 GSU 页 blocked）',bio:'GSU教职员页；公开履历含中国高校学位；外讯称其转任UT Arlington运动学系主任（中文名待后续对照官网中英署名再核。）'},
     {id:'A073',cn:'Daniel T.P. Fong',en:'Daniel T.P. Fong',title:'Professor',univ:'Loughborough University',role:'拉夫堡大学；Sports Biomechanics 主编',field:'运动医学与生物力学、踝关节扭伤机制与防护',source:'Loughborough University 官方教师主页/目录',cred:'C-中文名待核',url:'https://www.lboro.ac.uk/schools/sport-exercise-health-sciences/people/daniel-fong/',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Loughborough University 官方主页',bio:'官网：香港中文大学学位；Sports Biomechanics主编；华人学者（Tik-Pui命名）（中文名待后续对照官网中英署名再核。）'},
     {id:'A074',cn:'Roy T.H. Cheung',en:'Roy T.H. Cheung',title:'Professor',univ:'Western Sydney University',role:'西悉尼大学物理治疗教授',field:'步态生物力学、可穿戴传感与步态再训练',source:'Western Sydney University 官方教师主页/目录',cred:'C-中文名待核',url:'https://www.westernsydney.edu.au/thri/team/members/roy-cheung',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Western Sydney University 官方主页',bio:'西悉尼大学物理治疗教授；Croucher暑期课程讲者简介为港系华人学者（中文名待后续对照官网中英署名再核。）'},
     {id:'A075',cn:'Kong Pui Wah',en:'Kong Pui Wah',title:'Associate Professor',univ:'Nanyang Technological University (NIE)',role:'南洋理工大学（NIE）副教授',field:'运动生物力学、步态与鞋具、损伤与康复',source:'Nanyang Technological University (NIE) 官方教师主页/目录',cred:'C-中文名待核',url:'https://dr.ntu.edu.sg/entities/person/Kong-Pui-Wah',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Nanyang Technological University (NIE) 官方主页',bio:'NTU/NIE体育教育与运动科学副教授；华人姓名拼写（中文名待后续对照官网中英署名再核。）'},
@@ -10929,7 +10929,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
     {id:'A089',cn:'Bonnie Pang',en:'Bonnie Pang',title:'Associate Professor',univ:'University of Bath',role:'英国任职；Associate Professor',field:'体育/健康与体育教育社会学、华人离散群体身体活动与包容性',source:'University of Bath 官方教师主页/目录',cred:'A-官方主页确认',url:'https://www.bath.ac.uk/profiles/doctoral-coach-bonnie-pang/',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'University of Bath 官方主页',bio:'Bath 官网：Senior Lecturer/Associate Professor；自述 Hong Kong born Chinese-Australian；CUHK 本硕。研究方向：体育/健康与体育教育社会学、华人离散群体身体活动与包容性。'},
     {id:'A090',cn:'樊红',en:'Fan Hong',title:'Professor Emeritus',univ:'Bangor University (Emeritus)',role:'英国任职；荣休教授',field:'中国/亚洲体育史、奥林匹克与民族主义、武术与身体政治',source:'Bangor University (Emeritus) 官方教师主页/目录',cred:'A-官方主页确认',url:'https://www.bangor.ac.uk/staff/bbs/hong-fan-106847/en',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Bangor University (Emeritus) 官方主页',bio:'Bangor 荣休教授；同期上海体育学院教授/奥林匹克研究；Routledge Handbook of Sport in China 主编。研究方向：中国/亚洲体育史、奥林匹克与民族主义、武术与身体政治。'},
     {id:'A091',cn:'Aiqin Liu',en:'Aiqin Liu',title:'Associate Professor',univ:'University of Leeds',role:'英国任职；Associate Professor',field:'人体生物力学、膝关节康复与辅助技术、运动与康复科学课程负责人',source:'University of Leeds 官方教师主页/目录',cred:'B-官方主页确认',url:'https://scholar.google.com/citations?user=qptdgYcAAAAJ&hl=en',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Google Scholar（官网 blocked）',bio:'华人姓名拼写；2008 赴英攻读博士；现任 Leeds Associate Professor in Human Biomechanics / MRes Sport Exercise and Rehabilitation 项目主任。研究方向：人体生物力学、膝关节康复与辅助技术、运动与康复科学课程负责人。'},
-    {id:'A092',cn:'卢周翔',en:'Zhouxiang Lu',title:'Associate Professor',univ:'Maynooth University',role:'爱尔兰任职；Associate Professor',field:'体育史与民族主义、武术/电子竞技史、中国体育文化与认同',source:'Maynooth University 官方教师主页/目录',cred:'A-官方主页确认',url:'https://www.maynoothuniversity.ie/chinese/our-people',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Maynooth University 官方主页（Chinese Our People）',bio:'Maynooth 中文研究副教授；Asian Journal of Sport History & Culture 学术编辑；与樊红合著多部中国体育史著作。研究方向：体育史与民族主义、武术/电子竞技史、中国体育文化与认同。'},
+    {id:'A092',cn:'卢周翔',en:'Zhouxiang Lu',title:'Associate Professor',univ:'Maynooth University',role:'爱尔兰任职；Associate Professor',field:'体育史与民族主义、武术/电子竞技史、中国体育文化与认同',source:'Maynooth University 官方教师主页/目录',cred:'A-官方主页确认',url:'https://www.maynoothuniversity.ie/chinese/our-people',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Maynooth Chinese dept Our People（含 Zhouxiang Lu）',bio:'Maynooth 中文研究副教授；Asian Journal of Sport History & Culture 学术编辑；与樊红合著多部中国体育史著作。研究方向：体育史与民族主义、武术/电子竞技史、中国体育文化与认同。'},
     {id:'A093',cn:'Shi Zhou',en:'Shi Zhou',title:'Adjunct Professor',univ:'Southern Cross University',role:'澳大利亚任职；兼职/附属教职',field:'运动生理学、神经肌肉对训练适应、运动干预与健康/运动表现',source:'Southern Cross University 官方教师主页/目录',cred:'A-官方主页确认',url:'https://orcid.org/0000-0001-9038-5984',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Southern Cross University 官方主页',bio:'ORCID：北京体育学院（北京体院）硕士、墨尔本大学博士；SCU 教授（1991–2023）现兼职教授；SCSEPF 相关。研究方向：运动生理学、神经肌肉对训练适应、运动干预与健康/运动表现。'},
     {id:'A094',cn:'Xu (Sean) Yan',en:'Xu (Sean) Yan',title:'Associate Professor',univ:'Victoria University',role:'澳大利亚任职；Associate Professor',field:'运动处方与健康、运动遗传、骨骼肌生理与运动生化机制',source:'Victoria University 官方教师主页/目录',cred:'A-官方主页确认',url:'https://researchers.vu.edu.au/3232-sean-yan/about',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'Victoria University 官方主页',bio:'VU 简介：同济大学本科；怀俄明硕博；哈佛 Joslin 博士后；现 Associate Professor；母语中文。研究方向：运动处方与健康、运动遗传、骨骼肌生理与运动生化机制。'},
     {id:'A095',cn:'Xin Liu',en:'Xin Liu',title:'Adjunct Professor',univ:'The University of Queensland',role:'澳大利亚任职；Adjunct Professor',field:'太极/气功等中国传统运动、代谢健康与抑郁、运动与慢性病',source:'The University of Queensland 官方教师主页/目录',cred:'A-官方主页确认',url:'https://hmns.uq.edu.au/profile/1196/xin-liu',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'The University of Queensland 官方主页',bio:'UQ 荣誉副教授；公开著作含国家体育总局《开脉太极》等中文图书与中国武术期刊。研究方向：太极/气功等中国传统运动、代谢健康与抑郁、运动与慢性病。'},
@@ -11028,7 +11028,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
   function patchVersion(){
     document.documentElement.classList.add('cssd-v46-49');
     if(document.body)document.body.classList.add('cssd-v46-49');
-    document.title=document.title.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-91');
+    document.title=document.title.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-93');
     if(!document.body)return;
     var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
       var p=n.parentNode&&n.parentNode.nodeName;
@@ -11037,7 +11037,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
     }});
     var nodes=[],node;
     while((node=walker.nextNode()))nodes.push(node);
-    nodes.forEach(function(n){n.nodeValue=n.nodeValue.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-91');});
+    nodes.forEach(function(n){n.nodeValue=n.nodeValue.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-93');});
   }
   function patchStats(data){
     var nums=document.querySelectorAll('.ov-stat b');
