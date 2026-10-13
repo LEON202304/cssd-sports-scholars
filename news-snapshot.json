@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13",
+  "generatedAt": "2026-10-14",
   "source": "期刊官网 TOC + Crossref 自动抓取（GitHub Actions 每日）：体育科学、上海体育大学学报、中国体育科技、北京体育大学学报、沈阳体育学院学报、体育学研究、体育学刊、天津体育学院学报、体育与科学、西安体育学院学报、British Journal of Sports Medicine、Sports Medicine、Journal of Sport and Health Science、Medicine & Science in Sports & Exercise、Journal of Sports Sciences、Scandinavian Journal of Medicine & Science in Sports",
   "statusHint": "live",
   "items": [
@@ -31,6 +31,51 @@
       "titleZh": "人类发展和性别不平等与心肺健康有关：对V O2峰的全球系统评价"
     },
     {
+      "journal": "British Journal of Sports Medicine",
+      "title": "Physical inactivity is not laziness: from individual blame to structural determinants",
+      "authors": "Heitor Martins Pasquim, Paulo Henrique Guerra, José Augusto Dalmonte Malacarne, Bruno Gualano",
+      "link": "https://doi.org/10.1136/bjsports-2026-112204",
+      "date": "2026-10-13",
+      "journalZh": "《英国运动医学杂志》",
+      "titleZh": "缺乏身体活动不是懒惰：从个人责任到结构性决定因素"
+    },
+    {
+      "journal": "British Journal of Sports Medicine",
+      "title": "How should feasibility and safety be defined and measured in exercise-based rehabilitation trials?",
+      "authors": "Christopher Neason, Claire L Samanna, Daniel L Belavý, Matthew J Clarkson, Niamh L Mundell, Jacqui Pengelly, Patrick J Owen",
+      "link": "https://doi.org/10.1136/bjsports-2026-112329",
+      "date": "2026-10-13",
+      "journalZh": "《英国运动医学杂志》",
+      "titleZh": "在基于运动的康复试验中，应如何定义和衡量可行性和安全性？"
+    },
+    {
+      "journal": "British Journal of Sports Medicine",
+      "title": "Rethinking ‘science-based’ policy in sport: complexity, evidence and the limits of reductionism",
+      "authors": "Yannis P Pitsiladis, Ke Hu, Kaiyun Huang, Mark R Hutchinson, Michael Geistlinger, José Kawazoe Lazzoli, Bernd Wolfarth, Volodymyr Sekretnyi, Sandra Rozenstoka, Jürgen M Steinacker, Sergio Migliorini, Nebojsa Nikolic, Gianfranco Beltrami, Hashel O Al Tunaiji, Raymond So, Samuel Ka Kin Ling, Giuseppe Massazza, Maurizio Casasco, Chiara Fossati, Fabio Pigozzi",
+      "link": "https://doi.org/10.1136/bjsports-2026-112025",
+      "date": "2026-10-13",
+      "journalZh": "《英国运动医学杂志》",
+      "titleZh": "重新思考基于科学的体育政策：复杂性、证据和还原主义的局限性"
+    },
+    {
+      "journal": "Sports Medicine",
+      "title": "Cardiovascular Effects Associated with the Female Athlete Triad: Emerging Evidence Statement from the Female and Male Athlete Triad Coalition",
+      "authors": "Emma O’Donnell, Nancy I. Williams, Madhusmita Misra, Aurelia Nattiv, Elizabeth Joy, Mary Jane De Souza",
+      "link": "https://doi.org/10.1007/s40279-026-02525-1",
+      "date": "2026-10-13",
+      "journalZh": "《运动医学》",
+      "titleZh": "与女性运动员三合会相关的心血管效应：来自女性和男性运动员三合会联盟的新证据声明"
+    },
+    {
+      "journal": "Sports Medicine",
+      "title": "Can Resistance Training-Induced Skeletal Muscle Growth Improve Local Muscular Endurance?",
+      "authors": "Matthew A. Chatlaong, William B. Hammert, Kealey J. Wohlgemuth, Jeremy P. Loenneke, Matthew B. Jessee",
+      "link": "https://doi.org/10.1007/s40279-026-02539-9",
+      "date": "2026-10-13",
+      "journalZh": "《运动医学》",
+      "titleZh": "阻力训练诱导的骨骼肌生长能否提高局部肌肉耐力？"
+    },
+    {
       "journal": "Medicine & Science in Sports & Exercise",
       "title": "CrossAcclimation and Endurance Performance Following Adaptation to Dry and Humid Heat",
       "authors": "Peter McDonald, Kevin John, Thomas Topham, Michael N. Sawka, Brad Clark, Julien D. Périard",
@@ -56,6 +101,15 @@
       "date": "2026-10-12",
       "journalZh": "《运动医学与科学》",
       "titleZh": "血流受限加速神经肌肉疲劳、厌氧代谢和最大摄氧量的发生"
+    },
+    {
+      "journal": "Journal of Sports Sciences",
+      "title": "Injury surveillance, on-field rehabilitation and return-to-play criteria: A survey of current practices in male professional football",
+      "authors": "Ben Dixon, Jill Alexander, Damian Harper",
+      "link": "https://doi.org/10.1080/02640414.2026.2745280",
+      "date": "2026-10-12",
+      "journalZh": "《体育科学杂志》",
+      "titleZh": "伤病监测、场上康复和恢复比赛标准：对男性职业足球当前实践的调查"
     },
     {
       "journal": "Sports Medicine",
@@ -99,49 +153,13 @@
       "titleZh": "专为耐力健身监测而设计的8分钟自定进度自行车测试：横截面有效性、测试-重测可靠性和实际实施"
     },
     {
-      "journal": "Sports Medicine",
-      "title": "Repetitive Head Impacts During Contact Sports and Fluid Biomarkers of Neural Damage: A Meta-analysis",
-      "authors": "Marloes I. Hoppen, Suzie Kamps, Everard G. B. Vijverberg, Joost G. Daams, Charlotte E. Teunissen, Jaap Oosterlaan, Marsh Königs",
-      "link": "https://doi.org/10.1007/s40279-026-02529-x",
-      "date": "2026-10-06",
-      "journalZh": "《运动医学》",
-      "titleZh": "接触运动中的重复性头部影响和神经损伤的液体生物标志物：荟萃分析"
-    },
-    {
-      "journal": "Sports Medicine",
-      "title": "The Oxygen Transport Cascade During Maximal-Intensity Exercise in Uncomplicated Type 1 Diabetes: A Narrative Review",
-      "authors": "Julien Aucouturier, Sémah Tagougui, Frédéric Daussin, Serge Berthoin, Elsa Heyman",
-      "link": "https://doi.org/10.1007/s40279-026-02540-2",
-      "date": "2026-10-06",
-      "journalZh": "《运动医学》",
-      "titleZh": "单纯1型糖尿病最大强度运动期间的氧输送级联：叙事综述"
-    },
-    {
-      "journal": "Journal of Sports Sciences",
-      "title": "Impact of coach-created motivational climate, mediated by collective efficacy, on team resilience in elite futsal athletes",
-      "authors": "Mylena Aparecida Rodrigues Baransk, Daniel Perez Arthur, Joice Mara Facco Stefanello",
-      "link": "https://doi.org/10.1080/02640414.2026.2743408",
-      "date": "2026-10-06",
-      "journalZh": "《体育科学杂志》",
-      "titleZh": "由集体效能调节的教练创造的激励氛围对精英五人制足球运动员团队韧性的影响"
-    },
-    {
-      "journal": "British Journal of Sports Medicine",
-      "title": "Return to sport after primary anterior cruciate ligament reconstruction in athletes with a preinjury Tegner Activity Scale ≥7: a longitudinal, nationwide, registry-based cohort study",
-      "authors": "Daniel Castellanos Dolk, Henrik Hedevik, Per Wretenberg, Anders Stålman, Joanna Kvist",
-      "link": "https://doi.org/10.1136/bjsports-2025-111497",
+      "journal": "Scandinavian Journal of Medicine & Science in Sports",
+      "title": "Movement Profiles in 180° Cutting Test: A Cluster‐Based Analysis of Performance and Knee Loading Trade‐Offs",
+      "authors": "Di Wang, Anu M. Valtonen, Tom Thiel, Ying Gao, Juha‐Pekka Kulmala",
+      "link": "https://doi.org/10.1111/sms.70376",
       "date": "2026-10",
-      "journalZh": "《英国运动医学杂志》",
-      "titleZh": "受伤前Tegner活动量表≥ 7的运动员在初级前交叉韧带重建后恢复运动：一项纵向、全国性、基于注册的队列研究"
-    },
-    {
-      "journal": "British Journal of Sports Medicine",
-      "title": "George’s Gymnastics Program: scaling an inclusive, school-based gymnastics service for children with intellectual disability through an Olympic training centre partnership",
-      "authors": "Moa Jederstrom, Christina L Ekegren, Ulrika Müssener, Natasha Brusco",
-      "link": "https://doi.org/10.1136/bjsports-2026-112014",
-      "date": "2026-10",
-      "journalZh": "《英国运动医学杂志》",
-      "titleZh": "乔治的体操项目：通过与奥林匹克培训中心的合作，为智障儿童提供包容性的、以学校为基础的体操服务"
+      "journalZh": "《斯堪的纳维亚运动医学与科学杂志》",
+      "titleZh": "180°切割测试中的运动轮廓：基于集群的性能和膝关节负荷权衡分析"
     },
     {
       "journal": "Scandinavian Journal of Medicine & Science in Sports",
@@ -160,24 +178,6 @@
       "date": "2026-10",
       "journalZh": "《斯堪的纳维亚运动医学与科学杂志》",
       "titleZh": "培训调动制服吗？阻力冲刺训练对运动员加速、跳跃和方向表现变化影响的系统评价和三级元分析"
-    },
-    {
-      "journal": "Scandinavian Journal of Medicine & Science in Sports",
-      "title": "The Football Association Injury and Illness Surveillance Programme: The Incidence, Burden, and Severity of Injuries in English Men's Domestic Football",
-      "authors": "Bradley Sprouse, Avinash Chandran, Philip Hennis, John Morris, Simon Cooper, Charlotte Cowie, Subhashis Basu, Ian Varley",
-      "link": "https://doi.org/10.1111/sms.70378",
-      "date": "2026-10",
-      "journalZh": "《斯堪的纳维亚运动医学与科学杂志》",
-      "titleZh": "足球协会伤病监测计划：英国男子国内足球受伤的发生率、负担和严重程度"
-    },
-    {
-      "journal": "British Journal of Sports Medicine",
-      "title": "Over-the-counter analgesics improve postconcussion symptoms and recovery: findings from the Concussion Assessment, Research and Education (CARE) Consortium",
-      "authors": "Kyle Arnold, Anish Mukherjee, Yeo Won Kim, Kira Rosenlind, Steven Broglio, Michael A McCrea, Thomas McAllister, Tara Lani Sharma",
-      "link": "https://doi.org/10.1136/bjsports-2025-110753",
-      "date": "2026-09-30",
-      "journalZh": "《英国运动医学杂志》",
-      "titleZh": "非处方镇痛药改善脑震荡后症状和康复：来自脑震荡评估、研究和教育（ CARE ）联盟的调查结果"
     },
     {
       "journal": "天津体育学院学报",
