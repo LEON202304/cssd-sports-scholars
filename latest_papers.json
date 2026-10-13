@@ -27,6 +27,33 @@
     "titleZh": "人类发展和性别不平等与心肺健康有关：对V O2峰的全球系统评价"
   },
   {
+    "journal": "Medicine & Science in Sports & Exercise",
+    "title": "CrossAcclimation and Endurance Performance Following Adaptation to Dry and Humid Heat",
+    "authors": "Peter McDonald, Kevin John, Thomas Topham, Michael N. Sawka, Brad Clark, Julien D. Périard",
+    "link": "https://doi.org/10.1249/mss.0000000000004190",
+    "date": "2026-10-12",
+    "journalZh": "《运动医学与科学》",
+    "titleZh": "适应干燥和潮湿高温后的交叉适应和耐力性能"
+  },
+  {
+    "journal": "Medicine & Science in Sports & Exercise",
+    "title": "The Association of Handgrip Strength in the Second Trimester with Gestational Hyperglycemia: Erratum",
+    "authors": "PING ZU, JIRONG XU, PENG WANG, JINGFENG BIAN, MIN XU, NAN JIANG, WEI LUO, GUIDONG YU, XIANXIA CHEN, PENG ZHU",
+    "link": "https://doi.org/10.1249/mss.0000000000004156",
+    "date": "2026-10-12",
+    "journalZh": "《运动医学与科学》",
+    "titleZh": "妊娠中期握力与妊娠期高血糖的关系：勘误"
+  },
+  {
+    "journal": "Medicine & Science in Sports & Exercise",
+    "title": "Blood Flow Restriction Accelerates the Onset of Neuromuscular Fatigue, Anaerobic Metabolism, and Maximal Oxygen Uptake",
+    "authors": "Sean M. Lubiak, Mason A. Howard, Jeffrey T. Schmidt, David H. Fukuda, Jeffrey R. Stout, Joshua L. Keller, Ethan C. Hill",
+    "link": "https://doi.org/10.1249/mss.0000000000004189",
+    "date": "2026-10-12",
+    "journalZh": "《运动医学与科学》",
+    "titleZh": "血流受限加速神经肌肉疲劳、厌氧代谢和最大摄氧量的发生"
+  },
+  {
     "journal": "Sports Medicine",
     "title": "Effect Size Calculation Procedures in Exercise Intervention Meta-Analyses: A Scoping Review",
     "authors": "Simon Nolte, Theresa Siepe, Jennifer Murphy, Oliver J. Quittmann, Daniel Memmert, Robert Rein",
@@ -57,33 +84,6 @@
     "authors": "董嘉颖, 李爱群",
     "link": "https://tyyk.cbpt.cnki.net/portal/journal/portal/client/paper/6e25474d6c2d5ffd11c01d965f5a328f",
     "date": "2026-10-10"
-  },
-  {
-    "journal": "Medicine & Science in Sports & Exercise",
-    "title": "Development and Validation of a Resting Metabolic Rate Equation for Elite Cyclists",
-    "authors": "Maartje Cox, Zoi Balamouti, Job van Leeuwen, Boy Sanders, Dajo Sanders, Gerard Rietjens, Guy Plasqui, Bas Van Hooren",
-    "link": "https://doi.org/10.1249/mss.0000000000004181",
-    "date": "2026-10-08",
-    "journalZh": "《运动医学与科学》",
-    "titleZh": "精英骑自行车者静息代谢率方程的开发与验证"
-  },
-  {
-    "journal": "Medicine & Science in Sports & Exercise",
-    "title": "eHealth-Guided Exercise Improves Peak Oxygen Uptake and Health-Related Quality of Life After COVID-19: A Randomized Controlled Trial",
-    "authors": "Espen Alexander Eriksen, Ulrik Wisløff, Ottar Brohaug Welde, Sindre Midttun, Eli Anne Skaug, Jon Magne Letnes, Ross Arena, Patrick Dunn, Tommi Vasankari, Torbjørn Omland, Dorthe Stensvold",
-    "link": "https://doi.org/10.1249/mss.0000000000004177",
-    "date": "2026-10-08",
-    "journalZh": "《运动医学与科学》",
-    "titleZh": "电子健康指导运动可改善COVID-19后的峰值氧摄取和与健康相关的生活质量：一项随机对照试验"
-  },
-  {
-    "journal": "Medicine & Science in Sports & Exercise",
-    "title": "Motor Imagery of Yips-Affected Pitching Enhances Corticospinal Excitability in Baseball Players with Yips",
-    "authors": "Daiki Yamasaki, Naotsugu Kaneko, Taishi Okegawa, Kimitaka Nakazawa",
-    "link": "https://doi.org/10.1249/mss.0000000000004173",
-    "date": "2026-10-07",
-    "journalZh": "《运动医学与科学》",
-    "titleZh": "受YIPS影响的投球的运动图像增强了YIPS棒球运动员的皮质脊髓兴奋性"
   },
   {
     "journal": "Journal of Sports Sciences",
@@ -123,10 +123,19 @@
   },
   {
     "journal": "British Journal of Sports Medicine",
+    "title": "Return to sport after primary anterior cruciate ligament reconstruction in athletes with a preinjury Tegner Activity Scale ≥7: a longitudinal, nationwide, registry-based cohort study",
+    "authors": "Daniel Castellanos Dolk, Henrik Hedevik, Per Wretenberg, Anders Stålman, Joanna Kvist",
+    "link": "https://doi.org/10.1136/bjsports-2025-111497",
+    "date": "2026-10",
+    "journalZh": "《英国运动医学杂志》",
+    "titleZh": "受伤前Tegner活动量表≥ 7的运动员在初级前交叉韧带重建后恢复运动：一项纵向、全国性、基于注册的队列研究"
+  },
+  {
+    "journal": "British Journal of Sports Medicine",
     "title": "George’s Gymnastics Program: scaling an inclusive, school-based gymnastics service for children with intellectual disability through an Olympic training centre partnership",
     "authors": "Moa Jederstrom, Christina L Ekegren, Ulrika Müssener, Natasha Brusco",
     "link": "https://doi.org/10.1136/bjsports-2026-112014",
-    "date": "2026-10-01",
+    "date": "2026-10",
     "journalZh": "《英国运动医学杂志》",
     "titleZh": "乔治的体操项目：通过与奥林匹克培训中心的合作，为智障儿童提供包容性的、以学校为基础的体操服务"
   },
@@ -172,15 +181,6 @@
     "authors": "白晋湘, 王振亮, 何涛",
     "link": "https://tjty.cbpt.cnki.net/portal/journal/portal/client/paper/3d0f26b970a4ecc0ac6ecfe388b1ed53",
     "date": "2026-09-29"
-  },
-  {
-    "journal": "British Journal of Sports Medicine",
-    "title": "Are we comparing blood flow restriction outcomes using equivalent equipment? The importance of empirically validated equipment and accurate reporting for comparison of outcomes related to safety and efficacy",
-    "authors": "Luke Hughes, Nicholas Rolnick",
-    "link": "https://doi.org/10.1136/bjsports-2026-112173",
-    "date": "2026-09-29",
-    "journalZh": "《英国运动医学杂志》",
-    "titleZh": "我们是否使用等效设备比较血流限制结果？经验验证的设备和准确的报告对于比较安全性和有效性相关结果的重要性"
   },
   {
     "journal": "体育学刊",
