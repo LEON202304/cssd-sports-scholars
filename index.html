@@ -17,12 +17,13 @@ html:not(.cssd-boot-ready) body>*:not(#bootSplash){visibility:hidden!important;}
 html.cssd-boot-ready #bootSplash{opacity:0!important;visibility:hidden!important;pointer-events:none!important;}
 </style>
 <link rel="stylesheet" href="portal.3d4d3a97.css">
+<style id="cssd-v46-95-type">body,button,input,select,textarea{line-height:1.6}</style>
 <link rel="stylesheet" href="portal.polish.css">
 <link rel="stylesheet" href="portal.premium.c672284e.css">
 <!-- 预加载关键脚本：在 head 内提前发起请求，与 HTML 解析并行，缩短首屏等待。
      注意：sports-cnki-data.*.js 不在此预加载——它只在「学术期刊 / 学术动态」两个视图按需拉取，
      首屏可省下约 900 KB（Brotli）。详见该脚本下方的 _cnkiLoad 懒加载器。 -->
-<link rel="preload" as="script" href="sports-scholars-data.e60d2f0d.js">
+<!-- scholar bundle loads via defer; do not preload (7.4MB fights first paint) -->
 <link rel="preload" as="script" href="sports-univ-catalog.23e53040.js">
 <link rel="preload" as="script" href="portal.3bbae0fc.js">
 <link rel="preload" as="image" href="mountains.5f7d4f16.webp" type="image/webp" fetchpriority="high">
@@ -15366,16 +15367,14 @@ html.cssd-light .pledge-hdr-icon{line-height:1!important;}
   function run(){ if(isLight()) fixTree(document.body); }
   function debouncedRun(){ if(!isLight()) return; clearTimeout(_t); _t=setTimeout(function(){ fixTree(document.body); },200); }
   var _t;
-  function kick(){ setTimeout(run,300); setTimeout(run,1500); setTimeout(run,3000); }
+  function kick(){ setTimeout(run,500); }
   if(document.readyState!=='loading') kick();
   else document.addEventListener('DOMContentLoaded', kick);
   window.addEventListener('load', function(){ setTimeout(run,500); });
   window.addEventListener('hashchange', function(){ setTimeout(run,400); });
-  var obs = new MutationObserver(function(muts){
+  var obs = new MutationObserver(function(){
     if(!isLight()) return;
-    clearTimeout(_t); _t=setTimeout(function(){
-      for(var i=0;i<muts.length;i++){ var a=muts[i].addedNodes; for(var j=0;j<a.length;j++){ if(a[j].nodeType===1) fixTree(a[j]); } }
-    }, 250);
+    debouncedRun();
   });
   var htmlObs = new MutationObserver(function(){
     if(isLight()) setTimeout(run,200);
@@ -15394,41 +15393,7 @@ html.cssd-light .pledge-hdr-icon{line-height:1!important;}
      上调至 1.55。data-lh-locked 标记保留设计断言。
 ════════════════════════════════════════════════════════════ -->
 <script id="cssd-lineheight-observer82">
-(function(){
-  try {
-    var ROOT = document.body;
-    if(!ROOT) return;
-    function check(el){
-      var cs = getComputedStyle(el);
-      if(cs.display === 'inline' || cs.position === 'fixed') return;
-      var fs = parseFloat(cs.fontSize);
-      var lh = parseFloat(cs.lineHeight);
-      if(!fs || fs < 10 || !lh || isNaN(lh)) return;
-      var ratio = lh / fs;
-      if(ratio >= 1.35) return;
-      if(el.dataset && el.dataset.lhLocked) return;
-      el.style.lineHeight = (fs * 1.55).toFixed(2) + 'px';
-      el.dataset.lhFixed = '82';
-    }
-    function walk(){
-      try {
-        var tw = document.createTreeWalker(ROOT, NodeFilter.SHOW_ELEMENT, null);
-        var n=0, max=20000;
-        while(tw.nextNode() && n<max){ check(tw.currentNode); n++; }
-      } catch(e){}
-    }
-    function kick(){ setTimeout(walk, 200); setTimeout(walk, 900); setTimeout(walk, 1800); }
-    if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', kick);
-    else kick();
-    var _go = window.go;
-    if(typeof _go === 'function'){
-      window.__cssd_go = _go;
-      window.go = function(){ var r = _go.apply(this, arguments); kick(); return r; };
-    }
-    var mo = new MutationObserver(function(){ clearTimeout(window.__cssd_walk_t); window.__cssd_walk_t = setTimeout(walk, 250); });
-    mo.observe(ROOT, {childList:true, subtree:true});
-  } catch(e){}
-})();
+/* v4.6-95: line-height is set in CSS; do not walk the DOM. */
 </script>
 
 
@@ -15765,27 +15730,14 @@ html.cssd-light body.cssd-v46-40.cssd-v46-41.cssd-v46-42.cssd-v46-43.cssd-v46-45
   /* 时序：跑在 v4.6-82 行距观察器(200/900/1800ms)之前，
      让行距观察器做最后一道修正，两者叠加而非互相打架 */
   function kick(){
-    setTimeout(run, 150);
-    setTimeout(run, 700);
-    setTimeout(run, 1500);
-    setTimeout(run, 2800);
+    setTimeout(run, 400);
   }
 
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', kick);
   else kick();
-  window.addEventListener('load', function(){ setTimeout(run, 600); });
   window.addEventListener('hashchange', function(){ setTimeout(run, 420); });
 
-  var mo = new MutationObserver(function(){
-    clearTimeout(window.__ds_t);
-    window.__ds_t = setTimeout(run, 320);
-  });
-  function start(){
-    try { mo.observe(document.body, { childList:true, subtree:true }); } catch(e){}
-  }
-  if(document.body) start();
-  else document.addEventListener('DOMContentLoaded', start);
-
+  /* no MutationObserver: style writes were retriggering the other walkers */
   window.__cssdDSStat = stat;
 })();
 </script>
@@ -15919,9 +15871,9 @@ html.cssd-light body.cssd-v46-40.cssd-v46-41.cssd-v46-42.cssd-v46-43.cssd-v46-45
     for(var j=0;j<pend.length;j+=2){ pend[j].style.setProperty('color', pend[j+1], 'important'); }
     _csCache=null; _bgCache=null; _decCache=null;
   }
-  setTimeout(run, 3600);
-  setTimeout(run, 5200);
-  window.addEventListener('hashchange', function(){ setTimeout(run, 700); });
+  setTimeout(run, 1400);
+  var _hc;
+  window.addEventListener('hashchange', function(){ clearTimeout(_hc); _hc = setTimeout(run, 700); });
 })();
 </script>
 
