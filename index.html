@@ -10432,7 +10432,7 @@ body.cssd-v46-46 .ov-input:focus,body.cssd-v46-46 .ov-select:focus{border-color:
 body.cssd-v46-46 .ov-meta{display:flex;justify-content:space-between;gap:12px;align-items:center;color:rgba(226,238,255,.62);font-size:12px;margin:2px 0 12px}
 body.cssd-v46-46 .ov-reset{border:1px solid rgba(46,154,137,.25);background:rgba(46,154,137,.08);color:#5FB8AA;border-radius:8px;padding:7px 10px;font-weight:700;cursor:pointer}
 body.cssd-v46-46 .ov-list{display:grid;gap:10px}
-body.cssd-v46-46 .ov-card{display:grid;grid-template-columns:220px 1fr 170px;gap:16px;align-items:start;border:1px solid rgba(255,255,255,.10);background:linear-gradient(135deg,rgba(255,255,255,.055),rgba(255,255,255,.025));border-radius:12px;padding:16px}
+body.cssd-v46-46 .ov-card{display:grid;grid-template-columns:minmax(180px,220px) minmax(0,1fr) minmax(240px,280px);gap:16px;align-items:start;border:1px solid rgba(255,255,255,.10);background:linear-gradient(135deg,rgba(255,255,255,.055),rgba(255,255,255,.025));border-radius:12px;padding:16px}
 body.cssd-v46-46 .ov-name{font-size:18px;font-weight:900;color:#fff;margin-bottom:5px}
 body.cssd-v46-46 .ov-name small{display:block;margin-top:4px;font:700 12px/1.25 'DM Mono',monospace;color:#8bdff4}
 body.cssd-v46-46 .ov-role{font-size:12px;color:rgba(226,238,255,.7);line-height:1.7}
@@ -10441,8 +10441,11 @@ body.cssd-v46-46 .ov-univ{font-weight:800;color:#dce9ff;margin-bottom:8px}
 body.cssd-v46-46 .ov-tags{display:flex;gap:6px;flex-wrap:wrap;margin:9px 0}
 body.cssd-v46-46 .ov-tag{display:inline-flex;align-items:center;border:1px solid rgba(46,154,137,.18);background:rgba(46,154,137,.07);color:#b9f3ff;border-radius:999px;padding:4px 8px;font-size:11px;font-weight:800}
 body.cssd-v46-46 .ov-text{color:rgba(226,238,255,.72);font-size:13px;line-height:1.75}
-body.cssd-v46-46 .ov-source{justify-self:end;text-align:right;color:rgba(226,238,255,.60);font-size:12px;line-height:1.6}
-body.cssd-v46-46 .ov-cred{display:inline-flex;margin-bottom:8px;border-radius:999px;padding:5px 9px;font:900 11px/1 'DM Mono',monospace;color:#06121f;background:#2E9A89}
+body.cssd-v46-46 .ov-source{display:flex;flex-direction:column;align-items:stretch;gap:8px;justify-self:stretch;width:100%;min-width:0;text-align:left;color:rgba(226,238,255,.60);font-size:12px;line-height:1.55}
+body.cssd-v46-46 .ov-cred-row{display:flex;align-items:flex-start;gap:8px;min-width:0}
+body.cssd-v46-46 .ov-cred-label{flex:1 1 auto;min-width:0;line-height:1.45;overflow-wrap:anywhere}
+body.cssd-v46-46 .ov-src-line{min-width:0;line-height:1.55;overflow-wrap:anywhere}
+body.cssd-v46-46 .ov-cred{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;margin:0;border-radius:999px;padding:5px 9px;font:900 11px/1 'DM Mono',monospace;color:#06121f;background:#2E9A89}
 body.cssd-v46-46 .ov-cred.b{background:#2C6E9E;color:#fff}
 body.cssd-v46-46 .ov-cred.c{background:#E2E8F0;color:#475569;border:1px solid rgba(71,85,105,.28);font-weight:800}
 body.cssd-v46-46 .ov-empty{padding:26px;text-align:center;color:rgba(226,238,255,.62);border:1px dashed rgba(255,255,255,.14);border-radius:12px}
@@ -10459,7 +10462,7 @@ body.cssd-v46-46 #nb-overseas.active,body.cssd-v46-46 #nb-overseas.on{color:#061
   body.cssd-v46-46 .ov-tools{grid-template-columns:1fr}
   body.cssd-v46-46 .ov-card{grid-template-columns:1fr;gap:10px}
   body.cssd-v46-46 .ov-input,body.cssd-v46-46 .ov-select{width:100%;min-width:0}
-  body.cssd-v46-46 .ov-source{text-align:left;justify-self:start}
+  body.cssd-v46-46 .ov-source{text-align:left;justify-self:stretch;width:100%}
   body.cssd-v46-46 .ov-meta{align-items:flex-start;flex-direction:column}
 }
 @media(max-width:480px){
@@ -10553,7 +10556,7 @@ body.cssd-v46-46 #nb-overseas.active,body.cssd-v46-46 #nb-overseas.on{color:#061
       var cc=credClass(d.cred),bucket=fieldBucket(d.field);
       return '<article class="ov-card"><div><div class="ov-name">'+esc(d.cn)+'<small>'+esc(d.en)+' · '+esc(d.id)+'</small></div><div class="ov-role">'+esc(d.title)+'</div></div>'+
         '<div class="ov-main"><div class="ov-univ">'+esc(d.univ)+'</div><div class="ov-text">'+esc(d.role)+'</div><div class="ov-tags"><span class="ov-tag">'+esc(bucket)+'</span><span class="ov-tag">'+esc(d.field)+'</span></div></div>'+
-        '<div class="ov-source"><span class="ov-cred '+cc+'">'+esc(String(d.cred).charAt(0))+'</span><div>'+esc(d.cred)+'</div><div>信源：'+esc(d.source)+'</div></div></article>';
+        '<div class="ov-source"><div class="ov-cred-row"><span class="ov-cred '+cc+'">'+esc(String(d.cred).charAt(0))+'</span><span class="ov-cred-label">'+esc(d.cred)+'</span></div><div class="ov-src-line">信源：'+esc(d.source)+'</div></div></article>';
     }).join('');
   }
   function initFilters(){
@@ -10727,8 +10730,8 @@ body.cssd-v46-47 #scholarOverseasNavItem b{color:#eafcff}
 <style id="cssd-v46-48-overseas-profile-style">
 body.cssd-v46-48 .ov-bio{margin-top:9px;color:rgba(226,238,255,.72);font-size:13px;line-height:1.75}
 body.cssd-v46-48 .ov-bio b{color:#dff9ff}
-body.cssd-v46-48 .ov-actions{display:flex;gap:8px;align-items:center;justify-content:flex-end;flex-wrap:wrap;margin-top:10px}
-body.cssd-v46-48 .ov-profile-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:1px solid rgba(46,154,137,.35);background:rgba(46,154,137,.10);color:#bff5ff;border-radius:8px;padding:7px 10px;font:900 12px/1 inherit;text-decoration:none}
+body.cssd-v46-48 .ov-actions{display:flex;gap:8px;align-items:center;justify-content:flex-start;flex-wrap:wrap;margin-top:2px;width:100%;min-width:0}
+body.cssd-v46-48 .ov-profile-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;flex:0 0 auto;white-space:nowrap;border:1px solid rgba(46,154,137,.35);background:rgba(46,154,137,.10);color:#bff5ff;border-radius:8px;padding:7px 12px;font:900 12px/1 inherit;text-decoration:none}
 body.cssd-v46-48 .ov-profile-btn:hover{background:rgba(46,154,137,.18);border-color:rgba(46,154,137,.65);color:#fff}
 body.cssd-v46-48 .ov-profile-btn.muted{border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:rgba(226,238,255,.56);pointer-events:none}
 body.cssd-v46-48 .ov-profile-btn.dead{border-color:rgba(90,101,117,.35);background:rgba(90,101,117,.08);color:var(--cssd-muted-2,#5A6575);pointer-events:none;cursor:not-allowed}
@@ -10743,7 +10746,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 </style>
 <script id="cssd-v46-48-overseas-profile-js">
 (function(){
-  var VERSION='v4.6-93';
+  var VERSION='v4.6-94';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var ENRICH={
     A001:{url:'https://www.uta.edu/academics/faculty/profile?username=xiangligu',url_status:'ok',url_checked_at:'2026-10-13',bio:'美国德州大学阿灵顿分校运动机能学系副教授，研究聚焦儿童青少年身体活动、健康促进与学校体育干预；现任 ICSPAH President(2025-2026)。',urlNote:'UTA 官方教师主页'},
@@ -10789,9 +10792,9 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
   function patchVersion(){
     document.documentElement.classList.add('cssd-v46-48');
     if(document.body)document.body.classList.add('cssd-v46-48');
-    document.title=document.title.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-93');
+    document.title=document.title.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-94');
     document.querySelectorAll('.bsb,#brandStats,.hs,.ftn,.pv-date,.cnki-dir-update span').forEach(function(el){
-      if(el&&el.textContent)el.textContent=el.textContent.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-93');
+      if(el&&el.textContent)el.textContent=el.textContent.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-94');
     });
     if(document.body){
       var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
@@ -10801,7 +10804,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
       }});
       var nodes=[],node;
       while((node=walker.nextNode()))nodes.push(node);
-      nodes.forEach(function(n){n.nodeValue=n.nodeValue.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-93');});
+      nodes.forEach(function(n){n.nodeValue=n.nodeValue.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-94');});
     }
   }
   function enrichData(){
@@ -10844,7 +10847,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
       }
       return '<article class="ov-card '+(linkable?'has-profile':'')+'"><div><div class="ov-name">'+name+'<small>'+esc(d.en)+' · '+esc(d.id)+'</small></div><div class="ov-role">'+esc(d.title)+'</div></div>'+
         '<div class="ov-main"><div class="ov-univ">'+esc(d.univ)+'</div><div class="ov-text">'+esc(d.role)+'</div><div class="ov-bio"><b>简介：</b>'+esc(d.bio||'暂未补充简介，后续需结合官方主页继续核验。')+'</div><div class="ov-tags"><span class="ov-tag">'+esc(bucket)+'</span><span class="ov-tag">'+esc(d.field)+'</span></div></div>'+
-        '<div class="ov-source"><span class="ov-cred '+cc+'">'+esc(String(d.cred).charAt(0))+'</span><div>'+esc(d.cred)+'</div><div>信源：'+esc(d.source)+'</div><div class="ov-actions">'+btn+'</div>'+note+'</div></article>';
+        '<div class="ov-source"><div class="ov-cred-row"><span class="ov-cred '+cc+'">'+esc(String(d.cred).charAt(0))+'</span><span class="ov-cred-label">'+esc(d.cred)+'</span></div><div class="ov-src-line">信源：'+esc(d.source)+'</div><div class="ov-actions">'+btn+'</div>'+note+'</div></article>';
     }).join('');
   }
   function install(){
@@ -10872,7 +10875,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 <!-- CSSD v4.6-49 overseas candidates from screenshots -->
 <script id="cssd-v46-49-overseas-screenshot-candidates-js">
 (function(){
-  var VERSION='v4.6-93';
+  var VERSION='v4.6-94';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var EXTRA=[
     {id:'A038',cn:'刘沅龙',en:'Yuanlong Liu',title:'Assistant Professor',univ:'Western Michigan University',role:'海外华人体育学者候选；截图线索：美国密歇根州 Kalamazoo',field:'体育教育、教师教育、体育课程与教学',source:'Western Michigan University 官方教师主页；截图线索复核',cred:'B-官方主页确认',url:'https://wmich.edu/humanperformance/directory/liu',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'WMU HPHE directory Yuanlong Liu',bio:'西密歇根大学人类表现与健康教育相关学院助理教授，研究方向与体育教育、教师教育、课程教学和身体活动促进相关；由截图“刘沅龙 Yuanlong Liu”线索核验补入。'},
@@ -11028,7 +11031,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
   function patchVersion(){
     document.documentElement.classList.add('cssd-v46-49');
     if(document.body)document.body.classList.add('cssd-v46-49');
-    document.title=document.title.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-93');
+    document.title=document.title.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-94');
     if(!document.body)return;
     var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
       var p=n.parentNode&&n.parentNode.nodeName;
@@ -11037,7 +11040,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
     }});
     var nodes=[],node;
     while((node=walker.nextNode()))nodes.push(node);
-    nodes.forEach(function(n){n.nodeValue=n.nodeValue.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-93');});
+    nodes.forEach(function(n){n.nodeValue=n.nodeValue.replace(/v4\.6-\d+/g,VERSION).replace(/V4\.6-\d+/g,'V4.6-94');});
   }
   function patchStats(data){
     var nums=document.querySelectorAll('.ov-stat b');
@@ -11089,7 +11092,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
       }
       return '<article class="ov-card '+(linkable?'has-profile':'')+'"><div><div class="ov-name">'+name+'<small>'+esc(d.en)+' · '+esc(d.id)+'</small></div><div class="ov-role">'+esc(d.title)+'</div></div>'+
         '<div class="ov-main"><div class="ov-univ">'+esc(d.univ)+'</div><div class="ov-text">'+esc(d.role)+'</div><div class="ov-bio"><b>简介：</b>'+esc(d.bio||'暂未补充简介，后续需结合官方主页继续核验。')+'</div><div class="ov-tags"><span class="ov-tag">'+esc(bucket)+'</span><span class="ov-tag">'+esc(d.field)+'</span></div></div>'+
-        '<div class="ov-source"><span class="ov-cred '+cc+'">'+esc(String(d.cred).charAt(0))+'</span><div>'+esc(d.cred)+'</div><div>信源：'+esc(d.source)+'</div><div class="ov-actions">'+btn+'</div>'+note+'</div></article>';
+        '<div class="ov-source"><div class="ov-cred-row"><span class="ov-cred '+cc+'">'+esc(String(d.cred).charAt(0))+'</span><span class="ov-cred-label">'+esc(d.cred)+'</span></div><div class="ov-src-line">信源：'+esc(d.source)+'</div><div class="ov-actions">'+btn+'</div>'+note+'</div></article>';
     }).join('');
   }
   function install(){
