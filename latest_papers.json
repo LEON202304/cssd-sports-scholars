@@ -27,6 +27,15 @@
     "titleZh": "人类发展和性别不平等与心肺健康有关：对V O2峰的全球系统评价"
   },
   {
+    "journal": "Sports Medicine",
+    "title": "Effects of Exercise Training on the Metabolic Cost of Walking in Health and Disease: A Systematic Review and Meta-analysis",
+    "authors": "Tibor Hortobágyi, Urs Granacher, Jennifer Brach, Davide Malatesta, Beáta Csizmadia, Bálint Kovács, Jingyi Ye, Mohamed Abdelaziz Emam, András Attila Horváth, Tomas Vetrovsky",
+    "link": "https://doi.org/10.1007/s40279-026-02553-x",
+    "date": "2026-10-14",
+    "journalZh": "《运动医学》",
+    "titleZh": "运动训练对健康和疾病行走代谢成本的影响：系统综述和荟萃分析"
+  },
+  {
     "journal": "British Journal of Sports Medicine",
     "title": "Physical inactivity is not laziness: from individual blame to structural determinants",
     "authors": "Heitor Martins Pasquim, Paulo Henrique Guerra, José Augusto Dalmonte Malacarne, Bruno Gualano",
@@ -70,15 +79,6 @@
     "date": "2026-10-13",
     "journalZh": "《运动医学》",
     "titleZh": "与女性运动员三合会相关的心血管效应：来自女性和男性运动员三合会联盟的新证据声明"
-  },
-  {
-    "journal": "Sports Medicine",
-    "title": "Can Resistance Training-Induced Skeletal Muscle Growth Improve Local Muscular Endurance?",
-    "authors": "Matthew A. Chatlaong, William B. Hammert, Kealey J. Wohlgemuth, Jeremy P. Loenneke, Matthew B. Jessee",
-    "link": "https://doi.org/10.1007/s40279-026-02539-9",
-    "date": "2026-10-13",
-    "journalZh": "《运动医学》",
-    "titleZh": "阻力训练诱导的骨骼肌生长能否提高局部肌肉耐力？"
   },
   {
     "journal": "Medicine & Science in Sports & Exercise",
@@ -345,9 +345,9 @@
   },
   {
     "journal": "西安体育学院学报",
-    "title": "扬弃与立新:体育非线性教学法的内涵阐释、主要特征及实践启示",
-    "authors": "李游, 赵雪同, 李笋南, 邵婷",
-    "link": "https://xaty.cbpt.cnki.net/portal/journal/portal/client/paper/23ecc4813548b63f7ea33766be170be9",
-    "date": "2026-07-02"
+    "title": "典籍骊珠，文中武脉——明清少林武术文献的文化阐述",
+    "authors": "周伟良",
+    "link": "https://xaty.cbpt.cnki.net/portal/journal/portal/client/paper/e41abb4c0e7edf4d1b74201cf7ea55d5",
+    "date": "2026-07-10"
   }
 ]
