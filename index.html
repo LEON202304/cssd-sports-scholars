@@ -10747,7 +10747,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 </style>
 <script id="cssd-v46-48-overseas-profile-js">
 (function(){
-  var VERSION='v4.6-94';
+  var VERSION='v4.6-95';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var ENRICH={
     A001:{url:'https://www.uta.edu/academics/faculty/profile?username=xiangligu',url_status:'ok',url_checked_at:'2026-10-13',bio:'美国德州大学阿灵顿分校运动机能学系副教授，研究聚焦儿童青少年身体活动、健康促进与学校体育干预；现任 ICSPAH President(2025-2026)。',urlNote:'UTA 官方教师主页'},
@@ -10876,7 +10876,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 <!-- CSSD v4.6-49 overseas candidates from screenshots -->
 <script id="cssd-v46-49-overseas-screenshot-candidates-js">
 (function(){
-  var VERSION='v4.6-94';
+  var VERSION='v4.6-95';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var EXTRA=[
     {id:'A038',cn:'刘沅龙',en:'Yuanlong Liu',title:'Assistant Professor',univ:'Western Michigan University',role:'海外华人体育学者候选；截图线索：美国密歇根州 Kalamazoo',field:'体育教育、教师教育、体育课程与教学',source:'Western Michigan University 官方教师主页；截图线索复核',cred:'B-官方主页确认',url:'https://wmich.edu/humanperformance/directory/liu',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'WMU HPHE directory Yuanlong Liu',bio:'西密歇根大学人类表现与健康教育相关学院助理教授，研究方向与体育教育、教师教育、课程教学和身体活动促进相关；由截图“刘沅龙 Yuanlong Liu”线索核验补入。'},
@@ -11347,14 +11347,33 @@ body.cssd-v46-50 .gm-public-item{padding:9px 0;border-bottom:1px solid rgba(255,
       {n:'PubMed',u:'https://pubmed.ncbi.nlm.nih.gov/',d:'生物医学与运动医学相关文献检索',tag:'国际检索'},
       {n:'Web of Science',u:'https://www.webofscience.com/',d:'SCI/SSCI 等核心引文数据库入口',tag:'引文数据库'},
       {n:'ResearchGate',u:'https://www.researchgate.net/',d:'学者主页、预印本与全文请求交流',tag:'学术社交'},
-      {n:'Connected Papers',u:'https://www.connectedpapers.com/',d:'论文引用关联图谱可视化探索',tag:'文献图谱'}
+      {n:'Connected Papers',u:'https://www.connectedpapers.com/',d:'论文引用关联图谱可视化探索',tag:'文献图谱'},
+      {n:'CORE',u:'https://core.ac.uk/',d:'全球OA论文聚合检索',tag:'文献检索'},
+      {n:'OpenAlex',u:'https://openalex.org/',d:'开放学术图谱，收录 2.4 亿+文献的免费 API',tag:'文献检索'},
+      {n:'OALib',u:'https://www.oalib.com/',d:'获取500多万篇OA文献',tag:'文献检索'},
+      {n:'Europe PMC',u:'https://europepmc.org/',d:'欧洲版Pubmed',tag:'文献检索'},
+      {n:'DOAJ',u:'https://doaj.org/',d:'OA期刊文献检索系统',tag:'文献检索'},
+      {n:'Crossref',u:'https://www.crossref.org/',d:'DOI注册与文献元数据检索',tag:'文献检索'},
+      {n:'LitSense',u:'https://www.ncbi.nlm.nih.gov/research/litsense',d:'可按段落或句子搜索文献',tag:'文献检索'},
+      {n:'Vizio Metrics',u:'http://viziometrics.org/app',d:'图像检索',tag:'文献检索'},
+      {n:'CNKI学术图片库',u:'https://image.cnki.net/',d:'国内第一个学术图片知识库',tag:'文献检索'},
+      {n:'Open-i',u:'https://openi.nlm.nih.gov/',d:'医学群体图像搜索网站',tag:'文献检索'},
+      {n:'超星期刊',u:'https://qikan.chaoxing.com/',d:'国内知名学术资料查询数据库',tag:'文献检索'},
+      {n:'Wiley',u:'https://onlinelibrary.wiley.com/',d:'Wiley在线数据库，Wiley是世界三大学术期刊出版商之一',tag:'文献检索'},
+      {n:'爱思唯尔',u:'https://www.elsevier.com/zh-cn',d:'全球性信息分析公司，查文献',tag:'文献检索'},
+      {n:'ScienceDirect',u:'https://www.sciencedirect.com/',d:'Elsevier的全文数据库',tag:'文献检索'},
+      {n:'SpringerLink',u:'https://link.springer.com/',d:'springer在线期刊和图书',tag:'文献检索'},
+      {n:'ACS',u:'https://pubs.acs.org/',d:'美国化学会',tag:'文献检索'},
+      {n:'国家哲学社会科学文献中心',u:'https://www.ncpssd.org/',d:'国家哲学社会科学文献中心',tag:'文献检索'}
     ]},
     {name:'文献管理',color:'#0F5B4F',ico:'📚',tools:[
       {n:'Zotero',u:'https://www.zotero.org/',d:'免费开源文献管理、引用与题录同步',tag:'文献管理'},
       {n:'EndNote',u:'https://endnote.com/',d:'专业文献管理与自动排版引用软件',tag:'文献管理'},
       {n:'Mendeley',u:'https://www.mendeley.com/',d:'文献管理、PDF 标注与学术社交',tag:'文献管理'},
       {n:'Cite This For Me',u:'https://www.citethisforme.com/',d:'在线生成 APA/MLA 等引用格式',tag:'引用生成'},
-      {n:'Overleaf',u:'https://www.overleaf.com/',d:'在线 LaTeX 协作写作与模板库',tag:'论文排版'}
+      {n:'Overleaf',u:'https://www.overleaf.com/',d:'在线 LaTeX 协作写作与模板库',tag:'论文排版'},
+      {n:'NoteExpress',u:'https://www.inoteexpress.com/aegean/index.php/home/ne/index.html',d:'国产专业文献管理软件',tag:'文献管理'},
+      {n:'Papers',u:'https://www.papersapp.com/',d:'尤其适合Mac用户',tag:'文献管理'}
     ]},
     {name:'写作润色',color:'#14476E',ico:'✍️',tools:[
       {n:'秘塔写作猫',u:'https://xiezuocat.com/',d:'中文AI写作、论文润色与降重改写',tag:'中文写作'},
@@ -11406,6 +11425,189 @@ body.cssd-v46-50 .gm-public-item{padding:9px 0;border-bottom:1px solid rgba(255,
       {n:'local-deep-researcher',u:'https://github.com/langchain-ai/local-deep-researcher',d:'本地模型深度调研 Agent',tag:'开源·调研'},
       {n:'paper-qa',u:'https://github.com/Future-House/paper-qa',d:'科学文献检索与问答',tag:'开源·问答'},
       {n:'Supervisor-Skills',u:'https://github.com/HKUSTDial/Supervisor-Skills',d:'选题到投稿全流程 Skill',tag:'开源·Skill'}
+    ]},
+    {name:'科研资讯',color:'#2C6E9E',ico:'📰',tools:[
+      {n:'全球学者库',u:'http://www.globalauthorid.com/',d:'收录国际学术论文的学者库',tag:'学者库'},
+      {n:'Conference Partner',u:'https://www.myhuiban.com/',d:'近期计算机会议和期刊',tag:'会议'},
+      {n:'MedReading',u:'https://www.medreading.cn/',d:'文献推送和翻译平台',tag:'文献推送'},
+      {n:'文献鸟Stork',u:'https://www.storkapp.me/',d:'追踪新文献',tag:'文献推送'},
+      {n:'Researcher',u:'https://www.researcher-app.com/',d:'类似于微博的文献订阅App',tag:'文献推送'},
+      {n:'Inoreader',u:'https://www.inoreader.com/',d:'著名的跨平台RSS阅读器',tag:'RSS'},
+      {n:'QuiteRSS',u:'https://quiterss.org/',d:'免费开源的RSS阅读器',tag:'RSS'},
+      {n:'F1000',u:'https://f1000.com/',d:'F1000 开放出版与同行评议平台',tag:'开放出版'},
+      {n:'New Scientist',u:'https://www.newscientist.com/',d:'综合性科学新闻与科技文化周刊',tag:'科研资讯'},
+      {n:'中国科技网',u:'https://www.stdaily.com/',d:'国内科技政策与科研动态（科技日报）',tag:'科研资讯'},
+      {n:'Science News',u:'https://www.sciencenews.org/',d:'权威科普与前沿研究报道',tag:'科研资讯'},
+      {n:'EurekAlert!',u:'https://www.eurekalert.org/',d:'AAAS 旗下科学新闻发布平台',tag:'科研资讯'},
+      {n:'Medical Xpress',u:'https://medicalxpress.com/',d:'医学与生命科学新闻（Science X 网络）',tag:'科研资讯'},
+      {n:'Phys.org',u:'https://phys.org/',d:'物理与科技新闻（Science X 网络）',tag:'科研资讯'},
+      {n:'The Conversation',u:'https://theconversation.com/',d:'学者撰写的深度研究解读',tag:'科研资讯'},
+      {n:'领研',u:'https://www.linkresearcher.com/',d:'科研资讯与学术深度解读',tag:'科研资讯'},
+      {n:'News Medical',u:'https://www.news-medical.net/',d:'医学健康与生命科学资讯',tag:'科研资讯'},
+      {n:'ScienceDaily',u:'https://sciencedaily.com/',d:'科技与医学研究新闻每日速递',tag:'科研资讯'}
+    ]},
+    {name:'通用AI',color:'#1F7A6C',ico:'💬',tools:[
+      {n:'DeepSeek（深度求索）',u:'https://www.deepseek.com/',d:'最牛国产大模型',tag:'大模型'},
+      {n:'豆包',u:'https://www.doubao.com/chat',d:'豆包是你的 AI 聊天智能对话问答助手',tag:'大模型'},
+      {n:'文心一言',u:'https://yiyan.baidu.com/',d:'百度产品，中文理解好，文件解析稍差',tag:'大模型'},
+      {n:'Kimi',u:'https://www.kimi.com/',d:'月之暗面产品，有资料来源',tag:'大模型'},
+      {n:'通义千问',u:'https://www.tongyi.com/qianwen',d:'阿里AI产品。文件解析出乎意料的好',tag:'大模型'},
+      {n:'天工AI',u:'https://www.tiangong.cn/',d:'昆仑万维产品。功能齐全',tag:'大模型'},
+      {n:'智谱清言',u:'https://chatglm.cn/main/alltoolsdetail',d:'北京智谱华章公司产品。文件解析较差，智能体多',tag:'大模型'}
+    ]},
+    {name:'科研AI',color:'#14476E',ico:'🧪',tools:[
+      {n:'DeepL',u:'https://www.deepl.com/zh/translator',d:'高质量神经网络机器翻译工具',tag:'AI写作'},
+      {n:'MedCite学术引擎',u:'https://medcite.cn/home',d:'基于真实PubMed文献的医学科研证据引擎',tag:'AI写作'}
+    ]},
+    {name:'文献图谱',color:'#2E9A89',ico:'🕸️',tools:[
+      {n:'Litmaps',u:'https://www.litmaps.com/',d:'引文图谱与文献追踪，可视化研究演进路径',tag:'文献图谱'}
+    ]},
+    {name:'文献翻译',color:'#0F5B4F',ico:'🌐',tools:[
+      {n:'DocTranslator',u:'https://www.onlinedoctranslator.com/zh-CN',d:'文档翻译保留原格式',tag:'翻译'},
+      {n:'CopyTranslator',u:'https://copytranslator.github.io/',d:'复制即翻译的外文辅助阅读翻译解决方案',tag:'翻译'},
+      {n:'金山专业翻译',u:'https://www.iciba.com/translate',d:'金山智能专业领域翻译',tag:'翻译'},
+      {n:'术语在线',u:'https://www.termonline.cn/index',d:'权威的术语知识服务平台',tag:'翻译'},
+      {n:'cnki翻译助手',u:'https://dict.cnki.net/index',d:'查询学术翻译',tag:'翻译'},
+      {n:'彩云小译',u:'https://fanyi.caiyunapp.com/#',d:'彩云小译-网页翻译-文献翻译-在线翻译',tag:'翻译'},
+      {n:'有道翻译',u:'https://fanyi.youdao.com/',d:'有道翻译提供即时免费的中文、英语、日语、韩语、法语、德语、俄',tag:'翻译'},
+      {n:'搜狗翻译',u:'https://fanyi.sogou.com/text',d:'搜狗翻译可支持中、英、法、日等50多种语言之间的互译功能',tag:'翻译'}
+    ]},
+    {name:'期刊预印与投稿选刊',color:'#C8A24B',ico:'🗞️',tools:[
+      {n:'Cell',u:'https://www.cell.com/',d:'国际顶级生命科学期刊',tag:'顶刊'},
+      {n:'Nature',u:'https://www.nature.com/',d:'国际顶级自然科学综合性期刊',tag:'顶刊'},
+      {n:'Science',u:'https://www.science.org/journal/science',d:'国际顶级自然科学综合性期刊',tag:'顶刊'},
+      {n:'Lancet',u:'https://www.thelancet.com/',d:'柳叶刀，国际顶级医学期刊',tag:'顶刊'},
+      {n:'NEJM',u:'https://www.nejm.org/',d:'新英格兰医学杂志，顶级临床医学期刊',tag:'顶刊'},
+      {n:'PNAS',u:'https://www.pnas.org/',d:'美国国家科学院院刊',tag:'顶刊'},
+      {n:'Nature Communications',u:'https://www.nature.com/ncomms/',d:'Nature旗下综合性开放获取期刊',tag:'期刊'},
+      {n:'arXiv',u:'https://arxiv.org/',d:'著名的预印本网站：物理学、数学、计算机科学与生物学',tag:'预印本'},
+      {n:'medRxiv',u:'https://www.medrxiv.org/',d:'医学预印本网站',tag:'预印本'},
+      {n:'bioRxiv',u:'https://www.biorxiv.org/',d:'生物学预印本网站',tag:'预印本'},
+      {n:'ChemRxiv',u:'https://chemrxiv.org/',d:'化学领域预印本库，化学成果开放共享',tag:'预印本'},
+      {n:'Preprints',u:'https://www.preprints.org/',d:'多学科预印本平台，全学科手稿开放发布',tag:'预印本'},
+      {n:'OSF',u:'https://osf.io/',d:'开源科研协作平台，项目管理与成果托管',tag:'开放数据'},
+      {n:'Zenodo',u:'https://zenodo.org/',d:'CERN 开放仓储，研究成果永久保存与 DOI',tag:'开放数据'},
+      {n:'SSRN',u:'https://www.ssrn.com/',d:'社会科学预印本库，早期研究快速传播',tag:'预印本'},
+      {n:'figshare',u:'https://figshare.com/',d:'研究数据仓储，非传统成果发布与发现',tag:'开放数据'},
+      {n:'科睿唯安JCR',u:'https://jcr.clarivate.com/jcr/home',d:'期刊引证报告，查影响因子与分区',tag:'投稿选刊'},
+      {n:'中外文核心期刊查询系统',u:'http://corejournal.lib.sjtu.edu.cn/',d:'上海交大期刊查询',tag:'投稿选刊'},
+      {n:'iJournal',u:'https://ijournal.topeditsci.com/home',d:'期刊查询与选择服务系统',tag:'投稿选刊'},
+      {n:'小木虫期刊点评',u:'https://muchong.com/bbs/journal_cn.php',d:'小木虫下面的一个板块',tag:'投稿选刊'},
+      {n:'CSCD期刊',u:'http://sciencechina.cn/cscd_source.jsp',d:'中国科学文献服务系统',tag:'投稿选刊'},
+      {n:'Scimagojr',u:'https://www.scimagojr.com/',d:'期刊评价、分析、排名',tag:'投稿选刊'},
+      {n:'知网核心期刊查询',u:'https://navi.cnki.net/knavi/journals/index',d:'出版来源导航',tag:'投稿选刊'},
+      {n:'Jane',u:'https://jane.biosemantics.org/',d:'粘贴标题/摘要选刊',tag:'投稿选刊'},
+      {n:'JournalFinder',u:'https://journalfinder.elsevier.com/',d:'Elsevier旗下SCI投稿选刊工具',tag:'投稿选刊'},
+      {n:'JournalGuide',u:'https://www.journalguide.com/',d:'粘贴标题/摘要选刊',tag:'投稿选刊'},
+      {n:'Edanz',u:'https://jp.edanz.com/journal-selector',d:'粘贴标题/摘要选刊',tag:'投稿选刊'},
+      {n:'Cofactor Journal Selector',u:'https://cofactorscience.com/journal-selector-tool-archived',d:'根据问题引导选刊',tag:'投稿选刊'},
+      {n:'Journal Suggester',u:'https://link.springer.com/journals',d:'Springer投稿选刊工具',tag:'投稿选刊'}
+    ]},
+    {name:'基金项目',color:'#0A2A43',ico:'💰',tools:[
+      {n:'国自然项目查询',u:'http://fund.keyanzhiku.com/Index/index.html',d:'1986年至今已获批自科项目',tag:'基金'},
+      {n:'国家自然科学基金委员会',u:'https://www.nsfc.gov.cn/',d:'国家自然科学基金委员会',tag:'基金'},
+      {n:'国家社会科学基金科研创新服务管理平台',u:'https://xm.npopss-cn.gov.cn/',d:'国家社会科学基金',tag:'基金'},
+      {n:'IFS',u:'https://www.ifs.se/',d:'国际科学基金',tag:'基金'},
+      {n:'NSF',u:'https://www.nsf.gov/',d:'美国自然科学基金',tag:'基金'},
+      {n:'NIH',u:'https://www.nih.gov/',d:'美国国立卫生研究院',tag:'基金'},
+      {n:'ESF',u:'https://www.esf.org/',d:'欧洲科学基金会',tag:'基金'},
+      {n:'UKRI',u:'https://www.ukri.org/',d:'英国研究与创新',tag:'基金'}
+    ]},
+    {name:'标准与专利',color:'#2C6E9E',ico:'📜',tools:[
+      {n:'国家知识产权局',u:'http://www.cnipa.gov.cn/',d:'国家知识产权局',tag:'专利检索'},
+      {n:'专利之星检索系统',u:'https://cprs.patentstar.com.cn/',d:'专利之星检索系统，致力于让网民更便捷的获取专利信息',tag:'专利'},
+      {n:'SooPAT 专利搜索',u:'https://www.soopat.com/',d:'SooPAT 专利搜索,专利搜索,专利查询,检索,下载',tag:'专利'},
+      {n:'大为专利搜索引擎',u:'http://www.innojoy.com/search/home.html',d:'innojoy中外专利搜索引擎',tag:'专利'},
+      {n:'中国专利全文',u:'https://www.drugfuture.com/cnpat/cn_patent.asp',d:'药物在线-中国专利全文打包下载',tag:'专利'},
+      {n:'WIPO',u:'https://patentscope2.wipo.int/search/en/search.jsf',d:'国际专利查询',tag:'专利'},
+      {n:'EPO',u:'https://www.epo.org/en/searching-for-patents',d:'欧洲专利局',tag:'专利'},
+      {n:'欧洲专利全文',u:'https://www.drugfuture.com/eppat/patent.asp',d:'药物在线-欧洲专利全文',tag:'专利'},
+      {n:'美国专利全文',u:'https://www.drugfuture.com/uspat/us_patent.asp',d:'美国专利全文下载',tag:'专利'}
+    ]},
+    {name:'数据检索与分析',color:'#1F7A6C',ico:'🧬',tools:[
+      {n:'MacroView经济数据库',u:'https://www.macroview.club/',d:'全球经济数据查询、下载',tag:'数据库'},
+      {n:'GEO',u:'https://www.ncbi.nlm.nih.gov/geo',d:'GEO数据库',tag:'数据库'},
+      {n:'TCGA',u:'https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga',d:'TCGA数据库',tag:'数据库'},
+      {n:'SRA',u:'https://www.ncbi.nlm.nih.gov/sra/?term=',d:'NCBI下的SRA数据库',tag:'数据库'},
+      {n:'SEER',u:'https://seer.cancer.gov/',d:'NCI下的SEER数据库',tag:'数据库'},
+      {n:'HCCDB',u:'http://lifeome.net/database/hccdb/home.html',d:'一站式检索的肝癌基因表达图谱',tag:'数据库'},
+      {n:'HADb',u:'https://www.autophagy.lu/',d:'人类自噬数据库',tag:'数据库'},
+      {n:'GeneCards',u:'https://www.genecards.org/',d:'基因信息最全面的网站',tag:'数据库'},
+      {n:'UniProt',u:'https://www.uniprot.org/',d:'蛋白质组常用数据库',tag:'数据库'},
+      {n:'Nature Methods',u:'https://www.nature.com/nmeth/',d:'Nature Method，查询Protocol',tag:'数据库'},
+      {n:'Nature Protocols',u:'https://www.nature.com/nprot/',d:'protocol获取',tag:'数据库'},
+      {n:'Protocol Online',u:'http://www.protocol-online.org/',d:'在线protocol查询',tag:'数据库'},
+      {n:'NCBI',u:'https://www.ncbi.nlm.nih.gov/',d:'美国国家生物技术信息中心数据库门户',tag:'数据库'},
+      {n:'EMBL-EBI',u:'https://www.ebi.ac.uk/',d:'欧洲生物信息学研究所',tag:'数据库'},
+      {n:'Ensembl',u:'http://asia.ensembl.org/index.html',d:'脊椎动物基因组浏览器',tag:'数据库'},
+      {n:'UCSC Genome Browser',u:'http://genome.ucsc.edu/',d:'著名的基因组浏览器',tag:'数据库'},
+      {n:'GENCODE',u:'https://www.gencodegenes.org/',d:'基因组功能注释',tag:'数据库'},
+      {n:'KEGG',u:'https://www.genome.jp/kegg',d:'京都基因与基因组百科全书',tag:'数据库'},
+      {n:'PredictProtein',u:'https://predictprotein.org/',d:'蛋白质序列分析结构预测',tag:'在线分析'},
+      {n:'SOPMA',u:'https://npsa-prabi.ibcp.fr/cgi-bin/npsa_automat.pl?page=npsa_sopma.html',d:'蛋白二级结构预测',tag:'在线分析'},
+      {n:'SwissModel',u:'https://swissmodel.expasy.org/',d:'在线蛋白质结构预测',tag:'在线分析'},
+      {n:'DeepTMHMM',u:'https://dtu.biolib.com/DeepTMHMM',d:'跨膜区预测',tag:'在线分析'},
+      {n:'Promoter',u:'https://services.healthtech.dtu.dk/services/Promoter-2.0',d:'转录起始位点预测',tag:'在线分析'},
+      {n:'NetPhos',u:'https://services.healthtech.dtu.dk/services/NetPhos-3.1',d:'预测丝氨酸，苏氨酸或酪氨酸残基的潜在磷酸化位点',tag:'在线分析'},
+      {n:'SignalP',u:'https://services.healthtech.dtu.dk/services/SignalP-5.0',d:'信号肽预测工具',tag:'在线分析'},
+      {n:'STRING',u:'https://www.string-db.org/',d:'蛋白质互作分析',tag:'在线分析'},
+      {n:'Validated Antibody Database',u:'https://www.labome.com/index.html',d:'抗原抗体siRNAshRNA查询',tag:'在线分析'},
+      {n:'Needle',u:'https://www.bioinformatics.nl/cgi-bin/emboss/needle',d:'EMBOSS全局序列比对',tag:'在线分析'},
+      {n:'NCBI-BLAST',u:'https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome',d:'序列比对及引物设计',tag:'在线分析'},
+      {n:'Primer3Plus',u:'https://www.primer3plus.com/',d:'在线PCR引物设计',tag:'在线分析'},
+      {n:'Metascape',u:'https://metascape.org/',d:'基因功能注释分析工具',tag:'在线分析'},
+      {n:'TransmiR',u:'http://www.cuilab.cn/transmir',d:'转录因子-miRNA调控专用数据库',tag:'在线分析'},
+      {n:'iTOL',u:'https://itol.embl.de/',d:'在线进化树美化神器',tag:'在线分析'}
+    ]},
+    {name:'图表可视',color:'#2E9A89',ico:'📈',tools:[
+      {n:'Scidraw',u:'https://scidraw.io/',d:'专注于提供免费、高质量科研矢量图素材的素材库',tag:'科研绘图'},
+      {n:'BioRender',u:'https://www.biorender.com/',d:'BioRender是一款专为生命科学和医学领域设计的在线科研',tag:'科研绘图'},
+      {n:'Hiplot',u:'https://hiplot.cn/',d:'在线科研绘图与生信可视化平台',tag:'科研绘图'},
+      {n:'ImageGP',u:'https://www.bic.ac.cn/BIC',d:'在线绘图网站',tag:'科研绘图'},
+      {n:'微生信绘图',u:'http://bioinformatics.com.cn/',d:'在线绘图',tag:'科研绘图'}
+    ]},
+    {name:'科研社区',color:'#14476E',ico:'👥',tools:[
+      {n:'科学网',u:'https://www.sciencenet.cn/',d:'全球华人科学社区',tag:'学术社区'},
+      {n:'经管之家(原经济论坛)',u:'https://bbs.pinggu.org/',d:'经管之家(原人大经济论坛)是国内活跃的经管人士的网络社区平台',tag:'学术社区'},
+      {n:'生物谷',u:'https://news.bioon.com/',d:'专业的生物医药学网站',tag:'学术社区'},
+      {n:'丁香园BBS',u:'https://www.dxy.cn/bbs/newweb/pc/home',d:'丁香园',tag:'学术社区'},
+      {n:'果壳网',u:'https://www.guokr.com/',d:'果壳网是一个泛科技主题网站',tag:'学术社区'},
+      {n:'科研之友',u:'https://www.scholarmate.com/oauth/index',d:'科研社交网络服务',tag:'学术社区'},
+      {n:'LabRoots',u:'https://www.labroots.com/',d:'生命科学在线研讨会与学术社区',tag:'学术社区'},
+      {n:'知乎',u:'https://www.zhihu.com/signin?next=%2F',d:'知乎 - 有问题，就会有答案',tag:'学术社区'}
+    ]},
+    {name:'在线学习',color:'#C8A24B',ico:'🎓',tools:[
+      {n:'中国大学MOOC(慕课)',u:'https://www.icourse163.org/',d:'国内高校精品慕课平台',tag:'公开课'},
+      {n:'网易公开课',u:'https://open.163.com/',d:'国内外名校公开课视频',tag:'公开课'},
+      {n:'学堂在线',u:'https://www.xuetangx.com/',d:'清华发起的慕课平台',tag:'公开课'},
+      {n:'国图公开课',u:'http://open.nlc.cn/onlineedu/client/index.htm',d:'国家图书馆公开课',tag:'公开课'},
+      {n:'我要自学网',u:'https://www.51zxw.net/',d:'软件与技能类免费视频教程',tag:'公开课'},
+      {n:'Coursera',u:'https://www.coursera.org/',d:'Coursera是大型公开在线课程',tag:'公开课'},
+      {n:'edX',u:'https://www.edx.org/',d:'哈佛MIT发起的国际慕课平台',tag:'公开课'},
+      {n:'TED',u:'https://www.ted.com/',d:'TED（指Technology, Entertai',tag:'公开课'},
+      {n:'一席',u:'https://www.yixi.tv/',d:'人文与科学主题演讲',tag:'公开课'},
+      {n:'Udemy',u:'https://www.udemy.com/',d:'Udemy 是一家开放式在线教育',tag:'公开课'},
+      {n:'好医生',u:'https://www.haoyisheng.com/',d:'医学继续教育在线学习平台',tag:'公开课'},
+      {n:'网易云课堂',u:'https://study.163.com/',d:'专注于成人终身学习',tag:'公开课'},
+      {n:'腾讯课堂',u:'https://ke.qq.com/',d:'职业培训、考试提升在线教育平台',tag:'公开课'},
+      {n:'千聊',u:'http://pc.qlchat.com/',d:'腾讯投资的知识付费平台',tag:'公开课'},
+      {n:'喜马拉雅',u:'https://www.ximalaya.com/',d:'音频课程与知识讲座',tag:'公开课'},
+      {n:'荔枝微课',u:'https://www.lizhiweike.com/',d:'在线微课与知识分享',tag:'公开课'}
+    ]},
+    {name:'PPT与设计',color:'#0F5B4F',ico:'🎨',tools:[
+      {n:'Officeplus',u:'https://www.officeplus.cn/PPT/template',d:'微软出品的PPT模板网站，质量超高',tag:'PPT模板'},
+      {n:'优品PPT',u:'https://www.ypppt.com/',d:'超优质的免费模板下载网站，量大类全',tag:'PPT模板'},
+      {n:'吾道幻灯片',u:'https://www.woodo.cn/',d:'在线PPT，有模板下载',tag:'PPT模板'},
+      {n:'比格PPT',u:'http://www.tretars.com/',d:'免费ppt模板下载的个人博客网站',tag:'PPT模板'},
+      {n:'稻壳儿',u:'https://docer.wps.cn/?redirect-from=wwwdocer#/home',d:'Docer稻壳儿是金山办公旗下WPS办公资源分享平台',tag:'PPT模板'},
+      {n:'千图',u:'https://www.58pic.com/',d:'专注正版图片设计素材下载',tag:'图片素材'},
+      {n:'花瓣网',u:'https://huaban.com/',d:'寻找灵感、图片素材',tag:'图片素材'},
+      {n:'Unsplash',u:'https://unsplash.com/',d:'CC0图片',tag:'图片素材'},
+      {n:'Pixabay',u:'https://pixabay.com/zh',d:'CC0图片查找',tag:'图片素材'},
+      {n:'Pexels',u:'https://www.pexels.com/zh-cn',d:'CC0图片查找',tag:'图片素材'},
+      {n:'GentleCAJ',u:'https://caj.gentleltd.cn/',d:'在线CAJ文件转PDF',tag:'配色工具'},
+      {n:'高级配色工具',u:'http://bj.91join.com/color.html',d:'高级配色工具',tag:'配色工具'},
+      {n:'Adobe配色器',u:'https://color.adobe.com/zh/create/color-wheel',d:'输入颜色出来配色方案',tag:'配色工具'}
     ]}
   ];
   var SUGGEST=['文献检索','Zotero','ChatGPT','开源'];
@@ -11526,7 +11728,7 @@ body.cssd-v46-50 .gm-public-item{padding:9px 0;border-bottom:1px solid rgba(255,
           suggestHtml()+
         '</div>'+
         '<div id="at-tools-body"></div>'+
-        '<div class="at-source">开源科研工具板块参考微信文「<a href="https://mp.weixin.qq.com/s/p8CqX3HyBxWHQ08aIBrCEQ" target="_blank" rel="noopener noreferrer">2026年10月12日 AI科研工具排行榜 Top 20</a>」整理，按名称链至对应 GitHub 仓库。</div>'+
+        '<div class="at-source">开源科研工具板块参考微信文「<a href="https://mp.weixin.qq.com/s/p8CqX3HyBxWHQ08aIBrCEQ" target="_blank" rel="noopener noreferrer">2026年10月12日 AI科研工具排行榜 Top 20</a>」整理，按名称链至对应 GitHub 仓库；部分工具目录参考 <a href="https://cnspub.com/" target="_blank" rel="noopener noreferrer">cnspub.com 科研导航</a> 整理。</div>'+
         '<div class="at-note">以上工具均为第三方独立产品，本站仅提供导航链接，不代表官方合作或效果背书；使用第三方AI工具生成或润色的学术内容，请遵守所投期刊与学校的学术规范和查重要求。</div>'+
       '</div>';
     v.innerHTML=html;
