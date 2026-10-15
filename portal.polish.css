@@ -2897,6 +2897,21 @@ html.cssd-light body #vw-daily .dy-empty{
   html.cssd-light body #vw-daily .dy-row-badge{grid-row:auto;}
 }
 
+/* ── 主链 promoted：桌面不在「全部导航」重复；窄屏收进全部导航 ── */
+@media (min-width:901px){
+  html.cssd-light body .sp-more .sp-more-promoted{
+    display:none !important;
+  }
+}
+@media (max-width:900px){
+  html.cssd-light body .sp-links button.sp-nav-promoted{
+    display:none !important;
+  }
+  html.cssd-light body .sp-more .sp-more-promoted{
+    display:block !important;
+  }
+}
+
 /* ── 导航分组：竖排浮层（勿插进 .sp-links 横排） ─────────────── */
 html.cssd-light body details.sp-nav-group{
   position:relative;
