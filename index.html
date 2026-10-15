@@ -10747,7 +10747,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 </style>
 <script id="cssd-v46-48-overseas-profile-js">
 (function(){
-  var VERSION='v4.6-95';
+  var VERSION='v4.6-96';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var ENRICH={
     A001:{url:'https://www.uta.edu/academics/faculty/profile?username=xiangligu',url_status:'ok',url_checked_at:'2026-10-13',bio:'美国德州大学阿灵顿分校运动机能学系副教授，研究聚焦儿童青少年身体活动、健康促进与学校体育干预；现任 ICSPAH President(2025-2026)。',urlNote:'UTA 官方教师主页'},
@@ -10876,7 +10876,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 <!-- CSSD v4.6-49 overseas candidates from screenshots -->
 <script id="cssd-v46-49-overseas-screenshot-candidates-js">
 (function(){
-  var VERSION='v4.6-95';
+  var VERSION='v4.6-96';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var EXTRA=[
     {id:'A038',cn:'刘沅龙',en:'Yuanlong Liu',title:'Assistant Professor',univ:'Western Michigan University',role:'海外华人体育学者候选；截图线索：美国密歇根州 Kalamazoo',field:'体育教育、教师教育、体育课程与教学',source:'Western Michigan University 官方教师主页；截图线索复核',cred:'B-官方主页确认',url:'https://wmich.edu/humanperformance/directory/liu',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'WMU HPHE directory Yuanlong Liu',bio:'西密歇根大学人类表现与健康教育相关学院助理教授，研究方向与体育教育、教师教育、课程教学和身体活动促进相关；由截图“刘沅龙 Yuanlong Liu”线索核验补入。'},
@@ -11373,7 +11373,8 @@ body.cssd-v46-50 .gm-public-item{padding:9px 0;border-bottom:1px solid rgba(255,
       {n:'Cite This For Me',u:'https://www.citethisforme.com/',d:'在线生成 APA/MLA 等引用格式',tag:'引用生成'},
       {n:'Overleaf',u:'https://www.overleaf.com/',d:'在线 LaTeX 协作写作与模板库',tag:'论文排版'},
       {n:'NoteExpress',u:'https://www.inoteexpress.com/aegean/index.php/home/ne/index.html',d:'国产专业文献管理软件',tag:'文献管理'},
-      {n:'Papers',u:'https://www.papersapp.com/',d:'尤其适合Mac用户',tag:'文献管理'}
+      {n:'Papers',u:'https://www.papersapp.com/',d:'尤其适合Mac用户',tag:'文献管理'},
+      {n:'GentleCAJ',u:'https://caj.gentleltd.cn/',d:'在线 CAJ 文件转 PDF',tag:'CAJ转PDF'}
     ]},
     {name:'写作润色',color:'#14476E',ico:'✍️',tools:[
       {n:'秘塔写作猫',u:'https://xiezuocat.com/',d:'中文AI写作、论文润色与降重改写',tag:'中文写作'},
@@ -11503,6 +11504,18 @@ body.cssd-v46-50 .gm-public-item{padding:9px 0;border-bottom:1px solid rgba(255,
       {n:'Cofactor Journal Selector',u:'https://cofactorscience.com/journal-selector-tool-archived',d:'根据问题引导选刊',tag:'投稿选刊'},
       {n:'Journal Suggester',u:'https://link.springer.com/journals',d:'Springer投稿选刊工具',tag:'投稿选刊'}
     ]},
+    {name:'论文查重',color:'#A23B4E',ico:'🔎',tools:[
+      {n:'百度免费查重',u:'https://xueshu.baidu.com/usercenter/papercheck/index?brandId=10&site=index_links',d:'百度学术集成的免费查重',tag:'免费查重'},
+      {n:'Dupli Checker',u:'https://www.duplichecker.com/',d:'免费英文查重工具',tag:'英文查重'},
+      {n:'Copyscape',u:'https://www.copyscape.com/',d:'网页与内容原创性检测',tag:'英文查重'},
+      {n:'Plagium',u:'https://www.plagium.com/en',d:'英文论文抄袭与不端检测',tag:'英文查重'},
+      {n:'格子达',u:'http://www.gocheck.cn/page/index.jsp',d:'中文论文查重检测',tag:'中文查重'},
+      {n:'PaperPass',u:'https://www.paperpass.com/',d:'中文论文查重系统',tag:'中文查重'},
+      {n:'维普论文检测',u:'https://vpcs.fanyu.com/',d:'维普论文检测系统',tag:'中文查重'},
+      {n:'万方检测',u:'https://check.wanfangdata.com.cn/',d:'论文查重与学术不端甄别',tag:'中文查重'},
+      {n:'iThenticate',u:'https://www.ithenticatecn.com/',d:'国际期刊常用原创性检测（中国服务站点）',tag:'英文查重'},
+      {n:'CNKI 学术不端检测',u:'https://check.cnki.net/',d:'知网学位论文学术不端行为检测系统',tag:'中文查重'}
+    ]},
     {name:'基金项目',color:'#0A2A43',ico:'💰',tools:[
       {n:'国自然项目查询',u:'http://fund.keyanzhiku.com/Index/index.html',d:'1986年至今已获批自科项目',tag:'基金'},
       {n:'国家自然科学基金委员会',u:'https://www.nsfc.gov.cn/',d:'国家自然科学基金委员会',tag:'基金'},
@@ -11522,7 +11535,12 @@ body.cssd-v46-50 .gm-public-item{padding:9px 0;border-bottom:1px solid rgba(255,
       {n:'WIPO',u:'https://patentscope2.wipo.int/search/en/search.jsf',d:'国际专利查询',tag:'专利'},
       {n:'EPO',u:'https://www.epo.org/en/searching-for-patents',d:'欧洲专利局',tag:'专利'},
       {n:'欧洲专利全文',u:'https://www.drugfuture.com/eppat/patent.asp',d:'药物在线-欧洲专利全文',tag:'专利'},
-      {n:'美国专利全文',u:'https://www.drugfuture.com/uspat/us_patent.asp',d:'美国专利全文下载',tag:'专利'}
+      {n:'美国专利全文',u:'https://www.drugfuture.com/uspat/us_patent.asp',d:'美国专利全文下载',tag:'专利'},
+      {n:'国家标准全文公开系统',u:'https://openstd.samr.gov.cn/bzgk/gb',d:'国家标准全文公开系统（市场监管总局）',tag:'标准全文'},
+      {n:'中国标准信息服务网',u:'https://www.sacinfo.cn/',d:'正版标准查询与国家标准全文公开',tag:'标准查询'},
+      {n:'在线国家标准查询',u:'https://biaozhun.supfree.net/',d:'在线国家标准查询',tag:'标准查询'},
+      {n:'ISO',u:'https://www.iso.org/home.html',d:'国际标准化组织',tag:'国际标准'},
+      {n:'工标网',u:'http://www.csres.com/',d:'国家标准与行业标准信息门户',tag:'标准查询'}
     ]},
     {name:'数据检索与分析',color:'#1F7A6C',ico:'🧬',tools:[
       {n:'MacroView经济数据库',u:'https://www.macroview.club/',d:'全球经济数据查询、下载',tag:'数据库'},
@@ -11557,14 +11575,32 @@ body.cssd-v46-50 .gm-public-item{padding:9px 0;border-bottom:1px solid rgba(255,
       {n:'Primer3Plus',u:'https://www.primer3plus.com/',d:'在线PCR引物设计',tag:'在线分析'},
       {n:'Metascape',u:'https://metascape.org/',d:'基因功能注释分析工具',tag:'在线分析'},
       {n:'TransmiR',u:'http://www.cuilab.cn/transmir',d:'转录因子-miRNA调控专用数据库',tag:'在线分析'},
-      {n:'iTOL',u:'https://itol.embl.de/',d:'在线进化树美化神器',tag:'在线分析'}
+      {n:'iTOL',u:'https://itol.embl.de/',d:'在线进化树美化神器',tag:'在线分析'},
+      {n:'微词云',u:'https://www.weiciyun.com/',d:'文本分析与词云图生成',tag:'文本挖掘'},
+      {n:'GEPIA 2',u:'http://gepia2.cancer-pku.cn/',d:'TCGA 基因表达可视化分析',tag:'生信挖掘'},
+      {n:'cBioPortal',u:'https://www.cbioportal.org/',d:'多维度肿瘤基因组数据挖掘',tag:'生信挖掘'},
+      {n:'OncoLnc',u:'http://www.oncolnc.org/',d:'肿瘤预后相关基因表达分析',tag:'生信挖掘'},
+      {n:'CCLE',u:'https://sites.broadinstitute.org/ccle',d:'肿瘤细胞系百科全书',tag:'生信挖掘'},
+      {n:'Coexpedia',u:'https://www.coexpedia.org/search.php',d:'基因共表达网络分析',tag:'生信挖掘'},
+      {n:'miRBase',u:'https://www.mirbase.org/',d:'microRNA 序列与注释数据库',tag:'生信挖掘'},
+      {n:'NetworkAnalyst',u:'https://www.networkanalyst.ca/',d:'RNA-seq 与网络可视化分析',tag:'生信挖掘'},
+      {n:'HPA',u:'https://www.proteinatlas.org/',d:'人类蛋白质图谱数据库',tag:'生信挖掘'},
+      {n:'TIMER2.0',u:'https://db3.cistrome.org/',d:'肿瘤免疫细胞浸润分析',tag:'生信挖掘'},
+      {n:'Ualcan',u:'https://ualcan.path.uab.edu/',d:'TCGA 数据挖掘与可视化',tag:'生信挖掘'}
     ]},
     {name:'图表可视',color:'#2E9A89',ico:'📈',tools:[
       {n:'Scidraw',u:'https://scidraw.io/',d:'专注于提供免费、高质量科研矢量图素材的素材库',tag:'科研绘图'},
       {n:'BioRender',u:'https://www.biorender.com/',d:'BioRender是一款专为生命科学和医学领域设计的在线科研',tag:'科研绘图'},
       {n:'Hiplot',u:'https://hiplot.cn/',d:'在线科研绘图与生信可视化平台',tag:'科研绘图'},
       {n:'ImageGP',u:'https://www.bic.ac.cn/BIC',d:'在线绘图网站',tag:'科研绘图'},
-      {n:'微生信绘图',u:'http://bioinformatics.com.cn/',d:'在线绘图',tag:'科研绘图'}
+      {n:'微生信绘图',u:'http://bioinformatics.com.cn/',d:'在线绘图',tag:'科研绘图'},
+      {n:'RAWGraphs',u:'https://app.rawgraphs.io/',d:'开源矢量图表工具',tag:'数据可视化'},
+      {n:'Tableau Public',u:'https://public.tableau.com/',d:'拖拽式数据可视化与公开作品',tag:'数据可视化'},
+      {n:'Plotly',u:'https://plotly.com/',d:'交互式图表与可视化库',tag:'数据可视化'},
+      {n:'cnsknowall',u:'https://cnsknowall.com/#/HomePage',d:'在线科研统计与绘图',tag:'科研绘图'},
+      {n:'Venn',u:'http://bioinformatics.psb.ugent.be/webtools/Venn/',d:'在线维恩图绘制',tag:'科研绘图'},
+      {n:'The R Graph Gallery',u:'https://r-graph-gallery.com/',d:'R 语言绘图示例与源码',tag:'数据可视化'},
+      {n:'KMplot',u:'https://kmplot.com/analysis/',d:'在线生存曲线绘制',tag:'科研绘图'}
     ]},
     {name:'科研社区',color:'#14476E',ico:'👥',tools:[
       {n:'科学网',u:'https://www.sciencenet.cn/',d:'全球华人科学社区',tag:'学术社区'},
@@ -11605,7 +11641,6 @@ body.cssd-v46-50 .gm-public-item{padding:9px 0;border-bottom:1px solid rgba(255,
       {n:'Unsplash',u:'https://unsplash.com/',d:'CC0图片',tag:'图片素材'},
       {n:'Pixabay',u:'https://pixabay.com/zh',d:'CC0图片查找',tag:'图片素材'},
       {n:'Pexels',u:'https://www.pexels.com/zh-cn',d:'CC0图片查找',tag:'图片素材'},
-      {n:'GentleCAJ',u:'https://caj.gentleltd.cn/',d:'在线CAJ文件转PDF',tag:'配色工具'},
       {n:'高级配色工具',u:'http://bj.91join.com/color.html',d:'高级配色工具',tag:'配色工具'},
       {n:'Adobe配色器',u:'https://color.adobe.com/zh/create/color-wheel',d:'输入颜色出来配色方案',tag:'配色工具'}
     ]}
@@ -15595,7 +15630,7 @@ html.cssd-light .pledge-hdr-icon{line-height:1!important;}
      上调至 1.55。data-lh-locked 标记保留设计断言。
 ════════════════════════════════════════════════════════════ -->
 <script id="cssd-lineheight-observer82">
-/* v4.6-95: line-height is set in CSS; do not walk the DOM. */
+/* v4.6-96: line-height is set in CSS; do not walk the DOM. */
 </script>
 
 
