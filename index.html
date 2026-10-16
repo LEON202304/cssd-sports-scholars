@@ -8289,7 +8289,7 @@ function _cnkiRender(){
     var names=String(p[1]||'').split(/[;；,，、]+/).filter(function(x){return x;});
     var aHtml;
     if(!names.length){aHtml='<span class="cnki-author-empty"><span aria-hidden="true">—</span><span class="sr-only">作者待补</span></span>';}
-    else{aHtml=names.slice(0,3).map(function(n){return'<span class="cnki-author-link" role="button" tabindex="0" data-name="'+_cEsc(n)+'">'+_cEsc(n)+'</span>';}).join('、')+(names.length===1?'<span class="cnki-first-author">（第一作者）</span>':'');}
+    else{aHtml=names.slice(0,3).map(function(n){return'<span class="cnki-author-link" role="button" tabindex="0" data-name="'+_cEsc(n)+'">'+_cEsc(n)+'</span>';}).join('、')+(names.length===1?'<span class="cnki-first-author">第一作者</span>':'');}
     var sHtml='<a class="cnki-search-link" href="https://kns.cnki.net/kns8s/defaultresult/index?kw='+encodeURIComponent(title)+'" target="_blank" rel="noopener" title="在知网按题目搜索">知网搜索</a>';
     var meta='<span class="cnki-meta-authors">'+aHtml+'</span><span class="cnki-dot">·</span><span class="cnki-meta-jnl">'+_cEsc(CNKI_JNL[p[2]]||'')+'</span><span class="cnki-dot">·</span><span class="cnki-meta-date">'+_cEsc(p[3]||'—')+'</span>'+sHtml;
     return'<tr class="cnki-item"><td><div class="cnki-l1">'+tHtml+'</div><div class="cnki-l2">'+meta+'</div></td></tr>';
@@ -17654,7 +17654,7 @@ html h2:where(.cssd-h2v){
 .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 @media(max-width:760px){#cnkiTbody .cnki-search-link{margin-left:0;}#jnl-panel-cnki .cnki-table{table-layout:fixed;}}
 /* v4.6-103：第一作者标注 / 手机斑马纹加深 / 深色主题 token（深色 = html 无 .cssd-light） */
-#cnkiTbody .cnki-first-author{margin-left:2px;font-size:inherit;color:var(--cssd-cnki-meta)!important;font-weight:400;}
+#cnkiTbody .cnki-first-author{margin-left:4px;font-size:inherit;color:var(--cssd-cnki-meta)!important;font-weight:400;}
 #cnkiTbody .cnki-author-link:focus-visible{outline:2px solid var(--cssd-link-hover);outline-offset:2px;border-radius:2px;}
 @media(max-width:640px){:root{--cssd-row-alt:#F1F5F9;--cssd-row-hover:#E6EDF6;}}
 html:not(.cssd-light){--cssd-row-alt:rgba(255,255,255,.04);--cssd-row-hover:rgba(255,255,255,.08);--cssd-list-bg:#0F172A;--cssd-cnki-title:#BFD4F2;--cssd-cnki-meta:#94A3B8;--cssd-cnki-author:#8CB8E0;--cssd-cnki-jnl:#6FC7B8;--cssd-link-hover:#5EC4B3;}
