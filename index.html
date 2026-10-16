@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="cssd-light" data-build="v4.6-105">
+<html lang="zh-CN" class="cssd-light" data-build="v4.6-107">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
@@ -10756,7 +10756,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 </style>
 <script id="cssd-v46-48-overseas-profile-js">
 (function(){
-  var VERSION='v4.6-105';
+  var VERSION='v4.6-107';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var ENRICH={
     A001:{url:'https://www.uta.edu/academics/faculty/profile?username=xiangligu',url_status:'ok',url_checked_at:'2026-10-13',bio:'美国德州大学阿灵顿分校运动机能学系副教授，研究聚焦儿童青少年身体活动、健康促进与学校体育干预；现任 ICSPAH President(2025-2026)。',urlNote:'UTA 官方教师主页'},
@@ -10885,7 +10885,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 <!-- CSSD v4.6-49 overseas candidates from screenshots -->
 <script id="cssd-v46-49-overseas-screenshot-candidates-js">
 (function(){
-  var VERSION='v4.6-105';
+  var VERSION='v4.6-107';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var EXTRA=[
     {id:'A038',cn:'刘沅龙',en:'Yuanlong Liu',title:'Assistant Professor',univ:'Western Michigan University',role:'海外华人体育学者候选；截图线索：美国密歇根州 Kalamazoo',field:'体育教育、教师教育、体育课程与教学',source:'Western Michigan University 官方教师主页；截图线索复核',cred:'B-官方主页确认',url:'https://wmich.edu/humanperformance/directory/liu',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'WMU HPHE directory Yuanlong Liu',bio:'西密歇根大学人类表现与健康教育相关学院助理教授，研究方向与体育教育、教师教育、课程教学和身体活动促进相关；由截图“刘沅龙 Yuanlong Liu”线索核验补入。'},
@@ -17725,5 +17725,163 @@ html:not(.cssd-light) #cnkiTbody .cnki-search-link{color:var(--cssd-cnki-meta)!i
   html.cssd-light body .sp-links button{letter-spacing:.03em !important;}
 }
 </style>
+<style id="cssd-v46-106-nav-mobile">
+/* v4.6-106 · ≤720px 顶栏 56px：只留 logo+「体育学人」、搜索图标、汉堡按钮；其余入口进右侧抽屉菜单（不用 overflow:hidden 藏项）。
+   721–900px：「学科分类」补进「全部导航」；721–960px：EN 被收起，补进「全部导航」（v4.6-107：EN 暂整体隐藏，见 EN_ENABLED）。 */
+.sp-burger,.sp-msearch,.sp-mnav{display:none;}
+/* EN 开关见下方脚本 EN_ENABLED；关闭时隐藏所有 EN 入口 */
+html[data-en-off] body .sp-en,html[data-en-off] body .sp-more-en,html[data-en-off] body .sp-mnav-en{display:none !important;}
+/* 跳转链接未聚焦时原来露出约 2px 绿条（logo 上方），彻底移出视口 */
+html body a.sp-skip:not(:focus):not(:focus-visible){transform:translateY(calc(-100% - 12px)) !important;}
+html.cssd-light body details.sp-more .sp-more-disc,html.cssd-light body details.sp-more .sp-more-en{display:none !important;}
+@media (min-width:721px) and (max-width:900px){html.cssd-light body details.sp-more .sp-more-disc{display:block !important;}}
+@media (min-width:721px) and (max-width:960px){html.cssd-light body details.sp-more .sp-more-en{display:block !important;}}
+/* #63 遗留：≥1440px 头部有左右 padding（1440 时 100px、1920 时 340px），10 个主栏项放不下，「首页」压在 logo 上、「学术动态」被工具区盖住。
+   ≥1440px 也把奠基人/精品课程/学术AI工具收进「全部导航」（与 721–1439px 一致）。 */
+@media (min-width:1440px){
+  html.cssd-light body .sp-links button.sp-nav-promoted:not([data-route="academicnews"]){display:none !important;}
+  html.cssd-light body .sp-more .sp-more-promoted{display:block !important;}
+  html.cssd-light body .sp-more .sp-more-promoted[data-route="academicnews"]{display:none !important;}
+}
+@media (max-width:720px){
+  html.cssd-light body header.sp-header{height:56px !important;min-height:56px !important;padding:0 8px 0 12px !important;justify-content:space-between;gap:8px;}
+  html.cssd-light body header.sp-header nav.sp-links,
+  html.cssd-light body header.sp-header .sp-tools > :not(.sp-msearch):not(.sp-burger){display:none !important;}
+  html.cssd-light body header.sp-header .sp-brand small{display:none !important;}
+  html.cssd-light body header.sp-header .sp-brand{flex-shrink:0;}
+  html.cssd-light body header.sp-header .sp-tools{display:flex !important;align-items:center;gap:4px !important;margin-left:auto;flex-shrink:0;}
+  html.cssd-light body header.sp-header .sp-msearch,html.cssd-light body header.sp-header .sp-burger{display:inline-flex !important;align-items:center;justify-content:center;
+    width:44px;height:44px;padding:0;border:0;border-radius:8px;background:transparent;color:#0A2A43;cursor:pointer;flex-shrink:0;}
+  html.cssd-light body header.sp-header .sp-msearch svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;}
+  html.cssd-light body header.sp-header .sp-msearch:focus-visible,html.cssd-light body header.sp-header .sp-burger:focus-visible{outline:2px solid #1F7A6C;outline-offset:0;}
+  html.cssd-light body .sp-burger-icon{position:relative;width:20px;height:2px;background:currentColor;border-radius:1px;}
+  html.cssd-light body .sp-burger-icon::before,html.cssd-light body .sp-burger-icon::after{content:"";position:absolute;left:0;width:20px;height:2px;background:currentColor;border-radius:1px;}
+  html.cssd-light body .sp-burger-icon::before{top:-6px;} html.cssd-light body .sp-burger-icon::after{top:6px;}
+  html.cssd-light body .sp-mnav.is-open{display:block !important;position:fixed;inset:0;z-index:10050;}
+  html.cssd-light body .sp-mnav-backdrop{position:absolute;inset:0;background:rgba(10,20,35,.5);}
+  html.cssd-light body .sp-mnav-panel{position:absolute;top:0;right:0;bottom:0;width:85%;max-width:360px;background:#fff;color:#0A2A43;display:flex;flex-direction:column;
+    box-shadow:-8px 0 24px rgba(10,42,67,.18);overflow-y:auto;overscroll-behavior:contain;box-sizing:border-box;animation:spMnavIn .2s ease-out;}
+  @keyframes spMnavIn{from{transform:translateX(100%)}to{transform:none}}
+  @media (prefers-reduced-motion:reduce){html.cssd-light body .sp-mnav-panel{animation:none;}}
+  html.cssd-light body .sp-mnav-top{position:sticky;top:0;z-index:1;display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 6px 0 16px;background:#fff;border-bottom:1px solid #E3E8EF;flex-shrink:0;}
+  html.cssd-light body .sp-mnav-top strong{font-size:16px;}
+  html.cssd-light body .sp-mnav-close{width:44px;height:44px;border:0;background:none;font-size:28px;line-height:1;color:#0A2A43;cursor:pointer;border-radius:8px;}
+  html.cssd-light body .sp-mnav-group{border-top:1px solid #E3E8EF;}
+  html.cssd-light body .sp-mnav-group:first-of-type{border-top:0;}
+  html.cssd-light body .sp-mnav-label{display:flex;align-items:center;justify-content:space-between;min-height:44px;padding:0 16px;font-size:12.5px;font-weight:600;letter-spacing:.06em;color:#5A6575;margin:0;cursor:pointer;list-style:none;}
+  html.cssd-light body .sp-mnav-label::-webkit-details-marker{display:none;}
+  html.cssd-light body details.sp-mnav-group > .sp-mnav-label::after{content:"";width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);margin-right:4px;transition:transform .15s;}
+  html.cssd-light body details.sp-mnav-group[open] > .sp-mnav-label::after{transform:rotate(-135deg);}
+  html.cssd-light body .sp-mnav-panel button.sp-mnav-item{display:block;width:100%;height:48px;padding:0 16px 0 20px;border:0;border-left:3px solid transparent;background:none;text-align:left;font-size:15px !important;color:#0A2A43;cursor:pointer;box-sizing:border-box;}
+  html.cssd-light body .sp-mnav-panel button.sp-mnav-item:hover{background:#F1F5F9;}
+  html.cssd-light body .sp-mnav-panel button.sp-mnav-item[aria-current="page"]{border-left-color:var(--sp-accent,#1F7A6C);color:var(--sp-accent,#1F7A6C);font-weight:600;background:#EEF6F4;}
+  html.cssd-light body .sp-mnav-panel :focus-visible{outline:2px solid #1F7A6C;outline-offset:-2px;}
+  html.cssd-light body .sp-mnav-foot{margin-top:auto;display:flex;gap:10px;padding:16px;border-top:1px solid #E3E8EF;}
+  html.cssd-light body .sp-mnav-foot button{flex:1;height:44px;border:1px solid #D5DCE6;border-radius:8px;background:#fff;font-size:15px;color:#0A2A43;cursor:pointer;}
+  html.cssd-light body #spMobileNav button.sp-mnav-item{font-size:15px !important;height:48px !important;}
+  html.cssd-light body #spMobileNav .sp-mnav-list,html.cssd-light body #spMobileNav details.sp-mnav-group,html.cssd-light body #spMobileNav summary.sp-mnav-label{background:#fff !important;box-shadow:none !important;border-radius:0 !important;color:#5A6575 !important;margin:0 !important;position:static !important;height:auto !important;width:auto !important;display:block;}
+  html.cssd-light body #spMobileNav summary.sp-mnav-label{display:flex !important;}
+  html.cssd-light body #spMobileNav details.sp-mnav-group{border:0 !important;border-top:1px solid #E3E8EF !important;padding:0 !important;}
+  html.cssd-light body #spMobileNav details.sp-mnav-group:first-child{border-top:0 !important;}
+  html.cssd-light body #spMobileNav button.sp-mnav-item{color:#0A2A43 !important;background:transparent !important;}
+  html.cssd-light body #spMobileNav button.sp-mnav-item[aria-current="page"]{color:var(--sp-accent,#1F7A6C) !important;background:#EEF6F4 !important;}
+  html.cssd-mnav-lock body{overflow:hidden !important;}
+}
+</style>
+<script id="cssd-v46-106-nav-mobile-js">
+(function(){
+  var VERSION='v4.6-107';
+  /* EN 开关：.sp-en 目前没有任何处理函数，先整体隐藏（桌面 EN、全部导航与手机抽屉里的「EN / 中英切换」）。
+     中英切换实现后把这里改成 true 即可恢复全部入口。 */
+  var EN_ENABLED=false;
+  if(!EN_ENABLED)document.documentElement.setAttribute('data-en-off','');
+  var COMMON=['scholars','journals','academicnews','disciplines']; /* 常用：学者 / 论文·期刊库 / 学术动态 / 学科分类 */
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function item(n){return '<button type="button" class="sp-mnav-item" data-route="'+esc(n[0])+'">'+esc(n[1])+'</button>';}
+  function init(){
+    var head=document.querySelector('header.sp-header');
+    if(!head)return false; if(head.querySelector('.sp-burger'))return true;
+    var tools=head.querySelector('.sp-tools'),more=head.querySelector('details.sp-more > div'),en=head.querySelector('.sp-en');
+    function mk(cls,route,txt,fn){var b=document.createElement('button');b.type='button';b.className=cls;if(route)b.setAttribute('data-route',route);b.textContent=txt;b.onclick=fn;return b;}
+    if(more){
+      if(!more.querySelector('[data-route="disciplines"]'))more.insertBefore(mk('sp-more-disc','disciplines','学科分类',function(){spNavigate('disciplines');}),more.firstChild);
+      if(en&&EN_ENABLED)more.appendChild(mk('sp-more-en',null,'EN / 中英切换',function(){en.click();}));
+    }
+    /* 数据源 = 已渲染的主栏 + 「全部导航」（二者均由 portal 的 nav / navGroups 生成），不手写第二份清单 */
+    var main=[],seen={},groups=[];
+    [].forEach.call(head.querySelectorAll('nav.sp-links > button[data-route]'),function(b){var r=b.getAttribute('data-route');if(!seen[r]){seen[r]=1;main.push([r,b.textContent.trim()]);}});
+    var cur=null;
+    if(more)[].forEach.call(more.children,function(el){
+      if(el.classList.contains('sp-more-group-label')){cur={label:el.textContent.trim(),items:[]};groups.push(cur);return;}
+      var r=el.getAttribute('data-route');if(!r||seen[r]||!cur)return;seen[r]=1;cur.items.push([r,el.textContent.trim()]);
+    });
+    var COMMON_LABEL={journals:'期刊/论文库'}; /* 仅手机抽屉内改名 */
+    var common=COMMON.map(function(r){var n=main.filter(function(n){return n[0]===r;})[0];return n&&[n[0],COMMON_LABEL[r]||n[1]];}).filter(Boolean);
+    var rest=main.filter(function(n){return COMMON.indexOf(n[0])<0;});
+    var s=document.createElement('button');s.type='button';s.className='sp-msearch';s.setAttribute('aria-label','搜索');
+    s.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.5-4.5"/></svg>';
+    s.onclick=function(){if(typeof spOpenCmd==='function')spOpenCmd();};
+    var btn=document.createElement('button');btn.type='button';btn.className='sp-burger';
+    btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-controls','spMobileNav');btn.setAttribute('aria-label','打开导航');
+    btn.innerHTML='<span class="sp-burger-icon" aria-hidden="true"></span>';
+    (tools||head).appendChild(s);(tools||head).appendChild(btn);
+    var nav=document.createElement('div');nav.id='spMobileNav';nav.className='sp-mnav';nav.hidden=true;
+    var grp=function(label,items,openG){return items.length?'<details class="sp-mnav-group"'+(openG?' open':'')+'><summary class="sp-mnav-label">'+esc(label)+'</summary>'+items.map(item).join('')+'</details>':'';};
+    nav.innerHTML='<div class="sp-mnav-backdrop" data-close="1"></div>'+
+      '<div class="sp-mnav-panel" role="dialog" aria-modal="true" aria-labelledby="spMobileNavTitle">'+
+      '<div class="sp-mnav-top"><strong id="spMobileNavTitle">全部导航</strong><button type="button" class="sp-mnav-close" aria-label="关闭导航">×</button></div>'+
+      '<nav class="sp-mnav-list" aria-label="移动端导航">'+grp('常用',common,true)+grp('更多栏目',rest,false)+groups.map(function(g){return grp(g.label,g.items,false);}).join('')+'</nav>'+
+      '<div class="sp-mnav-foot">'+(en&&EN_ENABLED?'<button type="button" class="sp-mnav-en">EN / 中英切换</button>':'')+'<button type="button" class="sp-mnav-login">登录</button></div>'+
+      '</div>';
+    document.body.appendChild(nav);
+    var panel=nav.querySelector('.sp-mnav-panel'),closeBtn=nav.querySelector('.sp-mnav-close'),pending=null,marker=false;
+    function focusables(){return [].slice.call(panel.querySelectorAll('button,summary')).filter(function(e){return e.offsetParent!==null;});}
+    function open(){
+      nav.hidden=false;nav.classList.add('is-open');btn.setAttribute('aria-expanded','true');
+      /* 全站字号/颜色归一化脚本会往按钮写内联 !important（15px→14px、浅蓝字），菜单内一律清掉 */
+      [].forEach.call(panel.querySelectorAll('[style]'),function(x){x.removeAttribute('style');});
+      document.documentElement.classList.add('cssd-mnav-lock');
+      var a=document.querySelector('nav.sp-links > button.active'),r=a&&a.getAttribute('data-route');
+      [].forEach.call(panel.querySelectorAll('.sp-mnav-item'),function(b){if(r&&b.getAttribute('data-route')===r)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});
+      try{history.pushState({cssdMenu:true},'');marker=true;}catch(e){marker=false;}
+      closeBtn.focus();
+    }
+    function hide(){nav.classList.remove('is-open');nav.hidden=true;btn.setAttribute('aria-expanded','false');document.documentElement.classList.remove('cssd-mnav-lock');btn.focus();}
+    /* 关闭：若压过 {cssdMenu:true} 标记，就 history.back() 退掉标记，由 popstate 真正关闭，再执行待办动作 */
+    function close(after){
+      if(nav.hidden)return;pending=after||null;
+      if(marker&&history.state&&history.state.cssdMenu){history.back();}else{marker=false;hide();run();}
+    }
+    function run(){var f=pending;pending=null;if(f)f();}
+    window.addEventListener('popstate',function(e){
+      if(!marker||nav.hidden)return;
+      if(e.state&&e.state.cssdMenu)return;
+      marker=false;e.stopImmediatePropagation();hide();run();
+    },true);
+    btn.addEventListener('click',function(){nav.hidden?open():close();});
+    closeBtn.addEventListener('click',function(){close();});
+    nav.addEventListener('click',function(e){
+      var t=e.target;
+      if(t.getAttribute('data-close')){close();return;}
+      var it=t.closest&&t.closest('.sp-mnav-item');
+      if(it){var r=it.getAttribute('data-route');close(function(){if(typeof spNavigate==='function')spNavigate(r);});return;}
+      if(t.closest&&t.closest('.sp-mnav-en')){close(function(){if(en)en.click();});return;}
+      if(t.closest&&t.closest('.sp-mnav-login')){close(function(){if(typeof openClaimModal==='function')openClaimModal(null);});}
+    });
+    document.addEventListener('keydown',function(e){
+      if(nav.hidden)return;
+      if(e.key==='Escape'){e.preventDefault();e.stopImmediatePropagation();close();return;}
+      if(e.key==='Tab'){var f=focusables(),a=f[0],z=f[f.length-1];
+        if(!panel.contains(document.activeElement)){e.preventDefault();a.focus();}
+        else if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus();}
+        else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus();}}
+    },true);
+    var mq=window.matchMedia('(max-width:720px)'),onMq=function(){if(!mq.matches)close();};
+    if(mq.addEventListener)mq.addEventListener('change',onMq);else if(mq.addListener)mq.addListener(onMq);
+    return true;
+  }
+  if(!init()){var n=0,t=setInterval(function(){if(init()||++n>100)clearInterval(t);},50);}
+})();
+</script>
 </body>
 </html>
