@@ -17824,6 +17824,9 @@ html.cssd-light body details.sp-more .sp-more-disc,html.cssd-light body details.
     var s=document.createElement('button');s.type='button';s.className='sp-msearch';s.setAttribute('aria-label','搜索');
     s.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.5-4.5"/></svg>';
     s.onclick=function(){if(typeof spOpenCmd==='function')spOpenCmd();};
+    /* v4.6-108：命令面板入口标注快捷键 /（含手机搜索图标与页面内「命令面板 /」按钮） */
+    s.setAttribute('aria-label','搜索（快捷键 /）');
+    [s].concat([].slice.call(document.querySelectorAll('[onclick*="spOpenCmd"]'))).forEach(function(x){x.setAttribute('aria-keyshortcuts','/');x.setAttribute('title','打开命令面板（快捷键 /）');});
     var btn=document.createElement('button');btn.type='button';btn.className='sp-burger';
     btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-controls','spMobileNav');btn.setAttribute('aria-label','打开导航');
     btn.innerHTML='<span class="sp-burger-icon" aria-hidden="true"></span>';
