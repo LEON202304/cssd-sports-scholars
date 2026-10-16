@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="cssd-light">
+<html lang="zh-CN" class="cssd-light" data-build="v4.6-105">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
@@ -10756,7 +10756,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 </style>
 <script id="cssd-v46-48-overseas-profile-js">
 (function(){
-  var VERSION='v4.6-104';
+  var VERSION='v4.6-105';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var ENRICH={
     A001:{url:'https://www.uta.edu/academics/faculty/profile?username=xiangligu',url_status:'ok',url_checked_at:'2026-10-13',bio:'美国德州大学阿灵顿分校运动机能学系副教授，研究聚焦儿童青少年身体活动、健康促进与学校体育干预；现任 ICSPAH President(2025-2026)。',urlNote:'UTA 官方教师主页'},
@@ -10885,7 +10885,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 <!-- CSSD v4.6-49 overseas candidates from screenshots -->
 <script id="cssd-v46-49-overseas-screenshot-candidates-js">
 (function(){
-  var VERSION='v4.6-104';
+  var VERSION='v4.6-105';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var EXTRA=[
     {id:'A038',cn:'刘沅龙',en:'Yuanlong Liu',title:'Assistant Professor',univ:'Western Michigan University',role:'海外华人体育学者候选；截图线索：美国密歇根州 Kalamazoo',field:'体育教育、教师教育、体育课程与教学',source:'Western Michigan University 官方教师主页；截图线索复核',cred:'B-官方主页确认',url:'https://wmich.edu/humanperformance/directory/liu',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'WMU HPHE directory Yuanlong Liu',bio:'西密歇根大学人类表现与健康教育相关学院助理教授，研究方向与体育教育、教师教育、课程教学和身体活动促进相关；由截图“刘沅龙 Yuanlong Liu”线索核验补入。'},
@@ -14018,8 +14018,9 @@ html.cssd-light .ft [style*="color:#1e293b"]{color:rgba(236,244,250,.75)!importa
 <script id="cssd-v46-80-final-js">
 (function(){
   'use strict';
-  var V='v4.6-87';
-  function norm(s){return s.replace(/v4\.6-\d+/g,V).replace(/V4\.6-\d+/g,'V4.6-87').replace(/v46-5\d/g,'v46-60');}
+  /* v4.6-105：可见版本号统一读 <html data-build>（唯一来源）；各模块内部 VERSION 保持历史值即可 */
+  var V=document.documentElement.getAttribute('data-build')||'v4.6-87';
+  function norm(s){return s.replace(/v4\.6-\d+/g,V).replace(/V4\.6-\d+/g,V.toUpperCase()).replace(/v46-5\d/g,'v46-60');}
   function applyVersion(){
     if(document.title&&/v4\.6-\d+/.test(document.title))document.title=norm(document.title);
     /* 遍历文本节点更新可见版本号（排除 script/style） */
@@ -17688,5 +17689,41 @@ html:not(.cssd-light) #cnkiTbody .cnki-search-link{color:var(--cssd-cnki-meta)!i
   if(document.readyState==='complete')add();else window.addEventListener('load',add);
 })();
 </script>
+<style id="cssd-v46-105-nav-1024">
+/* v4.6-105 · 桌面/平板顶栏不再溢出（原先 ≥1920px 也会把「全部导航」挤出屏幕）。
+   - ≥721px：「人才与学者」「学位与专业」两组下拉收起，其条目本就在「全部导航」里；
+   - 721–1439px：收紧间距/字号，奠基人/精品课程/学术AI工具 收进「全部导航」，学术动态保留在外；
+   - 「全部导航」移到 EN/登录/注册 之前，登录/注册始终最右侧（flex-shrink:0），注册改为小号描边按钮；
+   - 不用 overflow:hidden 藏项；≤720px 汉堡菜单逻辑不动。 */
+@media (min-width:721px){
+  html.cssd-light body .sp-links details.sp-nav-group{display:none !important;}
+  html.cssd-light body header.sp-header nav.sp-links{min-width:0;}
+  html.cssd-light body .sp-tools{gap:8px !important;flex-shrink:0;}
+  html.cssd-light body .sp-more summary{white-space:nowrap;}
+  html.cssd-light body .sp-tools > details.sp-more{order:-1;}
+  html.cssd-light body details.sp-more .sp-more-group-label{all:unset;display:block !important;position:static !important;padding:10px 16px 4px !important;font-size:11.5px !important;font-weight:600 !important;letter-spacing:.06em !important;color:#5A6575 !important;background:none !important;box-shadow:none !important;border:0 !important;}
+  html.cssd-light body details.sp-more .sp-more-group-label:not(:first-child){border-top:1px solid #E3E8EF !important;margin-top:4px !important;}
+}
+@media (min-width:721px) and (max-width:1439px){
+  html.cssd-light body header.sp-header nav.sp-links{gap:14px !important;}
+  html.cssd-light body .sp-links button{font-size:13.5px !important;letter-spacing:.02em !important;padding:0 2px !important;}
+  html.cssd-light body .sp-links button.sp-nav-promoted:not([data-route="academicnews"]){display:none !important;}
+  html.cssd-light body .sp-more .sp-more-promoted{display:block !important;}
+  html.cssd-light body .sp-tools .sp-btn{height:32px !important;min-height:0 !important;padding:0 12px !important;font-size:13px !important;}
+  html.cssd-light body .sp-tools .sp-register{background:transparent !important;color:var(--sp-accent,#1F7A6C) !important;border:1px solid currentColor !important;box-shadow:none !important;}
+}
+@media (min-width:721px) and (max-width:960px){
+  html.cssd-light body header.sp-header nav.sp-links{gap:10px !important;}
+  html.cssd-light body .sp-links button{font-size:13px !important;letter-spacing:0 !important;}
+  html.cssd-light body .sp-tools .sp-en{display:none !important;}
+}
+@media (min-width:961px) and (max-width:1439px){
+  html.cssd-light body .sp-more .sp-more-promoted[data-route="academicnews"]{display:none !important;}
+}
+@media (min-width:1440px) and (max-width:1799px){
+  html.cssd-light body header.sp-header nav.sp-links{gap:18px !important;}
+  html.cssd-light body .sp-links button{letter-spacing:.03em !important;}
+}
+</style>
 </body>
 </html>
