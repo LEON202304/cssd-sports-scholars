@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="cssd-light" data-build="v4.6-106">
+<html lang="zh-CN" class="cssd-light" data-build="v4.6-107">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
@@ -10756,7 +10756,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 </style>
 <script id="cssd-v46-48-overseas-profile-js">
 (function(){
-  var VERSION='v4.6-106';
+  var VERSION='v4.6-107';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var ENRICH={
     A001:{url:'https://www.uta.edu/academics/faculty/profile?username=xiangligu',url_status:'ok',url_checked_at:'2026-10-13',bio:'美国德州大学阿灵顿分校运动机能学系副教授，研究聚焦儿童青少年身体活动、健康促进与学校体育干预；现任 ICSPAH President(2025-2026)。',urlNote:'UTA 官方教师主页'},
@@ -10885,7 +10885,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 <!-- CSSD v4.6-49 overseas candidates from screenshots -->
 <script id="cssd-v46-49-overseas-screenshot-candidates-js">
 (function(){
-  var VERSION='v4.6-106';
+  var VERSION='v4.6-107';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var EXTRA=[
     {id:'A038',cn:'刘沅龙',en:'Yuanlong Liu',title:'Assistant Professor',univ:'Western Michigan University',role:'海外华人体育学者候选；截图线索：美国密歇根州 Kalamazoo',field:'体育教育、教师教育、体育课程与教学',source:'Western Michigan University 官方教师主页；截图线索复核',cred:'B-官方主页确认',url:'https://wmich.edu/humanperformance/directory/liu',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'WMU HPHE directory Yuanlong Liu',bio:'西密歇根大学人类表现与健康教育相关学院助理教授，研究方向与体育教育、教师教育、课程教学和身体活动促进相关；由截图“刘沅龙 Yuanlong Liu”线索核验补入。'},
@@ -17727,13 +17727,22 @@ html:not(.cssd-light) #cnkiTbody .cnki-search-link{color:var(--cssd-cnki-meta)!i
 </style>
 <style id="cssd-v46-106-nav-mobile">
 /* v4.6-106 · ≤720px 顶栏 56px：只留 logo+「体育学人」、搜索图标、汉堡按钮；其余入口进右侧抽屉菜单（不用 overflow:hidden 藏项）。
-   721–900px：「学科分类」补进「全部导航」；721–960px：EN 被收起，补进「全部导航」。 */
+   721–900px：「学科分类」补进「全部导航」；721–960px：EN 被收起，补进「全部导航」（v4.6-107：EN 暂整体隐藏，见 EN_ENABLED）。 */
 .sp-burger,.sp-msearch,.sp-mnav{display:none;}
+/* EN 开关见下方脚本 EN_ENABLED；关闭时隐藏所有 EN 入口 */
+html[data-en-off] body .sp-en,html[data-en-off] body .sp-more-en,html[data-en-off] body .sp-mnav-en{display:none !important;}
 /* 跳转链接未聚焦时原来露出约 2px 绿条（logo 上方），彻底移出视口 */
 html body a.sp-skip:not(:focus):not(:focus-visible){transform:translateY(calc(-100% - 12px)) !important;}
 html.cssd-light body details.sp-more .sp-more-disc,html.cssd-light body details.sp-more .sp-more-en{display:none !important;}
 @media (min-width:721px) and (max-width:900px){html.cssd-light body details.sp-more .sp-more-disc{display:block !important;}}
 @media (min-width:721px) and (max-width:960px){html.cssd-light body details.sp-more .sp-more-en{display:block !important;}}
+/* #63 遗留：≥1440px 头部有左右 padding（1440 时 100px、1920 时 340px），10 个主栏项放不下，「首页」压在 logo 上、「学术动态」被工具区盖住。
+   ≥1440px 也把奠基人/精品课程/学术AI工具收进「全部导航」（与 721–1439px 一致）。 */
+@media (min-width:1440px){
+  html.cssd-light body .sp-links button.sp-nav-promoted:not([data-route="academicnews"]){display:none !important;}
+  html.cssd-light body .sp-more .sp-more-promoted{display:block !important;}
+  html.cssd-light body .sp-more .sp-more-promoted[data-route="academicnews"]{display:none !important;}
+}
 @media (max-width:720px){
   html.cssd-light body header.sp-header{height:56px !important;min-height:56px !important;padding:0 8px 0 12px !important;justify-content:space-between;gap:8px;}
   html.cssd-light body header.sp-header nav.sp-links,
@@ -17781,7 +17790,11 @@ html.cssd-light body details.sp-more .sp-more-disc,html.cssd-light body details.
 </style>
 <script id="cssd-v46-106-nav-mobile-js">
 (function(){
-  var VERSION='v4.6-106';
+  var VERSION='v4.6-107';
+  /* EN 开关：.sp-en 目前没有任何处理函数，先整体隐藏（桌面 EN、全部导航与手机抽屉里的「EN / 中英切换」）。
+     中英切换实现后把这里改成 true 即可恢复全部入口。 */
+  var EN_ENABLED=false;
+  if(!EN_ENABLED)document.documentElement.setAttribute('data-en-off','');
   var COMMON=['scholars','journals','academicnews','disciplines']; /* 常用：学者 / 论文·期刊库 / 学术动态 / 学科分类 */
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   function item(n){return '<button type="button" class="sp-mnav-item" data-route="'+esc(n[0])+'">'+esc(n[1])+'</button>';}
@@ -17792,7 +17805,7 @@ html.cssd-light body details.sp-more .sp-more-disc,html.cssd-light body details.
     function mk(cls,route,txt,fn){var b=document.createElement('button');b.type='button';b.className=cls;if(route)b.setAttribute('data-route',route);b.textContent=txt;b.onclick=fn;return b;}
     if(more){
       if(!more.querySelector('[data-route="disciplines"]'))more.insertBefore(mk('sp-more-disc','disciplines','学科分类',function(){spNavigate('disciplines');}),more.firstChild);
-      if(en)more.appendChild(mk('sp-more-en',null,'EN / 中英切换',function(){en.click();}));
+      if(en&&EN_ENABLED)more.appendChild(mk('sp-more-en',null,'EN / 中英切换',function(){en.click();}));
     }
     /* 数据源 = 已渲染的主栏 + 「全部导航」（二者均由 portal 的 nav / navGroups 生成），不手写第二份清单 */
     var main=[],seen={},groups=[];
@@ -17818,7 +17831,7 @@ html.cssd-light body details.sp-more .sp-more-disc,html.cssd-light body details.
       '<div class="sp-mnav-panel" role="dialog" aria-modal="true" aria-labelledby="spMobileNavTitle">'+
       '<div class="sp-mnav-top"><strong id="spMobileNavTitle">全部导航</strong><button type="button" class="sp-mnav-close" aria-label="关闭导航">×</button></div>'+
       '<nav class="sp-mnav-list" aria-label="移动端导航">'+grp('常用',common,true)+grp('更多栏目',rest,false)+groups.map(function(g){return grp(g.label,g.items,false);}).join('')+'</nav>'+
-      '<div class="sp-mnav-foot">'+(en?'<button type="button" class="sp-mnav-en">EN / 中英切换</button>':'')+'<button type="button" class="sp-mnav-login">登录</button></div>'+
+      '<div class="sp-mnav-foot">'+(en&&EN_ENABLED?'<button type="button" class="sp-mnav-en">EN / 中英切换</button>':'')+'<button type="button" class="sp-mnav-login">登录</button></div>'+
       '</div>';
     document.body.appendChild(nav);
     var panel=nav.querySelector('.sp-mnav-panel'),closeBtn=nav.querySelector('.sp-mnav-close'),pending=null,marker=false;
