@@ -17733,6 +17733,18 @@ html:not(.cssd-light) #cnkiTbody .cnki-search-link{color:var(--cssd-cnki-meta)!i
 /* v4.6-108：EN 隐藏后，≥1281px 顶栏「全部导航」与「登录」之间只剩一个孤零零的「/」。它不是 EN 分隔符，是命令面板快捷键提示 span.sp-cmd-hint（title=打开命令面板）。
    这里直接隐藏它（不改父元素字号等），按 / 键打开命令面板的功能不受影响。 */
 html body header.sp-header .sp-tools > .sp-cmd-hint{display:none !important;}
+/* v4.6-108：桌面（≥721px）顶栏也显示搜索图标，旁边是键帽样式的 <kbd>/</kbd> 快捷键提示 */
+@media (min-width:721px){
+  html.cssd-light body header.sp-header .sp-tools > .sp-msearch{display:inline-flex !important;align-items:center;gap:6px;order:-2;height:36px;padding:0 6px;border:0;border-radius:8px;background:transparent;color:#0A2A43;cursor:pointer;flex-shrink:0;}
+  html.cssd-light body header.sp-header .sp-msearch svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;}
+  html.cssd-light body header.sp-header .sp-msearch:hover{background:#F1F5F9;}
+  html.cssd-light body header.sp-header .sp-msearch:focus-visible{outline:2px solid #1F7A6C;outline-offset:0;}
+}
+html.cssd-light body header.sp-header .sp-msearch kbd.sp-kbd{display:inline-block;border:1px solid #CBD5E1;border-radius:4px;padding:1px 6px;font:12px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#64748B;background:#fff;box-shadow:none;}
+/* 只在会造成裁切的宽度隐藏键帽：手机（抽屉模式）和 721–900px（最挤） */
+@media (max-width:900px){html.cssd-light body header.sp-header .sp-msearch kbd.sp-kbd{display:none !important;}}
+/* 721–780px 连搜索图标都放不下（会压住「科研项目」），这一段只隐藏图标；命令面板仍可按 / 打开 */
+@media (min-width:721px) and (max-width:780px){html.cssd-light body header.sp-header .sp-tools > .sp-msearch{display:none !important;}}
 html[data-en-off] body .sp-en,html[data-en-off] body .sp-more-en,html[data-en-off] body .sp-mnav-en{display:none !important;}
 /* 跳转链接未聚焦时原来露出约 2px 绿条（logo 上方），彻底移出视口 */
 html body a.sp-skip:not(:focus):not(:focus-visible){transform:translateY(calc(-100% - 12px)) !important;}
@@ -17826,7 +17838,19 @@ html.cssd-light body details.sp-more .sp-more-disc,html.cssd-light body details.
     s.onclick=function(){if(typeof spOpenCmd==='function')spOpenCmd();};
     /* v4.6-108：命令面板入口标注快捷键 /（含手机搜索图标与页面内「命令面板 /」按钮） */
     s.setAttribute('aria-label','搜索（快捷键 /）');
-    [s].concat([].slice.call(document.querySelectorAll('[onclick*="spOpenCmd"]'))).forEach(function(x){x.setAttribute('aria-keyshortcuts','/');x.setAttribute('title','打开命令面板（快捷键 /）');});
+    s.insertAdjacentHTML('beforeend','<kbd class="sp-kbd" aria-hidden="true" title="按 / 快速搜索">/</kbd>');
+    s.setAttribute('aria-keyshortcuts','/');s.setAttribute('title','按 / 快速搜索');
+    /* 全站圆角归一化脚本会把键帽 4px 内联改成 3px，事后清掉 */
+    var kfix=function(){var k=s.querySelector('kbd.sp-kbd');if(k)k.removeAttribute('style');};
+    setTimeout(kfix,1200);window.addEventListener('hashchange',function(){setTimeout(kfix,700);});
+    function markCmd(root){[].forEach.call((root||document).querySelectorAll('[onclick*="spOpenCmd"]:not([aria-keyshortcuts])'),function(x){x.setAttribute('aria-keyshortcuts','/');if(!x.classList.contains('sp-msearch'))x.setAttribute('title','打开命令面板（快捷键 /）');});}
+    markCmd(document);
+    /* 学者页「命令面板 /」按钮（#sp-scholars-tools）是之后才 append 到 body 的：只监听 body 直接子节点，找到就断开 */
+    if(window.MutationObserver&&!document.getElementById('sp-scholars-tools')){
+      var mo=new MutationObserver(function(){var t=document.getElementById('sp-scholars-tools');if(t){markCmd(t);try{mo.disconnect();}catch(e){}}});
+      try{mo.observe(document.body,{childList:true});}catch(e){}
+      window.addEventListener('pagehide',function(){try{mo.disconnect();}catch(e){}},{once:true});
+    }else markCmd(document);
     var btn=document.createElement('button');btn.type='button';btn.className='sp-burger';
     btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-controls','spMobileNav');btn.setAttribute('aria-label','打开导航');
     btn.innerHTML='<span class="sp-burger-icon" aria-hidden="true"></span>';
