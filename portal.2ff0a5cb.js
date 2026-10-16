@@ -26,9 +26,10 @@ trend:`<svg viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height=
 };
 const icon=(k,cls='')=>'<span class="sp-logo'+(cls?' '+cls:'')+'" aria-hidden="true">'+logos[k]+'</span>';
 
-/* Top IA 方案2（用户拍板）：主链保留奠基人/精品课程/学术AI；
-   另加「人才与学者」「学位与专业」两组下拉收全部导航剩余项。 */
-const navPromoteIds=new Set(['founders','courses','aitools']);
+/* Top IA 方案2（用户拍板）：主链保留奠基人/精品课程/学术AI/学术动态；
+   另加「人才与学者」「学位与专业」两组下拉收全部导航剩余项。
+   学术动态与每日动态已从人才下拉并入顶栏「学术动态」（进 academicnews；每日动态在该页侧栏可达）。 */
+const navPromoteIds=new Set(['founders','courses','aitools','academicnews']);
 const nav=[
   ['home','首页'],
   ['scholars','学者库'],
@@ -38,12 +39,14 @@ const nav=[
   ['disciplines','学科分类'],
   ['founders','体育学奠基人'],
   ['courses','精品课程'],
-  ['aitools','学术 AI 工具']
+  ['aitools','学术 AI 工具'],
+  ['academicnews','学术动态']
 ];
 const navPromote=[
   ['founders','体育学奠基人'],
   ['courses','精品课程'],
-  ['aitools','学术 AI 工具']
+  ['aitools','学术 AI 工具'],
+  ['academicnews','学术动态']
 ];
 const navGroups=[
   {id:'talent',label:'人才与学者',items:[
@@ -51,9 +54,7 @@ const navGroups=[
     ['yangtze','长江学者'],
     ['youthscholar','青年学者'],
     ['classify','学者分类总览'],
-    ['sportscolleges','体育院校师资'],
-    ['academicnews','学术动态'],
-    ['daily','每日动态']
+    ['sportscolleges','体育院校师资']
   ]},
   {id:'degree',label:'学位与专业',items:[
     ['degreepoint','学位点专栏'],
@@ -72,7 +73,7 @@ const quick=[
   ['degreepoint','学位点专栏','博士点、硕士点、学科评估','cap'],
   ['hats','人才计划','院士、长江、青年项目','star']
 ];
-/* 窄屏全部导航：分组项 + #26 后三项回填；桌面主栏有分组下拉与三项平铺 */
+/* 窄屏全部导航：分组项 + 主栏 promoted 回填；桌面主栏有分组下拉与四项平铺 */
 const moreExtra=navGroups.flatMap(g=>g.items);
 const routeJumps=[
   ['home','首页'],['scholars','学者库'],['institutions','院校机构'],['journals','期刊数据库'],
@@ -521,7 +522,7 @@ function start(){
   const head=document.createElement('header');
   head.className='sp-header';
   const topSet=new Set(nav.map(n=>n[0]));
-  /* 窄屏全部导航：分组项 + 主栏后三项（桌面由 CSS 隐藏 sp-more-promoted） */
+  /* 窄屏全部导航：分组项 + 主栏后四项（桌面由 CSS 隐藏 sp-more-promoted） */
   const moreGroupedHtml=navGroups.map(g=>{
     const btns=g.items.filter(n=>!topSet.has(n[0])).map(n=>
       '<button class="sp-more-grouped" data-route="'+n[0]+'" onclick="spNavigate(\''+n[0]+'\')">'+n[1]+'</button>'
