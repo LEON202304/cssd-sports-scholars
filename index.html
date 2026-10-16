@@ -7897,7 +7897,7 @@ html.cssd-light #vw-phdschools .phd-tab.on{
 
 <!-- A. 首次访问同意横幅 -->
 <div id="consent-banner" role="dialog" aria-label="隐私与数据说明">
-  <p>本平台数据来自高校及医院<strong>官方公开网站</strong>，仅供学术研究与师资参考，不用于商业目的。
+  <p>本平台数据来自高校及医院<strong>官方公开网站</strong>，仅供学术研究与师资参考，不用于商业目的。本站使用无 cookie 的匿名访问统计（Cloudflare Web Analytics）。
     <a class="consent-more" onclick="openPrivacyModal()">了解更多</a>
   </p>
   <button type="button" class="consent-reject" onclick="dismissConsent()">仅浏览</button>
@@ -10756,7 +10756,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 </style>
 <script id="cssd-v46-48-overseas-profile-js">
 (function(){
-  var VERSION='v4.6-103';
+  var VERSION='v4.6-104';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var ENRICH={
     A001:{url:'https://www.uta.edu/academics/faculty/profile?username=xiangligu',url_status:'ok',url_checked_at:'2026-10-13',bio:'美国德州大学阿灵顿分校运动机能学系副教授，研究聚焦儿童青少年身体活动、健康促进与学校体育干预；现任 ICSPAH President(2025-2026)。',urlNote:'UTA 官方教师主页'},
@@ -10885,7 +10885,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 <!-- CSSD v4.6-49 overseas candidates from screenshots -->
 <script id="cssd-v46-49-overseas-screenshot-candidates-js">
 (function(){
-  var VERSION='v4.6-103';
+  var VERSION='v4.6-104';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var EXTRA=[
     {id:'A038',cn:'刘沅龙',en:'Yuanlong Liu',title:'Assistant Professor',univ:'Western Michigan University',role:'海外华人体育学者候选；截图线索：美国密歇根州 Kalamazoo',field:'体育教育、教师教育、体育课程与教学',source:'Western Michigan University 官方教师主页；截图线索复核',cred:'B-官方主页确认',url:'https://wmich.edu/humanperformance/directory/liu',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'WMU HPHE directory Yuanlong Liu',bio:'西密歇根大学人类表现与健康教育相关学院助理教授，研究方向与体育教育、教师教育、课程教学和身体活动促进相关；由截图“刘沅龙 Yuanlong Liu”线索核验补入。'},
@@ -17671,6 +17671,21 @@ html:not(.cssd-light) #cnkiTbody .cnki-search-link{color:var(--cssd-cnki-meta)!i
     tb.addEventListener('keydown',function(e){if(e.key!=='Enter'&&e.key!==' '&&e.key!=='Spacebar')return;var t=e.target.closest&&e.target.closest('.cnki-author-link[data-name]');if(t){e.preventDefault();act(t);}});
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind);else bind();
+})();
+</script>
+<!-- Cloudflare Web Analytics（无 cookie）。token 由用户在 Cloudflare 后台生成后替换占位；占位期间不注入。
+     等价于 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "..."}'></script> -->
+<script id="cssd-cf-web-analytics">
+(function(){
+  var TOKEN='CF_WEB_ANALYTICS_TOKEN_PLACEHOLDER';
+  if(!TOKEN||TOKEN==='CF_WEB_ANALYTICS_TOKEN_PLACEHOLDER')return;
+  function add(){
+    var s=document.createElement('script');s.defer=true;
+    s.src='https://static.cloudflareinsights.com/beacon.min.js';
+    s.setAttribute('data-cf-beacon',JSON.stringify({token:TOKEN}));
+    document.body.appendChild(s);
+  }
+  if(document.readyState==='complete')add();else window.addEventListener('load',add);
 })();
 </script>
 </body>
