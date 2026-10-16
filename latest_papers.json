@@ -28,21 +28,39 @@
   },
   {
     "journal": "Medicine & Science in Sports & Exercise",
-    "title": "Sleep Deprivation Selectively Alters Cellular Stress Responses During Exercise in the Heat in Young and Older Males",
-    "authors": "James J. McCormick, Kelli E. McCormick, Nicholas J. Koetje, Glen P. Kenny",
-    "link": "https://doi.org/10.1249/mss.0000000000004195",
-    "date": "2026-10-15",
+    "title": "Consumer Grade Wearable Sensor Metrics Are Associated with Internal Forces at Common Running Injury Locations",
+    "authors": "John J. Davis IV, Stacey A. Meardon, John S. Raglin, Andrew W. Brown, Jaroslaw Harezlak, Allison H. Gruber",
+    "link": "https://doi.org/10.1249/mss.0000000000004191",
+    "date": "2026-10-16",
     "journalZh": "《运动医学与科学》",
-    "titleZh": "在炎热的运动中，睡眠不足会选择性地改变年轻人和老年男性的细胞应激反应"
+    "titleZh": "消费级可穿戴传感器指标与常见跑步受伤部位的内力相关"
   },
   {
     "journal": "Medicine & Science in Sports & Exercise",
-    "title": "Competitive Sports Participation and Its Association with Glycemic Control and Disordered Eating Behaviors in Individuals with Type 1 Diabetes Running: Competitive Sports, Glycemic Control T1D",
-    "authors": "Tamar Propper-Lewinsohn, Nitzan Dror, Shlomit Shalitin, Roni Elran-Barak, Michal Gillon-Keren, Michal Yackobovitch-Gavan, Alon Liberman, Moshe Phillip, Marie Mouler",
-    "link": "https://doi.org/10.1249/mss.0000000000004197",
-    "date": "2026-10-15",
+    "title": "Acute Effects of Cooperative and Coordinative Exercise on Inhibitory Control and Classroom Behavior",
+    "authors": "Sebastian Ludyga, Markus Gerber, Fabian Herold, Melanie Berger",
+    "link": "https://doi.org/10.1249/mss.0000000000004194",
+    "date": "2026-10-16",
     "journalZh": "《运动医学与科学》",
-    "titleZh": "竞争性运动参与及其与1型糖尿病患者血糖控制和饮食行为紊乱的关系：竞争性运动，血糖控制T1D"
+    "titleZh": "合作与协调锻炼对抑制控制和课堂行为的急性影响"
+  },
+  {
+    "journal": "Medicine & Science in Sports & Exercise",
+    "title": "Respiratory System Resistance and Bronchodilator Responsiveness in Paralympic Athletes with Spinal Cord Injury",
+    "authors": "Christopher R. West, Lee M. Romer",
+    "link": "https://doi.org/10.1249/mss.0000000000004198",
+    "date": "2026-10-16",
+    "journalZh": "《运动医学与科学》",
+    "titleZh": "脊髓损伤的残奥会运动员的呼吸系统抵抗和支气管扩张剂反应性"
+  },
+  {
+    "journal": "Journal of Sports Sciences",
+    "title": "Talent development in Chinese football: A comparative analysis of developmental activities between international and professional players",
+    "authors": "Sihang Wang, Qiaozhu Chen, Haochang Cai, Pei Li, Hongyou Liu",
+    "link": "https://doi.org/10.1080/02640414.2026.2750646",
+    "date": "2026-10-16",
+    "journalZh": "《体育科学杂志》",
+    "titleZh": "中国足球的人才发展：国际球员和职业球员发展活动的比较分析"
   },
   {
     "journal": "British Journal of Sports Medicine",
@@ -99,15 +117,6 @@
     "titleZh": "与女性运动员三合会相关的心血管效应：来自女性和男性运动员三合会联盟的新证据声明"
   },
   {
-    "journal": "Medicine & Science in Sports & Exercise",
-    "title": "Quadriceps Strength Recovery Trajectories Associate with Pre-Operative Predictors but not Clinical Outcomes Following ACL Reconstruction",
-    "authors": "Madison Franek, Liubov Arbeeva, Hyunwook Lee, Richard Lartey, Xinxin Wang, Ahmet Hakan Ok, Jeffrey T. Spang, Christopher D. Ingersoll, Joe M. Hart, Christin Büttner, Natalia Favoreto, Robert A. Creighton, Ganesh M. Kamath, Caroline Lisee, J. Troy Blackburn, Mingrui Yang, Xiaojuan Li, Brian Pietrosimone",
-    "link": "https://doi.org/10.1249/mss.0000000000004187",
-    "date": "2026-10-13",
-    "journalZh": "《运动医学与科学》",
-    "titleZh": "股四头肌力量恢复轨迹与术前预测相关，但与ACL重建后的临床结局无关"
-  },
-  {
     "journal": "Journal of Sports Sciences",
     "title": "Injury surveillance, on-field rehabilitation and return-to-play criteria: A survey of current practices in male professional football",
     "authors": "Ben Dixon, Jill Alexander, Damian Harper",
@@ -140,15 +149,6 @@
     "date": "2026-10-10"
   },
   {
-    "journal": "Journal of Sports Sciences",
-    "title": "An 8-minute Self-Paced Cycling Test designed for endurance fitness monitoring: Cross-sectional validity, test–retest reliability, and practical implementation",
-    "authors": "Jules Cusson-Fradet, Frédéric Domingue, Claude Lajoie",
-    "link": "https://doi.org/10.1080/02640414.2026.2741755",
-    "date": "2026-10-07",
-    "journalZh": "《体育科学杂志》",
-    "titleZh": "专为耐力健身监测而设计的8分钟自定进度自行车测试：横截面有效性、测试-重测可靠性和实际实施"
-  },
-  {
     "journal": "Scandinavian Journal of Medicine & Science in Sports",
     "title": "Movement Profiles in 180° Cutting Test: A Cluster‐Based Analysis of Performance and Knee Loading Trade‐Offs",
     "authors": "Di Wang, Anu M. Valtonen, Tom Thiel, Ying Gao, Juha‐Pekka Kulmala",
@@ -168,12 +168,12 @@
   },
   {
     "journal": "Scandinavian Journal of Medicine & Science in Sports",
-    "title": "Is Training Transfer Uniform? A Systematic Review and Three‐Level Meta‐Analysis of Resisted Sprint Training Effects on Acceleration, Jumping, and Change of Direction Performance in Athletes",
-    "authors": "Chengcheng Li, Lunxin Chen, Qin Zhang, Xianyang Xin, Xiupeng Li",
-    "link": "https://doi.org/10.1111/sms.70375",
+    "title": "The Duration of the Repeated‐Bout Effect After Eccentric Exercise",
+    "authors": "Anastasios A. Theodorou, Nikos V. Margaritelis, Anastasia V. Karyofyllidou, Filippos Christodoulou, Athanasios Z. Jamurtas, Ioannis G. Fatouros, Antonios Kyparos, Michalis G. Nikolaidis, Vassilis Paschalis",
+    "link": "https://doi.org/10.1111/sms.70381",
     "date": "2026-10",
     "journalZh": "《斯堪的纳维亚运动医学与科学杂志》",
-    "titleZh": "培训调动制服吗？阻力冲刺训练对运动员加速、跳跃和方向表现变化影响的系统评价和三级元分析"
+    "titleZh": "偏心运动后重复回合效应的持续时间"
   },
   {
     "journal": "天津体育学院学报",
