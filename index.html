@@ -8205,7 +8205,7 @@ function submitClaim(){
 @media(max-width:900px){.an-hero,.an-layout{grid-template-columns:1fr}.an-side{position:static}.an-spotlight{grid-template-columns:1fr}.an-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.an-news{grid-template-columns:1fr}.an-news-act{text-align:left}.an-wrap{padding:86px 16px 58px;}}
 </style>
 <!-- 外置数据（带内容哈希 → EdgeOne 自动长缓存）。
-     sports-cnki-data.ea3da788.js 原始 1.76 MB / Brotli 后约 929 KB，占全站 Brotli 体积的 60%，
+     sports-cnki-data.32abba2f.js 原始约 1.37 MB（本次刷新后），占全站 Brotli 体积的 60%，
      而它只服务「学术期刊」和「学术动态」两个视图 → 改为按需加载（见下方 _cnkiLoad）。 -->
 <script>
 /* ══ CNKI 数据懒加载器（v4.9 · 性能）══
@@ -8223,7 +8223,7 @@ function _cnkiLoad(){
   if(_cnkiLoadP)return _cnkiLoadP;
   _cnkiLoadP=new Promise(function(res,rej){
     var s=document.createElement('script');
-    s.src='sports-cnki-data.ea3da788.js';
+    s.src='sports-cnki-data.32abba2f.js';
     s.async=true;
     s.onload=function(){
       if(typeof CNKI_P!=='undefined'){
@@ -10748,7 +10748,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 </style>
 <script id="cssd-v46-48-overseas-profile-js">
 (function(){
-  var VERSION='v4.6-97';
+  var VERSION='v4.6-99';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var ENRICH={
     A001:{url:'https://www.uta.edu/academics/faculty/profile?username=xiangligu',url_status:'ok',url_checked_at:'2026-10-13',bio:'美国德州大学阿灵顿分校运动机能学系副教授，研究聚焦儿童青少年身体活动、健康促进与学校体育干预；现任 ICSPAH President(2025-2026)。',urlNote:'UTA 官方教师主页'},
@@ -10877,7 +10877,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 <!-- CSSD v4.6-49 overseas candidates from screenshots -->
 <script id="cssd-v46-49-overseas-screenshot-candidates-js">
 (function(){
-  var VERSION='v4.6-97';
+  var VERSION='v4.6-99';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var EXTRA=[
     {id:'A038',cn:'刘沅龙',en:'Yuanlong Liu',title:'Assistant Professor',univ:'Western Michigan University',role:'海外华人体育学者候选；截图线索：美国密歇根州 Kalamazoo',field:'体育教育、教师教育、体育课程与教学',source:'Western Michigan University 官方教师主页；截图线索复核',cred:'B-官方主页确认',url:'https://wmich.edu/humanperformance/directory/liu',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'WMU HPHE directory Yuanlong Liu',bio:'西密歇根大学人类表现与健康教育相关学院助理教授，研究方向与体育教育、教师教育、课程教学和身体活动促进相关；由截图“刘沅龙 Yuanlong Liu”线索核验补入。'},
