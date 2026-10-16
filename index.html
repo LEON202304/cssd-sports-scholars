@@ -8284,11 +8284,12 @@ function _cnkiRender(){
   document.getElementById('cnkiTbody').innerHTML=rows.map(function(p){
     var url=p[4]?_CNKI_BASE+p[4]+_CNKI_SUFF:'';
     var title=String(p[0]||'');
-    var tHtml=url?'<a href="'+url+'" target="_blank" rel="noopener" class="cnki-title-link">'+_cEsc(title)+'</a>':'<span class="cnki-title-link cnki-title-text">'+_cEsc(title)+'</span>';
-    var names=String(p[1]||'').split(/[;；,，、\s]+/).filter(function(x){return x;});
+    var tAttr=' title="'+_cEsc(title)+'"';
+    var tHtml=url?'<a href="'+url+'" target="_blank" rel="noopener" class="cnki-title-link"'+tAttr+'>'+_cEsc(title)+'</a>':'<span class="cnki-title-link cnki-title-text"'+tAttr+'>'+_cEsc(title)+'</span>';
+    var names=String(p[1]||'').split(/[;；,，、]+/).filter(function(x){return x;});
     var aHtml;
     if(!names.length){aHtml='<span class="cnki-author-empty"><span aria-hidden="true">—</span><span class="sr-only">作者待补</span></span>';}
-    else{aHtml=names.slice(0,3).map(function(n){return'<span class="cnki-author-link" role="button" tabindex="0" onclick="openScholarByName(\''+_cEsc(n).replace(/'/g,"\\'")+'\')">'+_cEsc(n)+'</span>';}).join('、')+(names.length>3?' 等':'');}
+    else{aHtml=names.slice(0,3).map(function(n){return'<span class="cnki-author-link" role="button" tabindex="0" data-name="'+_cEsc(n)+'">'+_cEsc(n)+'</span>';}).join('、')+(names.length===1?'<span class="cnki-first-author">第一作者</span>':'');}
     var sHtml='<a class="cnki-search-link" href="https://kns.cnki.net/kns8s/defaultresult/index?kw='+encodeURIComponent(title)+'" target="_blank" rel="noopener" title="在知网按题目搜索">知网搜索</a>';
     var meta='<span class="cnki-meta-authors">'+aHtml+'</span><span class="cnki-dot">·</span><span class="cnki-meta-jnl">'+_cEsc(CNKI_JNL[p[2]]||'')+'</span><span class="cnki-dot">·</span><span class="cnki-meta-date">'+_cEsc(p[3]||'—')+'</span>'+sHtml;
     return'<tr class="cnki-item"><td><div class="cnki-l1">'+tHtml+'</div><div class="cnki-l2">'+meta+'</div></td></tr>';
@@ -10755,7 +10756,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 </style>
 <script id="cssd-v46-48-overseas-profile-js">
 (function(){
-  var VERSION='v4.6-102';
+  var VERSION='v4.6-103';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var ENRICH={
     A001:{url:'https://www.uta.edu/academics/faculty/profile?username=xiangligu',url_status:'ok',url_checked_at:'2026-10-13',bio:'美国德州大学阿灵顿分校运动机能学系副教授，研究聚焦儿童青少年身体活动、健康促进与学校体育干预；现任 ICSPAH President(2025-2026)。',urlNote:'UTA 官方教师主页'},
@@ -10884,7 +10885,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 <!-- CSSD v4.6-49 overseas candidates from screenshots -->
 <script id="cssd-v46-49-overseas-screenshot-candidates-js">
 (function(){
-  var VERSION='v4.6-102';
+  var VERSION='v4.6-103';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var EXTRA=[
     {id:'A038',cn:'刘沅龙',en:'Yuanlong Liu',title:'Assistant Professor',univ:'Western Michigan University',role:'海外华人体育学者候选；截图线索：美国密歇根州 Kalamazoo',field:'体育教育、教师教育、体育课程与教学',source:'Western Michigan University 官方教师主页；截图线索复核',cred:'B-官方主页确认',url:'https://wmich.edu/humanperformance/directory/liu',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'WMU HPHE directory Yuanlong Liu',bio:'西密歇根大学人类表现与健康教育相关学院助理教授，研究方向与体育教育、教师教育、课程教学和身体活动促进相关；由截图“刘沅龙 Yuanlong Liu”线索核验补入。'},
@@ -17631,8 +17632,8 @@ html h2:where(.cssd-h2v){
 </style><script src="enhanced-scholars.js"></script>
 
 <style id="cssd-v46-102-cnki-list">
-:root{--cssd-row-alt:#F7F9FC;--cssd-row-hover:#EEF3FA;--cssd-cnki-title:var(--sp-brand-900,#0A2A43);--cssd-cnki-meta:#5A6575;}
-#jnl-panel-cnki .cnki-scroll{overflow-x:visible;background:#fff;border:1px solid #E3E8EF;border-radius:10px;}
+:root{--cssd-row-alt:#F7F9FC;--cssd-row-hover:#EEF3FA;--cssd-cnki-title:var(--sp-brand-900,#0A2A43);--cssd-cnki-meta:#5A6575;--cssd-link-hover:#2A7368;--cssd-list-bg:#fff;--cssd-cnki-author:#1F5A85;--cssd-cnki-jnl:#1D6B5F;}
+#jnl-panel-cnki .cnki-scroll{overflow-x:visible;background:var(--cssd-list-bg);border:1px solid #E3E8EF;border-radius:10px;}
 #jnl-panel-cnki .cnki-table{border-collapse:collapse!important;border-spacing:0!important;min-width:0!important;margin:0;}
 #jnl-panel-cnki .cnki-table th{padding:10px 14px!important;color:#5A6575!important;background:#fff!important;border-bottom:1px solid #E3E8EF;text-transform:none;letter-spacing:.02em;}
 #cnkiTbody tr.cnki-item td{background:transparent!important;border:0!important;border-radius:0!important;padding:12px 14px!important;font-family:inherit!important;white-space:normal!important;color:var(--cssd-cnki-meta)!important;}
@@ -17640,18 +17641,37 @@ html h2:where(.cssd-h2v){
 #cnkiTbody tr.cnki-item:hover{background:var(--cssd-row-hover);}
 #cnkiTbody tr.cnki-item:hover td{background:transparent!important;}
 #cnkiTbody .cnki-title-link{color:var(--cssd-cnki-title)!important;font-weight:700;font-size:15px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-decoration:none;}
-#cnkiTbody a.cnki-title-link:hover{color:#2A7368!important;text-decoration:underline;}
+#cnkiTbody a.cnki-title-link:hover{color:var(--cssd-link-hover)!important;text-decoration:underline;}
 .cnki-title-text{cursor:default;}
 #cnkiTbody .cnki-l2{margin-top:4px;font-size:13px;line-height:1.6;color:var(--cssd-cnki-meta)!important;min-height:1.6em;display:flex;flex-wrap:wrap;align-items:baseline;gap:0 6px;}
-#cnkiTbody .cnki-author-link{color:#1F5A85!important;font-weight:600;white-space:nowrap;cursor:pointer;}
-#cnkiTbody .cnki-author-link:hover,#cnkiTbody .cnki-author-link:focus{color:#14476E!important;text-decoration:underline;}
+#cnkiTbody .cnki-author-link{color:var(--cssd-cnki-author)!important;font-weight:600;white-space:nowrap;cursor:pointer;}
+#cnkiTbody .cnki-author-link:hover,#cnkiTbody .cnki-author-link:focus{color:var(--cssd-link-hover)!important;text-decoration:underline;}
 #cnkiTbody .cnki-author-empty{color:var(--cssd-cnki-meta)!important;}
-#cnkiTbody .cnki-meta-jnl{color:#1D6B5F!important;}
+#cnkiTbody .cnki-meta-jnl{color:var(--cssd-cnki-jnl)!important;}
 #cnkiTbody .cnki-meta-date{font-family:'DM Mono',monospace;color:var(--cssd-cnki-meta)!important;}
 #cnkiTbody .cnki-search-link{margin-left:auto;font-size:12px;color:#5A6575!important;text-decoration:none;white-space:nowrap;font-weight:400;}
-#cnkiTbody .cnki-search-link:hover{color:#2A7368!important;text-decoration:underline;}
+#cnkiTbody .cnki-search-link:hover{color:var(--cssd-link-hover)!important;text-decoration:underline;}
 .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 @media(max-width:760px){#cnkiTbody .cnki-search-link{margin-left:0;}#jnl-panel-cnki .cnki-table{table-layout:fixed;}}
+/* v4.6-103：第一作者标注 / 手机斑马纹加深 / 深色主题 token（深色 = html 无 .cssd-light） */
+#cnkiTbody .cnki-first-author{margin-left:4px;font-size:inherit;color:var(--cssd-cnki-meta)!important;font-weight:400;}
+#cnkiTbody .cnki-author-link:focus-visible{outline:2px solid var(--cssd-link-hover);outline-offset:2px;border-radius:2px;}
+@media(max-width:640px){:root{--cssd-row-alt:#F1F5F9;--cssd-row-hover:#E6EDF6;}}
+html:not(.cssd-light){--cssd-row-alt:rgba(255,255,255,.04);--cssd-row-hover:rgba(255,255,255,.08);--cssd-list-bg:#0F172A;--cssd-cnki-title:#BFD4F2;--cssd-cnki-meta:#94A3B8;--cssd-cnki-author:#8CB8E0;--cssd-cnki-jnl:#6FC7B8;--cssd-link-hover:#5EC4B3;}
+html:not(.cssd-light) #vw-journals #jnl-panel-cnki .cnki-scroll{background:var(--cssd-list-bg)!important;border-color:rgba(255,255,255,.10)!important;}
+html:not(.cssd-light) #jnl-panel-cnki .cnki-table th{background:var(--cssd-list-bg)!important;color:var(--cssd-cnki-meta)!important;border-bottom-color:rgba(255,255,255,.10);}
+html:not(.cssd-light) #cnkiTbody .cnki-search-link{color:var(--cssd-cnki-meta)!important;}
 </style>
+<script id="cssd-v46-103-cnki-author-deleg">
+(function(){
+  function act(t){var n=t.getAttribute('data-name');if(n&&typeof openScholarByName==='function')openScholarByName(n);}
+  function bind(){
+    var tb=document.getElementById('cnkiTbody');if(!tb||tb._cssdDeleg)return;tb._cssdDeleg=1;
+    tb.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('.cnki-author-link[data-name]');if(t)act(t);});
+    tb.addEventListener('keydown',function(e){if(e.key!=='Enter'&&e.key!==' '&&e.key!=='Spacebar')return;var t=e.target.closest&&e.target.closest('.cnki-author-link[data-name]');if(t){e.preventDefault();act(t);}});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind);else bind();
+})();
+</script>
 </body>
 </html>
