@@ -8138,6 +8138,7 @@ function submitClaim(){
 .cnki-title-link{color:#f1f5f9;text-decoration:none;line-height:1.55;display:block;}
 .cnki-title-link:hover{color:#5FB8AA;text-decoration:underline;}
 .cnki-author-link{color:#2C6E9E;cursor:pointer;font-weight:600;white-space:nowrap;}
+.cnki-author-empty{color:var(--sp-muted2,var(--cssd-muted-2,#5A6575));font-size:inherit;line-height:inherit;font-weight:400;cursor:default;white-space:nowrap;display:inline-block;min-height:1em;}
 .cnki-author-link:hover{text-decoration:underline;color:#c4b5fd;}
 .cnki-jrnl-tag{display:inline-flex;border:1px solid rgba(46,154,137,.18);background:rgba(46,154,137,.06);color:#5FB8AA;border-radius:6px;padding:2px 7px;font-size:.68rem;white-space:nowrap;}
 .cnki-scroll{overflow-x:auto;}
@@ -8283,7 +8284,7 @@ function _cnkiRender(){
   document.getElementById('cnkiTbody').innerHTML=rows.map(function(p){
     var url=p[4]?_CNKI_BASE+p[4]+_CNKI_SUFF:'';
     var tHtml=url?'<a href="'+url+'" target="_blank" rel="noopener" class="cnki-title-link">'+_cEsc(p[0])+' <span style="font-size:.65rem;opacity:.5">↗</span></a>':'<span class="cnki-title-link">'+_cEsc(p[0])+'</span>';
-    var aHtml=p[1]?'<span class="cnki-author-link" onclick="openScholarByName(\''+_cEsc(p[1])+'\')">'+_cEsc(p[1])+'</span>':'—';
+    var aHtml=p[1]?'<span class="cnki-author-link" onclick="openScholarByName(\''+_cEsc(p[1])+'\')">'+_cEsc(p[1])+'</span>':'<span class="cnki-author-empty" aria-label="作者待补">—</span>';
     return'<tr><td>'+_cEsc(p[3]||'—')+'</td><td>'+tHtml+'</td><td>'+aHtml+'</td><td><span class="cnki-jrnl-tag">'+_cEsc(CNKI_JNL[p[2]])+'</span></td></tr>';
   }).join('');
   var tp=Math.ceil(tot/_cnkiPS);
@@ -10748,7 +10749,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 </style>
 <script id="cssd-v46-48-overseas-profile-js">
 (function(){
-  var VERSION='v4.6-99';
+  var VERSION='v4.6-100';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var ENRICH={
     A001:{url:'https://www.uta.edu/academics/faculty/profile?username=xiangligu',url_status:'ok',url_checked_at:'2026-10-13',bio:'美国德州大学阿灵顿分校运动机能学系副教授，研究聚焦儿童青少年身体活动、健康促进与学校体育干预；现任 ICSPAH President(2025-2026)。',urlNote:'UTA 官方教师主页'},
@@ -10877,7 +10878,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 <!-- CSSD v4.6-49 overseas candidates from screenshots -->
 <script id="cssd-v46-49-overseas-screenshot-candidates-js">
 (function(){
-  var VERSION='v4.6-99';
+  var VERSION='v4.6-100';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var EXTRA=[
     {id:'A038',cn:'刘沅龙',en:'Yuanlong Liu',title:'Assistant Professor',univ:'Western Michigan University',role:'海外华人体育学者候选；截图线索：美国密歇根州 Kalamazoo',field:'体育教育、教师教育、体育课程与教学',source:'Western Michigan University 官方教师主页；截图线索复核',cred:'B-官方主页确认',url:'https://wmich.edu/humanperformance/directory/liu',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'WMU HPHE directory Yuanlong Liu',bio:'西密歇根大学人类表现与健康教育相关学院助理教授，研究方向与体育教育、教师教育、课程教学和身体活动促进相关；由截图“刘沅龙 Yuanlong Liu”线索核验补入。'},
