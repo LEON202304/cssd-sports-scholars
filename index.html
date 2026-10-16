@@ -17802,7 +17802,8 @@ html.cssd-light body details.sp-more .sp-more-disc,html.cssd-light body details.
       if(el.classList.contains('sp-more-group-label')){cur={label:el.textContent.trim(),items:[]};groups.push(cur);return;}
       var r=el.getAttribute('data-route');if(!r||seen[r]||!cur)return;seen[r]=1;cur.items.push([r,el.textContent.trim()]);
     });
-    var common=COMMON.map(function(r){return main.filter(function(n){return n[0]===r;})[0];}).filter(Boolean);
+    var COMMON_LABEL={journals:'期刊/论文库'}; /* 仅手机抽屉内改名 */
+    var common=COMMON.map(function(r){var n=main.filter(function(n){return n[0]===r;})[0];return n&&[n[0],COMMON_LABEL[r]||n[1]];}).filter(Boolean);
     var rest=main.filter(function(n){return COMMON.indexOf(n[0])<0;});
     var s=document.createElement('button');s.type='button';s.className='sp-msearch';s.setAttribute('aria-label','搜索');
     s.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.5-4.5"/></svg>';
