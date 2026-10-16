@@ -10756,7 +10756,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 </style>
 <script id="cssd-v46-48-overseas-profile-js">
 (function(){
-  var VERSION='v4.6-108';
+  var VERSION='v4.6-107';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var ENRICH={
     A001:{url:'https://www.uta.edu/academics/faculty/profile?username=xiangligu',url_status:'ok',url_checked_at:'2026-10-13',bio:'美国德州大学阿灵顿分校运动机能学系副教授，研究聚焦儿童青少年身体活动、健康促进与学校体育干预；现任 ICSPAH President(2025-2026)。',urlNote:'UTA 官方教师主页'},
@@ -10885,7 +10885,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 <!-- CSSD v4.6-49 overseas candidates from screenshots -->
 <script id="cssd-v46-49-overseas-screenshot-candidates-js">
 (function(){
-  var VERSION='v4.6-108';
+  var VERSION='v4.6-107';
   var profileBtnLabel=function(u){u=String(u||'').toLowerCase();if(u.indexOf('scholar.google.')>=0)return 'Scholar ↗';if(u.indexOf('researchgate.net')>=0)return 'ResearchGate ↗';return '官方主页 ↗';};
   var EXTRA=[
     {id:'A038',cn:'刘沅龙',en:'Yuanlong Liu',title:'Assistant Professor',univ:'Western Michigan University',role:'海外华人体育学者候选；截图线索：美国密歇根州 Kalamazoo',field:'体育教育、教师教育、体育课程与教学',source:'Western Michigan University 官方教师主页；截图线索复核',cred:'B-官方主页确认',url:'https://wmich.edu/humanperformance/directory/liu',url_status:'ok',url_checked_at:'2026-10-13',urlNote:'WMU HPHE directory Yuanlong Liu',bio:'西密歇根大学人类表现与健康教育相关学院助理教授，研究方向与体育教育、教师教育、课程教学和身体活动促进相关；由截图“刘沅龙 Yuanlong Liu”线索核验补入。'},
@@ -17820,6 +17820,8 @@ html.cssd-light body details.sp-more .sp-more-disc,html.cssd-light body details.
     function mk(cls,route,txt,fn){var b=document.createElement('button');b.type='button';b.className=cls;if(route)b.setAttribute('data-route',route);b.textContent=txt;b.onclick=fn;return b;}
     if(more){
       if(!more.querySelector('[data-route="disciplines"]'))more.insertBefore(mk('sp-more-disc','disciplines','学科分类',function(){spNavigate('disciplines');}),more.firstChild);
+      /* 「全部导航」第一项：搜索（打开命令面板）；721–780px 顶栏没有搜索图标时靠它进入 */
+      if(!more.querySelector('.sp-more-search')){var sq=mk('sp-more-search',null,'搜索',function(){var d=head.querySelector('details.sp-more');if(d)d.open=false;if(typeof spOpenCmd==='function')spOpenCmd();});sq.setAttribute('aria-keyshortcuts','/');sq.title='按 / 快速搜索';more.insertBefore(sq,more.firstChild);}
       if(en&&EN_ENABLED)more.appendChild(mk('sp-more-en',null,'EN / 中英切换',function(){en.click();}));
     }
     /* 数据源 = 已渲染的主栏 + 「全部导航」（二者均由 portal 的 nav / navGroups 生成），不手写第二份清单 */
@@ -17849,6 +17851,7 @@ html.cssd-light body details.sp-more .sp-more-disc,html.cssd-light body details.
     if(window.MutationObserver&&!document.getElementById('sp-scholars-tools')){
       var mo=new MutationObserver(function(){var t=document.getElementById('sp-scholars-tools');if(t){markCmd(t);try{mo.disconnect();}catch(e){}}});
       try{mo.observe(document.body,{childList:true});}catch(e){}
+      setTimeout(function(){try{mo.disconnect();}catch(e){}markCmd(document);},5000); /* 兜底：5 秒后无论如何断开 */
       window.addEventListener('pagehide',function(){try{mo.disconnect();}catch(e){}},{once:true});
     }else markCmd(document);
     var btn=document.createElement('button');btn.type='button';btn.className='sp-burger';
