@@ -3824,5 +3824,10 @@ html.cssd-light .cins{
 :root{--cssd-honor-bg:#FBF3E0;--cssd-honor-fg:#8A6A1F}
 html:not(.cssd-light){--cssd-honor-bg:rgba(200,162,75,.16);--cssd-honor-fg:#E3C77A}
 .sp-rank-row{display:flex;flex-wrap:wrap;gap:4px;margin:3px 0 2px}
-html body .sp-rank-row .sp-honor,.sp-honor{display:inline-block;background:var(--cssd-honor-bg);color:var(--cssd-honor-fg);font-size:12px;line-height:1.5;padding:1px 6px;border-radius:4px;font-weight:500;white-space:nowrap}
+html body .sp-rank-row .sp-honor,.sp-honor{display:inline-block;background:var(--cssd-honor-bg);color:var(--cssd-honor-fg);font-size:12px;line-height:1.5;padding:1px 6px;border-radius:4px;white-space:nowrap;font-weight:600}
 @media (max-width:720px){.sd-hero .sp-rank-row{justify-content:center}}
+/* 详情弹窗：标签可换行不裁切；散文 hon 归入简介 */
+#mtp .sd-tags .tag{max-width:100%;white-space:normal;overflow-wrap:anywhere;text-align:left}
+#mtp .sd-bio{margin:10px 0 0;font-size:13px;line-height:1.7;color:var(--mu,#5A6575);text-align:left}
+/* 普通称号标签浅一档，让 .sp-honor 更突出 */
+html.cssd-light #mtp .tag.t-hat,html.cssd-light #mtp .tag.t-honor,html.cssd-light .sc2 .tag.t-hat,html.cssd-light .sc2 .tag.t-honor{background:#FDF9F0!important;border-color:rgba(200,162,75,.2)!important}
