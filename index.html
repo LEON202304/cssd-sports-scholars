@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="cssd-light" data-build="v4.6-107">
+<html lang="zh-CN" class="cssd-light" data-build="v4.6-108">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
@@ -17730,6 +17730,21 @@ html:not(.cssd-light) #cnkiTbody .cnki-search-link{color:var(--cssd-cnki-meta)!i
    721–900px：「学科分类」补进「全部导航」；721–960px：EN 被收起，补进「全部导航」（v4.6-107：EN 暂整体隐藏，见 EN_ENABLED）。 */
 .sp-burger,.sp-msearch,.sp-mnav{display:none;}
 /* EN 开关见下方脚本 EN_ENABLED；关闭时隐藏所有 EN 入口 */
+/* v4.6-108：EN 隐藏后，≥1281px 顶栏「全部导航」与「登录」之间只剩一个孤零零的「/」。它不是 EN 分隔符，是命令面板快捷键提示 span.sp-cmd-hint（title=打开命令面板）。
+   这里直接隐藏它（不改父元素字号等），按 / 键打开命令面板的功能不受影响。 */
+html body header.sp-header .sp-tools > .sp-cmd-hint{display:none !important;}
+/* v4.6-108：桌面（≥721px）顶栏也显示搜索图标，旁边是键帽样式的 <kbd>/</kbd> 快捷键提示 */
+@media (min-width:721px){
+  html.cssd-light body header.sp-header .sp-tools > .sp-msearch{display:inline-flex !important;align-items:center;gap:6px;order:-2;height:36px;padding:0 6px;border:0;border-radius:8px;background:transparent;color:#0A2A43;cursor:pointer;flex-shrink:0;}
+  html.cssd-light body header.sp-header .sp-msearch svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;}
+  html.cssd-light body header.sp-header .sp-msearch:hover{background:#F1F5F9;}
+  html.cssd-light body header.sp-header .sp-msearch:focus-visible{outline:2px solid #1F7A6C;outline-offset:0;}
+}
+html.cssd-light body header.sp-header .sp-msearch kbd.sp-kbd{display:inline-block;border:1px solid #CBD5E1;border-radius:4px;padding:1px 6px;font:12px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#64748B;background:#fff;box-shadow:none;}
+/* 只在会造成裁切的宽度隐藏键帽：手机（抽屉模式）和 721–900px（最挤） */
+@media (max-width:900px){html.cssd-light body header.sp-header .sp-msearch kbd.sp-kbd{display:none !important;}}
+/* 721–780px 连搜索图标都放不下（会压住「科研项目」），这一段只隐藏图标；命令面板仍可按 / 打开 */
+@media (min-width:721px) and (max-width:780px){html.cssd-light body header.sp-header .sp-tools > .sp-msearch{display:none !important;}}
 html[data-en-off] body .sp-en,html[data-en-off] body .sp-more-en,html[data-en-off] body .sp-mnav-en{display:none !important;}
 /* 跳转链接未聚焦时原来露出约 2px 绿条（logo 上方），彻底移出视口 */
 html body a.sp-skip:not(:focus):not(:focus-visible){transform:translateY(calc(-100% - 12px)) !important;}
@@ -17790,7 +17805,7 @@ html.cssd-light body details.sp-more .sp-more-disc,html.cssd-light body details.
 </style>
 <script id="cssd-v46-106-nav-mobile-js">
 (function(){
-  var VERSION='v4.6-107';
+  var VERSION='v4.6-108';
   /* EN 开关：.sp-en 目前没有任何处理函数，先整体隐藏（桌面 EN、全部导航与手机抽屉里的「EN / 中英切换」）。
      中英切换实现后把这里改成 true 即可恢复全部入口。 */
   var EN_ENABLED=false;
@@ -17805,6 +17820,8 @@ html.cssd-light body details.sp-more .sp-more-disc,html.cssd-light body details.
     function mk(cls,route,txt,fn){var b=document.createElement('button');b.type='button';b.className=cls;if(route)b.setAttribute('data-route',route);b.textContent=txt;b.onclick=fn;return b;}
     if(more){
       if(!more.querySelector('[data-route="disciplines"]'))more.insertBefore(mk('sp-more-disc','disciplines','学科分类',function(){spNavigate('disciplines');}),more.firstChild);
+      /* 「全部导航」第一项：搜索（打开命令面板）；721–780px 顶栏没有搜索图标时靠它进入 */
+      if(!more.querySelector('.sp-more-search')){var sq=mk('sp-more-search',null,'搜索',function(){var d=head.querySelector('details.sp-more');if(d)d.open=false;if(typeof spOpenCmd==='function')spOpenCmd();});sq.setAttribute('aria-keyshortcuts','/');sq.title='按 / 快速搜索';more.insertBefore(sq,more.firstChild);}
       if(en&&EN_ENABLED)more.appendChild(mk('sp-more-en',null,'EN / 中英切换',function(){en.click();}));
     }
     /* 数据源 = 已渲染的主栏 + 「全部导航」（二者均由 portal 的 nav / navGroups 生成），不手写第二份清单 */
@@ -17821,6 +17838,22 @@ html.cssd-light body details.sp-more .sp-more-disc,html.cssd-light body details.
     var s=document.createElement('button');s.type='button';s.className='sp-msearch';s.setAttribute('aria-label','搜索');
     s.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.5-4.5"/></svg>';
     s.onclick=function(){if(typeof spOpenCmd==='function')spOpenCmd();};
+    /* v4.6-108：命令面板入口标注快捷键 /（含手机搜索图标与页面内「命令面板 /」按钮） */
+    s.setAttribute('aria-label','搜索（快捷键 /）');
+    s.insertAdjacentHTML('beforeend','<kbd class="sp-kbd" aria-hidden="true" title="按 / 快速搜索">/</kbd>');
+    s.setAttribute('aria-keyshortcuts','/');s.setAttribute('title','按 / 快速搜索');
+    /* 全站圆角归一化脚本会把键帽 4px 内联改成 3px，事后清掉 */
+    var kfix=function(){var k=s.querySelector('kbd.sp-kbd');if(k)k.removeAttribute('style');};
+    setTimeout(kfix,1200);window.addEventListener('hashchange',function(){setTimeout(kfix,700);});
+    function markCmd(root){[].forEach.call((root||document).querySelectorAll('[onclick*="spOpenCmd"]:not([aria-keyshortcuts])'),function(x){x.setAttribute('aria-keyshortcuts','/');if(!x.classList.contains('sp-msearch'))x.setAttribute('title','打开命令面板（快捷键 /）');});}
+    markCmd(document);
+    /* 学者页「命令面板 /」按钮（#sp-scholars-tools）是之后才 append 到 body 的：只监听 body 直接子节点，找到就断开 */
+    if(window.MutationObserver&&!document.getElementById('sp-scholars-tools')){
+      var mo=new MutationObserver(function(){var t=document.getElementById('sp-scholars-tools');if(t){markCmd(t);try{mo.disconnect();}catch(e){}}});
+      try{mo.observe(document.body,{childList:true});}catch(e){}
+      setTimeout(function(){try{mo.disconnect();}catch(e){}markCmd(document);},5000); /* 兜底：5 秒后无论如何断开 */
+      window.addEventListener('pagehide',function(){try{mo.disconnect();}catch(e){}},{once:true});
+    }else markCmd(document);
     var btn=document.createElement('button');btn.type='button';btn.className='sp-burger';
     btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-controls','spMobileNav');btn.setAttribute('aria-label','打开导航');
     btn.innerHTML='<span class="sp-burger-icon" aria-hidden="true"></span>';
