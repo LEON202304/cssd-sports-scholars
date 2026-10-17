@@ -748,7 +748,7 @@ document.addEventListener("click",function(e){
 function bCard(s){
   if(scholarsViewMode==='table') return '';
   const hH=s.hats.map(h=>`<span class="tag t-hat">${esc(hS(h))}</span>`).join('');
-  const oH=s.hon.slice(0,1).map(h=>`<span class="tag t-honor">${esc(h.length>14?h.slice(0,14)+'\u2026':h)}</span>`).join('');
+  const oH=s.hon.filter(function(h){return !honIsProse(h);}).slice(0,1).map(h=>`<span class="tag t-honor">${esc(h.length>14?h.slice(0,14)+'\u2026':h)}</span>`).join('');
   const srcH=(s.imp&&s.hats.length===0)?`<span class="tag t-src" title="\u8be5\u6761\u76ee\u7531\u9662\u6821\u5b98\u7f51\u6279\u91cf\u91c7\u96c6\uff0c\u6682\u672a\u6838\u9a8c\u4eba\u624d\u79f0\u53f7">\ud83d\udce5 \u5b98\u7f51\u91c7\u96c6</span>`:'';
   const rb=s.role?`<div class="${RC[s.role]||''} rbadge">\u25c8 ${esc(RL[s.role]||'')}</div>`:'';
   const catBadge=(s.cat==='985'?'<span class="cb985">985</span>':(s.cat==='211'?'<span class="cb211">211</span>':''));
@@ -1744,6 +1744,9 @@ function renderClassify(){
   ${body}`;
 }
 
+/* 共享：hon 是否为散文片段（含 ，。；,; 或超过 20 字）→ 不做标签；卡片与详情弹窗共用 */
+function honIsProse(h){h=String(h||'');return /[，。；,;]/.test(h)||h.length>20;}
+window.honIsProse=honIsProse;
 /* 数据驱动头衔小标：scholar.rankTag（字符串或数组） */
 function rankTagH(s){var t=s&&s.rankTag;if(!t)return '';return (Array.isArray(t)?t:[t]).map(function(x){return '<span class="sp-honor sp-rank-tag">'+esc(x)+'</span>';}).join('');}
 /* 卡片职称：有 rankTag 时去掉重复头衔（数据 title 保持完整） */

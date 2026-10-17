@@ -3830,4 +3830,7 @@ html body .sp-rank-row .sp-honor,.sp-honor{display:inline-block;background:var(-
 #mtp .sd-tags .tag{max-width:100%;white-space:normal;overflow-wrap:anywhere;text-align:left}
 #mtp .sd-bio{margin:10px 0 0;font-size:13px;line-height:1.7;color:var(--mu,#5A6575);text-align:left}
 /* 普通称号标签浅一档，让 .sp-honor 更突出 */
-html.cssd-light #mtp .tag.t-hat,html.cssd-light #mtp .tag.t-honor,html.cssd-light .sc2 .tag.t-hat,html.cssd-light .sc2 .tag.t-honor{background:#FDF9F0!important;border-color:rgba(200,162,75,.2)!important}
+:root{--cssd-chip-honor-bg:#FDF9F0}
+html:not(.cssd-light){--cssd-chip-honor-bg:rgba(200,162,75,.08)}
+/* 覆盖 index.html 内 `html.cssd-light .tag.t-hat, html.cssd-light .tag.t-honor{background:rgba(200,162,75,.12)!important;…}`，故需 !important */
+html.cssd-light #mtp .tag.t-hat,html.cssd-light #mtp .tag.t-honor,html.cssd-light .sc2 .tag.t-hat,html.cssd-light .sc2 .tag.t-honor{background:var(--cssd-chip-honor-bg)!important;border-color:rgba(200,162,75,.2)!important}
