@@ -3820,7 +3820,9 @@ html.cssd-light .cins{
   max-width:100%;
 }
 
-/* 数据驱动头衔小标（scholar.rankTag，如「国家一级教授」）：姓名下方，无图标 */
+/* 数据驱动荣誉小标（scholar.rankTag，如「国家一级教授」）：姓名下方，无图标；颜色只走 token */
+:root{--cssd-honor-bg:#FBF3E0;--cssd-honor-fg:#8A6A1F}
+html:not(.cssd-light){--cssd-honor-bg:rgba(200,162,75,.16);--cssd-honor-fg:#E3C77A}
 .sp-rank-row{display:flex;flex-wrap:wrap;gap:4px;margin:3px 0 2px}
-html body .sp-rank-row .sp-rank-tag,.sp-rank-tag{display:inline-block;background:#FBF3E0 !important;color:#8A6A1F !important;font-size:12px !important;line-height:1.5;padding:1px 6px;border-radius:4px !important;font-weight:500;white-space:nowrap}
+html body .sp-rank-row .sp-honor,.sp-honor{display:inline-block;background:var(--cssd-honor-bg);color:var(--cssd-honor-fg);font-size:12px;line-height:1.5;padding:1px 6px;border-radius:4px;font-weight:500;white-space:nowrap}
 @media (max-width:720px){.sd-hero .sp-rank-row{justify-content:center}}
