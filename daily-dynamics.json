@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16",
+  "generatedAt": "2026-10-17",
   "source": "C刊官网 + 体育院校官网（GitHub Actions 每日）",
   "statusHint": "live",
   "items": [
@@ -49,7 +49,7 @@
       "section": "学校主页",
       "title": "为国出征争荣光 鏖战亚运创佳绩——山体附中健儿征战2026亚运会斩获10金2银4铜",
       "date": "2026-10-16",
-      "link": "https://www.sdpei.edu.cn/2026/1016/c592a56449/page.htm"
+      "link": "https://www.sdpei.edu.cn/2026/1016/c367a56449/page.htm"
     },
     {
       "cat": "院校",
@@ -125,6 +125,38 @@
     },
     {
       "cat": "院校",
+      "source": "沈阳体育学院",
+      "section": "学校主页",
+      "title": "运动训练学院开展“AI赋能体育学术研究”专题讲座",
+      "date": "2026-10-15",
+      "link": "https://www.syty.edu.cn/info/1036/17583.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "沈阳体育学院",
+      "section": "学校主页",
+      "title": "体育教育学院举行2026级研究生和本科生师生见面会",
+      "date": "2026-10-15",
+      "link": "https://www.syty.edu.cn/info/1036/17573.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "沈阳体育学院",
+      "section": "学校主页",
+      "title": "体能训练学院组织开展第十一期“学思工作坊”活动",
+      "date": "2026-10-15",
+      "link": "https://www.syty.edu.cn/info/1036/17603.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "沈阳体育学院",
+      "section": "学校主页",
+      "title": "管理与新闻传播学院举办“体质与运动健康”专题实训讲座",
+      "date": "2026-10-15",
+      "link": "https://www.syty.edu.cn/info/1036/17553.htm"
+    },
+    {
+      "cat": "院校",
       "source": "南京体育学院",
       "section": "通知公告",
       "title": "计算机采购项目流标公告",
@@ -197,11 +229,27 @@
     },
     {
       "cat": "院校",
+      "source": "山东体育学院",
+      "section": "学校主页",
+      "title": "泰国曼谷吞武里大学代表团访问我校",
+      "date": "2026-10-13",
+      "link": "https://www.sdpei.edu.cn/2026/1013/c592a54191/page.htm"
+    },
+    {
+      "cat": "院校",
       "source": "首都体育学院",
       "section": "通知公告",
       "title": "2026内涵发展追加-体医工融合关键技术云服务运行与保障项目比选公告(服务类)",
       "date": "2026-10-13",
       "link": "https://www.cupes.edu.cn/docs/2026-10/2042fcc1cd54405fa1ee338199702856.pdf"
+    },
+    {
+      "cat": "院校",
+      "source": "沈阳体育学院",
+      "section": "学校新闻",
+      "title": "我校也门籍留学生伊卜拉欣・古布兰参加名古屋亚运会获佳绩 创我校留学生参赛历史最好成绩 名古屋亚运会乒乓球赛事刚刚圆满收官。我校也门籍来华留学生伊卜拉欣・古布兰（Ebrahim Abdulhakim Gubran）代表也门国家乒乓球队参加本次...",
+      "date": "2026-10-11",
+      "link": "https://www.syty.edu.cn/info/1067/17413.htm"
     },
     {
       "cat": "期刊",
@@ -229,11 +277,11 @@
     },
     {
       "cat": "院校",
-      "source": "山东体育学院",
-      "section": "学校主页",
-      "title": "山体附中校友李海洋斩获亚运会柔道团体铜牌",
-      "date": "2026-10-10",
-      "link": "https://www.sdpei.edu.cn/2026/1010/c367a48958/page.htm"
+      "source": "北京体育大学",
+      "section": "通知公告",
+      "title": "北京体育大学后勤管理处扫路车采购项目​询价公告",
+      "date": "2026-10-09",
+      "link": "https://www.bsu.edu.cn/tzgg/ea12d312ceba4fa487ab993f481b2fcd.htm"
     },
     {
       "cat": "院校",
@@ -250,6 +298,14 @@
       "title": "▸ 广州体育学院西门落成揭牌仪式举行",
       "date": "2026-10-06",
       "link": "http://news.gzsport.edu.cn:80/info/17818"
+    },
+    {
+      "cat": "院校",
+      "source": "北京体育大学",
+      "section": "通知公告",
+      "title": "北京体育大学阿尔伯塔国际休闲体育与旅游学院2025年度办学报告",
+      "date": "2026-09-29",
+      "link": "https://www.bsu.edu.cn/tzgg/4b4c406ce9714a539fad50f39861a6bb.htm"
     },
     {
       "cat": "期刊",
@@ -314,6 +370,22 @@
       "title": "体育学刊2026年第4期目次",
       "date": "2026-07-13",
       "link": "https://tyxk.scnu.edu.cn/a/20260713/1044.html"
+    },
+    {
+      "cat": "院校",
+      "source": "北京体育大学",
+      "section": "通知公告",
+      "title": "北京体育大学国家训练基地2026年厨房设备采购项目询价公告",
+      "date": "2026-06-12",
+      "link": "https://www.bsu.edu.cn/tzgg/2524d2e0fead46539db0422ac93d3bc7.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "北京体育大学",
+      "section": "通知公告",
+      "title": "北京体育大学国家训练基地2026年体外除颤仪（AED）采购项目询价公告",
+      "date": "2026-06-10",
+      "link": "https://www.bsu.edu.cn/tzgg/6aedcf96547d4c78b1848d66d9d55c99.htm"
     },
     {
       "cat": "期刊",
@@ -546,6 +618,22 @@
       "title": "体育学刊编辑部 恭祝您中秋快乐",
       "date": "",
       "link": "https://tyxk.scnu.edu.cn/a/20260924/1046.html"
+    },
+    {
+      "cat": "院校",
+      "source": "北京体育大学",
+      "section": "校园要闻",
+      "title": "武韵流芳 金砖和鸣｜北体学子亮相金砖国家传统体育展示运动会",
+      "date": "",
+      "link": "https://www.bsu.edu.cn/xyyw/c4df104f21584b79a1b10412d4158f9c.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "北京体育大学",
+      "section": "校园要闻",
+      "title": "昆士兰大学代表团一行来访我校",
+      "date": "",
+      "link": "https://www.bsu.edu.cn/xyyw/ad67860e97f54f30ac7e7f5b5fca180c.htm"
     },
     {
       "cat": "院校",
