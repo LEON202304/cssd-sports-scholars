@@ -738,7 +738,7 @@ window._ucTp='all';
 
   function cssdAttr(v){return String(v||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');}
   /* hon：短词做标签；带 ，。；或超过 20 字的散文片段归入简介段落（不改数据） */
-  function sdHonProse(h){h=String(h||'');return /[，。；,;]/.test(h)||h.length>20;}
+  function sdHonProse(h){return window.honIsProse(h);} /* 共享实现见 sports-scholars-data */
   function sdAttr(t){return String(t).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');}
   function sdTags(s){
     return '<span class="tag '+(DC[s.disc]||'')+'">'+s.dL+'</span>'+
