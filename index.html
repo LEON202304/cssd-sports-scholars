@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="cssd-light" data-build="v4.6-108">
+<html lang="zh-CN" class="cssd-light" data-build="v4.6-109">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
@@ -17746,6 +17746,10 @@ html.cssd-light body header.sp-header .sp-msearch kbd.sp-kbd{display:inline-bloc
 /* 721–780px 连搜索图标都放不下（会压住「科研项目」），这一段只隐藏图标；命令面板仍可按 / 打开 */
 @media (min-width:721px) and (max-width:780px){html.cssd-light body header.sp-header .sp-tools > .sp-msearch{display:none !important;}}
 html[data-en-off] body .sp-en,html[data-en-off] body .sp-more-en,html[data-en-off] body .sp-mnav-en{display:none !important;}
+/* AUTH 开关见下方脚本 AUTH_ENABLED；关闭时隐藏桌面登录/注册与手机抽屉底部登录。
+   用户说「先藏」：账号系统还没做，点了只开认领弹窗。实现后把 AUTH_ENABLED 改成 true 即可恢复。 */
+html[data-auth-off] body .sp-login,html[data-auth-off] body .sp-register,html[data-auth-off] body .sp-mnav-login{display:none !important;}
+html.cssd-light body .sp-mnav-foot:empty{display:none !important;}
 /* 跳转链接未聚焦时原来露出约 2px 绿条（logo 上方），彻底移出视口 */
 html body a.sp-skip:not(:focus):not(:focus-visible){transform:translateY(calc(-100% - 12px)) !important;}
 html.cssd-light body details.sp-more .sp-more-disc,html.cssd-light body details.sp-more .sp-more-en{display:none !important;}
@@ -17805,11 +17809,13 @@ html.cssd-light body details.sp-more .sp-more-disc,html.cssd-light body details.
 </style>
 <script id="cssd-v46-106-nav-mobile-js">
 (function(){
-  var VERSION='v4.6-108';
+  var VERSION='v4.6-109';
   /* EN 开关：.sp-en 目前没有任何处理函数，先整体隐藏（桌面 EN、全部导航与手机抽屉里的「EN / 中英切换」）。
      中英切换实现后把这里改成 true 即可恢复全部入口。 */
   var EN_ENABLED=false;
   if(!EN_ENABLED)document.documentElement.setAttribute('data-en-off','');
+  var AUTH_ENABLED=false; /* 登录/注册入口开关；false=隐藏，true=显示 */
+  if(!AUTH_ENABLED)document.documentElement.setAttribute('data-auth-off','');
   var COMMON=['scholars','journals','academicnews','disciplines']; /* 常用：学者 / 论文·期刊库 / 学术动态 / 学科分类 */
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   function item(n){return '<button type="button" class="sp-mnav-item" data-route="'+esc(n[0])+'">'+esc(n[1])+'</button>';}
@@ -17864,7 +17870,7 @@ html.cssd-light body details.sp-more .sp-more-disc,html.cssd-light body details.
       '<div class="sp-mnav-panel" role="dialog" aria-modal="true" aria-labelledby="spMobileNavTitle">'+
       '<div class="sp-mnav-top"><strong id="spMobileNavTitle">全部导航</strong><button type="button" class="sp-mnav-close" aria-label="关闭导航">×</button></div>'+
       '<nav class="sp-mnav-list" aria-label="移动端导航">'+grp('常用',common,true)+grp('更多栏目',rest,false)+groups.map(function(g){return grp(g.label,g.items,false);}).join('')+'</nav>'+
-      '<div class="sp-mnav-foot">'+(en&&EN_ENABLED?'<button type="button" class="sp-mnav-en">EN / 中英切换</button>':'')+'<button type="button" class="sp-mnav-login">登录</button></div>'+
+      '<div class="sp-mnav-foot">'+(en&&EN_ENABLED?'<button type="button" class="sp-mnav-en">EN / 中英切换</button>':'')+(AUTH_ENABLED?'<button type="button" class="sp-mnav-login">登录</button>':'')+'</div>'+
       '</div>';
     document.body.appendChild(nav);
     var panel=nav.querySelector('.sp-mnav-panel'),closeBtn=nav.querySelector('.sp-mnav-close'),pending=null,marker=false;
