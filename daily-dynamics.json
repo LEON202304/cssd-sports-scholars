@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-17",
+  "generatedAt": "2026-10-18",
   "source": "C刊官网 + 体育院校官网（GitHub Actions 每日）",
   "statusHint": "live",
   "items": [
@@ -10,6 +10,22 @@
       "title": "首都体育学院2026年度驻京部队随军家属招聘拟录用人员公示",
       "date": "2026-10-18",
       "link": "https://www.cupes.edu.cn/docs/2026-10/f87d511f2ed142da80aab2451ff045a8.pdf"
+    },
+    {
+      "cat": "院校",
+      "source": "沈阳体育学院",
+      "section": "学校新闻",
+      "title": "2026年全国跆拳道青年锦标赛我校运动员获2金1铜 10月10日至16日，2026年全国跆拳道青年锦标赛在广东惠州顺利落幕，我校共有6名运动员参赛，斩获2金1铜、2个第五名。其中，余炎杰获得男子6...",
+      "date": "2026-10-17",
+      "link": "https://www.syty.edu.cn/info/1065/17643.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "沈阳体育学院",
+      "section": "学校主页",
+      "title": "2026年全国跆拳道青年锦标赛我校运动员获2金1铜",
+      "date": "2026-10-17",
+      "link": "https://www.syty.edu.cn/info/1065/17643.htm"
     },
     {
       "cat": "院校",
@@ -157,22 +173,6 @@
     },
     {
       "cat": "院校",
-      "source": "沈阳体育学院",
-      "section": "学校主页",
-      "title": "学校举办本科专业优秀运动员培养工作专题交流会",
-      "date": "2026-10-15",
-      "link": "https://www.syty.edu.cn/info/1063/17613.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "沈阳体育学院",
-      "section": "学校主页",
-      "title": "运动训练学院开展“AI赋能体育学术研究”专题讲座",
-      "date": "2026-10-15",
-      "link": "https://www.syty.edu.cn/info/1036/17583.htm"
-    },
-    {
-      "cat": "院校",
       "source": "南京体育学院",
       "section": "通知公告",
       "title": "计算机采购项目流标公告",
@@ -183,9 +183,9 @@
       "cat": "院校",
       "source": "沈阳体育学院",
       "section": "学校主页",
-      "title": "体育教育学院举行2026级研究生和本科生师生见面会",
+      "title": "学校举办本科专业优秀运动员培养工作专题交流会",
       "date": "2026-10-15",
-      "link": "https://www.syty.edu.cn/info/1036/17573.htm"
+      "link": "https://www.syty.edu.cn/info/1063/17613.htm"
     },
     {
       "cat": "院校",
