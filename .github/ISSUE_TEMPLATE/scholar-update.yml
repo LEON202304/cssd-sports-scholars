@@ -1,0 +1,41 @@
+name: 📝 学者信息勘误 / 成果认领
+description: 提交体育学者的最新调动、人才称号、国家社科项目或个人主页更新
+title: "【信息更新】学者姓名 - 单位名称"
+labels: ["data-update"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢您协助完善中国体育学者数据库 (CSSD)！请核对并填写以下信息，核实后将自动更新至主站。
+  - type: input
+    id: scholar_name
+    attributes:
+      label: 学者姓名
+      placeholder: 如：刘宇
+    validations:
+      required: true
+  - type: input
+    id: current_institution
+    attributes:
+      label: 当前所在院校与院系
+      placeholder: 如：上海体育大学 运动健康学院
+    validations:
+      required: true
+  - type: dropdown
+    id: update_type
+    attributes:
+      label: 变更类型
+      options:
+        - 个人调动 / 职务职称变动
+        - 新增国家级科研课题 (国家社科/自科)
+        - 补充人才荣誉称号 (长江学者/杰青等)
+        - 修正个人主页链接 / 头像
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: 详细更新内容与佐证链接
+      placeholder: 请附上高校官网报道或官方教师主页链接以供核对
+    validations:
+      required: true
