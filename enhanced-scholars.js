@@ -1,6 +1,6 @@
 /**
- * CSSD 体育学人 - 核心体验与学术增强补丁
- * 包含：加权拼音检索 + 分片平滑渲染 + 弹窗引文复制按钮 + 勘误认领通道
+ * CSSD 体育学人 - 核心体验与学术工具增强补丁 v4.0
+ * 包含：拼音加权检索 + 分片平滑渲染 + 弹窗引文复制 + 勘误通道 + 一键导出CSV + 键盘快捷键 + 学者横向对比
  */
 (function () {
   'use strict';
@@ -39,7 +39,7 @@
       }
     }
 
-    search(query, maxResults = 120) {
+    search(query, maxResults = 150) {
       if (!query || !query.trim()) return this.raw.slice(0, maxResults);
       const q = query.trim().toLowerCase();
       const results = [];
@@ -97,7 +97,7 @@
     renderNextChunk();
   }
 
-  // 3. 学术引文工具与 Toast
+  // 3. 学术引文工具与轻量 Toast
   function showToast(msg) {
     let t = document.getElementById('cssd-toast');
     if (!t) {
@@ -143,7 +143,202 @@
     }
   };
 
-  // 4. 详情弹窗动态注入样式与按钮
+  // 4. 数据导出器：当前结果一键导出为 CSV (UTF-8 BOM)
+  let currentFilteredScholars = [];
+
+  function exportScholarsToCSV(list) {
+    if (!list || list.length === 0) {
+      showToast('当前无匹配学者可导出');
+      return;
+    }
+
+    const headers = ['学者姓名', '拼音/英文', '所在单位', '所属院系', '职称', '学科门类', '二级学科', '人才荣誉', '研究方向', '社科基金立项数'];
+    const rows = list.map(s => [
+      `"${(s.n || '').replace(/"/g, '""')}"`,
+      `"${(s.e || '').replace(/"/g, '""')}"`,
+      `"${(s.institution || s.s || '').replace(/"/g, '""')}"`,
+      `"${(s.dept || '').replace(/"/g, '""')}"`,
+      `"${(s.title || '').replace(/"/g, '""')}"`,
+      `"${(s.dL || '').replace(/"/g, '""')}"`,
+      `"${(s.disc || '').replace(/"/g, '""')}"`,
+      `"${(Array.isArray(s.hats) ? s.hats.join(';') : '').replace(/"/g, '""')}"`,
+      `"${(s.r || '').replace(/"/g, '""')}"`,
+      s.projectCount || (Array.isArray(s.fundedProjects) ? s.fundedProjects.length : 0)
+    ]);
+
+    const csvContent = '\uFEFF' + headers.join(',') + '\n' + rows.map(r => r.join(',')).join('\n');
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    
+    const now = new Date();
+    const dateStr = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}`;
+    link.href = url;
+    link.setAttribute('download', `CSSD_体育学者检索结果_${dateStr}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+
+    showToast(`成功导出 ${list.length} 位学者名单`);
+  }
+
+  // 5. 学者横向学术画像对比功能 (最多 3 位学者对标)
+  let compareList = [];
+
+  function toggleCompare(scholar) {
+    const idx = compareList.findIndex(x => x.id === scholar.id || x.n === scholar.n);
+    if (idx >= 0) {
+      compareList.splice(idx, 1);
+      showToast(`已移除 ${scholar.n}`);
+    } else {
+      if (compareList.length >= 3) {
+        showToast('对比池最多支持 3 位学者');
+        return;
+      }
+      compareList.push(scholar);
+      showToast(`已加入对比：${scholar.n}`);
+    }
+    renderCompareDock();
+  }
+
+  function renderCompareDock() {
+    let dock = document.getElementById('cssd-compare-dock');
+    if (!dock) {
+      dock = document.createElement('div');
+      dock.id = 'cssd-compare-dock';
+      document.body.appendChild(dock);
+    }
+
+    if (compareList.length === 0) {
+      dock.style.display = 'none';
+      return;
+    }
+
+    dock.style.display = 'flex';
+    dock.innerHTML = `
+      <div class="cssd-dock-title">
+        <span>⚖️ 学术对比池 (${compareList.length}/3)</span>
+      </div>
+      <div class="cssd-dock-names">
+        ${compareList.map(s => `<span class="cssd-dock-tag">${s.n} <b data-id="${s.id}">×</b></span>`).join('')}
+      </div>
+      <div class="cssd-dock-actions">
+        <button type="button" class="cssd-dock-btn" id="cssd-start-compare">查看对比</button>
+        <button type="button" class="cssd-dock-clear" id="cssd-clear-compare">清空</button>
+      </div>
+    `;
+
+    dock.querySelectorAll('.cssd-dock-tag b').forEach(el => {
+      el.onclick = () => {
+        const sid = el.getAttribute('data-id');
+        compareList = compareList.filter(s => String(s.id) !== String(sid));
+        renderCompareDock();
+      };
+    });
+
+    const startBtn = document.getElementById('cssd-start-compare');
+    if (startBtn) startBtn.onclick = showCompareModal;
+
+    const clearBtn = document.getElementById('cssd-clear-compare');
+    if (clearBtn) clearBtn.onclick = () => { compareList = []; renderCompareDock(); };
+  }
+
+  function showCompareModal() {
+    let m = document.getElementById('cssd-compare-modal');
+    if (!m) {
+      m = document.createElement('div');
+      m.id = 'cssd-compare-modal';
+      document.body.appendChild(m);
+    }
+    m.className = 'active';
+
+    m.innerHTML = `
+      <div class="cssd-c-content">
+        <div class="cssd-c-hd">
+          <h3>学者综合学术画像横向对标 (${compareList.length}人)</h3>
+          <button type="button" class="cssd-c-close" id="cssd-close-compare">✕</button>
+        </div>
+        <div class="cssd-c-body">
+          <table class="cssd-c-table">
+            <thead>
+              <tr>
+                <th style="width:120px">维度 / 学者</th>
+                ${compareList.map(s => `<th><div class="c-th-name">${s.n}</div><div class="c-th-sub">${s.institution}</div></th>`).join('')}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>职称 / 院系</td>
+                ${compareList.map(s => `<td>${s.title \vert{}\vert{} '教师'} · ${s.dept || '体育院系'}</td>`).join('')}
+              </tr>
+              <tr>
+                <td>学科门类</td>
+                ${compareList.map(s => `<td>${s.dL \vert{}\vert{} '体育学'} (${s.disc || ''})</td>`).join('')}
+              </tr>
+              <tr>
+                <td>人才荣誉</td>
+                ${compareList.map(s => `<td>${(s.hats && s.hats.length) ? s.hats.map(h => `<span class="c-badge">${h}</span>`).join(' ') : '—'}</td>`).join('')}
+              </tr>
+              <tr>
+                <td>核心研究方向</td>
+                ${compareList.map(s => `<td>${s.r || '暂未公开'}</td>`).join('')}
+              </tr>
+              <tr>
+                <td>社科基金总数</td>
+                ${compareList.map(s => `<td><strong style="color:#2563eb;font-size:16px">${s.projectCount || (s.fundedProjects ? s.fundedProjects.length : 0)}</strong> 项</td>`).join('')}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    `;
+
+    document.getElementById('cssd-close-compare').onclick = () => {
+      m.className = '';
+    };
+  }
+
+  // 6. 极客键盘快捷键 ("/" 搜索，"Esc" 关闭/清空)
+  function initKeyboardShortcuts() {
+    window.addEventListener('keydown', (e) => {
+      if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+        const qEl = document.getElementById('sp-scholars-q');
+        if (qEl) {
+          e.preventDefault();
+          qEl.focus();
+          qEl.select();
+        }
+      }
+
+      if (e.key === 'Escape') {
+        const cModal = document.getElementById('cssd-compare-modal');
+        if (cModal && cModal.classList.contains('active')) {
+          cModal.classList.remove('active');
+          return;
+        }
+
+        const ov = document.getElementById('ov');
+        if (ov && ov.classList.contains('on')) {
+          const closeBtn = document.getElementById('mc') || ov.querySelector('.close, .btn-close');
+          if (closeBtn) closeBtn.click();
+          else ov.classList.remove('on');
+          return;
+        }
+
+        const qEl = document.getElementById('sp-scholars-q');
+        if (qEl && qEl.value) {
+          qEl.value = '';
+          if (typeof window.spFilterScholarsLive === 'function') {
+            window.spFilterScholarsLive();
+          }
+          qEl.blur();
+        }
+      }
+    });
+  }
+
+  // 7. 样式注入与弹窗增强
   function injectStyles() {
     if (document.getElementById('cssd-enhanced-styles')) return;
     const style = document.createElement('style');
@@ -155,6 +350,109 @@
       .cssd-feedback-bar { display: flex; align-items: center; justify-content: space-between; background: #eff6ff; border: 1px dashed #93c5fd; border-radius: 6px; padding: 8px 12px; margin-top: 14px; font-size: 12px; color: #1e40af; }
       .cssd-feedback-btn { background: #2563eb; color: #fff !important; padding: 3px 10px; border-radius: 4px; font-weight: 500; text-decoration: none; font-size: 12px; display: inline-block; }
       .cssd-feedback-btn:hover { background: #1d4ed8; }
+      .cssd-export-btn {
+        background: #f8fafc;
+        border: 1px solid #cbd5e1;
+        color: #0f172a;
+        padding: 3px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        margin-left: 8px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+      }
+      .cssd-export-btn:hover {
+        background: #2563eb;
+        color: #ffffff;
+        border-color: #2563eb;
+        box-shadow: 0 2px 6px rgba(37,99,235,0.25);
+      }
+      #cssd-compare-dock {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        background: #0f172a;
+        color: #fff;
+        padding: 10px 16px;
+        border-radius: 30px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+        display: none;
+        align-items: center;
+        gap: 12px;
+        z-index: 9999;
+        font-size: 13px;
+      }
+      .cssd-dock-tag {
+        background: #334155;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 12px;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .cssd-dock-tag b { cursor: pointer; color: #94a3b8; }
+      .cssd-dock-tag b:hover { color: #f87171; }
+      .cssd-dock-btn {
+        background: #2563eb;
+        color: #fff;
+        border: none;
+        padding: 4px 12px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: bold;
+      }
+      .cssd-dock-clear {
+        background: transparent;
+        color: #94a3b8;
+        border: none;
+        cursor: pointer;
+        font-size: 12px;
+      }
+      #cssd-compare-modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(15,23,42,0.6);
+        backdrop-filter: blur(4px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 100000;
+        padding: 20px;
+      }
+      #cssd-compare-modal.active { display: flex; }
+      .cssd-c-content {
+        background: #fff;
+        width: 100%;
+        max-width: 900px;
+        max-height: 85vh;
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      }
+      .cssd-c-hd {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 20px;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .cssd-c-hd h3 { margin: 0; font-size: 17px; color: #0f172a; }
+      .cssd-c-close { background: none; border: none; font-size: 20px; cursor: pointer; color: #64748b; }
+      .cssd-c-body { padding: 20px; overflow-y: auto; }
+      .cssd-c-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+      .cssd-c-table th, .cssd-c-table td { padding: 12px; border: 1px solid #e2e8f0; text-align: left; vertical-align: top; }
+      .cssd-c-table th { background: #f8fafc; font-weight: bold; }
+      .c-th-name { font-size: 16px; color: #0f172a; }
+      .c-th-sub { font-size: 12px; color: #64748b; font-weight: normal; margin-top: 2px; }
+      .c-badge { background: #e0f2fe; color: #0369a1; padding: 2px 6px; border-radius: 4px; font-size: 11px; }
     `;
     document.head.appendChild(style);
   }
@@ -172,6 +470,18 @@
       scholarName = nameEl ? nameEl.textContent.trim().split(/\s+/)[0] : '';
       const instEl = mtp.querySelector('.m-inst, .inst, p');
       scholarInst = instEl ? instEl.textContent.trim() : '';
+    }
+
+    const matchedScholar = (window.S || []).find(x => x.n === scholarName && (x.institution === scholarInst || !scholarInst));
+
+    if (mtp && matchedScholar && !mtp.querySelector('.cssd-compare-btn')) {
+      const cmpBtn = document.createElement('button');
+      cmpBtn.type = 'button';
+      cmpBtn.className = 'cssd-cite-btn cssd-compare-btn';
+      cmpBtn.style.cssText = 'margin-left:8px;padding:3px 10px;font-size:12px;background:#3b82f6;color:#fff;border-color:#2563eb;';
+      cmpBtn.textContent = '⚖️ 加入学术对比';
+      cmpBtn.onclick = () => toggleCompare(matchedScholar);
+      mtp.appendChild(cmpBtn);
     }
 
     const projectItems = mb.querySelectorAll('.pj, .proj, .project, li, .p-item');
@@ -227,9 +537,11 @@
 
   const modalObserver = new MutationObserver(() => enhanceModal());
 
-  // 5. 初始化与搜索挂载
+  // 8. 初始化与挂载
   function init() {
     injectStyles();
+    initKeyboardShortcuts();
+
     const ov = document.getElementById('ov');
     if (ov) {
       modalObserver.observe(ov, { attributes: true, attributeFilter: ['class'], childList: true, subtree: true });
@@ -242,6 +554,7 @@
 
     const searchEngineInstance = new ScholarSearchIndex(window.S);
     window.scholarSearchIndex = searchEngineInstance;
+    currentFilteredScholars = window.S;
 
     const originFilter = window.spFilterScholarsLive;
     window.spFilterScholarsLive = function () {
@@ -256,11 +569,22 @@
       }
 
       const text = qEl.value.trim();
-      const matched = searchEngineInstance.search(text);
+      const matched = searchEngineInstance.search(text, text ? 200 : 120);
+      currentFilteredScholars = text ? matched : window.S;
 
       if (rinfo) {
-        rinfo.textContent = text ? `找到 ${matched.length} 位学者` : `全部学者 (${window.S.length})`;
+        rinfo.innerHTML = `
+          <span>${text ? `找到 ${matched.length} 位学者` : `全部学者 (${window.S.length})`}</span>
+          <button type="button" class="cssd-export-btn" id="cssd-export-trigger">
+            📥 导出名单 (CSV)
+          </button>
+        `;
+        const btn = document.getElementById('cssd-export-trigger');
+        if (btn) {
+          btn.onclick = () => exportScholarsToCSV(currentFilteredScholars);
+        }
       }
+
       if (scempty) {
         scempty.style.display = matched.length === 0 ? 'block' : 'none';
       }
@@ -286,6 +610,17 @@
         return div;
       });
     };
+
+    const rinfo = document.getElementById('rinfo');
+    if (rinfo && !document.getElementById('cssd-export-trigger')) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'cssd-export-btn';
+      btn.id = 'cssd-export-trigger';
+      btn.textContent = '📥 导出名单 (CSV)';
+      btn.onclick = () => exportScholarsToCSV(window.S);
+      rinfo.appendChild(btn);
+    }
   }
 
   if (document.readyState === 'loading') {
