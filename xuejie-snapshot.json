@@ -1,8 +1,22 @@
 {
-  "generatedAt": "2026-10-18",
+  "generatedAt": "2026-10-19",
   "source": "cssd-xuejie-scraper",
   "statusHint": "live",
   "items": [
+    {
+      "type": "meet",
+      "title": "关于第十五届全国体育科学大会承办单位 遴选拟中选结果的公示",
+      "org": "中国体育科学学会",
+      "date": "2026-10-19",
+      "link": "https://www.csss.cn/a2400.html"
+    },
+    {
+      "type": "event",
+      "title": "我校学子董子齐亮相长春大冬会新闻发布会，向世界发出青春邀约",
+      "org": "北京体育大学",
+      "date": "2026-10-19",
+      "link": "https://www.bsu.edu.cn/xyyw/b8be3b70cace4bd683f1d8688acef8e6.htm"
+    },
     {
       "type": "meet",
       "title": "马克思主义学院召开 “优秀运动队思想政治工作研究” 专题研讨会",
@@ -116,13 +130,6 @@
       "link": "https://www.csss.cn/a2334.html"
     },
     {
-      "type": "meet",
-      "title": "中国体育科学学会关于第十届全国青年体育科学学术会议的征文通知",
-      "org": "中国体育科学学会",
-      "date": "2026-06-02",
-      "link": "https://www.csss.cn/a2333.html"
-    },
-    {
       "type": "event",
       "title": "活动预告 | 伊琳娜·博科娃（Irina Bokova）教授学术讲座（奥林匹克讲堂：2026年第5期）",
       "org": "首都体育学院",
@@ -163,13 +170,6 @@
       "org": "北京体育大学",
       "date": "2025-09-24",
       "link": "https://www.bsu.edu.cn/xshd/b7546ed3a8c54bdf93b938889b4f7c16.htm"
-    },
-    {
-      "type": "event",
-      "title": "第四届体育经济与管理论坛议程",
-      "org": "北京体育大学",
-      "date": "2025-04-23",
-      "link": "https://www.bsu.edu.cn/xshd/23651a5bb9fe458caa900e5bef16ea74.htm"
     },
     {
       "type": "honor",

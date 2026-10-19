@@ -1,8 +1,32 @@
 {
-  "generatedAt": "2026-10-18",
+  "generatedAt": "2026-10-19",
   "source": "C刊官网 + 体育院校官网（GitHub Actions 每日）",
   "statusHint": "live",
   "items": [
+    {
+      "cat": "院校",
+      "source": "南京体育学院",
+      "section": "学校主页",
+      "title": "运动训练学院举行2026级新生见面会",
+      "date": "2026-10-19",
+      "link": "https://www.nsi.edu.cn/6c/1b/c2342a93211/page.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "南京体育学院",
+      "section": "学校主页",
+      "title": "运动训练学院开展防范电信网络诈骗专题讲座",
+      "date": "2026-10-19",
+      "link": "https://www.nsi.edu.cn/6c/1c/c2342a93212/page.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "南京体育学院",
+      "section": "学校主页",
+      "title": "平凡善举 温暖校园——运康学子赵宜航暖心救助摔倒老人",
+      "date": "2026-10-19",
+      "link": "https://www.nsi.edu.cn/6c/1a/c2347a93210/page.htm"
+    },
     {
       "cat": "院校",
       "source": "首都体育学院",
@@ -34,14 +58,6 @@
       "title": "2026年伊犁州校园足球骨干教师培训班在我校开班",
       "date": "2026-10-16",
       "link": "https://www.nsi.edu.cn/6c/04/c2347a93188/page.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "南京体育学院",
-      "section": "学校主页",
-      "title": "我校党外青年教师参加全省本科院校党外骨干教师专题培训班",
-      "date": "2026-10-16",
-      "link": "https://www.nsi.edu.cn/6c/0b/c2347a93195/page.htm"
     },
     {
       "cat": "院校",
@@ -125,19 +141,19 @@
     },
     {
       "cat": "院校",
+      "source": "南京体育学院",
+      "section": "学校主页",
+      "title": "我校党外青年教师参加全省本科院校党外骨干教师专题培训班",
+      "date": "2026-10-16",
+      "link": "https://www.nsi.edu.cn/6c/0b/c2347a93195/page.htm"
+    },
+    {
+      "cat": "院校",
       "source": "西安体育学院",
       "section": "学校主页",
       "title": "关于开展西安体育学院第四批本科课程思政示范项目建设工作的通知",
       "date": "2026-10-16",
       "link": "https://www.xaipe.edu.cn/info/1006/134954.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "南京体育学院",
-      "section": "通知公告",
-      "title": "存储设备采购项目流标公告",
-      "date": "2026-10-15",
-      "link": "https://www.nsi.edu.cn/6b/f8/c2349a93176/page.htm"
     },
     {
       "cat": "院校",
@@ -170,14 +186,6 @@
       "title": "学校举办本科专业优秀运动员培养工作专题交流会 10月14日，学校在图书馆513室举办本科专业优秀运动员培养工作专题交流会。党委常委、副院长崔鲁祥出席会议并讲话。教务处（教师教学发展中...",
       "date": "2026-10-15",
       "link": "https://www.syty.edu.cn/info/1063/17613.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "南京体育学院",
-      "section": "通知公告",
-      "title": "计算机采购项目流标公告",
-      "date": "2026-10-15",
-      "link": "https://www.nsi.edu.cn/6b/f3/c2349a93171/page.htm"
     },
     {
       "cat": "院校",
@@ -623,17 +631,17 @@
       "cat": "院校",
       "source": "北京体育大学",
       "section": "校园要闻",
-      "title": "武韵流芳 金砖和鸣｜北体学子亮相金砖国家传统体育展示运动会",
+      "title": "我校学子董子齐亮相长春大冬会新闻发布会，向世界发出青春邀约",
       "date": "",
-      "link": "https://www.bsu.edu.cn/xyyw/c4df104f21584b79a1b10412d4158f9c.htm"
+      "link": "https://www.bsu.edu.cn/xyyw/b8be3b70cace4bd683f1d8688acef8e6.htm"
     },
     {
       "cat": "院校",
       "source": "北京体育大学",
       "section": "校园要闻",
-      "title": "昆士兰大学代表团一行来访我校",
+      "title": "武韵流芳 金砖和鸣｜北体学子亮相金砖国家传统体育展示运动会",
       "date": "",
-      "link": "https://www.bsu.edu.cn/xyyw/ad67860e97f54f30ac7e7f5b5fca180c.htm"
+      "link": "https://www.bsu.edu.cn/xyyw/c4df104f21584b79a1b10412d4158f9c.htm"
     },
     {
       "cat": "院校",
