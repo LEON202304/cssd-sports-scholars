@@ -1,0 +1,16 @@
+{
+  "name": "体育学人 - 中国体育学者综合数据库",
+  "short_name": "体育学人",
+  "description": "收录全国5,800+位体育学学者、560所高校及科研机构、国家社科基金项目与前沿学术动态。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
