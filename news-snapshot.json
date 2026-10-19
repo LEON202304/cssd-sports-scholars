@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19",
+  "generatedAt": "2026-10-20",
   "source": "期刊官网 TOC + Crossref 自动抓取（GitHub Actions 每日）：体育科学、上海体育大学学报、中国体育科技、北京体育大学学报、沈阳体育学院学报、体育学研究、体育学刊、天津体育学院学报、体育与科学、西安体育学院学报、British Journal of Sports Medicine、Sports Medicine、Journal of Sport and Health Science、Medicine & Science in Sports & Exercise、Journal of Sports Sciences、Scandinavian Journal of Medicine & Science in Sports",
   "statusHint": "live",
   "items": [
@@ -31,6 +31,24 @@
       "titleZh": "自我报告和器械测量的体力活动与流行性疾病患者主要不良心血管事件的剂量反应关联"
     },
     {
+      "journal": "Journal of Sports Sciences",
+      "title": "Journal of Sports Sciences data sharing policy update 2026",
+      "authors": "Grant Abt, Colin Boreham, Gareth Davison, Robin Jackson, Simon Jobson, Daniel Memmert, Eric Wallace, Mark Williams",
+      "link": "https://doi.org/10.1080/02640414.2026.2750698",
+      "date": "2026-10-19",
+      "journalZh": "《体育科学杂志》",
+      "titleZh": "《体育科学杂志》数据共享政策更新2026"
+    },
+    {
+      "journal": "Journal of Sports Sciences",
+      "title": "Relationship between rectus femoris stiffness, muscle activity, and force production during graded isometric contractions measured by handheld myotonometry",
+      "authors": "Serkan Taş, Dilek Hande Esen, Veysel Alcan, Yusuf Muratoğlu",
+      "link": "https://doi.org/10.1080/02640414.2026.2750627",
+      "date": "2026-10-19",
+      "journalZh": "《体育科学杂志》",
+      "titleZh": "通过手持肌力计测量分级等距收缩期间股直肌僵硬度、肌肉活动和力产生之间的关系"
+    },
+    {
       "journal": "Sports Medicine",
       "title": "Reconceptualising Mental Fatigue via Perceptual Control: From Concept Label to Constitutive Definition",
       "authors": "Daniel F. Gucciardi, Hugh Riddell, Stephen J. Tidman, Kagan J. Ducker, Warren Mansell",
@@ -47,15 +65,6 @@
       "date": "2026-10-18",
       "journalZh": "《体育科学杂志》",
       "titleZh": "运动员身份和社会支持网络对运动损伤恢复期间康复依从性的综合影响：利用实时经验抽样方法的纵向调查"
-    },
-    {
-      "journal": "Journal of Sports Sciences",
-      "title": "Bilateral erector spinae and biceps femoris co-activation following unilateral hamstring injury in young sprinters",
-      "authors": "Eleftherios Kellis, Vasilios Baltzopoulos",
-      "link": "https://doi.org/10.1080/02640414.2026.2750589",
-      "date": "2026-10-18",
-      "journalZh": "《体育科学杂志》",
-      "titleZh": "幼年短跑运动员单侧腿筋损伤后双侧竖脊肌和股二头肌共同激活"
     },
     {
       "journal": "Medicine & Science in Sports & Exercise",
@@ -83,15 +92,6 @@
       "date": "2026-10-16",
       "journalZh": "《运动医学与科学》",
       "titleZh": "脊髓损伤的残奥会运动员的呼吸系统抵抗和支气管扩张剂反应性"
-    },
-    {
-      "journal": "Journal of Sports Sciences",
-      "title": "Talent development in Chinese football: A comparative analysis of developmental activities between international and professional players",
-      "authors": "Sihang Wang, Qiaozhu Chen, Haochang Cai, Pei Li, Hongyou Liu",
-      "link": "https://doi.org/10.1080/02640414.2026.2750646",
-      "date": "2026-10-16",
-      "journalZh": "《体育科学杂志》",
-      "titleZh": "中国足球的人才发展：国际球员和职业球员发展活动的比较分析"
     },
     {
       "journal": "British Journal of Sports Medicine",

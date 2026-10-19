@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19",
+  "generatedAt": "2026-10-20",
   "source": "cssd-xuejie-scraper",
   "statusHint": "live",
   "items": [
@@ -9,6 +9,27 @@
       "org": "中国体育科学学会",
       "date": "2026-10-19",
       "link": "https://www.csss.cn/a2400.html"
+    },
+    {
+      "type": "event",
+      "title": "活动预告 | 2026国际奥林匹克教育发展论坛",
+      "org": "首都体育学院",
+      "date": "2026-10-19",
+      "link": "https://www.cupes.edu.cn/kxyj/xshd/0f693eefd2c446be94759af63e064125.htm"
+    },
+    {
+      "type": "meet",
+      "title": "七秩首体︱首都体育学院举办学科建设与研究生教育研讨会",
+      "org": "首都体育学院",
+      "date": "2026-10-19",
+      "link": "https://news.cupes.edu.cn/jjxy/0c7cf8e67e2543dda05075351ac20006.htm"
+    },
+    {
+      "type": "event",
+      "title": "七秩首体｜科技赋能体能训练 智慧引领创新发展——首都体育学院智慧体能创新发展论坛...",
+      "org": "首都体育学院",
+      "date": "2026-10-19",
+      "link": "https://news.cupes.edu.cn/zhxw/63d78a033d4944a3afd6bac4b3459585.htm"
     },
     {
       "type": "event",
@@ -116,32 +137,11 @@
       "link": "https://www.cupes.edu.cn/kxyj/xshd/c2311b3a2bbc41fdbf6480ba50bdc8cb.htm"
     },
     {
-      "type": "event",
-      "title": "首体科创大讲堂启动仪式暨第一期学术报告会",
-      "org": "首都体育学院",
-      "date": "2026-06-16",
-      "link": "https://www.cupes.edu.cn/kxyj/xshd/c241a37248c049a3af384e701d363ba5.htm"
-    },
-    {
       "type": "meet",
       "title": "第六届全民健身科学大会征文及典型案例征集通知",
       "org": "中国体育科学学会",
       "date": "2026-06-02",
       "link": "https://www.csss.cn/a2334.html"
-    },
-    {
-      "type": "event",
-      "title": "活动预告 | 伊琳娜·博科娃（Irina Bokova）教授学术讲座（奥林匹克讲堂：2026年第5期）",
-      "org": "首都体育学院",
-      "date": "2026-05-28",
-      "link": "https://www.cupes.edu.cn/kxyj/xshd/63d09d42abe74ea0bf14848bb8b6477a.htm"
-    },
-    {
-      "type": "event",
-      "title": "活动预告 | 学术讲座：法国蔚蓝海岸大学",
-      "org": "首都体育学院",
-      "date": "2026-05-12",
-      "link": "https://www.cupes.edu.cn/kxyj/xshd/c27ded39404d48d887921ed6e5661c84.htm"
     },
     {
       "type": "event",
