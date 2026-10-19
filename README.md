@@ -2,7 +2,7 @@
 
 **China Sports Scholars Database** · 面向体育学学科建设、师资分析、院校对标与人才评价的开放数据平台。
 
-- **主站（推荐，国内加速访问）**：<https://www.tiyuxueren.com>
+- **主站（推荐，国内加速访问）**：<https://tiyuxueren.com>
 - **镜像（GitHub Pages，作为备份）**：<https://leon202304.github.io/cssd-sports-scholars/>
 
 ---
