@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-20",
+  "generatedAt": "2026-10-21",
   "source": "cssd-xuejie-scraper",
   "statusHint": "live",
   "items": [
@@ -26,6 +26,13 @@
     },
     {
       "type": "event",
+      "title": "我校学子董子齐亮相长春大冬会新闻发布会，向世界发出青春邀约",
+      "org": "北京体育大学",
+      "date": "2026-10-19",
+      "link": "https://www.bsu.edu.cn/xyyw/b8be3b70cace4bd683f1d8688acef8e6.htm"
+    },
+    {
+      "type": "event",
       "title": "活动预告 | 2026国际奥林匹克教育发展论坛",
       "org": "首都体育学院",
       "date": "2026-10-19",
@@ -36,7 +43,7 @@
       "title": "七秩首体︱首都体育学院举办学科建设与研究生教育研讨会",
       "org": "首都体育学院",
       "date": "2026-10-19",
-      "link": "https://news.cupes.edu.cn/jjxy/0c7cf8e67e2543dda05075351ac20006.htm"
+      "link": "https://news.cupes.edu.cn/jjxy/da216a600e3e4f028dcd396c0d9b166f.htm"
     },
     {
       "type": "event",
@@ -44,13 +51,6 @@
       "org": "首都体育学院",
       "date": "2026-10-19",
       "link": "https://news.cupes.edu.cn/zhxw/63d78a033d4944a3afd6bac4b3459585.htm"
-    },
-    {
-      "type": "event",
-      "title": "我校学子董子齐亮相长春大冬会新闻发布会，向世界发出青春邀约",
-      "org": "北京体育大学",
-      "date": "2026-10-19",
-      "link": "https://www.bsu.edu.cn/xyyw/b8be3b70cace4bd683f1d8688acef8e6.htm"
     },
     {
       "type": "meet",

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-20",
+  "generatedAt": "2026-10-21",
   "source": "期刊官网 TOC + Crossref 自动抓取（GitHub Actions 每日）：体育科学、上海体育大学学报、中国体育科技、北京体育大学学报、沈阳体育学院学报、体育学研究、体育学刊、天津体育学院学报、体育与科学、西安体育学院学报、British Journal of Sports Medicine、Sports Medicine、Journal of Sport and Health Science、Medicine & Science in Sports & Exercise、Journal of Sports Sciences、Scandinavian Journal of Medicine & Science in Sports",
   "statusHint": "live",
   "items": [
@@ -29,6 +29,15 @@
       "date": "2026-12",
       "journalZh": "《运动与健康科学》",
       "titleZh": "自我报告和器械测量的体力活动与流行性疾病患者主要不良心血管事件的剂量反应关联"
+    },
+    {
+      "journal": "Medicine & Science in Sports & Exercise",
+      "title": "Surgical Profiles of Elite Female Athletes and Their Association with Long-Term Musculoskeletal Health: Findings from the Women's Soccer Health Study",
+      "authors": "Kai-lun Law, Polly de Mille, Heidi Prather, Heidi Skolnik, Theresa A. Chiaia, Cara L. Lewis, Ellen Casey, Jo A. Hannafin, Daphne I. Ling",
+      "link": "https://doi.org/10.1249/mss.0000000000004196",
+      "date": "2026-10-20",
+      "journalZh": "《运动医学与科学》",
+      "titleZh": "优秀女运动员的手术概况及其与长期肌肉骨骼健康的关系：来自女子足球健康研究的结果"
     },
     {
       "journal": "Medicine & Science in Sports & Exercise",
@@ -85,13 +94,25 @@
       "titleZh": "消费级可穿戴传感器指标与常见跑步受伤部位的内力相关"
     },
     {
-      "journal": "Medicine & Science in Sports & Exercise",
-      "title": "Acute Effects of Cooperative and Coordinative Exercise on Inhibitory Control and Classroom Behavior",
-      "authors": "Sebastian Ludyga, Markus Gerber, Fabian Herold, Melanie Berger",
-      "link": "https://doi.org/10.1249/mss.0000000000004194",
-      "date": "2026-10-16",
-      "journalZh": "《运动医学与科学》",
-      "titleZh": "合作与协调锻炼对抑制控制和课堂行为的急性影响"
+      "journal": "上海体育大学学报",
+      "title": "体育科学定量研究的理论框架：内涵、价值及构建",
+      "authors": "张连成, 朱良昊, 陶莹莹, 郭艺",
+      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2025.05.19.0002",
+      "date": "2026-10-15"
+    },
+    {
+      "journal": "上海体育大学学报",
+      "title": "我国社区公共体育服务治理机制的类型结构、运行困境与建设路向",
+      "authors": "马德浩, 徐胜昔",
+      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2025.12.18.0001",
+      "date": "2026-10-15"
+    },
+    {
+      "journal": "上海体育大学学报",
+      "title": "体育赛事能否促进体育产业创新？",
+      "authors": "李树旺, 王禹辰, 杨丽君, 刘圣文, 陈浩云",
+      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2026.03.11.0002",
+      "date": "2026-10-15"
     },
     {
       "journal": "British Journal of Sports Medicine",
@@ -226,27 +247,6 @@
       "title": "功能性阈值功率：构建耐力训练负荷监控的新范式",
       "authors": "杨中和, 苏玉莹, 石煜, 林俊磊, 彭凡, 阙怡琳, 黄佳儒, 李卫",
       "link": "http://tykx.xml-journal.net/article/doi/10.16469/J.css.2026KX074",
-      "date": "2026-09-15"
-    },
-    {
-      "journal": "上海体育大学学报",
-      "title": "研究范式转型与中国体育学自主知识体系构建",
-      "authors": "易剑东",
-      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2026.05.20.0006",
-      "date": "2026-09-15"
-    },
-    {
-      "journal": "上海体育大学学报",
-      "title": "以体育规则为核心范畴构建体育法学自主知识体系",
-      "authors": "韩勇",
-      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2026.05.16.0006",
-      "date": "2026-09-15"
-    },
-    {
-      "journal": "上海体育大学学报",
-      "title": "中国体育学自主知识体系探赜：逻辑起点、三维结构与构建向度",
-      "authors": "李博, 陈迪思, 黄泠熙, 姜哲",
-      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2026.04.06.0002",
       "date": "2026-09-15"
     },
     {

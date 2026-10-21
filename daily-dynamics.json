@@ -1,8 +1,16 @@
 {
-  "generatedAt": "2026-10-20",
+  "generatedAt": "2026-10-21",
   "source": "C刊官网 + 体育院校官网（GitHub Actions 每日）",
   "statusHint": "live",
   "items": [
+    {
+      "cat": "院校",
+      "source": "南京体育学院",
+      "section": "学校主页",
+      "title": "击剑馆焕新升级正式开训 江苏击剑开启“二次创业”新征程",
+      "date": "2026-10-21",
+      "link": "https://www.nsi.edu.cn/6c/44/c2343a93252/page.htm"
+    },
     {
       "cat": "院校",
       "source": "南京体育学院",
@@ -53,6 +61,14 @@
     },
     {
       "cat": "院校",
+      "source": "沈阳体育学院",
+      "section": "学校主页",
+      "title": "运动训练学院举办专业技能实训专题座谈会暨2024级专业技能实训课程",
+      "date": "2026-10-20",
+      "link": "https://www.syty.edu.cn/info/1036/17763.htm"
+    },
+    {
+      "cat": "院校",
       "source": "西安体育学院",
       "section": "学校主页",
       "title": "关于推荐2026年省级课程思政精品课程的通知",
@@ -66,14 +82,6 @@
       "title": "10.20 喜报！体育教育训练学院项目斩获中国国际大学生创新大赛陕西赛区红旅赛道金奖",
       "date": "2026-10-20",
       "link": "https://www.xaipe.edu.cn/info/1125/135044.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "南京体育学院",
-      "section": "学校主页",
-      "title": "平凡善举 温暖校园——运康学子赵宜航暖心救助摔倒老人",
-      "date": "2026-10-19",
-      "link": "https://www.nsi.edu.cn/6c/1a/c2347a93210/page.htm"
     },
     {
       "cat": "院校",
@@ -98,6 +106,30 @@
       "title": "▸ 广州体育学院学子在2026年广东省“高教社杯”大学生“用英语讲大湾区文化”优秀短视...",
       "date": "2026-10-19",
       "link": "http://news.gzsport.edu.cn:80/info/17934"
+    },
+    {
+      "cat": "院校",
+      "source": "沈阳体育学院",
+      "section": "学校新闻",
+      "title": "沈阳体育学院定向代表队在2026年辽宁省定向锦标赛中取得佳绩 10月16日至18日，2026年辽宁省定向锦标赛(沈阳站)举行｡沈阳体育学院定向代表队派出17人参赛，共收获个人赛4枚金牌､4枚银牌､2枚铜牌，并...",
+      "date": "2026-10-19",
+      "link": "https://www.syty.edu.cn/info/1065/17773.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "沈阳体育学院",
+      "section": "学校新闻",
+      "title": "2026年辽宁省中学生足球联赛在我校圆满落幕 10月18日，由辽宁省教育厅主办、沈阳体育学院承办的2026年辽宁省中学生足球联赛在我校圆满落幕。本次赛事汇聚全省20支中学生足球代表队、4...",
+      "date": "2026-10-19",
+      "link": "https://www.syty.edu.cn/info/1065/17753.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "沈阳体育学院",
+      "section": "学校新闻",
+      "title": "党委常委、副院长崔鲁祥带队赴营口开展校地合作洽谈暨访企拓岗专项活动 10月18日，学校党委常委、副院长崔鲁祥带队赴营口市开展校地合作对接及访企拓岗调研，进一步深化校地协同育人机制，拓宽学生实习就业渠道...",
+      "date": "2026-10-19",
+      "link": "https://www.syty.edu.cn/info/1061/17713.htm"
     },
     {
       "cat": "院校",
@@ -129,7 +161,7 @@
       "section": "新闻网",
       "title": "七秩首体︱首都体育学院举办学科建设与研究生教育研讨会",
       "date": "2026-10-19",
-      "link": "https://news.cupes.edu.cn/jjxy/0c7cf8e67e2543dda05075351ac20006.htm"
+      "link": "https://news.cupes.edu.cn/jjxy/da216a600e3e4f028dcd396c0d9b166f.htm"
     },
     {
       "cat": "院校",
@@ -146,6 +178,22 @@
       "title": "七秩首体｜科技赋能体能训练 智慧引领创新发展——首都体育学院智慧体能创新发展论坛...",
       "date": "2026-10-19",
       "link": "https://news.cupes.edu.cn/zhxw/63d78a033d4944a3afd6bac4b3459585.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "南京体育学院",
+      "section": "学校主页",
+      "title": "平凡善举 温暖校园——运康学子赵宜航暖心救助摔倒老人",
+      "date": "2026-10-19",
+      "link": "https://www.nsi.edu.cn/6c/1a/c2347a93210/page.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "沈阳体育学院",
+      "section": "学校新闻",
+      "title": "2026年全国女子拳击冠军赛我校运动员获1金1铜 拳台砺锋芒，巾帼创佳绩！10月13日至18日，2026年全国女子拳击冠军赛在重庆荣昌圆满落幕。我校运动员获得1金1铜，1个第五名的优异成绩，其...",
+      "date": "2026-10-19",
+      "link": "https://www.syty.edu.cn/info/1065/17703.htm"
     },
     {
       "cat": "院校",
@@ -186,14 +234,6 @@
       "title": "为国出征争荣光 鏖战亚运创佳绩——山体附中健儿征战2026亚运会斩获10金2银4铜",
       "date": "2026-10-16",
       "link": "https://www.sdpei.edu.cn/2026/1016/c367a56449/page.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "南京体育学院",
-      "section": "动态速递",
-      "title": "2026年伊犁州校园足球骨干教师培训班在我校开班",
-      "date": "2026-10-16",
-      "link": "https://www.nsi.edu.cn/6c/04/c2347a93188/page.htm"
     },
     {
       "cat": "院校",
@@ -268,6 +308,22 @@
       "link": "https://www.hrbipe.edu.cn/info/1046/8671.htm"
     },
     {
+      "cat": "院校",
+      "source": "北京体育大学",
+      "section": "通知公告",
+      "title": "北京体育大学后勤管理处扫路车采购项目​询价公告",
+      "date": "2026-10-09",
+      "link": "https://www.bsu.edu.cn/tzgg/ea12d312ceba4fa487ab993f481b2fcd.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "北京体育大学",
+      "section": "通知公告",
+      "title": "北京体育大学阿尔伯塔国际休闲体育与旅游学院2025年度办学报告",
+      "date": "2026-09-29",
+      "link": "https://www.bsu.edu.cn/tzgg/4b4c406ce9714a539fad50f39861a6bb.htm"
+    },
+    {
       "cat": "期刊",
       "source": "天津体育学院学报",
       "section": "网络首发",
@@ -332,6 +388,22 @@
       "link": "https://tyxk.scnu.edu.cn/a/20260713/1044.html"
     },
     {
+      "cat": "院校",
+      "source": "北京体育大学",
+      "section": "通知公告",
+      "title": "北京体育大学国家训练基地2026年厨房设备采购项目询价公告",
+      "date": "2026-06-12",
+      "link": "https://www.bsu.edu.cn/tzgg/2524d2e0fead46539db0422ac93d3bc7.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "北京体育大学",
+      "section": "通知公告",
+      "title": "北京体育大学国家训练基地2026年体外除颤仪（AED）采购项目询价公告",
+      "date": "2026-06-10",
+      "link": "https://www.bsu.edu.cn/tzgg/6aedcf96547d4c78b1848d66d9d55c99.htm"
+    },
+    {
       "cat": "期刊",
       "source": "天津体育学院学报",
       "section": "网络首发",
@@ -383,33 +455,33 @@
       "cat": "期刊",
       "source": "上海体育大学学报",
       "section": "最新发表",
-      "title": "研究范式转型与中国体育学自主知识体系构建",
+      "title": "体育科学定量研究的理论框架：内涵、价值及构建",
       "date": "",
-      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2026.05.20.0006"
+      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2025.05.19.0002"
     },
     {
       "cat": "期刊",
       "source": "上海体育大学学报",
       "section": "最新发表",
-      "title": "以体育规则为核心范畴构建体育法学自主知识体系",
+      "title": "我国社区公共体育服务治理机制的类型结构、运行困境与建设路向",
       "date": "",
-      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2026.05.16.0006"
+      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2025.12.18.0001"
     },
     {
       "cat": "期刊",
       "source": "上海体育大学学报",
       "section": "最新发表",
-      "title": "中国体育学自主知识体系探赜：逻辑起点、三维结构与构建向度",
+      "title": "体育赛事能否促进体育产业创新？",
       "date": "",
-      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2026.04.06.0002"
+      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2026.03.11.0002"
     },
     {
       "cat": "期刊",
       "source": "上海体育大学学报",
       "section": "最新发表",
-      "title": "基于国际政治信号理论的体育外交实践机制解构",
+      "title": "政校社企融合提升高等体育院校创新创业教育效率的组态路径",
       "date": "",
-      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2024.01.23.0003"
+      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2024.11.09.0002"
     },
     {
       "cat": "期刊",
@@ -562,6 +634,22 @@
       "title": "体育学刊编辑部 恭祝您中秋快乐",
       "date": "",
       "link": "https://tyxk.scnu.edu.cn/a/20260924/1046.html"
+    },
+    {
+      "cat": "院校",
+      "source": "北京体育大学",
+      "section": "校园要闻",
+      "title": "我校学子董子齐亮相长春大冬会新闻发布会，向世界发出青春邀约",
+      "date": "",
+      "link": "https://www.bsu.edu.cn/xyyw/b8be3b70cace4bd683f1d8688acef8e6.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "北京体育大学",
+      "section": "校园要闻",
+      "title": "武韵流芳 金砖和鸣｜北体学子亮相金砖国家传统体育展示运动会",
+      "date": "",
+      "link": "https://www.bsu.edu.cn/xyyw/c4df104f21584b79a1b10412d4158f9c.htm"
     },
     {
       "cat": "院校",
