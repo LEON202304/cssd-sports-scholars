@@ -5,6 +5,13 @@
   "items": [
     {
       "type": "meet",
+      "title": "关于公示任雅琴副教授赴香港参加会议相关情况的通知",
+      "org": "广州体育学院",
+      "date": "2026-10-23",
+      "link": "http://www.gzsport.edu.cn/info/17960"
+    },
+    {
+      "type": "meet",
       "title": "活动预告 | 2026中俄体育发展论坛暨中俄体育院校联盟年会",
       "org": "首都体育学院",
       "date": "2026-10-22",
@@ -51,13 +58,6 @@
       "org": "首都体育学院",
       "date": "2026-10-19",
       "link": "https://news.cupes.edu.cn/zhxw/63d78a033d4944a3afd6bac4b3459585.htm"
-    },
-    {
-      "type": "event",
-      "title": "我校学子董子齐亮相长春大冬会新闻发布会，向世界发出青春邀约",
-      "org": "北京体育大学",
-      "date": "2026-10-19",
-      "link": "https://www.bsu.edu.cn/xyyw/b8be3b70cace4bd683f1d8688acef8e6.htm"
     },
     {
       "type": "meet",
@@ -180,6 +180,13 @@
     },
     {
       "type": "event",
+      "title": "体育传媒与信息技术学院“博士大讲堂”之智能滑雪平台专题讲座顺利举办",
+      "org": "山东体育学院",
+      "date": "2026-04-06",
+      "link": "https://www.sdpei.edu.cn/2026/0406/c435a19913/page.htm"
+    },
+    {
+      "type": "event",
       "title": "第二届国际体育组织治理与发展论坛",
       "org": "北京体育大学",
       "date": "2025-10-15",
@@ -191,13 +198,6 @@
       "org": "北京体育大学",
       "date": "2025-10-10",
       "link": "https://www.bsu.edu.cn/xshd/3da47c2a21dd49e1ac97d5919f8b624f.htm"
-    },
-    {
-      "type": "meet",
-      "title": "第六届欧亚体育产业国际论坛会议通知",
-      "org": "北京体育大学",
-      "date": "2025-09-25",
-      "link": "https://www.bsu.edu.cn/xshd/b7cb702942d344c2b4af5213c7b09bc9.htm"
     }
   ]
 }
