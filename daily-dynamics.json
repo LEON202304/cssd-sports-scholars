@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24",
+  "generatedAt": "2026-10-25",
   "source": "C刊官网 + 体育院校官网（GitHub Actions 每日）",
   "statusHint": "live",
   "items": [
@@ -210,14 +210,6 @@
       "title": "我校学子在2026年全国壁球锦标赛上摘金夺银",
       "date": "2026-10-21",
       "link": "https://mp.weixin.qq.com/s/KZUvOPpLWLlsLuDbUIp-lA"
-    },
-    {
-      "cat": "期刊",
-      "source": "天津体育学院学报",
-      "section": "网络首发",
-      "title": "“十五五”时期我国全民健身体育场地高质量发展研究",
-      "date": "2026-10-21",
-      "link": "https://tjty.cbpt.cnki.net/portal/journal/portal/client/paper/24f34a3a68cb89e7360937050192a5b6"
     },
     {
       "cat": "院校",
@@ -570,6 +562,14 @@
       "title": "中华优秀传统文化传承发展工程背景下传统体育生活化的内涵、价值与路径",
       "date": "",
       "link": "https://tjty.cbpt.cnki.net/portal/journal/portal/client/paper/db171ceaa7083566372a518b7bbec918"
+    },
+    {
+      "cat": "期刊",
+      "source": "天津体育学院学报",
+      "section": "当期目录",
+      "title": "从嵌入到选择：民俗体育生活化的现代建构逻辑与实践启示",
+      "date": "",
+      "link": "https://tjty.cbpt.cnki.net/portal/journal/portal/client/paper/cd13d2a1e0605c6d872b23a73a73211e"
     },
     {
       "cat": "期刊",
