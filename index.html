@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="cssd-light" data-build="v4.6-112">
+<html lang="zh-CN" class="cssd-light" data-build="v4.6-113">
 <head><!-- SEO & 规范链接 -->
   <link rel="canonical" href="https://www.tiyuxueren.com/">
   <meta name="description" content="体育学人 (CSSD) - 收录全国 5,800+ 位体育学学者档案、560 所高校及科研机构、3,000+ 项国家社科基金项目及最新学术期刊动态。">
@@ -10746,7 +10746,7 @@ body.cssd-v46-47 #scholarOverseasNavItem b{color:#eafcff}
     var tabs=document.createElement('div');
     tabs.className='sch-branch-tabs';
     tabs.id='scholarBranchTabs';
-    tabs.innerHTML='<button class="sch-branch-tab on" data-branch="main" type="button"><span>国内学者目录</span><small>5000+</small></button><button class="sch-branch-tab" data-branch="overseas" type="button"><span>海外华人学者</span><small id="schBranchOverseasCnt">—</small></button><span class="sch-branch-note">海外板块作为学者目录下的独立分栏，不并入国内主库统计</span>';
+    tabs.innerHTML='<button class="sch-branch-tab on" data-branch="main" type="button"><span>国内学者目录</span><small id="schBranchDomesticCnt">—</small></button><button class="sch-branch-tab" data-branch="overseas" type="button"><span>海外华人学者</span><small id="schBranchOverseasCnt">—</small></button><span class="sch-branch-note">海外板块作为学者目录下的独立分栏，不并入国内主库统计</span>';
     host.appendChild(tabs);
     var main=tabs.querySelector('[data-branch="main"]');
     var overseas=tabs.querySelector('[data-branch="overseas"]');
@@ -17134,6 +17134,8 @@ html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"].on small{
     if(!a&&!b&&!o)return;
     if(typeof S==='undefined'||!S||!S.length){setTimeout(fillScholarKpis,200);return;}
     if(a)a.textContent=fmt(S.length);
+    var domCnt=document.getElementById('schBranchDomesticCnt');
+    if(domCnt)domCnt.textContent=fmt(S.length);
     if(b)b.textContent=fmt(instSetSize());
     fillOverseasKpis();
   }

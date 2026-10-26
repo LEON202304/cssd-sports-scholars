@@ -4096,3 +4096,40 @@ html.cssd-light body #sportsPortal#sportsPortal .sp-metrics button:focus-visible
     transform:none !important;
   }
 }
+
+/* 学者目录分栏：tab / .on / 内部 span·small 一律去掉白字投影
+   （含 0 1px 0 rgba(255,255,255,*)）。历史层在本文件之后，故 body + !important。
+   国内激活态：浅绿底 + 实色 #0F5B4F，数字不再垫白底。 */
+html.cssd-light body #vw-scholars .sch-branch-tab,
+html.cssd-light body #vw-scholars .sch-branch-tab span,
+html.cssd-light body #vw-scholars .sch-branch-tab small,
+html.cssd-light body #vw-scholars .sch-branch-tab.on,
+html.cssd-light body #vw-scholars .sch-branch-tab.on span,
+html.cssd-light body #vw-scholars .sch-branch-tab.on small,
+html.cssd-light body #vw-scholars .sch-branch-tab[data-branch="overseas"],
+html.cssd-light body #vw-scholars .sch-branch-tab[data-branch="overseas"] span,
+html.cssd-light body #vw-scholars .sch-branch-tab[data-branch="overseas"] small,
+html.cssd-light body #vw-scholars .sch-branch-tab[data-branch="overseas"].on,
+html.cssd-light body #vw-scholars .sch-branch-tab[data-branch="overseas"].on span,
+html.cssd-light body #vw-scholars .sch-branch-tab[data-branch="overseas"].on small{
+  text-shadow:none !important;
+  -webkit-text-stroke:0 !important;
+}
+html.cssd-light body #vw-scholars .sch-branch-tab.on[data-branch="main"],
+html.cssd-light body #vw-scholars .sch-branch-tab.on[data-branch="main"] span,
+html.cssd-light body #vw-scholars .sch-branch-tab.on[data-branch="main"] small{
+  color:#0F5B4F !important;
+  -webkit-text-fill-color:#0F5B4F !important;
+  text-shadow:none !important;
+  -webkit-text-stroke:0 !important;
+}
+html.cssd-light body #vw-scholars .sch-branch-tab.on[data-branch="main"]{
+  background:rgba(46,154,137,.12) !important;
+  border-color:rgba(46,154,137,.45) !important;
+  box-shadow:none !important;
+  font-weight:600 !important;
+}
+html.cssd-light body #vw-scholars .sch-branch-tab.on[data-branch="main"] small{
+  background:transparent !important;
+  font-weight:600 !important;
+}
