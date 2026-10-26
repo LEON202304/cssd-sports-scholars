@@ -485,8 +485,7 @@
       '<div class="cssd-cal-tools">' +
         '<button type="button" class="cssd-cal-all" id="open-full-cal">查看全部 ' + nConf + ' 场国内外重点会议</button>' +
       '</div>' +
-      '<p id="cssd-cal-tabs-hint" class="cssd-cal-sr">点击标签切换重点会议倒计时与关键时间节点</p>' +
-      '<div id="cssd-cal-tabs" class="cssd-cal-tabs" role="tablist" aria-describedby="cssd-cal-tabs-hint" title="点击标签切换重点会议倒计时与关键时间节点">' + tabsHtml + '</div>' +
+      '<div id="cssd-cal-tabs" class="cssd-cal-tabs" role="tablist" aria-label="点击标签切换重点会议倒计时与关键时间节点" title="点击标签切换重点会议倒计时与关键时间节点">' + tabsHtml + '</div>' +
 
       '<div class="cssd-cal-hero">' +
         '<div class="cssd-cal-hero-main">' +

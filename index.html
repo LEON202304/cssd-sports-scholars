@@ -15966,6 +15966,8 @@ html.cssd-light body.cssd-v46-40.cssd-v46-41.cssd-v46-42.cssd-v46-43.cssd-v46-45
     var cs;
     try { cs = getComputedStyle(el); } catch(e){ return; }
     if(!cs || cs.display === 'none' || cs.visibility === 'hidden') return;
+    /* 会议日历字号 / 圆角 / 阴影按 portal.polish.css 锁定，不吸附 */
+    try{ if(el.closest && el.closest('#confcal')) return; }catch(e){}
 
     /* ── 字号收敛（同步行高，绝不让行间距变紧） ──
        注意：源文件有 79 处 font-size:...!important，
@@ -16007,10 +16009,10 @@ html.cssd-light body.cssd-v46-40.cssd-v46-41.cssd-v46-42.cssd-v46-43.cssd-v46-45
     }
 
     /* ── 阴影归一化 ──
-       首页 KPI 条与入口卡的软阴影由 portal.polish.css 控制（悬停只抬阴影）。
-       这里若写成内联 !important，悬停规则压不过，故跳过这两块。 */
+       首页 KPI 条、入口卡、会议日历软阴影由 portal.polish.css 控制。
+       这里若写成内联 !important，会把 0 8px 24px 吸成 0 12px 32px，故整块跳过。 */
     var homeSoft = false;
-    try{ homeSoft = !!(el.closest && el.closest('#sportsPortal .sp-metrics, #sportsPortal .sp-quick-card')); }catch(e){}
+    try{ homeSoft = !!(el.closest && el.closest('#sportsPortal .sp-metrics, #sportsPortal .sp-quick-card, #confcal')); }catch(e){}
     if(!homeSoft){
       var lv = shadowLevel(cs.boxShadow);
       if(lv){

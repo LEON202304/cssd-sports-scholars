@@ -2936,13 +2936,16 @@ html.cssd-light body #confcal #confcalTitle{
   color:var(--cal-ink) !important;
 }
 html.cssd-light body #confcal .cssd-cal-sr{
-  position:absolute;
-  width:1px;height:1px;
-  padding:0;margin:-1px;
-  overflow:hidden;
-  clip:rect(0,0,0,0);
-  white-space:nowrap;
-  border:0;
+  position:absolute !important;
+  width:1px !important;
+  height:1px !important;
+  padding:0 !important;
+  margin:-1px !important;
+  overflow:hidden !important;
+  clip:rect(0,0,0,0) !important;
+  clip-path:inset(50%) !important;
+  white-space:nowrap !important;
+  border:0 !important;
 }
 html.cssd-light body #cssd-academic-calendar-bar{
   --cal-ink:#0A2A43;
