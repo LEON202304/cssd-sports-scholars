@@ -110,7 +110,7 @@
     for (var i = 0; i < allEls.length; i++) {
       var node = allEls[i];
       if (node.children.length > 0 || node.getAttribute('data-cssd-done') === '1') continue;
-      if (node.closest('#cssd-home-projects-showcase') || node.closest('#cssd-academic-calendar-bar') || node.closest('#cssd-custom-modal')) {
+      if (node.closest('#cssd-home-projects-showcase') || node.closest('#cssd-academic-calendar-bar') || node.closest('#cssd-custom-modal') || node.closest('#homeXuejie')) {
         node.setAttribute('data-cssd-done', '1');
         continue;
       }

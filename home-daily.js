@@ -41,6 +41,36 @@
     });
   }
 
+  /* 与 home-xuejie 同一口径：快照标题里的「时间：…」缺年/月/日则整段不输出。 */
+  function timeSegmentComplete(body){
+    var s = String(body || "").replace(/\s+/g, "");
+    if(!s) return false;
+    if(/^[-—–~～至到]/.test(s)) return false;
+    var iso = s.match(/((?:19|20)\d{2})-(\d{1,2})-(\d{1,2})/);
+    if(iso){
+      var moI = parseInt(iso[2], 10), daI = parseInt(iso[3], 10);
+      return moI >= 1 && moI <= 12 && daI >= 1 && daI <= 31;
+    }
+    if(!/(?:19|20)\d{2}年/.test(s)) return false;
+    var mm = s.match(/(?:^|[^0-9])(\d{1,2})月/);
+    var dd = s.match(/(?:^|[^0-9])(\d{1,2})日/);
+    if(!mm || !dd) return false;
+    var month = parseInt(mm[1], 10), day = parseInt(dd[1], 10);
+    if(!(month >= 1 && month <= 12 && day >= 1 && day <= 31)) return false;
+    if(/年[-—–]/.test(s) || /月[-—–]日/.test(s) || /[-—–]月/.test(s)) return false;
+    return true;
+  }
+
+  function displayTitle(raw){
+    var t = String(raw == null ? "" : raw);
+    t = t.replace(/\s*时间[：:][ \t]*([^]*?)(?=[ \t]*地点[：:]|$)/g, function(_full, body){
+      var chunk = String(body || "").replace(/^\s+|\s+$/g, "");
+      if(!timeSegmentComplete(chunk)) return "";
+      return " 时间：" + chunk;
+    });
+    return t.replace(/[ \t]{2,}/g, " ").trim();
+  }
+
   function parseDate(raw){
     var m = String(raw || "").trim().match(/^(\d{4})-(\d{2})(?:-(\d{2}))?/);
     if(!m) return null;
@@ -120,8 +150,8 @@
     var d = parseDate(it.date);
     var time = d ? '<time datetime="' + esc(d.iso) + '">' + esc(d.label) + "</time>" : "";
     var title = it.link
-      ? '<a href="' + esc(it.link) + '" target="_blank" rel="noopener">' + esc(it.title) + "</a>"
-      : esc(it.title);
+      ? '<a href="' + esc(it.link) + '" target="_blank" rel="noopener">' + esc(displayTitle(it.title)) + "</a>"
+      : esc(displayTitle(it.title));
     return "<li>" +
       '<div class="xj-meta">' + tag + time + "</div>" +
       "<h3>" + title + "</h3>" +
@@ -249,8 +279,8 @@
     var badgeCls = c === "journal" ? "is-journal" : "is-univ";
     var d = parseDate(it.date);
     var title = it.link
-      ? '<a href="' + esc(it.link) + '" target="_blank" rel="noopener">' + esc(it.title) + "</a>"
-      : esc(it.title);
+      ? '<a href="' + esc(it.link) + '" target="_blank" rel="noopener">' + esc(displayTitle(it.title)) + "</a>"
+      : esc(displayTitle(it.title));
     var source = it.source ? esc(it.source) : "";
     if(it.section) source = source ? (source + " · " + esc(it.section)) : esc(it.section);
     return '<li class="dy-row">' +
