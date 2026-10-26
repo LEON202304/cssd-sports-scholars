@@ -4572,3 +4572,58 @@ html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-row .xj-sub{
   font-size:12px;
   line-height:16px;
 }
+
+/* 首页政策专题：沿用 soft-home 卡片，作用域仅限本专题。 */
+html.cssd-light body #sportsPortal#sportsPortal .tt-topic{
+  margin:24px 0 0;padding:26px 28px;background:#fff!important;
+  color:#0A2A43;border:1px solid rgba(10,42,67,.08)!important;
+  border-radius:16px!important;box-shadow:0 8px 24px rgba(10,42,67,.06)!important;
+  font-family:var(--sp-sans,'PingFang SC','Microsoft YaHei',sans-serif);
+}
+#homeThinkTanks .tt-header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:14px}
+#homeThinkTanks h2{margin:0!important;padding:0!important;font-size:22px!important;line-height:1.4!important;font-weight:700!important;color:#0A2A43!important;letter-spacing:0!important}
+#homeThinkTanks h2::before,#homeThinkTanks h2::after{content:none!important}
+#homeThinkTanks .tt-subtitle{margin:4px 0 0;color:#5B6575!important;font-size:13px!important;line-height:1.6}
+#homeThinkTanks .tt-status{flex-shrink:0;padding:5px 11px;border-radius:6px!important;background:#E9F4EF!important;color:#16634F!important;font-size:12px!important;font-weight:600;line-height:1.5}
+#homeThinkTanks .tt-intro,#homeThinkTanks .tt-context,#homeThinkTanks .tt-contact-body p{margin:0;color:#4C5D6B!important;font-size:14px!important;line-height:1.9!important}
+#homeThinkTanks .tt-intro strong{color:#0A2A43!important;font-weight:700}
+#homeThinkTanks .tt-period{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 16px;margin:18px 0;padding:12px 16px;border-radius:8px!important;background:#F3F7F8!important;font-size:13px!important;line-height:1.8;color:#5B6575!important}
+#homeThinkTanks .tt-period strong{font-size:14px!important;color:#0A2A43!important;font-weight:600}
+#homeThinkTanks .tt-details{border-top:1px solid #E6EAF0}
+#homeThinkTanks summary{display:flex;align-items:center;gap:10px;padding:15px 0;list-style:none;cursor:pointer;color:#176E59!important;font-size:14px!important;font-weight:600!important;line-height:1.6;min-height:48px}
+#homeThinkTanks summary::-webkit-details-marker{display:none}
+#homeThinkTanks summary:hover{color:#0A2A43!important}
+#homeThinkTanks summary:focus-visible,#homeThinkTanks a:focus-visible{outline:2px solid #176E59!important;outline-offset:4px;border-radius:3px}
+#homeThinkTanks .tt-summary-note{margin-left:auto;color:#5B6575!important;font-size:12px!important;font-weight:400!important}
+#homeThinkTanks .tt-chevron{margin-left:auto;flex:none;width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+#homeThinkTanks .tt-summary-note+.tt-chevron{margin-left:0}
+#homeThinkTanks details[open]>summary .tt-chevron{transform:rotate(180deg)}
+#homeThinkTanks .tt-table-wrap{padding-bottom:16px}
+#homeThinkTanks .tt-table{border-collapse:collapse;table-layout:fixed;width:100%;text-align:left;color:#344A5B!important}
+#homeThinkTanks .tt-table caption{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+#homeThinkTanks .tt-table th,#homeThinkTanks .tt-table td{padding:12px 14px;border-bottom:1px solid #E6EAF0;font-size:14px!important;line-height:1.7!important;overflow-wrap:anywhere;vertical-align:top;background:transparent!important;color:#344A5B!important}
+#homeThinkTanks .tt-table thead th{background:#F3F7F8!important;font-size:12px!important;color:#5B6575!important;font-weight:600}
+#homeThinkTanks .tt-table th:first-child,#homeThinkTanks .tt-table td:first-child{width:60px;text-align:center;font-variant-numeric:tabular-nums}
+#homeThinkTanks .tt-table thead th:nth-child(2){width:26%}
+#homeThinkTanks .tt-table tbody th{font-weight:600;color:#0A2A43!important}
+#homeThinkTanks .tt-table tbody tr:last-child>*{border-bottom:0}
+#homeThinkTanks .tt-contact-body{padding:0 0 16px}
+#homeThinkTanks dl{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin:16px 0 0}
+#homeThinkTanks dl>div{display:flex;gap:14px;font-size:14px!important;line-height:1.8;min-width:0}
+#homeThinkTanks dt{flex:none;color:#5B6575!important}
+#homeThinkTanks dd{margin:0;overflow-wrap:anywhere;color:#344A5B!important}
+#homeThinkTanks a{color:#176E59!important;text-decoration:underline;text-underline-offset:3px}
+#homeThinkTanks .tt-context{border-top:1px solid #E6EAF0;padding-top:16px;margin-top:2px}
+#homeThinkTanks .tt-source{margin-top:14px;font-size:12px!important;line-height:1.8!important;color:#5B6575!important}
+@media(max-width:600px){
+  html.cssd-light body #sportsPortal#sportsPortal .tt-topic{padding:20px 16px;margin-top:18px}
+  #homeThinkTanks h2{font-size:20px!important}
+  #homeThinkTanks .tt-header{gap:10px;align-items:flex-start}
+  #homeThinkTanks .tt-period{padding:10px 12px;gap:2px 10px}
+  #homeThinkTanks .tt-period>span:first-child{flex-basis:100%}
+  #homeThinkTanks .tt-summary-note{display:none}
+  #homeThinkTanks .tt-table th,#homeThinkTanks .tt-table td{padding:10px 6px;font-size:13px!important}
+  #homeThinkTanks .tt-table th:first-child,#homeThinkTanks .tt-table td:first-child{width:34px}
+  #homeThinkTanks .tt-table thead th:nth-child(2){width:30%}
+  #homeThinkTanks dl{grid-template-columns:minmax(0,1fr)}
+}
