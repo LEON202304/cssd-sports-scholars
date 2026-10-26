@@ -3820,6 +3820,58 @@ html.cssd-light .cins{
   max-width:100%;
 }
 
+/* 科研项目动态 · NSFC 专刊 chip
+   激活：浅玫底 + 暗红字/边（对齐学者目录浅底深字，不再实心亮红白字）
+   未激活：白底、品牌墨边、次级字色。大数 KPI 与 chip 字色同一 token，不比 chip 更亮。
+   #sportsPortal button{font:inherit} 会盖掉无 !important 的字重，激活态用更高优先级写成 600。 */
+html.cssd-light body #cssd-home-projects-showcase,
+html.cssd-light body #vw-projects .cssd-moe-banner,
+html.cssd-light body #cssd-custom-modal,
+html.cssd-light body #rinfo .cssd-tb,
+html.cssd-light body .cssd-tb-btn.nssfc-active{
+  --nsfc-chip-bg:#FDEBEC;
+  --nsfc-chip-fg:#B42318;
+  --nsfc-chip-line:#B42318;
+  --nsfc-chip-bg-hover:#FBD5D7;
+  --nsfc-chip-idle-bg:#fff;
+  --nsfc-chip-idle-line:rgba(10,42,67,.14);
+  --nsfc-chip-idle-fg:#33415C;
+  --nsfc-kpi-fg:var(--nsfc-chip-fg);
+}
+html.cssd-light body .cssd-tb-btn.nssfc-active{
+  background:var(--nsfc-chip-bg) !important;
+  color:var(--nsfc-chip-fg) !important;
+  -webkit-text-fill-color:var(--nsfc-chip-fg) !important;
+  border-color:var(--nsfc-chip-line) !important;
+  font-weight:600 !important;
+  text-shadow:none !important;
+}
+html.cssd-light body .cssd-tb-btn.nssfc-active:hover{
+  background:var(--nsfc-chip-bg-hover) !important;
+  color:var(--nsfc-chip-fg) !important;
+  -webkit-text-fill-color:var(--nsfc-chip-fg) !important;
+  border-color:var(--nsfc-chip-line) !important;
+  text-shadow:none !important;
+}
+html.cssd-light body #cssd-home-projects-showcase > .c-fxb .c-fx > .cssd-tb-btn:not(.nssfc-active):not(.moe),
+html.cssd-light body #sw-nssfc:not(.nssfc-active){
+  background:var(--nsfc-chip-idle-bg) !important;
+  color:var(--nsfc-chip-idle-fg) !important;
+  -webkit-text-fill-color:var(--nsfc-chip-idle-fg) !important;
+  border-color:var(--nsfc-chip-idle-line) !important;
+  text-shadow:none !important;
+}
+html.cssd-light body #cssd-home-projects-showcase > .c-fxb .c-fx > .cssd-tb-btn:not(.nssfc-active):not(.moe):hover{
+  background:#2563eb !important;
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
+  border-color:#2563eb !important;
+}
+html.cssd-light body #cssd-hm-nssfc-num{
+  color:var(--nsfc-kpi-fg) !important;
+  -webkit-text-fill-color:var(--nsfc-kpi-fg) !important;
+}
+
 /* 数据驱动荣誉小标（scholar.rankTag，如「国家一级教授」）：姓名下方，无图标；颜色只走 token */
 :root{--cssd-honor-bg:#FBF3E0;--cssd-honor-fg:#8A6A1F}
 html:not(.cssd-light){--cssd-honor-bg:rgba(200,162,75,.16);--cssd-honor-fg:#E3C77A}
