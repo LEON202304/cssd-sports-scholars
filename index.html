@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="cssd-light" data-build="v4.6-111">
+<html lang="zh-CN" class="cssd-light" data-build="v4.6-112">
 <head><!-- SEO & 规范链接 -->
   <link rel="canonical" href="https://www.tiyuxueren.com/">
   <meta name="description" content="体育学人 (CSSD) - 收录全国 5,800+ 位体育学学者档案、560 所高校及科研机构、3,000+ 项国家社科基金项目及最新学术期刊动态。">
@@ -16006,13 +16006,19 @@ html.cssd-light body.cssd-v46-40.cssd-v46-41.cssd-v46-42.cssd-v46-43.cssd-v46-45
       }
     }
 
-    /* ── 阴影归一化 ── */
-    var lv = shadowLevel(cs.boxShadow);
-    if(lv){
-      var sv = shadowVal(lv);
-      if(sv && cs.boxShadow !== sv && el.__dsSh !== sv){
-        el.style.setProperty('box-shadow', sv, 'important');
-        el.__dsSh = sv; stat.sh++;
+    /* ── 阴影归一化 ──
+       首页 KPI 条与入口卡的软阴影由 portal.polish.css 控制（悬停只抬阴影）。
+       这里若写成内联 !important，悬停规则压不过，故跳过这两块。 */
+    var homeSoft = false;
+    try{ homeSoft = !!(el.closest && el.closest('#sportsPortal .sp-metrics, #sportsPortal .sp-quick-card')); }catch(e){}
+    if(!homeSoft){
+      var lv = shadowLevel(cs.boxShadow);
+      if(lv){
+        var sv = shadowVal(lv);
+        if(sv && cs.boxShadow !== sv && el.__dsSh !== sv){
+          el.style.setProperty('box-shadow', sv, 'important');
+          el.__dsSh = sv; stat.sh++;
+        }
       }
     }
   }
