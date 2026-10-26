@@ -1,6 +1,6 @@
 {
   "updatedAt": "2026-10-26",
-  "coverage": "中国体育领域智库与具有决策咨询功能的研究平台；持续补充，非全量名录",
+  "coverage": "中国体育智库、研究基地与研究中心；按官方名单、机构目录及公开报道收录，持续补充，非全量名录",
   "units": [
     {
       "school": "清华大学",
@@ -12,7 +12,8 @@
       "region": "北京",
       "source": "https://www.sport.gov.cn/n315/n20001395/c30128047/content.html",
       "evidence": "2026—2030年入选单位公示",
-      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。"
+      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。",
+      "platformType": ""
     },
     {
       "school": "北京师范大学",
@@ -24,7 +25,8 @@
       "region": "北京",
       "source": "https://www.sport.gov.cn/n315/n20001395/c30128047/content.html",
       "evidence": "2026—2030年入选单位公示",
-      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。"
+      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。",
+      "platformType": ""
     },
     {
       "school": "首都体育学院",
@@ -36,7 +38,8 @@
       "region": "北京",
       "source": "https://www.sport.gov.cn/n315/n20001395/c30128047/content.html",
       "evidence": "2026—2030年入选单位公示",
-      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。"
+      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。",
+      "platformType": "研究中心"
     },
     {
       "school": "北京体育大学",
@@ -48,7 +51,8 @@
       "region": "北京",
       "source": "https://www.sport.gov.cn/n315/n20001395/c30128047/content.html",
       "evidence": "2026—2030年入选单位公示",
-      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。"
+      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。",
+      "platformType": ""
     },
     {
       "school": "中国政法大学",
@@ -60,7 +64,8 @@
       "region": "北京",
       "source": "https://www.sport.gov.cn/n315/n20001395/c30128047/content.html",
       "evidence": "2026—2030年入选单位公示",
-      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。"
+      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。",
+      "platformType": "研究基地"
     },
     {
       "school": "天津体育学院",
@@ -72,7 +77,8 @@
       "region": "天津",
       "source": "https://www.sport.gov.cn/n315/n20001395/c30128047/content.html",
       "evidence": "2026—2030年入选单位公示",
-      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。"
+      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。",
+      "platformType": ""
     },
     {
       "school": "沈阳体育学院",
@@ -84,7 +90,8 @@
       "region": "辽宁",
       "source": "https://www.sport.gov.cn/n315/n20001395/c30128047/content.html",
       "evidence": "2026—2030年入选单位公示",
-      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。"
+      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。",
+      "platformType": ""
     },
     {
       "school": "哈尔滨体育学院",
@@ -96,7 +103,8 @@
       "region": "黑龙江",
       "source": "https://www.sport.gov.cn/n315/n20001395/c30128047/content.html",
       "evidence": "2026—2030年入选单位公示",
-      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。"
+      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。",
+      "platformType": ""
     },
     {
       "school": "上海体育大学",
@@ -108,7 +116,8 @@
       "region": "上海",
       "source": "https://www.sport.gov.cn/n315/n20001395/c30128047/content.html",
       "evidence": "2026—2030年入选单位公示",
-      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。"
+      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。",
+      "platformType": ""
     },
     {
       "school": "上海政法学院",
@@ -120,7 +129,8 @@
       "region": "上海",
       "source": "https://www.sport.gov.cn/n315/n20001395/c30128047/content.html",
       "evidence": "2026—2030年入选单位公示",
-      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。"
+      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。",
+      "platformType": ""
     },
     {
       "school": "苏州大学",
@@ -132,7 +142,8 @@
       "region": "江苏",
       "source": "https://www.sport.gov.cn/n315/n20001395/c30128047/content.html",
       "evidence": "2026—2030年入选单位公示",
-      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。"
+      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。",
+      "platformType": ""
     },
     {
       "school": "南京体育学院",
@@ -144,7 +155,8 @@
       "region": "江苏",
       "source": "https://www.sport.gov.cn/n315/n20001395/c30128047/content.html",
       "evidence": "2026—2030年入选单位公示",
-      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。"
+      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。",
+      "platformType": ""
     },
     {
       "school": "浙江大学",
@@ -156,7 +168,8 @@
       "region": "浙江",
       "source": "https://www.sport.gov.cn/n315/n20001395/c30128047/content.html",
       "evidence": "2026—2030年入选单位公示",
-      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。"
+      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。",
+      "platformType": ""
     },
     {
       "school": "福建师范大学",
@@ -168,7 +181,8 @@
       "region": "福建",
       "source": "https://www.sport.gov.cn/n315/n20001395/c30128047/content.html",
       "evidence": "2026—2030年入选单位公示",
-      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。"
+      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。",
+      "platformType": ""
     },
     {
       "school": "武汉体育学院",
@@ -180,7 +194,8 @@
       "region": "湖北",
       "source": "https://www.sport.gov.cn/n315/n20001395/c30128047/content.html",
       "evidence": "2026—2030年入选单位公示",
-      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。"
+      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。",
+      "platformType": "研究中心"
     },
     {
       "school": "成都体育学院",
@@ -192,7 +207,8 @@
       "region": "四川",
       "source": "https://www.sport.gov.cn/n315/n20001395/c30128047/content.html",
       "evidence": "2026—2030年入选单位公示",
-      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。"
+      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。",
+      "platformType": "研究中心"
     },
     {
       "school": "西安体育学院",
@@ -204,7 +220,8 @@
       "region": "陕西",
       "source": "https://www.sport.gov.cn/n315/n20001395/c30128047/content.html",
       "evidence": "2026—2030年入选单位公示",
-      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。"
+      "note": "星标依据2026年10月23日公示，最终认定以正式公布为准。",
+      "platformType": ""
     },
     {
       "name": "北京大学国家体育产业研究基地",
@@ -217,7 +234,8 @@
       "topics": "体育产业、产业政策、咨询服务",
       "source": "https://pe.pku.edu.cn/tyky/gjtycyyjjd.htm",
       "highEnd": false,
-      "note": ""
+      "note": "",
+      "platformType": "研究基地"
     },
     {
       "name": "长三角体育一体化研究中心",
@@ -230,7 +248,8 @@
       "topics": "区域协同、群众体育、竞技体育、体育产业",
       "source": "https://www.sport.gov.cn/n14471/n14482/n14519/c935618/content.html",
       "highEnd": false,
-      "note": ""
+      "note": "",
+      "platformType": "研究中心"
     },
     {
       "name": "中国特色社会主义体育强国建设研究中心",
@@ -243,7 +262,8 @@
       "topics": "体育强国、体育政策、全民健身",
       "source": "https://yjsc.sus.edu.cn/__local/C/D8/CD/95D279D5D045BC9687E8960D84F_41EE46AC_891B75.pdf",
       "highEnd": false,
-      "note": ""
+      "note": "",
+      "platformType": "研究中心"
     },
     {
       "name": "城市体育研究院",
@@ -256,7 +276,8 @@
       "topics": "城市体育、体育发展、政策咨询",
       "source": "https://www.gdskl.com.cn/news_7538.shtml",
       "highEnd": false,
-      "note": ""
+      "note": "",
+      "platformType": ""
     },
     {
       "name": "河南体育强省研究院",
@@ -269,7 +290,8 @@
       "topics": "体育强省、地方体育、决策咨询",
       "source": "https://tyxy.hist.edu.cn/xnry.jsp?urltype=news.NewsContentUrl&wbnewsid=10096&wbtreeid=2172",
       "highEnd": false,
-      "note": ""
+      "note": "",
+      "platformType": ""
     },
     {
       "name": "河北体育智库",
@@ -282,7 +304,8 @@
       "topics": "地方体育、冰雪运动、竞技体育",
       "source": "https://sport.hebei.gov.cn/shengjuyaowen/2017/0331/7064.html",
       "highEnd": false,
-      "note": ""
+      "note": "",
+      "platformType": ""
     },
     {
       "name": "浙江省体育改革发展研究会",
@@ -295,7 +318,8 @@
       "topics": "体育改革、全民健身、地方规划",
       "source": "https://www.sport.gov.cn/n315/n20066836/c20657241/content.html",
       "highEnd": false,
-      "note": ""
+      "note": "",
+      "platformType": ""
     },
     {
       "name": "江苏体育健康产业研究院",
@@ -308,7 +332,8 @@
       "topics": "体育健康、体育产业、战略咨询",
       "source": "https://sici.suda.edu.cn/27417/list.htm",
       "highEnd": false,
-      "note": ""
+      "note": "",
+      "platformType": ""
     },
     {
       "name": "贵州体育旅游研究院",
@@ -321,7 +346,8 @@
       "topics": "体育旅游、产业规划、民族体育",
       "source": "https://www.sport.gov.cn/n14471/n14495/n14543/c894125/content.html",
       "highEnd": false,
-      "note": ""
+      "note": "",
+      "platformType": ""
     },
     {
       "name": "山东省乡村振兴体育研究院",
@@ -334,7 +360,8 @@
       "topics": "乡村振兴、农村体育、政策研究",
       "source": "https://sd.people.com.cn/n2/2022/0731/c386785-40061549.html",
       "highEnd": false,
-      "note": ""
+      "note": "",
+      "platformType": ""
     },
     {
       "name": "山东省体医融合发展研究院",
@@ -347,7 +374,8 @@
       "topics": "体医融合、全民健身、健康促进",
       "source": "https://www.sport.gov.cn/n20001280/n20745751/n20767239/c23443300/content.html",
       "highEnd": false,
-      "note": ""
+      "note": "",
+      "platformType": ""
     },
     {
       "name": "湖南省体育公共服务研究基地",
@@ -360,7 +388,8 @@
       "topics": "体育公共服务、健康湖南、政策咨询",
       "source": "https://news.hunnu.edu.cn/info/1009/84954.htm",
       "highEnd": false,
-      "note": ""
+      "note": "",
+      "platformType": "研究基地"
     },
     {
       "name": "湖北体育产业研究中心",
@@ -373,7 +402,8 @@
       "topics": "体育产业、休闲体育、体育消费",
       "source": "https://csir.whsu.edu.cn/zxjj/jbjs.htm",
       "highEnd": false,
-      "note": ""
+      "note": "",
+      "platformType": "研究中心"
     },
     {
       "name": "体育科学研究院（辽宁省文体旅融合发展研究院）",
@@ -386,7 +416,8 @@
       "topics": "文体旅融合、政策研究、产业赋能",
       "source": "https://www.syty.edu.cn/info/1036/12793.htm",
       "highEnd": false,
-      "note": ""
+      "note": "",
+      "platformType": ""
     },
     {
       "name": "广东奥林匹克体育中心专家智库",
@@ -399,7 +430,8 @@
       "topics": "体育场馆、体育产业、融合发展",
       "source": "https://www.sport.gov.cn/n14471/n14490/n14527/c29795333/content.html",
       "highEnd": false,
-      "note": ""
+      "note": "",
+      "platformType": ""
     },
     {
       "name": "京张体育文化旅游带专家智库",
@@ -412,7 +444,8 @@
       "topics": "体育文化、体育旅游、区域发展",
       "source": "https://www.xiongan.gov.cn/2021-05/10/c_1211148260.htm",
       "highEnd": false,
-      "note": ""
+      "note": "",
+      "platformType": ""
     },
     {
       "name": "北京民生智库体育发展研究中心",
@@ -425,7 +458,8 @@
       "topics": "群众体育、全民健身、公共服务",
       "source": "https://www.pishu.com.cn/skwx_ps/literature/16940052.html",
       "highEnd": false,
-      "note": ""
+      "note": "",
+      "platformType": "研究中心"
     },
     {
       "name": "四川竞技体育智库",
@@ -438,7 +472,8 @@
       "topics": "竞技体育、奥运会、全运会、战略规划",
       "source": "https://www.sport.gov.cn/n14471/n14494/n14544/c25101217/content.html",
       "highEnd": false,
-      "note": ""
+      "note": "",
+      "platformType": ""
     },
     {
       "name": "中国体育经济研究中心",
@@ -451,7 +486,8 @@
       "topics": "体育经济、重大规划、体育改革",
       "source": "https://www.sport.gov.cn/n20001280/n20745751/n20767297/c21188941/content.html",
       "highEnd": false,
-      "note": ""
+      "note": "",
+      "platformType": "研究中心"
     },
     {
       "name": "山东省体育政策研究院",
@@ -464,7 +500,8 @@
       "topics": "体育政策、体教融合、决策咨询",
       "source": "https://fx.xwapp.moe.gov.cn/article/202112/61cd4e46695ccf00015c702f.html",
       "highEnd": false,
-      "note": ""
+      "note": "",
+      "platformType": ""
     },
     {
       "name": "体育旅游高端智库联盟",
@@ -477,7 +514,8 @@
       "topics": "体育旅游、产业评价、指数研究",
       "source": "https://wb.gywb.cn/epaper/gywb/html/2026-04/01/content_1918.htm",
       "highEnd": false,
-      "note": ""
+      "note": "",
+      "platformType": ""
     },
     {
       "name": "冬奥文化与冰雪运动发展研究基地",
@@ -490,7 +528,676 @@
       "evidence": "校方获批报道明确冬奥、冰雪运动与决策咨询研究职能",
       "topics": "冬奥遗产、冰雪运动、区域发展",
       "note": "研究基地按决策咨询平台收录。",
-      "highEnd": false
+      "highEnd": false,
+      "platformType": "研究基地"
+    },
+    {
+      "name": "体育文化研究基地（安徽师范大学）",
+      "school": "安徽师范大学",
+      "region": "安徽",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://ty.ahnu.edu.cn/xwzx/tydt/215.htm",
+      "kind": "校方栏目",
+      "source": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "listingSource": "https://ty.ahnu.edu.cn/__local/D/7B/C2/F1AE04ED2ED49096062A0A08F75_37334E8F_1735380.pdf",
+      "listingOrdinal": 1,
+      "evidence": "体育文化发展中心2024—2027年正式名单，第1项",
+      "topics": "体育文化、体育精神、文化传承",
+      "highEnd": false,
+      "note": "按获批单位展示基地称谓；未找到专页时链接至官方名单通知。"
+    },
+    {
+      "name": "体育文化研究基地（北京联合大学）",
+      "school": "北京联合大学",
+      "region": "北京",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "kind": "官方名单通知",
+      "source": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "listingSource": "https://ty.ahnu.edu.cn/__local/D/7B/C2/F1AE04ED2ED49096062A0A08F75_37334E8F_1735380.pdf",
+      "listingOrdinal": 2,
+      "evidence": "体育文化发展中心2024—2027年正式名单，第2项",
+      "topics": "体育文化、体育精神、文化传承",
+      "highEnd": false,
+      "note": "按获批单位展示基地称谓；未找到专页时链接至官方名单通知。"
+    },
+    {
+      "name": "体育文化研究基地（成都中医药大学）",
+      "school": "成都中医药大学",
+      "region": "四川",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "kind": "官方名单通知",
+      "source": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "listingSource": "https://ty.ahnu.edu.cn/__local/D/7B/C2/F1AE04ED2ED49096062A0A08F75_37334E8F_1735380.pdf",
+      "listingOrdinal": 3,
+      "evidence": "体育文化发展中心2024—2027年正式名单，第3项",
+      "topics": "体育文化、体育精神、文化传承",
+      "highEnd": false,
+      "note": "按获批单位展示基地称谓；未找到专页时链接至官方名单通知。"
+    },
+    {
+      "name": "体育文化研究基地（长江师范学院）",
+      "school": "长江师范学院",
+      "region": "重庆",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://yznu.edu.cn/2024/0329/c8320a238251/page.htm",
+      "kind": "校方报道",
+      "source": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "listingSource": "https://ty.ahnu.edu.cn/__local/D/7B/C2/F1AE04ED2ED49096062A0A08F75_37334E8F_1735380.pdf",
+      "listingOrdinal": 4,
+      "evidence": "体育文化发展中心2024—2027年正式名单，第4项",
+      "topics": "体育文化、体育精神、文化传承",
+      "highEnd": false,
+      "note": "按获批单位展示基地称谓；未找到专页时链接至官方名单通知。"
+    },
+    {
+      "name": "体育文化研究基地（大理大学）",
+      "school": "大理大学",
+      "region": "云南",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "kind": "官方名单通知",
+      "source": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "listingSource": "https://ty.ahnu.edu.cn/__local/D/7B/C2/F1AE04ED2ED49096062A0A08F75_37334E8F_1735380.pdf",
+      "listingOrdinal": 5,
+      "evidence": "体育文化发展中心2024—2027年正式名单，第5项",
+      "topics": "体育文化、体育精神、文化传承",
+      "highEnd": false,
+      "note": "按获批单位展示基地称谓；未找到专页时链接至官方名单通知。"
+    },
+    {
+      "name": "体育文化研究基地（大连理工大学）",
+      "school": "大连理工大学",
+      "region": "辽宁",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://kh.dlut.edu.cn/xygk/xyjj.htm",
+      "kind": "官方介绍",
+      "source": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "listingSource": "https://ty.ahnu.edu.cn/__local/D/7B/C2/F1AE04ED2ED49096062A0A08F75_37334E8F_1735380.pdf",
+      "listingOrdinal": 6,
+      "evidence": "体育文化发展中心2024—2027年正式名单，第6项",
+      "topics": "体育文化、体育精神、文化传承",
+      "highEnd": false,
+      "note": "按获批单位展示基地称谓；未找到专页时链接至官方名单通知。"
+    },
+    {
+      "name": "体育文化研究基地（东北师范大学）",
+      "school": "东北师范大学",
+      "region": "吉林",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "kind": "官方名单通知",
+      "source": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "listingSource": "https://ty.ahnu.edu.cn/__local/D/7B/C2/F1AE04ED2ED49096062A0A08F75_37334E8F_1735380.pdf",
+      "listingOrdinal": 7,
+      "evidence": "体育文化发展中心2024—2027年正式名单，第7项",
+      "topics": "体育文化、体育精神、文化传承",
+      "highEnd": false,
+      "note": "按获批单位展示基地称谓；未找到专页时链接至官方名单通知。"
+    },
+    {
+      "name": "体育文化研究基地（福建师范大学）",
+      "school": "福建师范大学",
+      "region": "福建",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://zsb.fjnu.edu.cn/37/d1/c17233a407505/page.htm",
+      "kind": "校方材料",
+      "source": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "listingSource": "https://ty.ahnu.edu.cn/__local/D/7B/C2/F1AE04ED2ED49096062A0A08F75_37334E8F_1735380.pdf",
+      "listingOrdinal": 8,
+      "evidence": "体育文化发展中心2024—2027年正式名单，第8项",
+      "topics": "体育文化、体育精神、文化传承",
+      "highEnd": false,
+      "note": "按获批单位展示基地称谓；未找到专页时链接至官方名单通知。"
+    },
+    {
+      "name": "体育文化研究基地（赣南师范大学）",
+      "school": "赣南师范大学",
+      "region": "江西",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://yjs.gnnu.edu.cn/__local/D/C8/59/01133FE1EF0960431626C82A487_2B6A69DA_3CA991.pdf",
+      "kind": "校方材料（PDF）",
+      "source": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "listingSource": "https://ty.ahnu.edu.cn/__local/D/7B/C2/F1AE04ED2ED49096062A0A08F75_37334E8F_1735380.pdf",
+      "listingOrdinal": 9,
+      "evidence": "体育文化发展中心2024—2027年正式名单，第9项",
+      "topics": "体育文化、体育精神、文化传承",
+      "highEnd": false,
+      "note": "按获批单位展示基地称谓；未找到专页时链接至官方名单通知。"
+    },
+    {
+      "name": "体育文化研究基地（广东海洋大学）",
+      "school": "广东海洋大学",
+      "region": "广东",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://tyxy.gdou.edu.cn/dpzw.jsp?urltype=tree.TreeTempUrl&wbtreeid=1156",
+      "kind": "官方介绍",
+      "source": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "listingSource": "https://ty.ahnu.edu.cn/__local/D/7B/C2/F1AE04ED2ED49096062A0A08F75_37334E8F_1735380.pdf",
+      "listingOrdinal": 10,
+      "evidence": "体育文化发展中心2024—2027年正式名单，第10项",
+      "topics": "体育文化、体育精神、文化传承",
+      "highEnd": false,
+      "note": "按获批单位展示基地称谓；未找到专页时链接至官方名单通知。"
+    },
+    {
+      "name": "体育文化研究基地（广西师范大学）",
+      "school": "广西师范大学",
+      "region": "广西",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "kind": "官方名单通知",
+      "source": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "listingSource": "https://ty.ahnu.edu.cn/__local/D/7B/C2/F1AE04ED2ED49096062A0A08F75_37334E8F_1735380.pdf",
+      "listingOrdinal": 11,
+      "evidence": "体育文化发展中心2024—2027年正式名单，第11项",
+      "topics": "体育文化、体育精神、文化传承",
+      "highEnd": false,
+      "note": "按获批单位展示基地称谓；未找到专页时链接至官方名单通知。"
+    },
+    {
+      "name": "体育文化研究基地（广西体育高等专科学校）",
+      "school": "广西体育高等专科学校",
+      "region": "广西",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://www.gxty.edu.cn/info/1051/14964.htm",
+      "kind": "校方报道",
+      "source": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "listingSource": "https://ty.ahnu.edu.cn/__local/D/7B/C2/F1AE04ED2ED49096062A0A08F75_37334E8F_1735380.pdf",
+      "listingOrdinal": 12,
+      "evidence": "体育文化发展中心2024—2027年正式名单，第12项",
+      "topics": "体育文化、体育精神、文化传承",
+      "highEnd": false,
+      "note": "按获批单位展示基地称谓；未找到专页时链接至官方名单通知。"
+    },
+    {
+      "name": "体育文化研究基地（广州体育职业技术学院）",
+      "school": "广州体育职业技术学院",
+      "region": "广东",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "kind": "官方名单通知",
+      "source": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "listingSource": "https://ty.ahnu.edu.cn/__local/D/7B/C2/F1AE04ED2ED49096062A0A08F75_37334E8F_1735380.pdf",
+      "listingOrdinal": 13,
+      "evidence": "体育文化发展中心2024—2027年正式名单，第13项",
+      "topics": "体育文化、体育精神、文化传承",
+      "highEnd": false,
+      "note": "按获批单位展示基地称谓；未找到专页时链接至官方名单通知。"
+    },
+    {
+      "name": "体育文化研究基地（贵州大学）",
+      "school": "贵州大学",
+      "region": "贵州",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://www.gzu.edu.cn/2024/1216/c17516a244067/page.htm",
+      "kind": "校方报道",
+      "source": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "listingSource": "https://ty.ahnu.edu.cn/__local/D/7B/C2/F1AE04ED2ED49096062A0A08F75_37334E8F_1735380.pdf",
+      "listingOrdinal": 14,
+      "evidence": "体育文化发展中心2024—2027年正式名单，第14项",
+      "topics": "体育文化、体育精神、文化传承",
+      "highEnd": false,
+      "note": "按获批单位展示基地称谓；未找到专页时链接至官方名单通知。"
+    },
+    {
+      "name": "体育文化研究基地（贵州医科大学）",
+      "school": "贵州医科大学",
+      "region": "贵州",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "kind": "官方名单通知",
+      "source": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "listingSource": "https://ty.ahnu.edu.cn/__local/D/7B/C2/F1AE04ED2ED49096062A0A08F75_37334E8F_1735380.pdf",
+      "listingOrdinal": 15,
+      "evidence": "体育文化发展中心2024—2027年正式名单，第15项",
+      "topics": "体育文化、体育精神、文化传承",
+      "highEnd": false,
+      "note": "按获批单位展示基地称谓；未找到专页时链接至官方名单通知。"
+    },
+    {
+      "name": "体育文化研究基地（哈尔滨师范大学）",
+      "school": "哈尔滨师范大学",
+      "region": "黑龙江",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "kind": "官方名单通知",
+      "source": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "listingSource": "https://ty.ahnu.edu.cn/__local/D/7B/C2/F1AE04ED2ED49096062A0A08F75_37334E8F_1735380.pdf",
+      "listingOrdinal": 16,
+      "evidence": "体育文化发展中心2024—2027年正式名单，第16项",
+      "topics": "体育文化、体育精神、文化传承",
+      "highEnd": false,
+      "note": "按获批单位展示基地称谓；未找到专页时链接至官方名单通知。"
+    },
+    {
+      "name": "体育文化研究基地（海南师范大学）",
+      "school": "海南师范大学",
+      "region": "海南",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://f.hainnu.edu.cn/2024/0328/20240328032130833.pdf",
+      "kind": "校方材料（PDF）",
+      "source": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "listingSource": "https://ty.ahnu.edu.cn/__local/D/7B/C2/F1AE04ED2ED49096062A0A08F75_37334E8F_1735380.pdf",
+      "listingOrdinal": 17,
+      "evidence": "体育文化发展中心2024—2027年正式名单，第17项",
+      "topics": "体育文化、体育精神、文化传承",
+      "highEnd": false,
+      "note": "按获批单位展示基地称谓；未找到专页时链接至官方名单通知。"
+    },
+    {
+      "name": "体育文化研究基地（杭州师范大学）",
+      "school": "杭州师范大学",
+      "region": "浙江",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "kind": "官方名单通知",
+      "source": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "listingSource": "https://ty.ahnu.edu.cn/__local/D/7B/C2/F1AE04ED2ED49096062A0A08F75_37334E8F_1735380.pdf",
+      "listingOrdinal": 18,
+      "evidence": "体育文化发展中心2024—2027年正式名单，第18项",
+      "topics": "体育文化、体育精神、文化传承",
+      "highEnd": false,
+      "note": "按获批单位展示基地称谓；未找到专页时链接至官方名单通知。"
+    },
+    {
+      "name": "体育文化研究基地（河北体育学院）",
+      "school": "河北体育学院",
+      "region": "河北",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "kind": "官方名单通知",
+      "source": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "listingSource": "https://ty.ahnu.edu.cn/__local/D/7B/C2/F1AE04ED2ED49096062A0A08F75_37334E8F_1735380.pdf",
+      "listingOrdinal": 19,
+      "evidence": "体育文化发展中心2024—2027年正式名单，第19项",
+      "topics": "体育文化、体育精神、文化传承",
+      "highEnd": false,
+      "note": "按获批单位展示基地称谓；未找到专页时链接至官方名单通知。"
+    },
+    {
+      "name": "体育文化研究基地（河南大学）",
+      "school": "河南大学",
+      "region": "河南",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "kind": "官方名单通知",
+      "source": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "listingSource": "https://ty.ahnu.edu.cn/__local/D/7B/C2/F1AE04ED2ED49096062A0A08F75_37334E8F_1735380.pdf",
+      "listingOrdinal": 20,
+      "evidence": "体育文化发展中心2024—2027年正式名单，第20项",
+      "topics": "体育文化、体育精神、文化传承",
+      "highEnd": false,
+      "note": "按获批单位展示基地称谓；未找到专页时链接至官方名单通知。"
+    },
+    {
+      "name": "体育文化研究基地（河南理工大学）",
+      "school": "河南理工大学",
+      "region": "河南",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "kind": "官方名单通知",
+      "source": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "listingSource": "https://ty.ahnu.edu.cn/__local/D/7B/C2/F1AE04ED2ED49096062A0A08F75_37334E8F_1735380.pdf",
+      "listingOrdinal": 21,
+      "evidence": "体育文化发展中心2024—2027年正式名单，第21项",
+      "topics": "体育文化、体育精神、文化传承",
+      "highEnd": false,
+      "note": "按获批单位展示基地称谓；未找到专页时链接至官方名单通知。"
+    },
+    {
+      "name": "体育文化研究基地（河南师范大学）",
+      "school": "河南师范大学",
+      "region": "河南",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://www.htu.edu.cn/dangzhengban/2024/0326/c3282a302066/page.htm",
+      "kind": "校方报道",
+      "source": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html",
+      "listingSource": "https://ty.ahnu.edu.cn/__local/D/7B/C2/F1AE04ED2ED49096062A0A08F75_37334E8F_1735380.pdf",
+      "listingOrdinal": 22,
+      "evidence": "体育文化发展中心2024—2027年正式名单，第22项",
+      "topics": "体育文化、体育精神、文化传承",
+      "highEnd": false,
+      "note": "按获批单位展示基地称谓；未找到专页时链接至官方名单通知。"
+    },
+    {
+      "name": "国民体质与科学健身研究中心",
+      "school": "国家体育总局体育科学研究所",
+      "region": "北京",
+      "category": "研究中心",
+      "platformType": "研究中心",
+      "url": "https://www.ciss.cn/gmtzyjzx/index.html",
+      "kind": "官方介绍",
+      "source": "https://www.ciss.cn/gmtzyjzx/index.html",
+      "evidence": "官方机构目录及介绍页列明机构与研究职能",
+      "topics": "体质监测、科学健身、健康促进",
+      "highEnd": false,
+      "note": "作为研究机构收录，不据此认定智库资质。"
+    },
+    {
+      "name": "运动训练研究中心",
+      "school": "国家体育总局体育科学研究所",
+      "region": "北京",
+      "category": "研究中心",
+      "platformType": "研究中心",
+      "url": "https://www.ciss.cn/ydxlyjzx/index.html",
+      "kind": "官方介绍",
+      "source": "https://www.ciss.cn/ydxlyjzx/index.html",
+      "evidence": "官方机构目录及介绍页列明机构与研究职能",
+      "topics": "运动训练、竞技表现、训练监控",
+      "highEnd": false,
+      "note": "作为研究机构收录，不据此认定智库资质。"
+    },
+    {
+      "name": "体能训练研究中心",
+      "school": "国家体育总局体育科学研究所",
+      "region": "北京",
+      "category": "研究中心",
+      "platformType": "研究中心",
+      "url": "https://www.ciss.cn/tnxlyjzx/index.html",
+      "kind": "官方介绍",
+      "source": "https://www.ciss.cn/tnxlyjzx/index.html",
+      "evidence": "官方机构目录及介绍页列明机构与研究职能",
+      "topics": "体能训练、训练监控",
+      "highEnd": false,
+      "note": "作为研究机构收录，不据此认定智库资质。"
+    },
+    {
+      "name": "运动心理与生物力学研究中心",
+      "school": "国家体育总局体育科学研究所",
+      "region": "北京",
+      "category": "研究中心",
+      "platformType": "研究中心",
+      "url": "https://www.ciss.cn/ydxlyswlx/index.html",
+      "kind": "官方介绍",
+      "source": "https://www.ciss.cn/ydxlyswlx/index.html",
+      "evidence": "官方机构目录及介绍页列明机构与研究职能",
+      "topics": "运动心理、运动生物力学",
+      "highEnd": false,
+      "note": "作为研究机构收录，不据此认定智库资质。"
+    },
+    {
+      "name": "运动生物科学研究中心",
+      "school": "国家体育总局体育科学研究所",
+      "region": "北京",
+      "category": "研究中心",
+      "platformType": "研究中心",
+      "url": "https://www.ciss.cn/ydswkx/index.html",
+      "kind": "官方介绍",
+      "source": "https://www.ciss.cn/ydswkx/index.html",
+      "evidence": "官方机构目录及介绍页列明机构与研究职能",
+      "topics": "运动生物科学、运动健康",
+      "highEnd": false,
+      "note": "作为研究机构收录，不据此认定智库资质。"
+    },
+    {
+      "name": "运动康复研究中心",
+      "school": "国家体育总局体育科学研究所",
+      "region": "北京",
+      "category": "研究中心",
+      "platformType": "研究中心",
+      "url": "https://www.ciss.cn/ydkfytnxl/index.html",
+      "kind": "官方介绍",
+      "source": "https://www.ciss.cn/ydkfytnxl/index.html",
+      "evidence": "官方机构目录及介绍页列明机构与研究职能",
+      "topics": "运动康复、运动损伤",
+      "highEnd": false,
+      "note": "作为研究机构收录，不据此认定智库资质。"
+    },
+    {
+      "name": "体育社会科学研究中心",
+      "school": "国家体育总局体育科学研究所",
+      "region": "北京",
+      "category": "研究中心",
+      "platformType": "研究中心",
+      "url": "https://www.ciss.cn/tyshkx/index.html",
+      "kind": "官方介绍",
+      "source": "https://www.ciss.cn/tyshkx/index.html",
+      "evidence": "官方机构目录及介绍页列明机构与研究职能",
+      "topics": "体育政策、体育管理、体育经济",
+      "highEnd": false,
+      "note": "作为研究机构收录，不据此认定智库资质。"
+    },
+    {
+      "name": "体育工程研究中心",
+      "school": "国家体育总局体育科学研究所",
+      "region": "北京",
+      "category": "研究中心",
+      "platformType": "研究中心",
+      "url": "https://www.ciss.cn/tygcyjzx/index.html",
+      "kind": "官方介绍",
+      "source": "https://www.ciss.cn/tygcyjzx/index.html",
+      "evidence": "官方机构目录及介绍页列明机构与研究职能",
+      "topics": "体育工程、智能器材、体育技术",
+      "highEnd": false,
+      "note": "作为研究机构收录，不据此认定智库资质。"
+    },
+    {
+      "name": "人文体育研究基地",
+      "school": "北京大学",
+      "region": "北京",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://pe.pku.edu.cn/tyky/rwtyyjjd.htm",
+      "kind": "官方介绍",
+      "source": "https://pe.pku.edu.cn/tyky/rwtyyjjd.htm",
+      "evidence": "官方机构目录及介绍页列明机构与研究职能",
+      "topics": "体育人文、社会文化",
+      "highEnd": false,
+      "note": "作为研究机构收录，不据此认定智库资质。"
+    },
+    {
+      "name": "妇女儿童体育研究中心",
+      "school": "北京大学",
+      "region": "北京",
+      "category": "研究中心",
+      "platformType": "研究中心",
+      "url": "https://pe.pku.edu.cn/tyky/fnettyyjzx.htm",
+      "kind": "官方介绍",
+      "source": "https://pe.pku.edu.cn/tyky/fnettyyjzx.htm",
+      "evidence": "官方机构目录及介绍页列明机构与研究职能",
+      "topics": "妇女体育、儿童体育、性别平等",
+      "highEnd": false,
+      "note": "作为研究机构收录，不据此认定智库资质。"
+    },
+    {
+      "name": "体育与健康研究中心",
+      "school": "北京大学",
+      "region": "北京",
+      "category": "研究中心",
+      "platformType": "研究中心",
+      "url": "https://pe.pku.edu.cn/tyky/tyyjkyjzx.htm",
+      "kind": "官方介绍",
+      "source": "https://pe.pku.edu.cn/tyky/tyyjkyjzx.htm",
+      "evidence": "官方机构目录及介绍页列明机构与研究职能",
+      "topics": "体质监测、健康促进、科学健身",
+      "highEnd": false,
+      "note": "作为研究机构收录，不据此认定智库资质。"
+    },
+    {
+      "name": "武术研究中心",
+      "school": "北京大学",
+      "region": "北京",
+      "category": "研究中心",
+      "platformType": "研究中心",
+      "url": "https://pe.pku.edu.cn/tyky/wsyjzx.htm",
+      "kind": "官方介绍",
+      "source": "https://pe.pku.edu.cn/tyky/wsyjzx.htm",
+      "evidence": "官方机构目录及介绍页列明机构与研究职能",
+      "topics": "武术、传统体育、健康老龄化",
+      "highEnd": false,
+      "note": "作为研究机构收录，不据此认定智库资质。"
+    },
+    {
+      "name": "中国民族体育文化传承研究中心",
+      "school": "北京大学",
+      "region": "北京",
+      "category": "研究中心",
+      "platformType": "研究中心",
+      "url": "https://pe.pku.edu.cn/tyky/zgmztywhccyjzx.htm",
+      "kind": "官方介绍",
+      "source": "https://pe.pku.edu.cn/tyky/zgmztywhccyjzx.htm",
+      "evidence": "官方机构目录及介绍页列明机构与研究职能",
+      "topics": "民族体育、文化传承、体育教育",
+      "highEnd": false,
+      "note": "作为研究机构收录，不据此认定智库资质。"
+    },
+    {
+      "name": "拓展与户外研究中心",
+      "school": "北京大学",
+      "region": "北京",
+      "category": "研究中心",
+      "platformType": "研究中心",
+      "url": "https://pe.pku.edu.cn/tyky/tzyhwyjzx.htm",
+      "kind": "官方介绍",
+      "source": "https://pe.pku.edu.cn/tyky/tzyhwyjzx.htm",
+      "evidence": "官方机构目录及介绍页列明机构与研究职能",
+      "topics": "户外运动、拓展训练、体验教育",
+      "highEnd": false,
+      "note": "作为研究机构收录，不据此认定智库资质。"
+    },
+    {
+      "name": "国家体育总局体育哲学社会科学重点研究基地",
+      "school": "北京体育大学",
+      "region": "北京",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://kjc.bsu.edu.cn/kypt/ef9770b18a2645f4a7935eef29976a89.htm",
+      "kind": "官方介绍",
+      "source": "https://kjc.bsu.edu.cn/kypt/ef9770b18a2645f4a7935eef29976a89.htm",
+      "evidence": "校方科研平台介绍明确基地身份及研究任务",
+      "topics": "体育治理、体育政策、体育社会科学",
+      "highEnd": false,
+      "note": "作为研究机构收录，不据此认定智库资质。"
+    },
+    {
+      "name": "国家体育总局体育产业研究基地",
+      "school": "北京体育大学",
+      "region": "北京",
+      "category": "研究基地",
+      "platformType": "研究基地",
+      "url": "https://kjc.bsu.edu.cn/kypt/e1fb643d3d964239913f2cfb02ac2d41.htm",
+      "kind": "官方介绍",
+      "source": "https://kjc.bsu.edu.cn/kypt/e1fb643d3d964239913f2cfb02ac2d41.htm",
+      "evidence": "校方科研平台介绍明确产业研究基地及咨询任务",
+      "topics": "体育产业、体育旅游、政策咨询",
+      "highEnd": false,
+      "note": "作为研究机构收录，不据此认定智库资质。"
+    },
+    {
+      "name": "体育社会科学研究中心",
+      "school": "广州体育学院",
+      "region": "广东",
+      "category": "研究中心",
+      "platformType": "研究中心",
+      "url": "https://www.gzsport.edu.cn/node/464",
+      "kind": "官方介绍",
+      "source": "https://www.gzsport.edu.cn/node/464",
+      "evidence": "校方平台表列为总局体育社会科学重点研究基地",
+      "topics": "体育社会科学、体育政策",
+      "highEnd": false,
+      "note": "作为研究机构收录，不据此认定智库资质。"
+    },
+    {
+      "name": "全民健身研究中心",
+      "school": "广州体育学院",
+      "region": "广东",
+      "category": "研究中心",
+      "platformType": "研究中心",
+      "url": "https://www.gzsport.edu.cn/node/464",
+      "kind": "官方介绍",
+      "source": "https://www.gzsport.edu.cn/node/464",
+      "evidence": "校方平台表列为省级重点提升平台",
+      "topics": "全民健身、体育公共服务",
+      "highEnd": false,
+      "note": "作为研究机构收录，不据此认定智库资质。"
+    },
+    {
+      "name": "粤港澳大湾区体育科学创新研究中心",
+      "school": "广州体育学院",
+      "region": "广东",
+      "category": "研究中心",
+      "platformType": "研究中心",
+      "url": "https://www.gzsport.edu.cn/node/464",
+      "kind": "官方介绍",
+      "source": "https://www.gzsport.edu.cn/node/464",
+      "evidence": "校方平台表列为广东省社会科学研究基地",
+      "topics": "湾区体育、体育科学创新",
+      "highEnd": false,
+      "note": "作为研究机构收录，不据此认定智库资质。"
+    },
+    {
+      "name": "岭南传统体育文化传承与发展研究中心",
+      "school": "广州体育学院",
+      "region": "广东",
+      "category": "研究中心",
+      "platformType": "研究中心",
+      "url": "https://www.gzsport.edu.cn/node/464",
+      "kind": "官方介绍",
+      "source": "https://www.gzsport.edu.cn/node/464",
+      "evidence": "校方省级以上科研平台一览表列名",
+      "topics": "岭南体育、文化传承",
+      "highEnd": false,
+      "note": "作为研究机构收录，不据此认定智库资质。"
+    },
+    {
+      "name": "体卫融合创新发展研究中心",
+      "school": "广州体育学院",
+      "region": "广东",
+      "category": "研究中心",
+      "platformType": "研究中心",
+      "url": "https://www.gzsport.edu.cn/node/464",
+      "kind": "官方介绍",
+      "source": "https://www.gzsport.edu.cn/node/464",
+      "evidence": "校方省级以上科研平台一览表列名",
+      "topics": "体卫融合、运动健康",
+      "highEnd": false,
+      "note": "作为研究机构收录，不据此认定智库资质。"
+    },
+    {
+      "name": "太极文化研究中心",
+      "school": "河南理工大学",
+      "region": "河南",
+      "category": "研究中心",
+      "platformType": "研究中心",
+      "url": "https://tyxy.hpu.edu.cn/xsyj/yjjg/tjwhyjzx.htm",
+      "kind": "官方介绍",
+      "source": "https://tyxy.hpu.edu.cn/xsyj/yjjg/tjwhyjzx.htm",
+      "evidence": "校方官方介绍明确河南省高校人文社科重点研究基地身份",
+      "topics": "太极文化、民族传统体育",
+      "highEnd": false,
+      "note": "作为研究机构收录，不据此认定智库资质。"
+    }
+  ],
+  "batches": [
+    {
+      "addedAt": "2026-10-26",
+      "description": "扩展研究基地与研究中心；体育文化基地本批核对名单第1—22项，不代表已收录官方89项全表。",
+      "count": 44,
+      "source": "https://www.sport.gov.cn/whzx/n15244/c27582490/content.html"
     }
   ]
 }

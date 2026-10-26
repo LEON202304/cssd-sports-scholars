@@ -15,9 +15,9 @@ for (const match of [asset, style]) {
 }
 const source = fs.readFileSync(path.join(root, asset[1]), 'utf8');
 const data = JSON.parse(fs.readFileSync(path.join(root, 'docs/sports-thinktanks.json'), 'utf8'));
-assert.equal(data.units.length, 39);
+assert.equal(data.units.length, 83);
 assert.equal(data.units.filter(u => u.highEnd).length, 17);
-assert.equal(new Set(data.units.map(u => u.name + '|' + u.school)).size, 39);
+assert.equal(new Set(data.units.map(u => u.name + '|' + u.school)).size, 83);
 for (const u of data.units) {
   for (const field of ['name', 'school', 'region', 'category', 'url', 'source', 'evidence']) assert(u[field], field);
   assert.equal(new URL(u.url).protocol, 'https:');
@@ -42,16 +42,16 @@ assert.deepEqual(JSON.parse(JSON.stringify(context.window.directoryTest.units)),
 const rowCount = () => (controls.ttRows.innerHTML.match(/<tr>/g) || []).length;
 assert.equal(rowCount(), 12);
 controls.ttShowAll.events.click();
-assert.equal(rowCount(), 39);
+assert.equal(rowCount(), 83);
 assert.equal((controls.ttRows.innerHTML.match(/class="tt-star"/g) || []).length, 17);
-assert.equal((controls.ttRows.innerHTML.match(/target="_blank" rel="noopener noreferrer"/g) || []).length, 78);
+assert.equal((controls.ttRows.innerHTML.match(/target="_blank" rel="noopener noreferrer"/g) || []).length, 166);
 assert.equal(controls.ttShowAll.hidden, true);
 modes[1].events.click();
 assert(controls.ttResults.textContent.includes('匹配 17 条'));
 controls.ttShowAll.events.click();
 assert.equal(rowCount(), 17);
 modes[2].events.click();
-assert(controls.ttResults.textContent.includes('匹配 22 条'));
+assert(controls.ttResults.textContent.includes('匹配 66 条'));
 assert(!controls.ttRows.innerHTML.includes('class="tt-star"'));
 controls.ttQuery.value = '湖北 体育产业';
 controls.ttQuery.events.input();
@@ -63,14 +63,23 @@ assert(controls.ttRows.innerHTML.includes('没有匹配'));
 assert.equal(controls.ttShowAll.hidden, true);
 controls.ttReset.events.click();
 assert.equal(controls.ttQuery.value, '');
-assert(controls.ttResults.textContent.includes('匹配 39 条'));
+assert(controls.ttResults.textContent.includes('匹配 83 条'));
 assert.equal(controls.ttQuery.focused, true);
 controls.ttCategory.value = '智库联盟';
 controls.ttCategory.events.change();
 assert.equal(rowCount(), 1);
 assert(controls.ttRows.innerHTML.includes('体育旅游高端智库联盟'));
 assert(!controls.ttRows.innerHTML.includes('class="tt-star"'));
+controls.ttCategory.value = '研究基地';
+controls.ttCategory.events.change();
+assert(controls.ttResults.textContent.includes('匹配 29 条'));
+controls.ttCategory.value = '研究中心';
+controls.ttCategory.events.change();
+assert(controls.ttResults.textContent.includes('匹配 27 条'));
+assert.equal(data.units.filter(u => u.listingSource).length, 22);
+assert(data.units.filter(u => u.listingSource).every(u => !u.highEnd));
 vm.runInNewContext(source, context);
 assert.equal(insertions, 1);
 assert(source.includes('公示') && source.includes('非全国全量清单'));
-console.log('PASS: 39 records, 17 stars, asset hashes, source parity, search, filters, show-all, empty state, reset, external links, idempotent mount.');
+console.log('PASS: 83 records, 17 stars, asset hashes, source parity, search, filters, show-all, empty state, reset, external links, idempotent mount.');
+
