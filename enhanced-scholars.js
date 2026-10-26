@@ -1060,7 +1060,7 @@
       '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:16px;">' +
         '<div id="hm-kpi-nssfc" class="c-card" style="background:#ffffff!important;cursor:pointer;">' +
           '<div class="c-fxb"><span style="font-size:12px;line-height:16px;font-weight:600;color:#991b1b!important;">🇨🇳 2026国家社科基金·体育学</span><span style="font-size:12px;line-height:16px;color:#dc2626!important;font-weight:600;">统计报告 →</span></div>' +
-          '<div id="cssd-hm-nssfc-num" style="font-size:24px;line-height:32px;font-weight:700;font-variant-numeric:tabular-nums;color:#dc2626!important;margin:4px 0;">' + nssfc.total + ' 项</div>' +
+          '<div id="cssd-hm-nssfc-num" style="font-size:24px;line-height:32px;font-weight:700;font-variant-numeric:tabular-nums;margin:4px 0;">' + nssfc.total + ' 项</div>' +
           '<div id="cssd-hm-nssfc-sub" style="font-size:12px;line-height:16px;color:#52525b!important;font-variant-numeric:tabular-nums;">重点 ' + (nssfc.catMap['重点项目'] || 0) + ' · 一般 ' + (nssfc.catMap['一般项目'] || 0) + ' · 青年 ' + (nssfc.catMap['青年项目'] || 0) + ' · ' + nssfc.unitTotal + ' 家高校</div></div>' +
         '<div id="hm-kpi-moe" class="c-card" style="background:#ffffff!important;cursor:pointer;">' +
           '<div class="c-fxb"><span style="font-size:12px;line-height:16px;font-weight:600;color:#1e40af!important;">🏅 2026教育部人文社科·体育学</span><span style="font-size:12px;line-height:16px;color:#2563eb!important;font-weight:600;">统计报告 →</span></div>' +
@@ -1241,7 +1241,8 @@
         '.cssd-tb-btn:active,.cssd-cite-btn:active{transform:scale(0.98)!important}' +
         '.cssd-tb-btn:focus-visible,.cssd-cite-btn:focus-visible,.c-inp:focus-visible,.c-sel:focus-visible{outline:2px solid #2563eb!important;outline-offset:2px!important}' +
         '.cssd-tb-btn.moe{background:#eff6ff!important;color:#1d4ed8!important;border-color:#93c5fd!important;font-weight:600}' +
-        '.cssd-tb-btn.nssfc-active{background:#dc2626!important;color:#ffffff!important;border-color:#dc2626!important;font-weight:600}' +
+        '.cssd-tb-btn.nssfc-active{background:var(--nsfc-chip-bg,#FDEBEC)!important;color:var(--nsfc-chip-fg,#B42318)!important;-webkit-text-fill-color:var(--nsfc-chip-fg,#B42318)!important;border-color:var(--nsfc-chip-line,#B42318)!important;font-weight:600!important;text-shadow:none!important}' +
+        '.cssd-tb-btn.nssfc-active:hover{background:var(--nsfc-chip-bg-hover,#FBD5D7)!important;color:var(--nsfc-chip-fg,#B42318)!important;-webkit-text-fill-color:var(--nsfc-chip-fg,#B42318)!important;border-color:var(--nsfc-chip-line,#B42318)!important;text-shadow:none!important}' +
         '.cssd-cite-btn{background:#f4f4f5!important;border:1px solid #e4e4e7!important;color:#0f172a!important;-webkit-text-fill-color:#0f172a!important;padding:4px 8px;border-radius:4px;font-size:12px;line-height:16px;font-weight:600;white-space:nowrap!important;cursor:pointer;font-family:' + SANS + ';transition:transform 200ms cubic-bezier(0.22,1,0.36,1),opacity 200ms cubic-bezier(0.22,1,0.36,1)}' +
         '.cssd-cite-btn:hover,.cssd-cite-btn.active{background:#2563eb!important;color:#ffffff!important;-webkit-text-fill-color:#ffffff!important;border-color:#2563eb!important}' +
         '#cssd-compare-dock{position:fixed;bottom:64px;right:24px;background:#18181b!important;color:#ffffff!important;padding:8px 16px;border-radius:9999px;border:1px solid #27272a;display:none;align-items:center;gap:8px;z-index:99991;font-size:12px;line-height:16px}' +
