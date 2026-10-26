@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25",
+  "generatedAt": "2026-10-26",
   "source": "C刊官网 + 体育院校官网（GitHub Actions 每日）",
   "statusHint": "live",
   "items": [
@@ -37,6 +37,46 @@
     },
     {
       "cat": "院校",
+      "source": "南京体育学院",
+      "section": "学校主页",
+      "title": "以测促练，夯实基础—— 武术与艺术学院运动训练专业开展新生专项复测",
+      "date": "2026-10-26",
+      "link": "https://www.nsi.edu.cn/6c/dc/c2342a93404/page.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "南京体育学院",
+      "section": "学校主页",
+      "title": "武术与艺术学院2026级舞蹈表演专业新生复测工作圆满结束",
+      "date": "2026-10-26",
+      "link": "https://www.nsi.edu.cn/6c/db/c2342a93403/page.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "南京体育学院",
+      "section": "学校主页",
+      "title": "社彩绽芳华，青春竞风采——我校社团展演活动顺利开展",
+      "date": "2026-10-26",
+      "link": "https://www.nsi.edu.cn/6c/d6/c2347a93398/page.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "南京体育学院",
+      "section": "学校主页",
+      "title": "提质膳食服务 守护舌尖安心——后勤处膳食服务科召开食堂服务质量提升推进会",
+      "date": "2026-10-26",
+      "link": "https://www.nsi.edu.cn/6c/d5/c2347a93397/page.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "广州体育学院",
+      "section": "公告栏",
+      "title": "关于公示毛钰蘅副教授赴香港参加会议相关情况的通知",
+      "date": "2026-10-26",
+      "link": "http://www.gzsport.edu.cn:80/info/17963"
+    },
+    {
+      "cat": "院校",
       "source": "广州体育学院",
       "section": "广体要闻",
       "title": "▸ 广州体育学院干部师生热议习近平总书记在纪念中国工农红军长征胜利90周年大会上的重...",
@@ -69,43 +109,19 @@
     },
     {
       "cat": "院校",
+      "source": "南京体育学院",
+      "section": "动态速递",
+      "title": "重温峥嵘岁月 汲取奋进力量——民进南体支部开展纪念长征胜利90周年主题同心教育实践活动",
+      "date": "2026-10-24",
+      "link": "https://www.nsi.edu.cn/6c/d0/c2347a93392/page.htm"
+    },
+    {
+      "cat": "院校",
       "source": "山东体育学院",
       "section": "学校主页",
       "title": "喜获组委会感谢信！2026尼山世界文明论坛・体育文化论坛获充分肯定",
       "date": "2026-10-24",
       "link": "https://www.sdpei.edu.cn/2026/1024/c592a88588/page.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "南京体育学院",
-      "section": "动态速递",
-      "title": "2026年江苏省国家级社会体育指导员培训（第一期）在我校开班",
-      "date": "2026-10-23",
-      "link": "https://www.nsi.edu.cn/6c/94/c2347a93332/page.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "南京体育学院",
-      "section": "动态速递",
-      "title": "2026年全省中小学体育教师培训（游泳专项）在我校开班",
-      "date": "2026-10-23",
-      "link": "https://www.nsi.edu.cn/6c/95/c2347a93333/page.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "南京体育学院",
-      "section": "通知公告",
-      "title": "网球队网球采购项目流标公告",
-      "date": "2026-10-23",
-      "link": "https://www.nsi.edu.cn/6c/b5/c2349a93365/page.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "南京体育学院",
-      "section": "通知公告",
-      "title": "跑步机、哑铃采购项目成交公告",
-      "date": "2026-10-23",
-      "link": "https://www.nsi.edu.cn/6c/b6/c2349a93366/page.htm"
     },
     {
       "cat": "院校",
@@ -122,14 +138,6 @@
       "title": "（立项公示）校园主干道路面修缮工程",
       "date": "2026-10-23",
       "link": "http://www.gzsport.edu.cn:80/info/17966"
-    },
-    {
-      "cat": "院校",
-      "source": "广州体育学院",
-      "section": "公告栏",
-      "title": "关于公示任雅琴副教授赴香港参加会议相关情况的通知",
-      "date": "2026-10-23",
-      "link": "http://www.gzsport.edu.cn:80/info/17960"
     },
     {
       "cat": "院校",
@@ -165,11 +173,11 @@
     },
     {
       "cat": "院校",
-      "source": "南京体育学院",
-      "section": "通知公告",
-      "title": "网球队器材采购项目（一）流标公告",
+      "source": "广州体育学院",
+      "section": "公告栏",
+      "title": "关于公示任雅琴副教授赴香港参加会议相关情况的通知",
       "date": "2026-10-23",
-      "link": "https://www.nsi.edu.cn/6c/a9/c2349a93353/page.htm"
+      "link": "http://www.gzsport.edu.cn:80/info/17960"
     },
     {
       "cat": "院校",
@@ -181,19 +189,27 @@
     },
     {
       "cat": "院校",
+      "source": "沈阳体育学院",
+      "section": "学校主页",
+      "title": "武术与舞蹈学院组织召开第七届硕士研究生优秀文献综述报告会",
+      "date": "2026-10-22",
+      "link": "https://www.syty.edu.cn/info/1036/17863.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "沈阳体育学院",
+      "section": "学校主页",
+      "title": "社会体育学院举办研究生优秀文献综述报告会",
+      "date": "2026-10-22",
+      "link": "https://www.syty.edu.cn/info/1036/17903.htm"
+    },
+    {
+      "cat": "院校",
       "source": "西安体育学院",
       "section": "学校主页",
       "title": "省委第六巡视组巡视西安体育学院党委工作动员会召开 本网讯 根据省委统一部署，近日，省委第六巡视组巡视西安体育学院党委工作动员会召开。省委第六巡视组组长赵灵利作了动员讲话，西安体育学院党委书记祁玉龙主持会议并讲话。省委第六巡视组副组长王东波及巡视组有关成员，西安体育学院党委领导班子成员出席会议；学校二级教授及全校副处级以上干部列席会议。赵灵利指出，巡视是党内监督的战略性制度安排，是管党治党的利剑、治国理政的利器。省委巡视组将深入学习贯彻习近平党建思想和习近平总书记、...",
       "date": "2026-10-22",
       "link": "https://www.xaipe.edu.cn/info/1081/135114.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "广州体育学院",
-      "section": "广体要闻",
-      "title": "▸ 副校长侯晓晖带队赴广州市东升医院开展访企拓岗专项行动",
-      "date": "2026-10-22",
-      "link": "http://news.gzsport.edu.cn:80/info/17961"
     },
     {
       "cat": "院校",
@@ -210,6 +226,22 @@
       "title": "我校学子在2026年全国壁球锦标赛上摘金夺银",
       "date": "2026-10-21",
       "link": "https://mp.weixin.qq.com/s/KZUvOPpLWLlsLuDbUIp-lA"
+    },
+    {
+      "cat": "院校",
+      "source": "沈阳体育学院",
+      "section": "学校新闻",
+      "title": "沈阳体育学院举行党员基本培训2026年下半年第一次集中大课 为深入学习贯彻习近平新时代中国特色社会主义思想，提升全校党员理论水平和党性修养，不断加强学校党员队伍建设，10月21日下午，学校举行...",
+      "date": "2026-10-21",
+      "link": "https://www.syty.edu.cn/info/1201/17843.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "沈阳体育学院",
+      "section": "学校主页",
+      "title": "沈阳体育学院举行党员基本培训2026年下半年第一次集中大课",
+      "date": "2026-10-21",
+      "link": "https://www.syty.edu.cn/info/1201/17843.htm"
     },
     {
       "cat": "院校",
@@ -234,6 +266,14 @@
       "title": "党委书记张欣为大学生讲授形势与政策第一课",
       "date": "2026-10-20",
       "link": "https://mp.weixin.qq.com/s/PvR83zeC1lW1gsaXXMm_7g"
+    },
+    {
+      "cat": "院校",
+      "source": "沈阳体育学院",
+      "section": "学校新闻",
+      "title": "礼韵绽芳华 风采耀沈体｜沈阳体育学院第十六届礼仪模特大赛圆满落幕 为丰富校园文化生活，深化美育育人成效，充分展现沈体学子自信优雅、朝气蓬勃的精神风貌，营造崇德尚美、积极向上的优良校园文化氛围，10...",
+      "date": "2026-10-20",
+      "link": "https://www.syty.edu.cn/info/1066/17823.htm"
     },
     {
       "cat": "院校",
@@ -274,6 +314,22 @@
       "title": "哈尔滨体育学院2026-2029年委托采购代理机构服务项目（二次）成交公告",
       "date": "2026-10-10",
       "link": "https://www.hrbipe.edu.cn/info/1046/8671.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "北京体育大学",
+      "section": "通知公告",
+      "title": "北京体育大学后勤管理处扫路车采购项目​询价公告",
+      "date": "2026-10-09",
+      "link": "https://www.bsu.edu.cn/tzgg/ea12d312ceba4fa487ab993f481b2fcd.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "北京体育大学",
+      "section": "通知公告",
+      "title": "北京体育大学阿尔伯塔国际休闲体育与旅游学院2025年度办学报告",
+      "date": "2026-09-29",
+      "link": "https://www.bsu.edu.cn/tzgg/4b4c406ce9714a539fad50f39861a6bb.htm"
     },
     {
       "cat": "期刊",
@@ -322,6 +378,22 @@
       "title": "体育学刊2026年第4期目次",
       "date": "2026-07-13",
       "link": "https://tyxk.scnu.edu.cn/a/20260713/1044.html"
+    },
+    {
+      "cat": "院校",
+      "source": "北京体育大学",
+      "section": "通知公告",
+      "title": "北京体育大学国家训练基地2026年厨房设备采购项目询价公告",
+      "date": "2026-06-12",
+      "link": "https://www.bsu.edu.cn/tzgg/2524d2e0fead46539db0422ac93d3bc7.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "北京体育大学",
+      "section": "通知公告",
+      "title": "北京体育大学国家训练基地2026年体外除颤仪（AED）采购项目询价公告",
+      "date": "2026-06-10",
+      "link": "https://www.bsu.edu.cn/tzgg/6aedcf96547d4c78b1848d66d9d55c99.htm"
     },
     {
       "cat": "期刊",
@@ -562,6 +634,22 @@
       "title": "体育学刊编辑部 恭祝您中秋快乐",
       "date": "",
       "link": "https://tyxk.scnu.edu.cn/a/20260924/1046.html"
+    },
+    {
+      "cat": "院校",
+      "source": "北京体育大学",
+      "section": "校园要闻",
+      "title": "《青少年体育》第二届编委会换届大会在京召开 洪平当选新一届编委会主任",
+      "date": "",
+      "link": "https://www.bsu.edu.cn/xyyw/360da9dc23154423aabc5d628aec64c9.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "北京体育大学",
+      "section": "校园要闻",
+      "title": "从领奖台到世界舞台：中国奥林匹克学院为冠军开启“第二赛道”",
+      "date": "",
+      "link": "https://www.bsu.edu.cn/xyyw/9334f01d57ce4e2ab3d0aea3b9e2c399.htm"
     },
     {
       "cat": "院校",
