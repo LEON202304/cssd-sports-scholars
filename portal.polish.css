@@ -4498,3 +4498,77 @@ html.cssd-light body #vw-scholars .sch-branch-tab.on[data-branch="main"] small{
   background:transparent !important;
   font-weight:600 !important;
 }
+
+/* ═════════════════════════════════════════════════════════════════
+   v4.6-117 学界动态左右密度
+   左卡内副条与右列密列表共用行高、标题节奏与日期样式（墨色表格式，
+   不再把未来会议涂成橙色胶囊）。可回退：删本分区。
+   ═════════════════════════════════════════════════════════════════ */
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-meta time{
+  flex:0 0 auto;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  color:#5B6575 !important;
+  -webkit-text-fill-color:#5B6575 !important;
+  font-size:12px !important;
+  font-weight:500 !important;
+  line-height:16px !important;
+  letter-spacing:.04em !important;
+  font-variant-numeric:tabular-nums;
+}
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-side-list .xj-meta,
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-row .xj-meta,
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-lead > .xj-meta{
+  margin-bottom:4px;
+  min-height:18px;
+}
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-list{
+  justify-content:space-between;
+  gap:8px;
+}
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-list > .xj-row,
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-list > .xj-row:last-child{
+  flex:0 0 auto;
+  min-height:88px;
+  padding:8px 12px;
+  box-sizing:border-box;
+  justify-content:center;
+}
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-side-list li{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  box-sizing:border-box;
+  min-height:88px;
+  padding:8px 0;
+}
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-side-list li + li{
+  border-top:1px solid rgba(10,42,67,.06);
+}
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-side-list h3,
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-row h3{
+  font-size:14px !important;
+  font-weight:500 !important;
+  line-height:20px !important;
+  letter-spacing:.02em !important;
+  min-height:40px;
+  -webkit-line-clamp:2;
+  line-clamp:2;
+}
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-lead > h3{
+  font-size:18px !important;
+  font-weight:600 !important;
+  line-height:26px !important;
+  letter-spacing:.03em !important;
+  min-height:0;
+}
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-side-list .xj-sub,
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-row .xj-sub{
+  margin-top:2px;
+  font-size:12px;
+  line-height:16px;
+}
