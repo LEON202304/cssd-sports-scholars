@@ -1,14 +1,16 @@
 /**
- * CSSD 体育学人 - 全站终极增强套件 v15.1 (AI Design Skills 极速防卡死修复旗舰版)
- * 修复说明：
- * - [紧急修复] 彻底解决 v15.0 中 MutationObserver 与 unifyPageTypography() 反复修改 textContent 引发的微任务死循环（导致停留在「体育学人」加载界面转圈打不开的问题）
- * - [性能优化] 引入防重入锁 (_isMounting) + 300ms 防抖观察器 + data-cssd-done 一次性幂等标记 + O(1) 数据合入，首屏零阻塞秒开
- * - [全套功能] 完整保留 elayadesign/ai-design-skills 视觉规范、⌘K/Ctrl+K 全站快搜、首页科研项目双栏大屏、2026国家社科/教育部双专刊、体育学术日历(.ics)与学者对比/海报工具链
+ * CSSD 体育学人 - 全站终极增强套件 v15.2 (全网重点体育学术会议日历 + 细节体验精修版)
+ * 本次升级与修复要点：
+ * 1. [移除右下角突兀悬浮条]: 彻底删除右下角黑色胶囊悬浮条 (#cssd-float-pill)，保持页面清爽通透
+ * 2. [调整首页模块顺序]: 将「科研项目动态」大屏调整至首页顶部 8 大板块导航卡片（学者目录/科研项目查询/人才计划等）的正下方，保留原站导航在最上方
+ * 3. [修复类别标签四字换行]: 为「重点项目/一般项目/青年项目/规划基金」等表格列与标签强制设置 white-space:nowrap 与充足列宽，全部单行整齐显示
+ * 4. [修复立项领跑院校文字看不清]: 移除可能与原站样式冲突的 button/[data-u] 属性，改用独立高对比度标签 (.cssd-unit-chip) 并锁定 #0f172a 深墨色字体，上海体育大学、广州体育学院等全部清晰锐利
+ * 5. [全网重点体育学术会议日历]: 搜集并内置中国体育科学学会、全国体育博士高层论坛、全国青年体育科学学术会议、全国体育信息科技大会、上海体大、成都体院、沈阳体院、哈体院、浙大及 ECSS/ACSM 等 18 场全国与国际重点体育学术会议
  */
 (function () {
   'use strict';
-  if (window.__CSSD_V15_LOADED__) return;
-  window.__CSSD_V15_LOADED__ = true;
+  if (window.__CSSD_V15_2_LOADED__) return;
+  window.__CSSD_V15_2_LOADED__ = true;
 
   var DISC_NAMES = ['体育人文社会学','运动人体科学','体育教育训练学','民族传统体育学'];
   var DISC_CODES = ['soc','hum-sci','pe','trad'];
@@ -30,11 +32,28 @@
   ];
   var SANS = '"Manrope","Geist",-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif';
 
+  // 全网搜集的全国与国际重点体育学术会议日历（覆盖中国体育科学学会、各大体院、综合名校及国际顶会）
   var CALENDAR_EVENTS = [
-    { start: '2026-10-30', end: '2026-10-31', title: '2026年中国学校体育理论创新与自主知识体系构建学术研讨会', type: '学术会议', loc: '山东济南', host: '山东体育学院', status: '即将召开' },
-    { start: '2026-11-13', end: '2026-11-15', title: '2026年山东省第三届休闲体育与体育旅游学术论坛（征文）', type: '征文/论坛', loc: '山东济南/日照', host: '山东体育学院', status: '征文进行中' },
-    { start: '2026-12-04', end: '2026-12-06', title: '第二届中国体育科学学会女科技工作者工作委员会学术交流会（征文）', type: '征文/会议', loc: '山东体育学院', host: '中国体育科学学会 / 山东体育学院', status: '征文进行中' },
-    { start: '2026-12-18', end: '2026-12-20', title: '2026年体育文化与社会学学术研讨会（征文）', type: '征文/会议', loc: '山东泰安·泰山学院', host: '山东体育学院 / 泰山学院', status: '征文进行中' }
+    { start: '2026-10-28', end: '2026-10-30', title: '2026年全国全民健身科学大会（主题：数字赋能全民健身高质量发展）', type: '国家级一级会议', level: 'national', loc: '北京', host: '中国体育科学学会', status: '即将召开', url: 'https://www.sohu.com/a/1055414239_121124683', featured: 1 },
+    { start: '2026-11-06', end: '2026-11-08', title: '运动健康与产业发展专业委员会第四届学术年会', type: '全国专委会年会', level: 'national', loc: '上海·上海体育大学', host: '中国康复医学会 / 上海体育大学运动健康学院', status: '即将召开', url: 'https://www.carm.org.cn/kyxs/tzgg/art/2026/art_2f000dbfa8f64e509d9eff05bbb9c6fb.html', featured: 1 },
+    { start: '2026-11-07', end: '2026-11-09', title: '第十六届全国体育信息科技学术大会（人工智能与体育数据要素）', type: '国家级分会年会', level: 'national', loc: '四川成都·成都体育学院', host: '中国体育科学学会体育信息分会 / 成都体育学院', status: '即将召开', url: 'https://www.sport.gov.cn/xxzx/n5594/c29787992/content.html', featured: 1 },
+    { start: '2026-11-14', end: '2026-11-16', title: '第十届全国青年体育科学学术会议（主题：体育强国 青年担当）', type: '国家级品牌会议', level: 'national', loc: '河南郑州/新乡', host: '中国体育科学学会', status: '即将召开', url: 'https://www.sohu.com/a/1031231158_121124683', featured: 1 },
+    { start: '2026-11-20', end: '2026-11-22', title: '第十届中国体育博士高层论坛（学科交叉引领体育科学前沿新发展）', type: '国家级高层论坛', level: 'national', loc: '河北石家庄·河北师范大学', host: '中国体育科学学会 / 河北师范大学', status: '即将召开', url: 'https://www.51huiyi.org/Web/Page?_pid=conf&cid=3a246fa7-75cd-36e4-79bb-597a3b247844', featured: 1 },
+    { start: '2026-11-27', end: '2026-11-29', title: '第二十一届全国体育新闻传播学术研讨会', type: '国家级分会年会', level: 'national', loc: '辽宁沈阳·沈阳体育学院', host: '中国体育科学学会体育新闻传播分会 / 沈阳体育学院', status: '征文/即将召开', url: 'https://www.sohu.com/a/1070121631_121124683', featured: 1 },
+    { start: '2026-11-28', end: '2026-11-30', title: '首届黑龙江省体育科学大会（冰雪体育与寒地运动健康）', type: '省部级重点会议', level: 'provincial', loc: '黑龙江哈尔滨', host: '黑龙江省体育局 / 黑龙江省体育科学学会', status: '征文进行中', url: 'https://tyj.hlj.gov.cn/tyj/c112436/202610/c00_31981104.shtml', featured: 0 },
+    { start: '2026-12-04', end: '2026-12-06', title: '第二届中国体育科学学会女科技工作者工作委员会学术交流会', type: '国家级工委会会议', level: 'national', loc: '山东济南·山东体育学院', host: '中国体育科学学会女科技工作者工委会 / 山东体育学院', status: '征文进行中', url: 'https://www.sdpei.edu.cn/2026/1023/c1393a87395/page.htm', featured: 1 },
+    { start: '2026-12-11', end: '2026-12-13', title: '2026年体育教育、运动心理学与健康管理国际会议 (IPESPH 2026)', type: '国际学术会议', level: 'intl', loc: '江西南昌', host: 'IPESPH 国际组委会', status: '征文进行中', url: 'https://www.allconfs.org/meeting_type.asp?id=68', featured: 1 },
+    { start: '2026-12-18', end: '2026-12-20', title: '2026年体育文化与社会学学术研讨会（征文）', type: '区域/专题研讨会', level: 'provincial', loc: '山东泰安·泰山学院', host: '山东省体育社会学研究会 / 泰山学院', status: '征文进行中', url: 'https://www.sdpei.edu.cn/2026/1023/c1393a87390/page.htm', featured: 0 },
+    { start: '2026-10-30', end: '2026-10-31', title: '2026年中国学校体育理论创新与自主知识体系构建学术研讨会', type: '专题学术研讨会', level: 'provincial', loc: '山东济南', host: '山东体育学院', status: '即将召开', url: '', featured: 0 },
+    { start: '2026-11-13', end: '2026-11-15', title: '2026年山东省第三届休闲体育与体育旅游学术论坛', type: '专题学术论坛', level: 'provincial', loc: '山东济南/日照', host: '山东体育学院', status: '征文进行中', url: '', featured: 0 },
+    { start: '2026-10-25', end: '2026-10-27', title: '2026运动生物力学与大健康学术研讨会', type: '全国专题研讨会', level: 'national', loc: '浙江宁波·宁波大学', host: '《医用生物力学》编辑部 / 宁波大学', status: '近期举办', url: 'https://assbgh2026.meeting666.com/', featured: 1 },
+    { start: '2026-09-18', end: '2026-09-20', title: '第二十四届全国运动生物力学学术交流大会', type: '国家级分会年会', level: 'national', loc: '黑龙江哈尔滨·哈尔滨体育学院', host: '中国体育科学学会运动生物力学分会 / 哈尔滨体育学院', status: '年度重点回顾', url: 'https://www.sohu.com/a/1020029937_121124683', featured: 0 },
+    { start: '2026-08-21', end: '2026-08-23', title: '2026年全国运动增强体质与健康学术会议', type: '国家级分会年会', level: 'national', loc: '黑龙江哈尔滨·哈尔滨体育学院', host: '中国体育科学学会体质与健康分会 / 哈尔滨体育学院', status: '年度重点回顾', url: 'https://www.sohu.com/a/1023191928_121124683', featured: 0 },
+    { start: '2026-07-07', end: '2026-07-10', title: '第31届欧洲体育科学学会年会 (ECSS Lausanne 2026)', type: '国际顶级会议', level: 'intl', loc: '瑞士洛桑 (Lausanne)', host: 'European College of Sport Science (ECSS)', status: '国际顶会回顾', url: 'https://sport-science.org/', featured: 0 },
+    { start: '2026-05-29', end: '2026-05-31', title: '2026第十四届全国体育管理科学大会', type: '国家级分会年会', level: 'national', loc: '山东济南', host: '中国体育科学学会体育管理分会', status: '年度重点回顾', url: 'https://www.sohu.com/a/986304381_121124683', featured: 0 },
+    { start: '2026-05-26', end: '2026-05-29', title: '2026年第73届美国运动医学会年会 (ACSM Annual Meeting 2026)', type: '国际顶级会议', level: 'intl', loc: '美国盐湖城 (Salt Lake City)', host: 'American College of Sports Medicine (ACSM)', status: '国际顶会回顾', url: 'https://www.medicalconfs.com/md/13136', featured: 0 },
+    { start: '2026-05-22', end: '2026-05-24', title: '2026年全国体育社会科学大会', type: '国家级分会年会', level: 'national', loc: '浙江杭州·浙江大学', host: '中国体育科学学会体育社会科学分会 / 浙江大学教育学院', status: '年度重点回顾', url: 'https://www.51huiyi.org/Web/Page?_pid=conf&cid=3a2011ac-7d52-36e7-a720-f065b5e2f4a1', featured: 0 },
+    { start: '2027-07-06', end: '2027-07-09', title: '第32届欧洲体育科学学会年会 (ECSS Manchester 2027)', type: '国际顶级会议', level: 'intl', loc: '英国曼彻斯特 (Manchester)', host: 'European College of Sport Science (ECSS)', status: '2027国际顶会预告', url: 'https://sport-science.org/', featured: 1 }
   ];
 
   function setTxt(el, val) {
@@ -59,22 +78,21 @@
 
   function addCalendarEvent(ev) {
     if (!ev || !ev.title || !ev.start) return;
-    var exists = CALENDAR_EVENTS.some(function(x) { return x.start === ev.start && (x.title.indexOf(ev.title.slice(0, 10)) >= 0 || ev.title.indexOf(x.title.slice(0, 10)) >= 0); });
+    var exists = CALENDAR_EVENTS.some(function(x) { return x.start === ev.start && (x.title.indexOf(ev.title.slice(0, 8)) >= 0 || ev.title.indexOf(x.title.slice(0, 8)) >= 0); });
     if (!exists) {
       CALENDAR_EVENTS.push(ev);
-      CALENDAR_EVENTS.sort(function(a, b) { return a.start.localeCompare(b.start); });
     }
   }
 
   function downloadICS(ev) {
-    var dtStart = (ev.start || '2026-12-18').replace(/-/g, ''), dtEnd = (ev.end || ev.start || '2026-12-20').replace(/-/g, '');
-    var ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//CSSD 体育学人//Academic Calendar//CN','BEGIN:VEVENT','DTSTART;VALUE=DATE:' + dtStart,'DTEND;VALUE=DATE:' + dtEnd,'SUMMARY:' + ev.title,'LOCATION:' + (ev.loc || ev.host || '详见会议通知'),'DESCRIPTION:主办/来源：' + (ev.host || '体育学人学术日历') + ' | 状态：' + (ev.status || '学术会议'),'END:VEVENT','END:VCALENDAR'].join('\r\n');
+    var dtStart = (ev.start || '2026-11-20').replace(/-/g, ''), dtEnd = (ev.end || ev.start || '2026-11-22').replace(/-/g, '');
+    var ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//CSSD 体育学人//Academic Calendar//CN','BEGIN:VEVENT','DTSTART;VALUE=DATE:' + dtStart,'DTEND;VALUE=DATE:' + dtEnd,'SUMMARY:' + ev.title,'LOCATION:' + (ev.loc || ev.host || '详见会议通知'),'DESCRIPTION:主办/来源：' + (ev.host || '体育学人学术日历') + ' | 状态：' + (ev.status || '学术会议') + (ev.url ? ' | 链接：' + ev.url : ''),'END:VEVENT','END:VCALENDAR'].join('\r\n');
     var blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
     var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = '体育学术日历_' + ev.title.slice(0, 16) + '.ics'; a.click();
     showToast('已导出日历文件 (.ics)，可直接添加至手机或电脑日历提醒');
   }
 
-  // 1. 幂等单次执行的动态卡片字号对齐与未来会议标注（通过 data-cssd-done 彻底杜绝重复触发与死循环）
+  // 1. 幂等单次执行的动态卡片字号对齐与未来会议标注
   function unifyPageTypography() {
     var refToday = getRefTodayStr();
     var exactDateRx = /^202\d-\d{2}-\d{2}$/;
@@ -212,9 +230,11 @@
           end: endFullDate,
           title: cleanTitle,
           type: /征文|征稿/.test(rawTitle) ? '征文/会议' : '学术会议',
+          level: 'provincial',
           loc: extractedLoc || hostName,
           host: hostName,
-          status: diffDays > 0 ? ('距举办 ' + diffDays + ' 天') : '近期举办'
+          status: diffDays > 0 ? ('距举办 ' + diffDays + ' 天') : '近期举办',
+          featured: 0
         });
       } else {
         var pubPrefix = badgeTxt === '期刊' ? '📖 期刊发表：' : '📢 发布日期：';
@@ -231,7 +251,8 @@
       }
     }
   }
-  // 2. 【新增核心功能：⌘K / Ctrl+K 全站学术快搜指挥台 (Command Palette)】
+
+  // 2. 【⌘K / Ctrl+K 全站学术快搜指挥台 (Command Palette)】
   function showCommandPalette() {
     tryEnrichDatasets();
     var html = '<div style="margin-bottom:16px;">' +
@@ -240,7 +261,7 @@
         '<span style="font-size:12px;line-height:16px;color:#52525b!important;">快捷直达：</span>' +
         '<button type="button" class="cssd-cite-btn cmd-quick" data-act="nssfc">🇨🇳 2026国家社科专刊</button>' +
         '<button type="button" class="cssd-cite-btn cmd-quick" data-act="moe">🏅 2026教育部108项专刊</button>' +
-        '<button type="button" class="cssd-cite-btn cmd-quick" data-act="cal">📅 体育学术会议日历</button>' +
+        '<button type="button" class="cssd-cite-btn cmd-quick" data-act="cal">📅 全网体育学术会议日历</button>' +
         '<button type="button" class="cssd-cite-btn cmd-quick" data-act="rank">🏆 全国高校立项榜 TOP25</button>' +
         '<button type="button" class="cssd-cite-btn cmd-quick" data-act="ana">📊 中国体育学学科全景看板</button>' +
       '</div></div>' +
@@ -313,56 +334,81 @@
     });
   }
 
-  // 3. 【📅 体育学术会议与征文日历】遵循 B3 嵌套圆角 (16px -> 8px -> 4px) 与 B4 纯平表面规范
+  // 3. 【📅 全网体育学术会议与征文日历】涵盖中国体育科学学会、各大高校承办及 ECSS/ACSM 国际顶会
   function showAcademicCalendarModal() {
     unifyPageTypography();
     var refToday = getRefTodayStr();
     var html = '<div class="c-fxb" style="margin-bottom:16px;background:#fafafa!important;padding:12px 16px;border-radius:8px;border:1px solid #e4e4e7;">' +
-      '<div class="c-fx"><span style="font-size:14px;line-height:20px;color:#334155!important;">自动汇总全站未来会议通知、征文截稿与论坛日程，支持一键导出日历提醒 (.ics)</span></div>' +
-      '<div class="c-fx" id="cal-month-tabs">' +
-        '<button type="button" class="cssd-tb-btn active" data-m="">全部日程 (' + CALENDAR_EVENTS.length + ')</button>' +
-        '<button type="button" class="cssd-tb-btn" data-m="2026-10">2026年10月</button>' +
-        '<button type="button" class="cssd-tb-btn" data-m="2026-11">2026年11月</button>' +
-        '<button type="button" class="cssd-tb-btn" data-m="2026-12">2026年12月</button>' +
+      '<div class="c-fx" style="flex:1;min-width:220px;"><input type="search" id="cal-q" class="c-inp" placeholder="搜索会议名称、主办学会（如中国体育科学学会）、承办高校、举办城市..."></div>' +
+      '<div class="c-fx" id="cal-filter-tabs">' +
+        '<button type="button" class="cssd-tb-btn active" data-f="upcoming">🔥 近期与待开会议</button>' +
+        '<button type="button" class="cssd-tb-btn" data-f="national">🏆 国家级/学会重点</button>' +
+        '<button type="button" class="cssd-tb-btn" data-f="intl">🌐 国际顶会 (ECSS/ACSM)</button>' +
+        '<button type="button" class="cssd-tb-btn" data-f="all">📅 全部收录 (' + CALENDAR_EVENTS.length + ')</button>' +
       '</div></div>' +
-      '<div id="cal-modal-list" style="display:grid;grid-template-columns:1fr;gap:12px;"></div>';
+      '<div id="cal-modal-list" style="display:grid;grid-template-columns:1fr;gap:12px;max-height:62vh;overflow-y:auto;padding-right:4px;"></div>';
 
-    openModal('📅 中国体育学术会议与征文日历 (2026 近期会议与征稿日程表)', html, function(body) {
-      var listBox = body.querySelector('#cal-modal-list');
-      function renderCal(monthFilter) {
-        var rows = CALENDAR_EVENTS.filter(function(ev) { return !monthFilter || ev.start.indexOf(monthFilter) === 0; });
+    openModal('📅 全国与国际体育学术会议日历 (涵盖中国体育科学学会重点会议、高校论坛与国际顶会)', html, function(body) {
+      var listBox = body.querySelector('#cal-modal-list'), qInp = body.querySelector('#cal-q');
+      var curFilter = 'upcoming';
+
+      function renderCal() {
+        var q = (qInp.value || '').trim().toLowerCase();
+        var rows = CALENDAR_EVENTS.filter(function(ev) {
+          var diff = calcDiffDays(ev.end || ev.start, refToday);
+          if (curFilter === 'upcoming' && diff < -5) return false;
+          if (curFilter === 'national' && ev.level !== 'national') return false;
+          if (curFilter === 'intl' && ev.level !== 'intl') return false;
+          if (q && (ev.title + ' ' + ev.loc + ' ' + ev.host + ' ' + ev.type).toLowerCase().indexOf(q) < 0) return false;
+          return true;
+        }).sort(function(a, b) {
+          var da = calcDiffDays(a.end || a.start, refToday), db = calcDiffDays(b.end || b.start, refToday);
+          var aFuture = da >= -2 ? 0 : 1, bFuture = db >= -2 ? 0 : 1;
+          if (aFuture !== bFuture) return aFuture - bFuture;
+          return aFuture === 0 ? a.start.localeCompare(b.start) : b.start.localeCompare(a.start);
+        });
+
         listBox.innerHTML = rows.map(function(ev, idx) {
           var diff = calcDiffDays(ev.start, refToday);
-          var badge = diff > 0 ? '<span class="c-bdg b-key">⏳ 距会议举办 ' + diff + ' 天</span>' : '<span class="c-bdg b-gen">🗓️ 近期会议</span>';
+          var badge = diff > 0
+            ? '<span class="c-bdg b-key">⏳ 距举办 ' + diff + ' 天</span>'
+            : (diff >= -3 ? '<span class="c-bdg b-yth">🟢 正在/近期举办</span>' : '<span class="c-bdg b-gen">📌 ' + (ev.status || '年度重点会议') + '</span>');
+          var lvlBadge = ev.level === 'national'
+            ? '<span class="c-bdg" style="background:#fef2f2!important;color:#dc2626!important;border:1px solid #fecaca;">🏆 ' + ev.type + '</span>'
+            : (ev.level === 'intl' ? '<span class="c-bdg" style="background:#f0f9ff!important;color:#0284c7!important;border:1px solid #bae6fd;">🌐 ' + ev.type + '</span>' : '<span class="c-bdg b-my">' + ev.type + '</span>');
           var dateRange = (ev.end && ev.end !== ev.start) ? (ev.start + ' 至 ' + ev.end.slice(5)) : ev.start;
+          var linkBtn = ev.url ? '<a href="' + ev.url + '" target="_blank" rel="noopener" class="cssd-cite-btn" style="text-decoration:none;padding:6px 10px;">🔗 官方通知/详情 ↗</a>' : '';
           return '<div class="c-card c-fxb" style="background:#ffffff!important;border:1px solid #e4e4e7!important;border-radius:16px;padding:16px;">' +
-            '<div style="display:flex;align-items:center;gap:16px;flex:1;min-width:240px;">' +
-              '<div style="min-width:72px;text-align:center;background:#fff7ed!important;border:1px solid #fed7aa;border-radius:8px;padding:8px;">' +
+            '<div style="display:flex;align-items:center;gap:16px;flex:1;min-width:260px;">' +
+              '<div style="min-width:76px;text-align:center;background:#fff7ed!important;border:1px solid #fed7aa;border-radius:8px;padding:8px;">' +
                 '<div style="font-size:12px;line-height:16px;color:#9a3412!important;font-weight:600;font-variant-numeric:tabular-nums;">' + ev.start.slice(0, 7) + '</div>' +
                 '<div style="font-size:20px;line-height:28px;font-weight:700;color:#ea580c!important;font-variant-numeric:tabular-nums;">' + ev.start.slice(8) + '日</div>' +
               '</div>' +
-              '<div style="flex:1;min-width:180px;">' +
-                '<div class="c-fx" style="margin-bottom:4px;"><span class="c-bdg b-my">' + ev.type + '</span>' + badge + '<span style="font-size:12px;line-height:16px;color:#52525b!important;font-variant-numeric:tabular-nums;">🗓️ 会议举办期：' + dateRange + '</span></div>' +
+              '<div style="flex:1;min-width:200px;">' +
+                '<div class="c-fx" style="margin-bottom:4px;">' + lvlBadge + badge + '<span style="font-size:12px;line-height:16px;color:#52525b!important;font-variant-numeric:tabular-nums;">🗓️ 会议举办期：' + dateRange + '</span></div>' +
                 '<div style="font-size:16px!important;line-height:24px!important;font-weight:600!important;color:#0f172a!important;margin-bottom:4px;">' + ev.title + '</div>' +
-                '<div style="font-size:14px;line-height:20px;color:#334155!important;">📍 举办地点：<b style="color:#0f172a!important;font-weight:600;">' + ev.loc + '</b> · 🏛️ 主办/发布单位：' + ev.host + '</div>' +
+                '<div style="font-size:14px;line-height:20px;color:#334155!important;">📍 举办城市/院校：<b style="color:#0f172a!important;font-weight:600;">' + ev.loc + '</b> · 🏛️ 主办/承办：' + ev.host + '</div>' +
               '</div>' +
             '</div>' +
-            '<div><button type="button" class="cssd-tb-btn moe cal-dl-ics" data-idx="' + idx + '">📅 加入手机/电脑日历 (.ics)</button></div>' +
+            '<div class="c-fx">' + linkBtn + '<button type="button" class="cssd-tb-btn moe cal-dl-ics" data-idx="' + idx + '">📅 导出日历提醒 (.ics)</button></div>' +
           '</div>';
-        }).join('') || '<div style="padding:24px;text-align:center;color:#52525b!important;font-size:14px;line-height:20px;">该月份暂无收录的学术会议</div>';
+        }).join('') || '<div style="padding:24px;text-align:center;color:#52525b!important;font-size:14px;line-height:20px;">暂无匹配的学术会议</div>';
 
         listBox.querySelectorAll('.cal-dl-ics').forEach(function(b) {
           b.onclick = function() { downloadICS(rows[Number(b.getAttribute('data-idx'))]); };
         });
       }
-      body.querySelectorAll('#cal-month-tabs button').forEach(function(btn) {
+
+      body.querySelectorAll('#cal-filter-tabs button').forEach(function(btn) {
         btn.onclick = function() {
-          body.querySelectorAll('#cal-month-tabs button').forEach(function(x) { x.classList.remove('active'); });
+          body.querySelectorAll('#cal-filter-tabs button').forEach(function(x) { x.classList.remove('active'); });
           btn.classList.add('active');
-          renderCal(btn.getAttribute('data-m'));
+          curFilter = btn.getAttribute('data-f');
+          renderCal();
         };
       });
-      renderCal('');
+      qInp.oninput = renderCal;
+      renderCal();
     });
   }
 
@@ -386,14 +432,23 @@
     bar.id = 'cssd-academic-calendar-bar';
     bar.style.cssText = 'background:#fafafa!important;border:1px solid #e4e4e7!important;border-radius:16px;padding:16px;margin:12px 0 16px;font-family:' + SANS + ';';
 
-    var cardsHtml = CALENDAR_EVENTS.slice(0, 4).map(function(ev, i) {
+    // 优先展示全国性重点会议（中国体育科学学会、上海体大、成都体院、河北师大、沈阳体院等）
+    var featuredList = CALENDAR_EVENTS.filter(function(ev) {
+      return ev.featured && calcDiffDays(ev.end || ev.start, refToday) >= 0;
+    }).sort(function(a, b) { return a.start.localeCompare(b.start); }).slice(0, 4);
+
+    if (featuredList.length < 4) {
+      featuredList = CALENDAR_EVENTS.slice(0, 4);
+    }
+
+    var cardsHtml = featuredList.map(function(ev, i) {
       var diff = calcDiffDays(ev.start, refToday);
       var rangeTxt = (ev.end && ev.end !== ev.start) ? (ev.start.slice(5) + '~' + ev.end.slice(8) + '日') : ev.start.slice(5);
       return '<div style="background:#ffffff!important;border:1px solid #e4e4e7!important;border-radius:8px;padding:12px;display:flex;flex-direction:column;justify-content:space-between;gap:8px;">' +
-        '<div class="c-fxb"><span style="background:#fff7ed!important;color:#c2410c!important;border:1px solid #fed7aa;font-size:12px;line-height:16px;font-weight:600;padding:2px 8px;border-radius:4px;font-variant-numeric:tabular-nums;">🗓️ 会议期 ' + rangeTxt + '</span>' +
-        '<span style="font-size:12px;line-height:16px;color:#ea580c!important;font-weight:600;font-variant-numeric:tabular-nums;">' + (diff > 0 ? ('⏳ 距今 ' + diff + ' 天') : '近期举办') + '</span></div>' +
-        '<div title="' + ev.title + '" style="font-size:14px!important;line-height:20px!important;font-weight:600!important;color:#0f172a!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + ev.title.replace(/（征文）/, '') + '</div>' +
-        '<div class="c-fxb" style="font-size:12px;line-height:16px;color:#52525b!important;"><span style="color:#52525b!important;">📍 ' + ev.loc + '</span><a href="javascript:void(0)" class="cal-bar-ics" data-i="' + i + '" style="color:#2563eb!important;text-decoration:none;font-weight:600;">+日历提醒</a></div>' +
+        '<div class="c-fxb"><span style="background:#fef2f2!important;color:#dc2626!important;border:1px solid #fecaca;font-size:12px;line-height:16px;font-weight:600;padding:2px 8px;border-radius:4px;font-variant-numeric:tabular-nums;white-space:nowrap;">🗓️ ' + rangeTxt + ' · ' + ev.type + '</span>' +
+        '<span style="font-size:12px;line-height:16px;color:#ea580c!important;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;">' + (diff > 0 ? ('⏳ 距今 ' + diff + ' 天') : '近期举办') + '</span></div>' +
+        '<div title="' + ev.title + '" style="font-size:14px!important;line-height:20px!important;font-weight:600!important;color:#0f172a!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + ev.title + '</div>' +
+        '<div class="c-fxb" style="font-size:12px;line-height:16px;color:#52525b!important;"><span style="color:#334155!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:175px;">📍 ' + ev.loc + '</span><a href="javascript:void(0)" class="cal-bar-ics" data-i="' + i + '" style="color:#2563eb!important;text-decoration:none;font-weight:600;white-space:nowrap;">+日历提醒</a></div>' +
       '</div>';
     }).join('');
 
@@ -401,10 +456,9 @@
       '<div class="c-fxb" style="margin-bottom:12px;">' +
         '<div class="c-fx">' +
           '<span style="background:#18181b!important;color:#ffffff!important;font-size:12px;line-height:16px;font-weight:600;padding:4px 8px;border-radius:4px;">📅 体育学术日历</span>' +
-          '<b style="font-size:14px;line-height:20px;font-weight:600;color:#0f172a!important;">2026 近期体育学术会议与征文日程表（按会议举办日期排序）</b>' +
-          '<span style="font-size:12px;line-height:16px;color:#52525b!important;">已自动区分「🗓️ 会议举办期」与「📢 发布日期」</span>' +
+          '<b style="font-size:14px;line-height:20px;font-weight:600;color:#0f172a!important;">2026 全国与国际重点体育学术会议日程（涵盖中国体育科学学会、各大体院及 ECSS/ACSM）</b>' +
         '</div>' +
-        '<button type="button" class="cssd-tb-btn" id="open-full-cal">📅 查看完整学术日历 & 导出提醒</button>' +
+        '<button type="button" class="cssd-tb-btn" id="open-full-cal">📅 查看全部 ' + CALENDAR_EVENTS.length + ' 场重点会议 & 导出提醒</button>' +
       '</div>' +
       '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;">' + cardsHtml + '</div>';
 
@@ -414,7 +468,7 @@
 
     bar.querySelector('#open-full-cal').onclick = showAcademicCalendarModal;
     bar.querySelectorAll('.cal-bar-ics').forEach(function(a) {
-      a.onclick = function() { downloadICS(CALENDAR_EVENTS[Number(a.getAttribute('data-i'))]); };
+      a.onclick = function() { downloadICS(featuredList[Number(a.getAttribute('data-i'))]); };
     });
   }
 
@@ -503,7 +557,7 @@
     return _nssfcCache;
   }
 
-  // 5. 后台合入 108 项教育部项目 & 注入拼音首字母索引（O(1) 极速合入，不触发全量同步重绘）
+  // 5. 后台合入 108 项教育部项目 & 注入拼音首字母索引
   var _merged = false;
   function tryEnrichDatasets() {
     if (_merged) return true;
@@ -551,6 +605,7 @@
     } catch (e) {}
     return true;
   }
+
   function showToast(msg) {
     var t = document.getElementById('cssd-toast');
     if (!t) { t = document.createElement('div'); t.id = 'cssd-toast'; document.body.appendChild(t); }
@@ -595,7 +650,7 @@
     if (onMount) onMount(document.getElementById('cssd-c-body'));
   }
 
-  // 6. 【2026国家社科基金 & 2026教育部人文社科】双专刊一体化交互看板
+  // 6. 【2026国家社科基金 & 2026教育部人文社科】双专刊一体化交互看板（修复类别标签与编号单行不换行）
   function show2026PortalModal(source, defaultTab) {
     tryEnrichDatasets();
     var isN = (source === 'nssfc'), nssfc = getNSSFC2026Data(), nTot = nssfc.total, totSafe = nTot || 1;
@@ -618,8 +673,8 @@
     var kpiHtml = kpiItems.map(function(k) { return '<div style="background:'+k[0]+'!important;border:1px solid #e4e4e7;padding:12px 16px;border-radius:8px;"><div style="font-size:12px;line-height:16px;font-weight:600;color:'+k[1]+'!important;">'+k[3]+'</div><div style="font-size:24px;line-height:32px;font-weight:700;font-variant-numeric:tabular-nums;color:'+k[2]+'!important;margin:4px 0;">'+k[4]+'</div><div style="font-size:12px;line-height:16px;color:#52525b!important;font-variant-numeric:tabular-nums;">'+k[5]+'</div></div>'; }).join('');
 
     var top25Rows = isN
-      ? nssfc.top25.map(function(u, idx) { return '<tr class="p26-filter-unit" data-u="' + u.name + '" style="cursor:pointer;"><td style="color:#52525b!important;font-variant-numeric:tabular-nums;">' + (idx + 1) + '</td><td><b style="color:#dc2626!important;font-weight:600;">' + u.name + '</b><div style="font-size:12px;line-height:16px;color:#52525b!important;">' + u.detail + '</div></td><td style="text-align:right;font-weight:600;color:#0f172a!important;font-variant-numeric:tabular-nums;">' + u.count + ' 项</td><td style="text-align:right;color:#52525b!important;font-variant-numeric:tabular-nums;">' + u.pct + '</td></tr>'; }).join('')
-      : MOE_TOP25.map(function(u, idx) { return '<tr class="p26-filter-unit" data-u="' + u[0] + '" style="cursor:pointer;"><td style="color:#52525b!important;font-variant-numeric:tabular-nums;">' + (idx + 1) + '</td><td><b style="color:#2563eb!important;font-weight:600;">' + u[0] + '</b></td><td style="text-align:right;font-weight:600;color:#0f172a!important;font-variant-numeric:tabular-nums;">' + u[1] + ' 项</td><td style="text-align:right;color:#52525b!important;font-variant-numeric:tabular-nums;">' + u[2] + '</td></tr>'; }).join('');
+      ? nssfc.top25.map(function(u, idx) { return '<tr class="p26-filter-unit" data-u="' + u.name + '" style="cursor:pointer;"><td style="color:#52525b!important;font-variant-numeric:tabular-nums;white-space:nowrap;">' + (idx + 1) + '</td><td><b style="color:#dc2626!important;font-weight:600;">' + u.name + '</b><div style="font-size:12px;line-height:16px;color:#52525b!important;">' + u.detail + '</div></td><td style="text-align:right;font-weight:600;color:#0f172a!important;font-variant-numeric:tabular-nums;white-space:nowrap;">' + u.count + ' 项</td><td style="text-align:right;color:#52525b!important;font-variant-numeric:tabular-nums;white-space:nowrap;">' + u.pct + '</td></tr>'; }).join('')
+      : MOE_TOP25.map(function(u, idx) { return '<tr class="p26-filter-unit" data-u="' + u[0] + '" style="cursor:pointer;"><td style="color:#52525b!important;font-variant-numeric:tabular-nums;white-space:nowrap;">' + (idx + 1) + '</td><td><b style="color:#2563eb!important;font-weight:600;">' + u[0] + '</b></td><td style="text-align:right;font-weight:600;color:#0f172a!important;font-variant-numeric:tabular-nums;white-space:nowrap;">' + u[1] + ' 项</td><td style="text-align:right;color:#52525b!important;font-variant-numeric:tabular-nums;white-space:nowrap;">' + u[2] + '</td></tr>'; }).join('');
 
     var themeList = isN ? nssfc.themes : MOE_THEMES, barCol = isN ? '#dc2626' : '#2563eb', txtCol = isN ? '#991b1b' : '#1e40af';
     var themeBars = themeList.map(function(th) {
@@ -631,10 +686,10 @@
       '<input type="search" id="p26-q" class="c-inp" placeholder="搜索项目名称、负责人、立项单位、二级学科...">' +
       '<select id="p26-type" class="c-sel">' + typeOpts + '</select></div>' +
       '<div id="p26-theme-chips" class="c-fx" style="margin-bottom:12px;"></div><div id="p26-count-bar" style="font-size:12px;line-height:16px;color:#52525b!important;margin-bottom:8px;font-variant-numeric:tabular-nums;"></div>' +
-      '<div style="max-height:50vh;overflow-y:auto;border:1px solid #e4e4e7;border-radius:8px;"><table class="cssd-c-table"><thead><tr><th style="width:96px;">编号/序号</th><th>项目名称</th><th style="width:88px;">类别</th><th style="width:80px;">负责人</th><th style="width:140px;">立项单位</th><th style="width:72px;">操作</th></tr></thead><tbody id="p26-tbody"></tbody></table></div></div>' +
+      '<div style="max-height:52vh;overflow-y:auto;border:1px solid #e4e4e7;border-radius:8px;"><table class="cssd-c-table"><thead><tr><th style="width:110px;white-space:nowrap;">编号/序号</th><th>项目名称</th><th style="width:98px;white-space:nowrap;">类别</th><th style="width:84px;white-space:nowrap;">负责人</th><th style="width:150px;white-space:nowrap;">立项单位</th><th style="width:82px;white-space:nowrap;">操作</th></tr></thead><tbody id="p26-tbody"></tbody></table></div></div>' +
       '<div id="p26-pane-stat" style="display:none;"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:16px;">' + kpiHtml + '</div>' +
       '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;">' +
-      '<div><h4 style="margin:0 0 8px;font-size:14px;line-height:20px;font-weight:600;color:#0f172a!important;">立项单位分布 TOP25（点击高校直接筛选课题）</h4><div style="max-height:42vh;overflow-y:auto;border:1px solid #e4e4e7;border-radius:8px;"><table class="cssd-c-table"><thead><tr><th style="width:48px;">排名</th><th>立项单位</th><th style="text-align:right;">数量</th><th style="text-align:right;">占比</th></tr></thead><tbody>' + top25Rows + '</tbody></table></div></div>' +
+      '<div><h4 style="margin:0 0 8px;font-size:14px;line-height:20px;font-weight:600;color:#0f172a!important;">立项单位分布 TOP25（点击高校直接筛选课题）</h4><div style="max-height:42vh;overflow-y:auto;border:1px solid #e4e4e7;border-radius:8px;"><table class="cssd-c-table"><thead><tr><th style="width:48px;white-space:nowrap;">排名</th><th>立项单位</th><th style="text-align:right;white-space:nowrap;">数量</th><th style="text-align:right;white-space:nowrap;">占比</th></tr></thead><tbody>' + top25Rows + '</tbody></table></div></div>' +
       '<div><h4 style="margin:0 0 8px;font-size:14px;line-height:20px;font-weight:600;color:#0f172a!important;">研究主题分布（14大热点主题，点击过滤课题）</h4><div style="max-height:42vh;overflow-y:auto;padding-right:4px;">' + themeBars + '</div></div></div></div>';
 
     openModal(isN ? ('🇨🇳 2026年度国家社科基金·体育学立项专刊 (共' + nTot + '项)') : '🏅 2026年度教育部人文社会科学研究项目·体育学立项专刊 (共108项)', html, function(body) {
@@ -654,7 +709,7 @@
           cntBar.innerHTML = '当前显示 <b style="color:#0f172a!important;">' + curRows.length + '</b> / ' + nTot + ' 项' + (activeThemeLabel ? ' · 主题筛选：<b style="color:#dc2626!important;">' + activeThemeLabel + '</b>' : '');
           tbody.innerHTML = curRows.map(function(r) {
             var cls = r.pType === '重点项目' ? 'b-key' : (r.pType === '青年项目' ? 'b-yth' : 'b-gen');
-            return '<tr><td style="color:#52525b!important;font-size:12px;line-height:16px;font-variant-numeric:tabular-nums;">' + r.code + '</td><td><div style="font-size:14px;line-height:20px;font-weight:600;color:#0f172a!important;">' + r.title + '</div><div style="font-size:12px;line-height:16px;color:#52525b!important;">' + r.disc + ' · ' + r.prov + '</div></td><td><span class="c-bdg ' + cls + '">' + r.pType + '</span></td><td><a href="javascript:void(0)" class="p26-go-sch" data-name="' + r.leader + '" style="color:#dc2626!important;font-weight:600;text-decoration:none;">' + r.leader + '</a></td><td><a href="javascript:void(0)" class="p26-go-unit" data-u="' + r.unit + '" style="color:#18181b!important;text-decoration:none;">' + r.unit + '</a></td><td><button type="button" class="cssd-cite-btn p26-cite" data-a="' + r.leader + '" data-t="' + r.title.replace(/"/g, '&quot;') + '" data-u="' + r.unit + '" data-c="国家社科基金' + r.pType + '" data-no="' + r.code + '">📋 引文</button></td></tr>';
+            return '<tr><td style="color:#52525b!important;font-size:12px;line-height:16px;font-variant-numeric:tabular-nums;white-space:nowrap!important;">' + r.code + '</td><td><div style="font-size:14px;line-height:20px;font-weight:600;color:#0f172a!important;">' + r.title + '</div><div style="font-size:12px;line-height:16px;color:#52525b!important;">' + r.disc + ' · ' + r.prov + '</div></td><td style="white-space:nowrap!important;"><span class="c-bdg ' + cls + '" style="white-space:nowrap!important;display:inline-block!important;">' + r.pType + '</span></td><td style="white-space:nowrap!important;"><a href="javascript:void(0)" class="p26-go-sch" data-name="' + r.leader + '" style="color:#dc2626!important;font-weight:600;text-decoration:none;white-space:nowrap!important;">' + r.leader + '</a></td><td style="white-space:nowrap!important;"><a href="javascript:void(0)" class="p26-go-unit" data-u="' + r.unit + '" style="color:#18181b!important;text-decoration:none;white-space:nowrap!important;">' + r.unit + '</a></td><td style="white-space:nowrap!important;"><button type="button" class="cssd-cite-btn p26-cite" data-a="' + r.leader + '" data-t="' + r.title.replace(/"/g, '&quot;') + '" data-u="' + r.unit + '" data-c="国家社科基金' + r.pType + '" data-no="' + r.code + '" style="white-space:nowrap!important;">📋 引文</button></td></tr>';
           }).join('');
         } else {
           curRows = MOE_2026.filter(function(r) {
@@ -665,7 +720,7 @@
           cntBar.innerHTML = '当前显示 <b style="color:#0f172a!important;">' + curRows.length + '</b> / 108 项' + (activeThemeLabel ? ' · 主题筛选：<b style="color:#2563eb!important;">' + activeThemeLabel + '</b>' : '');
           tbody.innerHTML = curRows.map(function(r) {
             var isY = r[3].indexOf('青年') >= 0;
-            return '<tr><td style="color:#52525b!important;font-size:12px;line-height:16px;font-variant-numeric:tabular-nums;">' + r[0] + '</td><td><div style="font-size:14px;line-height:20px;font-weight:600;color:#0f172a!important;">' + r[2] + '</div><div style="font-size:12px;line-height:16px;color:#52525b!important;">' + r[6] + ' · ' + r[8] + '</div></td><td><span class="c-bdg ' + (isY ? 'b-my' : 'b-mp') + '">' + (isY ? '青年基金' : '规划基金') + '</span></td><td><a href="javascript:void(0)" class="p26-go-sch" data-name="' + r[4] + '" style="color:#2563eb!important;font-weight:600;text-decoration:none;">' + r[4] + '</a></td><td><a href="javascript:void(0)" class="p26-go-unit" data-u="' + r[5] + '" style="color:#18181b!important;text-decoration:none;">' + r[5] + '</a></td><td><button type="button" class="cssd-cite-btn p26-cite" data-a="' + r[4] + '" data-t="' + r[2].replace(/"/g, '&quot;') + '" data-u="' + r[5] + '" data-c="教育部人文社科' + r[3] + '" data-no="公示序号' + r[0] + '">📋 引文</button></td></tr>';
+            return '<tr><td style="color:#52525b!important;font-size:12px;line-height:16px;font-variant-numeric:tabular-nums;white-space:nowrap!important;">' + r[0] + '</td><td><div style="font-size:14px;line-height:20px;font-weight:600;color:#0f172a!important;">' + r[2] + '</div><div style="font-size:12px;line-height:16px;color:#52525b!important;">' + r[6] + ' · ' + r[8] + '</div></td><td style="white-space:nowrap!important;"><span class="c-bdg ' + (isY ? 'b-my' : 'b-mp') + '" style="white-space:nowrap!important;display:inline-block!important;">' + (isY ? '青年基金' : '规划基金') + '</span></td><td style="white-space:nowrap!important;"><a href="javascript:void(0)" class="p26-go-sch" data-name="' + r[4] + '" style="color:#2563eb!important;font-weight:600;text-decoration:none;white-space:nowrap!important;">' + r[4] + '</a></td><td style="white-space:nowrap!important;"><a href="javascript:void(0)" class="p26-go-unit" data-u="' + r[5] + '" style="color:#18181b!important;text-decoration:none;white-space:nowrap!important;">' + r[5] + '</a></td><td style="white-space:nowrap!important;"><button type="button" class="cssd-cite-btn p26-cite" data-a="' + r[4] + '" data-t="' + r[2].replace(/"/g, '&quot;') + '" data-u="' + r[5] + '" data-c="教育部人文社科' + r[3] + '" data-no="公示序号' + r[0] + '" style="white-space:nowrap!important;">📋 引文</button></td></tr>';
           }).join('');
         }
         tbody.querySelectorAll('.p26-go-sch').forEach(function(a) { a.onclick = function() { triggerSearch(a.getAttribute('data-name')); }; });
@@ -725,7 +780,7 @@
     });
   }
 
-  // 8. 学者横向对比池 (最多3人) & 学术名片海报生成 (PNG) & 详情弹窗增强
+  // 8. 学者横向对比池 & 学术名片海报生成 (PNG) & 详情弹窗增强
   var cmpList = [];
   function toggleCompare(s) {
     var idx = cmpList.findIndex(function(x) { return x.n === s.n && x.institution === s.institution; });
@@ -799,12 +854,63 @@
     }
   }
 
-  // 9. 【首页大屏：科研项目动态 — 严格遵循 AI Design Skills B1/B2/B3/B4/B7/B9 视觉规范】
+  // 定位首页 8 大板块导航卡片容器（学者目录 / 学者分类总览 / 院校机构导航 / 学术动态 / 期刊数据库 / 科研项目查询 / 学位点专栏 / 人才计划）
+  function findNavGridBlock(root) {
+    if (!root) return null;
+    var metrics = document.getElementById('sp-metrics');
+    if (metrics && metrics.parentNode) {
+      var sib = metrics.nextElementSibling;
+      while (sib) {
+        var stxt = (sib.textContent || '');
+        if (stxt.indexOf('学者目录') >= 0 && (stxt.indexOf('科研项目查询') >= 0 || stxt.indexOf('期刊数据库') >= 0 || stxt.indexOf('院校机构导航') >= 0)) {
+          return sib;
+        }
+        sib = sib.nextElementSibling;
+      }
+    }
+    var divs = root.querySelectorAll('section, div');
+    var best = null;
+    for (var i = 0; i < divs.length; i++) {
+      var d = divs[i];
+      if (d.id === 'vw-home' || d.id === 'cssd-home-projects-showcase') continue;
+      var txt = (d.textContent || '');
+      if (txt.length > 80 && txt.length < 1200 && txt.indexOf('学者目录') >= 0 && txt.indexOf('院校机构导航') >= 0 && txt.indexOf('期刊数据库') >= 0 && txt.indexOf('科研项目查询') >= 0) {
+        best = d;
+      }
+    }
+    if (best) {
+      while (best.parentElement && best.parentElement !== root && best.parentElement !== document.body && (best.parentElement.textContent || '').length < 1500) {
+        best = best.parentElement;
+      }
+    }
+    return best;
+  }
+
+  // 9. 【首页大屏：科研项目动态 — 置于首页 8 大导航板块卡片的正下方】
   function mountHomeProjectsBigScreen() {
-    var homeTarget = document.getElementById('sp-metrics') || document.getElementById('vw-home');
-    if (!homeTarget || document.getElementById('cssd-home-projects-showcase')) return;
+    var vwHome = document.getElementById('vw-home') || (document.getElementById('sp-metrics') && document.getElementById('sp-metrics').parentNode);
+    if (!vwHome || document.getElementById('cssd-home-projects-showcase')) return;
     var nssfc = getNSSFC2026Data(), sec = document.createElement('section');
     sec.id = 'cssd-home-projects-showcase';
+
+    // 使用独立 span.cssd-unit-chip (避免 button 与 [data-u] 被原站深色/高亮样式污染导致上海体大、广州体院变白字)
+    var unitChipsHtml = ['山东体育学院','北京体育大学','上海体育大学','苏州大学','武汉体育学院','南京体育学院','广州体育学院','四川师范大学'].map(function(u) {
+      return '<span role="button" tabindex="0" class="cssd-unit-chip hm-u-pill" data-unit="' + u + '"><b style="color:#0f172a!important;-webkit-text-fill-color:#0f172a!important;font-weight:600!important;">' + u + '</b></span>';
+    }).join('');
+
+    var themeChipsHtml = [
+      ['数智/AI赋能','数智|AI|人工智能|多模态|数字|大数据|大语言|VR|智能'],
+      ['机制/路径','机制|路径'],
+      ['运动干预/处方','干预|处方|矫正|康复|主动健康'],
+      ['青少年/体教','青少年|儿童|幼儿|小学生|中小学生|学校体育|体教'],
+      ['全民健身/社区','全民健身|公共服务|社区|老旧小区'],
+      ['赛事/体育消费','赛事|联赛|消费|旅游|文旅|城超'],
+      ['老年/银发慢病','老年|银发|慢病|适老|肌少症'],
+      ['传统体育/非遗','传统体育|非遗|民族|武术|共同体']
+    ].map(function(th) {
+      return '<span role="button" tabindex="0" class="cssd-unit-chip hm-t-pill" data-rx="' + th[1] + '" data-label="' + th[0] + '"><b style="color:#0f172a!important;-webkit-text-fill-color:#0f172a!important;font-weight:600!important;">' + th[0] + '</b></span>';
+    }).join('');
+
     sec.innerHTML =
       '<div class="c-fxb" style="margin-bottom:16px;">' +
         '<div><div class="c-fx"><h2 style="margin:0;font-size:24px!important;line-height:32px!important;font-weight:700!important;color:#0f172a!important;text-wrap:balance;">科研项目动态</h2><span style="background:#18181b!important;color:#ffffff!important;font-size:12px;line-height:16px;font-weight:600;padding:4px 8px;border-radius:4px;">2026双专刊</span></div>' +
@@ -813,7 +919,7 @@
           '<button type="button" class="cssd-tb-btn" id="hm-btn-cmd" title="快捷键 Ctrl+K / ⌘K">🔍 全站快搜 (⌘K)</button>' +
           '<button type="button" class="cssd-tb-btn nssfc-active" id="hm-btn-nssfc">🇨🇳 2026国家社科专刊 <span class="cssd-nssfc-cnt">(' + nssfc.total + '项)</span></button>' +
           '<button type="button" class="cssd-tb-btn moe" id="hm-btn-moe">🏅 2026教育部专刊 (108项)</button>' +
-          '<button type="button" class="cssd-tb-btn" id="hm-btn-cal">📅 体育学术日历</button>' +
+          '<button type="button" class="cssd-tb-btn" id="hm-btn-cal">📅 体育学术日历 (' + CALENDAR_EVENTS.length + '场)</button>' +
           '<button type="button" class="cssd-tb-btn" id="hm-btn-rank">🏆 高校立项榜 TOP25</button>' +
         '</div></div>' +
       '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:16px;">' +
@@ -825,10 +931,8 @@
           '<div class="c-fxb"><span style="font-size:12px;line-height:16px;font-weight:600;color:#1e40af!important;">🏅 2026教育部人文社科·体育学</span><span style="font-size:12px;line-height:16px;color:#2563eb!important;font-weight:600;">统计报告 →</span></div>' +
           '<div style="font-size:24px;line-height:32px;font-weight:700;font-variant-numeric:tabular-nums;color:#2563eb!important;margin:4px 0;">108 项</div>' +
           '<div style="font-size:12px;line-height:16px;color:#52525b!important;font-variant-numeric:tabular-nums;">规划基金 58 项 (53.7%) · 青年 50 项 · 81 家高校</div></div>' +
-        '<div class="c-card" style="background:#ffffff!important;"><div style="font-size:12px;line-height:16px;font-weight:600;color:#0f172a!important;margin-bottom:8px;">🏛️ 2026立项领跑院校 (点击筛选本屏课题)</div><div class="c-fx">' +
-          ['山东体育学院','北京体育大学','上海体育大学','苏州大学','武汉体育学院','南京体育学院','广州体育学院','四川师范大学'].map(function(u) { return '<button type="button" class="cssd-cite-btn hm-u-pill" data-u="' + u + '" style="color:#18181b!important;">' + u + '</button>'; }).join('') + '</div></div>' +
-        '<div class="c-card" style="background:#ffffff!important;"><div style="font-size:12px;line-height:16px;font-weight:600;color:#0f172a!important;margin-bottom:8px;">🔥 2026研究热点风向标 (点击过滤课题)</div><div class="c-fx">' +
-          [['数智/AI赋能','数智|AI|人工智能|多模态|数字|大数据|大语言|VR|智能'],['机制/路径','机制|路径'],['运动干预/处方','干预|处方|矫正|康复|主动健康'],['青少年/体教','青少年|儿童|幼儿|小学生|中小学生|学校体育|体教'],['全民健身/社区','全民健身|公共服务|社区|老旧小区'],['赛事/体育消费','赛事|联赛|消费|旅游|文旅|城超'],['老年/银发慢病','老年|银发|慢病|适老|肌少症'],['传统体育/非遗','传统体育|非遗|民族|武术|共同体']].map(function(th) { return '<button type="button" class="cssd-cite-btn hm-t-pill" data-rx="' + th[1] + '" data-label="' + th[0] + '" style="color:#18181b!important;">' + th[0] + '</button>'; }).join('') + '</div></div></div>' +
+        '<div class="c-card" style="background:#ffffff!important;"><div style="font-size:12px;line-height:16px;font-weight:600;color:#0f172a!important;margin-bottom:8px;">🏛️ 2026立项领跑院校 (点击筛选本屏课题)</div><div class="c-fx">' + unitChipsHtml + '</div></div>' +
+        '<div class="c-card" style="background:#ffffff!important;"><div style="font-size:12px;line-height:16px;font-weight:600;color:#0f172a!important;margin-bottom:8px;">🔥 2026研究热点风向标 (点击过滤课题)</div><div class="c-fx">' + themeChipsHtml + '</div></div></div>' +
       '<div class="c-fxb" style="margin-bottom:16px;">' +
         '<div class="c-fx" style="flex:1;min-width:260px;"><input type="search" id="hm-proj-q" class="c-inp" style="max-width:480px;color:#0f172a!important;background:#ffffff!important;" placeholder="在首页大屏实时搜索 2026 国家社科 / 教育部立项课题名称、学者姓名、高校..."><button type="button" class="cssd-cite-btn" id="hm-proj-reset" style="display:none;color:#dc2626!important;">✕ 清除筛选</button></div>' +
         '<div id="hm-proj-status" style="font-size:12px;line-height:16px;color:#52525b!important;font-variant-numeric:tabular-nums;">左右分栏同步展示 2026 最新立项动态 · 点击课题负责人或院校可直达详情</div></div>' +
@@ -840,8 +944,19 @@
           '<div class="c-fx"><button type="button" class="cssd-cite-btn hm-mcat active" data-cat="">全部</button><button type="button" class="cssd-cite-btn hm-mcat" data-cat="规划基金项目">规划基金</button><button type="button" class="cssd-cite-btn hm-mcat" data-cat="青年基金项目">青年基金</button><button type="button" class="cssd-cite-btn hm-mcat" data-cat="西部和边疆地区">西部项目</button></div></div><div id="hm-moe-list"></div></div>' +
           '<div style="margin-top:16px;padding-top:12px;border-top:1px solid #f4f4f5;"><button type="button" class="cssd-tb-btn moe" id="hm-more-moe" style="width:100%;padding:8px 12px;">📋 展开全部 108 项教育部人文社科名单 & 统计分析报告 →</button></div></div></div>';
 
-    if (homeTarget.id === 'sp-metrics' && homeTarget.parentNode) homeTarget.parentNode.insertBefore(sec, homeTarget.nextSibling);
-    else homeTarget.insertBefore(sec, homeTarget.firstChild);
+    // 优先将「科研项目动态」挂载在 8 大板块导航卡片（学者目录 / 科研项目查询 / 人才计划）的正下方
+    var navBlock = findNavGridBlock(vwHome);
+    if (navBlock && navBlock.parentNode) {
+      navBlock.parentNode.insertBefore(sec, navBlock.nextSibling);
+    } else {
+      var metrics = document.getElementById('sp-metrics');
+      if (metrics && metrics.parentNode) {
+        var afterEl = metrics.nextElementSibling || metrics;
+        afterEl.parentNode.insertBefore(sec, afterEl.nextSibling);
+      } else {
+        vwHome.insertBefore(sec, vwHome.firstChild);
+      }
+    }
 
     var state = { q: '', rx: null, themeLabel: '', nCat: '', mCat: '' }, qInput = sec.querySelector('#hm-proj-q'), resetBtn = sec.querySelector('#hm-proj-reset'), statusEl = sec.querySelector('#hm-proj-status'), nListEl = sec.querySelector('#hm-nssfc-list'), mListEl = sec.querySelector('#hm-moe-list');
     function renderHomeShowcase() {
@@ -856,14 +971,14 @@
       statusEl.innerHTML = (q || state.rx || state.nCat || state.mCat) ? ('当前筛选：国家社科 <b style="color:#dc2626!important;">' + fN.length + '</b> 项 · 教育部 <b style="color:#2563eb!important;">' + fM.length + '</b> 项' + (state.themeLabel ? ' · 主题：<b style="color:#0f172a!important;">' + state.themeLabel + '</b>' : '')) : '左右分栏同步展示 2026 最新立项动态 · 点击课题负责人或院校可直达详情';
       nListEl.innerHTML = fN.slice(0, 6).map(function(r) {
         var cls = r.pType === '重点项目' ? 'b-key' : (r.pType === '青年项目' ? 'b-yth' : 'b-gen');
-        return '<div class="c-it"><div class="c-fxb" style="font-size:12px;line-height:16px;color:#52525b!important;"><div class="c-fx"><span class="c-bdg ' + cls + '">' + r.pType + '</span><span style="color:#52525b!important;font-weight:500;">' + r.disc + '</span></div><span style="color:#52525b!important;font-variant-numeric:tabular-nums;">2026立项 · ' + r.code + '</span></div><div class="c-tit" title="' + r.title.replace(/"/g, '&quot;') + '" style="font-size:16px!important;line-height:24px!important;font-weight:600!important;color:#0f172a!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:8px 0 4px;">' + r.title + '</div><div class="c-fxb" style="font-size:14px;line-height:20px;color:#334155!important;"><div style="color:#334155!important;">负责人：<a href="javascript:void(0)" class="hm-go-sch" data-kw="' + r.leader + '" style="color:#dc2626!important;font-weight:600!important;text-decoration:none;">' + r.leader + '</a> · <a href="javascript:void(0)" class="hm-go-unit" data-u="' + r.unit + '" style="color:#18181b!important;font-weight:500!important;text-decoration:none;">' + r.unit + '</a></div><button type="button" class="cssd-cite-btn hm-cite" data-a="' + r.leader + '" data-t="' + r.title.replace(/"/g, '&quot;') + '" data-u="' + r.unit + '" data-c="国家社科基金' + r.pType + '" data-no="' + r.code + '" style="color:#18181b!important;">📋 引文</button></div></div>';
+        return '<div class="c-it"><div class="c-fxb" style="font-size:12px;line-height:16px;color:#52525b!important;"><div class="c-fx"><span class="c-bdg ' + cls + '">' + r.pType + '</span><span style="color:#52525b!important;font-weight:500;">' + r.disc + '</span></div><span style="color:#52525b!important;font-variant-numeric:tabular-nums;">2026立项 · ' + r.code + '</span></div><div class="c-tit" title="' + r.title.replace(/"/g, '&quot;') + '" style="font-size:16px!important;line-height:24px!important;font-weight:600!important;color:#0f172a!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:8px 0 4px;">' + r.title + '</div><div class="c-fxb" style="font-size:14px;line-height:20px;color:#334155!important;"><div style="color:#334155!important;">负责人：<a href="javascript:void(0)" class="hm-go-sch" data-kw="' + r.leader + '" style="color:#dc2626!important;font-weight:600!important;text-decoration:none;">' + r.leader + '</a> · <a href="javascript:void(0)" class="hm-go-unit" data-unit="' + r.unit + '" style="color:#0f172a!important;font-weight:600!important;text-decoration:none;">' + r.unit + '</a></div><button type="button" class="cssd-cite-btn hm-cite" data-a="' + r.leader + '" data-t="' + r.title.replace(/"/g, '&quot;') + '" data-u="' + r.unit + '" data-c="国家社科基金' + r.pType + '" data-no="' + r.code + '" style="color:#0f172a!important;">📋 引文</button></div></div>';
       }).join('') || '<div style="padding:24px;text-align:center;color:#52525b!important;font-size:14px;line-height:20px;">暂无匹配的2026国家社科课题</div>';
       mListEl.innerHTML = fM.slice(0, 6).map(function(r) {
         var isY = r[3].indexOf('青年') >= 0;
-        return '<div class="c-it"><div class="c-fxb" style="font-size:12px;line-height:16px;color:#52525b!important;"><div class="c-fx"><span class="c-bdg ' + (isY ? 'b-my' : 'b-mp') + '">' + (isY ? '青年基金' : '规划基金') + '</span><span style="color:#52525b!important;font-weight:500;">' + r[6] + '</span></div><span style="color:#52525b!important;font-variant-numeric:tabular-nums;">2026立项 · 教育部序号' + r[0] + '</span></div><div class="c-tit" title="' + r[2].replace(/"/g, '&quot;') + '" style="font-size:16px!important;line-height:24px!important;font-weight:600!important;color:#0f172a!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:8px 0 4px;">' + r[2] + '</div><div class="c-fxb" style="font-size:14px;line-height:20px;color:#334155!important;"><div style="color:#334155!important;">申请人：<a href="javascript:void(0)" class="hm-go-sch" data-kw="' + r[4] + '" style="color:#2563eb!important;font-weight:600!important;text-decoration:none;">' + r[4] + '</a> · <a href="javascript:void(0)" class="hm-go-unit" data-u="' + r[5] + '" style="color:#18181b!important;font-weight:500!important;text-decoration:none;">' + r[5] + '</a></div><button type="button" class="cssd-cite-btn hm-cite" data-a="' + r[4] + '" data-t="' + r[2].replace(/"/g, '&quot;') + '" data-u="' + r[5] + '" data-c="教育部人文社科' + r[3] + '" data-no="公示序号' + r[0] + '" style="color:#18181b!important;">📋 引文</button></div></div>';
+        return '<div class="c-it"><div class="c-fxb" style="font-size:12px;line-height:16px;color:#52525b!important;"><div class="c-fx"><span class="c-bdg ' + (isY ? 'b-my' : 'b-mp') + '">' + (isY ? '青年基金' : '规划基金') + '</span><span style="color:#52525b!important;font-weight:500;">' + r[6] + '</span></div><span style="color:#52525b!important;font-variant-numeric:tabular-nums;">2026立项 · 教育部序号' + r[0] + '</span></div><div class="c-tit" title="' + r[2].replace(/"/g, '&quot;') + '" style="font-size:16px!important;line-height:24px!important;font-weight:600!important;color:#0f172a!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:8px 0 4px;">' + r[2] + '</div><div class="c-fxb" style="font-size:14px;line-height:20px;color:#334155!important;"><div style="color:#334155!important;">申请人：<a href="javascript:void(0)" class="hm-go-sch" data-kw="' + r[4] + '" style="color:#2563eb!important;font-weight:600!important;text-decoration:none;">' + r[4] + '</a> · <a href="javascript:void(0)" class="hm-go-unit" data-unit="' + r[5] + '" style="color:#0f172a!important;font-weight:600!important;text-decoration:none;">' + r[5] + '</a></div><button type="button" class="cssd-cite-btn hm-cite" data-a="' + r[4] + '" data-t="' + r[2].replace(/"/g, '&quot;') + '" data-u="' + r[5] + '" data-c="教育部人文社科' + r[3] + '" data-no="公示序号' + r[0] + '" style="color:#0f172a!important;">📋 引文</button></div></div>';
       }).join('') || '<div style="padding:24px;text-align:center;color:#52525b!important;font-size:14px;line-height:20px;">暂无匹配的2026教育部课题</div>';
       sec.querySelectorAll('.hm-go-sch').forEach(function(a) { a.onclick = function() { triggerSearch(a.getAttribute('data-kw')); }; });
-      sec.querySelectorAll('.hm-go-unit').forEach(function(a) { a.onclick = function() { state.q = a.getAttribute('data-u'); qInput.value = state.q; renderHomeShowcase(); }; });
+      sec.querySelectorAll('.hm-go-unit').forEach(function(a) { a.onclick = function() { state.q = a.getAttribute('data-unit'); qInput.value = state.q; renderHomeShowcase(); }; });
       sec.querySelectorAll('.hm-cite').forEach(function(b) { b.onclick = function() { window.CSSDCitation.copy(b.getAttribute('data-a'), b.getAttribute('data-t'), b.getAttribute('data-u'), 2026, b.getAttribute('data-c'), b.getAttribute('data-no'), 'gbt'); }; });
     }
     window._cssdRenderHomeShowcase = renderHomeShowcase;
@@ -878,7 +993,7 @@
     sec.querySelector('#hm-more-moe').onclick = function() { show2026PortalModal('moe', 'list'); };
     qInput.oninput = function() { state.q = qInput.value; renderHomeShowcase(); };
     resetBtn.onclick = function() { state = { q: '', rx: null, themeLabel: '', nCat: '', mCat: '' }; qInput.value = ''; sec.querySelectorAll('.hm-ncat,.hm-mcat').forEach(function(b) { b.classList.remove('active'); }); sec.querySelector('.hm-ncat[data-cat=""]').classList.add('active'); sec.querySelector('.hm-mcat[data-cat=""]').classList.add('active'); renderHomeShowcase(); };
-    sec.querySelectorAll('.hm-u-pill').forEach(function(btn) { btn.onclick = function() { state.q = btn.getAttribute('data-u'); qInput.value = state.q; renderHomeShowcase(); }; });
+    sec.querySelectorAll('.hm-u-pill').forEach(function(btn) { btn.onclick = function() { state.q = btn.getAttribute('data-unit'); qInput.value = state.q; renderHomeShowcase(); }; });
     sec.querySelectorAll('.hm-t-pill').forEach(function(btn) { btn.onclick = function() { state.rx = new RegExp(btn.getAttribute('data-rx'), 'i'); state.themeLabel = btn.getAttribute('data-label'); renderHomeShowcase(); }; });
     sec.querySelectorAll('.hm-ncat').forEach(function(btn) { btn.onclick = function() { sec.querySelectorAll('.hm-ncat').forEach(function(b) { b.classList.remove('active'); }); btn.classList.add('active'); state.nCat = btn.getAttribute('data-cat'); renderHomeShowcase(); }; });
     sec.querySelectorAll('.hm-mcat').forEach(function(btn) { btn.onclick = function() { sec.querySelectorAll('.hm-mcat').forEach(function(b) { b.classList.remove('active'); }); btn.classList.add('active'); state.mCat = btn.getAttribute('data-cat'); renderHomeShowcase(); }; });
@@ -894,21 +1009,26 @@
     _isMounting = true;
     if (_mo) { try { _mo.disconnect(); } catch (e) {} }
     try {
+      // 确保移除任何残留的右下角突兀黑色悬浮胶囊
+      var oldPill = document.getElementById('cssd-float-pill');
+      if (oldPill) oldPill.remove();
+
       unifyPageTypography();
       mountAcademicCalendarBar();
       mountHomeProjectsBigScreen();
       enhanceModal();
-      var nssfcCnt = getNSSFC2026Data().total, nssfcTxt = nssfcCnt > 0 ? '(' + nssfcCnt + '项)' : '';
-      if (!document.getElementById('cssd-float-pill')) {
-        var pill = document.createElement('div'); pill.id = 'cssd-float-pill';
-        pill.innerHTML = '<button type="button" id="fp-cmd" style="background:#27272a!important;color:#ffffff!important;border:1px solid #3f3f46;padding:8px 12px;border-radius:9999px;font-weight:600;cursor:pointer;font-size:12px;line-height:16px;" title="快捷键 Ctrl+K / ⌘K">🔍 快搜 ⌘K</button><button type="button" id="fp-nssfc-list" style="background:#dc2626!important;color:#ffffff!important;border:none;padding:8px 12px;border-radius:9999px;font-weight:600;cursor:pointer;font-size:12px;line-height:16px;">🇨🇳 2026国家社科 <span class="cssd-nssfc-cnt">' + nssfcTxt + '</span></button><button type="button" id="fp-moe-list" style="background:#2563eb!important;color:#ffffff!important;border:none;padding:8px 12px;border-radius:9999px;font-weight:600;cursor:pointer;font-size:12px;line-height:16px;">🏅 2026教育部 (108项)</button><button type="button" id="fp-cal" style="background:#27272a!important;color:#ffffff!important;border:none;padding:8px 12px;border-radius:9999px;font-weight:600;cursor:pointer;font-size:12px;line-height:16px;">📅 学术日历</button><button type="button" id="fp-hide" style="background:#27272a!important;color:#a1a1aa!important;border:none;padding:4px 8px;border-radius:9999px;cursor:pointer;font-size:12px;line-height:16px;" title="收起悬浮条">✕</button>';
-        document.body.appendChild(pill);
-        document.getElementById('fp-cmd').onclick = showCommandPalette;
-        document.getElementById('fp-nssfc-list').onclick = function() { show2026PortalModal('nssfc', 'list'); };
-        document.getElementById('fp-moe-list').onclick = function() { show2026PortalModal('moe', 'list'); };
-        document.getElementById('fp-cal').onclick = showAcademicCalendarModal;
-        document.getElementById('fp-hide').onclick = function() { pill.style.display = 'none'; };
+
+      // 若科研项目大屏已挂载，校验其是否处于 8 大导航板块下方
+      var showcase = document.getElementById('cssd-home-projects-showcase');
+      var vwHome = document.getElementById('vw-home');
+      if (showcase && vwHome) {
+        var navBlock = findNavGridBlock(vwHome);
+        if (navBlock && navBlock.parentNode === showcase.parentNode && showcase.nextElementSibling === navBlock) {
+          navBlock.parentNode.insertBefore(showcase, navBlock.nextSibling);
+        }
       }
+
+      var nssfcCnt = getNSSFC2026Data().total, nssfcTxt = nssfcCnt > 0 ? '(' + nssfcCnt + '项)' : '';
       var rinfo = document.getElementById('rinfo');
       if (rinfo && !rinfo.querySelector('.cssd-tb')) {
         var w = document.createElement('span'); w.className = 'cssd-tb';
@@ -953,47 +1073,51 @@
     } catch (e) {}
     if (!document.getElementById('cssd-v15-css')) {
       var st = document.createElement('style'); st.id = 'cssd-v15-css';
-      st.textContent = 'body{padding-bottom:64px!important;font-family:' + SANS + '!important;font-style:normal!important}' +
+      st.textContent = 'body{font-family:' + SANS + '!important;font-style:normal!important}' +
         '#sp-metrics,#sp-metrics *{font-variant-numeric:tabular-nums!important;font-family:' + SANS + '!important}' +
         '.sc,.sp-person{border-radius:16px!important;transition:transform 250ms cubic-bezier(0.22,1,0.36,1),opacity 250ms cubic-bezier(0.22,1,0.36,1)!important}' +
         '.sc:hover,.sp-person:hover{transform:translateY(-2px)!important}' +
         '#vw-home h3,#vw-home h4,#vw-xuejie h3,#vw-xuejie h4,#vw-news h3,#vw-news h4,[class*="xuejie"] h3,[class*="xuejie"] h4,[class*="xuejie"] [class*="title"],[class*="daily"] h3,[class*="daily"] h4,[class*="daily"] [class*="title"],[class*="news"] h3,[class*="news"] h4{font-family:' + SANS + '!important;font-size:16px!important;line-height:24px!important;font-weight:600!important;font-style:normal!important}' +
-        'html body #cssd-home-projects-showcase{max-width:1180px;margin:32px auto;padding:0 16px;font-family:' + SANS + ';color:#0f172a!important}' +
+        'html body #cssd-home-projects-showcase{max-width:1180px;margin:28px auto;padding:0 16px;font-family:' + SANS + ';color:#0f172a!important}' +
         'html body #cssd-home-projects-showcase h2,html body #cssd-home-projects-showcase h3,html body #cssd-home-projects-showcase .c-tit{color:#0f172a!important;font-style:normal!important}' +
-        'html body #cssd-home-projects-showcase .hm-go-unit{color:#18181b!important}' +
+        'html body #cssd-home-projects-showcase .hm-go-unit{color:#0f172a!important}' +
         '.c-fx{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.c-fxb{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}' +
         '.c-card{background:#ffffff!important;color:#0f172a!important;border:1px solid #e4e4e7!important;border-radius:16px;padding:16px;transition:transform 250ms cubic-bezier(0.22,1,0.36,1),opacity 250ms cubic-bezier(0.22,1,0.36,1)}' +
         '.c-card:hover{transform:translateY(-1px)}' +
         '.c-col{background:#ffffff!important;color:#0f172a!important;border:1px solid #e4e4e7!important;border-radius:16px;padding:16px;display:flex;flex-direction:column;justify-content:space-between}' +
         '.c-it{padding:12px 4px;border-bottom:1px solid #f4f4f5;color:#0f172a!important}' +
         '.c-tit{font-size:16px!important;line-height:24px!important;font-weight:600!important;color:#0f172a!important;font-family:' + SANS + '!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:8px 0 4px}' +
-        '.c-bdg{padding:2px 8px;border-radius:4px;font-size:12px;line-height:16px;font-weight:600}' +
+        /* 强制所有项目类别徽章单行不折行 */
+        '.c-bdg{padding:2px 8px;border-radius:4px;font-size:12px;line-height:16px;font-weight:600;white-space:nowrap!important;display:inline-block!important}' +
         '.b-key{background:#fff7ed!important;color:#c2410c!important;border:1px solid #fed7aa}.b-yth{background:#f0fdf4!important;color:#15803d!important;border:1px solid #bbf7d0}.b-gen{background:#eff6ff!important;color:#1d4ed8!important;border:1px solid #bfdbfe}.b-my{background:#fef9c3!important;color:#854d0e!important;border:1px solid #fde047}.b-mp{background:#dcfce7!important;color:#166534!important;border:1px solid #86efac}' +
+        /* 独立高对比度院校与热点胶囊样式，彻底防止上海体育大学、广州体育学院等变白字 */
+        '.cssd-unit-chip{display:inline-flex!important;align-items:center!important;background:#f1f5f9!important;border:1px solid #cbd5e1!important;color:#0f172a!important;-webkit-text-fill-color:#0f172a!important;opacity:1!important;padding:4px 10px!important;border-radius:6px!important;font-size:12px!important;line-height:16px!important;font-weight:600!important;cursor:pointer!important;user-select:none;white-space:nowrap!important;transition:transform 200ms cubic-bezier(0.22,1,0.36,1),background-color 200ms}' +
+        '.cssd-unit-chip:hover{background:#dbeafe!important;border-color:#93c5fd!important;color:#1d4ed8!important;-webkit-text-fill-color:#1d4ed8!important;transform:translateY(-1px)}' +
+        '.cssd-unit-chip:hover b{color:#1d4ed8!important;-webkit-text-fill-color:#1d4ed8!important}' +
         '.c-inp{flex:1;min-width:200px;padding:8px 12px;border:1px solid #d4d4d8;border-radius:8px;font-size:14px;line-height:20px;background:#ffffff!important;color:#0f172a!important;font-family:' + SANS + '}' +
         '.c-sel{padding:8px 12px;border:1px solid #d4d4d8;border-radius:8px;font-size:14px;line-height:20px;background:#ffffff!important;color:#0f172a!important;font-family:' + SANS + '}' +
         '.cssd-tb{display:inline-flex;gap:8px;margin-left:8px;flex-wrap:wrap;vertical-align:middle}' +
-        '.cssd-tb-btn{background:#ffffff!important;border:1px solid #d4d4d8!important;color:#18181b!important;padding:8px 12px;border-radius:8px;font-size:14px;line-height:20px;cursor:pointer;font-weight:600;font-family:' + SANS + ';transition:transform 200ms cubic-bezier(0.22,1,0.36,1),opacity 200ms cubic-bezier(0.22,1,0.36,1)}' +
+        '.cssd-tb-btn{background:#ffffff!important;border:1px solid #d4d4d8!important;color:#18181b!important;padding:8px 12px;border-radius:8px;font-size:14px;line-height:20px;cursor:pointer;font-weight:600;white-space:nowrap!important;font-family:' + SANS + ';transition:transform 200ms cubic-bezier(0.22,1,0.36,1),opacity 200ms cubic-bezier(0.22,1,0.36,1)}' +
         '.cssd-tb-btn:hover,.cssd-tb-btn.active{background:#2563eb!important;color:#ffffff!important;border-color:#2563eb!important;transform:translateY(-1px)}' +
         '.cssd-tb-btn:active,.cssd-cite-btn:active{transform:scale(0.98)!important}' +
         '.cssd-tb-btn:focus-visible,.cssd-cite-btn:focus-visible,.c-inp:focus-visible,.c-sel:focus-visible{outline:2px solid #2563eb!important;outline-offset:2px!important}' +
         '.cssd-tb-btn.moe{background:#eff6ff!important;color:#1d4ed8!important;border-color:#93c5fd!important;font-weight:600}' +
         '.cssd-tb-btn.nssfc-active{background:#dc2626!important;color:#ffffff!important;border-color:#dc2626!important;font-weight:600}' +
-        '.cssd-cite-btn{background:#f4f4f5!important;border:1px solid #e4e4e7!important;color:#18181b!important;padding:4px 8px;border-radius:4px;font-size:12px;line-height:16px;font-weight:500;cursor:pointer;font-family:' + SANS + ';transition:transform 200ms cubic-bezier(0.22,1,0.36,1),opacity 200ms cubic-bezier(0.22,1,0.36,1)}' +
-        '.cssd-cite-btn:hover,.cssd-cite-btn.active{background:#2563eb!important;color:#ffffff!important;border-color:#2563eb!important}' +
-        '#cssd-float-pill{position:fixed;bottom:16px;right:72px;z-index:99990;display:flex;align-items:center;gap:8px;background:#18181b!important;padding:8px 12px;border-radius:9999px;box-shadow:0 8px 24px rgba(0,0,0,.2);border:1px solid #27272a;font-size:12px;line-height:16px;flex-wrap:wrap}' +
+        '.cssd-cite-btn{background:#f4f4f5!important;border:1px solid #e4e4e7!important;color:#0f172a!important;-webkit-text-fill-color:#0f172a!important;padding:4px 8px;border-radius:4px;font-size:12px;line-height:16px;font-weight:600;white-space:nowrap!important;cursor:pointer;font-family:' + SANS + ';transition:transform 200ms cubic-bezier(0.22,1,0.36,1),opacity 200ms cubic-bezier(0.22,1,0.36,1)}' +
+        '.cssd-cite-btn:hover,.cssd-cite-btn.active{background:#2563eb!important;color:#ffffff!important;-webkit-text-fill-color:#ffffff!important;border-color:#2563eb!important}' +
         '#cssd-compare-dock{position:fixed;bottom:64px;right:24px;background:#18181b!important;color:#ffffff!important;padding:8px 16px;border-radius:9999px;border:1px solid #27272a;display:none;align-items:center;gap:8px;z-index:99991;font-size:12px;line-height:16px}' +
         '.cssd-dock-tag{background:#27272a;padding:4px 8px;border-radius:4px}.cssd-dock-tag b{cursor:pointer;margin-left:4px;color:#fca5a5}.cssd-dock-btn{background:#2563eb;color:#ffffff;border:none;padding:4px 12px;border-radius:9999px;cursor:pointer;font-size:12px;font-weight:600}' +
         '.cssd-moe-banner{background:#fafafa!important;border:1px solid #e4e4e7!important;border-radius:16px;padding:16px;margin:16px 0}' +
         '#cssd-toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%);background:#18181b;color:#ffffff;padding:8px 16px;border-radius:9999px;font-size:14px;line-height:20px;z-index:100009;pointer-events:none;opacity:0;transition:opacity 250ms cubic-bezier(0.22,1,0.36,1)}' +
         '#cssd-custom-modal{position:fixed;inset:0;background:rgba(24,24,27,.75);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;z-index:100000;padding:16px}' +
         '#cssd-custom-modal.active{display:flex}' +
-        '.cssd-c-content{background:#ffffff!important;color:#0f172a!important;width:100%;max-width:960px;max-height:88vh;border-radius:16px;border:1px solid #e4e4e7;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 48px rgba(0,0,0,.25)}' +
+        '.cssd-c-content{background:#ffffff!important;color:#0f172a!important;width:100%;max-width:1060px;max-height:88vh;border-radius:16px;border:1px solid #e4e4e7;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 48px rgba(0,0,0,.25)}' +
         '.cssd-c-hd{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #e4e4e7}' +
         '.cssd-c-close{background:none;border:none;font-size:18px;line-height:28px;cursor:pointer;color:#334155!important;padding:4px 8px;border-radius:8px}' +
         '.cssd-c-body{padding:16px 24px;overflow-y:auto;color:#0f172a!important}' +
         '.cssd-c-table{width:100%;border-collapse:collapse;font-size:14px;line-height:20px;margin:0;color:#0f172a!important;font-variant-numeric:tabular-nums}' +
-        '.cssd-c-table th,.cssd-c-table td{padding:8px 12px;border:1px solid #e4e4e7;text-align:left;color:#0f172a!important}' +
-        '.cssd-c-table th{background:#fafafa!important;color:#18181b!important;font-weight:600;position:sticky;top:0}' +
+        '.cssd-c-table th,.cssd-c-table td{padding:10px 12px;border:1px solid #e4e4e7;text-align:left;color:#0f172a!important;vertical-align:middle}' +
+        '.cssd-c-table th{background:#fafafa!important;color:#18181b!important;font-weight:600;position:sticky;top:0;white-space:nowrap}' +
         '#cssd-top{position:fixed;bottom:16px;right:24px;width:40px;height:40px;border-radius:9999px;background:#18181b;color:#ffffff;border:1px solid #27272a;cursor:pointer;font-size:16px;line-height:24px;display:none;align-items:center;justify-content:center;z-index:9997;transition:transform 200ms cubic-bezier(0.22,1,0.36,1)}';
       document.head.appendChild(st);
     }
@@ -1011,14 +1135,13 @@
       }
     }
 
-    // 延迟 350ms 待原站首屏与加载动画退场后再挂载增强组件，彻底避免阻塞首屏
     setTimeout(function() {
       tryEnrichDatasets();
       mountAllUI();
       _mo = new MutationObserver(function(mutations) {
         for (var i = 0; i < mutations.length; i++) {
           var t = mutations[i].target;
-          if (t && t.closest && (t.closest('#cssd-home-projects-showcase') || t.closest('#cssd-academic-calendar-bar') || t.closest('#cssd-custom-modal') || t.closest('#cssd-float-pill'))) continue;
+          if (t && t.closest && (t.closest('#cssd-home-projects-showcase') || t.closest('#cssd-academic-calendar-bar') || t.closest('#cssd-custom-modal'))) continue;
           scheduleMount();
           break;
         }
