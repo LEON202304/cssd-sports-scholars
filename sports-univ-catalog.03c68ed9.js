@@ -737,10 +737,17 @@ window._ucTp='all';
   };
 
   function cssdAttr(v){return String(v||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');}
+  /* hon：短词做标签；带 ，。；或超过 20 字的散文片段归入简介段落（不改数据） */
+  function sdHonProse(h){return (window.honIsProse||function(){return false})(h);} /* 共享实现见 sports-scholars-data */
+  function sdAttr(t){return String(t).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');}
   function sdTags(s){
     return '<span class="tag '+(DC[s.disc]||'')+'">'+s.dL+'</span>'+
-      (s.hats||[]).map(function(h){return '<span class="tag t-hat">'+hS(h)+'</span>';}).join('')+
-      (s.hon||[]).slice(0,2).map(function(h){return '<span class="tag t-honor" style="font-size:.7rem">'+(h.length>18?h.slice(0,18)+'…':h)+'</span>';}).join('');
+      (s.hats||[]).map(function(h){var l=hS(h);if(/…$/.test(l))l=h;return '<span class="tag t-hat" title="'+sdAttr(h)+'">'+esc(l)+'</span>';}).join('')+
+      (s.hon||[]).filter(function(h){return !sdHonProse(h);}).slice(0,2).map(function(h){return '<span class="tag t-honor" style="font-size:.7rem" title="'+sdAttr(h)+'">'+esc(h)+'</span>';}).join('');
+  }
+  function sdBio(s){
+    var p=(s.hon||[]).filter(sdHonProse).map(function(h){h=String(h).replace(/\s+/g,' ').trim().replace(/\.{3,}$|…$/,'…');return /[。…！？]$/.test(h)?h:h+'。';});
+    return p.length?'<p class="sd-bio">'+esc(p.join(''))+'</p>':'';
   }
   function sdRelated(s){
     var peers=S.filter(function(x){return x.id!==s.id&&(x.disc===s.disc||x.institution===s.institution);})
@@ -779,7 +786,7 @@ window._ucTp='all';
     var role=s.role?'<div class="'+(RC[s.role]||'')+' rbadge" style="display:inline-flex;margin-bottom:7px">◈ '+(RL[s.role]||'')+'</div>':'';
     mtp.innerHTML='<div class="sd-hero">'+
       '<div class="sd-avatar" style="background:'+s.c+'22;color:'+s.c+'">'+s.i+'</div>'+
-      '<div style="min-width:0">'+role+'<div class="sd-name">'+s.n+'</div><div class="sd-meta">'+(s.e||'')+'<br>🏛 '+s.institution+(s.dept?' · '+s.dept:'')+'<br>🎓 '+s.title+'</div><div class="sd-tags">'+sdTags(s)+'</div></div>'+
+      '<div style="min-width:0">'+role+'<div class="sd-name">'+s.n+'</div>'+(s.rankTag&&typeof rankTagH==='function'?'<div class="sp-rank-row">'+rankTagH(s)+'</div>':'')+'<div class="sd-meta">'+(s.e||'')+'<br>🏛 '+s.institution+(s.dept?' · '+s.dept:'')+'<br>🎓 '+s.title+'</div><div class="sd-tags">'+sdTags(s)+'</div>'+sdBio(s)+'</div>'+
       '<div class="sd-actions">'+
         '<button class="sd-action primary" data-term="'+cssdAttr(s.institution)+'" onclick="cssdScholarSearchPreset(this.dataset.term);closeMod();">同机构学者</button>'+
         '<button class="sd-action" data-term="'+cssdAttr(s.dL)+'" onclick="cssdScholarSearchPreset(this.dataset.term);closeMod();">同方向学者</button>'+
