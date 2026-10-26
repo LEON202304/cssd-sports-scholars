@@ -1,5 +1,5 @@
 /**
- * CSSD 体育学人 - 全站终极增强套件 v15.2 (全网重点体育学术会议日历 + 细节体验精修版)
+ * CSSD 体育学人 - 全站终极增强套件 v15.4 (全新会议门户级倒计时看板 UI + 学界动态排版修复旗舰版)
  * 本次升级与修复要点：
  * 1. [移除右下角突兀悬浮条]: 彻底删除右下角黑色胶囊悬浮条 (#cssd-float-pill)，保持页面清爽通透
  * 2. [调整首页模块顺序]: 将「科研项目动态」大屏调整至首页顶部 8 大板块导航卡片（学者目录/科研项目查询/人才计划等）的正下方，保留原站导航在最上方
@@ -9,8 +9,8 @@
  */
 (function () {
   'use strict';
-  if (window.__CSSD_V15_2_LOADED__) return;
-  window.__CSSD_V15_2_LOADED__ = true;
+  if (window.__CSSD_V15_4_LOADED__) return;
+  window.__CSSD_V15_4_LOADED__ = true;
 
   var DISC_NAMES = ['体育人文社会学','运动人体科学','体育教育训练学','民族传统体育学'];
   var DISC_CODES = ['soc','hum-sci','pe','trad'];
@@ -34,26 +34,26 @@
 
   // 全网搜集的全国与国际重点体育学术会议日历（覆盖中国体育科学学会、各大体院、综合名校及国际顶会）
   var CALENDAR_EVENTS = [
-    { start: '2026-10-28', end: '2026-10-30', title: '2026年全国全民健身科学大会（主题：数字赋能全民健身高质量发展）', type: '国家级一级会议', level: 'national', loc: '北京', host: '中国体育科学学会', status: '即将召开', url: 'https://www.sohu.com/a/1055414239_121124683', featured: 1 },
-    { start: '2026-11-06', end: '2026-11-08', title: '运动健康与产业发展专业委员会第四届学术年会', type: '全国专委会年会', level: 'national', loc: '上海·上海体育大学', host: '中国康复医学会 / 上海体育大学运动健康学院', status: '即将召开', url: 'https://www.carm.org.cn/kyxs/tzgg/art/2026/art_2f000dbfa8f64e509d9eff05bbb9c6fb.html', featured: 1 },
-    { start: '2026-11-07', end: '2026-11-09', title: '第十六届全国体育信息科技学术大会（人工智能与体育数据要素）', type: '国家级分会年会', level: 'national', loc: '四川成都·成都体育学院', host: '中国体育科学学会体育信息分会 / 成都体育学院', status: '即将召开', url: 'https://www.sport.gov.cn/xxzx/n5594/c29787992/content.html', featured: 1 },
-    { start: '2026-11-14', end: '2026-11-16', title: '第十届全国青年体育科学学术会议（主题：体育强国 青年担当）', type: '国家级品牌会议', level: 'national', loc: '河南郑州/新乡', host: '中国体育科学学会', status: '即将召开', url: 'https://www.sohu.com/a/1031231158_121124683', featured: 1 },
-    { start: '2026-11-20', end: '2026-11-22', title: '第十届中国体育博士高层论坛（学科交叉引领体育科学前沿新发展）', type: '国家级高层论坛', level: 'national', loc: '河北石家庄·河北师范大学', host: '中国体育科学学会 / 河北师范大学', status: '即将召开', url: 'https://www.51huiyi.org/Web/Page?_pid=conf&cid=3a246fa7-75cd-36e4-79bb-597a3b247844', featured: 1 },
-    { start: '2026-11-27', end: '2026-11-29', title: '第二十一届全国体育新闻传播学术研讨会', type: '国家级分会年会', level: 'national', loc: '辽宁沈阳·沈阳体育学院', host: '中国体育科学学会体育新闻传播分会 / 沈阳体育学院', status: '征文/即将召开', url: 'https://www.sohu.com/a/1070121631_121124683', featured: 1 },
-    { start: '2026-11-28', end: '2026-11-30', title: '首届黑龙江省体育科学大会（冰雪体育与寒地运动健康）', type: '省部级重点会议', level: 'provincial', loc: '黑龙江哈尔滨', host: '黑龙江省体育局 / 黑龙江省体育科学学会', status: '征文进行中', url: 'https://tyj.hlj.gov.cn/tyj/c112436/202610/c00_31981104.shtml', featured: 0 },
-    { start: '2026-12-04', end: '2026-12-06', title: '第二届中国体育科学学会女科技工作者工作委员会学术交流会', type: '国家级工委会会议', level: 'national', loc: '山东济南·山东体育学院', host: '中国体育科学学会女科技工作者工委会 / 山东体育学院', status: '征文进行中', url: 'https://www.sdpei.edu.cn/2026/1023/c1393a87395/page.htm', featured: 1 },
-    { start: '2026-12-11', end: '2026-12-13', title: '2026年体育教育、运动心理学与健康管理国际会议 (IPESPH 2026)', type: '国际学术会议', level: 'intl', loc: '江西南昌', host: 'IPESPH 国际组委会', status: '征文进行中', url: 'https://www.allconfs.org/meeting_type.asp?id=68', featured: 1 },
-    { start: '2026-12-18', end: '2026-12-20', title: '2026年体育文化与社会学学术研讨会（征文）', type: '区域/专题研讨会', level: 'provincial', loc: '山东泰安·泰山学院', host: '山东省体育社会学研究会 / 泰山学院', status: '征文进行中', url: 'https://www.sdpei.edu.cn/2026/1023/c1393a87390/page.htm', featured: 0 },
-    { start: '2026-10-30', end: '2026-10-31', title: '2026年中国学校体育理论创新与自主知识体系构建学术研讨会', type: '专题学术研讨会', level: 'provincial', loc: '山东济南', host: '山东体育学院', status: '即将召开', url: '', featured: 0 },
-    { start: '2026-11-13', end: '2026-11-15', title: '2026年山东省第三届休闲体育与体育旅游学术论坛', type: '专题学术论坛', level: 'provincial', loc: '山东济南/日照', host: '山东体育学院', status: '征文进行中', url: '', featured: 0 },
-    { start: '2026-10-25', end: '2026-10-27', title: '2026运动生物力学与大健康学术研讨会', type: '全国专题研讨会', level: 'national', loc: '浙江宁波·宁波大学', host: '《医用生物力学》编辑部 / 宁波大学', status: '近期举办', url: 'https://assbgh2026.meeting666.com/', featured: 1 },
-    { start: '2026-09-18', end: '2026-09-20', title: '第二十四届全国运动生物力学学术交流大会', type: '国家级分会年会', level: 'national', loc: '黑龙江哈尔滨·哈尔滨体育学院', host: '中国体育科学学会运动生物力学分会 / 哈尔滨体育学院', status: '年度重点回顾', url: 'https://www.sohu.com/a/1020029937_121124683', featured: 0 },
-    { start: '2026-08-21', end: '2026-08-23', title: '2026年全国运动增强体质与健康学术会议', type: '国家级分会年会', level: 'national', loc: '黑龙江哈尔滨·哈尔滨体育学院', host: '中国体育科学学会体质与健康分会 / 哈尔滨体育学院', status: '年度重点回顾', url: 'https://www.sohu.com/a/1023191928_121124683', featured: 0 },
-    { start: '2026-07-07', end: '2026-07-10', title: '第31届欧洲体育科学学会年会 (ECSS Lausanne 2026)', type: '国际顶级会议', level: 'intl', loc: '瑞士洛桑 (Lausanne)', host: 'European College of Sport Science (ECSS)', status: '国际顶会回顾', url: 'https://sport-science.org/', featured: 0 },
-    { start: '2026-05-29', end: '2026-05-31', title: '2026第十四届全国体育管理科学大会', type: '国家级分会年会', level: 'national', loc: '山东济南', host: '中国体育科学学会体育管理分会', status: '年度重点回顾', url: 'https://www.sohu.com/a/986304381_121124683', featured: 0 },
-    { start: '2026-05-26', end: '2026-05-29', title: '2026年第73届美国运动医学会年会 (ACSM Annual Meeting 2026)', type: '国际顶级会议', level: 'intl', loc: '美国盐湖城 (Salt Lake City)', host: 'American College of Sports Medicine (ACSM)', status: '国际顶会回顾', url: 'https://www.medicalconfs.com/md/13136', featured: 0 },
-    { start: '2026-05-22', end: '2026-05-24', title: '2026年全国体育社会科学大会', type: '国家级分会年会', level: 'national', loc: '浙江杭州·浙江大学', host: '中国体育科学学会体育社会科学分会 / 浙江大学教育学院', status: '年度重点回顾', url: 'https://www.51huiyi.org/Web/Page?_pid=conf&cid=3a2011ac-7d52-36e7-a720-f065b5e2f4a1', featured: 0 },
-    { start: '2027-07-06', end: '2027-07-09', title: '第32届欧洲体育科学学会年会 (ECSS Manchester 2027)', type: '国际顶级会议', level: 'intl', loc: '英国曼彻斯特 (Manchester)', host: 'European College of Sport Science (ECSS)', status: '2027国际顶会预告', url: 'https://sport-science.org/', featured: 1 }
+    { start: '2026-11-06', end: '2026-11-08', cfp: '2026年10月15日', notice: '2026年10月25日', reg: '2026年11月06日', hold: '2026年11月06-08日', title: '运动健康与产业发展专业委员会第四届学术年会', shortTitle: '运动健康与产业发展年会(上体)', type: '全国专委会年会', level: 'national', loc: '上海·上海体育大学', host: '中国康复医学会 / 上海体育大学运动健康学院', status: '即将召开', url: 'https://www.carm.org.cn/kyxs/tzgg/art/2026/art_2f000dbfa8f64e509d9eff05bbb9c6fb.html', featured: 1 },
+    { start: '2026-11-07', end: '2026-11-09', cfp: '2026年09月10日', notice: '2026年10月15日', reg: '2026年11月07日', hold: '2026年11月07-09日', title: '第十六届全国体育信息科技学术大会（人工智能与体育数据要素）', shortTitle: '第十六届全国体育信息科技大会', type: '国家级分会年会', level: 'national', loc: '四川成都·成都体育学院', host: '中国体育科学学会体育信息分会 / 成都体育学院', status: '即将召开', url: 'https://www.sport.gov.cn/xxzx/n5594/c29787992/content.html', featured: 1 },
+    { start: '2026-11-14', end: '2026-11-16', cfp: '2026年09月20日', notice: '2026年10月20日', reg: '2026年11月14日', hold: '2026年11月14-16日', title: '第十届全国青年体育科学学术会议（主题：体育强国 青年担当）', shortTitle: '第十届全国青年体育科学会议', type: '国家级品牌会议', level: 'national', loc: '河南郑州/新乡', host: '中国体育科学学会', status: '即将召开', url: 'https://www.sohu.com/a/1031231158_121124683', featured: 1 },
+    { start: '2026-11-20', end: '2026-11-22', cfp: '2026年09月15日', notice: '2026年09月30日', reg: '2026年10月09日', hold: '2026年11月20-22日', title: '第十届中国体育博士高层论坛（学科交叉引领体育科学前沿新发展）', shortTitle: '第十届中国体育博士高层论坛', type: '国家级高层论坛', level: 'national', loc: '河北石家庄·河北师范大学', host: '中国体育科学学会 / 河北师范大学', status: '即将召开', url: 'https://www.51huiyi.org/Web/Page?_pid=conf&cid=3a246fa7-75cd-36e4-79bb-597a3b247844', featured: 1 },
+    { start: '2026-11-27', end: '2026-11-29', cfp: '2026年10月31日', notice: '2026年11月10日', reg: '2026年11月27日', hold: '2026年11月27-29日', title: '第二十一届全国体育新闻传播学术研讨会', shortTitle: '全国体育新闻传播学术研讨会', type: '国家级分会年会', level: 'national', loc: '辽宁沈阳·沈阳体育学院', host: '中国体育科学学会体育新闻传播分会 / 沈阳体育学院', status: '征文/即将召开', url: 'https://www.sohu.com/a/1070121631_121124683', featured: 1 },
+    { start: '2026-12-04', end: '2026-12-06', cfp: '2026年11月15日', notice: '2026年11月22日', reg: '2026年12月04日', hold: '2026年12月04-06日', title: '第二届中国体育科学学会女科技工作者工作委员会学术交流会', shortTitle: '中国体育科学学会女科技工作者会', type: '国家级工委会会议', level: 'national', loc: '山东济南·山东体育学院', host: '中国体育科学学会女科技工作者工委会 / 山东体育学院', status: '征文进行中', url: 'https://www.sdpei.edu.cn/2026/1023/c1393a87395/page.htm', featured: 1 },
+    { start: '2026-12-11', end: '2026-12-13', cfp: '2026年11月20日', notice: '2026年11月30日', reg: '2026年12月11日', hold: '2026年12月11-13日', title: '2026年体育教育、运动心理学与健康管理国际会议 (IPESPH 2026)', shortTitle: '体育教育与运动心理学国际会议', type: '国际学术会议', level: 'intl', loc: '江西南昌', host: 'IPESPH 国际组委会', status: '征文进行中', url: 'https://www.allconfs.org/meeting_type.asp?id=68', featured: 1 },
+    { start: '2026-12-18', end: '2026-12-20', cfp: '2026年11月25日', notice: '2026年12月05日', reg: '2026年12月18日', hold: '2026年12月18-20日', title: '2026年体育文化与社会学学术研讨会（征文）', shortTitle: '2026体育文化与社会学研讨会', type: '区域/专题研讨会', level: 'provincial', loc: '山东泰安·泰山学院', host: '山东省体育社会学研究会 / 泰山学院', status: '征文进行中', url: 'https://www.sdpei.edu.cn/2026/1023/c1393a87390/page.htm', featured: 1 },
+    { start: '2026-10-28', end: '2026-10-30', cfp: '2026年08月05日', notice: '2026年09月25日', reg: '2026年10月15日', hold: '2026年10月28-30日', title: '2026年全国全民健身科学大会（主题：数字赋能全民健身高质量发展）', shortTitle: '2026全国全民健身科学大会', type: '国家级一级会议', level: 'national', loc: '北京', host: '中国体育科学学会', status: '即将召开', url: 'https://www.sohu.com/a/1055414239_121124683', featured: 1 },
+    { start: '2026-10-25', end: '2026-10-27', cfp: '2026年07月31日', notice: '2026年08月20日', reg: '2026年08月30日', hold: '2026年10月25-27日', title: '运动生物力学与大健康学术研讨会', shortTitle: '运动生物力学与大健康研讨会', type: '全国专题研讨会', level: 'national', loc: '浙江·宁波（宁波大学）', host: '《医用生物力学》编辑部 / 宁波大学体育学院(大健康研究院)', status: '近期举办', url: 'https://assbgh2026.meeting666.com/', featured: 1 },
+    { start: '2026-10-30', end: '2026-10-31', cfp: '2026年10月15日', notice: '2026年10月22日', reg: '2026年10月29日', hold: '2026年10月30-31日', title: '2026年中国学校体育理论创新与自主知识体系构建学术研讨会', shortTitle: '中国学校体育理论创新研讨会', type: '专题学术研讨会', level: 'provincial', loc: '山东济南', host: '山东体育学院', status: '即将召开', url: '', featured: 0 },
+    { start: '2026-11-13', end: '2026-11-15', cfp: '2026年10月30日', notice: '2026年11月05日', reg: '2026年11月13日', hold: '2026年11月13-15日', title: '2026年山东省第三届休闲体育与体育旅游学术论坛', shortTitle: '山东省休闲体育与体育旅游论坛', type: '专题学术论坛', level: 'provincial', loc: '山东济南/日照', host: '山东体育学院', status: '征文进行中', url: '', featured: 0 },
+    { start: '2026-11-28', end: '2026-11-30', cfp: '2026年11月10日', notice: '2026年11月18日', reg: '2026年11月28日', hold: '2026年11月28-30日', title: '首届黑龙江省体育科学大会（冰雪体育与寒地运动健康）', shortTitle: '首届黑龙江省体育科学大会', type: '省部级重点会议', level: 'provincial', loc: '黑龙江哈尔滨', host: '黑龙江省体育局 / 黑龙江省体育科学学会', status: '征文进行中', url: 'https://tyj.hlj.gov.cn/tyj/c112436/202610/c00_31981104.shtml', featured: 0 },
+    { start: '2026-09-18', end: '2026-09-20', cfp: '2026年07月20日', notice: '2026年08月15日', reg: '2026年09月01日', hold: '2026年09月18-20日', title: '第二十四届全国运动生物力学学术交流大会', shortTitle: '全国运动生物力学学术大会', type: '国家级分会年会', level: 'national', loc: '黑龙江哈尔滨·哈尔滨体育学院', host: '中国体育科学学会运动生物力学分会 / 哈尔滨体育学院', status: '年度重点回顾', url: 'https://www.sohu.com/a/1020029937_121124683', featured: 0 },
+    { start: '2026-08-21', end: '2026-08-23', cfp: '2026年06月30日', notice: '2026年07月20日', reg: '2026年08月10日', hold: '2026年08月21-23日', title: '2026年全国运动增强体质与健康学术会议', shortTitle: '全国运动增强体质与健康会议', type: '国家级分会年会', level: 'national', loc: '黑龙江哈尔滨·哈尔滨体育学院', host: '中国体育科学学会体质与健康分会 / 哈尔滨体育学院', status: '年度重点回顾', url: 'https://www.sohu.com/a/1023191928_121124683', featured: 0 },
+    { start: '2026-07-07', end: '2026-07-10', cfp: '2026年02月15日', notice: '2026年04月01日', reg: '2026年05月15日', hold: '2026年07月07-10日', title: '第31届欧洲体育科学学会年会 (ECSS Lausanne 2026)', shortTitle: 'ECSS 2026 瑞士洛桑年会', type: '国际顶级会议', level: 'intl', loc: '瑞士洛桑 (Lausanne)', host: 'European College of Sport Science (ECSS)', status: '国际顶会回顾', url: 'https://sport-science.org/', featured: 0 },
+    { start: '2026-05-29', end: '2026-05-31', cfp: '2026年04月15日', notice: '2026年05月05日', reg: '2026年05月20日', hold: '2026年05月29-31日', title: '2026第十四届全国体育管理科学大会', shortTitle: '第十四届全国体育管理科学大会', type: '国家级分会年会', level: 'national', loc: '山东济南', host: '中国体育科学学会体育管理分会', status: '年度重点回顾', url: 'https://www.sohu.com/a/986304381_121124683', featured: 0 },
+    { start: '2026-05-26', end: '2026-05-29', cfp: '2025年11月20日', notice: '2026年01月30日', reg: '2026年03月31日', hold: '2026年05月26-29日', title: '2026年第73届美国运动医学会年会 (ACSM Annual Meeting 2026)', shortTitle: 'ACSM 2026 美国运动医学年会', type: '国际顶级会议', level: 'intl', loc: '美国盐湖城 (Salt Lake City)', host: 'American College of Sports Medicine (ACSM)', status: '国际顶会回顾', url: 'https://www.medicalconfs.com/md/13136', featured: 0 },
+    { start: '2026-05-22', end: '2026-05-24', cfp: '2026年04月10日', notice: '2026年04月30日', reg: '2026年05月15日', hold: '2026年05月22-24日', title: '2026年全国体育社会科学大会', shortTitle: '2026全国体育社会科学大会', type: '国家级分会年会', level: 'national', loc: '浙江杭州·浙江大学', host: '中国体育科学学会体育社会科学分会 / 浙江大学教育学院', status: '年度重点回顾', url: 'https://www.51huiyi.org/Web/Page?_pid=conf&cid=3a2011ac-7d52-36e7-a720-f065b5e2f4a1', featured: 0 },
+    { start: '2027-07-06', end: '2027-07-09', cfp: '2027年02月15日', notice: '2027年04月01日', reg: '2027年05月01日', hold: '2027年07月06-09日', title: '第32届欧洲体育科学学会年会 (ECSS Manchester 2027)', shortTitle: 'ECSS 2027 曼彻斯特年会', type: '国际顶级会议', level: 'intl', loc: '英国曼彻斯特 (Manchester)', host: 'European College of Sport Science (ECSS)', status: '2027国际顶会预告', url: 'https://sport-science.org/', featured: 1 }
   ];
 
   function setTxt(el, val) {
@@ -117,24 +117,27 @@
 
       var txt = (node.textContent || '').trim();
       if (!exactDateRx.test(txt)) continue;
-      node.setAttribute('data-cssd-done', '1');
-      if (node.parentElement && /更新于|最后更新/.test(node.parentElement.textContent || '')) continue;
+      if (node.parentElement && /更新于|最后更新/.test(node.parentElement.textContent || '')) {
+        node.setAttribute('data-cssd-done', '1');
+        continue;
+      }
       var rawDate = txt;
 
       var card = node.parentElement;
-      for (var up = 0; up < 4 && card && card !== document.body; up++) {
+      for (var up = 0; up < 5 && card && card !== document.body; up++) {
         var cTxt = (card.textContent || '').trim();
-        if (cTxt.length > 320) break;
+        var cleanLen = cTxt.replace(/\s+/g, '').length;
         var dateMatches = cTxt.match(/202\d-\d{2}-\d{2}/g) || [];
         if (dateMatches.length > 1) break;
-        if (dateMatches.length === 1 && cTxt.length > 18 && card.children.length >= 2) break;
+        // 完整单张卡片去空白后至少 24 个字符（仅含「会议+日期」的顶部小行只有 12 个字符，必须继续向上找完整卡片）
+        if (dateMatches.length === 1 && cleanLen >= 24 && card.children.length >= 2) break;
         if (card.parentElement) {
           var pTxt = (card.parentElement.textContent || '').trim();
-          if (pTxt.length > 320 || (pTxt.match(/202\d-\d{2}-\d{2}/g) || []).length > 1) break;
+          if ((pTxt.match(/202\d-\d{2}-\d{2}/g) || []).length > 1) break;
         }
         card = card.parentElement;
       }
-      if (!card || card === document.body || (card.textContent || '').length > 400) continue;
+      if (!card || card === document.body || (card.textContent || '').replace(/\s+/g, '').length > 360) continue;
 
       var cands = card.querySelectorAll('h1,h2,h3,h4,h5,a,div,p,span');
       var titleEl = null, maxLen = 0, badgeTxt = '', sourceEl = null;
@@ -161,6 +164,7 @@
       }
 
       if (!titleEl || maxLen < 6) continue;
+      node.setAttribute('data-cssd-done', '1');
       var rawTitle = (titleEl.textContent || '').trim();
 
       for (var m = 0; m < cands.length; m++) {
@@ -412,6 +416,9 @@
     });
   }
 
+  var _calCountdownTimer = null;
+  var _activeCalIdx = 0;
+
   function mountAcademicCalendarBar() {
     if (document.getElementById('cssd-academic-calendar-bar')) return;
     var headings = document.querySelectorAll('h2, h3, .sec-title, [class*="title"]');
@@ -420,56 +427,184 @@
       if ((headings[i].textContent || '').trim() === '学界动态') { xuejieHeader = headings[i]; break; }
     }
     if (!xuejieHeader) return;
-    var secContainer = xuejieHeader.parentElement;
-    for (var up = 0; up < 3 && secContainer && secContainer.parentElement; up++) {
-      if (secContainer.children.length >= 2 && (secContainer.textContent || '').indexOf('2026-') >= 0) break;
-      secContainer = secContainer.parentElement;
+
+    // 精准向上定位：headerRow 是仅包含「ACADEMIC CIRCLE 学界动态 + 更新于 2026-XX-XX 查看学术动态」的顶部标题栏（日期数 <= 1）
+    // 而它的父容器 secContainer 包含下方左右两栏所有动态卡片（日期数 >= 3）
+    var headerRow = xuejieHeader;
+    for (var up = 0; up < 5 && headerRow && headerRow.parentElement && headerRow.parentElement !== document.body; up++) {
+      var pTxt = headerRow.parentElement.textContent || '';
+      var pDates = pTxt.match(/202\d-\d{2}-\d{2}/g) || [];
+      if (pDates.length >= 3) break;
+      headerRow = headerRow.parentElement;
     }
+    var secContainer = headerRow ? headerRow.parentElement : null;
     if (!secContainer) return;
 
-    var refToday = getRefTodayStr();
+    var featuredList = CALENDAR_EVENTS.slice(0, 10);
     var bar = document.createElement('div');
     bar.id = 'cssd-academic-calendar-bar';
-    bar.style.cssText = 'background:#fafafa!important;border:1px solid #e4e4e7!important;border-radius:16px;padding:16px;margin:12px 0 16px;font-family:' + SANS + ';';
+    bar.style.cssText = 'width:100%!important;box-sizing:border-box!important;background:#f8fafc!important;border:1px solid #e2e8f0!important;border-radius:20px;padding:18px;margin:16px 0 22px;font-family:' + SANS + ';clear:both;box-shadow:0 4px 20px rgba(15,23,42,0.04);';
 
-    // 优先展示全国性重点会议（中国体育科学学会、上海体大、成都体院、河北师大、沈阳体院等）
-    var featuredList = CALENDAR_EVENTS.filter(function(ev) {
-      return ev.featured && calcDiffDays(ev.end || ev.start, refToday) >= 0;
-    }).sort(function(a, b) { return a.start.localeCompare(b.start); }).slice(0, 4);
-
-    if (featuredList.length < 4) {
-      featuredList = CALENDAR_EVENTS.slice(0, 4);
-    }
-
-    var cardsHtml = featuredList.map(function(ev, i) {
-      var diff = calcDiffDays(ev.start, refToday);
-      var rangeTxt = (ev.end && ev.end !== ev.start) ? (ev.start.slice(5) + '~' + ev.end.slice(8) + '日') : ev.start.slice(5);
-      return '<div style="background:#ffffff!important;border:1px solid #e4e4e7!important;border-radius:8px;padding:12px;display:flex;flex-direction:column;justify-content:space-between;gap:8px;">' +
-        '<div class="c-fxb"><span style="background:#fef2f2!important;color:#dc2626!important;border:1px solid #fecaca;font-size:12px;line-height:16px;font-weight:600;padding:2px 8px;border-radius:4px;font-variant-numeric:tabular-nums;white-space:nowrap;">🗓️ ' + rangeTxt + ' · ' + ev.type + '</span>' +
-        '<span style="font-size:12px;line-height:16px;color:#ea580c!important;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;">' + (diff > 0 ? ('⏳ 距今 ' + diff + ' 天') : '近期举办') + '</span></div>' +
-        '<div title="' + ev.title + '" style="font-size:14px!important;line-height:20px!important;font-weight:600!important;color:#0f172a!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + ev.title + '</div>' +
-        '<div class="c-fxb" style="font-size:12px;line-height:16px;color:#52525b!important;"><span style="color:#334155!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:175px;">📍 ' + ev.loc + '</span><a href="javascript:void(0)" class="cal-bar-ics" data-i="' + i + '" style="color:#2563eb!important;text-decoration:none;font-weight:600;white-space:nowrap;">+日历提醒</a></div>' +
-      '</div>';
+    var tabsHtml = featuredList.map(function(ev, idx) {
+      var activeCls = idx === _activeCalIdx ? 'active' : '';
+      return '<button type="button" class="cssd-cal-tab ' + activeCls + '" data-idx="' + idx + '">' + (ev.shortTitle || ev.title.slice(0, 14)) + '</button>';
     }).join('');
 
     bar.innerHTML =
+      /* 顶部：标题 + 重点学术会议快切标签栏 */
       '<div class="c-fxb" style="margin-bottom:12px;">' +
         '<div class="c-fx">' +
-          '<span style="background:#18181b!important;color:#ffffff!important;font-size:12px;line-height:16px;font-weight:600;padding:4px 8px;border-radius:4px;">📅 体育学术日历</span>' +
-          '<b style="font-size:14px;line-height:20px;font-weight:600;color:#0f172a!important;">2026 全国与国际重点体育学术会议日程（涵盖中国体育科学学会、各大体院及 ECSS/ACSM）</b>' +
+          '<span style="background:linear-gradient(135deg,#0f2976,#1d4ed8)!important;color:#ffffff!important;font-size:12px;line-height:16px;font-weight:700;padding:4px 10px;border-radius:6px;white-space:nowrap;">📅 体育学术会议门户</span>' +
+          '<span style="font-size:14px;line-height:20px;font-weight:600;color:#0f172a!important;">点击下方标签切换重点会议倒计时与关键时间节点：</span>' +
         '</div>' +
-        '<button type="button" class="cssd-tb-btn" id="open-full-cal">📅 查看全部 ' + CALENDAR_EVENTS.length + ' 场重点会议 & 导出提醒</button>' +
+        '<button type="button" class="cssd-tb-btn moe" id="open-full-cal" style="padding:6px 12px;font-size:12px;line-height:16px;">📅 查看全部 ' + CALENDAR_EVENTS.length + ' 场国内外重点会议 →</button>' +
       '</div>' +
-      '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;">' + cardsHtml + '</div>';
+      '<div id="cssd-cal-tabs" style="display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;margin-bottom:12px;scrollbar-width:thin;">' + tabsHtml + '</div>' +
 
-    var headerRow = xuejieHeader.parentElement;
-    if (headerRow && headerRow.parentElement === secContainer) secContainer.insertBefore(bar, headerRow.nextSibling);
-    else secContainer.insertBefore(bar, secContainer.firstChild);
+      /* 会议蓝底渐变主视觉横幅 + 底部悬浮白底胶囊（还原参考图视觉） */
+      '<div style="position:relative;margin-bottom:26px;">' +
+        '<div style="background:linear-gradient(135deg,#091e5a 0%,#0f3699 52%,#0284c7 100%)!important;border-radius:16px;padding:22px 28px 34px;color:#ffffff!important;position:relative;overflow:hidden;box-shadow:0 10px 25px rgba(15,41,118,0.18);">' +
+          '<div style="position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(255,255,255,0.12);pointer-events:none;"></div>' +
+          '<div style="position:absolute;right:10px;bottom:-60px;width:180px;height:180px;border-radius:50%;border:1px solid rgba(56,189,248,0.2);pointer-events:none;"></div>' +
+          '<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;">' +
+            '<div>' +
+              '<div id="cal-hero-badge" style="display:inline-block;background:rgba(255,255,255,0.16)!important;color:#e0f2fe!important;border:1px solid rgba(255,255,255,0.25);padding:2px 10px;border-radius:9999px;font-size:12px;line-height:18px;font-weight:600;margin-bottom:8px;">🏆 国家级重点学术会议</div>' +
+              '<h3 id="cal-hero-title" style="margin:0 0 8px 0;font-size:22px!important;line-height:30px!important;font-weight:800!important;color:#ffffff!important;letter-spacing:0.3px;"></h3>' +
+              '<div id="cal-hero-host" style="font-size:13px!important;line-height:20px!important;color:#dbeafe!important;font-weight:500;"></div>' +
+            '</div>' +
+            '<div style="display:flex;gap:8px;flex-shrink:0;">' +
+              '<button type="button" id="cal-prev-btn" style="background:rgba(255,255,255,0.15)!important;color:#ffffff!important;border:1px solid rgba(255,255,255,0.3);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:12px;font-weight:600;">◀ 上一场</button>' +
+              '<button type="button" id="cal-next-btn" style="background:rgba(255,255,255,0.15)!important;color:#ffffff!important;border:1px solid rgba(255,255,255,0.3);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:12px;font-weight:600;">下一场 ▶</button>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+        /* 居中悬浮的时间与地点胶囊 */
+        '<div style="position:absolute;left:50%;bottom:-16px;transform:translateX(-50%);background:#ffffff!important;border:1px solid #e2e8f0;border-radius:9999px;padding:7px 24px;box-shadow:0 8px 20px rgba(15,23,42,0.1);display:inline-flex;align-items:center;gap:20px;white-space:nowrap;z-index:2;">' +
+          '<span id="cal-pill-time" style="font-size:13px;line-height:18px;font-weight:700;color:#1d4ed8!important;font-variant-numeric:tabular-nums;"></span>' +
+          '<span style="width:1px;height:14px;background:#cbd5e1;"></span>' +
+          '<span id="cal-pill-loc" style="font-size:13px;line-height:18px;font-weight:700;color:#1d4ed8!important;"></span>' +
+        '</div>' +
+      '</div>' +
 
-    bar.querySelector('#open-full-cal').onclick = showAcademicCalendarModal;
-    bar.querySelectorAll('.cal-bar-ics').forEach(function(a) {
-      a.onclick = function() { downloadICS(featuredList[Number(a.getAttribute('data-i'))]); };
+      /* 第一排：4 个彩色图标入口卡片（在线论文投稿 / 会议参会注册 / 会议日程导出 / 全部会议中心） */
+      '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-bottom:14px;">' +
+        '<div id="cal-act-cfp" class="cssd-m6-act" style="background:#ffffff!important;border:1px solid #e2e8f0;border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,0.03);">' +
+          '<div style="width:42px;height:42px;border-radius:10px;background:#f97316!important;color:#ffffff!important;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">📄</div>' +
+          '<div><div style="font-size:15px!important;line-height:20px!important;font-weight:700!important;color:#0f172a!important;">在线论文投稿</div><div style="font-size:12px;line-height:16px;color:#64748b!important;">Abstract &amp; CFP</div></div>' +
+        '</div>' +
+        '<div id="cal-act-reg" class="cssd-m6-act" style="background:#ffffff!important;border:1px solid #e2e8f0;border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,0.03);">' +
+          '<div style="width:42px;height:42px;border-radius:10px;background:#6366f1!important;color:#ffffff!important;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">👥</div>' +
+          '<div><div style="font-size:15px!important;line-height:20px!important;font-weight:700!important;color:#0f172a!important;">会议参会注册</div><div style="font-size:12px;line-height:16px;color:#64748b!important;">Registration</div></div>' +
+        '</div>' +
+        '<div id="cal-act-ics" class="cssd-m6-act" style="background:#ffffff!important;border:1px solid #e2e8f0;border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,0.03);">' +
+          '<div style="width:42px;height:42px;border-radius:10px;background:#10b981!important;color:#ffffff!important;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">📅</div>' +
+          '<div><div style="font-size:15px!important;line-height:20px!important;font-weight:700!important;color:#0f172a!important;">会议日程提醒 (.ics)</div><div style="font-size:12px;line-height:16px;color:#64748b!important;">Schedule &amp; Export</div></div>' +
+        '</div>' +
+        '<div id="cal-act-all" class="cssd-m6-act" style="background:#ffffff!important;border:1px solid #e2e8f0;border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,0.03);">' +
+          '<div style="width:42px;height:42px;border-radius:10px;background:#0ea5e9!important;color:#ffffff!important;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">🗂️</div>' +
+          '<div><div style="font-size:15px!important;line-height:20px!important;font-weight:700!important;color:#0f172a!important;">全网重点会议总览</div><div style="font-size:12px;line-height:16px;color:#64748b!important;">All ' + CALENDAR_EVENTS.length + ' Conferences</div></div>' +
+        '</div>' +
+      '</div>' +
+
+      /* 第二排：左侧「倒计时 Countdown (天/时/分/秒)」 + 右侧「2x2 四大关键时间节点」 */
+      '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:14px;">' +
+        /* 左侧倒计时卡片 */
+        '<div style="background:#ffffff!important;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;display:flex;align-items:stretch;box-shadow:0 2px 10px rgba(15,23,42,0.03);min-height:156px;">' +
+          '<div style="width:128px;background:linear-gradient(160deg,#091e5a 0%,#173da6 100%)!important;color:#ffffff!important;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;flex-shrink:0;padding:12px;">' +
+            '<div style="position:absolute;width:130px;height:130px;border-radius:50%;border:1px solid rgba(255,255,255,0.12);"></div>' +
+            '<div style="position:absolute;width:90px;height:90px;border-radius:50%;border:1px solid rgba(255,255,255,0.16);"></div>' +
+            '<div style="font-size:18px!important;line-height:24px!important;font-weight:700!important;color:#ffffff!important;z-index:1;">倒计时</div>' +
+            '<div style="font-size:11px!important;line-height:16px!important;color:#93c5fd!important;z-index:1;margin-top:2px;">Countdown</div>' +
+          '</div>' +
+          '<div style="flex:1;padding:16px 20px;display:flex;flex-direction:column;justify-content:center;align-items:center;">' +
+            '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;width:100%;max-width:340px;">' +
+              '<div style="text-align:center;"><div id="cd-d" style="background:#f1f5f9!important;border:1px solid #e2e8f0;border-radius:10px;padding:14px 4px;font-size:28px!important;line-height:32px!important;font-weight:800!important;color:#0f2976!important;font-variant-numeric:tabular-nums;">00</div><div style="font-size:12px;color:#64748b!important;margin-top:6px;font-weight:600;">天</div></div>' +
+              '<div style="text-align:center;"><div id="cd-h" style="background:#f1f5f9!important;border:1px solid #e2e8f0;border-radius:10px;padding:14px 4px;font-size:28px!important;line-height:32px!important;font-weight:800!important;color:#0f2976!important;font-variant-numeric:tabular-nums;">00</div><div style="font-size:12px;color:#64748b!important;margin-top:6px;font-weight:600;">时</div></div>' +
+              '<div style="text-align:center;"><div id="cd-m" style="background:#f1f5f9!important;border:1px solid #e2e8f0;border-radius:10px;padding:14px 4px;font-size:28px!important;line-height:32px!important;font-weight:800!important;color:#0f2976!important;font-variant-numeric:tabular-nums;">00</div><div style="font-size:12px;color:#64748b!important;margin-top:6px;font-weight:600;">分</div></div>' +
+              '<div style="text-align:center;"><div id="cd-s" style="background:#fff7ed!important;border:1px solid #fed7aa;border-radius:10px;padding:14px 4px;font-size:28px!important;line-height:32px!important;font-weight:800!important;color:#ea580c!important;font-variant-numeric:tabular-nums;">00</div><div style="font-size:12px;color:#ea580c!important;margin-top:6px;font-weight:700;">秒</div></div>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+
+        /* 右侧 2x2 关键时间节点卡片 */
+        '<div style="background:#ffffff!important;border:1px solid #e2e8f0;border-radius:14px;padding:14px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px;box-shadow:0 2px 10px rgba(15,23,42,0.03);">' +
+          '<div style="background:#eff6ff!important;border:1px solid #dbeafe;border-radius:10px;padding:12px;display:flex;align-items:center;gap:12px;">' +
+            '<div style="width:38px;height:38px;border-radius:8px;background:#1e40af!important;color:#ffffff!important;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;">📅</div>' +
+            '<div><div style="font-size:13px!important;line-height:18px!important;font-weight:700!important;color:#c2410c!important;">征文投稿截止</div><div id="cal-node-cfp" style="font-size:13px!important;line-height:18px!important;color:#334155!important;font-weight:600;font-variant-numeric:tabular-nums;margin-top:2px;"></div></div>' +
+          '</div>' +
+          '<div style="background:#fff7ed!important;border:1px solid #ffedd5;border-radius:10px;padding:12px;display:flex;align-items:center;gap:12px;">' +
+            '<div style="width:38px;height:38px;border-radius:8px;background:#f97316!important;color:#ffffff!important;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;">📋</div>' +
+            '<div><div style="font-size:13px!important;line-height:18px!important;font-weight:700!important;color:#15803d!important;">录用通知发布</div><div id="cal-node-notice" style="font-size:13px!important;line-height:18px!important;color:#334155!important;font-weight:600;font-variant-numeric:tabular-nums;margin-top:2px;"></div></div>' +
+          '</div>' +
+          '<div style="background:#f0fdf4!important;border:1px solid #dcfce7;border-radius:10px;padding:12px;display:flex;align-items:center;gap:12px;">' +
+            '<div style="width:38px;height:38px;border-radius:8px;background:#10b981!important;color:#ffffff!important;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;">🪪</div>' +
+            '<div><div style="font-size:13px!important;line-height:18px!important;font-weight:700!important;color:#15803d!important;">注册缴费/报到</div><div id="cal-node-reg" style="font-size:13px!important;line-height:18px!important;color:#334155!important;font-weight:600;font-variant-numeric:tabular-nums;margin-top:2px;"></div></div>' +
+          '</div>' +
+          '<div style="background:#f0f9ff!important;border:1px solid #e0f2fe;border-radius:10px;padding:12px;display:flex;align-items:center;gap:12px;">' +
+            '<div style="width:38px;height:38px;border-radius:8px;background:#0284c7!important;color:#ffffff!important;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;">🕒</div>' +
+            '<div><div style="font-size:13px!important;line-height:18px!important;font-weight:700!important;color:#0369a1!important;">会议正式举办</div><div id="cal-node-hold" style="font-size:13px!important;line-height:18px!important;color:#334155!important;font-weight:600;font-variant-numeric:tabular-nums;margin-top:2px;"></div></div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+    secContainer.insertBefore(bar, headerRow.nextSibling);
+
+    function updateCountdownDigits() {
+      var ev = featuredList[_activeCalIdx] || featuredList[0];
+      if (!ev) return;
+      var targetMs = new Date(ev.start + 'T09:00:00').getTime();
+      var nowMs = Date.now();
+      var diffSec = Math.max(0, Math.floor((targetMs - nowMs) / 1000));
+      var d = Math.floor(diffSec / 86400);
+      var h = Math.floor((diffSec % 86400) / 3600);
+      var m = Math.floor((diffSec % 3600) / 60);
+      var s = diffSec % 60;
+      setTxt(bar.querySelector('#cd-d'), String(d).padStart(2, '0'));
+      setTxt(bar.querySelector('#cd-h'), String(h).padStart(2, '0'));
+      setTxt(bar.querySelector('#cd-m'), String(m).padStart(2, '0'));
+      setTxt(bar.querySelector('#cd-s'), String(s).padStart(2, '0'));
+    }
+
+    function selectConf(idx) {
+      _activeCalIdx = (idx + featuredList.length) % featuredList.length;
+      var ev = featuredList[_activeCalIdx];
+      bar.querySelectorAll('.cssd-cal-tab').forEach(function(btn, bIdx) {
+        btn.classList.toggle('active', bIdx === _activeCalIdx);
+      });
+      setTxt(bar.querySelector('#cal-hero-badge'), '🏆 ' + ev.type + ' · ' + ev.status);
+      setTxt(bar.querySelector('#cal-hero-title'), ev.title);
+      setTxt(bar.querySelector('#cal-hero-host'), '主办 / 承办单位：' + ev.host);
+      setTxt(bar.querySelector('#cal-pill-time'), '🕒 时间：' + (ev.hold || (ev.start + ' ~ ' + ev.end)));
+      setTxt(bar.querySelector('#cal-pill-loc'), '📍 地点：' + ev.loc);
+      setTxt(bar.querySelector('#cal-node-cfp'), ev.cfp || '详见会议征文通知');
+      setTxt(bar.querySelector('#cal-node-notice'), ev.notice || '会前1个月发布');
+      setTxt(bar.querySelector('#cal-node-reg'), ev.reg || ev.start);
+      setTxt(bar.querySelector('#cal-node-hold'), ev.hold || ev.start);
+      updateCountdownDigits();
+    }
+
+    bar.querySelectorAll('.cssd-cal-tab').forEach(function(btn) {
+      btn.onclick = function() { selectConf(Number(btn.getAttribute('data-idx'))); };
     });
+    bar.querySelector('#cal-prev-btn').onclick = function() { selectConf(_activeCalIdx - 1); };
+    bar.querySelector('#cal-next-btn').onclick = function() { selectConf(_activeCalIdx + 1); };
+    bar.querySelector('#open-full-cal').onclick = showAcademicCalendarModal;
+    bar.querySelector('#cal-act-all').onclick = showAcademicCalendarModal;
+    bar.querySelector('#cal-act-ics').onclick = function() { downloadICS(featuredList[_activeCalIdx]); };
+    bar.querySelector('#cal-act-cfp').onclick = function() {
+      var ev = featuredList[_activeCalIdx];
+      if (ev.url) window.open(ev.url, '_blank', 'noopener');
+      else showAcademicCalendarModal();
+    };
+    bar.querySelector('#cal-act-reg').onclick = function() {
+      var ev = featuredList[_activeCalIdx];
+      if (ev.url) window.open(ev.url, '_blank', 'noopener');
+      else showAcademicCalendarModal();
+    };
+
+    selectConf(_activeCalIdx);
+    clearInterval(_calCountdownTimer);
+    _calCountdownTimer = setInterval(updateCountdownDigits, 1000);
   }
 
   function inferDisc(t) {
@@ -1094,6 +1229,10 @@
         '.cssd-unit-chip{display:inline-flex!important;align-items:center!important;background:#f1f5f9!important;border:1px solid #cbd5e1!important;color:#0f172a!important;-webkit-text-fill-color:#0f172a!important;opacity:1!important;padding:4px 10px!important;border-radius:6px!important;font-size:12px!important;line-height:16px!important;font-weight:600!important;cursor:pointer!important;user-select:none;white-space:nowrap!important;transition:transform 200ms cubic-bezier(0.22,1,0.36,1),background-color 200ms}' +
         '.cssd-unit-chip:hover{background:#dbeafe!important;border-color:#93c5fd!important;color:#1d4ed8!important;-webkit-text-fill-color:#1d4ed8!important;transform:translateY(-1px)}' +
         '.cssd-unit-chip:hover b{color:#1d4ed8!important;-webkit-text-fill-color:#1d4ed8!important}' +
+        '.cssd-cal-tab{background:#ffffff!important;border:1px solid #cbd5e1!important;color:#1e293b!important;-webkit-text-fill-color:#1e293b!important;padding:6px 12px!important;border-radius:9999px!important;font-size:12px!important;line-height:16px!important;font-weight:600!important;white-space:nowrap!important;cursor:pointer!important;transition:all 200ms}' +
+        '.cssd-cal-tab:hover,.cssd-cal-tab.active{background:#1d4ed8!important;border-color:#1d4ed8!important;color:#ffffff!important;-webkit-text-fill-color:#ffffff!important;box-shadow:0 4px 10px rgba(29,78,216,0.22)}' +
+        '.cssd-m6-act{transition:transform 200ms cubic-bezier(0.22,1,0.36,1),box-shadow 200ms!important}' +
+        '.cssd-m6-act:hover{transform:translateY(-2px)!important;box-shadow:0 8px 20px rgba(15,23,42,0.08)!important;border-color:#93c5fd!important}' +
         '.c-inp{flex:1;min-width:200px;padding:8px 12px;border:1px solid #d4d4d8;border-radius:8px;font-size:14px;line-height:20px;background:#ffffff!important;color:#0f172a!important;font-family:' + SANS + '}' +
         '.c-sel{padding:8px 12px;border:1px solid #d4d4d8;border-radius:8px;font-size:14px;line-height:20px;background:#ffffff!important;color:#0f172a!important;font-family:' + SANS + '}' +
         '.cssd-tb{display:inline-flex;gap:8px;margin-left:8px;flex-wrap:wrap;vertical-align:middle}' +
