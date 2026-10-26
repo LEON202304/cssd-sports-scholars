@@ -1,14 +1,15 @@
 /**
- * CSSD 体育学人 - 全站终极增强套件 v15.0 (AI Design Skills 全站深度重构旗舰版)
- * 严格遵循 elayadesign/ai-design-skills 视觉与交互系统规范：
- * 1. [B1-B4 全站视觉系统覆盖]: 统一全站字阶 (12/14/16/18/24px)、tabular-nums 等宽数字、标准间距 Token (4/8/12/16/24/32px)、嵌套圆角公式 (16px->8px->4px)、纯平高对比度白底与闭合细边框
- * 2. [新增 ⌘K / Ctrl+K 全站学术快搜指挥台]: 随时一键唤出跨库联合检索，同屏秒搜「5900+体育学者 + 2026国家社科 + 2026教育部108项 + 学术会议日历」
- * 3. [首页科研项目动态双栏大屏 + 2026双专刊报告]: 169项国家社科(纯体育与重点优先置顶) + 108项教育部社科，含TOP25高校榜、14大主题条形图、CSV导出
- * 4. [学界动态未来日期智能语义标注 + 📅 体育学术日历]: 自动标注「🗓️ 会议举办期(征文中)·距今X天」与「📢 发布日期」，还原会议地点并支持一键导出手机日历提醒 (.ics)
- * 5. [学者详情页全套工具链 + 学科全景看板]: 支持 3 位学者并排横向对比、一键生成高清学术名片海报 (PNG)、课题 GB/T 7714 & BibTeX 引文复制与 GitHub 勘误认领
+ * CSSD 体育学人 - 全站终极增强套件 v15.1 (AI Design Skills 极速防卡死修复旗舰版)
+ * 修复说明：
+ * - [紧急修复] 彻底解决 v15.0 中 MutationObserver 与 unifyPageTypography() 反复修改 textContent 引发的微任务死循环（导致停留在「体育学人」加载界面转圈打不开的问题）
+ * - [性能优化] 引入防重入锁 (_isMounting) + 300ms 防抖观察器 + data-cssd-done 一次性幂等标记 + O(1) 数据合入，首屏零阻塞秒开
+ * - [全套功能] 完整保留 elayadesign/ai-design-skills 视觉规范、⌘K/Ctrl+K 全站快搜、首页科研项目双栏大屏、2026国家社科/教育部双专刊、体育学术日历(.ics)与学者对比/海报工具链
  */
 (function () {
   'use strict';
+  if (window.__CSSD_V15_LOADED__) return;
+  window.__CSSD_V15_LOADED__ = true;
+
   var DISC_NAMES = ['体育人文社会学','运动人体科学','体育教育训练学','民族传统体育学'];
   var DISC_CODES = ['soc','hum-sci','pe','trad'];
   var MOE_RAW = [[88,1,"全球体育治理共同体的构建路径与中国方案研究","任振朋","四川师范大学",0,"四川"],[89,0,"县域中小学实施“学生体质强健计划”的创新机制与适配路径研究","刘海东","成都师范学院",2,"四川"],[90,0,"家校社协同育人视域下国家级非遗“红拳”大中小学一体化传承研究","高野","西安外国语大学",3,"陕西"],[1360,0,"主动健康视域下城市老旧社区公共体育空间的效能评估与靶向更新机制研究","丁国胜","湖南大学",1,"湖南"],[1361,1,"数智赋能小学生体育与健康核心素养情境化测评工具的开发与应用研究","刁玉翠","苏州大学",1,"江苏"],[1362,1,"数智赋能青少年运动习惯养成的作用机制与优化路径研究","杨安禄","中国矿业大学（北京）",0,"北京"],[1363,0,"中小学生每天2小时体育活动执行难点、推进策略与干预评估研究","周玉兰","浙江师范大学",2,"浙江"],[1364,0,"多模态AI赋能下幼儿基本运动技能滞后风险早期识别与“家园协同”靶向干预的模式研究","周喆啸","宁波大学",2,"浙江"],[1365,1,"碎片化运动对久坐大学生注意网络的影响：时间窗、最佳剂量及脑机制研究","曾佳","福州大学",1,"福建"],[1366,0,"智慧教育背景下我国青少年运动健康风险的数字画像与预警机制研究","陈海鸥","广东医科大学",1,"广东"],[1367,1,"健康第一视域下生成式AI驱动的青少年不良体态运动矫正模式构建与实证研究","刘琳","南京体育学院",1,"江苏"],[1368,0,"体卫融合视域下青少年血压偏高精准运动干预的家校社协同模式构建与实证研究","付常喜","徐州工程学院",1,"江苏"],[1369,1,"青少年生物节律紊乱相关行为的形成机制及体卫融合干预研究","韩一鸣","广西师范大学",1,"广西"],[1370,0,"数智赋能西南民族特色村寨体文旅融合的创新机制与实践路径研究","戴朝","四川师范大学",3,"四川"],[1371,1,"户外运动改善大学生抑郁症状的“情绪—认知”通路与脑网络机制研究","史冀龙","厦门大学",1,"福建"],[1372,0,"“家—校—医”协同视域下青少年脊柱侧弯数智预警与精准运动干预研究","杨惠","康复大学",1,"全国"],[1373,0,"我国青少年身体功能评估体系构建、常模制定与协同治理路径研究","周霄","华中科技大学",1,"湖北"],[1374,0,"“两创”视域下岭南非遗传统体育文化的AI知识图谱构建与数字人传承创新研究","关博","广州体育学院",3,"广东"],[1375,0,"县域枢纽型体育社会组织推动公共服务下沉的范式重构与机制优化研究","白杨","宁波职业技术大学",0,"浙江"],[1376,0,"体育特色城市的类型生成机制与分类治理研究","王成","南京大学",0,"江苏"],[1377,0,"数智促进我国残疾人康复健身体育高质量发展的实现机制与协同路径研究","谢恩礼","南京体育学院",0,"江苏"],[1378,0,"中国近代体育慈善文献资料整理与研究","牟艳","山东体育学院",0,"山东"],[1379,0,"我国中小学健康学校建设的典型模式与推进路径研究","李志强","临沂职业学院",1,"山东"],[1380,0,"我国学龄前儿童（3—6岁）身体素养多模态评估与追踪干预研究","谷颖","沈阳师范大学",2,"辽宁"],[1381,1,"银发经济视域下老年体育服务消费需求分层与精准供给研究","周冲","武汉体育学院",1,"湖北"],[1382,0,"“票根经济”视域下我国群众性体育赛事品牌培育机制与路径研究","李勇","山东体育学院",0,"山东"],[1383,1,"2型糖尿病（T2DM）患者运动功能监测与干预效果多维度评价体系构建研究","程经纬","河南体育学院",1,"河南"],[1384,1,"面向VR体育动作训练的多模态感知与智能交互机制研究","李慧宇","山东财经大学",2,"山东"],[1385,0,"数智赋能大学生体质健康管理：机制构建、平台验证与路径优化研究","姜卫芬","天津医科大学",1,"天津"],[1386,1,"具身认知视域下认知—运动双任务训练促进小学生身心健康的机制研究","陈娟","湖北文理学院",1,"湖北"],[1387,0,"社区体育公共服务“数字悬浮”的形成机理与治理策略研究","杜兴彬","山东华宇工学院",0,"山东"],[1388,1,"“行为—认知”视角下大学生抑郁症状风险分层与精准运动干预研究","石林","成都体育学院",1,"四川"],[1389,0,"“体教融合”背景下高校肥胖学生体育课程精准化重构与实证研究","李燕春","北京体育大学",2,"北京"],[1390,1,"基于多源数据融合的大学生运动员学业倦怠预警模型与干预策略研究","武欣然","中山大学",2,"全国"],[1391,0,"义务教育阶段“每天综合体育活动2小时”落实中的有效运动时间测度与提升机制研究","张艳","河海大学",2,"江苏"],[1392,1,"数智赋能儿童青少年体态健康动态监测与协同干预机制研究","唐芳","安庆师范大学",1,"安徽"],[1393,1,"赛事经济对城际消费资源的分配效应与包容性治理研究","韩苗苗","山东工商学院",0,"山东"],[1394,1,"“十五五”时期数智体育赋能老年慢病主动健康的风险预警机制与公共服务治理研究","宋杨","宁波大学",1,"浙江"],[1395,1,"基于多模态数据融合的儿童少年基础运动技能发展评估与预测模型构建研究","赵刚","苏州大学",2,"江苏"],[1396,1,"多模态运动矫正儿童青少年不良体态干预模式构建与应用研究","梁计陵","中南大学",1,"湖南"],[1397,0,"群众体育赛事促进各民族交往交流交融的机制研究","王继雄","内蒙古财经大学",3,"内蒙古"],[1398,0,"青少年运动猝死多模态智能风险评估与防范应用研究","吴卫兵","上海体育大学",1,"上海"],[1399,0,"数字脱瘾与大学生运动行为的双向关联机制及协同促进研究","周俣涛","湖南工业大学",0,"湖南"],[1400,0,"乡村振兴背景下农村“一老一小”代际体育康养的促进机制与干预模式研究","徐国琴","广州体育学院",0,"广东"],[1401,0,"生成式人工智能嵌入体育消费场景创新的实现机制与路径研究","王冠瑛","燕山大学",0,"河北"],[1402,0,"体医融合视域下青少年抑郁症状的“校—医—家”协同运动干预模式构建与实证研究","尹剑春","上海师范大学",1,"上海"],[1403,1,"数智赋能社区运动健康中心效能跃升影响因素、作用机理及推进路径研究","李紫浩","湖南农业大学",1,"湖南"],[1404,1,"主动健康视域下数智赋能“三高”人群运动干预的多模态模型构建研究","罗维","南京体育学院",1,"江苏"],[1405,0,"数字包容视域下城乡老年人体育参与鸿沟的形成机制与治理路径研究","谢劲","台州学院",1,"浙江"],[1406,1,"认知参与型身体活动对手机依赖青少年执行功能的干预效果及机制研究","孟繁莹","湖州师范大学",1,"浙江"],[1407,0,"闽籍华侨华人体育史料的搜集、整理与研究（1900—2000）","傅亮","厦门大学",0,"福建"],[1408,1,"老年慢性病人群运动依从性的障碍生成机制及多模态干预研究","李红梅","中南民族大学",1,"湖北"],[1409,1,"积极老龄化视域下社区老年膝骨关节炎患者跌倒风险分层预测与数智化运动康复服务路径研究","沈培鑫","山东体育学院",1,"山东"],[1410,0,"青少年24h活动行为聚类的社会生态机制及其靶向干预策略研究","马生霞","四川师范大学",0,"四川"],[1411,0,"中央苏区学校体育治理的制度逻辑与历史经验研究","贺鑫森","江西水利电力大学",2,"江西"],[1412,0,"“两个结合”视域下奥林匹克价值观的代际传承张力与本土化实践策略研究","闫丽敏","河南师范大学",0,"河南"],[1413,0,"我国学校体育数字化场景建构的应然图景与行动路径研究","代方梅","湖北大学",2,"湖北"],[1414,0,"青少年运动动机的生态培育机制与身体活动精准促进研究","李娟","河北师范大学",0,"河北"],[1415,1,"运动技术话语具身语义编码体系构建及项群效度检验研究","赵飞达","湖州师范大学",0,"浙江"],[1416,1,"黄河滩区村落民俗体育口述史料搜集、整理与研究","窦圣浩","济宁学院",3,"山东"],[1417,0,"“十五五”时期健康学校建设的体育资源城乡联动模式研究","郭良如","衡阳师范学院",1,"湖南"],[1418,1,"中华传统体育“走出去”的国别适应机制研究","陈静越","韩山师范学院",3,"广东"],[1419,1,"3—6岁幼儿运动智能结构模型、发展规律与体育促进路径研究","武继莹","沈阳体育学院",2,"辽宁"],[1420,1,"老旧小区嵌入式体育场地设施协同供给的理论逻辑与实现路径研究","欧亚","湖南网络工程职业学院",0,"湖南"],[1421,0,"体教医融合视域下小学生近视防控与学校体育活动协同推进的机制与路径研究","林文弢","珠海科技学院",2,"广东"],[1422,0,"基于多模态AI情绪识别的大学生抑郁倾向运动处方动态干预研究","汪君民","淮阴师范学院",1,"江苏"],[1423,1,"具身正念促进大学生运动参与的驱动机制与路径研究","张曜","苏州大学",0,"江苏"],[1424,0,"混合现实技术和人工智能技术赋能基层裁判员训练的机制、路径与应用研究","邵坚博","新疆理工学院",2,"新疆"],[1425,0,"大学生24小时活动行为失衡的抑郁风险评估及精准干预研究","王军利","中国矿业大学",1,"全国"],[1426,0,"新中国成立以来国乒荣耀创造者集体记忆的社会建构研究","何敬堂","淮南师范学院",0,"安徽"],[1427,0,"场景创新赋能体育旅游消费潜力释放长效机制与优化策略研究","唐月亮","湖南财政经济学院",0,"湖南"],[1428,1,"基于大语言模型的世居高原老年人KOA个性化运动干预研究","周惠宣","北京体育大学",1,"北京"],[1429,1,"数智技术介入运动训练的经验与数据协同机制及路径研究","张泽英","太原理工大学",2,"山西"],[1430,1,"基于行动者网络理论的青少年体质健康多元协同网络的构建与实践研究","范卉颖","上海师范大学",1,"上海"],[1431,0,"儿童身体姿态与基本运动技能的动态互馈机制及模型构建研究","荆文","山东师范大学",2,"山东"],[1432,1,"数智赋能社区老年人运动功能衰退风险识别与分层干预研究","董芮","华南师范大学",1,"全国"],[1433,1,"青少年攻击行为的跨诊断运动干预研究","温朋飞","广州体育学院",0,"广东"],[1434,1,"基于健康画像的碎片化运动促进农村女性产后康复模式构建及实证研究","程林","广东技术师范大学",1,"广东"],[1435,1,"体育锻炼增益升学关键期青少年学业情绪的作用机制与靶向干预研究","程文娟","山东青年政治学院",2,"山东"],[1436,0,"赛事驱动城乡文体旅融合共同体构建机制研究","孙中芹","曲阜师范大学",0,"山东"],[1437,0,"殷墟甲骨文体育元素的系统考释、理论阐释与活化传承研究","郭宇刚","安阳师范学院",3,"河南"],[1438,0,"基于AI赋能的乒乓球技战术诊断体系构建与应用研究","徐君伟","河南财经政法大学",0,"河南"],[1439,1,"数智赋能老年人肌少症风险预警与传统体育干预体系的建设路径研究","李新星","沈阳体育学院",1,"辽宁"],[1440,0,"“城超”激活“城市文化资本”的机理与路径研究","张庆如","苏州大学",0,"江苏"],[1441,1,"运动联合正念干预缓解阈下抑郁大学生认知情绪失调的机制与路径研究","李夏雯","上海健康医学院",1,"上海"],[1442,0,"基于数字画像的大学生体质健康精准干预机制与实现路径研究","耿元文","燕山大学",1,"河北"],[1443,1,"中小学生体质健康监测大数据驱动的精准干预与动态评价体系构建","赵怀超","河南大学",1,"河南"],[1444,1,"城市社区智慧体育服务适老化的水平测度与驱动机制研究","罗恒","湘南学院",0,"湖南"],[1445,1,"数据驱动的体育公园夜间建成环境对老年人身体活动的影响及适老化研究","林桐","常州工学院",1,"江苏"],[1446,1,"数智赋能我国青少年有氧和力量协同发展的理论建构与应用研究","李振","中国石油大学（华东）",0,"全国"],[1447,1,"中国式现代化视域下全民健身公共服务均等化评估与区域差异调控机制研究","郭琪","西安工程大学",0,"陕西"],[1448,0,"健康生态学视角下社区老年人认知衰弱影响因素多维评估与运动营养联合干预模式实证研究","蔡明","上海健康医学院",1,"上海"],[1449,0,"大型体育赛事媒介生态中的中华文化符号转译机制与传播效应研究","刘金锋","淮南师范学院",0,"安徽"],[1450,1,"残疾人体育公共服务供需动态适配模型构建与实证研究","张巧","闽江大学",0,"福建"],[1451,0,"多智能体赋能学生终身运动习惯养成的系统与实践干预研究","孙国欣","西南交通大学",0,"四川"],[1452,1,"“面向人人”班级联赛促进中小学生体育深度学习的作用机制及实现路径研究","郭洪亮","北京体育大学",2,"北京"],[1453,0,"乡村振兴背景下西部特岗体育教师职业承诺的影响机制与长效激励：基于“留任导向”的研究","崔昌水","西安外事学院",0,"陕西"],[1454,1,"藏羌彝走廊体育非物质文化遗产采辑与数字资源库建设研究","严小英","成都师范学院",3,"四川"],[1455,0,"民族传统体育铸牢边境青少年中华民族共同体意识的心理机制与组态路径研究","黄华敏","广西民族师范学院",3,"广西"],[1456,0,"群众体育赛事赛后效应转化与基层长效治理机制研究","宋述光","中国石油大学（华东）",0,"全国"],[1457,0,"城市社区体育组织服务能力的数智化动态评估与精准建设","丁洁","河南师范大学",0,"河南"],[1458,1,"我国运动训练本科专业布点的数量扩张与质量保障研究","吴彰忠","武汉体育学院",2,"湖北"],[1459,0,"地方营造与认同重建中的老工业城市群众体育赛事田野研究","孙素玲","沈阳体育学院",0,"辽宁"],[1460,0,"长三角城市边角空间体育化微更新的场景创新与治理体系研究","吴明华","常州大学",0,"江苏"],[1461,1,"数智技术赋能户外运动消费场景创新的作用机制与组态路径研究","刘超","安徽师范大学",0,"安徽"],[1462,0,"主动健康视域下青少年生活体育化服务体系研究","陆贝","潍坊学院",1,"山东"],[1463,1,"扩大内需战略下居民体育消费惯性的形成机理与释放路径研究","李一易","山东体育学院",0,"山东"],[1464,1,"我国职业体育联盟交叉补贴政策失灵的制度归因与治理路径研究","周腾军","西南财经大学",0,"四川"]];
@@ -36,15 +37,19 @@
     { start: '2026-12-18', end: '2026-12-20', title: '2026年体育文化与社会学学术研讨会（征文）', type: '征文/会议', loc: '山东泰安·泰山学院', host: '山东体育学院 / 泰山学院', status: '征文进行中' }
   ];
 
+  function setTxt(el, val) {
+    if (el && el.textContent !== val) el.textContent = val;
+  }
+
   function getS() { try { if (typeof S !== 'undefined' && Array.isArray(S)) return S; } catch (e) {} return Array.isArray(window.S) ? window.S : null; }
   function getP() { try { if (typeof NOPSS_SPORTS_PROJECTS !== 'undefined' && Array.isArray(NOPSS_SPORTS_PROJECTS)) return NOPSS_SPORTS_PROJECTS; } catch (e) {} return Array.isArray(window.NOPSS_SPORTS_PROJECTS) ? window.NOPSS_SPORTS_PROJECTS : null; }
 
+  var _cachedRefToday = '';
   function getRefTodayStr() {
-    var bodyTxt = (document.body && document.body.innerText) ? document.body.innerText : '';
-    var m = bodyTxt.match(/更新于\s*(202\d-\d{2}-\d{2})/);
-    if (m && m[1]) return m[1];
+    if (_cachedRefToday) return _cachedRefToday;
     var d = new Date();
-    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    _cachedRefToday = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    return _cachedRefToday;
   }
 
   function calcDiffDays(targetDateStr, refDateStr) {
@@ -69,36 +74,49 @@
     showToast('已导出日历文件 (.ics)，可直接添加至手机或电脑日历提醒');
   }
 
-  // 1. 遵循 AI Design Skills B1 字阶规范：将全站动态卡片标题统一对齐至 text-base (16px/24px, 600字重)，元数据对齐至 text-xs (12px/16px)，智能标注未来会议日期
+  // 1. 幂等单次执行的动态卡片字号对齐与未来会议标注（通过 data-cssd-done 彻底杜绝重复触发与死循环）
   function unifyPageTypography() {
     var refToday = getRefTodayStr();
     var exactDateRx = /^202\d-\d{2}-\d{2}$/;
-    var allEls = document.querySelectorAll('#vw-home *, #vw-xuejie *, #vw-news *, [class*="xuejie"] *, [class*="daily"] *, [class*="dyn"] *');
-    if (!allEls.length) allEls = document.body.querySelectorAll('span, time, div, small');
+    var containers = document.querySelectorAll('#vw-xuejie, #vw-news, [class*="xuejie"], [class*="daily"], [class*="dyn"], #vw-home');
+    var allEls = [];
+    if (containers.length) {
+      for (var cIdx = 0; cIdx < containers.length; cIdx++) {
+        var subEls = containers[cIdx].querySelectorAll('span:not([data-cssd-done]), time:not([data-cssd-done]), small:not([data-cssd-done]), div:not([data-cssd-done])');
+        for (var sIdx = 0; sIdx < subEls.length; sIdx++) allEls.push(subEls[sIdx]);
+      }
+    } else {
+      allEls = document.body.querySelectorAll('span:not([data-cssd-done]), time:not([data-cssd-done]), small:not([data-cssd-done])');
+    }
 
     for (var i = 0; i < allEls.length; i++) {
       var node = allEls[i];
-      if (node.children.length > 0 || node.closest('#cssd-home-projects-showcase') || node.closest('#cssd-academic-calendar-bar') || node.closest('#cssd-custom-modal')) continue;
-
-      var rawDate = node.getAttribute('data-cssd-rawdate');
-      if (!rawDate) {
-        var txt = (node.textContent || '').trim();
-        if (!exactDateRx.test(txt)) continue;
-        if (node.parentElement && /更新于/.test(node.parentElement.textContent || '')) continue;
-        rawDate = txt;
-        node.setAttribute('data-cssd-rawdate', rawDate);
+      if (node.children.length > 0 || node.getAttribute('data-cssd-done') === '1') continue;
+      if (node.closest('#cssd-home-projects-showcase') || node.closest('#cssd-academic-calendar-bar') || node.closest('#cssd-custom-modal')) {
+        node.setAttribute('data-cssd-done', '1');
+        continue;
       }
+
+      var txt = (node.textContent || '').trim();
+      if (!exactDateRx.test(txt)) continue;
+      node.setAttribute('data-cssd-done', '1');
+      if (node.parentElement && /更新于|最后更新/.test(node.parentElement.textContent || '')) continue;
+      var rawDate = txt;
 
       var card = node.parentElement;
-      for (var up = 0; up < 5 && card && card !== document.body; up++) {
+      for (var up = 0; up < 4 && card && card !== document.body; up++) {
         var cTxt = (card.textContent || '').trim();
+        if (cTxt.length > 320) break;
         var dateMatches = cTxt.match(/202\d-\d{2}-\d{2}/g) || [];
         if (dateMatches.length > 1) break;
-        if (dateMatches.length === 1 && cTxt.length > 20 && card.children.length >= 2) break;
-        if (card.parentElement && ((card.parentElement.textContent || '').match(/202\d-\d{2}-\d{2}/g) || []).length > 1) break;
+        if (dateMatches.length === 1 && cTxt.length > 18 && card.children.length >= 2) break;
+        if (card.parentElement) {
+          var pTxt = (card.parentElement.textContent || '').trim();
+          if (pTxt.length > 320 || (pTxt.match(/202\d-\d{2}-\d{2}/g) || []).length > 1) break;
+        }
         card = card.parentElement;
       }
-      if (!card || card === document.body) continue;
+      if (!card || card === document.body || (card.textContent || '').length > 400) continue;
 
       var cands = card.querySelectorAll('h1,h2,h3,h4,h5,a,div,p,span');
       var titleEl = null, maxLen = 0, badgeTxt = '', sourceEl = null;
@@ -111,7 +129,7 @@
           if (/^(DIV|P|H1|H2|H3|H4|H5|UL|LI)$/.test(el.children[c].tagName)) { hasBlk = true; break; }
         }
         if (hasBlk) continue;
-        var t = (el.getAttribute('data-cssd-rawtitle') || el.textContent || '').trim();
+        var t = (el.textContent || '').trim();
         if (!t || t === rawDate || t.indexOf('🗓️') >= 0 || t.indexOf('📢') >= 0 || t.indexOf('📖') >= 0) continue;
         if (/^(会议|活动|讲座|征文|通知|资讯|期刊|院校|公告)$/.test(t)) {
           badgeTxt = t;
@@ -125,18 +143,13 @@
       }
 
       if (!titleEl || maxLen < 6) continue;
-      var rawTitle = titleEl.getAttribute('data-cssd-rawtitle');
-      if (!rawTitle) {
-        rawTitle = (titleEl.textContent || '').trim();
-        titleEl.setAttribute('data-cssd-rawtitle', rawTitle);
-      }
+      var rawTitle = (titleEl.textContent || '').trim();
 
       for (var m = 0; m < cands.length; m++) {
         var sub = cands[m];
         if (sub === titleEl || sub === node || sub.contains(titleEl) || sub.contains(node) || sub.children.length > 0) continue;
-        var st = (sub.getAttribute('data-cssd-rawsub') || sub.textContent || '').trim();
+        var st = (sub.textContent || '').trim();
         if (st && !/^(会议|活动|讲座|征文|通知|资讯|期刊|院校|公告)$/.test(st) && st !== rawDate && st.indexOf('🗓️') < 0 && st.indexOf('📢') < 0 && st.indexOf('📖') < 0) {
-          if (!sub.getAttribute('data-cssd-rawsub')) sub.setAttribute('data-cssd-rawsub', st);
           sourceEl = sub;
         }
       }
@@ -152,7 +165,7 @@
         .replace(/\s*时[间：:…\.\s]*$/, '')
         .trim();
       if (!cleanTitle || cleanTitle.length < 5) cleanTitle = rawTitle;
-      titleEl.textContent = cleanTitle;
+      setTxt(titleEl, cleanTitle);
       titleEl.setAttribute('title', rawTitle);
 
       titleEl.style.setProperty('font-size', '16px', 'important');
@@ -168,14 +181,14 @@
 
       var diffDays = calcDiffDays(rawDate, refToday);
       var isFutureOrConf = (diffDays > 0) || !!extractedEndDay || !!extractedLoc || (/征文通知|研讨会|学术论坛|学术交流会|关于召开/.test(rawTitle) && diffDays >= 0);
-      var hostName = sourceEl ? (sourceEl.getAttribute('data-cssd-rawsub') || sourceEl.textContent || '').trim() : '体育院校';
+      var hostName = sourceEl ? (sourceEl.textContent || '').trim() : '体育院校';
       var endFullDate = extractedEndDay ? (rawDate.slice(0, 8) + extractedEndDay) : rawDate;
 
       if (isFutureOrConf) {
         var dateRangeDisp = extractedEndDay ? (rawDate + '~' + extractedEndDay + '日') : rawDate;
         var countTag = diffDays > 0 ? (' · 距今' + diffDays + '天') : (diffDays === 0 ? ' · 今日举办' : '');
         var prefix = /征文|征稿/.test(rawTitle) ? '🗓️ 会议举办期(征文中)：' : '🗓️ 会议举办日期：';
-        node.textContent = prefix + dateRangeDisp + countTag;
+        setTxt(node, prefix + dateRangeDisp + countTag);
         node.style.setProperty('font-size', '12px', 'important');
         node.style.setProperty('line-height', '16px', 'important');
         node.style.setProperty('font-family', SANS, 'important');
@@ -188,7 +201,7 @@
         node.style.setProperty('font-weight', '600', 'important');
 
         if (sourceEl) {
-          sourceEl.textContent = hostName + (extractedLoc ? (' · 📍 会议地点：' + extractedLoc) : '') + ' · ⏳ 未来会议日程';
+          setTxt(sourceEl, hostName + (extractedLoc ? (' · 📍 会议地点：' + extractedLoc) : '') + ' · ⏳ 未来会议日程');
           sourceEl.style.setProperty('font-size', '12px', 'important');
           sourceEl.style.setProperty('line-height', '16px', 'important');
           sourceEl.style.setProperty('font-family', SANS, 'important');
@@ -205,13 +218,12 @@
         });
       } else {
         var pubPrefix = badgeTxt === '期刊' ? '📖 期刊发表：' : '📢 发布日期：';
-        node.textContent = pubPrefix + rawDate;
+        setTxt(node, pubPrefix + rawDate);
         node.style.setProperty('font-size', '12px', 'important');
         node.style.setProperty('line-height', '16px', 'important');
         node.style.setProperty('font-variant-numeric', 'tabular-nums', 'important');
         node.style.setProperty('font-family', SANS, 'important');
         if (sourceEl) {
-          sourceEl.textContent = hostName;
           sourceEl.style.setProperty('font-size', '12px', 'important');
           sourceEl.style.setProperty('line-height', '16px', 'important');
           sourceEl.style.setProperty('font-family', SANS, 'important');
@@ -219,7 +231,6 @@
       }
     }
   }
-
   // 2. 【新增核心功能：⌘K / Ctrl+K 全站学术快搜指挥台 (Command Palette)】
   function showCommandPalette() {
     tryEnrichDatasets();
@@ -492,7 +503,7 @@
     return _nssfcCache;
   }
 
-  // 5. 后台合入 108 项教育部项目 & 注入拼音首字母索引
+  // 5. 后台合入 108 项教育部项目 & 注入拼音首字母索引（O(1) 极速合入，不触发全量同步重绘）
   var _merged = false;
   function tryEnrichDatasets() {
     if (_merged) return true;
@@ -511,39 +522,35 @@
       }
     }
     var maxId = scholars.reduce(function(a, c) { var n = Number(c.id); return (!isNaN(n) && n > a) ? n : a; }, 10000);
-    for (var j = MOE_2026.length - 1; j >= 0; j--) {
+    for (var j = 0; j < MOE_2026.length; j++) {
       var it = MOE_2026[j], code = it[0], subCat = it[1], title = it[2], pType = it[3], name = it[4], unit = it[5], dL = it[6], dC = it[7], prov = it[8];
       var pCode = '2026-教育部序号' + code, catFull = '教育部人文社科' + pType, sProj = { code: pCode, category: catFull, title: title, unit: unit, year: 2026 };
-      var found = scholarMap.get(name + '_' + unit) || scholars.find(function(x) { return x.n === name && ((x.institution || '').indexOf(unit) >= 0 || unit.indexOf(x.institution || '') >= 0); });
+      var found = scholarMap.get(name + '_' + unit);
       if (found) {
         if (!Array.isArray(found.fundedProjects)) found.fundedProjects = [];
-        if (!found.fundedProjects.some(function(p) { return p.title === title; })) { found.fundedProjects.unshift(sProj); found.projectCount = (found.projectCount || 0) + 1; }
+        if (!found.fundedProjects.some(function(p) { return p.title === title; })) { found.fundedProjects.push(sProj); found.projectCount = (found.projectCount || 0) + 1; }
         if (!Array.isArray(found.hats)) found.hats = [];
         if (found.hats.indexOf('2026教育部社科') < 0) found.hats.push('2026教育部社科');
       } else {
         maxId++;
         var ns = { id: maxId, n: name, e: name, institution: unit, s: unit, dept: '体育学院', title: pType.indexOf('青年') >= 0 ? '青年学者' : '教授/副教授', disc: dC, dL: dL, hats: ['2026教育部社科'], hon: ['2026教育部人文社科立项'], r: title, i: name ? name[0] : '学', c: '#2563eb', projectCount: 1, fundedProjects: [sProj] };
-        scholars.unshift(ns); scholarMap.set(name + '_' + unit, ns);
+        scholars.push(ns); scholarMap.set(name + '_' + unit, ns);
       }
-      if (projects && !projects.some(function(p) { return p.title === title; })) {
-        projects.unshift({ year: 2026, y: 2026, code: pCode, category: pType.indexOf('青年') >= 0 ? '青年项目' : '规划基金项目', type: catFull, subject: '体育学', title: title, leader: name, pi: name, name: name, unit: unit, institution: unit, approvedDate: '2026', province: prov, outcome: subCat, unitSystem: '教育部人文社科项目', source: '教育部社科司', sourceUrl: '' });
+      if (projects) {
+        projects.push({ year: 2026, y: 2026, code: pCode, category: pType.indexOf('青年') >= 0 ? '青年项目' : '规划基金项目', type: catFull, subject: '体育学', title: title, leader: name, pi: name, name: name, unit: unit, institution: unit, approvedDate: '2026', province: prov, outcome: subCat, unitSystem: '教育部人文社科项目', source: '教育部社科司', sourceUrl: '' });
       }
     }
     _nssfcCache = null;
     try {
       var nssfc = getNSSFC2026Data();
-      document.querySelectorAll('.cssd-nssfc-cnt').forEach(function(el) { if (nssfc.total > 0) el.textContent = '(' + nssfc.total + '项)'; });
+      document.querySelectorAll('.cssd-nssfc-cnt').forEach(function(el) { if (nssfc.total > 0) setTxt(el, '(' + nssfc.total + '项)'); });
       var hn = document.getElementById('cssd-hm-nssfc-num'), hs = document.getElementById('cssd-hm-nssfc-sub');
-      if (hn) hn.textContent = nssfc.total + ' 项';
-      if (hs) hs.textContent = '重点 ' + (nssfc.catMap['重点项目'] || 0) + ' · 一般 ' + (nssfc.catMap['一般项目'] || 0) + ' · 青年 ' + (nssfc.catMap['青年项目'] || 0) + ' · ' + nssfc.unitTotal + ' 家高校';
+      if (hn) setTxt(hn, nssfc.total + ' 项');
+      if (hs) setTxt(hs, '重点 ' + (nssfc.catMap['重点项目'] || 0) + ' · 一般 ' + (nssfc.catMap['一般项目'] || 0) + ' · 青年 ' + (nssfc.catMap['青年项目'] || 0) + ' · ' + nssfc.unitTotal + ' 家高校');
       if (typeof window._cssdRenderHomeShowcase === 'function') window._cssdRenderHomeShowcase();
-      if (typeof window.spRefresh === 'function') window.spRefresh();
-      if (typeof window.renderSc === 'function') window.renderSc();
-      if (typeof window.renderPr === 'function') window.renderPr();
     } catch (e) {}
     return true;
   }
-
   function showToast(msg) {
     var t = document.getElementById('cssd-toast');
     if (!t) { t = document.createElement('div'); t.id = 'cssd-toast'; document.body.appendChild(t); }
@@ -878,53 +885,75 @@
     renderHomeShowcase();
   }
 
+  var _isMounting = false;
+  var _mo = null;
+  var _moTimer = null;
+
   function mountAllUI() {
-    unifyPageTypography();
-    mountAcademicCalendarBar();
-    mountHomeProjectsBigScreen();
-    enhanceModal();
-    var nssfcCnt = getNSSFC2026Data().total, nssfcTxt = nssfcCnt > 0 ? '(' + nssfcCnt + '项)' : '';
-    if (!document.getElementById('cssd-float-pill')) {
-      var pill = document.createElement('div'); pill.id = 'cssd-float-pill';
-      pill.innerHTML = '<button type="button" id="fp-cmd" style="background:#27272a!important;color:#ffffff!important;border:1px solid #3f3f46;padding:8px 12px;border-radius:9999px;font-weight:600;cursor:pointer;font-size:12px;line-height:16px;" title="快捷键 Ctrl+K / ⌘K">🔍 快搜 ⌘K</button><button type="button" id="fp-nssfc-list" style="background:#dc2626!important;color:#ffffff!important;border:none;padding:8px 12px;border-radius:9999px;font-weight:600;cursor:pointer;font-size:12px;line-height:16px;">🇨🇳 2026国家社科 <span class="cssd-nssfc-cnt">' + nssfcTxt + '</span></button><button type="button" id="fp-moe-list" style="background:#2563eb!important;color:#ffffff!important;border:none;padding:8px 12px;border-radius:9999px;font-weight:600;cursor:pointer;font-size:12px;line-height:16px;">🏅 2026教育部 (108项)</button><button type="button" id="fp-cal" style="background:#27272a!important;color:#ffffff!important;border:none;padding:8px 12px;border-radius:9999px;font-weight:600;cursor:pointer;font-size:12px;line-height:16px;">📅 学术日历</button><button type="button" id="fp-hide" style="background:#27272a!important;color:#a1a1aa!important;border:none;padding:4px 8px;border-radius:9999px;cursor:pointer;font-size:12px;line-height:16px;" title="收起悬浮条">✕</button>';
-      document.body.appendChild(pill);
-      document.getElementById('fp-cmd').onclick = showCommandPalette;
-      document.getElementById('fp-nssfc-list').onclick = function() { show2026PortalModal('nssfc', 'list'); };
-      document.getElementById('fp-moe-list').onclick = function() { show2026PortalModal('moe', 'list'); };
-      document.getElementById('fp-cal').onclick = showAcademicCalendarModal;
-      document.getElementById('fp-hide').onclick = function() { pill.style.display = 'none'; };
-    }
-    var rinfo = document.getElementById('rinfo');
-    if (rinfo && !rinfo.querySelector('.cssd-tb')) {
-      var w = document.createElement('span'); w.className = 'cssd-tb';
-      w.innerHTML = '<button type="button" class="cssd-tb-btn">🔍 快搜 (⌘K)</button><button type="button" class="cssd-tb-btn nssfc-active">🇨🇳 2026国家社科专刊 <span class="cssd-nssfc-cnt">' + nssfcTxt + '</span></button><button type="button" class="cssd-tb-btn moe">🏅 2026教育部专刊 (108项)</button><button type="button" class="cssd-tb-btn">📅 学术会议日历</button><button type="button" class="cssd-tb-btn">🏆 院校立项榜</button><button type="button" class="cssd-tb-btn">📊 学科全景</button>';
-      w.children[0].onclick = showCommandPalette;
-      w.children[1].onclick = function() { show2026PortalModal('nssfc', 'list'); };
-      w.children[2].onclick = function() { show2026PortalModal('moe', 'list'); };
-      w.children[3].onclick = showAcademicCalendarModal;
-      w.children[4].onclick = showRanking;
-      w.children[5].onclick = showAnalytics;
-      rinfo.appendChild(w);
-    }
-    var vwProj = document.getElementById('vw-projects');
-    if (vwProj && !vwProj.querySelector('.cssd-moe-banner')) {
-      var bn = document.createElement('div'); bn.className = 'cssd-moe-banner c-fxb';
-      bn.innerHTML = '<div><b style="color:#0f172a!important;font-size:16px;line-height:24px;font-weight:600;">🔥 2026年度体育学立项双专刊：国家社科基金 & 教育部人文社科项目</b><span style="font-size:14px;line-height:20px;color:#52525b!important;margin-left:8px;">支持全名单检索 · TOP25高校榜 · 14大主题统计 · CSV导出</span></div><div class="c-fx"><button type="button" class="cssd-tb-btn nssfc-active" id="bn-nssfc-list">🇨🇳 2026国家社科名单 <span class="cssd-nssfc-cnt">' + nssfcTxt + '</span></button><button type="button" class="cssd-tb-btn" id="bn-nssfc-stat">📊 国家社科统计报告</button><button type="button" class="cssd-tb-btn moe" id="bn-moe-list">🏅 2026教育部名单 (108项)</button><button type="button" class="cssd-tb-btn" id="bn-moe-stat">📈 教育部统计报告</button></div>';
-      vwProj.insertBefore(bn, vwProj.firstChild);
-      bn.querySelector('#bn-nssfc-list').onclick = function() { show2026PortalModal('nssfc', 'list'); };
-      bn.querySelector('#bn-nssfc-stat').onclick = function() { show2026PortalModal('nssfc', 'stat'); };
-      bn.querySelector('#bn-moe-list').onclick = function() { show2026PortalModal('moe', 'list'); };
-      bn.querySelector('#bn-moe-stat').onclick = function() { show2026PortalModal('moe', 'stat'); };
+    if (_isMounting) return;
+    _isMounting = true;
+    if (_mo) { try { _mo.disconnect(); } catch (e) {} }
+    try {
+      unifyPageTypography();
+      mountAcademicCalendarBar();
+      mountHomeProjectsBigScreen();
+      enhanceModal();
+      var nssfcCnt = getNSSFC2026Data().total, nssfcTxt = nssfcCnt > 0 ? '(' + nssfcCnt + '项)' : '';
+      if (!document.getElementById('cssd-float-pill')) {
+        var pill = document.createElement('div'); pill.id = 'cssd-float-pill';
+        pill.innerHTML = '<button type="button" id="fp-cmd" style="background:#27272a!important;color:#ffffff!important;border:1px solid #3f3f46;padding:8px 12px;border-radius:9999px;font-weight:600;cursor:pointer;font-size:12px;line-height:16px;" title="快捷键 Ctrl+K / ⌘K">🔍 快搜 ⌘K</button><button type="button" id="fp-nssfc-list" style="background:#dc2626!important;color:#ffffff!important;border:none;padding:8px 12px;border-radius:9999px;font-weight:600;cursor:pointer;font-size:12px;line-height:16px;">🇨🇳 2026国家社科 <span class="cssd-nssfc-cnt">' + nssfcTxt + '</span></button><button type="button" id="fp-moe-list" style="background:#2563eb!important;color:#ffffff!important;border:none;padding:8px 12px;border-radius:9999px;font-weight:600;cursor:pointer;font-size:12px;line-height:16px;">🏅 2026教育部 (108项)</button><button type="button" id="fp-cal" style="background:#27272a!important;color:#ffffff!important;border:none;padding:8px 12px;border-radius:9999px;font-weight:600;cursor:pointer;font-size:12px;line-height:16px;">📅 学术日历</button><button type="button" id="fp-hide" style="background:#27272a!important;color:#a1a1aa!important;border:none;padding:4px 8px;border-radius:9999px;cursor:pointer;font-size:12px;line-height:16px;" title="收起悬浮条">✕</button>';
+        document.body.appendChild(pill);
+        document.getElementById('fp-cmd').onclick = showCommandPalette;
+        document.getElementById('fp-nssfc-list').onclick = function() { show2026PortalModal('nssfc', 'list'); };
+        document.getElementById('fp-moe-list').onclick = function() { show2026PortalModal('moe', 'list'); };
+        document.getElementById('fp-cal').onclick = showAcademicCalendarModal;
+        document.getElementById('fp-hide').onclick = function() { pill.style.display = 'none'; };
+      }
+      var rinfo = document.getElementById('rinfo');
+      if (rinfo && !rinfo.querySelector('.cssd-tb')) {
+        var w = document.createElement('span'); w.className = 'cssd-tb';
+        w.innerHTML = '<button type="button" class="cssd-tb-btn">🔍 快搜 (⌘K)</button><button type="button" class="cssd-tb-btn nssfc-active">🇨🇳 2026国家社科专刊 <span class="cssd-nssfc-cnt">' + nssfcTxt + '</span></button><button type="button" class="cssd-tb-btn moe">🏅 2026教育部专刊 (108项)</button><button type="button" class="cssd-tb-btn">📅 学术会议日历</button><button type="button" class="cssd-tb-btn">🏆 院校立项榜</button><button type="button" class="cssd-tb-btn">📊 学科全景</button>';
+        w.children[0].onclick = showCommandPalette;
+        w.children[1].onclick = function() { show2026PortalModal('nssfc', 'list'); };
+        w.children[2].onclick = function() { show2026PortalModal('moe', 'list'); };
+        w.children[3].onclick = showAcademicCalendarModal;
+        w.children[4].onclick = showRanking;
+        w.children[5].onclick = showAnalytics;
+        rinfo.appendChild(w);
+      }
+      var vwProj = document.getElementById('vw-projects');
+      if (vwProj && !vwProj.querySelector('.cssd-moe-banner')) {
+        var bn = document.createElement('div'); bn.className = 'cssd-moe-banner c-fxb';
+        bn.innerHTML = '<div><b style="color:#0f172a!important;font-size:16px;line-height:24px;font-weight:600;">🔥 2026年度体育学立项双专刊：国家社科基金 & 教育部人文社科项目</b><span style="font-size:14px;line-height:20px;color:#52525b!important;margin-left:8px;">支持全名单检索 · TOP25高校榜 · 14大主题统计 · CSV导出</span></div><div class="c-fx"><button type="button" class="cssd-tb-btn nssfc-active" id="bn-nssfc-list">🇨🇳 2026国家社科名单 <span class="cssd-nssfc-cnt">' + nssfcTxt + '</span></button><button type="button" class="cssd-tb-btn" id="bn-nssfc-stat">📊 国家社科统计报告</button><button type="button" class="cssd-tb-btn moe" id="bn-moe-list">🏅 2026教育部名单 (108项)</button><button type="button" class="cssd-tb-btn" id="bn-moe-stat">📈 教育部统计报告</button></div>';
+        vwProj.insertBefore(bn, vwProj.firstChild);
+        bn.querySelector('#bn-nssfc-list').onclick = function() { show2026PortalModal('nssfc', 'list'); };
+        bn.querySelector('#bn-nssfc-stat').onclick = function() { show2026PortalModal('nssfc', 'stat'); };
+        bn.querySelector('#bn-moe-list').onclick = function() { show2026PortalModal('moe', 'list'); };
+        bn.querySelector('#bn-moe-stat').onclick = function() { show2026PortalModal('moe', 'stat'); };
+      }
+    } catch (err) {
+    } finally {
+      if (_mo && document.body) {
+        try { _mo.observe(document.body, { childList: true, subtree: true }); } catch (e) {}
+      }
+      _isMounting = false;
     }
   }
 
+  function scheduleMount() {
+    if (_isMounting) return;
+    clearTimeout(_moTimer);
+    _moTimer = setTimeout(mountAllUI, 280);
+  }
+
   function init() {
-    localStorage.removeItem('cssd_dark');
-    document.documentElement.classList.remove('cssd-dark');
+    try {
+      localStorage.removeItem('cssd_dark');
+      document.documentElement.classList.remove('cssd-dark');
+    } catch (e) {}
     if (!document.getElementById('cssd-v15-css')) {
       var st = document.createElement('style'); st.id = 'cssd-v15-css';
       st.textContent = 'body{padding-bottom:64px!important;font-family:' + SANS + '!important;font-style:normal!important}' +
-        /* B1 & B4: 全站原站组件（含学者卡片 .sc、统计栏 #sp-metrics、学界动态）统一字阶、tabular-nums 与圆角 */
         '#sp-metrics,#sp-metrics *{font-variant-numeric:tabular-nums!important;font-family:' + SANS + '!important}' +
         '.sc,.sp-person{border-radius:16px!important;transition:transform 250ms cubic-bezier(0.22,1,0.36,1),opacity 250ms cubic-bezier(0.22,1,0.36,1)!important}' +
         '.sc:hover,.sp-person:hover{transform:translateY(-2px)!important}' +
@@ -981,11 +1010,32 @@
         }).observe(sentinel);
       }
     }
-    mountAllUI();
-    var tries = 0, timer = setInterval(function() { tries++; mountAllUI(); if (tryEnrichDatasets() && tries > 20) clearInterval(timer); if (tries > 60) clearInterval(timer); }, 250);
-    new MutationObserver(function() { mountAllUI(); }).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
 
-    // 全局键盘快捷键：Ctrl+K / ⌘K 打开全站学术快搜指挥台，/ 聚焦搜索框，Esc 关闭弹窗
+    // 延迟 350ms 待原站首屏与加载动画退场后再挂载增强组件，彻底避免阻塞首屏
+    setTimeout(function() {
+      tryEnrichDatasets();
+      mountAllUI();
+      _mo = new MutationObserver(function(mutations) {
+        for (var i = 0; i < mutations.length; i++) {
+          var t = mutations[i].target;
+          if (t && t.closest && (t.closest('#cssd-home-projects-showcase') || t.closest('#cssd-academic-calendar-bar') || t.closest('#cssd-custom-modal') || t.closest('#cssd-float-pill'))) continue;
+          scheduleMount();
+          break;
+        }
+      });
+      if (document.body) _mo.observe(document.body, { childList: true, subtree: true });
+      var ov = document.getElementById('ov');
+      if (ov) {
+        new MutationObserver(function() { setTimeout(enhanceModal, 60); }).observe(ov, { attributes: true, attributeFilter: ['class'] });
+      }
+    }, 350);
+
+    var tries = 0, timer = setInterval(function() {
+      tries++;
+      if (tryEnrichDatasets()) { scheduleMount(); }
+      if (tries > 25) clearInterval(timer);
+    }, 400);
+
     window.addEventListener('keydown', function(e) {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
@@ -1000,7 +1050,7 @@
     });
 
     var p = new URLSearchParams(location.search), kw = p.get('scholar') || p.get('q');
-    if (kw) setTimeout(function() { triggerSearch(kw); }, 300);
+    if (kw) setTimeout(function() { triggerSearch(kw); }, 600);
   }
 
   document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', init) : init();
