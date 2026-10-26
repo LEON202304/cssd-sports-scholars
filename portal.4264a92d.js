@@ -150,10 +150,22 @@ function spOpenConfCal(){
   }
   document.querySelectorAll('.sp-more').forEach(function(d){d.open=false;});
   document.querySelectorAll('details.sp-nav-group').forEach(function(d){d.open=false;});
-  spSyncShell('confcal');
+  if(spConfHash()) spSyncShell('confcal');
+  spHoldConfNav(1800);
   spStickConfCal();
 }
+var _confNavLock=0;
+function spHoldConfNav(ms){
+  _confNavLock++;
+  setTimeout(function(){_confNavLock=Math.max(0,_confNavLock-1);}, ms||1400);
+}
+function spReleaseConfCal(){
+  if(!spConfHash() && !document.querySelector('header.sp-header button[data-route="confcal"].active')) return;
+  spClearConfHash();
+  spSyncShell('home');
+}
 function spSyncShell(route){
+  if(route==='confcal' && !spConfHash()) route='home';
   const portal=document.getElementById('sportsPortal');
   const home=document.getElementById('vw-home');
   const isHome=route==='home'||route==='confcal';
@@ -168,10 +180,11 @@ function spSyncShell(route){
   if(home && isHome && !home.classList.contains('on')){
     /* go() already toggles .vw.on; keep portal visible when home */
   }
-  document.querySelectorAll('.sp-links > button[data-route], .sp-links .sp-nav-panel button[data-route]').forEach(b=>{
+  document.querySelectorAll('header.sp-header button[data-route]').forEach(b=>{
     const on=b.dataset.route===route;
     b.classList.toggle('active',on);
     if(on)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');
+    if(b.style) b.style.removeProperty('color');
   });
   document.querySelectorAll('details.sp-nav-group').forEach(g=>{
     const routes=(g.dataset.routes||'').split(',').filter(Boolean);
@@ -761,10 +774,26 @@ function start(){
     if(spConfHash()) spOpenConfCal();
   });
   window.addEventListener('popstate',function(){
-    if(!spConfHash()) return;
-    spSyncShell('confcal');
-    spScrollConfCal(0);
+    if(spConfHash()){
+      spSyncShell('confcal');
+      spScrollConfCal(0);
+      return;
+    }
+    if(document.querySelector('header.sp-header button[data-route="confcal"].active')) spSyncShell('home');
   });
+  var _confLeaveT;
+  window.addEventListener('scroll',function(){
+    if(!spConfHash()||_confNavLock) return;
+    clearTimeout(_confLeaveT);
+    _confLeaveT=setTimeout(function(){
+      if(!spConfHash()||_confNavLock) return;
+      var el=document.getElementById('confcal');
+      if(!el) return;
+      var r=el.getBoundingClientRect();
+      var vh=window.innerHeight||800;
+      if(r.bottom<80 || r.top>vh-48) spReleaseConfCal();
+    },140);
+  },{passive:true});
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
 })();

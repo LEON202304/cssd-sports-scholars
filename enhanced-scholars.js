@@ -419,8 +419,25 @@
   var _calCountdownTimer = null;
   var _activeCalIdx = 0;
 
+  function placeConfCal(calSec) {
+    if (!calSec) return;
+    var xj = document.getElementById('homeXuejie');
+    if (xj && xj.parentNode) {
+      if (xj.nextElementSibling !== calSec) xj.parentNode.insertBefore(calSec, xj.nextSibling);
+      return;
+    }
+    var grid = document.querySelector('#sportsPortal .sp-grid');
+    if (grid && grid.parentNode) {
+      if (grid.nextElementSibling !== calSec) grid.parentNode.insertBefore(calSec, grid.nextSibling);
+    }
+  }
+
   function mountAcademicCalendarBar() {
-    if (document.getElementById('cssd-academic-calendar-bar')) return;
+    var existingSec = document.getElementById('confcal');
+    if (document.getElementById('cssd-academic-calendar-bar')) {
+      placeConfCal(existingSec);
+      return;
+    }
     var headings = document.querySelectorAll('h2, h3, .sec-title, [class*="title"]');
     var xuejieHeader = null;
     for (var i = 0; i < headings.length; i++) {
@@ -442,29 +459,22 @@
 
     var featuredList = CALENDAR_EVENTS.slice(0, 10);
     var nConf = CALENDAR_EVENTS.length;
-    /* 倒计时是 CALENDAR_EVENTS，单独成块；不改写上方「学界动态」新闻流标题 */
+    /* 倒计时只读 CALENDAR_EVENTS，不借用学界动态 / academicnews */
     var calSec = document.createElement('section');
     calSec.id = 'confcal';
     calSec.className = 'cssd-cal-sec';
     calSec.setAttribute('aria-labelledby', 'confcalTitle');
     calSec.innerHTML =
-      '<nav class="cssd-cal-crumb" aria-label="面包屑">' +
-        '<a href="#home">首页</a><span aria-hidden="true">/</span>' +
-        '<span aria-current="page">体育学术会议日历</span>' +
-      '</nav>' +
       '<p class="cssd-cal-eye">SPORTS CONFERENCE CALENDAR</p>' +
       '<h2 id="confcalTitle">体育学术会议日历</h2>';
-    secContainer.insertBefore(calSec, headerRow);
-    var crumbHome = calSec.querySelector('.cssd-cal-crumb a');
-    if (crumbHome) crumbHome.addEventListener('click', function(ev) {
-      ev.preventDefault();
-      if (typeof window.spNavigate === 'function') window.spNavigate('home');
-      else if (typeof window.go === 'function') window.go('home');
-    });
+    if (secContainer && headerRow && headerRow.parentNode === secContainer) {
+      secContainer.insertBefore(calSec, headerRow);
+    }
+    placeConfCal(calSec);
 
     var bar = document.createElement('div');
     bar.id = 'cssd-academic-calendar-bar';
-    bar.style.cssText = 'width:100%!important;box-sizing:border-box!important;background:#f8fafc!important;border:1px solid #e2e8f0!important;border-radius:20px;padding:18px;margin:0 0 18px;font-family:' + SANS + ';clear:both;box-shadow:0 4px 20px rgba(15,23,42,0.04);';
+    bar.className = 'cssd-cal-bar';
 
     var tabsHtml = featuredList.map(function(ev, idx) {
       var activeCls = idx === _activeCalIdx ? 'active' : '';
@@ -472,98 +482,47 @@
     }).join('');
 
     bar.innerHTML =
-      /* 顶部：标题 + 重点学术会议快切标签栏 */
-      '<div class="c-fxb" style="margin-bottom:12px;">' +
-        '<div class="c-fx">' +
-          '<span style="font-size:14px;line-height:20px;font-weight:600;color:#0f172a!important;">点击下方标签切换重点会议倒计时与关键时间节点：</span>' +
-        '</div>' +
-        '<button type="button" class="cssd-tb-btn moe" id="open-full-cal" style="padding:6px 12px;font-size:12px;line-height:16px;">📅 查看全部 ' + nConf + ' 场国内外重点会议 →</button>' +
+      '<div class="cssd-cal-tools">' +
+        '<button type="button" class="cssd-cal-all" id="open-full-cal">查看全部 ' + nConf + ' 场国内外重点会议</button>' +
       '</div>' +
-      '<div id="cssd-cal-tabs" style="display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;margin-bottom:12px;scrollbar-width:thin;">' + tabsHtml + '</div>' +
+      '<div id="cssd-cal-tabs" class="cssd-cal-tabs" role="tablist" aria-label="点击标签切换重点会议倒计时与关键时间节点" title="点击标签切换重点会议倒计时与关键时间节点">' + tabsHtml + '</div>' +
 
-      /* 会议蓝底渐变主视觉横幅 + 底部悬浮白底胶囊（还原参考图视觉） */
-      '<div style="position:relative;margin-bottom:26px;">' +
-        '<div style="background:linear-gradient(135deg,#091e5a 0%,#0f3699 52%,#0284c7 100%)!important;border-radius:16px;padding:22px 28px 34px;color:#ffffff!important;position:relative;overflow:hidden;box-shadow:0 10px 25px rgba(15,41,118,0.18);">' +
-          '<div style="position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(255,255,255,0.12);pointer-events:none;"></div>' +
-          '<div style="position:absolute;right:10px;bottom:-60px;width:180px;height:180px;border-radius:50%;border:1px solid rgba(56,189,248,0.2);pointer-events:none;"></div>' +
-          '<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;">' +
-            '<div>' +
-              '<div id="cal-hero-badge" style="display:inline-block;background:rgba(255,255,255,0.16)!important;color:#e0f2fe!important;border:1px solid rgba(255,255,255,0.25);padding:2px 10px;border-radius:9999px;font-size:12px;line-height:18px;font-weight:600;margin-bottom:8px;">🏆 国家级重点学术会议</div>' +
-              '<h3 id="cal-hero-title" style="margin:0 0 8px 0;font-size:22px!important;line-height:30px!important;font-weight:800!important;color:#ffffff!important;letter-spacing:0.3px;"></h3>' +
-              '<div id="cal-hero-host" style="font-size:13px!important;line-height:20px!important;color:#dbeafe!important;font-weight:500;"></div>' +
-            '</div>' +
-            '<div style="display:flex;gap:8px;flex-shrink:0;">' +
-              '<button type="button" id="cal-prev-btn" style="background:rgba(255,255,255,0.15)!important;color:#ffffff!important;border:1px solid rgba(255,255,255,0.3);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:12px;font-weight:600;">◀ 上一场</button>' +
-              '<button type="button" id="cal-next-btn" style="background:rgba(255,255,255,0.15)!important;color:#ffffff!important;border:1px solid rgba(255,255,255,0.3);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:12px;font-weight:600;">下一场 ▶</button>' +
-            '</div>' +
-          '</div>' +
+      '<div class="cssd-cal-hero">' +
+        '<div class="cssd-cal-hero-main">' +
+          '<div id="cal-hero-badge" class="cssd-cal-badge"></div>' +
+          '<h3 id="cal-hero-title" class="cssd-cal-hero-title"></h3>' +
+          '<div id="cal-hero-host" class="cssd-cal-host"></div>' +
         '</div>' +
-        /* 居中悬浮的时间与地点胶囊 */
-        '<div style="position:absolute;left:50%;bottom:-16px;transform:translateX(-50%);background:#ffffff!important;border:1px solid #e2e8f0;border-radius:9999px;padding:7px 24px;box-shadow:0 8px 20px rgba(15,23,42,0.1);display:inline-flex;align-items:center;gap:20px;white-space:nowrap;z-index:2;">' +
-          '<span id="cal-pill-time" style="font-size:13px;line-height:18px;font-weight:700;color:#1d4ed8!important;font-variant-numeric:tabular-nums;"></span>' +
-          '<span style="width:1px;height:14px;background:#cbd5e1;"></span>' +
-          '<span id="cal-pill-loc" style="font-size:13px;line-height:18px;font-weight:700;color:#1d4ed8!important;"></span>' +
+        '<div class="cssd-cal-switch">' +
+          '<button type="button" id="cal-prev-btn" class="cssd-cal-navbtn">上一场</button>' +
+          '<button type="button" id="cal-next-btn" class="cssd-cal-navbtn">下一场</button>' +
         '</div>' +
       '</div>' +
-
-      /* 第一排：4 个彩色图标入口卡片（在线论文投稿 / 会议参会注册 / 会议日程导出 / 全部会议中心） */
-      '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-bottom:14px;">' +
-        '<div id="cal-act-cfp" class="cssd-m6-act" style="background:#ffffff!important;border:1px solid #e2e8f0;border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,0.03);">' +
-          '<div style="width:42px;height:42px;border-radius:10px;background:#f97316!important;color:#ffffff!important;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">📄</div>' +
-          '<div><div style="font-size:15px!important;line-height:20px!important;font-weight:700!important;color:#0f172a!important;">在线论文投稿</div><div style="font-size:12px;line-height:16px;color:#64748b!important;">Abstract &amp; CFP</div></div>' +
-        '</div>' +
-        '<div id="cal-act-reg" class="cssd-m6-act" style="background:#ffffff!important;border:1px solid #e2e8f0;border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,0.03);">' +
-          '<div style="width:42px;height:42px;border-radius:10px;background:#6366f1!important;color:#ffffff!important;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">👥</div>' +
-          '<div><div style="font-size:15px!important;line-height:20px!important;font-weight:700!important;color:#0f172a!important;">会议参会注册</div><div style="font-size:12px;line-height:16px;color:#64748b!important;">Registration</div></div>' +
-        '</div>' +
-        '<div id="cal-act-ics" class="cssd-m6-act" style="background:#ffffff!important;border:1px solid #e2e8f0;border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,0.03);">' +
-          '<div style="width:42px;height:42px;border-radius:10px;background:#10b981!important;color:#ffffff!important;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">📅</div>' +
-          '<div><div style="font-size:15px!important;line-height:20px!important;font-weight:700!important;color:#0f172a!important;">会议日程提醒 (.ics)</div><div style="font-size:12px;line-height:16px;color:#64748b!important;">Schedule &amp; Export</div></div>' +
-        '</div>' +
-        '<div id="cal-act-all" class="cssd-m6-act" style="background:#ffffff!important;border:1px solid #e2e8f0;border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,0.03);">' +
-          '<div style="width:42px;height:42px;border-radius:10px;background:#0ea5e9!important;color:#ffffff!important;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">🗂️</div>' +
-          '<div><div style="font-size:15px!important;line-height:20px!important;font-weight:700!important;color:#0f172a!important;">全网重点会议总览</div><div style="font-size:12px;line-height:16px;color:#64748b!important;">All ' + nConf + ' Conferences</div></div>' +
-        '</div>' +
+      '<div class="cssd-cal-meta">' +
+        '<span id="cal-pill-time" class="cssd-cal-meta-item"></span>' +
+        '<span id="cal-pill-loc" class="cssd-cal-meta-item"></span>' +
       '</div>' +
-
-      /* 第二排：左侧「倒计时 Countdown (天/时/分/秒)」 + 右侧「2x2 四大关键时间节点」 */
-      '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:14px;">' +
-        /* 左侧倒计时卡片 */
-        '<div style="background:#ffffff!important;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;display:flex;align-items:stretch;box-shadow:0 2px 10px rgba(15,23,42,0.03);min-height:156px;">' +
-          '<div style="width:128px;background:linear-gradient(160deg,#091e5a 0%,#173da6 100%)!important;color:#ffffff!important;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;flex-shrink:0;padding:12px;">' +
-            '<div style="position:absolute;width:130px;height:130px;border-radius:50%;border:1px solid rgba(255,255,255,0.12);"></div>' +
-            '<div style="position:absolute;width:90px;height:90px;border-radius:50%;border:1px solid rgba(255,255,255,0.16);"></div>' +
-            '<div style="font-size:18px!important;line-height:24px!important;font-weight:700!important;color:#ffffff!important;z-index:1;">倒计时</div>' +
-            '<div style="font-size:11px!important;line-height:16px!important;color:#93c5fd!important;z-index:1;margin-top:2px;">Countdown</div>' +
-          '</div>' +
-          '<div style="flex:1;padding:16px 20px;display:flex;flex-direction:column;justify-content:center;align-items:center;">' +
-            '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;width:100%;max-width:340px;">' +
-              '<div style="text-align:center;"><div id="cd-d" style="background:#f1f5f9!important;border:1px solid #e2e8f0;border-radius:10px;padding:14px 4px;font-size:28px!important;line-height:32px!important;font-weight:800!important;color:#0f2976!important;font-variant-numeric:tabular-nums;">00</div><div style="font-size:12px;color:#64748b!important;margin-top:6px;font-weight:600;">天</div></div>' +
-              '<div style="text-align:center;"><div id="cd-h" style="background:#f1f5f9!important;border:1px solid #e2e8f0;border-radius:10px;padding:14px 4px;font-size:28px!important;line-height:32px!important;font-weight:800!important;color:#0f2976!important;font-variant-numeric:tabular-nums;">00</div><div style="font-size:12px;color:#64748b!important;margin-top:6px;font-weight:600;">时</div></div>' +
-              '<div style="text-align:center;"><div id="cd-m" style="background:#f1f5f9!important;border:1px solid #e2e8f0;border-radius:10px;padding:14px 4px;font-size:28px!important;line-height:32px!important;font-weight:800!important;color:#0f2976!important;font-variant-numeric:tabular-nums;">00</div><div style="font-size:12px;color:#64748b!important;margin-top:6px;font-weight:600;">分</div></div>' +
-              '<div style="text-align:center;"><div id="cd-s" style="background:#fff7ed!important;border:1px solid #fed7aa;border-radius:10px;padding:14px 4px;font-size:28px!important;line-height:32px!important;font-weight:800!important;color:#ea580c!important;font-variant-numeric:tabular-nums;">00</div><div style="font-size:12px;color:#ea580c!important;margin-top:6px;font-weight:700;">秒</div></div>' +
-            '</div>' +
+      '<div class="cssd-cal-acts">' +
+        '<button type="button" id="cal-act-cfp" class="cssd-cal-act cssd-m6-act"><b>在线论文投稿</b><small>Abstract / CFP</small></button>' +
+        '<button type="button" id="cal-act-reg" class="cssd-cal-act cssd-m6-act"><b>会议参会注册</b><small>Registration</small></button>' +
+        '<button type="button" id="cal-act-ics" class="cssd-cal-act cssd-m6-act"><b>会议日程提醒</b><small>.ics</small></button>' +
+        '<button type="button" id="cal-act-all" class="cssd-cal-act cssd-m6-act"><b>全网重点会议总览</b><small>All ' + nConf + ' Conferences</small></button>' +
+      '</div>' +
+      '<div class="cssd-cal-grid">' +
+        '<div class="cssd-cal-count">' +
+          '<div class="cssd-cal-count-kicker">距开幕<span>Countdown</span></div>' +
+          '<div class="cssd-cal-digits">' +
+            '<div><div id="cd-d" class="cal-digit">00</div><div class="cal-unit">天</div></div>' +
+            '<div><div id="cd-h" class="cal-digit">00</div><div class="cal-unit">时</div></div>' +
+            '<div><div id="cd-m" class="cal-digit">00</div><div class="cal-unit">分</div></div>' +
+            '<div><div id="cd-s" class="cal-digit">00</div><div class="cal-unit">秒</div></div>' +
           '</div>' +
         '</div>' +
-
-        /* 右侧 2x2 关键时间节点卡片 */
-        '<div style="background:#ffffff!important;border:1px solid #e2e8f0;border-radius:14px;padding:14px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px;box-shadow:0 2px 10px rgba(15,23,42,0.03);">' +
-          '<div style="background:#eff6ff!important;border:1px solid #dbeafe;border-radius:10px;padding:12px;display:flex;align-items:center;gap:12px;">' +
-            '<div style="width:38px;height:38px;border-radius:8px;background:#1e40af!important;color:#ffffff!important;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;">📅</div>' +
-            '<div><div style="font-size:13px!important;line-height:18px!important;font-weight:700!important;color:#c2410c!important;">征文投稿截止</div><div id="cal-node-cfp" style="font-size:13px!important;line-height:18px!important;color:#334155!important;font-weight:600;font-variant-numeric:tabular-nums;margin-top:2px;"></div></div>' +
-          '</div>' +
-          '<div style="background:#fff7ed!important;border:1px solid #ffedd5;border-radius:10px;padding:12px;display:flex;align-items:center;gap:12px;">' +
-            '<div style="width:38px;height:38px;border-radius:8px;background:#f97316!important;color:#ffffff!important;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;">📋</div>' +
-            '<div><div style="font-size:13px!important;line-height:18px!important;font-weight:700!important;color:#15803d!important;">录用通知发布</div><div id="cal-node-notice" style="font-size:13px!important;line-height:18px!important;color:#334155!important;font-weight:600;font-variant-numeric:tabular-nums;margin-top:2px;"></div></div>' +
-          '</div>' +
-          '<div style="background:#f0fdf4!important;border:1px solid #dcfce7;border-radius:10px;padding:12px;display:flex;align-items:center;gap:12px;">' +
-            '<div style="width:38px;height:38px;border-radius:8px;background:#10b981!important;color:#ffffff!important;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;">🪪</div>' +
-            '<div><div style="font-size:13px!important;line-height:18px!important;font-weight:700!important;color:#15803d!important;">注册缴费/报到</div><div id="cal-node-reg" style="font-size:13px!important;line-height:18px!important;color:#334155!important;font-weight:600;font-variant-numeric:tabular-nums;margin-top:2px;"></div></div>' +
-          '</div>' +
-          '<div style="background:#f0f9ff!important;border:1px solid #e0f2fe;border-radius:10px;padding:12px;display:flex;align-items:center;gap:12px;">' +
-            '<div style="width:38px;height:38px;border-radius:8px;background:#0284c7!important;color:#ffffff!important;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;">🕒</div>' +
-            '<div><div style="font-size:13px!important;line-height:18px!important;font-weight:700!important;color:#0369a1!important;">会议正式举办</div><div id="cal-node-hold" style="font-size:13px!important;line-height:18px!important;color:#334155!important;font-weight:600;font-variant-numeric:tabular-nums;margin-top:2px;"></div></div>' +
-          '</div>' +
+        '<div class="cssd-cal-nodes">' +
+          '<div class="cal-node cal-node--cfp" hidden><div class="t">征文投稿截止</div><div id="cal-node-cfp" class="cssd-cal-node-date"></div></div>' +
+          '<div class="cal-node cal-node--accept" hidden><div class="t">录用通知发布</div><div id="cal-node-notice" class="cssd-cal-node-date"></div></div>' +
+          '<div class="cal-node cal-node--reg" hidden><div class="t">注册缴费 / 报到</div><div id="cal-node-reg" class="cssd-cal-node-date"></div></div>' +
+          '<div class="cal-node cal-node--event" hidden><div class="t">会议正式举办</div><div id="cal-node-hold" class="cssd-cal-node-date"></div></div>' +
         '</div>' +
       '</div>';
 
@@ -571,8 +530,16 @@
 
     function updateCountdownDigits() {
       var ev = featuredList[_activeCalIdx] || featuredList[0];
-      if (!ev) return;
+      var ids = ['#cd-d', '#cd-h', '#cd-m', '#cd-s'];
+      if (!ev || !ev.start) {
+        ids.forEach(function(id){ setTxt(bar.querySelector(id), '—'); });
+        return;
+      }
       var targetMs = new Date(ev.start + 'T09:00:00').getTime();
+      if (isNaN(targetMs)) {
+        ids.forEach(function(id){ setTxt(bar.querySelector(id), '—'); });
+        return;
+      }
       var nowMs = Date.now();
       var diffSec = Math.max(0, Math.floor((targetMs - nowMs) / 1000));
       var d = Math.floor(diffSec / 86400);
@@ -585,21 +552,37 @@
       setTxt(bar.querySelector('#cd-s'), String(s).padStart(2, '0'));
     }
 
+    function showCalNode(sel, value) {
+      var el = bar.querySelector(sel);
+      var node = el ? el.closest('.cal-node') : null;
+      var text = String(value || '').trim();
+      if (!text || text === '—' || /^待定|详见|未知|TBD$/i.test(text)) {
+        if (node) node.hidden = true;
+        if (el) setTxt(el, '');
+        return;
+      }
+      if (node) node.hidden = false;
+      setTxt(el, text);
+    }
+
     function selectConf(idx) {
       _activeCalIdx = (idx + featuredList.length) % featuredList.length;
       var ev = featuredList[_activeCalIdx];
       bar.querySelectorAll('.cssd-cal-tab').forEach(function(btn, bIdx) {
-        btn.classList.toggle('active', bIdx === _activeCalIdx);
+        var on = bIdx === _activeCalIdx;
+        btn.classList.toggle('active', on);
+        btn.setAttribute('aria-selected', on ? 'true' : 'false');
       });
-      setTxt(bar.querySelector('#cal-hero-badge'), '🏆 ' + ev.type + ' · ' + ev.status);
+      setTxt(bar.querySelector('#cal-hero-badge'), (ev.type || '') + (ev.status ? ' · ' + ev.status : ''));
       setTxt(bar.querySelector('#cal-hero-title'), ev.title);
-      setTxt(bar.querySelector('#cal-hero-host'), '主办 / 承办单位：' + ev.host);
-      setTxt(bar.querySelector('#cal-pill-time'), '🕒 时间：' + (ev.hold || (ev.start + ' ~ ' + ev.end)));
-      setTxt(bar.querySelector('#cal-pill-loc'), '📍 地点：' + ev.loc);
-      setTxt(bar.querySelector('#cal-node-cfp'), ev.cfp || '详见会议征文通知');
-      setTxt(bar.querySelector('#cal-node-notice'), ev.notice || '会前1个月发布');
-      setTxt(bar.querySelector('#cal-node-reg'), ev.reg || ev.start);
-      setTxt(bar.querySelector('#cal-node-hold'), ev.hold || ev.start);
+      setTxt(bar.querySelector('#cal-hero-host'), ev.host ? ('主办 / 承办：' + ev.host) : '');
+      var when = ev.hold || ((ev.start && ev.end) ? (ev.start + ' ~ ' + ev.end) : (ev.start || ''));
+      setTxt(bar.querySelector('#cal-pill-time'), when ? ('时间　' + when) : '');
+      setTxt(bar.querySelector('#cal-pill-loc'), ev.loc ? ('地点　' + ev.loc) : '');
+      showCalNode('#cal-node-cfp', ev.cfp);
+      showCalNode('#cal-node-notice', ev.notice);
+      showCalNode('#cal-node-reg', ev.reg);
+      showCalNode('#cal-node-hold', ev.hold);
       updateCountdownDigits();
     }
 
@@ -1282,7 +1265,7 @@
       document.head.appendChild(st);
     }
     if (!document.getElementById('cssd-top')) {
-      var tb = document.createElement('button'); tb.id = 'cssd-top'; tb.textContent = '↑'; tb.title = '回到顶部';
+      var tb = document.createElement('button'); tb.id = 'cssd-top'; tb.className = 'sp-backtop'; tb.textContent = '↑'; tb.title = '回到顶部';
       tb.onclick = function() { window.scrollTo({ top: 0, behavior: 'smooth' }); };
       document.body.appendChild(tb);
       var sentinel = document.createElement('div');
