@@ -265,7 +265,7 @@
         '<span style="font-size:12px;line-height:16px;color:#52525b!important;">快捷直达：</span>' +
         '<button type="button" class="cssd-cite-btn cmd-quick" data-act="nssfc">🇨🇳 2026国家社科专刊</button>' +
         '<button type="button" class="cssd-cite-btn cmd-quick" data-act="moe">🏅 2026教育部108项专刊</button>' +
-        '<button type="button" class="cssd-cite-btn cmd-quick" data-act="cal">📅 全网体育学术会议日历</button>' +
+        '<button type="button" class="cssd-cite-btn cmd-quick" data-act="cal">📅 体育学术会议日历</button>' +
         '<button type="button" class="cssd-cite-btn cmd-quick" data-act="rank">🏆 全国高校立项榜 TOP25</button>' +
         '<button type="button" class="cssd-cite-btn cmd-quick" data-act="ana">📊 中国体育学学科全景看板</button>' +
       '</div></div>' +
@@ -352,7 +352,7 @@
       '</div></div>' +
       '<div id="cal-modal-list" style="display:grid;grid-template-columns:1fr;gap:12px;max-height:62vh;overflow-y:auto;padding-right:4px;"></div>';
 
-    openModal('📅 全国与国际体育学术会议日历 (涵盖中国体育科学学会重点会议、高校论坛与国际顶会)', html, function(body) {
+    openModal('体育学术会议日历（' + CALENDAR_EVENTS.length + ' 场）', html, function(body) {
       var listBox = body.querySelector('#cal-modal-list'), qInp = body.querySelector('#cal-q');
       var curFilter = 'upcoming';
 
@@ -441,9 +441,30 @@
     if (!secContainer) return;
 
     var featuredList = CALENDAR_EVENTS.slice(0, 10);
+    var nConf = CALENDAR_EVENTS.length;
+    /* 倒计时是 CALENDAR_EVENTS，单独成块；不改写上方「学界动态」新闻流标题 */
+    var calSec = document.createElement('section');
+    calSec.id = 'confcal';
+    calSec.className = 'cssd-cal-sec';
+    calSec.setAttribute('aria-labelledby', 'confcalTitle');
+    calSec.innerHTML =
+      '<nav class="cssd-cal-crumb" aria-label="面包屑">' +
+        '<a href="#home">首页</a><span aria-hidden="true">/</span>' +
+        '<span aria-current="page">体育学术会议日历</span>' +
+      '</nav>' +
+      '<p class="cssd-cal-eye">SPORTS CONFERENCE CALENDAR</p>' +
+      '<h2 id="confcalTitle">体育学术会议日历</h2>';
+    secContainer.insertBefore(calSec, headerRow);
+    var crumbHome = calSec.querySelector('.cssd-cal-crumb a');
+    if (crumbHome) crumbHome.addEventListener('click', function(ev) {
+      ev.preventDefault();
+      if (typeof window.spNavigate === 'function') window.spNavigate('home');
+      else if (typeof window.go === 'function') window.go('home');
+    });
+
     var bar = document.createElement('div');
     bar.id = 'cssd-academic-calendar-bar';
-    bar.style.cssText = 'width:100%!important;box-sizing:border-box!important;background:#f8fafc!important;border:1px solid #e2e8f0!important;border-radius:20px;padding:18px;margin:16px 0 22px;font-family:' + SANS + ';clear:both;box-shadow:0 4px 20px rgba(15,23,42,0.04);';
+    bar.style.cssText = 'width:100%!important;box-sizing:border-box!important;background:#f8fafc!important;border:1px solid #e2e8f0!important;border-radius:20px;padding:18px;margin:0 0 18px;font-family:' + SANS + ';clear:both;box-shadow:0 4px 20px rgba(15,23,42,0.04);';
 
     var tabsHtml = featuredList.map(function(ev, idx) {
       var activeCls = idx === _activeCalIdx ? 'active' : '';
@@ -454,10 +475,9 @@
       /* 顶部：标题 + 重点学术会议快切标签栏 */
       '<div class="c-fxb" style="margin-bottom:12px;">' +
         '<div class="c-fx">' +
-          '<span style="background:linear-gradient(135deg,#0f2976,#1d4ed8)!important;color:#ffffff!important;font-size:12px;line-height:16px;font-weight:700;padding:4px 10px;border-radius:6px;white-space:nowrap;">📅 体育学术会议门户</span>' +
           '<span style="font-size:14px;line-height:20px;font-weight:600;color:#0f172a!important;">点击下方标签切换重点会议倒计时与关键时间节点：</span>' +
         '</div>' +
-        '<button type="button" class="cssd-tb-btn moe" id="open-full-cal" style="padding:6px 12px;font-size:12px;line-height:16px;">📅 查看全部 ' + CALENDAR_EVENTS.length + ' 场国内外重点会议 →</button>' +
+        '<button type="button" class="cssd-tb-btn moe" id="open-full-cal" style="padding:6px 12px;font-size:12px;line-height:16px;">📅 查看全部 ' + nConf + ' 场国内外重点会议 →</button>' +
       '</div>' +
       '<div id="cssd-cal-tabs" style="display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;margin-bottom:12px;scrollbar-width:thin;">' + tabsHtml + '</div>' +
 
@@ -502,7 +522,7 @@
         '</div>' +
         '<div id="cal-act-all" class="cssd-m6-act" style="background:#ffffff!important;border:1px solid #e2e8f0;border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,0.03);">' +
           '<div style="width:42px;height:42px;border-radius:10px;background:#0ea5e9!important;color:#ffffff!important;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">🗂️</div>' +
-          '<div><div style="font-size:15px!important;line-height:20px!important;font-weight:700!important;color:#0f172a!important;">全网重点会议总览</div><div style="font-size:12px;line-height:16px;color:#64748b!important;">All ' + CALENDAR_EVENTS.length + ' Conferences</div></div>' +
+          '<div><div style="font-size:15px!important;line-height:20px!important;font-weight:700!important;color:#0f172a!important;">全网重点会议总览</div><div style="font-size:12px;line-height:16px;color:#64748b!important;">All ' + nConf + ' Conferences</div></div>' +
         '</div>' +
       '</div>' +
 
@@ -547,7 +567,7 @@
         '</div>' +
       '</div>';
 
-    secContainer.insertBefore(bar, headerRow.nextSibling);
+    calSec.appendChild(bar);
 
     function updateCountdownDigits() {
       var ev = featuredList[_activeCalIdx] || featuredList[0];
@@ -1054,7 +1074,7 @@
           '<button type="button" class="cssd-tb-btn" id="hm-btn-cmd" title="快捷键 Ctrl+K / ⌘K">🔍 全站快搜 (⌘K)</button>' +
           '<button type="button" class="cssd-tb-btn nssfc-active" id="hm-btn-nssfc">🇨🇳 2026国家社科专刊 <span class="cssd-nssfc-cnt">(' + nssfc.total + '项)</span></button>' +
           '<button type="button" class="cssd-tb-btn moe" id="hm-btn-moe">🏅 2026教育部专刊 (108项)</button>' +
-          '<button type="button" class="cssd-tb-btn" id="hm-btn-cal">📅 体育学术日历 (' + CALENDAR_EVENTS.length + '场)</button>' +
+          '<button type="button" class="cssd-tb-btn" id="hm-btn-cal">📅 会议日历 (' + CALENDAR_EVENTS.length + '场)</button>' +
           '<button type="button" class="cssd-tb-btn" id="hm-btn-rank">🏆 高校立项榜 TOP25</button>' +
         '</div></div>' +
       '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:16px;">' +
@@ -1167,7 +1187,7 @@
       var rinfo = document.getElementById('rinfo');
       if (rinfo && !rinfo.querySelector('.cssd-tb')) {
         var w = document.createElement('span'); w.className = 'cssd-tb';
-        w.innerHTML = '<button type="button" class="cssd-tb-btn">🔍 快搜 (⌘K)</button><button type="button" class="cssd-tb-btn nssfc-active">🇨🇳 2026国家社科专刊 <span class="cssd-nssfc-cnt">' + nssfcTxt + '</span></button><button type="button" class="cssd-tb-btn moe">🏅 2026教育部专刊 (108项)</button><button type="button" class="cssd-tb-btn">📅 学术会议日历</button><button type="button" class="cssd-tb-btn">🏆 院校立项榜</button><button type="button" class="cssd-tb-btn">📊 学科全景</button>';
+        w.innerHTML = '<button type="button" class="cssd-tb-btn">🔍 快搜 (⌘K)</button><button type="button" class="cssd-tb-btn nssfc-active">🇨🇳 2026国家社科专刊 <span class="cssd-nssfc-cnt">' + nssfcTxt + '</span></button><button type="button" class="cssd-tb-btn moe">🏅 2026教育部专刊 (108项)</button><button type="button" class="cssd-tb-btn">📅 会议日历</button><button type="button" class="cssd-tb-btn">🏆 院校立项榜</button><button type="button" class="cssd-tb-btn">📊 学科全景</button>';
         w.children[0].onclick = showCommandPalette;
         w.children[1].onclick = function() { show2026PortalModal('nssfc', 'list'); };
         w.children[2].onclick = function() { show2026PortalModal('moe', 'list'); };
