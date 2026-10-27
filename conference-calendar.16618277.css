@@ -1,0 +1,57 @@
+/* Conference calendar: scoped editorial layout; existing data/actions stay native. */
+html.cssd-light body #confcal{--cal-ink:#16364a;--cal-muted:#617480;--cal-line:#dce6e6;--cal-accent:#246c63;margin:40px 0}
+html.cssd-light body #confcal #confcalTitle{font-size:28px!important;letter-spacing:.03em;margin-bottom:18px;line-height:1.35}
+html.cssd-light body #confcal .cssd-cal-eye{color:#246c63;font-size:11px;letter-spacing:.12em;margin-bottom:8px}
+html.cssd-light body #confcal #cssd-academic-calendar-bar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 24px;padding:28px!important;background:#fff!important;border:1px solid #dce6e6!important;border-radius:18px!important;box-shadow:0 8px 28px rgba(22,54,74,.04)!important;min-width:0}
+html.cssd-light body #confcal .cssd-cal-tools{grid-column:2;grid-row:1;align-self:start;margin:0 0 22px}
+html.cssd-light body #confcal #cssd-cal-tabs{grid-column:1;grid-row:1;align-items:center;align-self:start;gap:8px!important;margin:0 0 22px!important;min-width:0}
+html.cssd-light body #confcal .cssd-cal-tab{padding:9px 14px!important;background:#f3f6f6!important;color:#3c5664!important;-webkit-text-fill-color:#3c5664!important;border:1px solid transparent!important;font-weight:500!important;line-height:20px!important;min-height:40px;white-space:normal!important;text-align:left}
+html.cssd-light body #confcal .cssd-cal-tab:hover{background:#e8f1ef!important;border-color:#a8c6c1!important}
+html.cssd-light body #confcal .cssd-cal-tab.active{background:#246c63!important;border-color:#246c63!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+html.cssd-light body #confcal .cssd-cal-all{background:transparent!important;border-color:transparent!important;color:#246c63!important;-webkit-text-fill-color:#246c63!important;min-height:44px;padding:8px 0!important;white-space:normal;text-align:right}
+html.cssd-light body #confcal .cssd-cal-hero{grid-column:1/-1;gap:16px;flex-wrap:nowrap;padding-top:22px;border-top:1px solid #e4ebed}
+html.cssd-light body #confcal .cssd-cal-hero-main{flex:1;min-width:0}
+html.cssd-light body #confcal .cssd-cal-badge{font-size:12px;color:#246c63!important;letter-spacing:.04em;margin:0 0 10px;line-height:1.6}
+html.cssd-light body #confcal .cssd-cal-hero-title{font-size:clamp(20px,2.2vw,28px)!important;line-height:1.55!important;font-weight:650!important;letter-spacing:.01em;margin-bottom:10px;overflow-wrap:anywhere}
+html.cssd-light body #confcal .cssd-cal-host{font-size:13px;line-height:1.8;font-weight:400;color:#617480!important}
+html.cssd-light body #confcal .cssd-cal-switch{gap:8px;flex-wrap:wrap;justify-content:flex-end}
+html.cssd-light body #confcal .cssd-cal-navbtn{min-height:44px;border-radius:10px;padding:10px 13px;border-color:#dce6e6!important;font-weight:500}
+html.cssd-light body #confcal .cssd-cal-meta{grid-column:1/-1;gap:10px 24px;margin:16px 0 24px;padding:0}
+html.cssd-light body #confcal .cssd-cal-meta-item{color:#526b78!important;font-size:13px;font-weight:500;line-height:1.75;overflow-wrap:anywhere}
+html.cssd-light body #confcal .cssd-cal-grid{grid-column:1/-1;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;margin:0 0 24px;min-width:0}
+html.cssd-light body #confcal .cssd-cal-count{background:#edf5f3!important;border:0!important;border-radius:14px;padding:24px;gap:22px;min-width:0;justify-content:center}
+html.cssd-light body #confcal .cssd-cal-count-kicker{font-size:14px;font-weight:600;color:#254e49}
+html.cssd-light body #confcal .cssd-cal-count-kicker span{display:none}
+html.cssd-light body #confcal .cssd-cal-digits{gap:8px;align-items:start}
+html.cssd-light body #confcal #cssd-academic-calendar-bar .cal-digit{font-size:clamp(25px,3.3vw,44px)!important;font-weight:600;line-height:1.25;letter-spacing:-.02em;color:#20584f!important;-webkit-text-fill-color:#20584f!important;min-width:0;overflow-wrap:anywhere;box-shadow:none!important;border-radius:0!important}
+html.cssd-light body #confcal #cssd-academic-calendar-bar .cal-unit{color:#54766e!important;font-size:12px;margin-top:8px}
+html.cssd-light body #confcal .cssd-cal-nodes{display:flex;flex-direction:column;justify-content:center;gap:0;background:transparent!important;border:0!important;border-radius:0;padding:2px 0;min-width:0}
+html.cssd-light body #confcal .cal-node{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 16px;align-items:baseline;margin:0 0 0 6px;padding:10px 0 14px 22px;background:transparent!important;border:0!important;border-left:1px solid #bdcfcb!important;border-radius:0;min-width:0}
+html.cssd-light body #confcal .cal-node::before{content:"";position:absolute;left:-5px;top:17px;width:9px;height:9px;border-radius:50%;background:#246c63;border:2px solid #fff;box-shadow:0 0 0 1px #246c63;box-sizing:border-box}
+html.cssd-light body #confcal .cal-node .t{font-size:13px;font-weight:500;color:#526b78!important;line-height:1.6}
+html.cssd-light body #confcal .cssd-cal-node-date{margin:0;font-size:13px;font-weight:600;color:#16364a!important;line-height:1.7;overflow-wrap:anywhere}
+html.cssd-light body #confcal .cal-node[hidden]{display:none!important}
+html.cssd-light body #confcal .cssd-cal-acts{grid-column:1/-1;grid-row:5;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0;padding-top:20px;border-top:1px solid #e4ebed}
+html.cssd-light body #confcal .cssd-cal-act{align-items:center;justify-content:center;text-align:center;min-height:48px;padding:12px!important;border-radius:10px;border:1px solid #d5e1e2!important;background:#fff!important;gap:0}
+html.cssd-light body #confcal .cssd-cal-act b{font-size:13px;font-weight:600;line-height:1.6}
+html.cssd-light body #confcal .cssd-cal-act small{display:none}
+html.cssd-light body #confcal #cal-act-cfp{background:#246c63!important;border-color:#246c63!important}
+html.cssd-light body #confcal #cal-act-cfp b{color:#fff!important;-webkit-text-fill-color:#fff!important}
+html.cssd-light body #confcal .cssd-cal-act:hover,html.cssd-light body #confcal .cssd-cal-navbtn:hover{box-shadow:none!important;background:#edf5f3!important;border-color:#86b0a8!important;transform:none!important}
+html.cssd-light body #confcal #cal-act-cfp:hover{background:#1a574f!important}
+html.cssd-light body #confcal button:focus-visible{outline:3px solid #a36923!important;outline-offset:3px}
+@media(max-width:760px){
+ html.cssd-light body #confcal #cssd-academic-calendar-bar{grid-template-columns:minmax(0,1fr);padding:20px!important;gap:0}
+ html.cssd-light body #confcal .cssd-cal-tools{grid-column:1;grid-row:1;justify-content:flex-start;margin:0 0 10px}
+ html.cssd-light body #confcal #cssd-cal-tabs{grid-row:2;flex-wrap:nowrap!important;overflow-x:auto!important;overflow-y:hidden!important;max-width:100%;padding:3px 3px 10px!important;margin-bottom:16px!important;scrollbar-width:thin}
+ html.cssd-light body #confcal .cssd-cal-tab{flex:0 0 auto;max-width:240px;white-space:nowrap!important;min-height:44px}
+ html.cssd-light body #confcal .cssd-cal-hero{flex-wrap:wrap;padding-top:18px}
+ html.cssd-light body #confcal .cssd-cal-switch{width:100%;justify-content:flex-start}
+ html.cssd-light body #confcal .cssd-cal-grid{grid-template-columns:minmax(0,1fr);gap:18px;margin-bottom:20px}
+ html.cssd-light body #confcal .cssd-cal-acts{grid-row:6;grid-template-columns:repeat(2,minmax(0,1fr))}
+ html.cssd-light body #confcal .cssd-cal-count{padding:20px;gap:18px}
+ html.cssd-light body #confcal #cssd-academic-calendar-bar .cal-digit{font-size:32px!important}
+ html.cssd-light body #confcal .cssd-cal-meta{margin:14px 0 20px;gap:8px 16px}
+ html.cssd-light body #confcal #confcalTitle{font-size:23px!important;letter-spacing:.02em}
+}
+@media(prefers-reduced-motion:reduce){html.cssd-light body #confcal *,html.cssd-light body #confcal *::before{transition:none!important;animation:none!important}}
