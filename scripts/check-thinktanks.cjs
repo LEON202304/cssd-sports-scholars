@@ -5,7 +5,12 @@ const vm = require('node:vm');
 const crypto = require('node:crypto');
 const assert = require('node:assert/strict');
 const root = process.env.CSSD_CHECK_ROOT || path.resolve(__dirname, '..');
-const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const homepage = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const html = fs.readFileSync(path.join(root, 'thinktanks.html'), 'utf8');
+assert(!/src="home-thinktanks\./.test(homepage), 'Full directory is loaded on its dedicated page');
+assert(homepage.includes("'journals','thinktanks','academicnews'"), 'Mobile common navigation contains thinktanks');
+assert(html.includes('id="thinkTankMount"') && html.includes('<main'), 'Dedicated page has a main mount point');
+assert(html.includes('aria-current="page">体育智库</a>'), 'Dedicated page marks its navigation item');
 const asset = html.match(/src="(home-thinktanks\.([a-f0-9]{8})\.js)"/);
 const style = html.match(/href="(home-thinktanks\.([a-f0-9]{8})\.css)"/);
 assert(asset && style, 'Directory assets must be referenced by the homepage');
@@ -31,8 +36,8 @@ function control(mode) {
 let mounted, insertions = 0;
 const controls = Object.fromEntries(['ttQuery', 'ttCategory', 'ttRows', 'ttResults', 'ttShowAll', 'ttReset'].map(id => [id, control()]));
 const modes = ['all', 'high', 'other'].map(control);
-const parent = {insertBefore(section) { mounted = section; insertions++; }};
-const document = {readyState: 'complete', getElementById() { return mounted; },
+const parent = {appendChild(section) { mounted = section; insertions++; }};
+const document = {readyState: 'complete', getElementById(id) { return id === 'thinkTankMount' ? parent : id === 'homeThinkTanks' ? mounted : null; },
   querySelector() { return {parentNode: parent}; },
   createElement() { return {setAttribute() {}, querySelector(sel) { return controls[sel.slice(1)]; }, querySelectorAll() { return modes; }}; }};
 const context = {document, URL, window: {}};
@@ -80,6 +85,21 @@ assert.equal(data.units.filter(u => u.listingSource).length, 22);
 assert(data.units.filter(u => u.listingSource).every(u => !u.highEnd));
 vm.runInNewContext(source, context);
 assert.equal(insertions, 1);
+const portalAsset = homepage.match(/src="(portal\.[a-f0-9]{8}\.js)"/);
+assert(portalAsset);
+assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root, portalAsset[1]))).digest('hex').slice(0, 8), portalAsset[1].split('.')[1]);
+const portalSource = fs.readFileSync(path.join(root, portalAsset[1]), 'utf8');
+assert.equal((portalSource.match(/\['thinktanks','体育智库'\]/g) || []).length, 2, 'Desktop and command routes registered');
+const handler = portalSource.slice(portalSource.indexOf('window.spNavigate=function(route){'), portalSource.indexOf('  if(route===\'confcal\'){', portalSource.indexOf('window.spNavigate=function(route){')));
+const assigned = [];
+const navContext = {URL, window: {location: {href:'https://example.com/cssd-sports-scholars/index.html', assign(url) {assigned.push(url);}}}};
+vm.runInNewContext(handler + '};', navContext);
+navContext.window.spNavigate('thinktanks');
+assert.equal(assigned[0], 'https://example.com/cssd-sports-scholars/thinktanks.html');
+navContext.window.location.href = 'https://tiyuxueren.com/#confcal';
+navContext.window.spNavigate('thinktanks');
+assert.equal(assigned[1], 'https://tiyuxueren.com/thinktanks.html');
 assert(source.includes('公示') && source.includes('非全国全量清单'));
-console.log('PASS: 83 records, 17 stars, asset hashes, source parity, search, filters, show-all, empty state, reset, external links, idempotent mount.');
+console.log('PASS: 83 records, 17 stars, desktop/mobile entries, standalone URL navigation, asset hashes, source parity, search, filters, show-all, empty state, reset, external links, idempotent mount.');
+
 

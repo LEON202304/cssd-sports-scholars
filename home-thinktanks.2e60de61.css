@@ -1,0 +1,95 @@
+/* 常驻智库名录：沿用首页 soft-home 样式。 */
+html.cssd-light body #vw-thinktanks .tt-topic{margin:24px 0 0;padding:26px 28px;background:#fff!important;color:#0A2A43;border:1px solid rgba(10,42,67,.08)!important;border-radius:16px!important;box-shadow:0 8px 24px rgba(10,42,67,.06)!important;font-family:var(--sp-sans,'PingFang SC','Microsoft YaHei',sans-serif)}
+#homeThinkTanks .tt-header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:14px}
+#homeThinkTanks h1{margin:0!important;padding:0!important;font-size:22px!important;line-height:1.4!important;font-weight:700!important;color:#0A2A43!important;letter-spacing:0!important}
+#homeThinkTanks h1::before,#homeThinkTanks h1::after{content:none!important}
+#homeThinkTanks .tt-subtitle{margin:4px 0 0;color:#5B6575!important;font-size:13px!important;line-height:1.6}
+#homeThinkTanks .tt-status{flex-shrink:0;padding:5px 11px;border-radius:6px!important;background:#E9F4EF!important;color:#16634F!important;font-size:12px!important;font-weight:600;line-height:1.5}
+#homeThinkTanks .tt-intro{margin:0 0 20px;color:#4C5D6B!important;font-size:14px!important;line-height:1.9!important}
+#homeThinkTanks .tt-table-wrap{padding-bottom:4px}
+#homeThinkTanks .tt-table{border-collapse:collapse;table-layout:fixed;width:100%;text-align:left;color:#344A5B!important}
+#homeThinkTanks .tt-table caption{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+#homeThinkTanks .tt-table th,#homeThinkTanks .tt-table td{padding:12px 14px;border-bottom:1px solid #E6EAF0;font-size:14px!important;line-height:1.7!important;overflow-wrap:anywhere;vertical-align:top;background:transparent!important;color:#344A5B!important}
+#homeThinkTanks .tt-table thead th{background:#F3F7F8!important;font-size:12px!important;color:#5B6575!important;font-weight:600}
+#homeThinkTanks .tt-table th:first-child,#homeThinkTanks .tt-table td:first-child{width:60px;text-align:center;font-variant-numeric:tabular-nums}
+#homeThinkTanks .tt-table thead th:nth-child(2){width:26%}
+#homeThinkTanks .tt-table tbody th{font-weight:600;color:#0A2A43!important}
+#homeThinkTanks .tt-table tbody tr:last-child>*{border-bottom:0}
+#homeThinkTanks a{color:#176E59!important;text-decoration:underline;text-underline-offset:3px}
+#homeThinkTanks a:hover{color:#0A2A43!important}
+#homeThinkTanks a:focus-visible{outline:2px solid #176E59!important;outline-offset:4px;border-radius:3px}
+#homeThinkTanks .tt-name-link{display:inline;line-height:1.8!important}
+#homeThinkTanks .tt-external{display:inline-block;vertical-align:-1px;margin-left:6px;width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+#homeThinkTanks .tt-destination{display:block;margin-top:4px;color:#5B6575!important;font-size:12px!important;font-weight:400!important;line-height:1.6!important;overflow-wrap:anywhere}
+#homeThinkTanks .tt-source{display:block!important;margin:16px 0 0;padding-top:14px;border-top:1px solid #E6EAF0;font-size:12px!important;line-height:1.8!important;color:#5B6575!important}
+@media(max-width:600px){
+  html.cssd-light body #vw-thinktanks .tt-topic{padding:20px 16px;margin-top:18px}
+  #homeThinkTanks h1{font-size:20px!important}
+  #homeThinkTanks .tt-header{gap:10px;align-items:flex-start}
+  #homeThinkTanks .tt-table th,#homeThinkTanks .tt-table td{padding:12px 6px;font-size:13px!important}
+  #homeThinkTanks .tt-table th:first-child,#homeThinkTanks .tt-table td:first-child{width:30px}
+  #homeThinkTanks .tt-table thead th:nth-child(2){width:27%}
+  #homeThinkTanks .tt-name-link{display:inline-block;min-height:44px}
+  #homeThinkTanks .tt-destination{font-size:11px!important}
+}
+
+/* Expanded directory controls and source annotations. */
+#homeThinkTanks .tt-controls{display:grid;grid-template-columns:minmax(0,1fr) minmax(160px,220px);gap:16px;margin:20px 0 14px}
+#homeThinkTanks .tt-controls label{display:flex;flex-direction:column;gap:7px;min-width:0;color:#344A5B!important;font-size:12px!important;line-height:1.5}
+#homeThinkTanks .tt-controls input,#homeThinkTanks .tt-controls select{box-sizing:border-box;width:100%;min-width:0;min-height:44px;padding:10px 12px;background:#fff!important;border:1px solid #CCD8DE!important;border-radius:8px!important;color:#0A2A43!important;font-family:inherit;font-size:14px!important;line-height:1.5!important}
+#homeThinkTanks .tt-controls input::placeholder{color:#657482!important}
+#homeThinkTanks .tt-controls input:focus-visible,#homeThinkTanks .tt-controls select:focus-visible,#homeThinkTanks button:focus-visible{outline:2px solid #176E59!important;outline-offset:3px}
+#homeThinkTanks .tt-filter-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 16px;margin-bottom:10px}
+#homeThinkTanks .tt-filters{display:flex;flex-wrap:wrap;gap:8px}
+#homeThinkTanks .tt-filters button,#homeThinkTanks #ttShowAll,#homeThinkTanks #ttReset{appearance:none;min-height:44px;padding:9px 13px;background:#fff!important;color:#344A5B!important;border:1px solid #DCE5E9!important;border-radius:7px!important;box-shadow:none!important;font-family:inherit;font-size:13px!important;font-weight:500!important;line-height:1.6!important;cursor:pointer;transform:none!important}
+#homeThinkTanks .tt-filters button[aria-pressed="true"]{background:#E9F4EF!important;border-color:#87B7A4!important;color:#16634F!important;font-weight:700!important}
+#homeThinkTanks .tt-filters button:hover,#homeThinkTanks #ttShowAll:hover{border-color:#176E59!important}
+#homeThinkTanks #ttReset{border-color:transparent!important;padding-left:0;padding-right:0;color:#176E59!important;text-decoration:underline;text-underline-offset:3px}
+#homeThinkTanks .tt-results{margin:8px 0 12px;color:#5B6575!important;font-size:12px!important;line-height:1.6!important;font-variant-numeric:tabular-nums}
+#homeThinkTanks .tt-table thead th:nth-child(2){width:44%}
+#homeThinkTanks .tt-table tbody th{font-weight:500}
+#homeThinkTanks .tt-meta{display:flex;align-items:center;flex-wrap:wrap;gap:6px 10px;margin:6px 0 0;font-size:12px!important;font-weight:400!important;color:#5B6575!important;line-height:1.6}
+#homeThinkTanks .tt-star{display:inline-block;color:#7B5316!important;background:#FFF5DE!important;border:1px solid #F0D599!important;border-radius:4px!important;padding:1px 6px;font-weight:600!important;font-size:12px!important}
+#homeThinkTanks .tt-category{color:#4C5D6B!important}
+#homeThinkTanks .tt-owner{font-size:14px!important;color:#344A5B!important;font-weight:500;line-height:1.7}
+#homeThinkTanks .tt-topics,#homeThinkTanks .tt-evidence{display:block;margin-top:6px;color:#5B6575!important;font-size:12px!important;line-height:1.8!important;overflow-wrap:anywhere}
+#homeThinkTanks .tt-empty{padding:24px 10px!important;text-align:center!important;width:auto!important;color:#5B6575!important}
+#homeThinkTanks .tt-list-actions{display:flex;justify-content:center;margin:12px 0}
+#homeThinkTanks [hidden]{display:none!important}
+#homeThinkTanks .tt-coverage{margin-top:7px;border-top:0;padding-top:0}
+@media(max-width:600px){
+  #homeThinkTanks .tt-controls{grid-template-columns:minmax(0,1fr);gap:12px}
+  #homeThinkTanks .tt-filters{gap:6px}
+  #homeThinkTanks .tt-filters button{padding:8px 10px;font-size:12px!important}
+  #homeThinkTanks .tt-table th:first-child,#homeThinkTanks .tt-table td:first-child{display:none}
+  #homeThinkTanks .tt-table thead th:nth-child(2){width:48%}
+  #homeThinkTanks .tt-empty{display:table-cell!important}
+  #homeThinkTanks .tt-owner{font-size:13px!important}
+  #homeThinkTanks .tt-name-link{min-height:0;line-height:1.9!important}
+}
+
+
+/* Dedicated directory page and its top navigation entry. */
+body.tt-standalone{margin:0;background:var(--sp-bg,#F5F7FA);font-family:var(--sp-font,system-ui,"PingFang SC","Microsoft YaHei",sans-serif)}
+body.tt-standalone *{box-sizing:border-box}
+body.tt-standalone .sp-brand{text-decoration:none}
+body.tt-standalone header.sp-header{height:64px;min-height:64px;padding:0 28px;justify-content:space-between}
+.tt-page{padding:88px 24px 48px;min-height:100vh}
+.tt-page>.sp-wrap{max-width:1240px;width:100%;margin:0 auto}
+html.cssd-light body #vw-thinktanks .tt-topic{margin-top:0}
+.tt-standalone .tt-nav{display:flex;align-items:center;gap:24px;margin-left:auto}
+.tt-standalone .tt-nav a{display:flex;align-items:center;min-height:44px;padding:8px 2px;font-size:14px;line-height:1.5;font-weight:600;text-decoration:none;color:#344A5B;border-bottom:2px solid transparent}
+.tt-standalone .tt-nav a[aria-current="page"]{color:#176E59;border-bottom-color:#176E59}
+.tt-standalone .tt-nav a:focus-visible{outline:2px solid #176E59;outline-offset:3px}
+.tt-page #ttLoading{color:#5B6575;font-size:14px;line-height:1.8}
+@media(min-width:721px){
+  html.cssd-light body header.sp-header nav.sp-links>button[data-route="thinktanks"]{display:inline-flex!important;align-items:center;flex-shrink:0}
+}
+@media(max-width:600px){
+  body.tt-standalone header.sp-header{height:56px;min-height:56px;padding:0 16px}
+  body.tt-standalone .sp-brand>span>small{display:none}
+  .tt-page{padding:74px 12px 32px}
+  .tt-standalone .tt-nav{gap:16px}
+  .tt-standalone .tt-nav a{font-size:13px}
+}
+
