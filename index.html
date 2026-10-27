@@ -78,7 +78,7 @@ html.cssd-boot-ready #bootSplash{opacity:0!important;visibility:hidden!important
      首屏可省下约 900 KB（Brotli）。详见该脚本下方的 _cnkiLoad 懒加载器。 -->
 <!-- scholar bundle loads via defer; do not preload (7.4MB fights first paint) -->
 <link rel="preload" as="script" href="sports-univ-catalog.03c68ed9.js">
-<link rel="preload" as="script" href="portal.7c73e9b3.js">
+<link rel="preload" as="script" href="portal.e9ff4e43.js">
 <link rel="preload" as="image" href="mountains.5f7d4f16.webp" type="image/webp" fetchpriority="high">
 
 <title>体育学人 · 中国体育学术资源数据库</title>
@@ -5865,6 +5865,7 @@ html.cssd-light .nb.on{color:#2E9A89!important}
 </style>
 <script id="cssd-theme-lock-light">(function(){try{var r=document.documentElement;r.classList.add("cssd-light");r.classList.remove("cssd-dark");localStorage.setItem("cssd-theme","light");}catch(e){}})();</script>
 <link rel="stylesheet" href="conference-calendar.16618277.css">
+<link rel="stylesheet" href="academic-feed.66678e38.css">
 </head>
 <body>
 
@@ -7218,75 +7219,7 @@ html.cssd-light #vw-phdschools .phd-tab.on{
 </div>
 
 <!-- ACADEMIC NEWS 最新学术动态 -->
-<div class="vw sp-news" id="vw-academicnews">
-  <div class="an-wrap">
-    <section class="an-hero">
-      <div>
-        <div class="an-ey">ACADEMIC RADAR · 每日学术动态</div>
-        <h2 class="cssd-h2v">体育学最新学术动态</h2>
-        <p>每日聚合体育学论文、期刊投稿入口、科研项目与学科热点，帮助快速把握当天值得关注的研究方向。</p>
-      </div>
-      <div class="an-datebox">
-        <span>今日更新</span>
-        <b id="anToday">--</b>
-        <em id="anRefreshNote">已按本地日期生成</em>
-        <div class="sp-news-status" id="spNewsStatus" data-state="live" role="status" aria-live="polite"><span class="sp-news-dot" aria-hidden="true"></span><span id="spNewsStatusText">实时聚合</span></div>
-      </div>
-    </section>
-
-    <section class="an-kpis">
-      <div><b id="anKpiPapers">--</b><span>可追踪论文</span></div>
-      <div><b id="anKpiJournals">--</b><span>投稿期刊</span></div>
-      <div><b id="anKpiProjects">--</b><span>项目记录</span></div>
-      <div><b id="anKpiTopics">--</b><span>今日主题</span></div>
-    </section>
-
-    <section class="an-toolbar">
-      <div class="an-tabs">
-        <button class="an-tab on" data-an-filter="all" onclick="setAcademicNewsFilter('all')">全部</button>
-        <button class="an-tab" data-an-filter="paper" onclick="setAcademicNewsFilter('paper')">论文</button>
-        <button class="an-tab" data-an-filter="journal" onclick="setAcademicNewsFilter('journal')">期刊</button>
-        <button class="an-tab" data-an-filter="project" onclick="setAcademicNewsFilter('project')">项目</button>
-        <button class="an-tab" data-an-filter="event" onclick="setAcademicNewsFilter('event')">会议</button>
-      </div>
-      <button class="an-sync-btn" onclick="renderAcademicNews(true)">刷新今日动态</button>
-    </section>
-
-    <section class="an-layout">
-      <div>
-        <div class="an-section-head">
-          <h2>今日聚焦</h2>
-          <span id="anBrief">按体育学关键词自动归纳</span>
-        </div>
-        <div id="anSpotlight" class="an-spotlight"></div>
-
-        <div class="an-section-head">
-          <h2>动态流</h2>
-          <span>论文、期刊、项目、会议线索</span>
-        </div>
-        <div id="anStream" class="an-stream"></div>
-      </div>
-
-      <aside class="an-side">
-        <div class="an-side-block">
-          <h3>快捷入口</h3>
-          <button onclick="go('journals');setTimeout(function(){jnlSwitchTab('cnki');cnkiInitOnce();},80)">查看最新论文</button>
-          <button onclick="go('daily')">每日动态 · 期刊/院校日报</button>
-          <button onclick="go('journals')">期刊投稿导航</button>
-          <button onclick="go('projects')">科研项目库</button>
-          <button onclick="openGlobalSearch()">全库检索</button>
-        </div>
-        <div class="an-side-block">
-          <h3>动态来源</h3>
-          <div id="anSourceLinks" class="an-sources"></div>
-        </div>
-        <div class="an-note">
-          当前版本基于本地内置论文、期刊与项目数据每日生成。若需要真正后台定时抓取，可接入服务器定时任务或可跨域学术数据 API。
-        </div>
-      </aside>
-    </section>
-  </div>
-</div>
+<div class="vw sp-news" id="vw-academicnews"></div>
 
 <!-- JOURNALS 期刊学术板块 -->
 <div class="vw" id="vw-journals">
@@ -17360,10 +17293,11 @@ html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"].on small{
 })();
 </script>
 
-<script defer src="portal.7c73e9b3.js"></script><!-- offline: stripped cf -->
-<script defer src="home-news.d47253ff.js"></script>
-<script defer src="home-xuejie.f9ca9989.js"></script>
-<script defer src="home-daily.js"></script>
+<script defer src="portal.e9ff4e43.js"></script>
+<script defer src="academic-feed.01ad59d5.js"></script><!-- offline: stripped cf -->
+
+
+
 
 <script id="cssd-boot-reveal">(function(){
   function reveal(){try{document.documentElement.classList.add('cssd-boot-ready');}catch(e){}}
