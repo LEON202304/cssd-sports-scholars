@@ -1,63 +1,87 @@
 {
-  "generatedAt": "2026-10-28",
+  "generatedAt": "2026-10-29",
   "source": "C刊官网 + 体育院校官网（GitHub Actions 每日）",
   "statusHint": "live",
   "items": [
     {
       "cat": "院校",
-      "source": "山东体育学院",
-      "section": "学校主页",
-      "title": "2026年体育文化与社会学学术研讨会征文通知 时间：-20日 地点：泰山学院",
-      "date": "2026-12-18",
-      "link": "https://www.sdpei.edu.cn/2026/1023/c1393a87390/page.htm"
+      "source": "南京体育学院",
+      "section": "通知公告",
+      "title": "图形工作站采购项目流标公告",
+      "date": "2026-10-28",
+      "link": "https://www.nsi.edu.cn/6d/4b/c2349a93515/page.htm"
     },
     {
       "cat": "院校",
-      "source": "山东体育学院",
-      "section": "学校主页",
-      "title": "第二届中国体育科学学会女科技工作者工作委员会学术交流会征文通知 时间：-6日 地点：山东体育学院",
-      "date": "2026-12-04",
-      "link": "https://www.sdpei.edu.cn/2026/1023/c1393a87395/page.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "山东体育学院",
-      "section": "学校主页",
-      "title": "2026年山东省第三届休闲体育与体育旅游学术论坛征文通知 时间：—15日 地点：烟台新时代大酒店",
-      "date": "2026-11-13",
-      "link": "https://www.sdpei.edu.cn/2026/1023/c1393a87393/page.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "山东体育学院",
-      "section": "学校主页",
-      "title": "关于召开2026年中国学校体育理论创新与自主知识体系构建学术交流会的通知 时间：—11月1日 地点：山东体育学院",
-      "date": "2026-10-30",
-      "link": "https://www.sdpei.edu.cn/2026/1023/c1393a87391/page.htm"
+      "source": "南京体育学院",
+      "section": "通知公告",
+      "title": "艺术体操比赛服采购项目流标公告",
+      "date": "2026-10-28",
+      "link": "https://www.nsi.edu.cn/6d/49/c2349a93513/page.htm"
     },
     {
       "cat": "院校",
       "source": "南京体育学院",
       "section": "学校主页",
-      "title": "朝晖砺志，跃动青春——运动训练学院2026级学生早操纪实",
+      "title": "马克思主义学院举办思政课教学研讨暨思政微课比赛经验分享交流会",
       "date": "2026-10-28",
-      "link": "https://www.nsi.edu.cn/6d/23/c2342a93475/page.htm"
+      "link": "https://www.nsi.edu.cn/6d/47/c2342a93511/page.htm"
     },
     {
       "cat": "院校",
       "source": "南京体育学院",
       "section": "学校主页",
-      "title": "马克思主义学院受邀参加运动训练学院课程思政教学沙龙",
+      "title": "献礼校庆！运动健康学院收到近百件师生校友文艺创意佳作",
       "date": "2026-10-28",
-      "link": "https://www.nsi.edu.cn/6d/1d/c2342a93469/page.htm"
+      "link": "https://www.nsi.edu.cn/6d/26/c2342a93478/page.htm"
     },
     {
       "cat": "院校",
-      "source": "南京体育学院",
-      "section": "学校主页",
-      "title": "外观大势 内省自身——复旦科创企业家营第13期南体模块在我校灵谷寺校区顺利举办",
+      "source": "天津体育学院",
+      "section": "学校要闻",
+      "title": "我校在学体联2026—2027年全国大学生游泳锦标赛（北方赛区）中摘金夺银",
       "date": "2026-10-28",
-      "link": "https://www.nsi.edu.cn/6d/12/c2347a93458/page.htm"
+      "link": "https://mp.weixin.qq.com/s/TArrs9LWo6qOgy5JemKRmw"
+    },
+    {
+      "cat": "院校",
+      "source": "天津体育学院",
+      "section": "学校要闻",
+      "title": "民盟天津体育学院支部圆满完成换届选举",
+      "date": "2026-10-28",
+      "link": "https://mp.weixin.qq.com/s/GzYluke-l18VfL8m46Kctg"
+    },
+    {
+      "cat": "院校",
+      "source": "天津体育学院",
+      "section": "学校要闻",
+      "title": "天津市社会科学界联合会党组成员、专职副主席袁世军一行来校调研交流",
+      "date": "2026-10-28",
+      "link": "https://mp.weixin.qq.com/s/21R6cV3_HtcLP3V6xiA11A"
+    },
+    {
+      "cat": "院校",
+      "source": "广州体育学院",
+      "section": "广体要闻",
+      "title": "▸ 副校长侯晓晖为运动与健康学院学子讲授专题思政课：智赋运动健康 青春向党同行",
+      "date": "2026-10-28",
+      "link": "http://news.gzsport.edu.cn:80/info/18004"
+    },
+    {
+      "cat": "院校",
+      "source": "广州体育学院",
+      "section": "公告栏",
+      "title": "国家羽毛球学院产教融合创新中心空调购置项目验收公示",
+      "date": "2026-10-28",
+      "link": "http://www.gzsport.edu.cn:80/info/18005"
+    },
+    {
+      "cat": "院校",
+      "source": "广州体育学院",
+      "section": "公告栏",
+      "title": "广州体育学院70周年校庆宣传服务项目 单一来源采购方式公示",
+      "date": "2026-10-28",
+      "link": "http://www.gzsport.edu.cn:80/info/17988"
     },
     {
       "cat": "院校",
@@ -69,11 +93,27 @@
     },
     {
       "cat": "院校",
+      "source": "首都体育学院",
+      "section": "新闻网",
+      "title": "光影铸魂忆长征 砥砺初心担使命——机关党委组织开展纪念长征胜利90周年主题观影党...",
+      "date": "2026-10-28",
+      "link": "https://news.cupes.edu.cn/jjxy/ca59020cef1a477b81a4e1611ddf810a.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "首都体育学院",
+      "section": "通知公告",
+      "title": "《体育教学》2027年印刷服务公开招标公告",
+      "date": "2026-10-28",
+      "link": "https://www.cupes.edu.cn/docs/2026-10/4a9e9e732f834f19a2bd65c6e58ae129.pdf"
+    },
+    {
+      "cat": "院校",
       "source": "南京体育学院",
-      "section": "动态速递",
-      "title": "2026年江苏省中小学体育教师培训（跆拳道、跳绳专项）在我校开班",
-      "date": "2026-10-27",
-      "link": "https://www.nsi.edu.cn/6d/08/c2347a93448/page.htm"
+      "section": "学校主页",
+      "title": "外观大势 内省自身——复旦科创企业家营第13期南体模块在我校灵谷寺校区顺利举办",
+      "date": "2026-10-28",
+      "link": "https://www.nsi.edu.cn/6d/12/c2347a93458/page.htm"
     },
     {
       "cat": "院校",
@@ -82,54 +122,6 @@
       "title": "媒体看天体 | 市教委官方微信津门教育：津城校园，把青春足迹印在新时代的长征路上",
       "date": "2026-10-27",
       "link": "https://mp.weixin.qq.com/s/xdh_eKN-CviHf2pPiAI_2w"
-    },
-    {
-      "cat": "院校",
-      "source": "天津体育学院",
-      "section": "学校要闻",
-      "title": "党委副书记、院长李珊出席2026中俄体育发展论坛",
-      "date": "2026-10-27",
-      "link": "https://mp.weixin.qq.com/s/DfJOkTM1YYH9Vo4mqWBO5Q"
-    },
-    {
-      "cat": "院校",
-      "source": "天津体育学院",
-      "section": "学校要闻",
-      "title": "我校大学生在首届京津冀高校高尔夫球公开赛上获佳绩",
-      "date": "2026-10-27",
-      "link": "https://mp.weixin.qq.com/s/UrjS-fdEKYluRBfwoqcEfA"
-    },
-    {
-      "cat": "院校",
-      "source": "天津体育学院",
-      "section": "学校要闻",
-      "title": "媒体看天体 | 多家媒体报道我校志愿者护航2026天津马拉松",
-      "date": "2026-10-27",
-      "link": "https://mp.weixin.qq.com/s/Voav04x9XLcOTnUiLV28zQ"
-    },
-    {
-      "cat": "院校",
-      "source": "沈阳体育学院",
-      "section": "学校新闻",
-      "title": "省委决定：孙士国同志任沈阳体育学院党委委员、常委、书记 省委决定：孙士国同志任沈阳体育学院党委委员、常委、书记。",
-      "date": "2026-10-27",
-      "link": "https://www.syty.edu.cn/info/1061/18073.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "沈阳体育学院",
-      "section": "学校主页",
-      "title": "省委决定：孙士国同志任沈阳体育学院党委委员、常委、书记",
-      "date": "2026-10-27",
-      "link": "https://www.syty.edu.cn/info/1061/18073.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "沈阳体育学院",
-      "section": "学校主页",
-      "title": "对接产业需求 拓宽就业渠道——冰雪运动学院（冰雪产业研究院）开展访企拓岗暨校际交流活动",
-      "date": "2026-10-27",
-      "link": "https://www.syty.edu.cn/info/1036/18153.htm"
     },
     {
       "cat": "院校",
@@ -157,11 +149,11 @@
     },
     {
       "cat": "院校",
-      "source": "山东体育学院",
-      "section": "学校主页",
-      "title": "【大众日报】山东体育学院数据“把脉”助竞技体育屡创佳绩 科技“执尺”，丈量赛场毫厘",
+      "source": "天津体育学院",
+      "section": "学校要闻",
+      "title": "党委副书记、院长李珊出席2026中俄体育发展论坛",
       "date": "2026-10-27",
-      "link": "https://www.sdpei.edu.cn/2026/1027/c593a89548/page.htm"
+      "link": "https://mp.weixin.qq.com/s/DfJOkTM1YYH9Vo4mqWBO5Q"
     },
     {
       "cat": "院校",
@@ -173,27 +165,11 @@
     },
     {
       "cat": "院校",
-      "source": "北京体育大学",
-      "section": "通知公告",
-      "title": "北京体育大学学生公寓用电智能管理系统维保服务项目比选公告",
-      "date": "2026-10-26",
-      "link": "https://www.bsu.edu.cn/tzgg/3a9a3972b29f4c14b6a7f70c3f6f2902.htm"
-    },
-    {
-      "cat": "院校",
       "source": "广州体育学院",
       "section": "公告栏",
       "title": "关于公示毛钰蘅副教授赴香港参加会议相关情况的通知",
       "date": "2026-10-26",
       "link": "http://www.gzsport.edu.cn:80/info/17963"
-    },
-    {
-      "cat": "院校",
-      "source": "沈阳体育学院",
-      "section": "学校主页",
-      "title": "冰雪运动学院（冰雪产业研究院）组织师生参加辽宁省短道速滑一级裁判员培训",
-      "date": "2026-10-26",
-      "link": "https://www.syty.edu.cn/info/1036/17993.htm"
     },
     {
       "cat": "院校",
@@ -221,59 +197,11 @@
     },
     {
       "cat": "院校",
-      "source": "天津体育学院",
-      "section": "学校要闻",
-      "title": "青春护航，逐梦津门 | 我校609名志愿者为2026天津马拉松注入青春力量",
-      "date": "2026-10-26",
-      "link": "https://mp.weixin.qq.com/s/dTKf8C0PLGnROGxt-g-H6Q"
-    },
-    {
-      "cat": "院校",
-      "source": "沈阳体育学院",
-      "section": "学校主页",
-      "title": "深化校际交流 共育冰雪人才——冰雪运动学院（冰雪产业研究院）开展2027年硕士研究生招生宣讲",
-      "date": "2026-10-26",
-      "link": "https://www.syty.edu.cn/info/1036/18063.htm"
-    },
-    {
-      "cat": "院校",
       "source": "广州体育学院",
       "section": "广体要闻",
       "title": "▸ 广州体育学院干部师生热议习近平总书记在纪念中国工农红军长征胜利90周年大会上的重...",
       "date": "2026-10-25",
       "link": "https://mp.weixin.qq.com/s/PwUZyB9dqgQs6IdcpExwUg"
-    },
-    {
-      "cat": "院校",
-      "source": "广州体育学院",
-      "section": "广体要闻",
-      "title": "▸ 西班牙皇马基金会、皇马研究生院到访广州体育学院",
-      "date": "2026-10-24",
-      "link": "http://news.gzsport.edu.cn:80/info/17976"
-    },
-    {
-      "cat": "院校",
-      "source": "广州体育学院",
-      "section": "公告栏",
-      "title": "工程验收公示(清远校区（筹）15、17号楼局部修缮工程)",
-      "date": "2026-10-24",
-      "link": "http://www.gzsport.edu.cn:80/info/17981"
-    },
-    {
-      "cat": "院校",
-      "source": "首都体育学院",
-      "section": "新闻网",
-      "title": "首都体育学院建校70周年高质量发展大会隆重举行",
-      "date": "2026-10-24",
-      "link": "https://news.cupes.edu.cn/zhxw/d44e8b08ebcc425c93d98f1a12cc920e.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "首都体育学院",
-      "section": "新闻网",
-      "title": "[北京时间]首都体育学院新校区一期主体结构全面封顶",
-      "date": "2026-10-24",
-      "link": "https://news.cupes.edu.cn/zhxw/d32b1d2b354f46da9ef4a5aaa07ef4dd.htm"
     },
     {
       "cat": "院校",
@@ -290,14 +218,6 @@
       "title": "喜报|我校教师韩淼雨亚残运会举重夺冠 打破亚洲纪录 喜报|我校教师韩淼雨亚残运会举重夺冠 打破亚洲纪录",
       "date": "2026-10-23",
       "link": "https://www.hrbipe.edu.cn/info/1045/8684.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "广州体育学院",
-      "section": "广体要闻",
-      "title": "▸ 广州体育学院召开本科教育教学审核评估整改督导复查工作会议",
-      "date": "2026-10-23",
-      "link": "http://news.gzsport.edu.cn:80/info/17985"
     },
     {
       "cat": "院校",
@@ -332,22 +252,6 @@
       "link": "https://www.hrbipe.edu.cn/info/1046/8671.htm"
     },
     {
-      "cat": "院校",
-      "source": "北京体育大学",
-      "section": "通知公告",
-      "title": "北京体育大学后勤管理处扫路车采购项目​询价公告",
-      "date": "2026-10-09",
-      "link": "https://www.bsu.edu.cn/tzgg/ea12d312ceba4fa487ab993f481b2fcd.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "北京体育大学",
-      "section": "通知公告",
-      "title": "北京体育大学阿尔伯塔国际休闲体育与旅游学院2025年度办学报告",
-      "date": "2026-09-29",
-      "link": "https://www.bsu.edu.cn/tzgg/4b4c406ce9714a539fad50f39861a6bb.htm"
-    },
-    {
       "cat": "期刊",
       "source": "体育学刊",
       "section": "新闻公告",
@@ -380,14 +284,6 @@
       "link": "https://tyxk.scnu.edu.cn/a/20260713/1044.html"
     },
     {
-      "cat": "院校",
-      "source": "北京体育大学",
-      "section": "通知公告",
-      "title": "北京体育大学国家训练基地2026年厨房设备采购项目询价公告",
-      "date": "2026-06-12",
-      "link": "https://www.bsu.edu.cn/tzgg/2524d2e0fead46539db0422ac93d3bc7.htm"
-    },
-    {
       "cat": "期刊",
       "source": "天津体育学院学报",
       "section": "网络首发",
@@ -410,6 +306,22 @@
       "title": "喜报 ||《体育学研究》首次入选“学术影响力卓越期刊”和“优秀传播实践期刊”",
       "date": "2026-04-22",
       "link": "http://ntxb.nsi.edu.cn/ch/reader/view_news.aspx?id=20260422140048001&meeting_id="
+    },
+    {
+      "cat": "期刊",
+      "source": "西安体育学院学报",
+      "section": "网络首发",
+      "title": "“上网”还是“上场”?——教育经历、互联网使用与体育锻炼的因果中介分析",
+      "date": "2025-11-19",
+      "link": "https://xaty.cbpt.cnki.net/portal/journal/portal/client/paper/4abe34a1dbce20971bbf712d0d86c85f"
+    },
+    {
+      "cat": "期刊",
+      "source": "西安体育学院学报",
+      "section": "网络首发",
+      "title": "我国学校体育教学数字化转型:图景、困境与进路",
+      "date": "2025-11-10",
+      "link": "https://xaty.cbpt.cnki.net/portal/journal/portal/client/paper/c726988206b5b2c307e053af027a6160"
     },
     {
       "cat": "期刊",
@@ -446,7 +358,7 @@
     {
       "cat": "期刊",
       "source": "中国体育科技",
-      "section": "门户论文",
+      "section": "当期目录",
       "title": "青少年射箭运动员专项成绩影响因素中的核心专项体能识别及心理变量检验",
       "date": "",
       "link": "https://zgty.cbpt.cnki.net/portal/journal/portal/client/paper/301359961a441efbbff2f3d62afe12ca"
@@ -454,7 +366,7 @@
     {
       "cat": "期刊",
       "source": "中国体育科技",
-      "section": "门户论文",
+      "section": "当期目录",
       "title": "虚拟现实条件下篮球运动员运动决策表现及眼动特征研究",
       "date": "",
       "link": "https://zgty.cbpt.cnki.net/portal/journal/portal/client/paper/1493583790f9566515a9b6d13acf2bb9"
@@ -462,7 +374,7 @@
     {
       "cat": "期刊",
       "source": "中国体育科技",
-      "section": "门户论文",
+      "section": "当期目录",
       "title": "空间生产理论视域下国家级体育训练基地功能转型的基本路向、制约因素与创新对策",
       "date": "",
       "link": "https://zgty.cbpt.cnki.net/portal/journal/portal/client/paper/78cfc15e333ee5de7a600868457c49a0"
@@ -470,7 +382,7 @@
     {
       "cat": "期刊",
       "source": "中国体育科技",
-      "section": "门户论文",
+      "section": "当期目录",
       "title": "不同运动方式对老年人认知功能的影响研究",
       "date": "",
       "link": "https://zgty.cbpt.cnki.net/portal/journal/portal/client/paper/660a918b1e13f98e2285f8a046b31acf"
@@ -503,6 +415,14 @@
       "cat": "期刊",
       "source": "体育科学",
       "section": "最新发表",
+      "title": "新型数字基础设施对全民健身公共服务效率及其均等化的影响",
+      "date": "",
+      "link": "http://tykx.xml-journal.net/article/doi/10.16469/J.css.2026KX082"
+    },
+    {
+      "cat": "期刊",
+      "source": "体育科学",
+      "section": "最新发表",
       "title": "高原环境结合爆发力专项训练对国家健将级男子200 m个人混合泳蛙泳段划水效率的影响研究",
       "date": "",
       "link": "http://tykx.xml-journal.net/article/doi/10.16469/J.css.2026KX033"
@@ -514,14 +434,6 @@
       "title": "视障者协同跑步中的共主体性生成机制研究",
       "date": "",
       "link": "http://tykx.xml-journal.net/article/doi/10.16469/J.css.2026KX050"
-    },
-    {
-      "cat": "期刊",
-      "source": "体育科学",
-      "section": "最新发表",
-      "title": "论运动训练学的发展",
-      "date": "",
-      "link": "http://tykx.xml-journal.net/article/doi/10.16469/J.css.2026KX046"
     },
     {
       "cat": "期刊",
@@ -597,22 +509,6 @@
     },
     {
       "cat": "期刊",
-      "source": "西安体育学院学报",
-      "section": "当期目录",
-      "title": "数字经济驱动体育产业区域一体化发展：逻辑机理、现实阻滞与推进策略",
-      "date": "",
-      "link": "https://xaty.cbpt.cnki.net/portal/journal/portal/client/paper/16e48ea31adb704ff9146e4c31f742d8"
-    },
-    {
-      "cat": "期刊",
-      "source": "西安体育学院学报",
-      "section": "当期目录",
-      "title": "我国省域城镇居民体育消费潜力测度与时空演进特征分析",
-      "date": "",
-      "link": "https://xaty.cbpt.cnki.net/portal/journal/portal/client/paper/c186771fc13391ae796e15e75a854c26"
-    },
-    {
-      "cat": "期刊",
       "source": "体育学刊",
       "section": "新闻公告",
       "title": "体育学刊编辑部 恭祝您国庆快乐",
@@ -626,22 +522,6 @@
       "title": "体育学刊编辑部 恭祝您中秋快乐",
       "date": "",
       "link": "https://tyxk.scnu.edu.cn/a/20260924/1046.html"
-    },
-    {
-      "cat": "院校",
-      "source": "北京体育大学",
-      "section": "校园要闻",
-      "title": "33所高校学子共赴奥林匹克青年赋能之约——2026全国高校模拟奥委会在北京体育大学成功...",
-      "date": "",
-      "link": "https://www.bsu.edu.cn/xyyw/851bb7e16f234c6b892cbf990baea194.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "北京体育大学",
-      "section": "校园要闻",
-      "title": "智汇青年 共话奥林匹克｜“2026奥林匹克青年骨干训练营”拉开“青年赋能周”序幕",
-      "date": "",
-      "link": "https://www.bsu.edu.cn/xyyw/0811b34afb5f47f0b3d4f94c35a799b5.htm"
     },
     {
       "cat": "院校",
