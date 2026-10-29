@@ -1,4 +1,4 @@
-/* v4.6-118 学术动态：首页单列软卡。页头不再走全局 header 深色条。 */
+/* v4.6-120 学术动态：首页 #homeNews 仍是通栏白卡。/academicnews 的 .af-page 为 760 居中；页头链接与首页 .af-all 一样是纯文字（#2E9A89，无底、无边、无胶囊）。 */
 html.cssd-light body .af{--af-ink:#0A2A43;--af-muted:#5B6575;--af-green:#246c63;color:var(--af-ink);margin:32px 0;min-width:0}
 html.cssd-light body .af .af-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:16px 20px;margin-bottom:16px;background:transparent !important;background-image:none !important;backdrop-filter:none !important;-webkit-backdrop-filter:none !important;border:0 !important;box-shadow:none !important;border-radius:0 !important;padding:0}
 html.cssd-light body .af .af-heading h1,html.cssd-light body .af .af-heading h2{margin:0 0 6px;font-family:var(--sp-serif,"Noto Serif SC","Songti SC",serif);font-size:26px !important;font-weight:600 !important;color:#0A2A43 !important;-webkit-text-fill-color:#0A2A43 !important;line-height:1.2;letter-spacing:.04em;background:none !important;background-image:none !important}
@@ -16,7 +16,9 @@ html.cssd-light body .af .af-meta{display:flex;flex-wrap:wrap;align-items:baseli
 html.cssd-light body .af .af-meta span+span::before{content:"·";margin:0 6px;color:#8A93A3;font-weight:400}
 html.cssd-light body .af .af-meta span:first-child{color:var(--af-green);font-weight:600}
 html.cssd-light body .af .af-translation{margin:8px 0 0;color:#5B6575;font-size:13px;line-height:1.7}
-html.cssd-light body .af.af-page{max-width:1160px;margin:0 auto;padding:36px 24px 64px;box-sizing:border-box}
+html.cssd-light body .af.af-page{max-width:760px;margin:0 auto;padding:36px 24px 64px;box-sizing:border-box}
+html.cssd-light body .af.af-page .af-heading>a{flex:0 0 auto;align-self:flex-start;margin:4px 0 0;padding:0 !important;min-height:0;border:0 !important;border-radius:0 !important;background:transparent !important;background-image:none !important;color:#2E9A89 !important;-webkit-text-fill-color:#2E9A89 !important;font-size:14px;font-weight:500;line-height:1.4;letter-spacing:0;box-shadow:none !important;text-decoration:none}
+html.cssd-light body .af.af-page .af-heading>a:hover{color:#2E9A89 !important;-webkit-text-fill-color:#2E9A89 !important;background:transparent !important;border:0 !important;text-decoration:underline;text-underline-offset:3px}
 html.cssd-light body .af .af-controls{display:flex;align-items:end;flex-wrap:wrap;gap:12px;padding:18px 0;border-bottom:1px solid #e1e8e9}
 html.cssd-light body .af .af-controls label{display:flex;flex-direction:column;gap:7px;font-size:12px;color:var(--af-muted);min-width:0}
 html.cssd-light body .af .af-search{flex:1 1 260px}
