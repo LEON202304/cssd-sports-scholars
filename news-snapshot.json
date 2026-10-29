@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29",
+  "generatedAt": "2026-10-30",
   "source": "期刊官网 TOC + Crossref 自动抓取（GitHub Actions 每日）：体育科学、上海体育大学学报、中国体育科技、北京体育大学学报、沈阳体育学院学报、体育学研究、体育学刊、天津体育学院学报、体育与科学、西安体育学院学报、British Journal of Sports Medicine、Sports Medicine、Journal of Sport and Health Science、Medicine & Science in Sports & Exercise、Journal of Sports Sciences、Scandinavian Journal of Medicine & Science in Sports",
   "statusHint": "live",
   "items": [
@@ -23,12 +23,21 @@
     },
     {
       "journal": "Journal of Sport and Health Science",
-      "title": "Combined strength and aerobic training vs. aerobic training alone in patients with heart failure: A systematic review and meta-analysis",
-      "authors": "Tasuku Terada, Tim Kambic, Takumi Noda, Genki Kai, Rod S. Taylor, Jennifer L. Reed, Kentaro Kamiya",
-      "link": "https://doi.org/10.1016/j.jshs.2026.101136",
+      "title": "Dose‒response associations of self-reported and device-measured physical activity with major adverse cardiovascular events in people with prevalent diseases",
+      "authors": "Miguel Adriano Sanchez-Lastra, Borja del Pozo Cruz, Jakob Tarp, Knut Eirik Dalene, Tormod S. Nilsen, Ding Ding, Ulf Ekelund",
+      "link": "https://doi.org/10.1016/j.jshs.2025.101116",
       "date": "2026-12",
       "journalZh": "《运动与健康科学》",
-      "titleZh": "心力衰竭患者的力量和有氧综合训练与单独有氧训练：系统评价和荟萃分析"
+      "titleZh": "自我报告和器械测量的体力活动与流行性疾病患者主要不良心血管事件的剂量反应关联"
+    },
+    {
+      "journal": "Journal of Sports Sciences",
+      "title": "Repeated-sprint performance in combined heat and hypoxia: Current evidence",
+      "authors": "Keiichi Yamaguchi, Kazushige Goto",
+      "link": "https://doi.org/10.1080/02640414.2026.2756793",
+      "date": "2026-10-29",
+      "journalZh": "《体育科学杂志》",
+      "titleZh": "在高温和缺氧条件下的重复打印性能：当前证据"
     },
     {
       "journal": "Scandinavian Journal of Medicine & Science in Sports",
@@ -128,15 +137,6 @@
       "date": "2026-10-23",
       "journalZh": "《运动医学与科学》",
       "titleZh": "神经肌肉疲劳和恢复：马拉松和越野跑是不同的吗？"
-    },
-    {
-      "journal": "Journal of Sports Sciences",
-      "title": "A two-factor framework to assess international male field hockey movement characteristics: Implications for performance preparation",
-      "authors": "Paul S. R. Goods, Brendyn B. Appleby, Brendan R. Scott, Peter Peeling, Brook Galna",
-      "link": "https://doi.org/10.1080/02640414.2026.2753833",
-      "date": "2026-10-23",
-      "journalZh": "《体育科学杂志》",
-      "titleZh": "评估国际男子曲棍球运动特征的双因素框架：对表演准备的影响"
     },
     {
       "journal": "天津体育学院学报",
