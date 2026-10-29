@@ -4699,3 +4699,30 @@ html.cssd-light body #homeNews#homeNews .af-item:first-child{
 html.cssd-light body #homeNews#homeNews .af-item{
   border-bottom:1px solid rgba(10,42,67,.12) !important;
 }
+
+/* ═════════════════════════════════════════════════════════════════
+   v4.6-119 学术动态与上下板块对齐
+   首页 #homeNews 不再 760 居中。外沿与 .sp-grid（学者发现 / 研究方向总览 /
+   院校机构导航）同一内容列；白卡用 .sp-panel 的底、圆角、边和阴影，
+   内边距对齐面板标题（18px 22px）。单列、1px 行分隔、查看全部文字链不动。
+   /academicnews、#confcal、#homeXuejie 不改。可回退：删本分区。
+   ═════════════════════════════════════════════════════════════════ */
+html.cssd-light body #homeNews#homeNews{
+  max-width:none;
+  width:100%;
+  margin-left:0;
+  margin-right:0;
+  box-sizing:border-box;
+  min-width:0;
+  background:var(--sp-card,#fff) !important;
+  background-image:none !important;
+  border:1px solid var(--sp-line,#E2E7EE) !important;
+  border-radius:16px !important;
+  box-shadow:var(--sp-shadow-md,0 2px 6px rgba(8,28,46,.05),0 8px 24px rgba(8,28,46,.06)) !important;
+  padding:18px 22px 12px;
+}
+@media (max-width:720px){
+  html.cssd-light body #homeNews#homeNews{
+    padding:16px 16px 8px;
+  }
+}
