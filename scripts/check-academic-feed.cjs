@@ -36,4 +36,15 @@ const sources = [['news-snapshot.json','papers'],['xuejie-snapshot.json','circle
 const actual = feed.normalize(sources);
 assert(actual.length > 0);
 assert(actual.every(r => ['research','policy','community','conference'].includes(r.category)));
+assert.equal(feed.homeLimit, 8, 'Homepage shows eight rows');
+const feedSrc = fs.readFileSync(path.join(root, js), 'utf8');
+assert(!feedSrc.includes('af-lead'), 'Featured lead card is not rendered');
+assert(!feedSrc.includes('af-home-grid'), 'Homepage is not a two-column grid');
+assert(feedSrc.includes('rows.slice(0,state.limit)'), 'First row is included up to the cap');
+const sorted = feed.normalize([{kind:'daily', data:{items:[
+  {title:'较早的体育科研通知标题', link:'https://example.org/old', date:'2020-01-02'},
+  {title:'较新的体育科研通知标题', link:'https://example.org/new', date:'2020-06-01'},
+  {title:'未来的体育学术会议通知', link:'https://example.org/future', date:'2099-01-01'}
+]}}]);
+assert.deepEqual(sorted.map(r => r.date), ['2020-06-01','2020-01-02','2099-01-01'], 'Source dates sort descending, with future dates after current news');
 console.log('PASS: fingerprints, consolidated entry, deduplication, title cleanup, safe links, categories, search, dates and source snapshots ('+actual.length+' records).');

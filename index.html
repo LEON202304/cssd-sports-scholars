@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="cssd-light" data-build="v4.6-117">
+<html lang="zh-CN" class="cssd-light" data-build="v4.6-118">
 <head><!-- SEO & 规范链接 -->
   <link rel="canonical" href="https://www.tiyuxueren.com/">
   <meta name="description" content="体育学人 (CSSD) - 收录全国 5,800+ 位体育学学者档案、560 所高校及科研机构、3,000+ 项国家社科基金项目及最新学术期刊动态。">
@@ -5865,7 +5865,7 @@ html.cssd-light .nb.on{color:#2E9A89!important}
 </style>
 <script id="cssd-theme-lock-light">(function(){try{var r=document.documentElement;r.classList.add("cssd-light");r.classList.remove("cssd-dark");localStorage.setItem("cssd-theme","light");}catch(e){}})();</script>
 <link rel="stylesheet" href="conference-calendar.16618277.css">
-<link rel="stylesheet" href="academic-feed.66678e38.css">
+<link rel="stylesheet" href="academic-feed.e45f78cc.css">
 </head>
 <body>
 
@@ -15560,6 +15560,7 @@ html.cssd-light .pledge-hdr-icon{line-height:1!important;}
   /* 只读判定：返回需要写入的 color，或 null 表示无需修正。不产生任何写入。 */
   function decide(el){
     if(el._cssdFix) return null;
+    try{ if(el.closest && el.closest('#homeNews .af-all')) return null; }catch(e){}
     var tag=el.tagName;
     if(tag==='SCRIPT'||tag==='STYLE'||tag==='BR'||tag==='IMG'||tag==='SVG'||tag==='PATH'||tag==='CANVAS') return null;
     var cn=el.childNodes, hasText=false;
@@ -15947,7 +15948,7 @@ html.cssd-light body.cssd-v46-40.cssd-v46-41.cssd-v46-42.cssd-v46-43.cssd-v46-45
        首页 KPI 条、入口卡、会议日历软阴影由 portal.polish.css 控制。
        这里若写成内联 !important，会把 0 8px 24px 吸成 0 12px 32px，故整块跳过。 */
     var homeSoft = false;
-    try{ homeSoft = !!(el.closest && el.closest('#sportsPortal .sp-metrics, #sportsPortal .sp-quick-card, #confcal')); }catch(e){}
+    try{ homeSoft = !!(el.closest && el.closest('#sportsPortal .sp-metrics, #sportsPortal .sp-quick-card, #confcal, #homeNews')); }catch(e){}
     if(!homeSoft){
       var lv = shadowLevel(cs.boxShadow);
       if(lv){
@@ -16079,6 +16080,7 @@ html.cssd-light body.cssd-v46-40.cssd-v46-41.cssd-v46-42.cssd-v46-43.cssd-v46-45
     var pend=[];
     for(var i=0;i<els.length;i++){
       var el=els[i], tag=el.tagName;
+      try{ if(el.closest && el.closest('#homeNews .af-all')) continue; }catch(e){}
       if(tag==='SCRIPT'||tag==='STYLE'||tag==='BR'||tag==='IMG'||
          tag==='SVG'||tag==='PATH'||tag==='CANVAS'||tag==='OPTION') continue;
       var cs; try{ cs=csOf(el); }catch(e){ continue; }
@@ -17294,7 +17296,7 @@ html.cssd-light #vw-scholars .sch-branch-tab[data-branch="overseas"].on small{
 </script>
 
 <script defer src="portal.e9ff4e43.js"></script>
-<script defer src="academic-feed.01ad59d5.js"></script><!-- offline: stripped cf -->
+<script defer src="academic-feed.0370b444.js"></script><!-- offline: stripped cf -->
 
 
 
