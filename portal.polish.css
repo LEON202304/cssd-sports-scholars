@@ -4572,3 +4572,130 @@ html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-row .xj-sub{
   font-size:12px;
   line-height:16px;
 }
+
+/* ═════════════════════════════════════════════════════════════════
+   v4.6-118 学术动态单列
+   #vw-academicnews 页头去掉深色/卡片底；聚焦区改成 760 宽的纯文本行。
+   首页 #homeNews 同一套：查看全部是纯文字链，行与行之间 1px 分隔。
+   可回退：删本分区。不改 #confcal / #homeXuejie。
+   ═════════════════════════════════════════════════════════════════ */
+html.cssd-light body #vw-academicnews#vw-academicnews .an-hero{
+  display:flex !important;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px 20px;
+  max-width:760px;
+  margin:0 auto 14px !important;
+  padding:0 !important;
+  background:transparent !important;
+  background-image:none !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  color:#0A2A43 !important;
+}
+html.cssd-light body #vw-academicnews#vw-academicnews .an-hero h1{
+  margin:0 0 6px !important;
+  font-size:26px !important;
+  font-weight:600 !important;
+  line-height:1.2 !important;
+  letter-spacing:.04em !important;
+  color:#0A2A43 !important;
+  -webkit-text-fill-color:#0A2A43 !important;
+}
+html.cssd-light body #vw-academicnews#vw-academicnews .an-hero p{
+  max-width:none !important;
+  margin:0 !important;
+  color:#5B6575 !important;
+  -webkit-text-fill-color:#5B6575 !important;
+  font-size:14px !important;
+  line-height:1.6 !important;
+}
+html.cssd-light body #vw-academicnews#vw-academicnews .an-hero a{
+  align-self:flex-start;
+  margin:4px 0 0 !important;
+  padding:0 !important;
+  background:transparent !important;
+  background-image:none !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  color:#2E9A89 !important;
+  -webkit-text-fill-color:#2E9A89 !important;
+  font-weight:500 !important;
+  text-decoration:none;
+}
+html.cssd-light body #vw-academicnews#vw-academicnews .an-hero a:hover{
+  color:#2E9A89 !important;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+html.cssd-light body #vw-academicnews#vw-academicnews .an-toolbar,
+html.cssd-light body #vw-academicnews#vw-academicnews .an-spotlight{
+  max-width:760px;
+  width:100%;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  box-sizing:border-box;
+}
+html.cssd-light body #vw-academicnews#vw-academicnews .an-spotlight{
+  display:block !important;
+  grid-template-columns:1fr !important;
+}
+html.cssd-light body #vw-academicnews#vw-academicnews .an-spotlight .an-card,
+html.cssd-light body #vw-academicnews#vw-academicnews .an-spotlight .an-card:first-child{
+  display:block !important;
+  height:auto !important;
+  min-height:0 !important;
+  margin:0 !important;
+  padding:14px 0 !important;
+  background:transparent !important;
+  background-image:none !important;
+  border:0 !important;
+  border-bottom:1px solid rgba(10,42,67,.12) !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+}
+html.cssd-light body #vw-academicnews#vw-academicnews .an-spotlight .an-card:last-child{
+  border-bottom:0 !important;
+}
+html.cssd-light body #vw-academicnews#vw-academicnews .an-spotlight .an-card h3{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  line-clamp:2;
+  overflow:hidden;
+  min-height:0 !important;
+  color:#0A2A43 !important;
+  -webkit-text-fill-color:#0A2A43 !important;
+}
+html.cssd-light body #homeNews#homeNews{
+  max-width:760px;
+  width:100%;
+  margin-left:auto;
+  margin-right:auto;
+  box-sizing:border-box;
+  background:transparent !important;
+  background-image:none !important;
+  box-shadow:none !important;
+}
+html.cssd-light body #homeNews#homeNews .af-all{
+  background:transparent !important;
+  background-image:none !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  color:#2E9A89 !important;
+  -webkit-text-fill-color:#2E9A89 !important;
+}
+html.cssd-light body #homeNews#homeNews .af-sheet,
+html.cssd-light body #homeNews#homeNews .af-item,
+html.cssd-light body #homeNews#homeNews .af-item:first-child{
+  background:transparent !important;
+  background-image:none !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+}
+html.cssd-light body #homeNews#homeNews .af-item{
+  border-bottom:1px solid rgba(10,42,67,.12) !important;
+}
