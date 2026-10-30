@@ -36,6 +36,15 @@
     "titleZh": "在高温和缺氧条件下的重复打印性能：当前证据"
   },
   {
+    "journal": "Journal of Sports Sciences",
+    "title": "Effects of exogenous ketones on post-exercise recovery: A systematic review and meta-analysis",
+    "authors": "Sarah Bomans, Berenice Jimenez Garcia, Lynn Leemans, Othmane Mohib, Imane El M’Rabet, Elisabeth De Waele, Peter Janssens, David Beckwée",
+    "link": "https://doi.org/10.1080/02640414.2026.2750608",
+    "date": "2026-10-29",
+    "journalZh": "《体育科学杂志》",
+    "titleZh": "外源性酮对运动后恢复的影响：系统综述和荟萃分析"
+  },
+  {
     "journal": "Scandinavian Journal of Medicine & Science in Sports",
     "title": "Effect of Metatarsophalangeal Joint Position on Maximal Voluntary Isometric Ankle Plantar‐Flexion Torque",
     "authors": "Hiroto Shiotani, Katsuki Takahashi, Kosei Taniai, Hayato Tsuru, Yasuo Kawakami",
@@ -115,15 +124,6 @@
     "date": "2026-10-26",
     "journalZh": "《体育科学杂志》",
     "titleZh": "30年来中国19–22岁大学生人群体质变化趋势及分布情况"
-  },
-  {
-    "journal": "Journal of Sports Sciences",
-    "title": "Triangulating lower-extremity neuromuscular function in soccer players: The incremental value of twitch kinetics and neural activation over muscle architecture in performance testing",
-    "authors": "Artur Terbalyan, Karol Skotniczny, Filip Matuszczyk, Robert Roczniok, Marcin Żak",
-    "link": "https://doi.org/10.1080/02640414.2026.2750650",
-    "date": "2026-10-25",
-    "journalZh": "《体育科学杂志》",
-    "titleZh": "足球运动员下肢神经肌肉功能的三角化：性能测试中肌肉结构中抽搐动力学和神经激活的增量值"
   },
   {
     "journal": "Medicine & Science in Sports & Exercise",
@@ -330,17 +330,17 @@
     "date": "2026-08-21"
   },
   {
-    "journal": "体育学研究",
-    "title": "全球体育治理变革下中国体育文化国际传播的...",
-    "authors": "",
-    "link": "http://ntxb.nsi.edu.cn/tyxyj/njtyxyxbsk/article/abstract/202607250000002",
-    "date": "2026-07-25"
-  },
-  {
     "journal": "体育与科学",
     "title": "传统体育文化主体性危机与创造性转化路径——与杨文轩教授的学术对话",
     "authors": "杜长亮, 赵妍, 徐诺渲",
     "link": "https://tyyk.cbpt.cnki.net/portal/journal/portal/client/paper/df4e8799565c7285266fb7d1cf156541",
+    "date": "2026-07-25"
+  },
+  {
+    "journal": "体育学研究",
+    "title": "全球体育治理变革下中国体育文化国际传播的...",
+    "authors": "",
+    "link": "http://ntxb.nsi.edu.cn/tyxyj/njtyxyxbsk/article/abstract/202607250000002",
     "date": "2026-07-25"
   },
   {
