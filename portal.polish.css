@@ -4726,3 +4726,45 @@ html.cssd-light body #homeNews#homeNews{
     padding:16px 16px 8px;
   }
 }
+
+/* Focused mobile refinements; desktop layout and the restored calendar stay native. */
+@media (max-width:720px){
+  html.cssd-light body #confcal #cssd-cal-tabs{
+    flex-wrap:nowrap !important;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    max-width:100%;
+    min-width:0;
+    padding:4px 4px 10px !important;
+    scrollbar-width:thin;
+    scroll-snap-type:x proximity;
+    overscroll-behavior-inline:contain;
+  }
+  html.cssd-light body #confcal #cssd-cal-tabs .cssd-cal-tab{
+    flex:0 0 auto;
+    min-height:44px;
+    padding:8px 12px !important;
+    scroll-snap-align:start;
+  }
+  html.cssd-light body #confcal .cssd-cal-acts{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px;
+  }
+  html.cssd-light body #confcal .cssd-cal-act{min-width:0;min-height:72px;}
+  html.cssd-light body #confcal .cssd-cal-navbtn{min-height:44px;}
+  html.cssd-light body #sportsPortal .sp-metrics{
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  }
+  html.cssd-light body #sportsPortal .sp-metrics button:nth-child(2n){border-right:1px solid var(--sp-line) !important;}
+  html.cssd-light body #sportsPortal .sp-metrics button:nth-child(3n){border-right:0 !important;}
+  html.cssd-light body #sportsPortal .sp-metrics b{font-size:24px !important;}
+  html.cssd-light body #sportsPortal .sp-quick .sp-quick-card{height:auto !important;}
+  html.cssd-light body #sportsPortal .sp-quick .sp-quick-text b,
+  html.cssd-light body #sportsPortal .sp-quick .sp-quick-text small{
+    white-space:normal !important;
+    overflow:visible;
+    text-overflow:clip;
+    -webkit-line-clamp:unset;
+    overflow-wrap:break-word;
+  }
+}

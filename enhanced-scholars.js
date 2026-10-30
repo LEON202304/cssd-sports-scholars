@@ -85,10 +85,46 @@
   }
 
   function downloadICS(ev) {
-    var dtStart = (ev.start || '2026-11-20').replace(/-/g, ''), dtEnd = (ev.end || ev.start || '2026-11-22').replace(/-/g, '');
-    var ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//CSSD 体育学人//Academic Calendar//CN','BEGIN:VEVENT','DTSTART;VALUE=DATE:' + dtStart,'DTEND;VALUE=DATE:' + dtEnd,'SUMMARY:' + ev.title,'LOCATION:' + (ev.loc || ev.host || '详见会议通知'),'DESCRIPTION:主办/来源：' + (ev.host || '体育学人学术日历') + ' | 状态：' + (ev.status || '学术会议') + (ev.url ? ' | 链接：' + ev.url : ''),'END:VEVENT','END:VCALENDAR'].join('\r\n');
+    function parseDay(value) {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(value || '')) return null;
+      var date = new Date(value + 'T00:00:00Z');
+      return !isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value ? date : null;
+    }
+    function escapeText(value) {
+      return String(value || '').replace(/\\/g, '\\\\').replace(/\r\n|\r|\n/g, '\\n').replace(/,/g, '\\,').replace(/;/g, '\\;');
+    }
+    function foldLine(line) {
+      var parts = [], part = '', bytes = 0, encoder = new TextEncoder();
+      Array.from(line).forEach(function(ch) {
+        var size = encoder.encode(ch).length;
+        if (bytes + size > 75) { parts.push(part); part = ' '; bytes = 1; }
+        part += ch; bytes += size;
+      });
+      parts.push(part);
+      return parts.join('\r\n');
+    }
+    var start = parseDay(ev.start), end = parseDay(ev.end || ev.start);
+    if (!start || !end || end < start || !ev.title) {
+      showToast('会议日期不完整，暂不能导出，请查看官方通知');
+      return;
+    }
+    // RFC 5545: an all-day DTEND is exclusive, so include the final meeting day.
+    end.setUTCDate(end.getUTCDate() + 1);
+    var dtStart = start.toISOString().slice(0, 10).replace(/-/g, '');
+    var dtEnd = end.toISOString().slice(0, 10).replace(/-/g, '');
+    var identity = ev.title + '|' + ev.start + '|' + (ev.loc || ''), uid = 2166136261;
+    for (var i = 0; i < identity.length; i++) uid = Math.imul(uid ^ identity.charCodeAt(i), 16777619);
+    var stamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}Z$/, 'Z');
+    var description = '主办/来源：' + (ev.host || '体育学人学术日历') + ' | 状态：' + (ev.status || '学术会议') + (ev.url ? ' | 链接：' + ev.url : '');
+    var lines = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//CSSD 体育学人//Academic Calendar//CN','CALSCALE:GREGORIAN','BEGIN:VEVENT',
+      'UID:cssd-' + (uid >>> 0).toString(16) + '@tiyuxueren.com','DTSTAMP:' + stamp,
+      'DTSTART;VALUE=DATE:' + dtStart,'DTEND;VALUE=DATE:' + dtEnd,'SUMMARY:' + escapeText(ev.title),
+      'LOCATION:' + escapeText(ev.loc || ev.host || '详见会议通知'),'DESCRIPTION:' + escapeText(description),'END:VEVENT','END:VCALENDAR'];
+    var ics = lines.map(foldLine).join('\r\n') + '\r\n';
     var blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
-    var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = '体育学术日历_' + ev.title.slice(0, 16) + '.ics'; a.click();
+    var a = document.createElement('a'), blobUrl = URL.createObjectURL(blob);
+    a.href = blobUrl; a.download = '体育学术日历_' + ev.title.slice(0, 16).replace(/[<>:"/\\|?*]/g, '_') + '.ics'; a.click();
+    setTimeout(function() { URL.revokeObjectURL(blobUrl); }, 10000);
     showToast('已导出日历文件 (.ics)，可直接添加至手机或电脑日历提醒');
   }
 
@@ -438,24 +474,9 @@
       placeConfCal(existingSec);
       return;
     }
-    var headings = document.querySelectorAll('h2, h3, .sec-title, [class*="title"]');
-    var xuejieHeader = null;
-    for (var i = 0; i < headings.length; i++) {
-      if ((headings[i].textContent || '').trim() === '学界动态') { xuejieHeader = headings[i]; break; }
-    }
-    if (!xuejieHeader) return;
-
-    // 精准向上定位：headerRow 是仅包含「ACADEMIC CIRCLE 学界动态 + 更新于 2026-XX-XX 查看学术动态」的顶部标题栏（日期数 <= 1）
-    // 而它的父容器 secContainer 包含下方左右两栏所有动态卡片（日期数 >= 3）
-    var headerRow = xuejieHeader;
-    for (var up = 0; up < 5 && headerRow && headerRow.parentElement && headerRow.parentElement !== document.body; up++) {
-      var pTxt = headerRow.parentElement.textContent || '';
-      var pDates = pTxt.match(/202\d-\d{2}-\d{2}/g) || [];
-      if (pDates.length >= 3) break;
-      headerRow = headerRow.parentElement;
-    }
-    var secContainer = headerRow ? headerRow.parentElement : null;
-    if (!secContainer) return;
+    // The consolidated academic feed no longer renders the old 学界动态 heading.
+    // Mount against the stable homepage anchor used by placeConfCal instead.
+    if (!document.querySelector('#sportsPortal .sp-grid')) return;
 
     var featuredList = CALENDAR_EVENTS.slice(0, 10);
     var nConf = CALENDAR_EVENTS.length;
@@ -467,9 +488,6 @@
     calSec.innerHTML =
       '<p class="cssd-cal-eye">SPORTS CONFERENCE CALENDAR</p>' +
       '<h2 id="confcalTitle">体育学术会议日历</h2>';
-    if (secContainer && headerRow && headerRow.parentNode === secContainer) {
-      secContainer.insertBefore(calSec, headerRow);
-    }
     placeConfCal(calSec);
 
     var bar = document.createElement('div');
@@ -741,6 +759,7 @@
       if (hs) setTxt(hs, '重点 ' + (nssfc.catMap['重点项目'] || 0) + ' · 一般 ' + (nssfc.catMap['一般项目'] || 0) + ' · 青年 ' + (nssfc.catMap['青年项目'] || 0) + ' · ' + nssfc.unitTotal + ' 家高校');
       if (typeof window._cssdRenderHomeShowcase === 'function') window._cssdRenderHomeShowcase();
     } catch (e) {}
+    window.dispatchEvent(new Event('cssd:data-updated'));
     return true;
   }
 
