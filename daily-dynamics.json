@@ -1,32 +1,8 @@
 {
-  "generatedAt": "2026-10-30",
+  "generatedAt": "2026-10-31",
   "source": "C刊官网 + 体育院校官网（GitHub Actions 每日）",
   "statusHint": "live",
   "items": [
-    {
-      "cat": "院校",
-      "source": "山东体育学院",
-      "section": "学校主页",
-      "title": "2026年体育文化与社会学学术研讨会征文通知 时间：-20日 地点：泰山学院",
-      "date": "2026-12-18",
-      "link": "https://www.sdpei.edu.cn/2026/1023/c1393a87390/page.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "山东体育学院",
-      "section": "学校主页",
-      "title": "第二届中国体育科学学会女科技工作者工作委员会学术交流会征文通知 时间：-6日 地点：山东体育学院",
-      "date": "2026-12-04",
-      "link": "https://www.sdpei.edu.cn/2026/1023/c1393a87395/page.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "山东体育学院",
-      "section": "学校主页",
-      "title": "2026年山东省第三届休闲体育与体育旅游学术论坛征文通知 时间：—15日 地点：烟台新时代大酒店",
-      "date": "2026-11-13",
-      "link": "https://www.sdpei.edu.cn/2026/1023/c1393a87393/page.htm"
-    },
     {
       "cat": "院校",
       "source": "南京体育学院",
@@ -61,14 +37,6 @@
     },
     {
       "cat": "院校",
-      "source": "山东体育学院",
-      "section": "学校主页",
-      "title": "协同聚力做好转段工作 规范推进贯通培养 —— 我校召开2027年“3+2”对口贯通分段培养转段工作研讨会",
-      "date": "2026-10-30",
-      "link": "https://www.sdpei.edu.cn/2026/1030/c592a93291/page.htm"
-    },
-    {
-      "cat": "院校",
       "source": "广州体育学院",
       "section": "广体要闻",
       "title": "▸ 喜报｜勇夺冠军！广体女篮斩获广东省第26届大学生篮球联赛（乙A组）桂冠",
@@ -82,30 +50,6 @@
       "title": "工程验收公示(清远校区（筹）8号实验楼二、三层修缮工程)",
       "date": "2026-10-30",
       "link": "http://www.gzsport.edu.cn:80/info/18026"
-    },
-    {
-      "cat": "院校",
-      "source": "沈阳体育学院",
-      "section": "学校新闻",
-      "title": "《沈阳体育学院学报》影响因子再创新高 学科排序升至第二位 近日，《中国学术期刊影响因子年报》（人文社会科学・2026版）正式发布。根据年报最新统计数据，《沈阳体育学院学报》复合影响因子由2025...",
-      "date": "2026-10-30",
-      "link": "https://www.syty.edu.cn/info/1061/18313.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "沈阳体育学院",
-      "section": "学校主页",
-      "title": "《沈阳体育学院学报》影响因子再创新高 学科排序升至第二位",
-      "date": "2026-10-30",
-      "link": "https://www.syty.edu.cn/info/1061/18313.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "沈阳体育学院",
-      "section": "学校主页",
-      "title": "运动训练学院赴天津开展访企拓岗、招生宣传与实习检查工作",
-      "date": "2026-10-30",
-      "link": "https://www.syty.edu.cn/info/1036/18353.htm"
     },
     {
       "cat": "院校",
@@ -181,35 +125,11 @@
     },
     {
       "cat": "院校",
-      "source": "山东体育学院",
-      "section": "学校主页",
-      "title": "山东体育学院干部师生热议党的二十届五中全会精神",
-      "date": "2026-10-30",
-      "link": "https://www.sdpei.edu.cn/2026/1030/c592a93290/page.htm"
-    },
-    {
-      "cat": "院校",
       "source": "天津体育学院",
       "section": "学校要闻",
       "title": "我校举办香港新生及留学生新生武术文化体验活动",
       "date": "2026-10-29",
       "link": "https://mp.weixin.qq.com/s/Cn27wuWOhkJbR6P7BD_Sng"
-    },
-    {
-      "cat": "院校",
-      "source": "沈阳体育学院",
-      "section": "学校新闻",
-      "title": "我校教师在第三十届辽宁省教育教学信息化交流活动中再创佳绩 近日，辽宁省教育厅公布了第三十届辽宁省教育教学信息化交流活动评选结果。我校共有10件作品获奖，其中一等奖4项、二等奖4项、三等奖2项。...",
-      "date": "2026-10-29",
-      "link": "https://www.syty.edu.cn/info/1063/18233.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "沈阳体育学院",
-      "section": "学校主页",
-      "title": "我校教师在第三十届辽宁省教育教学信息化交流活动中再创佳绩",
-      "date": "2026-10-29",
-      "link": "https://www.syty.edu.cn/info/1063/18233.htm"
     },
     {
       "cat": "院校",
@@ -285,14 +205,6 @@
     },
     {
       "cat": "院校",
-      "source": "北京体育大学",
-      "section": "通知公告",
-      "title": "北京体育大学学生公寓用电智能管理系统维保服务项目比选公告",
-      "date": "2026-10-26",
-      "link": "https://www.bsu.edu.cn/tzgg/3a9a3972b29f4c14b6a7f70c3f6f2902.htm"
-    },
-    {
-      "cat": "院校",
       "source": "哈尔滨体育学院",
       "section": "学校主页",
       "title": "2026年黑龙江省学生冰球联赛在哈尔滨体育学院（国家冰雪运动学院）圆满落幕 2026年黑龙江省学生冰球联赛在哈尔滨体育学院（国家冰雪运动学院）圆满落幕",
@@ -340,22 +252,6 @@
       "link": "https://www.hrbipe.edu.cn/info/1046/8671.htm"
     },
     {
-      "cat": "院校",
-      "source": "北京体育大学",
-      "section": "通知公告",
-      "title": "北京体育大学后勤管理处扫路车采购项目​询价公告",
-      "date": "2026-10-09",
-      "link": "https://www.bsu.edu.cn/tzgg/ea12d312ceba4fa487ab993f481b2fcd.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "北京体育大学",
-      "section": "通知公告",
-      "title": "北京体育大学阿尔伯塔国际休闲体育与旅游学院2025年度办学报告",
-      "date": "2026-09-29",
-      "link": "https://www.bsu.edu.cn/tzgg/4b4c406ce9714a539fad50f39861a6bb.htm"
-    },
-    {
       "cat": "期刊",
       "source": "体育学刊",
       "section": "新闻公告",
@@ -378,14 +274,6 @@
       "title": "体育学刊2026年第4期目次",
       "date": "2026-07-13",
       "link": "https://tyxk.scnu.edu.cn/a/20260713/1044.html"
-    },
-    {
-      "cat": "院校",
-      "source": "北京体育大学",
-      "section": "通知公告",
-      "title": "北京体育大学国家训练基地2026年厨房设备采购项目询价公告",
-      "date": "2026-06-12",
-      "link": "https://www.bsu.edu.cn/tzgg/2524d2e0fead46539db0422ac93d3bc7.htm"
     },
     {
       "cat": "期刊",
@@ -634,22 +522,6 @@
       "title": "体育学刊编辑部 恭祝您中秋快乐",
       "date": "",
       "link": "https://tyxk.scnu.edu.cn/a/20260924/1046.html"
-    },
-    {
-      "cat": "院校",
-      "source": "北京体育大学",
-      "section": "校园要闻",
-      "title": "书香再续，精彩升级！“旧书新知”重返北体校园",
-      "date": "",
-      "link": "https://www.bsu.edu.cn/xyyw/f97a61a1f2a140929d1206dc1a92b718.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "北京体育大学",
-      "section": "校园要闻",
-      "title": "33所高校学子共赴奥林匹克青年赋能之约——2026全国高校模拟奥委会在北京体育大学成功...",
-      "date": "",
-      "link": "https://www.bsu.edu.cn/xyyw/851bb7e16f234c6b892cbf990baea194.htm"
     },
     {
       "cat": "院校",
