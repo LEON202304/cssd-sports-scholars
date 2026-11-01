@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01",
+  "generatedAt": "2026-11-02",
   "source": "期刊官网 TOC + Crossref 自动抓取（GitHub Actions 每日）：体育科学、上海体育大学学报、中国体育科技、北京体育大学学报、沈阳体育学院学报、体育学研究、体育学刊、天津体育学院学报、体育与科学、西安体育学院学报、British Journal of Sports Medicine、Sports Medicine、Journal of Sport and Health Science、Medicine & Science in Sports & Exercise、Journal of Sports Sciences、Scandinavian Journal of Medicine & Science in Sports",
   "statusHint": "live",
   "items": [
@@ -23,12 +23,12 @@
     },
     {
       "journal": "Journal of Sport and Health Science",
-      "title": "Combined strength and aerobic training vs. aerobic training alone in patients with heart failure: A systematic review and meta-analysis",
-      "authors": "Tasuku Terada, Tim Kambic, Takumi Noda, Genki Kai, Rod S. Taylor, Jennifer L. Reed, Kentaro Kamiya",
-      "link": "https://doi.org/10.1016/j.jshs.2026.101136",
+      "title": "Dose‒response associations of self-reported and device-measured physical activity with major adverse cardiovascular events in people with prevalent diseases",
+      "authors": "Miguel Adriano Sanchez-Lastra, Borja del Pozo Cruz, Jakob Tarp, Knut Eirik Dalene, Tormod S. Nilsen, Ding Ding, Ulf Ekelund",
+      "link": "https://doi.org/10.1016/j.jshs.2025.101116",
       "date": "2026-12",
       "journalZh": "《运动与健康科学》",
-      "titleZh": "心力衰竭患者的力量和有氧综合训练与单独有氧训练：系统评价和荟萃分析"
+      "titleZh": "自我报告和器械测量的体力活动与流行性疾病患者主要不良心血管事件的剂量反应关联"
     },
     {
       "journal": "Journal of Sports Sciences",
@@ -229,6 +229,27 @@
       "date": "2026-10-10"
     },
     {
+      "journal": "北京体育大学学报",
+      "title": "学校体育思想“知识化”及其对学校体育自主知识体系构建的引领",
+      "authors": "邵天逸, 李启迪",
+      "link": "https://bjtd.chinajournal.net.cn/WKG/WebPublication/paperDigest.aspx?paperID=ec2fc03a-dc6e-4a02-bbc8-eb5888ba83f8",
+      "date": "2026-10"
+    },
+    {
+      "journal": "北京体育大学学报",
+      "title": "国际足联2026年美加墨世界杯资本商业模式与实践路径",
+      "authors": "张磊, 安屹, 孔梓菲",
+      "link": "https://bjtd.chinajournal.net.cn/WKG/WebPublication/paperDigest.aspx?paperID=4c1f3080-e04c-41ef-bfef-3589d569b6c7",
+      "date": "2026-10"
+    },
+    {
+      "journal": "北京体育大学学报",
+      "title": "国际足联2026年美加墨世界杯多国联合办赛模式研究",
+      "authors": "王庆伟, 刘天祺, 沈同千",
+      "link": "https://bjtd.chinajournal.net.cn/WKG/WebPublication/paperDigest.aspx?paperID=b84c6bac-1492-40e7-a843-416ba96a0f78",
+      "date": "2026-10"
+    },
+    {
       "journal": "体育学刊",
       "title": "当前中国省级城市足球超级联赛的风险研判与路径探索",
       "authors": "易剑东, 来晓刚",
@@ -283,27 +304,6 @@
       "authors": "贾亚祥, 周璇, 周世博, 付全",
       "link": "https://zgty.cbpt.cnki.net/portal/journal/portal/client/paper/1493583790f9566515a9b6d13acf2bb9",
       "date": "2026-09-15"
-    },
-    {
-      "journal": "北京体育大学学报",
-      "title": "基于国际话语权提升的我国国际体育组织人才培养战略研究",
-      "authors": "邰峰, 王士豪",
-      "link": "https://bjtd.chinajournal.net.cn/WKG/WebPublication/paperDigest.aspx?paperID=5acc821e-7d79-4ab9-8a96-b70e16662db1",
-      "date": "2026-09"
-    },
-    {
-      "journal": "北京体育大学学报",
-      "title": "体育强国需求下中国特色冰雪运动学科体系构建研究",
-      "authors": "卢诗卉, 方千华, 赵学峰",
-      "link": "https://bjtd.chinajournal.net.cn/WKG/WebPublication/paperDigest.aspx?paperID=3954fef9-ba07-40bc-988f-a1aa068698b3",
-      "date": "2026-09"
-    },
-    {
-      "journal": "北京体育大学学报",
-      "title": "协同治理视域下“三大球”振兴的理论逻辑、现实困境与优化路径研究",
-      "authors": "史友宽, 张岩, 张欣",
-      "link": "https://bjtd.chinajournal.net.cn/WKG/WebPublication/paperDigest.aspx?paperID=83144b13-4606-422d-82c8-d94d9ef673b9",
-      "date": "2026-09"
     },
     {
       "journal": "武汉体育学院学报",
