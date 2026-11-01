@@ -27,6 +27,31 @@
     "titleZh": "心力衰竭患者的力量和有氧综合训练与单独有氧训练：系统评价和荟萃分析"
   },
   {
+    "journal": "Journal of Sports Sciences",
+    "title": "Squat training using virtual target trajectories with structured variability matches traditional training in performance accuracy",
+    "authors": "Stylianos Grigoriadis, Paris Mavromoustakos-Blom, Nick Stergiou, Thomas Nikodelis",
+    "link": "https://doi.org/10.1080/02640414.2026.2757276",
+    "date": "2026-10-31",
+    "journalZh": "《体育科学杂志》",
+    "titleZh": "使用具有结构化变异性的虚拟目标轨迹的深蹲训练与传统的性能准确性训练相匹配"
+  },
+  {
+    "journal": "Journal of Sports Sciences",
+    "title": "Evaluating the transfer effects of skill acquisition principles on performance in academy soccer players",
+    "authors": "Basil More-Chevalier, Fabian Alberto Romero Clavijo, David Labbe, Jocelyn Faubert, Thomas Romeas",
+    "link": "https://doi.org/10.1080/02640414.2026.2754637",
+    "date": "2026-10-31",
+    "journalZh": "《体育科学杂志》",
+    "titleZh": "评估技能获取原则对青训足球运动员表现的转移效应"
+  },
+  {
+    "journal": "中国体育科技",
+    "title": "孤独症伴运动功能障碍儿童静息态fNIRS脑功能连接特征分析",
+    "authors": "董贵俊, 江慧兰, 李可峰, 吴俊英, 周波, 孙海英, 刘树芹, 宗文浩",
+    "link": "https://zgty.cbpt.cnki.net/portal/journal/portal/client/paper/4d22f5e294895c5c033d3933bed056f6",
+    "date": "2026-10-30"
+  },
+  {
     "journal": "Scandinavian Journal of Medicine & Science in Sports",
     "title": "Wearable Sensor‐Based Prediction of Knee Joint Moments in Competitive Rugby Players During Multidirectional Movements",
     "authors": "Zixiang Gao, Robin Trama, David McNish, Michael Esposito, Jake Ruschkowski, Darren J. Stefanyshyn, John W. Wannop",
@@ -52,15 +77,6 @@
     "date": "2026-10-29",
     "journalZh": "《体育科学杂志》",
     "titleZh": "在高温和缺氧条件下的重复打印性能：当前证据"
-  },
-  {
-    "journal": "Journal of Sports Sciences",
-    "title": "Effects of exogenous ketones on post-exercise recovery: A systematic review and meta-analysis",
-    "authors": "Sarah Bomans, Berenice Jimenez Garcia, Lynn Leemans, Othmane Mohib, Imane El M’Rabet, Elisabeth De Waele, Peter Janssens, David Beckwée",
-    "link": "https://doi.org/10.1080/02640414.2026.2750608",
-    "date": "2026-10-29",
-    "journalZh": "《体育科学杂志》",
-    "titleZh": "外源性酮对运动后恢复的影响：系统综述和荟萃分析"
   },
   {
     "journal": "Scandinavian Journal of Medicine & Science in Sports",
@@ -91,15 +107,6 @@
   },
   {
     "journal": "Sports Medicine",
-    "title": "Response to Koerner and Staller (2026)",
-    "authors": "Aaron R. Caldwell, Jennifer Murphy, Joe P. Warne",
-    "link": "https://doi.org/10.1007/s40279-026-02550-0",
-    "date": "2026-10-26",
-    "journalZh": "《运动医学》",
-    "titleZh": "对Koerner和Staller （ 2026 ）的回应"
-  },
-  {
-    "journal": "Sports Medicine",
     "title": "Lean Body Mass Accounts for the Sex Dimorphism of the Circulatory System and Aerobic Exercise Capacity in Humans",
     "authors": "Xinyu Liu, Meihan Guo, David Montero",
     "link": "https://doi.org/10.1007/s40279-026-02552-y",
@@ -109,21 +116,21 @@
   },
   {
     "journal": "Sports Medicine",
+    "title": "Response to Koerner and Staller (2026)",
+    "authors": "Aaron R. Caldwell, Jennifer Murphy, Joe P. Warne",
+    "link": "https://doi.org/10.1007/s40279-026-02550-0",
+    "date": "2026-10-26",
+    "journalZh": "《运动医学》",
+    "titleZh": "对Koerner和Staller （ 2026 ）的回应"
+  },
+  {
+    "journal": "Sports Medicine",
     "title": "Post-Exercise Thermal Interventions and Nocturnal Sleep in Athletes: A Narrative Review of the Potential Underlying Physiological Mechanisms",
     "authors": "Panagiotis G. Miliotis, Shona L. Halson, Toby Mundel, Josh Leota, Argyris G. Toubekis, Petros G. Botonis",
     "link": "https://doi.org/10.1007/s40279-026-02555-9",
     "date": "2026-10-26",
     "journalZh": "《运动医学》",
     "titleZh": "运动员运动后热干预和夜间睡眠：潜在潜在生理机制的叙述性综述"
-  },
-  {
-    "journal": "Journal of Sports Sciences",
-    "title": "Population-based trends and distributional changes in physical fitness among university students aged 19–22 years in China over three decades",
-    "authors": "Chengyue Li, Zhidong Zhou, Xuguang Wang",
-    "link": "https://doi.org/10.1080/02640414.2026.2754652",
-    "date": "2026-10-26",
-    "journalZh": "《体育科学杂志》",
-    "titleZh": "30年来中国19–22岁大学生人群体质变化趋势及分布情况"
   },
   {
     "journal": "Medicine & Science in Sports & Exercise",
@@ -271,13 +278,6 @@
     "title": "虚拟现实条件下篮球运动员运动决策表现及眼动特征研究",
     "authors": "贾亚祥, 周璇, 周世博, 付全",
     "link": "https://zgty.cbpt.cnki.net/portal/journal/portal/client/paper/1493583790f9566515a9b6d13acf2bb9",
-    "date": "2026-09-15"
-  },
-  {
-    "journal": "中国体育科技",
-    "title": "空间生产理论视域下国家级体育训练基地功能转型的基本路向、制约因素与创新对策",
-    "authors": "崔晓嵩, 陈笑然, 米靖, 杨凤英",
-    "link": "https://zgty.cbpt.cnki.net/portal/journal/portal/client/paper/78cfc15e333ee5de7a600868457c49a0",
     "date": "2026-09-15"
   },
   {
