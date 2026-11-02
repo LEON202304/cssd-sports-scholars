@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-02",
+  "generatedAt": "2026-11-03",
   "source": "cssd-xuejie-scraper",
   "statusHint": "live",
   "items": [
@@ -23,6 +23,20 @@
       "org": "山东体育学院",
       "date": "2026-11-13",
       "link": "https://www.sdpei.edu.cn/2026/1023/c1393a87393/page.htm"
+    },
+    {
+      "type": "event",
+      "title": "五老传薪火 研思启新知——运动健康学院关工委举办“五老”育人专题学术讲座",
+      "org": "南京体育学院",
+      "date": "2026-11-02",
+      "link": "https://www.nsi.edu.cn/6d/b2/c2342a93618/page.htm"
+    },
+    {
+      "type": "event",
+      "title": "02 11.02 汇智生物力学 赋能体育科创——体育教育学院举办“智能体育与科学训练”学术论坛",
+      "org": "西安体育学院",
+      "date": "2026-11",
+      "link": "https://www.xaipe.edu.cn/info/1125/135554.htm"
     },
     {
       "type": "event",
@@ -184,20 +198,6 @@
       "org": "中国体育科学学会",
       "date": "2026-09-15",
       "link": "https://www.csss.cn/a2377.html"
-    },
-    {
-      "type": "event",
-      "title": "哈尔滨体育学院成功举办2026年第2期国际冰雪体育大学联盟奥林匹克教育发展讲堂",
-      "org": "哈尔滨体育学院",
-      "date": "2026-08-26",
-      "link": "https://www.hrbipe.edu.cn/info/1032/4697.htm"
-    },
-    {
-      "type": "event",
-      "title": "全国体育与社会调查数据发布会暨2026年武汉体育学院体育社会科…",
-      "org": "武汉体育学院",
-      "date": "2026-08-24",
-      "link": "https://mp.weixin.qq.com/s/TgxIB6nKSpUv2EDakTUpWA"
     }
   ]
 }
