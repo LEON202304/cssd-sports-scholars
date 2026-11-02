@@ -378,9 +378,9 @@ window._ucTp=tp;
 ['all','985','211','双一流','url'].forEach(function(k){
   var b=document.getElementById('ucf-'+k);if(!b)return;
   var on=k===tp;
-  b.style.background=on?'rgba(46,154,137,.12)':'rgba(255,255,255,.04)';
-  b.style.borderColor=on?'rgba(46,154,137,.3)':'rgba(255,255,255,.09)';
-  b.style.color=on?'#2E9A89':'#8A94A8';
+  b.style.background=on?'rgba(46,154,137,.12)':'#F5F7FA';
+  b.style.borderColor=on?'rgba(46,154,137,.3)':'#E6EAF0';
+  b.style.color=on?'#2E9A89':'#5B6575';
 });
 var s=document.getElementById('ucSearch');
 filterCatalog(s?s.value:'',tp);
@@ -414,21 +414,21 @@ var el=document.getElementById('univCatalogPanel');
 if(!el)return;
 var PR={'北京':'华北','天津':'华北','河北':'华北','山西':'华北','内蒙古':'华北','辽宁':'东北','吉林':'东北','黑龙江':'东北','上海':'华东','江苏':'华东','浙江':'华东','安徽':'华东','福建':'华东','江西':'华东','山东':'华东','河南':'华中','湖北':'华中','湖南':'华中','广东':'华南','广西':'华南','海南':'华南','重庆':'西南','四川':'西南','贵州':'西南','云南':'西南','西藏':'西南','陕西':'西北','甘肃':'西北','青海':'西北','宁夏':'西北','新疆':'西北'};
 var REGS=[
-{k:'华北',icon:'🏙',clr:'#60a5fa',rgb:'96,165,250',provs:'北京·天津·河北·山西·内蒙古'},
-{k:'东北',icon:'❄️',clr:'#3E82B0',rgb:'56,189,248',provs:'辽宁·吉林·黑龙江'},
-{k:'华东',icon:'🌊',clr:'#34d399',rgb:'52,211,153',provs:'上海·江苏·浙江·安徽·福建·江西·山东'},
-{k:'华中',icon:'🌸',clr:'#f472b6',rgb:'244,114,182',provs:'河南·湖北·湖南'},
-{k:'华南',icon:'☀️',clr:'#fb923c',rgb:'251,146,60',provs:'广东·广西·海南'},
-{k:'西南',icon:'🏔️',clr:'#2C6E9E',rgb:'44,110,158',provs:'重庆·四川·贵州·云南·西藏'},
-{k:'西北',icon:'🏜️',clr:'#D4AE5A',rgb:'251,191,36',provs:'陕西·甘肃·青海·宁夏·新疆'}
+{k:'华北',icon:'',clr:'#60a5fa',rgb:'96,165,250',provs:'北京·天津·河北·山西·内蒙古'},
+{k:'东北',icon:'',clr:'#3E82B0',rgb:'56,189,248',provs:'辽宁·吉林·黑龙江'},
+{k:'华东',icon:'',clr:'#34d399',rgb:'52,211,153',provs:'上海·江苏·浙江·安徽·福建·江西·山东'},
+{k:'华中',icon:'',clr:'#f472b6',rgb:'244,114,182',provs:'河南·湖北·湖南'},
+{k:'华南',icon:'',clr:'#fb923c',rgb:'251,146,60',provs:'广东·广西·海南'},
+{k:'西南',icon:'',clr:'#2C6E9E',rgb:'44,110,158',provs:'重庆·四川·贵州·云南·西藏'},
+{k:'西北',icon:'',clr:'#D4AE5A',rgb:'251,191,36',provs:'陕西·甘肃·青海·宁夏·新疆'}
 ];
 var SPGRP=[
-{k:'spt',icon:'🏆',label:'体育专业院校',clr:'#2E9A89'},
-{k:'med',icon:'🏥',label:'医药类院校',clr:'#f87171'},
-{k:'fin',icon:'💰',label:'财经类院校',clr:'#D4AE5A'},
-{k:'law',icon:'⚖️',label:'政法类院校',clr:'#fb923c'},
-{k:'lan',icon:'🌐',label:'语言传媒类',clr:'#2C6E9E'},
-{k:'eth',icon:'🏛️',label:'民族类院校',clr:'#34d399'}
+{k:'spt',icon:'',label:'体育专业院校',clr:'#2E9A89'},
+{k:'med',icon:'',label:'医药类院校',clr:'#f87171'},
+{k:'fin',icon:'',label:'财经类院校',clr:'#D4AE5A'},
+{k:'law',icon:'',label:'政法类院校',clr:'#fb923c'},
+{k:'lan',icon:'',label:'语言传媒类',clr:'#2C6E9E'},
+{k:'eth',icon:'',label:'民族类院校',clr:'#34d399'}
 ];
 var totalUni=UNIV_CATALOG.length;
 var withUrl=UNIV_CATALOG.filter(function(u){return !!u.url;}).length;
@@ -440,7 +440,7 @@ H+='<div style="background:linear-gradient(135deg,rgba(46,154,137,.065) 0%,rgba(
 +'<div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:14px;">'
 +'<div>'
 +'<div style="font-size:.62rem;letter-spacing:.15em;color:rgba(46,154,137,.65);font-family:\'DM Mono\',monospace;font-weight:700;margin-bottom:5px;text-transform:uppercase;">National University Sports Dept Directory</div>'
-+'<div style="font-family:\'Noto Serif SC\',serif;font-size:1.05rem;font-weight:700;color:#e0f2fe;margin-bottom:5px;">全国高校体育学院 · 体育部门目录</div>'
++'<div style="font-family:\'Noto Serif SC\',serif;font-size:1.05rem;font-weight:700;color:#0A2A43;margin-bottom:5px;">全国高校体育学院 · 体育部门目录</div>'
 +'<div style="font-size:.7rem;color:#475569;">数据来源：2025 软科中国大学排名 · 含体育专业类院校 · 信息仅供参考</div>'
 +'</div>'
 +'<div style="display:flex;gap:20px;flex-wrap:wrap;">'
@@ -453,26 +453,26 @@ H+='<div style="background:linear-gradient(135deg,rgba(46,154,137,.065) 0%,rgba(
 H+='<div style="margin-bottom:14px;">'
 +'<div style="position:relative;margin-bottom:9px;">'
 +'<span style="position:absolute;left:11px;top:50%;transform:translateY(-50%);color:#64748b;font-size:.84rem;pointer-events:none;">🔍</span>'
-+'<input id="ucSearch" type="text" placeholder="搜索院校名称、省份…" oninput="filterCatalog(this.value,window._ucTp||\'all\')" style="width:100%;padding:9px 12px 9px 34px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:9px;font-size:.84rem;color:#e0f2fe;outline:none;font-family:inherit;transition:border-color .2s;" onfocus="this.style.borderColor=\'rgba(46,154,137,.4)\'" onblur="this.style.borderColor=\'rgba(255,255,255,.09)\'">'
++'<input id="ucSearch" type="text" placeholder="搜索院校名称、省份…" oninput="filterCatalog(this.value,window._ucTp||\'all\')" style="width:100%;padding:9px 12px 9px 34px;background:#FFFFFF;border:1px solid #E6EAF0;border-radius:9px;font-size:.84rem;color:#0A2A43;outline:none;font-family:inherit;transition:border-color .2s;" onfocus="this.style.borderColor=\'rgba(46,154,137,.4)\'" onblur="this.style.borderColor=\'#E6EAF0\'">'
 +'</div>'
 +'<div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">'
 +'<span style="font-size:.67rem;color:#475569;flex-shrink:0;">筛选：</span>'
 +'<button id="ucf-all"   onclick="setUcFilter(\'all\')"   style="padding:4px 11px;border-radius:999px;border:1px solid rgba(46,154,137,.3);background:rgba(46,154,137,.12);color:#2E9A89;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;">全部</button>'
-+'<button id="ucf-985"   onclick="setUcFilter(\'985\')"   style="padding:4px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.04);color:#8A94A8;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;">985</button>'
-+'<button id="ucf-211"   onclick="setUcFilter(\'211\')"   style="padding:4px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.04);color:#8A94A8;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;">211</button>'
-+'<button id="ucf-双一流" onclick="setUcFilter(\'双一流\')" style="padding:4px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.04);color:#8A94A8;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;">双一流</button>'
-+'<button id="ucf-url"   onclick="setUcFilter(\'url\')"   style="padding:4px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.04);color:#8A94A8;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;">🔗 有体育官网</button>'
++'<button id="ucf-985"   onclick="setUcFilter(\'985\')"   style="padding:4px 11px;border-radius:999px;border:1px solid #E6EAF0;background:#F5F7FA;color:#5B6575;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;">985</button>'
++'<button id="ucf-211"   onclick="setUcFilter(\'211\')"   style="padding:4px 11px;border-radius:999px;border:1px solid #E6EAF0;background:#F5F7FA;color:#5B6575;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;">211</button>'
++'<button id="ucf-双一流" onclick="setUcFilter(\'双一流\')" style="padding:4px 11px;border-radius:999px;border:1px solid #E6EAF0;background:#F5F7FA;color:#5B6575;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;">双一流</button>'
++'<button id="ucf-url"   onclick="setUcFilter(\'url\')"   style="padding:4px 11px;border-radius:999px;border:1px solid #E6EAF0;background:#F5F7FA;color:#5B6575;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;">🔗 有体育官网</button>'
 +'<span id="ucResultCount" style="margin-left:auto;font-size:.68rem;color:#475569;font-family:\'DM Mono\',monospace;">共 '+totalUni+' 所院校</span>'
 +'</div></div>';
 // ── 3. Region Quick-Jump Bar ──
-var jH='<div style="display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin-bottom:22px;padding:9px 13px;background:rgba(255,255,255,.03);border-radius:9px;border:1px solid rgba(255,255,255,.06);">'
+var jH='<div style="display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin-bottom:22px;padding:9px 13px;background:#F5F7FA;border-radius:9px;border:1px solid #E6EAF0;">'
 +'<span style="font-size:.64rem;color:#475569;white-space:nowrap;flex-shrink:0;margin-right:2px;">快速跳转 ›</span>';
 REGS.forEach(function(r){
-  jH+='<a href="#" onclick="event.preventDefault();var e=document.getElementById(\'ucr-'+r.k+'\');if(e)e.scrollIntoView({behavior:\'smooth\',block:\'start\'});" style="font-size:.7rem;padding:3px 9px;border-radius:6px;background:rgba('+r.rgb+',.08);color:'+r.clr+';text-decoration:none;white-space:nowrap;transition:opacity .15s;" onmouseenter="this.style.opacity=\'.7\'" onmouseleave="this.style.opacity=\'1\'">'+r.icon+' '+r.k+'</a>';
+  jH+='<a href="#" onclick="event.preventDefault();var e=document.getElementById(\'ucr-'+r.k+'\');if(e)e.scrollIntoView({behavior:\'smooth\',block:\'start\'});" style="font-size:.7rem;padding:3px 9px;border-radius:6px;background:rgba('+r.rgb+',.08);color:'+r.clr+';text-decoration:none;white-space:nowrap;transition:opacity .15s;" onmouseenter="this.style.opacity=\'.7\'" onmouseleave="this.style.opacity=\'1\'">'+'<span class="uc-swatch" style="background:'+r.clr+'" aria-hidden="true"></span> '+r.k+'</a>';
 });
 jH+='<span style="color:#33415C;padding:0 2px;font-size:.7rem;">·</span>';
 SPGRP.forEach(function(sg){
-  jH+='<a href="#" onclick="event.preventDefault();var e=document.getElementById(\'ucr-'+sg.k+'\');if(e)e.scrollIntoView({behavior:\'smooth\',block:\'start\'});" style="font-size:.7rem;padding:3px 9px;border-radius:6px;background:rgba(255,255,255,.03);color:#64748b;text-decoration:none;white-space:nowrap;border:1px solid rgba(255,255,255,.06);transition:all .15s;" onmouseenter="this.style.color=\''+sg.clr+'\';this.style.borderColor=\''+sg.clr+'\'" onmouseleave="this.style.color=\'#64748b\';this.style.borderColor=\'rgba(255,255,255,.06)\'">'+sg.icon+'</a>';
+  jH+='<a href="#" onclick="event.preventDefault();var e=document.getElementById(\'ucr-'+sg.k+'\');if(e)e.scrollIntoView({behavior:\'smooth\',block:\'start\'});" style="font-size:.7rem;padding:3px 9px;border-radius:6px;background:#FFFFFF;color:#5B6575;text-decoration:none;white-space:nowrap;border:1px solid #E6EAF0;transition:all .15s;" onmouseenter="this.style.color=\''+sg.clr+'\';this.style.borderColor=\''+sg.clr+'\'" onmouseleave="this.style.color=\'#5B6575\';this.style.borderColor=\'#E6EAF0\'">'+'<span class="uc-swatch" style="background:'+sg.clr+'" title="'+sg.label+'" aria-label="'+sg.label+'"></span></a>';
 });
 jH+='</div>';
 H+=jH;
@@ -486,12 +486,12 @@ var card=function(u){
   if(u.tp==='985')tpB='<span style="font-size:.5rem;padding:1px 4px;border-radius:3px;background:rgba(244,63,94,.12);color:#f87171;font-weight:700;border:1px solid rgba(244,63,94,.2);">985</span>';
   else if(u.tp==='211')tpB='<span style="font-size:.5rem;padding:1px 4px;border-radius:3px;background:rgba(56,189,248,.11);color:#3E82B0;font-weight:700;border:1px solid rgba(56,189,248,.2);">211</span>';
   else if(u.tp==='双一流')tpB='<span style="font-size:.5rem;padding:1px 4px;border-radius:3px;background:rgba(44,110,158,.12);color:#2C6E9E;font-weight:700;border:1px solid rgba(44,110,158,.2);">双一流</span>';
-  var pvB='<span style="font-size:.5rem;padding:1px 4px;border-radius:3px;background:rgba(255,255,255,.05);color:#64748b;border:1px solid rgba(255,255,255,.08);">'+u.prov+'</span>';
-  var nm=u.iu?'<a href="'+u.iu+'" target="_blank" rel="noopener" style="color:#e0f2fe;font-weight:600;font-size:.83rem;text-decoration:none;" onmouseenter="this.style.color=\'#3E82B0\'" onmouseleave="this.style.color=\'#e0f2fe\'">'+u.n+'</a>':'<span style="color:#B8C2D0;font-weight:600;font-size:.83rem;">'+u.n+'</span>';
+  var pvB='<span style="font-size:.5rem;padding:1px 4px;border-radius:3px;background:#F5F7FA;color:#5B6575;border:1px solid #E6EAF0;">'+u.prov+'</span>';
+  var nm=u.iu?'<a href="'+u.iu+'" target="_blank" rel="noopener" style="color:#0A2A43;font-weight:600;font-size:.83rem;text-decoration:none;" onmouseenter="this.style.color=\'#3E82B0\'" onmouseleave="this.style.color=\'#0A2A43\'">'+u.n+'</a>':'<span style="color:#5B6575;font-weight:600;font-size:.83rem;">'+u.n+'</span>';
   var dpt=u.url
     ?'<a href="'+u.url+'" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;font-size:.65rem;color:#2E9A89;padding:2px 7px;border-radius:5px;background:rgba(46,154,137,.07);border:1px solid rgba(46,154,137,.15);margin-top:5px;text-decoration:none;transition:background .15s;" onmouseenter="this.style.background=\'rgba(46,154,137,.15)\'" onmouseleave="this.style.background=\'rgba(46,154,137,.07)\'">🔗 '+u.dept+'</a>'
     :'<span style="display:inline-flex;align-items:center;gap:3px;font-size:.65rem;color:#33415C;margin-top:5px;" title="暂无体育部门官网">🔒 '+u.dept+'</span>';
-  return '<div class="uc-card" data-n="'+u.n+'" data-prov="'+u.prov+'" data-tp="'+u.tp+'" data-url="'+(u.url?'1':'0')+'" style="background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.055);border-radius:9px;padding:11px 13px;transition:border-color .15s,background .15s;" onmouseenter="this.style.borderColor=\'rgba(46,154,137,.22)\';this.style.background=\'rgba(46,154,137,.03)\'" onmouseleave="this.style.borderColor=\'rgba(255,255,255,.055)\';this.style.background=\'rgba(255,255,255,.025)\'">'
+  return '<div class="uc-card" data-n="'+u.n+'" data-prov="'+u.prov+'" data-tp="'+u.tp+'" data-url="'+(u.url?'1':'0')+'" style="background:#FFFFFF;border:1px solid #E6EAF0;border-radius:9px;padding:11px 13px;transition:border-color .15s,background .15s;" onmouseenter="this.style.borderColor=\'rgba(46,154,137,.22)\';this.style.background=\'rgba(46,154,137,.03)\'" onmouseleave="this.style.borderColor=\'#E6EAF0\';this.style.background=\'#FFFFFF\'">'
   +'<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:6px;margin-bottom:1px;">'
   +'<div style="min-width:0;flex:1;">'
   +nm
@@ -508,7 +508,7 @@ REGS.forEach(function(reg){
   unis.sort(function(a,b){return a.rk-b.rk;});
   H+='<div class="uc-region" id="ucr-'+reg.k+'" style="margin-bottom:22px;">'
   +'<div style="display:flex;align-items:center;gap:10px;padding:8px 14px;border-radius:9px;background:rgba('+reg.rgb+',.05);border-left:3px solid '+reg.clr+';margin-bottom:11px;">'
-  +'<span style="font-size:.9rem;">'+reg.icon+'</span>'
+  +'<span class="uc-swatch uc-swatch--md" style="background:'+reg.clr+'" aria-hidden="true"></span>'
   +'<span style="font-weight:700;color:'+reg.clr+';font-size:.88rem;">'+reg.k+'地区</span>'
   +'<span style="font-size:.67rem;color:#475569;">'+reg.provs+'</span>'
   +'<span class="uc-reg-cnt" style="margin-left:auto;font-size:.7rem;font-weight:700;color:'+reg.clr+';font-family:\'DM Mono\',monospace;">'+unis.length+' 所</span>'
@@ -525,7 +525,7 @@ SPGRP.forEach(function(sg){
   if(!unis.length)return;
   H+='<div class="uc-region" id="ucr-'+sg.k+'" style="margin-bottom:16px;">'
   +'<div style="display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:8px;background:rgba(255,255,255,.028);border-left:2px solid '+sg.clr+';margin-bottom:9px;">'
-  +'<span>'+sg.icon+'</span>'
+  +'<span class="uc-swatch" style="background:'+sg.clr+'" aria-hidden="true"></span>'
   +'<span style="font-weight:600;color:'+sg.clr+';font-size:.84rem;">'+sg.label+'</span>'
   +'<span class="uc-reg-cnt" style="margin-left:auto;font-size:.68rem;color:#64748b;font-family:\'DM Mono\',monospace;">'+unis.length+' 所</span>'
   +'</div>'
@@ -737,10 +737,17 @@ window._ucTp='all';
   };
 
   function cssdAttr(v){return String(v||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');}
+  /* hon：短词做标签；带 ，。；或超过 20 字的散文片段归入简介段落（不改数据） */
+  function sdHonProse(h){return (window.honIsProse||function(){return false})(h);} /* 共享实现见 sports-scholars-data */
+  function sdAttr(t){return String(t).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');}
   function sdTags(s){
     return '<span class="tag '+(DC[s.disc]||'')+'">'+s.dL+'</span>'+
-      (s.hats||[]).map(function(h){return '<span class="tag t-hat">'+hS(h)+'</span>';}).join('')+
-      (s.hon||[]).slice(0,2).map(function(h){return '<span class="tag t-honor" style="font-size:.7rem">'+(h.length>18?h.slice(0,18)+'…':h)+'</span>';}).join('');
+      (s.hats||[]).map(function(h){var l=hS(h);if(/…$/.test(l))l=h;return '<span class="tag t-hat" title="'+sdAttr(h)+'">'+esc(l)+'</span>';}).join('')+
+      (s.hon||[]).filter(function(h){return !sdHonProse(h);}).slice(0,2).map(function(h){return '<span class="tag t-honor" style="font-size:.7rem" title="'+sdAttr(h)+'">'+esc(h)+'</span>';}).join('');
+  }
+  function sdBio(s){
+    var p=(s.hon||[]).filter(sdHonProse).map(function(h){h=String(h).replace(/\s+/g,' ').trim().replace(/\.{3,}$|…$/,'…');return /[。…！？]$/.test(h)?h:h+'。';});
+    return p.length?'<p class="sd-bio">'+esc(p.join(''))+'</p>':'';
   }
   function sdRelated(s){
     var peers=S.filter(function(x){return x.id!==s.id&&(x.disc===s.disc||x.institution===s.institution);})
@@ -779,7 +786,7 @@ window._ucTp='all';
     var role=s.role?'<div class="'+(RC[s.role]||'')+' rbadge" style="display:inline-flex;margin-bottom:7px">◈ '+(RL[s.role]||'')+'</div>':'';
     mtp.innerHTML='<div class="sd-hero">'+
       '<div class="sd-avatar" style="background:'+s.c+'22;color:'+s.c+'">'+s.i+'</div>'+
-      '<div style="min-width:0">'+role+'<div class="sd-name">'+s.n+'</div><div class="sd-meta">'+(s.e||'')+'<br>🏛 '+s.institution+(s.dept?' · '+s.dept:'')+'<br>🎓 '+s.title+'</div><div class="sd-tags">'+sdTags(s)+'</div></div>'+
+      '<div style="min-width:0">'+role+'<div class="sd-name">'+s.n+'</div>'+(s.rankTag&&typeof rankTagH==='function'?'<div class="sp-rank-row">'+rankTagH(s)+'</div>':'')+'<div class="sd-meta">'+(s.e||'')+'<br>🏛 '+s.institution+(s.dept?' · '+s.dept:'')+'<br>🎓 '+s.title+'</div><div class="sd-tags">'+sdTags(s)+'</div>'+sdBio(s)+'</div>'+
       '<div class="sd-actions">'+
         '<button class="sd-action primary" data-term="'+cssdAttr(s.institution)+'" onclick="cssdScholarSearchPreset(this.dataset.term);closeMod();">同机构学者</button>'+
         '<button class="sd-action" data-term="'+cssdAttr(s.dL)+'" onclick="cssdScholarSearchPreset(this.dataset.term);closeMod();">同方向学者</button>'+
@@ -833,14 +840,14 @@ function openProjPersonMod(name,unit){
     var lnk=p.articleUrl
       ?'<a href="'+p.articleUrl+'" target="_blank" rel="noopener" style="font-size:.62rem;color:#64748b;text-decoration:none;padding:1px 5px;border-radius:4px;border:1px solid rgba(255,255,255,.1);">&#8599; 原文</a>'
       :'';
-    return '<div style="padding:9px 12px;border-radius:8px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);margin-bottom:7px;">'
+    return '<div style="padding:9px 12px;border-radius:8px;background:#FFFFFF;border:1px solid #E6EAF0;margin-bottom:7px;">'
       +'<div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:5px;">'
       +'<span style="font-size:.68rem;font-family:DM Mono,monospace;color:#8A94A8;flex-shrink:0;">'+(p.year||'--')+'</span>'
       +'<span style="font-size:.62rem;padding:1px 6px;border-radius:4px;background:rgba(46,154,137,.1);color:#2E9A89;border:1px solid rgba(46,154,137,.18);">'+(p.category||'')+'</span>'
       +(p.code?'<span style="font-size:.6rem;color:#64748b;font-family:DM Mono,monospace;">'+p.code+'</span>':'')
       +lnk
       +'</div>'
-      +'<div style="font-size:.82rem;color:#e0f2fe;line-height:1.5;">'+(p.projectTitle||'')+'</div>'
+      +'<div style="font-size:.82rem;color:#0A2A43;line-height:1.5;">'+(p.projectTitle||'')+'</div>'
       +'</div>';
   }).join('');
   var mtp=document.getElementById('mtp');

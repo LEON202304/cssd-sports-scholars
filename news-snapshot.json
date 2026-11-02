@@ -1,17 +1,8 @@
 {
-  "generatedAt": "2026-10-12",
-  "source": "期刊官网 TOC + Crossref 自动抓取（GitHub Actions 每日）：体育科学、上海体育大学学报、中国体育科技、北京体育大学学报、武汉体育学院学报、体育学刊、天津体育学院学报、体育与科学、西安体育学院学报、British Journal of Sports Medicine、Sports Medicine、Journal of Sport and Health Science、Medicine & Science in Sports & Exercise、Journal of Sports Sciences、Scandinavian Journal of Medicine & Science in Sports",
+  "generatedAt": "2026-11-02",
+  "source": "期刊官网 TOC + Crossref 自动抓取（GitHub Actions 每日）：体育科学、上海体育大学学报、中国体育科技、北京体育大学学报、沈阳体育学院学报、体育学研究、体育学刊、天津体育学院学报、体育与科学、西安体育学院学报、British Journal of Sports Medicine、Sports Medicine、Journal of Sport and Health Science、Medicine & Science in Sports & Exercise、Journal of Sports Sciences、Scandinavian Journal of Medicine & Science in Sports",
   "statusHint": "live",
   "items": [
-    {
-      "journal": "Journal of Sport and Health Science",
-      "title": "Combined strength and aerobic training vs. aerobic training alone in patients with heart failure: A systematic review and meta-analysis",
-      "authors": "Tasuku Terada, Tim Kambic, Takumi Noda, Genki Kai, Rod S. Taylor, Jennifer L. Reed, Kentaro Kamiya",
-      "link": "https://doi.org/10.1016/j.jshs.2026.101136",
-      "date": "2026-12",
-      "journalZh": "《运动与健康科学》",
-      "titleZh": "心力衰竭患者的力量和有氧综合训练与单独有氧训练：系统评价和荟萃分析"
-    },
     {
       "journal": "Journal of Sport and Health Science",
       "title": "Physical activity influences immunity with an assist from the gut microbiome",
@@ -31,13 +22,197 @@
       "titleZh": "人类发展和性别不平等与心肺健康有关：对V O2峰的全球系统评价"
     },
     {
+      "journal": "Journal of Sport and Health Science",
+      "title": "Dose‒response associations of self-reported and device-measured physical activity with major adverse cardiovascular events in people with prevalent diseases",
+      "authors": "Miguel Adriano Sanchez-Lastra, Borja del Pozo Cruz, Jakob Tarp, Knut Eirik Dalene, Tormod S. Nilsen, Ding Ding, Ulf Ekelund",
+      "link": "https://doi.org/10.1016/j.jshs.2025.101116",
+      "date": "2026-12",
+      "journalZh": "《运动与健康科学》",
+      "titleZh": "自我报告和器械测量的体力活动与流行性疾病患者主要不良心血管事件的剂量反应关联"
+    },
+    {
+      "journal": "Journal of Sports Sciences",
+      "title": "Squat training using virtual target trajectories with structured variability matches traditional training in performance accuracy",
+      "authors": "Stylianos Grigoriadis, Paris Mavromoustakos-Blom, Nick Stergiou, Thomas Nikodelis",
+      "link": "https://doi.org/10.1080/02640414.2026.2757276",
+      "date": "2026-10-31",
+      "journalZh": "《体育科学杂志》",
+      "titleZh": "使用具有结构化变异性的虚拟目标轨迹的深蹲训练与传统的性能准确性训练相匹配"
+    },
+    {
+      "journal": "Journal of Sports Sciences",
+      "title": "Evaluating the transfer effects of skill acquisition principles on performance in academy soccer players",
+      "authors": "Basil More-Chevalier, Fabian Alberto Romero Clavijo, David Labbe, Jocelyn Faubert, Thomas Romeas",
+      "link": "https://doi.org/10.1080/02640414.2026.2754637",
+      "date": "2026-10-31",
+      "journalZh": "《体育科学杂志》",
+      "titleZh": "评估技能获取原则对青训足球运动员表现的转移效应"
+    },
+    {
+      "journal": "中国体育科技",
+      "title": "孤独症伴运动功能障碍儿童静息态fNIRS脑功能连接特征分析",
+      "authors": "董贵俊, 江慧兰, 李可峰, 吴俊英, 周波, 孙海英, 刘树芹, 宗文浩",
+      "link": "https://zgty.cbpt.cnki.net/portal/journal/portal/client/paper/4d22f5e294895c5c033d3933bed056f6",
+      "date": "2026-10-30"
+    },
+    {
+      "journal": "Scandinavian Journal of Medicine & Science in Sports",
+      "title": "Wearable Sensor‐Based Prediction of Knee Joint Moments in Competitive Rugby Players During Multidirectional Movements",
+      "authors": "Zixiang Gao, Robin Trama, David McNish, Michael Esposito, Jake Ruschkowski, Darren J. Stefanyshyn, John W. Wannop",
+      "link": "https://doi.org/10.1111/sms.70391",
+      "date": "2026-10-30",
+      "journalZh": "《斯堪的纳维亚运动医学与科学杂志》",
+      "titleZh": "基于可穿戴传感器的多方向运动中竞技橄榄球运动员的膝关节时刻预测"
+    },
+    {
+      "journal": "Scandinavian Journal of Medicine & Science in Sports",
+      "title": "Effects and Moderators of High‐Intensity Interval Training ( <scp>HIIT</scp> ) on Physiological Adaptations Among Team‐Sport Athletes: A Systematic Review and Meta‐Analysis",
+      "authors": "Xinyu Zeng, Mingyue Yin, Kai Xu, Meiling Tao, Jiaxin Wang, Yuming Zhong, Olivier Girard, George P. Nassis, Martin Buchheit, Yongming Li",
+      "link": "https://doi.org/10.1111/sms.70384",
+      "date": "2026-10-30",
+      "journalZh": "《斯堪的纳维亚运动医学与科学杂志》",
+      "titleZh": "高强度间歇训练（ <scp>HIIT</scp> ）对团队运动员生理适应的影响和主持人：系统评价和荟萃分析"
+    },
+    {
+      "journal": "Journal of Sports Sciences",
+      "title": "Repeated-sprint performance in combined heat and hypoxia: Current evidence",
+      "authors": "Keiichi Yamaguchi, Kazushige Goto",
+      "link": "https://doi.org/10.1080/02640414.2026.2756793",
+      "date": "2026-10-29",
+      "journalZh": "《体育科学杂志》",
+      "titleZh": "在高温和缺氧条件下的重复打印性能：当前证据"
+    },
+    {
+      "journal": "Scandinavian Journal of Medicine & Science in Sports",
+      "title": "Effect of Metatarsophalangeal Joint Position on Maximal Voluntary Isometric Ankle Plantar‐Flexion Torque",
+      "authors": "Hiroto Shiotani, Katsuki Takahashi, Kosei Taniai, Hayato Tsuru, Yasuo Kawakami",
+      "link": "https://doi.org/10.1111/sms.70390",
+      "date": "2026-10-29",
+      "journalZh": "《斯堪的纳维亚运动医学与科学杂志》",
+      "titleZh": "跖趾关节位置对最大自主等角踝足底屈曲力矩的影响"
+    },
+    {
+      "journal": "Medicine & Science in Sports & Exercise",
+      "title": "Sex-specific Lower Limb Strength, Flexibility, and Running Biomechanics in Adolescents With and Without Osgood-Schlatter Disease",
+      "authors": "Sungwan Kim, Alexandra F. DeJong Lempke, Kristin E. Whitney, William P. Meehan",
+      "link": "https://doi.org/10.1249/mss.0000000000004199",
+      "date": "2026-10-28",
+      "journalZh": "《运动医学与科学》",
+      "titleZh": "有或没有Osgood-Schlatter病的青少年的性别特异性下肢力量、灵活性和跑步生物力学"
+    },
+    {
+      "journal": "Medicine & Science in Sports & Exercise",
+      "title": "Regular Exercise Moderates Age-Related Cognitive Differences in Midlife Women: Domain-Specific Effects on Processing Speed and Working Memory",
+      "authors": "Pei-Ling Wong, Yu-Lun Chen, Chi-Hung Juan",
+      "link": "https://doi.org/10.1249/mss.0000000000004202",
+      "date": "2026-10-27",
+      "journalZh": "《运动医学与科学》",
+      "titleZh": "定期锻炼可缓解中年女性与年龄相关的认知差异：特定领域对处理速度和工作记忆的影响"
+    },
+    {
       "journal": "Sports Medicine",
-      "title": "Effect Size Calculation Procedures in Exercise Intervention Meta-Analyses: A Scoping Review",
-      "authors": "Simon Nolte, Theresa Siepe, Jennifer Murphy, Oliver J. Quittmann, Daniel Memmert, Robert Rein",
-      "link": "https://doi.org/10.1007/s40279-026-02549-7",
-      "date": "2026-10-11",
+      "title": "Response to Koerner and Staller (2026)",
+      "authors": "Aaron R. Caldwell, Jennifer Murphy, Joe P. Warne",
+      "link": "https://doi.org/10.1007/s40279-026-02550-0",
+      "date": "2026-10-26",
       "journalZh": "《运动医学》",
-      "titleZh": "运动干预荟萃分析中的效应大小计算程序：范围界定综述"
+      "titleZh": "对Koerner和Staller （ 2026 ）的回应"
+    },
+    {
+      "journal": "Sports Medicine",
+      "title": "Lean Body Mass Accounts for the Sex Dimorphism of the Circulatory System and Aerobic Exercise Capacity in Humans",
+      "authors": "Xinyu Liu, Meihan Guo, David Montero",
+      "link": "https://doi.org/10.1007/s40279-026-02552-y",
+      "date": "2026-10-26",
+      "journalZh": "《运动医学》",
+      "titleZh": "瘦体重是人类循环系统性异形和有氧运动能力的原因"
+    },
+    {
+      "journal": "Sports Medicine",
+      "title": "Post-Exercise Thermal Interventions and Nocturnal Sleep in Athletes: A Narrative Review of the Potential Underlying Physiological Mechanisms",
+      "authors": "Panagiotis G. Miliotis, Shona L. Halson, Toby Mundel, Josh Leota, Argyris G. Toubekis, Petros G. Botonis",
+      "link": "https://doi.org/10.1007/s40279-026-02555-9",
+      "date": "2026-10-26",
+      "journalZh": "《运动医学》",
+      "titleZh": "运动员运动后热干预和夜间睡眠：潜在潜在生理机制的叙述性综述"
+    },
+    {
+      "journal": "Medicine & Science in Sports & Exercise",
+      "title": "Neuromuscular Fatigue and Recovery: Are Marathon and Trail Running Different?",
+      "authors": "Mélanie Metra, Léonard Féasson, Antoine Ravel, Loïc Espeit, Jérémy Rossi, Richard C. Blagrove, Guillaume Y. Millet",
+      "link": "https://doi.org/10.1249/mss.0000000000004200",
+      "date": "2026-10-23",
+      "journalZh": "《运动医学与科学》",
+      "titleZh": "神经肌肉疲劳和恢复：马拉松和越野跑是不同的吗？"
+    },
+    {
+      "journal": "天津体育学院学报",
+      "title": "整体性治理视域下京张体育文化旅游带的治理逻辑与路径选择",
+      "authors": "刘冬磊, 吴志敏",
+      "link": "https://tjty.cbpt.cnki.net/portal/journal/portal/client/paper/089153b52450b379fd966c5bf70c2eb6",
+      "date": "2026-10-21"
+    },
+    {
+      "journal": "天津体育学院学报",
+      "title": "新质生产力驱动体育产业与低空经济融合发展的理论逻辑、现实挑战和实践路径",
+      "authors": "赵良瑜, 高岩",
+      "link": "https://tjty.cbpt.cnki.net/portal/journal/portal/client/paper/411664a51a3ce7d8c71d4a0614eb7619",
+      "date": "2026-10-21"
+    },
+    {
+      "journal": "天津体育学院学报",
+      "title": "低空经济战略下航空运动产业高质量发展的现实制约与突破路径",
+      "authors": "高绿路, 宣澍",
+      "link": "https://tjty.cbpt.cnki.net/portal/journal/portal/client/paper/7737c13992350771117accef9757dbfa",
+      "date": "2026-10-20"
+    },
+    {
+      "journal": "上海体育大学学报",
+      "title": "体育科学定量研究的理论框架：内涵、价值及构建",
+      "authors": "张连成, 朱良昊, 陶莹莹, 郭艺",
+      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2025.05.19.0002",
+      "date": "2026-10-15"
+    },
+    {
+      "journal": "上海体育大学学报",
+      "title": "我国社区公共体育服务治理机制的类型结构、运行困境与建设路向",
+      "authors": "马德浩, 徐胜昔",
+      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2025.12.18.0001",
+      "date": "2026-10-15"
+    },
+    {
+      "journal": "上海体育大学学报",
+      "title": "体育赛事能否促进体育产业创新？",
+      "authors": "李树旺, 王禹辰, 杨丽君, 刘圣文, 陈浩云",
+      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2026.03.11.0002",
+      "date": "2026-10-15"
+    },
+    {
+      "journal": "British Journal of Sports Medicine",
+      "title": "Degrees of certainty: beyond threshold thinking in sport and exercise science",
+      "authors": "Humberto M Carvalho",
+      "link": "https://doi.org/10.1136/bjsports-2026-112159",
+      "date": "2026-10-14",
+      "journalZh": "《英国运动医学杂志》",
+      "titleZh": "确定性程度：超越运动和运动科学的阈值思维"
+    },
+    {
+      "journal": "British Journal of Sports Medicine",
+      "title": "Physical inactivity is not laziness: from individual blame to structural determinants",
+      "authors": "Heitor Martins Pasquim, Paulo Henrique Guerra, José Augusto Dalmonte Malacarne, Bruno Gualano",
+      "link": "https://doi.org/10.1136/bjsports-2026-112204",
+      "date": "2026-10-13",
+      "journalZh": "《英国运动医学杂志》",
+      "titleZh": "缺乏身体活动不是懒惰：从个人责任到结构性决定因素"
+    },
+    {
+      "journal": "British Journal of Sports Medicine",
+      "title": "How should feasibility and safety be defined and measured in exercise-based rehabilitation trials?",
+      "authors": "Christopher Neason, Claire L Samanna, Daniel L Belavý, Matthew J Clarkson, Niamh L Mundell, Jacqui Pengelly, Patrick J Owen",
+      "link": "https://doi.org/10.1136/bjsports-2026-112329",
+      "date": "2026-10-13",
+      "journalZh": "《英国运动医学杂志》",
+      "titleZh": "在基于运动的康复试验中，应如何定义和衡量可行性和安全性？"
     },
     {
       "journal": "体育与科学",
@@ -54,137 +229,25 @@
       "date": "2026-10-10"
     },
     {
-      "journal": "Medicine & Science in Sports & Exercise",
-      "title": "Development and Validation of a Resting Metabolic Rate Equation for Elite Cyclists",
-      "authors": "Maartje Cox, Zoi Balamouti, Job van Leeuwen, Boy Sanders, Dajo Sanders, Gerard Rietjens, Guy Plasqui, Bas Van Hooren",
-      "link": "https://doi.org/10.1249/mss.0000000000004181",
-      "date": "2026-10-08",
-      "journalZh": "《运动医学与科学》",
-      "titleZh": "精英骑自行车者静息代谢率方程的开发与验证"
+      "journal": "北京体育大学学报",
+      "title": "学校体育思想“知识化”及其对学校体育自主知识体系构建的引领",
+      "authors": "邵天逸, 李启迪",
+      "link": "https://bjtd.chinajournal.net.cn/WKG/WebPublication/paperDigest.aspx?paperID=ec2fc03a-dc6e-4a02-bbc8-eb5888ba83f8",
+      "date": "2026-10"
     },
     {
-      "journal": "Medicine & Science in Sports & Exercise",
-      "title": "eHealth-Guided Exercise Improves Peak Oxygen Uptake and Health-Related Quality of Life After COVID-19: A Randomized Controlled Trial",
-      "authors": "Espen Alexander Eriksen, Ulrik Wisløff, Ottar Brohaug Welde, Sindre Midttun, Eli Anne Skaug, Jon Magne Letnes, Ross Arena, Patrick Dunn, Tommi Vasankari, Torbjørn Omland, Dorthe Stensvold",
-      "link": "https://doi.org/10.1249/mss.0000000000004177",
-      "date": "2026-10-08",
-      "journalZh": "《运动医学与科学》",
-      "titleZh": "电子健康指导运动可改善COVID-19后的峰值氧摄取和与健康相关的生活质量：一项随机对照试验"
+      "journal": "北京体育大学学报",
+      "title": "国际足联2026年美加墨世界杯资本商业模式与实践路径",
+      "authors": "张磊, 安屹, 孔梓菲",
+      "link": "https://bjtd.chinajournal.net.cn/WKG/WebPublication/paperDigest.aspx?paperID=4c1f3080-e04c-41ef-bfef-3589d569b6c7",
+      "date": "2026-10"
     },
     {
-      "journal": "Medicine & Science in Sports & Exercise",
-      "title": "Motor Imagery of Yips-Affected Pitching Enhances Corticospinal Excitability in Baseball Players with Yips",
-      "authors": "Daiki Yamasaki, Naotsugu Kaneko, Taishi Okegawa, Kimitaka Nakazawa",
-      "link": "https://doi.org/10.1249/mss.0000000000004173",
-      "date": "2026-10-07",
-      "journalZh": "《运动医学与科学》",
-      "titleZh": "受YIPS影响的投球的运动图像增强了YIPS棒球运动员的皮质脊髓兴奋性"
-    },
-    {
-      "journal": "Journal of Sports Sciences",
-      "title": "An 8-minute Self-Paced Cycling Test designed for endurance fitness monitoring: Cross-sectional validity, test–retest reliability, and practical implementation",
-      "authors": "Jules Cusson-Fradet, Frédéric Domingue, Claude Lajoie",
-      "link": "https://doi.org/10.1080/02640414.2026.2741755",
-      "date": "2026-10-07",
-      "journalZh": "《体育科学杂志》",
-      "titleZh": "专为耐力健身监测而设计的8分钟自定进度自行车测试：横截面有效性、测试-重测可靠性和实际实施"
-    },
-    {
-      "journal": "Sports Medicine",
-      "title": "Repetitive Head Impacts During Contact Sports and Fluid Biomarkers of Neural Damage: A Meta-analysis",
-      "authors": "Marloes I. Hoppen, Suzie Kamps, Everard G. B. Vijverberg, Joost G. Daams, Charlotte E. Teunissen, Jaap Oosterlaan, Marsh Königs",
-      "link": "https://doi.org/10.1007/s40279-026-02529-x",
-      "date": "2026-10-06",
-      "journalZh": "《运动医学》",
-      "titleZh": "接触运动中的重复性头部影响和神经损伤的液体生物标志物：荟萃分析"
-    },
-    {
-      "journal": "Sports Medicine",
-      "title": "The Oxygen Transport Cascade During Maximal-Intensity Exercise in Uncomplicated Type 1 Diabetes: A Narrative Review",
-      "authors": "Julien Aucouturier, Sémah Tagougui, Frédéric Daussin, Serge Berthoin, Elsa Heyman",
-      "link": "https://doi.org/10.1007/s40279-026-02540-2",
-      "date": "2026-10-06",
-      "journalZh": "《运动医学》",
-      "titleZh": "单纯1型糖尿病最大强度运动期间的氧输送级联：叙事综述"
-    },
-    {
-      "journal": "Journal of Sports Sciences",
-      "title": "Impact of coach-created motivational climate, mediated by collective efficacy, on team resilience in elite futsal athletes",
-      "authors": "Mylena Aparecida Rodrigues Baransk, Daniel Perez Arthur, Joice Mara Facco Stefanello",
-      "link": "https://doi.org/10.1080/02640414.2026.2743408",
-      "date": "2026-10-06",
-      "journalZh": "《体育科学杂志》",
-      "titleZh": "由集体效能调节的教练创造的激励氛围对精英五人制足球运动员团队韧性的影响"
-    },
-    {
-      "journal": "Journal of Sports Sciences",
-      "title": "Assessment of perceived competence in aquatic education: Aspects of reliability and validity of the Perceived Swimming Competence Assessment Scale",
-      "authors": "Monika Haga, Håvard Lorås, Jon Sundan",
-      "link": "https://doi.org/10.1080/02640414.2026.2740990",
-      "date": "2026-10-06",
-      "journalZh": "《体育科学杂志》",
-      "titleZh": "水上教育感知能力评估：感知游泳能力评估量表的可靠性和有效性方面"
-    },
-    {
-      "journal": "British Journal of Sports Medicine",
-      "title": "George’s Gymnastics Program: scaling an inclusive, school-based gymnastics service for children with intellectual disability through an Olympic training centre partnership",
-      "authors": "Moa Jederstrom, Christina L Ekegren, Ulrika Müssener, Natasha Brusco",
-      "link": "https://doi.org/10.1136/bjsports-2026-112014",
-      "date": "2026-10-01",
-      "journalZh": "《英国运动医学杂志》",
-      "titleZh": "乔治的体操项目：通过与奥林匹克培训中心的合作，为智障儿童提供包容性的、以学校为基础的体操服务"
-    },
-    {
-      "journal": "Scandinavian Journal of Medicine & Science in Sports",
-      "title": "Epidemiology of Match‐Related Injury Events in French Handball: A One‐Season Nationwide Cohort Study Across 323 628 Players",
-      "authors": "Ronan Choupeaux, Christophe Guegan, Pascal Edouard, Olivier Remy‐Neris, Brice Picot",
-      "link": "https://doi.org/10.1111/sms.70380",
-      "date": "2026-10",
-      "journalZh": "《斯堪的纳维亚运动医学与科学杂志》",
-      "titleZh": "法国手球比赛相关伤害事件的流行病学：一项针对323 628名球员的一季全国队列研究"
-    },
-    {
-      "journal": "Scandinavian Journal of Medicine & Science in Sports",
-      "title": "Is Training Transfer Uniform? A Systematic Review and Three‐Level Meta‐Analysis of Resisted Sprint Training Effects on Acceleration, Jumping, and Change of Direction Performance in Athletes",
-      "authors": "Chengcheng Li, Lunxin Chen, Qin Zhang, Xianyang Xin, Xiupeng Li",
-      "link": "https://doi.org/10.1111/sms.70375",
-      "date": "2026-10",
-      "journalZh": "《斯堪的纳维亚运动医学与科学杂志》",
-      "titleZh": "培训调动制服吗？阻力冲刺训练对运动员加速、跳跃和方向表现变化影响的系统评价和三级元分析"
-    },
-    {
-      "journal": "Scandinavian Journal of Medicine & Science in Sports",
-      "title": "The Football Association Injury and Illness Surveillance Programme: The Incidence, Burden, and Severity of Injuries in English Men's Domestic Football",
-      "authors": "Bradley Sprouse, Avinash Chandran, Philip Hennis, John Morris, Simon Cooper, Charlotte Cowie, Subhashis Basu, Ian Varley",
-      "link": "https://doi.org/10.1111/sms.70378",
-      "date": "2026-10",
-      "journalZh": "《斯堪的纳维亚运动医学与科学杂志》",
-      "titleZh": "足球协会伤病监测计划：英国男子国内足球受伤的发生率、负担和严重程度"
-    },
-    {
-      "journal": "British Journal of Sports Medicine",
-      "title": "Over-the-counter analgesics improve postconcussion symptoms and recovery: findings from the Concussion Assessment, Research and Education (CARE) Consortium",
-      "authors": "Kyle Arnold, Anish Mukherjee, Yeo Won Kim, Kira Rosenlind, Steven Broglio, Michael A McCrea, Thomas McAllister, Tara Lani Sharma",
-      "link": "https://doi.org/10.1136/bjsports-2025-110753",
-      "date": "2026-09-30",
-      "journalZh": "《英国运动医学杂志》",
-      "titleZh": "非处方镇痛药改善脑震荡后症状和康复：来自脑震荡评估、研究和教育（ CARE ）联盟的调查结果"
-    },
-    {
-      "journal": "天津体育学院学报",
-      "title": "“十五五”时期民族传统体育生活化的目标愿景、现实挑战与实现路径",
-      "authors": "白晋湘, 王振亮, 何涛",
-      "link": "https://tjty.cbpt.cnki.net/portal/journal/portal/client/paper/3d0f26b970a4ecc0ac6ecfe388b1ed53",
-      "date": "2026-09-29"
-    },
-    {
-      "journal": "British Journal of Sports Medicine",
-      "title": "Are we comparing blood flow restriction outcomes using equivalent equipment? The importance of empirically validated equipment and accurate reporting for comparison of outcomes related to safety and efficacy",
-      "authors": "Luke Hughes, Nicholas Rolnick",
-      "link": "https://doi.org/10.1136/bjsports-2026-112173",
-      "date": "2026-09-29",
-      "journalZh": "《英国运动医学杂志》",
-      "titleZh": "我们是否使用等效设备比较血流限制结果？经验验证的设备和准确的报告对于比较安全性和有效性相关结果的重要性"
+      "journal": "北京体育大学学报",
+      "title": "国际足联2026年美加墨世界杯多国联合办赛模式研究",
+      "authors": "王庆伟, 刘天祺, 沈同千",
+      "link": "https://bjtd.chinajournal.net.cn/WKG/WebPublication/paperDigest.aspx?paperID=b84c6bac-1492-40e7-a843-416ba96a0f78",
+      "date": "2026-10"
     },
     {
       "journal": "体育学刊",
@@ -208,46 +271,39 @@
       "date": "2026-09-28"
     },
     {
-      "journal": "上海体育大学学报",
-      "title": "研究范式转型与中国体育学自主知识体系构建",
-      "authors": "易剑东",
-      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2026.05.20.0006",
+      "journal": "体育科学",
+      "title": "论运动训练学的发展",
+      "authors": "陈小平, 赵祎凡",
+      "link": "http://tykx.xml-journal.net/article/doi/10.16469/J.css.2026KX046",
       "date": "2026-09-15"
     },
     {
-      "journal": "上海体育大学学报",
-      "title": "以体育规则为核心范畴构建体育法学自主知识体系",
-      "authors": "韩勇",
-      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2026.05.16.0006",
+      "journal": "体育科学",
+      "title": "青少年早期专项化训练的国际走向与中国策略",
+      "authors": "柳鸣毅, 卢冬磊, 彭李奥, 孔年欣",
+      "link": "http://tykx.xml-journal.net/article/doi/10.16469/J.css.2026KX053",
       "date": "2026-09-15"
     },
     {
-      "journal": "上海体育大学学报",
-      "title": "中国体育学自主知识体系探赜：逻辑起点、三维结构与构建向度",
-      "authors": "李博, 陈迪思, 黄泠熙, 姜哲",
-      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2026.04.06.0002",
+      "journal": "体育科学",
+      "title": "功能性阈值功率：构建耐力训练负荷监控的新范式",
+      "authors": "杨中和, 苏玉莹, 石煜, 林俊磊, 彭凡, 阙怡琳, 黄佳儒, 李卫",
+      "link": "http://tykx.xml-journal.net/article/doi/10.16469/J.css.2026KX074",
       "date": "2026-09-15"
     },
     {
-      "journal": "北京体育大学学报",
-      "title": "基于国际话语权提升的我国国际体育组织人才培养战略研究",
-      "authors": "邰峰, 王士豪",
-      "link": "https://bjtd.chinajournal.net.cn/WKG/WebPublication/paperDigest.aspx?paperID=5acc821e-7d79-4ab9-8a96-b70e16662db1",
-      "date": "2026-09"
+      "journal": "中国体育科技",
+      "title": "青少年射箭运动员专项成绩影响因素中的核心专项体能识别及心理变量检验",
+      "authors": "安亚伦, 吴佳仪, 黄诗涵, 薛思程, 赵穆妍",
+      "link": "https://zgty.cbpt.cnki.net/portal/journal/portal/client/paper/301359961a441efbbff2f3d62afe12ca",
+      "date": "2026-09-15"
     },
     {
-      "journal": "北京体育大学学报",
-      "title": "体育强国需求下中国特色冰雪运动学科体系构建研究",
-      "authors": "卢诗卉, 方千华, 赵学峰",
-      "link": "https://bjtd.chinajournal.net.cn/WKG/WebPublication/paperDigest.aspx?paperID=3954fef9-ba07-40bc-988f-a1aa068698b3",
-      "date": "2026-09"
-    },
-    {
-      "journal": "北京体育大学学报",
-      "title": "协同治理视域下“三大球”振兴的理论逻辑、现实困境与优化路径研究",
-      "authors": "史友宽, 张岩, 张欣",
-      "link": "https://bjtd.chinajournal.net.cn/WKG/WebPublication/paperDigest.aspx?paperID=83144b13-4606-422d-82c8-d94d9ef673b9",
-      "date": "2026-09"
+      "journal": "中国体育科技",
+      "title": "虚拟现实条件下篮球运动员运动决策表现及眼动特征研究",
+      "authors": "贾亚祥, 周璇, 周世博, 付全",
+      "link": "https://zgty.cbpt.cnki.net/portal/journal/portal/client/paper/1493583790f9566515a9b6d13acf2bb9",
+      "date": "2026-09-15"
     },
     {
       "journal": "武汉体育学院学报",
@@ -271,60 +327,11 @@
       "date": "2026-09"
     },
     {
-      "journal": "体育科学",
-      "title": "运动健康促进的理论要义、实践形态与推进路径",
-      "authors": "杨桦, 祝莉",
-      "link": "http://tykx.xml-journal.net/article/doi/10.16469/J.css.2026KX077",
-      "date": "2026-08-15"
-    },
-    {
-      "journal": "体育科学",
-      "title": "我国国民体质特征、影响因素与健康效应",
-      "authors": "王晶晶, 范超群, 聂明剑, 王梦蝶, 龙鑫, 武东明, 王欢, 徐凯, 冯强",
-      "link": "http://tykx.xml-journal.net/article/doi/10.16469/J.css.2026KX062",
-      "date": "2026-08-15"
-    },
-    {
-      "journal": "体育科学",
-      "title": "运动训练数智化转型赋能奥运备战实践创新",
-      "authors": "朱丽敏, 袁守龙, 卢飞翔",
-      "link": "http://tykx.xml-journal.net/article/doi/10.16469/J.css.2026KX061",
-      "date": "2026-08-15"
-    },
-    {
-      "journal": "中国体育科技",
-      "title": "基于函数型数据分析的跆拳道后横踢动态特征研究：双侧不对称性对击打表现的影响",
-      "authors": "董欣冉, 梁添哲, 马勇, 贾孟尧, 叶伟帅, 熊俊",
-      "link": "https://zgty.cbpt.cnki.net/portal/journal/portal/client/paper/d2ca4702469d7649189737cb25780cfd",
-      "date": "2026-08-15"
-    },
-    {
-      "journal": "中国体育科技",
-      "title": "sRPE监控中国优秀女子拳击运动员教学比赛负荷的应用研究",
-      "authors": "叶成杰, 叶家驰, 许毅枭, 高炳宏",
-      "link": "https://zgty.cbpt.cnki.net/portal/journal/portal/client/paper/5390fb6dab642937005fac0bf20ffc4f",
-      "date": "2026-08-15"
-    },
-    {
-      "journal": "中国体育科技",
-      "title": "运动对大脑神经网络的调控：从机制、功能到精准干预的整合性视角",
-      "authors": "章森, 何文柯, 林晨丽, 漆正堂, 刘微娜",
-      "link": "https://zgty.cbpt.cnki.net/portal/journal/portal/client/paper/2f638a04901fa5d2932f13505ec05f21",
-      "date": "2026-08-15"
-    },
-    {
-      "journal": "天津体育学院学报",
-      "title": "分散居住区基本公共体育服务标准化供给的机制与对策研究",
-      "authors": "张大超, 王贵斌",
-      "link": "https://tjty.cbpt.cnki.net/portal/journal/portal/client/paper/fb97abded24f22dc9a586955849958aa",
-      "date": "2026-08-05"
-    },
-    {
-      "journal": "天津体育学院学报",
-      "title": "面向“十五五”：城市全民健身场地设施运营管理的困境、镜鉴与路径",
-      "authors": "郑家鲲, 徐丽萍",
-      "link": "https://tjty.cbpt.cnki.net/portal/journal/portal/client/paper/288e2b83e479342944d926c93aa839a6",
-      "date": "2026-08-05"
+      "journal": "体育学研究",
+      "title": "中国体育口述史知识生产的再语境化逻辑与实...",
+      "authors": "",
+      "link": "http://ntxb.nsi.edu.cn/tyxyj/njtyxyxbsk/article/abstract/202608210000001",
+      "date": "2026-08-21"
     },
     {
       "journal": "体育与科学",
@@ -334,25 +341,18 @@
       "date": "2026-07-25"
     },
     {
-      "journal": "西安体育学院学报",
-      "title": "扬弃与立新:体育非线性教学法的内涵阐释、主要特征及实践启示",
-      "authors": "李游, 赵雪同, 李笋南, 邵婷",
-      "link": "https://xaty.cbpt.cnki.net/portal/journal/portal/client/paper/23ecc4813548b63f7ea33766be170be9",
-      "date": "2026-07-02"
+      "journal": "体育学研究",
+      "title": "全球体育治理变革下中国体育文化国际传播的...",
+      "authors": "",
+      "link": "http://ntxb.nsi.edu.cn/tyxyj/njtyxyxbsk/article/abstract/202607250000002",
+      "date": "2026-07-25"
     },
     {
       "journal": "西安体育学院学报",
-      "title": "试论中华武术中的“击”与“舞”",
-      "authors": "邱丕相",
-      "link": "https://xaty.cbpt.cnki.net/portal/journal/portal/client/paper/838829dcfde58e565f2509e9ccf89de2",
-      "date": "2026-05-10"
-    },
-    {
-      "journal": "西安体育学院学报",
-      "title": "我国运动项目产业化的理论阐释、历史实践与发展路径",
-      "authors": "陈叙南, 杨铄, 郑芳",
-      "link": "https://xaty.cbpt.cnki.net/portal/journal/portal/client/paper/8057cc9ff9a59ebad03e60d705748552",
-      "date": "2026-05-10"
+      "title": "典籍骊珠，文中武脉——明清少林武术文献的文化阐述",
+      "authors": "周伟良",
+      "link": "https://xaty.cbpt.cnki.net/portal/journal/portal/client/paper/e41abb4c0e7edf4d1b74201cf7ea55d5",
+      "date": "2026-07-10"
     }
   ]
 }

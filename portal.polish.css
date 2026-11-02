@@ -10,7 +10,7 @@
   --sp-bg:#F5F7FA;
   --sp-card:#FFFFFF;
   --sp-muted:#5B6575;
-  --sp-muted2:#8A93A3;
+  --sp-muted2:#64748B; /* P2-5: was #8A93A3 (~3.1:1); now ~4.8:1 on white */
   --sp-line:#E6EAF0;
   --sp-news-live:var(--sp-teal);
   --sp-news-stale:var(--sp-gold);
@@ -211,19 +211,90 @@ html.cssd-light #vw-scholars .chip.clr:hover{
   --an-c:var(--sp-brand-500) !important;
 }
 
-/* —— 同意条 CTA：纯 teal，去掉紫渐变 —— */
+/* —— 同意条：一行摘要 + CTA；z-index 低于 sticky 顶栏(1200)、高于内容 —— */
+html.cssd-light #consent-banner{
+  z-index:1100 !important;
+  left:0 !important;
+  right:0 !important;
+  bottom:0 !important;
+  padding:12px 20px !important;
+  gap:12px !important;
+  border-radius:0 !important;
+  border:0 !important;
+  border-top:1px solid var(--sp-line) !important;
+  background:#FFFFFF !important;
+  box-shadow:0 -8px 28px rgba(10,42,67,.08) !important;
+  backdrop-filter:none !important;
+  align-items:center !important;
+}
+html.cssd-light #consent-banner p{
+  flex:1 1 auto;
+  min-width:0;
+  margin:0 !important;
+  font-size:.78rem !important;
+  line-height:1.55 !important;
+  color:var(--sp-muted) !important;
+  max-height:none !important;
+  overflow:visible !important;
+}
+html.cssd-light #consent-banner a,
+html.cssd-light #consent-banner .consent-more{
+  color:var(--sp-brand-500) !important;
+  font-weight:600;
+  text-decoration:underline;
+  text-underline-offset:2px;
+  cursor:pointer;
+  white-space:nowrap;
+}
 html.cssd-light .consent-accept,
 .consent-accept{
-  background:var(--sp-teal) !important;
+  background:var(--sp-brand-900) !important;
   background-image:none !important;
   color:#fff !important;
   border:0 !important;
+  font-weight:700 !important;
+  min-height:36px;
+  padding:8px 20px !important;
+  border-radius:8px !important;
+  box-shadow:0 1px 0 rgba(10,42,67,.12);
 }
-html.cssd-light #consent-banner{
-  background:#FFFFFF !important;
-  border-top:1px solid var(--sp-line) !important;
-  box-shadow:0 -8px 28px rgba(10,42,67,.08) !important;
-  backdrop-filter:none !important;
+html.cssd-light .consent-accept:hover,
+.consent-accept:hover{
+  background:#14476E !important;
+  opacity:1 !important;
+}
+html.cssd-light .consent-reject,
+.consent-reject{
+  background:transparent !important;
+  border:1px solid var(--sp-line) !important;
+  color:var(--sp-muted) !important;
+  min-height:36px;
+  padding:8px 14px !important;
+  border-radius:8px !important;
+}
+html.cssd-light .consent-reject:hover,
+.consent-reject:hover{
+  border-color:rgba(10,42,67,.22) !important;
+  color:var(--sp-brand-900) !important;
+}
+@media (max-width:760px){
+  html.cssd-light #consent-banner{
+    left:0 !important;
+    right:0 !important;
+    bottom:0 !important;
+    display:flex !important;
+    flex-wrap:wrap !important;
+    padding:10px 14px !important;
+    gap:8px !important;
+  }
+  html.cssd-light #consent-banner p{
+    flex:1 1 100% !important;
+    font-size:.72rem !important;
+  }
+  html.cssd-light .consent-reject,
+  html.cssd-light .consent-accept{
+    flex:1 1 0;
+  }
 }
 
 /* —— 焦点可见 —— */
@@ -656,12 +727,13 @@ html.cssd-light body #vw-scholars > .ph{
 }
 html.cssd-light body #vw-scholars .ctlb{
   margin-top:0 !important;
-  top:0 !important;
+  top:68px !important; /* = header.sp-header height；避免与固定顶栏叠字 */
+  z-index:1100 !important;
 }
 @media (max-width:768px){
   html.cssd-light body #vw-scholars .ctlb,
   html.cssd-light body #vw-scholars .ctlb.slim{
-    top:0 !important;
+    top:0 !important; /* relative 下不需要顶栏偏移 */
     position:relative !important;
   }
 }
@@ -1036,11 +1108,12 @@ html.cssd-light body header.sp-header{
   height:68px;
   gap:36px;
   padding:0 max(28px,calc((100vw - var(--sp-max))/2));
-  background:rgba(255,255,255,.82) !important;
+  background:rgba(255,255,255,.96) !important;
   backdrop-filter:saturate(1.4) blur(16px) !important;
   -webkit-backdrop-filter:saturate(1.4) blur(16px) !important;
   border-bottom:1px solid var(--sp-hair) !important;
-  box-shadow:none !important;
+  box-shadow:0 1px 0 rgba(255,255,255,.85) inset, 0 4px 18px rgba(10,42,67,.06) !important;
+  z-index:1200 !important;
 }
 html.cssd-light body #sportsPortal{padding-top:68px;}
 html.cssd-light body .sp-brand{gap:12px;}
@@ -1211,13 +1284,25 @@ html.cssd-light body #sportsPortal .sp-panel > header{
   border-bottom:1px solid #E6EAF0;
   padding:18px 20px 14px;
 }
+/* 首页三块标题：统一单竖条（清点+双竖线） */
 html.cssd-light body #sportsPortal .sp-panel-titles{
-  border-left:0;
-  padding-left:0;
+  border-left:3px solid var(--sp-brand-500, #2C6E9E) !important;
+  padding-left:10px !important;
+  position:relative;
+}
+html.cssd-light body #sportsPortal .sp-panel-titles:before{
+  content:none !important;
+  display:none !important;
 }
 html.cssd-light body #sportsPortal .sp-panel h2{
   font-size:18px;
   letter-spacing:.06em;
+  border-left:0 !important;
+  padding-left:0 !important;
+}
+html.cssd-light body #sportsPortal .sp-panel .sp-eyebrow:before{
+  content:none !important;
+  display:none !important;
 }
 html.cssd-light body #sportsPortal .sp-eyebrow{
   letter-spacing:.18em;
@@ -1471,22 +1556,22 @@ html.cssd-light body #vw-projects .proj-note{
   color:#5B6575 !important;
 }
 
-/* ── 页脚：两栏，更稳 ── */
+/* ── 页脚：两栏 + © / 隐私 / 认领；收紧密度 ── */
 html.cssd-light body #sportsPortal footer.sp-footer{
   background:#F5F7FA !important;
   border-top:1px solid rgba(10,42,67,.1) !important;
-  padding:56px 0 40px !important;
+  padding:40px 0 28px !important;
   margin-top:12px;
 }
 html.cssd-light body #sportsPortal footer.sp-footer .sp-wrap{
   display:grid;
   grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr);
   align-items:start;
-  gap:48px;
+  gap:36px;
 }
 html.cssd-light body #sportsPortal footer.sp-footer strong{
   font-family:var(--sp-serif) !important;
-  font-size:26px !important;
+  font-size:24px !important;
   font-weight:600 !important;
   letter-spacing:.14em !important;
   color:#0A2A43 !important;
@@ -1497,28 +1582,39 @@ html.cssd-light body #sportsPortal footer.sp-footer p{
   font-size:13px !important;
   letter-spacing:.04em;
 }
+html.cssd-light body #sportsPortal footer.sp-footer .sp-footer-copy{
+  margin-top:10px !important;
+  font-size:12px !important;
+  color:var(--sp-muted2) !important;
+  letter-spacing:.02em;
+}
 html.cssd-light body #sportsPortal footer.sp-footer .sp-wrap > div:last-child{
   display:flex;
   flex-wrap:wrap;
   justify-content:flex-end;
-  gap:4px 18px;
-  padding-top:6px;
+  gap:4px 16px;
+  padding-top:4px;
   border-left:1px solid #E6EAF0;
-  padding-left:36px;
+  padding-left:28px;
 }
 html.cssd-light body #sportsPortal footer.sp-footer button{
   color:#1A2332 !important;
-  font-size:14px !important;
-  letter-spacing:.06em;
+  font-size:13px !important;
+  letter-spacing:.04em;
   padding:4px 0 !important;
+  background:none !important;
+  border:0 !important;
+  cursor:pointer;
+  font-family:inherit;
 }
 html.cssd-light body #sportsPortal footer.sp-footer button:hover{color:#2C6E9E !important;}
 html.cssd-light body #sportsPortal footer.sp-footer small{
   flex-basis:100%;
   text-align:right;
-  margin-top:10px;
+  margin-top:8px;
   color:#5B6575 !important;
-  line-height:1.6;
+  line-height:1.55;
+  font-size:12px !important;
 }
 
 /* ── 焦点与减弱动效 ── */
@@ -1589,7 +1685,7 @@ html.cssd-light body #vw-academicnews .an-tab:focus-visible{
     overflow-x:auto;
     -webkit-overflow-scrolling:touch;
   }
-  html.cssd-light body #sportsPortal footer.sp-footer{padding:32px 0 28px !important;}
+  html.cssd-light body #sportsPortal footer.sp-footer{padding:28px 0 22px !important;}
   html.cssd-light body #sportsPortal footer.sp-footer .sp-wrap{
     grid-template-columns:1fr;
     gap:18px;
@@ -1684,8 +1780,8 @@ html.cssd-light body #sportsPortal .hn-layout{
   display:grid;
   grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
   gap:12px;
-  /* 顶对齐：左卡高度随内容，不被右列（英中双行）撑出底部空白 */
-  align-items:start;
+  /* 外层等高；栏内顶对齐。禁止再对 .hn-row 用 flex:1 1 0 压扁文字（#27） */
+  align-items:stretch;
   min-width:0;
 }
 html.cssd-light body #sportsPortal .hn-lead,
@@ -1708,12 +1804,18 @@ html.cssd-light body #sportsPortal .hn-lead{
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
-  align-self:start;
+  align-self:stretch;
   padding:20px 22px 18px;
   height:auto;
+  min-height:100%;
   background:
     linear-gradient(180deg,rgba(245,247,250,.55),transparent 42%),
     #FFFFFF;
+}
+/* 立项条钉在左卡底，填满矮侧空白，不压标题行 */
+html.cssd-light body #sportsPortal .hn-lead > .hn-grants,
+html.cssd-light body #sportsPortal .hn-lead > .hn-more{
+  margin-top:auto;
 }
 html.cssd-light body #sportsPortal .hn-meta{
   display:flex;
@@ -1743,7 +1845,7 @@ html.cssd-light body #sportsPortal .hn-meta time{
   flex:0 0 auto;
   font-size:12px;
   letter-spacing:.04em;
-  color:#8A93A3;
+  color:var(--sp-muted2);
   font-variant-numeric:tabular-nums;
 }
 html.cssd-light body #sportsPortal .hn-lead h3,
@@ -1786,10 +1888,31 @@ html.cssd-light body #sportsPortal .hn-list{
   flex-direction:column;
   gap:6px;
   min-width:0;
+  min-height:100%;
+  height:100%;
+  align-self:stretch;
+  justify-content:flex-start;
 }
 html.cssd-light body #sportsPortal .hn-row{
-  flex:0 0 auto;
+  flex:0 0 auto; /* 勿改回 flex:1 1 0 —— 会叠字 */
   padding:8px 14px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  min-height:0;
+}
+/* 仅拉长最后一张卡的外壳空白，子项仍 flex:0 0 auto */
+html.cssd-light body #sportsPortal .hn-list > .hn-row:last-child{
+  flex:1 1 auto;
+}
+html.cssd-light body #sportsPortal .hn-row > .hn-meta,
+html.cssd-light body #sportsPortal .hn-row > h3,
+html.cssd-light body #sportsPortal .hn-row > .hn-title-zh,
+html.cssd-light body #sportsPortal .hn-row > .hn-authors{
+  flex:0 0 auto;
+  flex-shrink:0;
+  min-height:unset;
+  max-height:none;
 }
 html.cssd-light body #sportsPortal .hn-row .hn-meta{margin-bottom:6px;}
 html.cssd-light body #sportsPortal .hn-row .hn-authors{margin-top:6px;font-size:12px;}
@@ -1839,7 +1962,7 @@ html.cssd-light body #sportsPortal .hn-grant-sub{
   margin:2px 0 0;
   font-size:12px;
   line-height:1.4;
-  color:#8A93A3;
+  color:var(--sp-muted2);
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
@@ -1896,7 +2019,7 @@ html.cssd-light body #sportsPortal .hn-more-sub{
   margin:2px 0 0;
   font-size:12px;
   line-height:1.4;
-  color:#8A93A3;
+  color:var(--sp-muted2);
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
@@ -2217,7 +2340,8 @@ html.cssd-light body #vw-journals .jnl-search{
   border-color:rgba(10,42,67,.16) !important;
 }
 html.cssd-light body #vw-journals .jnl-search::placeholder{
-  color:#6B7280 !important;
+  color:var(--sp-muted2) !important;
+  -webkit-text-fill-color:var(--sp-muted2) !important;
   opacity:1 !important;
 }
 html.cssd-light body #vw-journals .jnl-search-ico,
@@ -2285,7 +2409,7 @@ html.cssd-light body #sportsPortal .hn-journal-block .hn-journal{
 html.cssd-light body #sportsPortal .hn-journal-zh{
   display:block;
   padding:0 2px;
-  color:#8A93A3;
+  color:var(--sp-muted2);
   font-size:11px;
   font-weight:400;
   letter-spacing:.02em;
@@ -2310,7 +2434,13 @@ html.cssd-light body #sportsPortal .hn-title-zh{
   min-width:0;
 }
 html.cssd-light body #sportsPortal .hn-lead .hn-title-zh{font-size:15px;margin-top:6px;}
-html.cssd-light body #sportsPortal .hn-row .hn-title-zh{font-size:12px;margin-top:3px;-webkit-line-clamp:1;}
+html.cssd-light body #sportsPortal .hn-row .hn-title-zh{
+  display:block !important;
+  font-size:12px;margin-top:3px;
+  line-height:1.45 !important;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  -webkit-line-clamp:unset;
+}
 
 html.cssd-light #vw-academicnews .an-title-zh{
   margin:6px 0 0;
@@ -2403,7 +2533,7 @@ html.cssd-light body #sportsPortal .xj-layout{
   display:grid;
   grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
   gap:12px;
-  align-items:start;
+  align-items:stretch;
   min-width:0;
 }
 html.cssd-light body #sportsPortal .xj-lead,
@@ -2426,12 +2556,16 @@ html.cssd-light body #sportsPortal .xj-lead{
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
-  align-self:start;
+  align-self:stretch;
   padding:20px 22px 18px;
   background:
     linear-gradient(180deg,rgba(245,247,250,.55),transparent 42%),
     #FFFFFF;
   height:auto;
+  min-height:100%;
+}
+html.cssd-light body #sportsPortal .xj-lead > .xj-side{
+  margin-top:auto;
 }
 html.cssd-light body #sportsPortal .xj-meta{
   display:flex;
@@ -2453,37 +2587,51 @@ html.cssd-light body #sportsPortal .xj-side-list h3 a:hover{
   color:#2C6E9E;
   text-decoration:underline;
 }
+/* 学界动态类型徽章：pill 形制对齐 sp-hat-pill；文案标签保证非纯色识别 */
 html.cssd-light body #sportsPortal .xj-tag{
-  display:inline-block;
-  padding:3px 8px;
+  display:inline-flex;
+  align-items:center;
+  gap:2px;
+  padding:2px 8px;
   border-radius:999px;
-  border:1px solid #E6EAF0;
-  background:#F5F7FA;
-  font-size:12px;
+  border:1px solid #E3E8EF;
+  background:#FFFFFF;
+  color:#0A2A43;
+  font-size:11px;
   font-weight:600;
-  letter-spacing:.06em;
+  letter-spacing:.04em;
   line-height:1.4;
+  white-space:nowrap;
+  flex:0 0 auto;
 }
 html.cssd-light body #sportsPortal .xj-tag-honor{
   color:#0F5B4F;
   background:rgba(46,154,137,.10);
   border-color:rgba(46,154,137,.32);
 }
-html.cssd-light body #sportsPortal .xj-tag-event{
+html.cssd-light body #sportsPortal .xj-tag-event,
+html.cssd-light body #sportsPortal .xj-tag-paper,
+html.cssd-light body #sportsPortal .xj-tag-project{
   color:#14476E;
   background:rgba(44,110,158,.10);
   border-color:rgba(44,110,158,.30);
 }
 html.cssd-light body #sportsPortal .xj-tag-meet{
-  color:#8A6D1F;
-  background:rgba(200,162,75,.12);
-  border-color:rgba(200,162,75,.34);
+  /* 金底字色加深，小字对比 ≥4.5:1 */
+  color:#6B5618;
+  background:rgba(200,162,75,.14);
+  border-color:rgba(200,162,75,.40);
+}
+html.cssd-light body #sportsPortal .xj-tag-other{
+  color:#14476E;
+  background:#F5F7FA;
+  border-color:#E3E8EF;
 }
 html.cssd-light body #sportsPortal .xj-meta time{
   flex:0 0 auto;
   font-size:12px;
   letter-spacing:.04em;
-  color:#8A93A3;
+  color:var(--sp-muted2);
   font-variant-numeric:tabular-nums;
 }
 html.cssd-light body #sportsPortal .xj-lead h3,
@@ -2518,10 +2666,30 @@ html.cssd-light body #sportsPortal .xj-list{
   flex-direction:column;
   gap:6px;
   min-width:0;
+  min-height:100%;
+  height:100%;
+  align-self:stretch;
+  justify-content:flex-start;
 }
 html.cssd-light body #sportsPortal .xj-row{
   flex:0 0 auto;
   padding:8px 14px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  min-height:0;
+}
+html.cssd-light body #sportsPortal .xj-list > .xj-row:last-child{
+  flex:1 1 auto;
+}
+html.cssd-light body #sportsPortal .xj-row > .xj-meta,
+html.cssd-light body #sportsPortal .xj-row > h3,
+html.cssd-light body #sportsPortal .xj-row > .xj-sub,
+html.cssd-light body #sportsPortal .xj-row > .xj-authors{
+  flex:0 0 auto;
+  flex-shrink:0;
+  min-height:unset;
+  max-height:none;
 }
 html.cssd-light body #sportsPortal .xj-row .xj-meta{margin-bottom:6px;}
 html.cssd-light body #sportsPortal .xj-row .xj-sub{margin-top:6px;font-size:12px;}
@@ -2585,31 +2753,2073 @@ html.cssd-light body #sportsPortal .xj-side-list .xj-sub{
   }
 }
 
-/* ── 每日动态频道（home-daily.js） ─────────────────────────────── */
-html.cssd-light body #sportsPortal .dy-cols{display:flex;gap:28px;flex-wrap:wrap;margin-top:18px;}
-html.cssd-light body #sportsPortal .dy-col{flex:1 1 300px;min-width:0;}
-html.cssd-light body #sportsPortal .dy-col-title{font-size:15px;font-weight:700;color:#14476E;margin:0 0 12px;padding-left:10px;border-left:3px solid #2E9A89;}
+/* ── 每日动态频道（home-daily.js 首页预览） ───────────────────── */
+html.cssd-light body #sportsPortal .dy-cols{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:16px;
+  margin-top:12px;
+  align-items:stretch;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal .dy-col{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  background:#FFFFFF;
+  border:1px solid rgba(10,42,67,.08);
+  border-radius:14px;
+  padding:14px 16px 12px;
+  box-shadow:0 1px 2px rgba(10,42,67,.04),0 8px 24px rgba(10,42,67,.04);
+}
+html.cssd-light body #sportsPortal .dy-col-title{
+  font-size:15px;font-weight:700;color:#14476E;margin:0 0 10px;
+  padding-left:10px;border-left:3px solid #2E9A89;
+}
 html.cssd-light body #sportsPortal .dy-col-univs .dy-col-title{border-left-color:#14476E;}
-html.cssd-light body #sportsPortal .xj-tag-journal{color:#0F5B4F;background:rgba(46,154,137,.10);border-color:rgba(46,154,137,.32);}
-html.cssd-light body #sportsPortal .xj-tag-univ{color:#8A6D1F;background:rgba(200,162,75,.12);border-color:rgba(200,162,75,.34);}
-html.cssd-light body #sportsPortal .dy-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px;}
-html.cssd-light body #sportsPortal .dy-col li{padding:10px 2px;border-bottom:1px dashed rgba(10,42,67,.08);}
+html.cssd-light body #sportsPortal .xj-tag-journal{
+  color:#0F5B4F;background:rgba(46,154,137,.10);border-color:rgba(46,154,137,.32);
+}
+html.cssd-light body #sportsPortal .xj-tag-univ{
+  color:#6B5618;background:rgba(200,162,75,.14);border-color:rgba(200,162,75,.40);
+}
+html.cssd-light body #sportsPortal .dy-col ul{
+  list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0;flex:1 1 auto;
+}
+html.cssd-light body #sportsPortal .dy-col li{
+  padding:8px 2px;border-bottom:1px dashed rgba(10,42,67,.08);
+}
 html.cssd-light body #sportsPortal .dy-col li:last-child{border-bottom:none;}
-html.cssd-light body #sportsPortal .dy-col h3{margin:6px 0 2px;font-size:15px;line-height:1.5;}
+html.cssd-light body #sportsPortal .dy-col h3{margin:4px 0 2px;font-size:14px;line-height:1.45;
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;}
 html.cssd-light body #sportsPortal .dy-col h3 a{color:#0A2A43;text-decoration:none;}
 html.cssd-light body #sportsPortal .dy-col h3 a:hover{color:#2C6E9E;text-decoration:underline;}
-html.cssd-light body #sportsPortal .dy-col .xj-sub{font-size:12px;color:#8A93A3;margin:0;}
-/* ── 每日动态频道（home-daily.js） ─────────────────────────────── */
-html.cssd-light body #sportsPortal .dy-cols{display:flex;gap:28px;flex-wrap:wrap;margin-top:18px;}
-html.cssd-light body #sportsPortal .dy-col{flex:1 1 300px;min-width:0;}
-html.cssd-light body #sportsPortal .dy-col-title{font-size:15px;font-weight:700;color:#14476E;margin:0 0 12px;padding-left:10px;border-left:3px solid #2E9A89;}
-html.cssd-light body #sportsPortal .dy-col-univs .dy-col-title{border-left-color:#14476E;}
-html.cssd-light body #sportsPortal .xj-tag-journal{color:#0F5B4F;background:rgba(46,154,137,.10);border-color:rgba(46,154,137,.32);}
-html.cssd-light body #sportsPortal .xj-tag-univ{color:#8A6D1F;background:rgba(200,162,75,.12);border-color:rgba(200,162,75,.34);}
-html.cssd-light body #sportsPortal .dy-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px;}
-html.cssd-light body #sportsPortal .dy-col li{padding:10px 2px;border-bottom:1px dashed rgba(10,42,67,.08);}
-html.cssd-light body #sportsPortal .dy-col li:last-child{border-bottom:none;}
-html.cssd-light body #sportsPortal .dy-col h3{margin:6px 0 2px;font-size:15px;line-height:1.5;}
-html.cssd-light body #sportsPortal .dy-col h3 a{color:#0A2A43;text-decoration:none;}
-html.cssd-light body #sportsPortal .dy-col h3 a:hover{color:#2C6E9E;text-decoration:underline;}
-html.cssd-light body #sportsPortal .dy-col .xj-sub{font-size:12px;color:#8A93A3;margin:0;}
+html.cssd-light body #sportsPortal .dy-col .xj-sub{font-size:12px;color:var(--sp-muted2);margin:0;}
+html.cssd-light body #sportsPortal .dy .xj-aside .dy-more,
+html.cssd-light body #sportsPortal .dy-more{
+  color:#2C6E9E;font-weight:600;text-decoration:none;background:none;border:0;
+  padding:2px 0;cursor:pointer;font-size:13px;
+}
+html.cssd-light body #sportsPortal .dy-more:hover{text-decoration:underline;}
+@media (max-width:860px){
+  html.cssd-light body #sportsPortal .dy-cols{grid-template-columns:minmax(0,1fr);}
+}
+
+/* ── 每日动态独立页 #vw-daily ─────────────────────────────────── */
+html.cssd-light body #vw-daily{
+  background:#F5F7FA;
+  min-height:60vh;
+}
+html.cssd-light body #vw-daily .dy-page{
+  max-width:1100px;margin:0 auto;padding:28px 20px 64px;
+}
+html.cssd-light body #vw-daily .dy-page-hero{
+  background:#FFFFFF;
+  border:1px solid rgba(10,42,67,.08);
+  border-radius:16px;
+  padding:22px 24px 18px;
+  margin-bottom:18px;
+  box-shadow:0 1px 2px rgba(10,42,67,.04),0 8px 24px rgba(10,42,67,.04);
+}
+html.cssd-light body #vw-daily .dy-page-eye{
+  margin:0 0 4px;font-size:11px;font-weight:500;letter-spacing:.2em;color:#5B6575;
+}
+html.cssd-light body #vw-daily .dy-page-hero h1{
+  margin:0;font-family:var(--sp-serif,Georgia,serif);font-size:26px;font-weight:600;
+  letter-spacing:.06em;color:#0A2A43;line-height:1.25;
+}
+html.cssd-light body #vw-daily .dy-page-sub{
+  margin:8px 0 0;font-size:13px;color:#5B6575;line-height:1.55;
+}
+html.cssd-light body #vw-daily .dy-tabs{
+  display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px;
+}
+html.cssd-light body #vw-daily .dy-tab{
+  border:1px solid #E3E8EF;background:#FFFFFF;color:#5B6575;
+  border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;
+  cursor:pointer;
+}
+html.cssd-light body #vw-daily .dy-tab:hover{background:#F5F7FA;color:#0A2A43;}
+html.cssd-light body #vw-daily .dy-tab[aria-selected="true"],
+html.cssd-light body #vw-daily .dy-tab.on{
+  background:rgba(46,154,137,.12);border-color:rgba(46,154,137,.35);color:#0F5B4F;
+}
+html.cssd-light body #vw-daily .dy-list{
+  list-style:none;margin:0;padding:0;
+  background:#FFFFFF;border:1px solid rgba(10,42,67,.08);border-radius:14px;
+  overflow:hidden;
+}
+html.cssd-light body #vw-daily .dy-row{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:8px 14px;
+  align-items:start;
+  padding:14px 16px;
+  border-bottom:1px solid rgba(10,42,67,.06);
+}
+html.cssd-light body #vw-daily .dy-row:last-child{border-bottom:0;}
+html.cssd-light body #vw-daily .dy-row-badge{
+  grid-row:1 / span 2;
+  display:inline-block;padding:3px 8px;border-radius:999px;font-size:12px;font-weight:600;
+  letter-spacing:.04em;line-height:1.4;white-space:nowrap;
+  border:1px solid #E6EAF0;background:#F5F7FA;color:#14476E;
+}
+html.cssd-light body #vw-daily .dy-row-badge.is-journal{
+  color:#0F5B4F;background:rgba(46,154,137,.10);border-color:rgba(46,154,137,.32);
+}
+html.cssd-light body #vw-daily .dy-row-badge.is-univ{
+  color:#8A6D1F;background:rgba(200,162,75,.12);border-color:rgba(200,162,75,.34);
+}
+html.cssd-light body #vw-daily .dy-row-title{
+  margin:0;font-size:15px;font-weight:600;line-height:1.45;color:#0A2A43;
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;
+}
+html.cssd-light body #vw-daily .dy-row-title a{color:inherit;text-decoration:none;}
+html.cssd-light body #vw-daily .dy-row-title a:hover{color:#2C6E9E;text-decoration:underline;}
+html.cssd-light body #vw-daily .dy-row-date{
+  font-size:12px;color:var(--sp-muted2);font-variant-numeric:tabular-nums;white-space:nowrap;
+  padding-top:2px;
+}
+html.cssd-light body #vw-daily .dy-row-source{
+  grid-column:2 / 4;
+  margin:0;font-size:12px;color:var(--sp-muted2);line-height:1.4;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+html.cssd-light body #vw-daily .dy-empty{
+  padding:36px 20px;text-align:center;color:var(--sp-muted2);font-size:14px;
+}
+@media (max-width:640px){
+  html.cssd-light body #vw-daily .dy-row{
+    grid-template-columns:auto 1fr;
+  }
+  html.cssd-light body #vw-daily .dy-row-date{grid-column:2;justify-self:start;}
+  html.cssd-light body #vw-daily .dy-row-source{grid-column:2;}
+  html.cssd-light body #vw-daily .dy-row-badge{grid-row:auto;}
+}
+
+/* ── 会议日历：桌面紧挨「学术动态」；≤1023 与手机只进「全部导航」，不挤顶栏搜索 ── */
+@media (max-width:1023px){
+  html.cssd-light body .sp-links > button[data-route="confcal"]{display:none !important;}
+}
+@media (min-width:1024px){
+  html.cssd-light body details.sp-more button.sp-more-confcal{display:none !important;}
+}
+/* v4.6-116 confcal：单层软首页白卡。壳只在 #cssd-academic-calendar-bar，#confcal 只排标题与间距。 */
+html.cssd-light body #confcal{
+  --cal-ink:#0A2A43;
+  --cal-muted:#5B6575;
+  --cal-line:rgba(10,42,67,.10);
+  scroll-margin-top:84px;
+  margin:32px 0;
+  background:transparent !important;
+  background-image:none !important;
+  border:0 !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+}
+html.cssd-light body #sportsPortal .xj:has(+ #confcal){margin-bottom:0;}
+html.cssd-light body #confcal .cssd-cal-crumb{display:none !important;}
+html.cssd-light body #confcal .cssd-cal-eye{
+  margin:0 0 4px;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.14em;
+  color:var(--cal-muted);
+}
+html.cssd-light body #confcal #confcalTitle{
+  margin:0 0 12px;
+  font-family:var(--sp-serif);
+  font-size:26px !important;
+  font-weight:600 !important;
+  letter-spacing:.08em;
+  line-height:1.2;
+  color:var(--cal-ink) !important;
+}
+html.cssd-light body #confcal .cssd-cal-sr{
+  position:absolute !important;
+  width:1px !important;
+  height:1px !important;
+  padding:0 !important;
+  margin:-1px !important;
+  overflow:hidden !important;
+  clip:rect(0,0,0,0) !important;
+  clip-path:inset(50%) !important;
+  white-space:nowrap !important;
+  border:0 !important;
+}
+html.cssd-light body #cssd-academic-calendar-bar{
+  --cal-ink:#0A2A43;
+  --cal-muted:#5B6575;
+  --cal-line:rgba(10,42,67,.10);
+  width:100%;
+  box-sizing:border-box;
+  margin:0;
+  padding:18px 18px 16px;
+  color:var(--cal-ink);
+  background:var(--cssd-card-bg,#fff) !important;
+  background-image:none !important;
+  border:1px solid var(--cal-line) !important;
+  border-radius:var(--cssd-card-radius,16px) !important;
+  box-shadow:var(--cssd-card-shadow,0 8px 24px rgba(10,42,67,.06)) !important;
+}
+html.cssd-light body #confcal .cssd-cal-tools{
+  display:flex;
+  justify-content:flex-end;
+  margin:0 0 8px;
+}
+html.cssd-light body #confcal .cssd-cal-all,
+html.cssd-light body #confcal .cssd-cal-navbtn{
+  background:#fff !important;
+  background-image:none !important;
+  color:var(--cal-ink) !important;
+  -webkit-text-fill-color:var(--cal-ink) !important;
+  border:1px solid var(--cal-line) !important;
+  border-radius:999px;
+  padding:6px 12px;
+  font-size:12px;
+  font-weight:600;
+  line-height:16px;
+  cursor:pointer;
+  box-shadow:none !important;
+}
+html.cssd-light body #confcal .cssd-cal-all:hover,
+html.cssd-light body #confcal .cssd-cal-navbtn:hover,
+html.cssd-light body #confcal .cssd-cal-act:hover,
+html.cssd-light body #confcal .cssd-m6-act:hover{
+  transform:none !important;
+  border-color:var(--cal-line) !important;
+  box-shadow:var(--cssd-card-shadow-lift,0 16px 36px rgba(10,42,67,.12)) !important;
+}
+html.cssd-light body #confcal .cssd-cal-tabs,
+html.cssd-light body #cssd-cal-tabs{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:8px !important;
+  overflow:visible !important;
+  overflow-x:visible !important;
+  padding:0 !important;
+  margin:0 0 16px !important;
+  scrollbar-width:none;
+}
+html.cssd-light body #confcal .cssd-cal-tab{
+  background:#fff !important;
+  border:1px solid var(--cal-line) !important;
+  color:var(--cal-ink) !important;
+  -webkit-text-fill-color:var(--cal-ink) !important;
+  border-radius:999px !important;
+  box-shadow:none !important;
+  padding:6px 12px !important;
+  font-size:12px !important;
+  font-weight:600 !important;
+  line-height:16px !important;
+}
+html.cssd-light body #confcal .cssd-cal-tab:hover,
+html.cssd-light body #confcal .cssd-cal-tab.active{
+  background:#fff !important;
+  color:var(--cal-ink) !important;
+  -webkit-text-fill-color:var(--cal-ink) !important;
+  border-color:#0A2A43 !important;
+  box-shadow:none !important;
+  transform:none !important;
+}
+html.cssd-light body #confcal .cssd-cal-hero{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px 16px;
+  flex-wrap:wrap;
+  background:transparent !important;
+  background-image:none !important;
+  box-shadow:none !important;
+  color:var(--cal-ink) !important;
+  padding:0;
+}
+html.cssd-light body #confcal .cssd-cal-badge{
+  margin:0 0 6px;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.04em;
+  color:var(--cal-muted) !important;
+}
+html.cssd-light body #confcal .cssd-cal-hero-title{
+  margin:0 0 6px;
+  font-size:18px !important;
+  line-height:1.35 !important;
+  font-weight:600 !important;
+  color:var(--cal-ink) !important;
+  -webkit-text-fill-color:var(--cal-ink) !important;
+}
+html.cssd-light body #confcal .cssd-cal-host{
+  font-size:13px;
+  line-height:1.5;
+  font-weight:500;
+  color:var(--cal-muted) !important;
+}
+html.cssd-light body #confcal .cssd-cal-switch{display:flex;gap:8px;flex-shrink:0;}
+html.cssd-light body #confcal .cssd-cal-meta{
+  position:static !important;
+  left:auto !important;
+  bottom:auto !important;
+  transform:none !important;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 18px;
+  margin:12px 0 16px;
+  padding:0;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  z-index:auto !important;
+}
+html.cssd-light body #confcal .cssd-cal-meta-item{
+  font-size:13px;
+  line-height:1.4;
+  font-weight:600;
+  color:var(--cal-ink) !important;
+  font-variant-numeric:tabular-nums;
+}
+html.cssd-light body #confcal .cssd-cal-acts{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));
+  gap:12px;
+  margin:0 0 14px;
+}
+html.cssd-light body #confcal .cssd-cal-act{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:2px;
+  width:100%;
+  text-align:left;
+  background:#fff !important;
+  background-image:none !important;
+  border:1px solid var(--cal-line) !important;
+  border-radius:12px;
+  padding:12px 14px;
+  cursor:pointer;
+  box-shadow:none !important;
+  color:var(--cal-ink);
+}
+html.cssd-light body #confcal .cssd-cal-act b{
+  font-size:14px;
+  font-weight:600;
+  color:var(--cal-ink) !important;
+  -webkit-text-fill-color:var(--cal-ink) !important;
+}
+html.cssd-light body #confcal .cssd-cal-act small{
+  font-size:12px;
+  font-weight:400;
+  color:var(--cal-muted) !important;
+}
+html.cssd-light body #confcal .cssd-cal-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));
+  gap:14px;
+}
+html.cssd-light body #confcal .cssd-cal-count,
+html.cssd-light body #confcal .cssd-cal-nodes{
+  background:#fff !important;
+  background-image:none !important;
+  border:1px solid var(--cal-line);
+  border-radius:12px;
+  box-shadow:none !important;
+}
+html.cssd-light body #confcal .cssd-cal-count{
+  padding:0;
+  display:grid;
+  grid-template-columns:clamp(72px,22%,128px) minmax(0,1fr);
+  align-items:stretch;
+  align-self:start;
+  container-type:inline-size;
+  min-height:220px;
+  overflow:hidden;
+  box-shadow:0 6px 18px rgba(10,42,67,.06) !important;
+}
+html.cssd-light body #confcal .cssd-cal-count-kicker{
+  position:relative;
+  isolation:isolate;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:20px 8px;
+  overflow:hidden;
+  background:var(--sp-brand-900,#0A2A43);
+  font-size:19px;
+  font-weight:600;
+  color:#fff !important;
+  -webkit-text-fill-color:#fff !important;
+}
+html.cssd-light body #confcal .cssd-cal-count-kicker::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:30% 27%;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:50%;
+  box-shadow:0 0 0 16px rgba(255,255,255,.04),0 0 0 32px rgba(255,255,255,.04),0 0 0 48px rgba(255,255,255,.03);
+}
+html.cssd-light body #confcal .cssd-cal-count-kicker span{
+  margin-left:0;
+  font-size:11px;
+  font-weight:400;
+  letter-spacing:.02em;
+  color:#D2E3EC !important;
+  -webkit-text-fill-color:#D2E3EC !important;
+}
+html.cssd-light body #confcal .cssd-cal-digits{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  align-content:center;
+  gap:8px;
+  padding:24px clamp(10px,4cqi,22px);
+  min-width:0;
+  text-align:center;
+}
+html.cssd-light body #cssd-academic-calendar-bar .cal-digit{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-width:0;
+  height:88px;
+  border-radius:12px;
+  font-size:clamp(22px,7cqi,38px);
+  line-height:1.15;
+  font-weight:700;
+  color:var(--cal-ink) !important;
+  -webkit-text-fill-color:var(--cal-ink) !important;
+  font-variant-numeric:tabular-nums;
+  background:#F0F6FB !important;
+  border:1px solid #D9E7F2 !important;
+  box-shadow:0 3px 6px rgba(10,42,67,.07);
+  padding:0 2px;
+}
+html.cssd-light body #cssd-academic-calendar-bar #cd-s{
+  background:#EAF6F3 !important;
+  border-color:#CDE7E0 !important;
+  color:#176E60 !important;
+  -webkit-text-fill-color:#176E60 !important;
+}
+html.cssd-light body #cssd-academic-calendar-bar .cal-unit{
+  margin-top:10px;
+  font-size:14px;
+  font-weight:500;
+  color:var(--cal-muted) !important;
+}
+html.cssd-light body #cssd-academic-calendar-bar #cd-s + .cal-unit{
+  color:#176E60 !important;
+}
+@media(max-width:600px){
+  html.cssd-light body #confcal .cssd-cal-count{
+    grid-template-columns:72px minmax(0,1fr);
+    min-height:160px;
+  }
+  html.cssd-light body #confcal .cssd-cal-count-kicker{font-size:15px;gap:8px;}
+  html.cssd-light body #confcal .cssd-cal-count-kicker span{font-size:9px;}
+  html.cssd-light body #confcal .cssd-cal-digits{padding:20px 10px;gap:6px;}
+  html.cssd-light body #cssd-academic-calendar-bar .cal-digit{height:58px;font-size:24px;border-radius:8px;}
+  html.cssd-light body #cssd-academic-calendar-bar .cal-unit{font-size:12px;margin-top:8px;}
+}
+html.cssd-light body #confcal .cssd-cal-nodes{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  padding:12px;
+}
+html.cssd-light body #confcal .cal-node{
+  background:#fff !important;
+  background-image:none !important;
+  border:1px solid var(--cal-line);
+  border-left-width:3px;
+  border-radius:10px;
+  padding:12px;
+  box-shadow:none !important;
+}
+html.cssd-light body #confcal .cal-node--cfp{border-left-color:#B42318;}
+html.cssd-light body #confcal .cal-node--accept{border-left-color:#C2410C;}
+html.cssd-light body #confcal .cal-node--reg{border-left-color:#0F5B4F;}
+html.cssd-light body #confcal .cal-node--event{border-left-color:#2C6E9E;}
+html.cssd-light body #confcal .cal-node .t{
+  color:var(--cal-ink) !important;
+  font-size:13px;
+  font-weight:600;
+  line-height:1.4;
+}
+html.cssd-light body #confcal .cssd-cal-node-date{
+  margin-top:4px;
+  font-size:13px;
+  font-weight:600;
+  color:var(--cal-muted) !important;
+  font-variant-numeric:tabular-nums;
+}
+html.cssd-light body #confcal .cal-node[hidden]{display:none !important;}
+html.cssd-light body #backToTop,
+html.cssd-light body #cssd-top,
+html.cssd-light body .sp-backtop{
+  bottom:96px !important;
+  right:36px !important;
+}
+@media (max-width:860px){
+  html.cssd-light body #confcal #confcalTitle{font-size:22px !important;}
+  html.cssd-light body #confcal .cssd-cal-nodes{grid-template-columns:minmax(0,1fr);}
+}
+
+/* ── 主链 promoted：桌面不在「全部导航」重复；窄屏收进全部导航 ── */
+@media (min-width:901px){
+  html.cssd-light body .sp-more .sp-more-promoted{
+    display:none !important;
+  }
+}
+@media (max-width:900px){
+  html.cssd-light body .sp-links button.sp-nav-promoted{
+    display:none !important;
+  }
+  html.cssd-light body .sp-more .sp-more-promoted{
+    display:block !important;
+  }
+}
+
+/* ── 导航分组：竖排浮层（勿插进 .sp-links 横排） ─────────────── */
+html.cssd-light body details.sp-nav-group{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  flex:0 0 auto;
+}
+html.cssd-light body details.sp-nav-group > summary{
+  list-style:none;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  height:68px;
+  padding:0 2px;
+  font-size:14px;
+  font-weight:500;
+  letter-spacing:.02em;
+  color:#5B6575;
+  background:transparent;
+  border:0;
+  white-space:nowrap;
+}
+html.cssd-light body details.sp-nav-group > summary::-webkit-details-marker{display:none;}
+html.cssd-light body details.sp-nav-group > summary::after{
+  content:"▾";
+  font-size:10px;
+  line-height:1;
+  color:var(--sp-muted2);
+  margin-left:2px;
+}
+html.cssd-light body details.sp-nav-group.is-active > summary,
+html.cssd-light body details.sp-nav-group[open] > summary{
+  color:#0A2A43;
+  font-weight:600;
+}
+html.cssd-light body details.sp-nav-group .sp-nav-panel{
+  position:absolute;
+  top:100%;
+  left:0;
+  display:none;
+  flex-direction:column;
+  align-items:stretch;
+  gap:2px;
+  min-width:220px;
+  max-width:min(320px,90vw);
+  padding:8px;
+  margin:0;
+  background:#FFFFFF !important;
+  border:1px solid #E3E8EF;
+  border-radius:12px;
+  box-shadow:0 12px 36px rgba(10,42,67,.14), 0 2px 8px rgba(10,42,67,.06) !important;
+  z-index:1300 !important;
+}
+html.cssd-light body details.sp-nav-group[open] > .sp-nav-panel{
+  display:flex !important;
+}
+html.cssd-light body details.sp-nav-group .sp-nav-panel button{
+  display:block !important;
+  width:100%;
+  text-align:left;
+  white-space:nowrap;
+  height:auto !important;
+  min-height:36px;
+  padding:8px 12px !important;
+  margin:0;
+  border:0;
+  border-radius:8px;
+  background:transparent;
+  color:#0A2A43;
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:.02em;
+  cursor:pointer;
+  flex:0 0 auto !important;
+}
+html.cssd-light body details.sp-nav-group .sp-nav-panel button:hover{
+  background:#F5F7FA;
+  color:#0F5B4F;
+}
+html.cssd-light body details.sp-nav-group .sp-nav-panel button.active,
+html.cssd-light body details.sp-nav-group .sp-nav-panel button[aria-current="page"]{
+  background:rgba(46,154,137,.10);
+  color:#0F5B4F;
+  font-weight:600;
+}
+/* 打开时主链宽度不变：panel 脱离文档流 */
+html.cssd-light body header.sp-header nav.sp-links{
+  align-items:center;
+}
+@media (max-width:1100px){
+  html.cssd-light body details.sp-nav-group > summary{height:56px;font-size:13px;}
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   P0 迭代 A · sticky 顶栏 / 删翻屏 / 筛选折叠 / 清除描边 / 头像无关 CSS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* 1 · 顶栏不透底（补强）：任何残留半透明一律压成近白 */
+html.cssd-light body header.sp-header,
+html.cssd-light body .sp-header{
+  background:rgba(255,255,255,.96) !important;
+  background-image:none !important;
+  z-index:1200 !important;
+}
+html.cssd-light body #sportsPortal,
+html.cssd-light body #vw-home,
+html.cssd-light body .vw{
+  /* 主内容避开固定顶栏；#sportsPortal 已有 padding-top，.vw 补齐 */
+}
+html.cssd-light body #sportsPortal{padding-top:68px !important;}
+html.cssd-light body .vw.on{scroll-margin-top:68px;}
+
+/* 院校机构等次级 sticky 筛选/芯片条：top = 顶栏高 */
+html.cssd-light body #vw-institutions .ctlb,
+html.cssd-light body #vw-institutions .sticky-bar,
+html.cssd-light body #vw-institutions [class*="filter-bar"],
+html.cssd-light body #vw-institutions .filters,
+html.cssd-light body #vw-journals .ctlb,
+html.cssd-light body #vw-journals .sticky-bar{
+  top:68px !important;
+  z-index:1100 !important;
+}
+@media (max-width:768px){
+  html.cssd-light body header.sp-header,
+  html.cssd-light body .sp-header{height:56px !important;}
+  html.cssd-light body #sportsPortal{padding-top:56px !important;}
+  html.cssd-light body #vw-institutions .ctlb,
+  html.cssd-light body #vw-institutions .sticky-bar,
+  html.cssd-light body #vw-institutions [class*="filter-bar"],
+  html.cssd-light body #vw-journals .ctlb,
+  html.cssd-light body #vw-journals .sticky-bar{
+    top:56px !important;
+  }
+}
+
+/* 导航分组下拉：阴影压住英雄区 */
+html.cssd-light body details.sp-nav-group > div,
+html.cssd-light body details.sp-nav-group .sp-nav-panel,
+html.cssd-light body .ndd-p,
+html.cssd-light body details.sp-more > div{
+  box-shadow:0 12px 36px rgba(10,42,67,.14), 0 2px 8px rgba(10,42,67,.06) !important;
+  background:#FFFFFF !important;
+  z-index:1300 !important;
+}
+
+/* 2 · 方案 A：删除右下角 ‹ › 翻屏控件（保留 #backToTop / 导出 CSV） */
+html.cssd-light body .route-history-tools,
+body .route-history-tools,
+.route-history-tools{
+  display:none !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+  width:0 !important;
+  height:0 !important;
+  overflow:hidden !important;
+}
+
+/* 4 · 清除筛选：描边 + 中性灰（禁止青绿实心） */
+html.cssd-light body #vw-scholars .chip.clr,
+html.cssd-light body #vw-scholars button.chip.clr,
+html.cssd-light body #vw-scholars .ctlb .chip.clr,
+html.cssd-light body #vw-scholars .ctlb button.chip.clr,
+html.cssd-light body #vw-scholars .cr1 .chip.clr{
+  background:transparent !important;
+  background-image:none !important;
+  border:1px solid #E3E8EF !important;
+  box-shadow:none !important;
+  color:#5B6575 !important;
+  text-decoration:none !important;
+  font-weight:500 !important;
+  padding:6px 12px !important;
+  border-radius:999px !important;
+  min-height:auto !important;
+  height:auto !important;
+}
+html.cssd-light body #vw-scholars .chip.clr:hover,
+html.cssd-light body #vw-scholars button.chip.clr:hover,
+html.cssd-light body #vw-scholars .ctlb .chip.clr:hover,
+html.cssd-light body #vw-scholars .ctlb button.chip.clr:hover,
+html.cssd-light body #vw-scholars .ctlb button.chip.clr:focus,
+html.cssd-light body #vw-scholars .ctlb button.chip.clr:active{
+  background:#F5F7FA !important;
+  border-color:#D0D7E2 !important;
+  color:#0A2A43 !important;
+  text-decoration:none !important;
+}
+
+/* 4 · 称号/省级/角色默认折叠；展开靠 .ctlb.more-open */
+html.cssd-light body #vw-scholars .ctlb > .ci > .cr3,
+html.cssd-light body #vw-scholars .ctlb .cr3{
+  display:none !important;
+}
+html.cssd-light body #vw-scholars .ctlb.more-open > .ci > .cr3,
+html.cssd-light body #vw-scholars .ctlb.more-open .cr3{
+  display:flex !important;
+  flex-wrap:wrap !important;
+}
+/* 「更多筛选」按钮 */
+html.cssd-light body #vw-scholars #moreFiltersBtn{
+  display:inline-flex !important;
+  align-items:center;
+  gap:6px;
+  margin:4px 0 8px;
+  padding:6px 12px !important;
+  border:1px solid #E3E8EF !important;
+  border-radius:999px !important;
+  background:#FFFFFF !important;
+  color:#5B6575 !important;
+  font-size:.78rem !important;
+  font-weight:600 !important;
+  cursor:pointer;
+}
+html.cssd-light body #vw-scholars #moreFiltersBtn:hover{
+  background:#F5F7FA !important;
+  color:#0A2A43 !important;
+}
+html.cssd-light body #vw-scholars .ctlb.more-open #moreFiltersBtn{
+  border-color:rgba(46,154,137,.35) !important;
+  color:#0F5B4F !important;
+}
+/* 角色标签与 chip 换行：cr3 内标签独占行首宽 */
+html.cssd-light body #vw-scholars .ctlb .cr3{
+  align-items:flex-start !important;
+  row-gap:8px !important;
+}
+html.cssd-light body #vw-scholars .ctlb .cr3 > span:not(.chip):not(.cdiv){
+  flex:0 0 auto !important;
+  display:inline-block !important;
+  min-width:3.2em;
+  margin-top:4px;
+}
+html.cssd-light body #vw-scholars .ctlb .cr3 .cdiv{
+  flex:0 0 100% !important;
+  width:100% !important;
+  height:0 !important;
+  margin:4px 0 !important;
+  border:0 !important;
+  background:transparent !important;
+}
+/* slim 滚动收起时仍可隐藏更多行，但不隐藏已用 more-open 的语义冲突——slim 优先生效 */
+html.cssd-light body #vw-scholars .ctlb.slim .cr3,
+html.cssd-light body #vw-scholars .ctlb.slim #moreFiltersBtn{
+  display:none !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   polish/aitools-hero — 学术 AI 工具页主入口（只动 #vw-aitools）
+   借海鲸「大入口卡 + 留白工具卡」气质；色板仅用青绿/brand，禁渐变紫
+   ═══════════════════════════════════════════════════════════ */
+html.cssd-light #vw-aitools .at-wrap,
+#vw-aitools .at-wrap{
+  max-width:1120px;
+  margin:0 auto;
+  padding:28px 20px 64px;
+}
+html.cssd-light #vw-aitools .at-hero-search,
+#vw-aitools .at-hero-search{
+  max-width:640px;
+  margin:8px auto 36px;
+  text-align:center;
+}
+#vw-aitools .at-hero-label{
+  position:absolute;
+  width:1px;height:1px;
+  padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);
+  white-space:nowrap;border:0;
+}
+html.cssd-light #vw-aitools .at-hero-box,
+#vw-aitools .at-hero-box{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 18px;
+  border-radius:16px;
+  background:#FFFFFF;
+  border:1px solid rgba(10,42,67,.10);
+  box-shadow:0 10px 28px rgba(10,42,67,.06);
+  transition:border-color .15s ease, box-shadow .15s ease;
+}
+html.cssd-light #vw-aitools .at-hero-box:focus-within,
+#vw-aitools .at-hero-box:focus-within{
+  border-color:var(--sp-teal);
+  box-shadow:0 0 0 3px var(--sp-teal-soft,rgba(46,154,137,.12)), 0 12px 28px rgba(10,42,67,.08);
+}
+#vw-aitools .at-hero-ico{
+  font-size:1.05rem;
+  line-height:1;
+  opacity:.85;
+  flex:0 0 auto;
+}
+html.cssd-light #vw-aitools .at-hero-input,
+#vw-aitools .at-hero-input{
+  flex:1 1 auto;
+  min-width:0;
+  border:0;
+  outline:0;
+  background:transparent;
+  font-size:1rem;
+  font-weight:500;
+  color:var(--sp-brand-900, #0A2A43);
+  line-height:1.4;
+}
+#vw-aitools .at-hero-input::placeholder{
+  color:var(--sp-muted2, #64748B);
+  font-weight:400;
+}
+html.cssd-light #vw-aitools .at-hero-hint,
+#vw-aitools .at-hero-hint{
+  margin:10px 0 14px;
+  font-size:.78rem;
+  color:var(--sp-muted, #5B6575);
+  line-height:1.5;
+}
+html.cssd-light #vw-aitools .at-suggest,
+#vw-aitools .at-suggest{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+}
+html.cssd-light #vw-aitools .at-suggest-chip,
+#vw-aitools .at-suggest-chip{
+  appearance:none;
+  border:1px solid var(--sp-line, #E6EAF0);
+  background:#F5F7FA;
+  color:var(--sp-brand-900, #0A2A43);
+  font-size:.78rem;
+  font-weight:500;
+  padding:6px 12px;
+  border-radius:999px;
+  cursor:pointer;
+  transition:background .15s ease, border-color .15s ease, color .15s ease;
+}
+html.cssd-light #vw-aitools .at-suggest-chip:hover,
+#vw-aitools .at-suggest-chip:hover,
+html.cssd-light #vw-aitools .at-suggest-chip:focus-visible,
+#vw-aitools .at-suggest-chip:focus-visible{
+  background:var(--sp-teal-soft, rgba(46,154,137,.12));
+  border-color:var(--sp-teal-line, rgba(46,154,137,.40));
+  color:var(--sp-teal, #2E9A89);
+  outline:none;
+}
+
+/* 分区标题：再轻一档 */
+html.cssd-light #vw-aitools .at-cat-hd,
+#vw-aitools .at-cat-hd{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin:28px 0 14px;
+}
+html.cssd-light #vw-aitools .at-cat-hd h3,
+#vw-aitools .at-cat-hd h3{
+  font-size:.9rem !important;
+  font-weight:600 !important;
+  color:var(--sp-muted, #5B6575) !important;
+  letter-spacing:.02em;
+  margin:0 !important;
+}
+html.cssd-light #vw-aitools .at-cat-cnt,
+#vw-aitools .at-cat-cnt{
+  font-family:'DM Mono',ui-monospace,monospace;
+  font-size:.68rem;
+  color:var(--sp-muted2, #64748B) !important;
+  background:rgba(10,42,67,.04) !important;
+  padding:2px 8px;
+  border-radius:20px;
+}
+html.cssd-light #vw-aitools .at-cat-dot,
+#vw-aitools .at-cat-dot{
+  width:8px;height:8px;border-radius:50%;
+  opacity:.85;
+}
+
+/* 等宽圆角工具卡：只改本页 grid，不影响精品课程 */
+html.cssd-light #vw-aitools .crs-grid,
+#vw-aitools .crs-grid{
+  display:grid !important;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr)) !important;
+  gap:20px !important;
+}
+html.cssd-light #vw-aitools .crs-card.at-card,
+#vw-aitools .crs-card.at-card{
+  position:relative;
+  display:block;
+  text-decoration:none;
+  background:#FFFFFF !important;
+  border:1px solid rgba(10,42,67,.08) !important;
+  border-radius:14px !important;
+  overflow:hidden;
+  box-shadow:0 6px 18px rgba(10,42,67,.04);
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+html.cssd-light #vw-aitools .crs-card.at-card:hover,
+#vw-aitools .crs-card.at-card:hover{
+  transform:translateY(-3px);
+  border-color:color-mix(in srgb, var(--cc, var(--sp-teal)) 40%, transparent) !important;
+  box-shadow:0 14px 30px rgba(10,42,67,.08);
+}
+html.cssd-light #vw-aitools .at-card-bd,
+#vw-aitools .at-card-bd{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:16px 16px 15px !important;
+}
+html.cssd-light #vw-aitools .at-card-ico,
+#vw-aitools .at-card-ico{
+  flex:0 0 auto;
+  width:40px;height:40px;
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.15rem;
+  background:color-mix(in srgb, var(--cc, var(--sp-teal)) 14%, #FFFFFF);
+  border:1px solid color-mix(in srgb, var(--cc, var(--sp-teal)) 22%, transparent);
+}
+html.cssd-light #vw-aitools .at-card-body,
+#vw-aitools .at-card-body{
+  flex:1 1 auto;
+  min-width:0;
+}
+html.cssd-light #vw-aitools .crs-card.at-card .crs-card-name,
+#vw-aitools .crs-card.at-card .crs-card-name{
+  font-size:.95rem !important;
+  font-weight:700 !important;
+  color:var(--sp-brand-900, #0A2A43) !important;
+  -webkit-text-fill-color:var(--sp-brand-900, #0A2A43) !important;
+  line-height:1.35 !important;
+  margin:0 0 6px !important;
+  padding-right:0 !important;
+}
+html.cssd-light #vw-aitools .crs-card.at-card .crs-card-sch,
+#vw-aitools .crs-card.at-card .crs-card-sch{
+  font-size:.78rem !important;
+  color:var(--sp-muted, #5B6575) !important;
+  line-height:1.45 !important;
+  margin:0 0 10px !important;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+html.cssd-light #vw-aitools .crs-card.at-card .crs-card-ft,
+#vw-aitools .crs-card.at-card .crs-card-ft{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+html.cssd-light #vw-aitools .crs-card.at-card .crs-tag,
+#vw-aitools .crs-card.at-card .crs-tag{
+  font-size:.64rem !important;
+  font-weight:600 !important;
+  color:var(--sp-teal, #2E9A89) !important;
+  background:var(--sp-teal-soft, rgba(46,154,137,.12)) !important;
+  border:1px solid var(--sp-teal-line, rgba(46,154,137,.28)) !important;
+  padding:2px 8px;
+  border-radius:6px;
+}
+html.cssd-light #vw-aitools .crs-card.at-card .crs-go,
+#vw-aitools .crs-card.at-card .crs-go{
+  font-size:.72rem;
+  color:var(--sp-brand-500, #2C6E9E);
+  opacity:.75;
+}
+html.cssd-light #vw-aitools .crs-card.at-card:hover .crs-go,
+#vw-aitools .crs-card.at-card:hover .crs-go{
+  opacity:1;
+  color:var(--sp-teal, #2E9A89);
+}
+
+/* 空态 */
+html.cssd-light #vw-aitools .at-empty,
+#vw-aitools .at-empty{
+  text-align:center;
+  padding:48px 16px 40px;
+  border:1px dashed var(--sp-line, #E6EAF0);
+  border-radius:16px;
+  background:#FAFBFC;
+  margin-top:8px;
+}
+html.cssd-light #vw-aitools .at-empty-title,
+#vw-aitools .at-empty-title{
+  margin:0 0 6px;
+  font-size:1rem;
+  font-weight:700;
+  color:var(--sp-brand-900, #0A2A43);
+}
+html.cssd-light #vw-aitools .at-empty-hint,
+#vw-aitools .at-empty-hint{
+  margin:0 0 16px;
+  font-size:.8rem;
+  color:var(--sp-muted, #5B6575);
+}
+html.cssd-light #vw-aitools .at-source,
+#vw-aitools .at-source{
+  margin-top:28px;
+  font-size:.72rem;
+  color:var(--sp-muted, #5B6575);
+  line-height:1.7;
+}
+html.cssd-light #vw-aitools .at-source a,
+#vw-aitools .at-source a{
+  color:var(--sp-brand-500, #2C6E9E);
+}
+html.cssd-light #vw-aitools .at-note,
+#vw-aitools .at-note{
+  font-size:.7rem !important;
+  color:var(--sp-muted, #5B6575) !important;
+  line-height:1.7;
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px solid var(--sp-line, #E6EAF0);
+}
+@media (prefers-reduced-motion:reduce){
+  #vw-aitools .crs-card.at-card:hover{transform:none !important;}
+}
+
+/* ── polish/panel-title-bar：首页三块标题统一单竖条 ──
+   根因：premium .sp-panel-titles:before + base h2 border-left + eyebrow 圆点叠成「点+双竖线」。
+   只留 .sp-panel-titles 的 3px brand 竖条；清 h2 左边线与伪元素点/竖条。 */
+html.cssd-light body #sportsPortal .sp-panel-titles{
+  border-left:3px solid var(--sp-brand-500, #2C6E9E) !important;
+  padding-left:10px !important;
+}
+html.cssd-light body #sportsPortal .sp-panel-titles:before,
+html.cssd-light body #sportsPortal .sp-panel .sp-eyebrow:before{
+  content:none !important;
+  display:none !important;
+  width:0 !important;
+  height:0 !important;
+  margin:0 !important;
+  box-shadow:none !important;
+  background:none !important;
+}
+html.cssd-light body #sportsPortal .sp-panel h2{
+  border-left:0 !important;
+  padding-left:0 !important;
+}
+
+/* ── polish/p1-template-titles：App 列表页复用 .sp-panel-titles 左竖条 + 筛标去 emoji ──
+   验收：标题只走共享 .sp-panel-titles / :root token；不改 SPA nav/header；
+   期刊 .jnl-hero 保持 marketing 居中；学者/机构/项目左对齐共享标题条；
+   机构类型/地区筛标 icon 已清空 → --tab-clr / .l2-swatch / .uc-swatch 色块。 */
+html.cssd-light body #vw-scholars .sp-panel-titles,
+html.cssd-light body #vw-institutions .sp-panel-titles,
+html.cssd-light body #vw-projects .sp-panel-titles{
+  border-left:3px solid var(--sp-brand-500, #2C6E9E);
+  padding-left:12px;
+  box-sizing:border-box;
+}
+/* App 列表标题字重/色走 token，压过机构页残留内联色 */
+html.cssd-light body #vw-scholars .sp-panel-titles h2.cssd-h2v,
+html.cssd-light body #vw-institutions .sp-panel-titles h2.cssd-h2v,
+html.cssd-light body #vw-institutions .sp-panel-titles h2,
+html.cssd-light body #vw-projects .sp-panel-titles .proj-title{
+  color:var(--sp-brand-900, #0A2A43) !important;
+  -webkit-text-fill-color:var(--sp-brand-900, #0A2A43) !important;
+  font-weight:600 !important;
+}
+/* 院校 h2 字号走同一套 clamp，不再靠内联 1.6rem */
+html.cssd-light body #vw-institutions .sp-panel-titles h2.cssd-h2v,
+html.cssd-light body #vw-institutions .sp-panel-titles h2{
+  font-size:clamp(1.35rem, 2.4vw, 1.75rem) !important;
+}
+html.cssd-light body #vw-scholars .sp-panel-titles .sey,
+html.cssd-light body #vw-institutions .sp-panel-titles > div:first-child,
+html.cssd-light body #vw-projects .sp-panel-titles .proj-eyebrow{
+  color:var(--sp-muted, #5B6575) !important;
+  font-weight:500 !important;
+}
+/* 院校 hero 副标题：浅底上禁浅蓝半透明，走 muted token */
+html.cssd-light body #vw-institutions .sp-panel-titles p{
+  color:var(--sp-muted, #5B6575) !important;
+}
+/* 院校筛区「按地区/类型」小标题：浅底上禁白字，走 muted token */
+html.cssd-light body #vw-institutions .iv-filter-label{
+  color:var(--sp-muted, #5B6575) !important;
+}
+/* 期刊 marketing hero 保持居中，不套左竖条 */
+html.cssd-light body #vw-journals .jnl-hero,
+html.cssd-light body #vw-journals .jnl-hero-in{
+  text-align:center;
+}
+
+/* 机构页地区/类型筛标：左侧色块 token（替代 emoji） */
+html.cssd-light body #instRegionTabs .l1-tab,
+html.cssd-light body #instTypeTabs .l1-tab{
+  display:inline-flex !important;
+  align-items:center;
+  gap:7px;
+}
+html.cssd-light body #instRegionTabs .l1-tab::before,
+html.cssd-light body #instTypeTabs .l1-tab::before{
+  content:"";
+  width:8px;
+  height:8px;
+  border-radius:2px;
+  background:var(--tab-clr, var(--sp-brand-500, #2C6E9E));
+  flex-shrink:0;
+  box-shadow:0 0 0 1px rgba(10,42,67,.08);
+}
+html.cssd-light body #instTypeTabs .l1-tab[data-cat="all"]::before,
+html.cssd-light body #instRegionTabs .l1-tab[data-region="all"]::before{
+  background:var(--sp-chip-line, #E3E8EF);
+}
+/* 分组头 / 卡片色块（JS 写入 .l2-swatch，色来自数据 clr/color） */
+html.cssd-light body #vw-institutions .l2-swatch,
+html.cssd-light body #vw-institutions .l2-icon.l2-swatch,
+html.cssd-light body #vw-institutions .l3-inst-icon.l2-swatch{
+  display:inline-block;
+  width:10px;
+  height:10px;
+  min-width:10px;
+  border-radius:2px;
+  padding:0 !important;
+  margin:0 2px 0 0;
+  font-size:0 !important;
+  line-height:0;
+  vertical-align:middle;
+  box-shadow:0 0 0 1px rgba(10,42,67,.08);
+}
+html.cssd-light body #vw-institutions .l2-swatch--lg{
+  width:14px;
+  height:14px;
+  min-width:14px;
+  border-radius:3px;
+}
+html.cssd-light body #vw-institutions .l3-inst-icon.l2-swatch{
+  width:12px;
+  height:12px;
+  min-width:12px;
+  border-radius:3px;
+  flex-shrink:0;
+}
+
+/* 全国高校目录：跳转条 / 分区头色块 */
+html.cssd-light body #univCatalogPanel .uc-swatch{
+  display:inline-block;
+  width:8px;
+  height:8px;
+  border-radius:2px;
+  vertical-align:middle;
+  margin-right:5px;
+  box-shadow:0 0 0 1px rgba(10,42,67,.10);
+}
+html.cssd-light body #univCatalogPanel .uc-swatch--md{
+  width:10px;
+  height:10px;
+  border-radius:2px;
+}
+html.cssd-light body #univCatalogPanel a .uc-swatch{
+  margin-right:4px;
+}
+
+/* ═════════════════════════════════════════════════════════════════
+   hotfix · 全国高校目录浅底对比度
+   暗色主题残留（#e0f2fe 等）在浅底不可读；JS 已改为 brand ink，
+   本分区作安全网 + 搜框 placeholder。可回退：删本分区 + 还原 catalog JS。
+   ═════════════════════════════════════════════════════════════════ */
+html.cssd-light body #univCatalogPanel [style*="color:#e0f2fe"],
+html.cssd-light body #univCatalogPanel [style*="color: #e0f2fe"]{
+  color:var(--sp-brand-900,#0A2A43) !important;
+}
+html.cssd-light body #univCatalogPanel [style*="color:#B8C2D0"]{
+  color:#5B6575 !important;
+}
+html.cssd-light body #univCatalogPanel #ucSearch{
+  background:#FFFFFF !important;
+  border:1px solid var(--sp-line,#E6EAF0) !important;
+  color:var(--sp-brand-900,#0A2A43) !important;
+}
+html.cssd-light body #univCatalogPanel #ucSearch::placeholder{
+  color:#667788 !important;
+  opacity:1;
+}
+html.cssd-light body #univCatalogPanel #ucSearch:focus{
+  border-color:rgba(46,154,137,.4) !important;
+  outline:none;
+}
+
+/* ═════════════════════════════════════════════════════════════════
+   P2 · 新闻卡节奏降权（首页学术动态 / 学界动态 / 每日动态）
+   减双层阴影与悬停上浮，压头条字号/字重，收紧栏间距；
+   让位学者与 KPI，保持可读、学术、不稀疏。可回退：删本分区。
+   ═════════════════════════════════════════════════════════════════ */
+
+/* —— 学术动态 .hn —— */
+html.cssd-light body #sportsPortal .hn-layout{gap:10px;}
+html.cssd-light body #sportsPortal .hn-list{gap:4px;}
+html.cssd-light body #sportsPortal .hn-lead,
+html.cssd-light body #sportsPortal .hn-row{
+  border:1px solid rgba(10,42,67,.06);
+  border-radius:12px;
+  box-shadow:0 1px 2px rgba(10,42,67,.028);
+}
+html.cssd-light body #sportsPortal .hn-lead:hover,
+html.cssd-light body #sportsPortal .hn-row:hover{
+  transform:translateY(-1px);
+  border-color:rgba(10,42,67,.10);
+  box-shadow:0 3px 10px rgba(10,42,67,.04);
+}
+html.cssd-light body #sportsPortal .hn-lead{
+  padding:16px 18px 14px;
+  background:#FFFFFF;
+}
+html.cssd-light body #sportsPortal .hn-lead h3{
+  font-size:22px;
+  font-weight:600;
+  letter-spacing:.03em;
+}
+html.cssd-light body #sportsPortal .hn-row{
+  padding:7px 12px;
+}
+html.cssd-light body #sportsPortal .hn-row h3{
+  font-size:14px;
+  font-weight:500;
+}
+html.cssd-light body #sportsPortal .hn-lead .hn-title-zh{font-size:14px;margin-top:4px;}
+html.cssd-light body #sportsPortal .hn{margin:0 0 12px;}
+
+/* —— 学界动态 .xj —— */
+html.cssd-light body #sportsPortal .xj-layout{gap:10px;}
+html.cssd-light body #sportsPortal .xj-list{gap:4px;}
+html.cssd-light body #sportsPortal .xj-lead,
+html.cssd-light body #sportsPortal .xj-row{
+  border:1px solid rgba(10,42,67,.06);
+  border-radius:12px;
+  box-shadow:0 1px 2px rgba(10,42,67,.028);
+}
+html.cssd-light body #sportsPortal .xj-lead:hover,
+html.cssd-light body #sportsPortal .xj-row:hover{
+  transform:translateY(-1px);
+  border-color:rgba(10,42,67,.10);
+  box-shadow:0 3px 10px rgba(10,42,67,.04);
+}
+html.cssd-light body #sportsPortal .xj-lead{
+  padding:16px 18px 14px;
+  background:#FFFFFF;
+}
+html.cssd-light body #sportsPortal .xj-lead h3{
+  font-size:20px;
+  font-weight:600;
+  letter-spacing:.03em;
+}
+html.cssd-light body #sportsPortal .xj-row{
+  padding:7px 12px;
+}
+html.cssd-light body #sportsPortal .xj-row h3{
+  font-size:14px;
+  font-weight:500;
+}
+html.cssd-light body #sportsPortal .xj{margin:0 0 12px;}
+
+/* —— 每日动态预览 .dy —— */
+html.cssd-light body #sportsPortal .dy-cols{gap:12px;margin-top:10px;}
+html.cssd-light body #sportsPortal .dy-col{
+  border:1px solid rgba(10,42,67,.06);
+  border-radius:12px;
+  padding:12px 14px 10px;
+  box-shadow:0 1px 2px rgba(10,42,67,.028);
+}
+html.cssd-light body #sportsPortal .dy-col-title{
+  font-size:14px;
+  font-weight:600;
+  margin:0 0 8px;
+}
+html.cssd-light body #sportsPortal .dy-col li{padding:6px 2px;}
+html.cssd-light body #sportsPortal .dy-col h3{font-size:13px;font-weight:500;}
+
+/* —— 学术动态页 spotlight 卡：略收阴影感（已白底细边） —— */
+html.cssd-light body #vw-academicnews .an-spotlight .an-card,
+html.cssd-light body .sp-news .an-spotlight .an-card{
+  border-radius:12px;
+  box-shadow:none;
+  min-height:152px;
+  padding:12px 14px;
+}
+html.cssd-light body #vw-academicnews .an-spotlight .an-card h3,
+html.cssd-light body .sp-news .an-spotlight .an-card h3{
+  font-weight:600;
+  font-size:.88rem;
+}
+
+/* —— 首页静态占位新闻条（JS 未灌入前） —— */
+html.cssd-light body #vw-home .cssd-news-item{
+  gap:14px;
+  padding:12px 0;
+}
+html.cssd-light body #vw-home .cssd-news-thumb{
+  width:112px;
+  height:72px;
+  border-radius:10px;
+  font-size:12px;
+  font-weight:600;
+  opacity:.9;
+}
+html.cssd-light body #vw-home .cssd-news-body h4{
+  font-size:15px;
+  font-weight:600;
+  line-height:1.45;
+}
+html.cssd-light body #vw-home .cssd-news-meta{
+  margin-top:6px;
+  font-size:12.5px;
+}
+
+@media (max-width:860px){
+  html.cssd-light body #sportsPortal .hn-lead h3{font-size:18px;}
+  html.cssd-light body #sportsPortal .xj-lead h3{font-size:18px;}
+  html.cssd-light body #sportsPortal .hn-lead,
+  html.cssd-light body #sportsPortal .xj-lead{padding:14px 14px 12px;}
+  html.cssd-light body #vw-home .cssd-news-thumb{width:88px;height:60px;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html.cssd-light body #sportsPortal .hn-lead:hover,
+  html.cssd-light body #sportsPortal .hn-row:hover,
+  html.cssd-light body #sportsPortal .xj-lead:hover,
+  html.cssd-light body #sportsPortal .xj-row:hover{
+    transform:none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   search/secondary-contrast · P2-5
+   浅色主题：搜框 placeholder / 次要文案对比度 ≥4.5:1
+   统一走 --sp-muted2（#64748B），禁页内写死灰阶；opacity 必须为 1。
+   ═══════════════════════════════════════════════════════════════ */
+html.cssd-light body ::placeholder,
+html.cssd-light body input::placeholder,
+html.cssd-light body textarea::placeholder{
+  color:var(--sp-muted2) !important;
+  -webkit-text-fill-color:var(--sp-muted2) !important;
+  opacity:1 !important;
+}
+
+/* 覆盖 index.html 内 #94A3B8 / #7A8494 / opacity:.8 等低对比写死 */
+html.cssd-light body .ctlb input::placeholder,
+html.cssd-light body #vw-scholars .fi::placeholder,
+html.cssd-light body .fi::placeholder,
+html.cssd-light body #sportsPortal .sp-search input::placeholder,
+html.cssd-light body .cssd-dark-search input::placeholder,
+html.cssd-light body #qinp::placeholder,
+html.cssd-light body #globalSearchInput::placeholder,
+html.cssd-light body #vw-journals .jnl-search::placeholder,
+html.cssd-light body #vw-founders .fdr-search::placeholder,
+html.cssd-light body #vw-aitools .at-hero-input::placeholder,
+html.cssd-light body .claim-field input::placeholder,
+html.cssd-light body .claim-field textarea::placeholder{
+  color:var(--sp-muted2) !important;
+  -webkit-text-fill-color:var(--sp-muted2) !important;
+  opacity:1 !important;
+}
+
+/* 全局搜 / 深色遗留搜框：浅底上的输入字也走墨色，避免落到浅灰 */
+html.cssd-light body #globalSearchInput,
+html.cssd-light body .cssd-dark-search input,
+html.cssd-light body #qinp{
+  color:var(--sp-brand-900, #0A2A43) !important;
+  -webkit-text-fill-color:var(--sp-brand-900, #0A2A43) !important;
+}
+
+/* ── P2: 院校全称截断 + title ─────────────────────────────────
+   学者卡/表/机构卡/榜单：溢出省略，悬停 title 看全称。
+   父级需 min-width:0（机构卡 hd 已有）；表格格限宽防撑破。 */
+html.cssd-light .cssd-org-trunc,
+html.cssd-light body #sportsPortal .cssd-org-trunc{
+  display:inline-block;
+  max-width:100%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  vertical-align:bottom;
+}
+html.cssd-light .l3-inst-name,
+html.cssd-light .sc-inst-name,
+html.cssd-light .sci-inst-name,
+html.cssd-light .dlab-inst-name,
+html.cssd-light .cins .cssd-org-trunc,
+html.cssd-light .pins .cssd-org-trunc,
+html.cssd-light .l3-hat-inst .cssd-org-trunc,
+html.cssd-light .sci-scard-inst .cssd-org-trunc,
+html.cssd-light .dlab-scard-inst .cssd-org-trunc,
+html.cssd-light .gsr-sub .cssd-org-trunc{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  max-width:100%;
+}
+html.cssd-light .l3-inst-name,
+html.cssd-light .sc-inst-name{
+  display:block;
+}
+html.cssd-light td.cssd-org-trunc{
+  display:table-cell;
+  max-width:12em;
+}
+html.cssd-light .cins{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  max-width:100%;
+}
+
+/* 科研项目动态 · NSFC 专刊 chip
+   激活：浅玫底 + 暗红字/边（对齐学者目录浅底深字，不再实心亮红白字）
+   未激活：白底、品牌墨边、次级字色。大数 KPI 与 chip 字色同一 token，不比 chip 更亮。
+   #sportsPortal button{font:inherit} 会盖掉无 !important 的字重，激活态用更高优先级写成 600。 */
+html.cssd-light body #cssd-home-projects-showcase,
+html.cssd-light body #vw-projects .cssd-moe-banner,
+html.cssd-light body #cssd-custom-modal,
+html.cssd-light body #rinfo .cssd-tb,
+html.cssd-light body .cssd-tb-btn.nssfc-active{
+  --nsfc-chip-bg:#FDEBEC;
+  --nsfc-chip-fg:#B42318;
+  --nsfc-chip-line:#B42318;
+  --nsfc-chip-bg-hover:#FBD5D7;
+  --nsfc-chip-idle-bg:#fff;
+  --nsfc-chip-idle-line:rgba(10,42,67,.14);
+  --nsfc-chip-idle-fg:#33415C;
+  --nsfc-kpi-fg:var(--nsfc-chip-fg);
+}
+html.cssd-light body .cssd-tb-btn.nssfc-active{
+  background:var(--nsfc-chip-bg) !important;
+  color:var(--nsfc-chip-fg) !important;
+  -webkit-text-fill-color:var(--nsfc-chip-fg) !important;
+  border-color:var(--nsfc-chip-line) !important;
+  font-weight:600 !important;
+  text-shadow:none !important;
+}
+html.cssd-light body .cssd-tb-btn.nssfc-active:hover{
+  background:var(--nsfc-chip-bg-hover) !important;
+  color:var(--nsfc-chip-fg) !important;
+  -webkit-text-fill-color:var(--nsfc-chip-fg) !important;
+  border-color:var(--nsfc-chip-line) !important;
+  text-shadow:none !important;
+}
+html.cssd-light body #cssd-home-projects-showcase > .c-fxb .c-fx > .cssd-tb-btn:not(.nssfc-active):not(.moe),
+html.cssd-light body #sw-nssfc:not(.nssfc-active){
+  background:var(--nsfc-chip-idle-bg) !important;
+  color:var(--nsfc-chip-idle-fg) !important;
+  -webkit-text-fill-color:var(--nsfc-chip-idle-fg) !important;
+  border-color:var(--nsfc-chip-idle-line) !important;
+  text-shadow:none !important;
+}
+html.cssd-light body #cssd-home-projects-showcase > .c-fxb .c-fx > .cssd-tb-btn:not(.nssfc-active):not(.moe):hover{
+  background:#2563eb !important;
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
+  border-color:#2563eb !important;
+}
+html.cssd-light body #cssd-hm-nssfc-num{
+  color:var(--nsfc-kpi-fg) !important;
+  -webkit-text-fill-color:var(--nsfc-kpi-fg) !important;
+}
+
+/* 数据驱动荣誉小标（scholar.rankTag，如「国家一级教授」）：姓名下方，无图标；颜色只走 token */
+:root{--cssd-honor-bg:#FBF3E0;--cssd-honor-fg:#8A6A1F}
+html:not(.cssd-light){--cssd-honor-bg:rgba(200,162,75,.16);--cssd-honor-fg:#E3C77A}
+.sp-rank-row{display:flex;flex-wrap:wrap;gap:4px;margin:3px 0 2px}
+html body .sp-rank-row .sp-honor,.sp-honor{display:inline-block;background:var(--cssd-honor-bg);color:var(--cssd-honor-fg);font-size:12px;line-height:1.5;padding:1px 6px;border-radius:4px;white-space:nowrap;font-weight:600}
+@media (max-width:720px){.sd-hero .sp-rank-row{justify-content:center}}
+/* 详情弹窗：标签可换行不裁切；散文 hon 归入简介 */
+#mtp .sd-tags .tag{max-width:100%;white-space:normal;overflow-wrap:anywhere;text-align:left}
+#mtp .sd-bio{margin:10px 0 0;font-size:13px;line-height:1.7;color:var(--mu,#5A6575);text-align:left}
+/* 普通称号标签浅一档，让 .sp-honor 更突出 */
+:root{--cssd-chip-honor-bg:#FDF9F0}
+html:not(.cssd-light){--cssd-chip-honor-bg:rgba(200,162,75,.08)}
+/* 覆盖 index.html 内 `html.cssd-light .tag.t-hat, html.cssd-light .tag.t-honor{background:rgba(200,162,75,.12)!important;…}`，故需 !important */
+html.cssd-light #mtp .tag.t-hat,html.cssd-light #mtp .tag.t-honor,html.cssd-light .sc2 .tag.t-hat,html.cssd-light .sc2 .tag.t-honor{background:var(--cssd-chip-honor-bg)!important;border-color:rgba(200,162,75,.2)!important}
+
+/* ═════════════════════════════════════════════════════════════════
+   home/soft-cards — 首页 KPI 条 + 八个入口卡
+   只动这两块壳。选择器叠两个 #sportsPortal，压过后加载的 premium
+   （金线、渐变数字、悬停上浮、图标渐变方块），不改顶栏 / 路由 / 首屏结构。
+   数字仍由 portal.js 用数组 .length + cssdFormatNumber 写入，这里不写死。
+   ═════════════════════════════════════════════════════════════════ */
+:root{
+  --cssd-card-radius:16px;
+  --cssd-card-bg:#fff;
+  --cssd-card-shadow:0 8px 24px rgba(10,42,67,.06);
+  --cssd-card-shadow-lift:0 16px 36px rgba(10,42,67,.12);
+  --cssd-icon-tint:#E8EEF5;
+  --cssd-ink:#0A2A43;
+  --cssd-label:#5B6575;
+}
+
+html.cssd-light body #sportsPortal#sportsPortal .sp-metrics{
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  width:100%;
+  max-width:100%;
+  min-width:0;
+  background:var(--cssd-card-bg) !important;
+  border:1px solid rgba(10,42,67,.06) !important;
+  border-radius:var(--cssd-card-radius) !important;
+  box-shadow:var(--cssd-card-shadow) !important;
+  padding:26px 8px 22px !important;
+  overflow:visible;
+}
+html.cssd-light body #sportsPortal#sportsPortal .sp-metrics:before,
+html.cssd-light body #sportsPortal#sportsPortal .sp-metrics:after{
+  content:none !important;
+  display:none !important;
+}
+html.cssd-light body #sportsPortal#sportsPortal .sp-metrics .sp-icon{display:none !important;}
+html.cssd-light body #sportsPortal#sportsPortal .sp-metrics button{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-width:0;
+  margin:0 !important;
+  padding:8px 10px !important;
+  border:0 !important;
+  border-right:1px solid rgba(10,42,67,.08) !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  text-align:center;
+  transform:none !important;
+}
+html.cssd-light body #sportsPortal#sportsPortal .sp-metrics button:last-child,
+html.cssd-light body #sportsPortal#sportsPortal .sp-metrics button:nth-child(6n){
+  border-right:0 !important;
+}
+html.cssd-light body #sportsPortal#sportsPortal .sp-metrics button:hover,
+html.cssd-light body #sportsPortal#sportsPortal .sp-metrics button:active{
+  background:transparent !important;
+  transform:none !important;
+  filter:none !important;
+  box-shadow:none !important;
+}
+html.cssd-light body #sportsPortal#sportsPortal .sp-metrics b{
+  display:block;
+  max-width:100%;
+  margin:0;
+  background:none !important;
+  background-image:none !important;
+  -webkit-background-clip:border-box !important;
+  background-clip:border-box !important;
+  -webkit-text-fill-color:var(--cssd-ink) !important;
+  color:var(--cssd-ink) !important;
+  font-family:var(--sp-serif, "Noto Serif SC", "Songti SC", serif) !important;
+  font-weight:700 !important;
+  font-size:clamp(26px, 2.2vw, 36px) !important;
+  line-height:1.15 !important;
+  letter-spacing:0 !important;
+  font-variant-numeric:tabular-nums;
+  white-space:normal !important;
+  overflow-wrap:anywhere;
+  text-transform:none !important;
+}
+html.cssd-light body #sportsPortal#sportsPortal .sp-metrics small{
+  display:block;
+  max-width:100%;
+  margin:0;
+  color:var(--cssd-label) !important;
+  -webkit-text-fill-color:var(--cssd-label) !important;
+  font-size:12px !important;
+  font-weight:500 !important;
+  line-height:1.35 !important;
+  letter-spacing:.02em !important;
+  text-transform:none !important;
+  white-space:normal !important;
+  overflow-wrap:anywhere;
+}
+
+html.cssd-light body #sportsPortal#sportsPortal .sp-quick{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px !important;
+  width:100%;
+  max-width:100%;
+  min-width:0;
+}
+html.cssd-light body #sportsPortal#sportsPortal .sp-quick-card{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:flex-start;
+  gap:12px;
+  width:100%;
+  min-width:0;
+  min-height:0;
+  padding:16px 16px !important;
+  text-align:left;
+  background:var(--cssd-card-bg) !important;
+  border:1px solid rgba(10,42,67,.06) !important;
+  border-radius:var(--cssd-card-radius) !important;
+  box-shadow:var(--cssd-card-shadow) !important;
+  transform:none !important;
+  overflow:visible !important;
+  filter:none !important;
+  transition:box-shadow .22s ease !important;
+}
+html.cssd-light body #sportsPortal#sportsPortal .sp-quick-card:before,
+html.cssd-light body #sportsPortal#sportsPortal .sp-quick-card:after,
+html.cssd-light body #sportsPortal#sportsPortal .sp-quick-card:hover:before,
+html.cssd-light body #sportsPortal#sportsPortal .sp-quick-card:hover:after{
+  content:none !important;
+  display:none !important;
+  opacity:0 !important;
+}
+html.cssd-light body #sportsPortal#sportsPortal .sp-quick-card:hover,
+html.cssd-light body #sportsPortal#sportsPortal .sp-quick-card:active{
+  transform:none !important;
+  border-color:rgba(10,42,67,.06) !important;
+  background:var(--cssd-card-bg) !important;
+  filter:none !important;
+  box-shadow:var(--cssd-card-shadow-lift) !important;
+}
+html.cssd-light body #sportsPortal#sportsPortal .sp-quick .sp-logo-wrap{
+  width:44px !important;
+  height:44px !important;
+  margin:0 !important;
+  border-radius:50% !important;
+  flex:0 0 44px;
+  display:grid;
+  place-items:center;
+  background:var(--cssd-icon-tint) !important;
+  background-image:none !important;
+  color:#2C6E9E !important;
+  box-shadow:none !important;
+}
+html.cssd-light body #sportsPortal#sportsPortal .sp-quick .sp-logo,
+html.cssd-light body #sportsPortal#sportsPortal .sp-quick .sp-logo svg{
+  width:24px !important;
+  height:24px !important;
+}
+html.cssd-light body #sportsPortal#sportsPortal .sp-quick-text{
+  min-width:0;
+  flex:1 1 auto;
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+  text-align:left;
+}
+html.cssd-light body #sportsPortal#sportsPortal .sp-quick b{
+  display:block;
+  margin:0;
+  color:var(--cssd-ink) !important;
+  -webkit-text-fill-color:var(--cssd-ink) !important;
+  font-size:14.5px !important;
+  font-weight:650 !important;
+  line-height:1.35 !important;
+  letter-spacing:.02em !important;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+html.cssd-light body #sportsPortal#sportsPortal .sp-quick small,
+html.cssd-light body #sportsPortal#sportsPortal .sp-quick-text small{
+  display:block;
+  margin:0;
+  color:var(--cssd-label) !important;
+  -webkit-text-fill-color:var(--cssd-label) !important;
+  font-size:12px !important;
+  font-weight:400 !important;
+  line-height:1.4 !important;
+  letter-spacing:0 !important;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+html.cssd-light body #sportsPortal#sportsPortal .sp-quick-card:focus-visible,
+html.cssd-light body #sportsPortal#sportsPortal .sp-metrics button:focus-visible{
+  outline:2px solid var(--sp-accent, #2E9A89) !important;
+  outline-offset:3px !important;
+  border-radius:var(--cssd-card-radius) !important;
+}
+
+@media (max-width:900px){
+  html.cssd-light body #sportsPortal#sportsPortal .sp-metrics{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    padding:18px 6px 14px !important;
+  }
+  html.cssd-light body #sportsPortal#sportsPortal .sp-metrics button{
+    border-right:1px solid rgba(10,42,67,.08) !important;
+    border-bottom:1px solid rgba(10,42,67,.08) !important;
+  }
+  html.cssd-light body #sportsPortal#sportsPortal .sp-metrics button:nth-child(3n){border-right:0 !important;}
+  html.cssd-light body #sportsPortal#sportsPortal .sp-metrics button:nth-last-child(-n+3){border-bottom:0 !important;}
+  html.cssd-light body #sportsPortal#sportsPortal .sp-metrics b{font-size:26px !important;}
+  html.cssd-light body #sportsPortal#sportsPortal .sp-quick{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media (max-width:720px){
+  html.cssd-light body #sportsPortal#sportsPortal .sp-metrics{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    padding:16px 4px 12px !important;
+  }
+  html.cssd-light body #sportsPortal#sportsPortal .sp-metrics button{
+    border-right:1px solid rgba(10,42,67,.08) !important;
+    border-bottom:1px solid rgba(10,42,67,.08) !important;
+    padding:10px 8px !important;
+  }
+  html.cssd-light body #sportsPortal#sportsPortal .sp-metrics button:nth-child(3n){border-right:1px solid rgba(10,42,67,.08) !important;}
+  html.cssd-light body #sportsPortal#sportsPortal .sp-metrics button:nth-child(2n){border-right:0 !important;}
+  html.cssd-light body #sportsPortal#sportsPortal .sp-metrics button:nth-last-child(-n+3){border-bottom:1px solid rgba(10,42,67,.08) !important;}
+  html.cssd-light body #sportsPortal#sportsPortal .sp-metrics button:nth-last-child(-n+2){border-bottom:0 !important;}
+  html.cssd-light body #sportsPortal#sportsPortal .sp-metrics b{font-size:24px !important;}
+  html.cssd-light body #sportsPortal#sportsPortal .sp-metrics small{font-size:11px !important;letter-spacing:0 !important;}
+  html.cssd-light body #sportsPortal#sportsPortal .sp-quick-card{
+    padding:14px 12px !important;
+    flex-direction:row !important;
+    align-items:center !important;
+  }
+  html.cssd-light body #sportsPortal#sportsPortal .sp-quick .sp-logo-wrap{
+    width:40px !important;
+    height:40px !important;
+    flex-basis:40px;
+  }
+  html.cssd-light body #sportsPortal#sportsPortal .sp-quick b{white-space:normal;}
+}
+
+@media (max-width:360px){
+  html.cssd-light body #sportsPortal#sportsPortal .sp-quick{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  html.cssd-light body #sportsPortal#sportsPortal .sp-quick-card,
+  html.cssd-light body #sportsPortal#sportsPortal .sp-quick-card:hover{
+    transition:none !important;
+    transform:none !important;
+  }
+}
+
+/* 学者目录分栏：tab / .on / 内部 span·small 一律去掉白字投影
+   （含 0 1px 0 rgba(255,255,255,*)）。历史层在本文件之后，故 body + !important。
+   国内激活态：浅绿底 + 实色 #0F5B4F，数字不再垫白底。 */
+html.cssd-light body #vw-scholars .sch-branch-tab,
+html.cssd-light body #vw-scholars .sch-branch-tab span,
+html.cssd-light body #vw-scholars .sch-branch-tab small,
+html.cssd-light body #vw-scholars .sch-branch-tab.on,
+html.cssd-light body #vw-scholars .sch-branch-tab.on span,
+html.cssd-light body #vw-scholars .sch-branch-tab.on small,
+html.cssd-light body #vw-scholars .sch-branch-tab[data-branch="overseas"],
+html.cssd-light body #vw-scholars .sch-branch-tab[data-branch="overseas"] span,
+html.cssd-light body #vw-scholars .sch-branch-tab[data-branch="overseas"] small,
+html.cssd-light body #vw-scholars .sch-branch-tab[data-branch="overseas"].on,
+html.cssd-light body #vw-scholars .sch-branch-tab[data-branch="overseas"].on span,
+html.cssd-light body #vw-scholars .sch-branch-tab[data-branch="overseas"].on small{
+  text-shadow:none !important;
+  -webkit-text-stroke:0 !important;
+}
+html.cssd-light body #vw-scholars .sch-branch-tab.on[data-branch="main"],
+html.cssd-light body #vw-scholars .sch-branch-tab.on[data-branch="main"] span,
+html.cssd-light body #vw-scholars .sch-branch-tab.on[data-branch="main"] small{
+  color:#0F5B4F !important;
+  -webkit-text-fill-color:#0F5B4F !important;
+  text-shadow:none !important;
+  -webkit-text-stroke:0 !important;
+}
+html.cssd-light body #vw-scholars .sch-branch-tab.on[data-branch="main"]{
+  background:rgba(46,154,137,.12) !important;
+  border-color:rgba(46,154,137,.45) !important;
+  box-shadow:none !important;
+  font-weight:600 !important;
+}
+html.cssd-light body #vw-scholars .sch-branch-tab.on[data-branch="main"] small{
+  background:transparent !important;
+  font-weight:600 !important;
+}
+
+/* ═════════════════════════════════════════════════════════════════
+   v4.6-117 学界动态左右密度
+   左卡内副条与右列密列表共用行高、标题节奏与日期样式（墨色表格式，
+   不再把未来会议涂成橙色胶囊）。可回退：删本分区。
+   ═════════════════════════════════════════════════════════════════ */
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-meta time{
+  flex:0 0 auto;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  color:#5B6575 !important;
+  -webkit-text-fill-color:#5B6575 !important;
+  font-size:12px !important;
+  font-weight:500 !important;
+  line-height:16px !important;
+  letter-spacing:.04em !important;
+  font-variant-numeric:tabular-nums;
+}
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-side-list .xj-meta,
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-row .xj-meta,
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-lead > .xj-meta{
+  margin-bottom:4px;
+  min-height:18px;
+}
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-list{
+  justify-content:space-between;
+  gap:8px;
+}
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-list > .xj-row,
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-list > .xj-row:last-child{
+  flex:0 0 auto;
+  min-height:88px;
+  padding:8px 12px;
+  box-sizing:border-box;
+  justify-content:center;
+}
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-side-list li{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  box-sizing:border-box;
+  min-height:88px;
+  padding:8px 0;
+}
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-side-list li + li{
+  border-top:1px solid rgba(10,42,67,.06);
+}
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-side-list h3,
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-row h3{
+  font-size:14px !important;
+  font-weight:500 !important;
+  line-height:20px !important;
+  letter-spacing:.02em !important;
+  min-height:40px;
+  -webkit-line-clamp:2;
+  line-clamp:2;
+}
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-lead > h3{
+  font-size:18px !important;
+  font-weight:600 !important;
+  line-height:26px !important;
+  letter-spacing:.03em !important;
+  min-height:0;
+}
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-side-list .xj-sub,
+html.cssd-light body #vw-home #sportsPortal #homeXuejie .xj-row .xj-sub{
+  margin-top:2px;
+  font-size:12px;
+  line-height:16px;
+}
+
+/* ═════════════════════════════════════════════════════════════════
+   v4.6-118 学术动态单列
+   #vw-academicnews 页头去掉深色/卡片底；聚焦区改成 760 宽的纯文本行。
+   首页 #homeNews 同一套：查看全部是纯文字链，行与行之间 1px 分隔。
+   可回退：删本分区。不改 #confcal / #homeXuejie。
+   ═════════════════════════════════════════════════════════════════ */
+html.cssd-light body #vw-academicnews#vw-academicnews .an-hero{
+  display:flex !important;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px 20px;
+  max-width:760px;
+  margin:0 auto 14px !important;
+  padding:0 !important;
+  background:transparent !important;
+  background-image:none !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  color:#0A2A43 !important;
+}
+html.cssd-light body #vw-academicnews#vw-academicnews .an-hero h1{
+  margin:0 0 6px !important;
+  font-size:26px !important;
+  font-weight:600 !important;
+  line-height:1.2 !important;
+  letter-spacing:.04em !important;
+  color:#0A2A43 !important;
+  -webkit-text-fill-color:#0A2A43 !important;
+}
+html.cssd-light body #vw-academicnews#vw-academicnews .an-hero p{
+  max-width:none !important;
+  margin:0 !important;
+  color:#5B6575 !important;
+  -webkit-text-fill-color:#5B6575 !important;
+  font-size:14px !important;
+  line-height:1.6 !important;
+}
+html.cssd-light body #vw-academicnews#vw-academicnews .an-hero a{
+  align-self:flex-start;
+  margin:4px 0 0 !important;
+  padding:0 !important;
+  background:transparent !important;
+  background-image:none !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  color:#2E9A89 !important;
+  -webkit-text-fill-color:#2E9A89 !important;
+  font-weight:500 !important;
+  text-decoration:none;
+}
+html.cssd-light body #vw-academicnews#vw-academicnews .an-hero a:hover{
+  color:#2E9A89 !important;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+html.cssd-light body #vw-academicnews#vw-academicnews .an-toolbar,
+html.cssd-light body #vw-academicnews#vw-academicnews .an-spotlight{
+  max-width:760px;
+  width:100%;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  box-sizing:border-box;
+}
+html.cssd-light body #vw-academicnews#vw-academicnews .an-spotlight{
+  display:block !important;
+  grid-template-columns:1fr !important;
+}
+html.cssd-light body #vw-academicnews#vw-academicnews .an-spotlight .an-card,
+html.cssd-light body #vw-academicnews#vw-academicnews .an-spotlight .an-card:first-child{
+  display:block !important;
+  height:auto !important;
+  min-height:0 !important;
+  margin:0 !important;
+  padding:14px 0 !important;
+  background:transparent !important;
+  background-image:none !important;
+  border:0 !important;
+  border-bottom:1px solid rgba(10,42,67,.12) !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+}
+html.cssd-light body #vw-academicnews#vw-academicnews .an-spotlight .an-card:last-child{
+  border-bottom:0 !important;
+}
+html.cssd-light body #vw-academicnews#vw-academicnews .an-spotlight .an-card h3{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  line-clamp:2;
+  overflow:hidden;
+  min-height:0 !important;
+  color:#0A2A43 !important;
+  -webkit-text-fill-color:#0A2A43 !important;
+}
+html.cssd-light body #homeNews#homeNews{
+  max-width:760px;
+  width:100%;
+  margin-left:auto;
+  margin-right:auto;
+  box-sizing:border-box;
+  background:transparent !important;
+  background-image:none !important;
+  box-shadow:none !important;
+}
+html.cssd-light body #homeNews#homeNews .af-all{
+  background:transparent !important;
+  background-image:none !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  color:#2E9A89 !important;
+  -webkit-text-fill-color:#2E9A89 !important;
+}
+html.cssd-light body #homeNews#homeNews .af-sheet,
+html.cssd-light body #homeNews#homeNews .af-item,
+html.cssd-light body #homeNews#homeNews .af-item:first-child{
+  background:transparent !important;
+  background-image:none !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+}
+html.cssd-light body #homeNews#homeNews .af-item{
+  border-bottom:1px solid rgba(10,42,67,.12) !important;
+}
+
+/* ═════════════════════════════════════════════════════════════════
+   v4.6-119 学术动态与上下板块对齐
+   首页 #homeNews 不再 760 居中。外沿与 .sp-grid（学者发现 / 研究方向总览 /
+   院校机构导航）同一内容列；白卡用 .sp-panel 的底、圆角、边和阴影，
+   内边距对齐面板标题（18px 22px）。单列、1px 行分隔、查看全部文字链不动。
+   /academicnews、#confcal、#homeXuejie 不改。可回退：删本分区。
+   ═════════════════════════════════════════════════════════════════ */
+html.cssd-light body #homeNews#homeNews{
+  max-width:none;
+  width:100%;
+  margin-left:0;
+  margin-right:0;
+  box-sizing:border-box;
+  min-width:0;
+  background:var(--sp-card,#fff) !important;
+  background-image:none !important;
+  border:1px solid var(--sp-line,#E2E7EE) !important;
+  border-radius:16px !important;
+  box-shadow:var(--sp-shadow-md,0 2px 6px rgba(8,28,46,.05),0 8px 24px rgba(8,28,46,.06)) !important;
+  padding:18px 22px 12px;
+}
+@media (max-width:720px){
+  html.cssd-light body #homeNews#homeNews{
+    padding:16px 16px 8px;
+  }
+}
+
+/* Focused mobile refinements; desktop layout and the restored calendar stay native. */
+@media (max-width:720px){
+  html.cssd-light body #confcal #cssd-cal-tabs{
+    flex-wrap:nowrap !important;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    max-width:100%;
+    min-width:0;
+    padding:4px 4px 10px !important;
+    scrollbar-width:thin;
+    scroll-snap-type:x proximity;
+    overscroll-behavior-inline:contain;
+  }
+  html.cssd-light body #confcal #cssd-cal-tabs .cssd-cal-tab{
+    flex:0 0 auto;
+    min-height:44px;
+    padding:8px 12px !important;
+    scroll-snap-align:start;
+  }
+  html.cssd-light body #confcal .cssd-cal-acts{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px;
+  }
+  html.cssd-light body #confcal .cssd-cal-act{min-width:0;min-height:72px;}
+  html.cssd-light body #confcal .cssd-cal-navbtn{min-height:44px;}
+  html.cssd-light body #sportsPortal .sp-metrics{
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  }
+  html.cssd-light body #sportsPortal .sp-metrics button:nth-child(2n){border-right:1px solid var(--sp-line) !important;}
+  html.cssd-light body #sportsPortal .sp-metrics button:nth-child(3n){border-right:0 !important;}
+  html.cssd-light body #sportsPortal .sp-metrics b{font-size:24px !important;}
+  html.cssd-light body #sportsPortal .sp-quick .sp-quick-card{height:auto !important;}
+  html.cssd-light body #sportsPortal .sp-quick .sp-quick-text b,
+  html.cssd-light body #sportsPortal .sp-quick .sp-quick-text small{
+    white-space:normal !important;
+    overflow:visible;
+    text-overflow:clip;
+    -webkit-line-clamp:unset;
+    overflow-wrap:break-word;
+  }
+}

@@ -5,13 +5,52 @@
    左卡：头条 + 至多 3 条紧凑；右列至多 4 条。
    回退：删本文件、index.html 对应 script，以及 portal.polish.css 中 xuejie 分区。 */
 (function(){
-  var TYPE_LABEL = {honor:"荣誉", event:"活动", meet:"会议"};
-  var TYPE_CLS = {honor:"xj-tag-honor", event:"xj-tag-event", meet:"xj-tag-meet"};
+  /* 类型徽章：既有口径 honor/event/meet；别名兼容 paper/journal/project/conference */
+  var TYPE_LABEL = {
+    honor:"荣誉", event:"活动", meet:"会议",
+    paper:"论文", journal:"期刊", project:"项目", conference:"会议"
+  };
+  var TYPE_CLS = {
+    honor:"xj-tag-honor", event:"xj-tag-event", meet:"xj-tag-meet",
+    paper:"xj-tag-paper", journal:"xj-tag-journal", project:"xj-tag-project",
+    conference:"xj-tag-meet"
+  };
 
   function esc(s){
     return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){
       return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
     });
+  }
+
+  /* 渲染「时间：…」之前：年、月、日必须同时在段内。缺月或缺日则整段不进入 DOM，
+     不用「-」占位。挡住「时间：-20日」「时间：-」「时间：日—15日」这类残段。 */
+  function timeSegmentComplete(body){
+    var s = String(body || "").replace(/\s+/g, "");
+    if(!s) return false;
+    if(/^[-—–~～至到]/.test(s)) return false;
+    var iso = s.match(/((?:19|20)\d{2})-(\d{1,2})-(\d{1,2})/);
+    if(iso){
+      var moI = parseInt(iso[2], 10), daI = parseInt(iso[3], 10);
+      return moI >= 1 && moI <= 12 && daI >= 1 && daI <= 31;
+    }
+    if(!/(?:19|20)\d{2}年/.test(s)) return false;
+    var mm = s.match(/(?:^|[^0-9])(\d{1,2})月/);
+    var dd = s.match(/(?:^|[^0-9])(\d{1,2})日/);
+    if(!mm || !dd) return false;
+    var month = parseInt(mm[1], 10), day = parseInt(dd[1], 10);
+    if(!(month >= 1 && month <= 12 && day >= 1 && day <= 31)) return false;
+    if(/年[-—–]/.test(s) || /月[-—–]日/.test(s) || /[-—–]月/.test(s)) return false;
+    return true;
+  }
+
+  function displayTitle(raw){
+    var t = String(raw == null ? "" : raw);
+    t = t.replace(/\s*时间[：:][ \t]*([^]*?)(?=[ \t]*地点[：:]|$)/g, function(_full, body){
+      var chunk = String(body || "").replace(/^\s+|\s+$/g, "");
+      if(!timeSegmentComplete(chunk)) return "";
+      return " 时间：" + chunk;
+    });
+    return t.replace(/[ \t]{2,}/g, " ").trim();
   }
 
   function parseDate(raw){
@@ -56,15 +95,18 @@
   }
 
   function metaHtml(it){
-    var tag = '<span class="xj-tag ' + (TYPE_CLS[it.type] || "") + '">' +
-      esc(TYPE_LABEL[it.type] || it.type) + "</span>";
+    var key = String(it.type || "").trim().toLowerCase();
+    var label = TYPE_LABEL[key] || (key ? key : "动态");
+    var cls = TYPE_CLS[key] || "xj-tag-other";
+    var tag = '<span class="xj-tag ' + cls + '" title="' + esc(label) + '">' +
+      esc(label) + "</span>";
     var d = parseDate(it.date);
     var time = d ? '<time datetime="' + esc(d.iso) + '">' + esc(d.label) + "</time>" : "";
     return '<div class="xj-meta">' + tag + time + "</div>";
   }
 
   function titleHtml(it){
-    var t = esc(it.title);
+    var t = esc(displayTitle(it.title));
     if(it.link){
       return '<a href="' + esc(it.link) + '" target="_blank" rel="noopener">' + t + "</a>";
     }

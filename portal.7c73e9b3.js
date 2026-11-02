@@ -1,4 +1,12 @@
 (function(){
+/* Shared KPI number formatter (zh-CN thousand separators). Also set from polish-opt-js. */
+if(typeof window.cssdFormatNumber!=='function'){
+  window.cssdFormatNumber=function(n){
+    var x=Number(n);
+    if(!isFinite(x)) return String(n);
+    return x.toLocaleString('zh-CN');
+  };
+}
 const spSet=(id,html)=>{const el=document.getElementById(id);if(el)el.innerHTML=html;};
 const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 /* Quiet linear logos — brand blues + teal/gold accents */
@@ -18,24 +26,30 @@ trend:`<svg viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height=
 };
 const icon=(k,cls='')=>'<span class="sp-logo'+(cls?' '+cls:'')+'" aria-hidden="true">'+logos[k]+'</span>';
 
-/* Top IA 方案2（用户拍板）：主链保留奠基人/精品课程/学术AI；
-   另加「人才与学者」「学位与专业」两组下拉收全部导航剩余项。 */
-const navPromoteIds=new Set(['founders','courses','aitools']);
+/* Top IA 方案2（用户拍板）：主链保留奠基人/精品课程/学术AI/学术动态；
+   另加「人才与学者」「学位与专业」两组下拉收全部导航剩余项。
+   学术动态与每日动态已从人才下拉并入顶栏「学术动态」（进 academicnews；每日动态在该页侧栏可达）。 */
+const navPromoteIds=new Set(['founders','courses','aitools','academicnews']);
 const nav=[
   ['home','首页'],
   ['scholars','学者库'],
   ['institutions','院校机构'],
   ['journals','期刊数据库'],
   ['projects','科研项目'],
+  ['thinktanks','体育智库'],
   ['disciplines','学科分类'],
   ['founders','体育学奠基人'],
   ['courses','精品课程'],
-  ['aitools','学术 AI 工具']
+  ['aitools','学术 AI 工具'],
+  ['academicnews','学术动态'],
+  /* 会议日历 → 首页 CALENDAR_EVENTS 倒计时（#confcal），不是学术动态 */
+  ['confcal','会议日历']
 ];
 const navPromote=[
   ['founders','体育学奠基人'],
   ['courses','精品课程'],
-  ['aitools','学术 AI 工具']
+  ['aitools','学术 AI 工具'],
+  ['academicnews','学术动态']
 ];
 const navGroups=[
   {id:'talent',label:'人才与学者',items:[
@@ -43,8 +57,7 @@ const navGroups=[
     ['yangtze','长江学者'],
     ['youthscholar','青年学者'],
     ['classify','学者分类总览'],
-    ['sportscolleges','体育院校师资'],
-    ['academicnews','学术动态']
+    ['sportscolleges','体育院校师资']
   ]},
   {id:'degree',label:'学位与专业',items:[
     ['degreepoint','学位点专栏'],
@@ -63,23 +76,100 @@ const quick=[
   ['degreepoint','学位点专栏','博士点、硕士点、学科评估','cap'],
   ['hats','人才计划','院士、长江、青年项目','star']
 ];
-/* 窄屏全部导航：分组项 + #26 后三项回填；桌面主栏有分组下拉与三项平铺 */
+/* 窄屏全部导航：分组项 + 主栏 promoted 回填；桌面主栏有分组下拉与四项平铺 */
 const moreExtra=navGroups.flatMap(g=>g.items);
 const routeJumps=[
   ['home','首页'],['scholars','学者库'],['institutions','院校机构'],['journals','期刊数据库'],
-  ['projects','科研项目'],['disciplines','学科分类'],['hats','人才计划'],['degreepoint','学位点'],
-  ['founders','奠基人'],['classify','分类总览'],['academicnews','学术动态'],['courses','精品课程'],
+  ['projects','科研项目'],['thinktanks','体育智库'],['disciplines','学科分类'],['hats','人才计划'],['degreepoint','学位点'],
+  ['founders','奠基人'],['classify','分类总览'],['academicnews','学术动态'],['confcal','会议日历'],['courses','精品课程'],
   ['sportscolleges','体育院校'],['aitools','学术工具'],['yangtze','长江学者'],['youthscholar','青年学者'],
-  ['majorcat','专业目录'],['phdschools','博士授权']
+  ['majorcat','专业目录'],['phdschools','博士授权'],['daily','每日动态']
 ];
 
 const strokePaths={user:'M20 21v-2a7 7 0 0 0-14 0v2M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0',school:'M3 21h18M5 21V8l7-5 7 5v13M9 10h1m4 0h1m-6 4h1m4 0h1m-4 7v-4h2v4',book:'M12 5C7 2 3 3 2 4v16c3-2 7-1 10 1 3-2 7-3 10-1V4c-2-1-6-2-10 1v16',layers:'m12 3 10 5-10 5L2 8l10-5M2 12l10 5 10-5M2 16l10 5 10-5',flask:'M9 3h6m-5 0v7l-6 9q-1 2 2 2h12q3 0 2-2l-6-9V3M8 15h8',star:'m12 2 3 7 7 1-5 5 1 7-6-4-6 4 1-7-5-5 7-1 3-7',news:'M4 3h16v18H4zM8 7h8M8 11h8M8 15h5',cap:'m2 9 10-5 10 5-10 5L2 9m4 3v6l6 3 6-3v-6M22 9v8',search:'M19 19l-4-4M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0'};
 const strokeIcon=k=>'<span class="sp-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="'+(strokePaths[k]||strokePaths.user)+'"/></svg></span>';
 
+function spConfHash(){
+  return (location.hash||'')==='#confcal';
+}
+function spClearConfHash(){
+  if(!spConfHash()) return;
+  try{
+    history.replaceState({view:(history.state&&history.state.view)||'home'}, '', location.pathname+location.search);
+  }catch(e){}
+}
+/* html{scroll-behavior:smooth!important} 会把 scrollTo 拖成 1s+ 动画，并被定位循环反复重开 */
+function spJump(y){
+  var root=document.documentElement;
+  root.style.setProperty('scroll-behavior','auto','important');
+  try{window.scrollTo({top:y,left:0,behavior:'instant'});}catch(e){
+    try{window.scrollTo(0,y);}catch(e2){}
+  }
+  try{root.scrollTop=y;}catch(e){}
+  try{document.body.scrollTop=y;}catch(e){}
+}
+function spScrollConfCal(n){
+  var el=document.getElementById('confcal')||document.getElementById('cssd-academic-calendar-bar');
+  if(!el){
+    if((n||0)<40) setTimeout(function(){spScrollConfCal((n||0)+1);},120);
+    return false;
+  }
+  var y=Math.max(0, Math.round(el.getBoundingClientRect().top + window.pageYOffset - 76));
+  spJump(y);
+  clearTimeout(spScrollConfCal._rel);
+  spScrollConfCal._rel=setTimeout(function(){
+    document.documentElement.style.removeProperty('scroll-behavior');
+  },400);
+  return true;
+}
+function spStickConfCal(){
+  spScrollConfCal(0);
+  var tries=0;
+  var t=setInterval(function(){
+    if(!spConfHash()||++tries>24){clearInterval(t);return;}
+    var el=document.getElementById('confcal');
+    if(!el){spScrollConfCal(0);return;}
+    var top=el.getBoundingClientRect().top;
+    if(top>110||top<40) spScrollConfCal(0);
+    else clearInterval(t);
+  },50);
+}
+/* 会议日历停在首页倒计时块，不进入 academicnews / 学界动态 */
+function spOpenConfCal(){
+  var home=document.getElementById('vw-home');
+  var onHome=home&&home.classList.contains('on');
+  if(!onHome && typeof go==='function'){
+    /* go('home') 会 smooth scrollTo(0)，盖住随后跳到日历的定位 */
+    var origScroll=window.scrollTo;
+    window.scrollTo=function(){};
+    try{ go('home'); } finally { window.scrollTo=origScroll; }
+  }
+  try{
+    if(location.hash!=='#confcal') history.pushState({view:'home',anchor:'confcal'},'',location.pathname+location.search+'#confcal');
+  }catch(e){
+    try{location.hash='confcal';}catch(err){}
+  }
+  document.querySelectorAll('.sp-more').forEach(function(d){d.open=false;});
+  document.querySelectorAll('details.sp-nav-group').forEach(function(d){d.open=false;});
+  if(spConfHash()) spSyncShell('confcal');
+  spHoldConfNav(1800);
+  spStickConfCal();
+}
+var _confNavLock=0;
+function spHoldConfNav(ms){
+  _confNavLock++;
+  setTimeout(function(){_confNavLock=Math.max(0,_confNavLock-1);}, ms||1400);
+}
+function spReleaseConfCal(){
+  if(!spConfHash() && !document.querySelector('header.sp-header button[data-route="confcal"].active')) return;
+  spClearConfHash();
+  spSyncShell('home');
+}
 function spSyncShell(route){
+  if(route==='confcal' && !spConfHash()) route='home';
   const portal=document.getElementById('sportsPortal');
   const home=document.getElementById('vw-home');
-  const isHome=route==='home';
+  const isHome=route==='home'||route==='confcal';
   if(portal){
     if(isHome){
       portal.style.display='';
@@ -91,10 +181,11 @@ function spSyncShell(route){
   if(home && isHome && !home.classList.contains('on')){
     /* go() already toggles .vw.on; keep portal visible when home */
   }
-  document.querySelectorAll('.sp-links > button[data-route], .sp-links .sp-nav-panel button[data-route]').forEach(b=>{
+  document.querySelectorAll('header.sp-header button[data-route]').forEach(b=>{
     const on=b.dataset.route===route;
     b.classList.toggle('active',on);
     if(on)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');
+    if(b.style) b.style.removeProperty('color');
   });
   document.querySelectorAll('details.sp-nav-group').forEach(g=>{
     const routes=(g.dataset.routes||'').split(',').filter(Boolean);
@@ -106,7 +197,8 @@ function spSyncShell(route){
   if(filter)filter.classList.toggle('on',route==='scholars');
   const skip=document.querySelector('.sp-skip');
   if(skip){
-    if(isHome)skip.setAttribute('href','#sportsPortal');
+    if(route==='confcal')skip.setAttribute('href','#confcal');
+    else if(isHome)skip.setAttribute('href','#sportsPortal');
     else{
       const main=document.getElementById('main-view')||document.getElementById('vw-'+route)||document.querySelector('.vw.on');
       skip.setAttribute('href', main && main.id ? ('#'+main.id) : '#vw-scholars');
@@ -115,6 +207,15 @@ function spSyncShell(route){
 }
 
 window.spNavigate=function(route){
+  if(route==='thinktanks'){
+    window.location.assign(new URL('thinktanks.html', window.location.href).href);
+    return;
+  }
+  if(route==='confcal'){
+    spOpenConfCal();
+    return;
+  }
+  spClearConfHash();
   if(typeof go==='function')go(route);
   document.querySelectorAll('.sp-more').forEach(d=>d.open=false);
   document.querySelectorAll('details.sp-nav-group').forEach(d=>d.open=false);
@@ -167,12 +268,29 @@ window.spPeople=function(type){
     });
   });
   else if(type==='yangtze')list=list.filter(s=>(s.hats||[]).some(h=>h.includes('长江')));
-  spSet('sp-people',list.slice(0,8).map(person).join(''));
+  /* P0: 学者发现跨校抽样，同校最多 2 人 */
+  (function(){
+    const out=[], perInst={}, maxPer=2, target=8;
+    for(let i=0;i<list.length&&out.length<target;i++){
+      const s=list[i], key=String(s.institution||s.s||'');
+      const n=perInst[key]||0;
+      if(n>=maxPer)continue;
+      perInst[key]=n+1;
+      out.push(s);
+    }
+    list=out;
+  })();
+  spSet('sp-people',list.map(person).join(''));
   document.querySelectorAll('.sp-tabs button').forEach(b=>b.classList.toggle('active',b.dataset.kind===type));
 };
 function person(s){
-  const nm=String(s.n||'');
-  const av=nm.slice(0,1);
+  const nm=String(s.n||'').trim();
+  let av='学';
+  if(nm){
+    const m=nm.match(/[\u4e00-\u9fff\u3400-\u4dbf]/);
+    av=m?m[0]:nm.charAt(0);
+    if(/^\d$/.test(av))av='学';
+  }
   const inst=String(s.institution||'');
   return '<button class="sp-person" onclick="spOpen('+Number(s.id)+')"><span class="sp-avatar" aria-hidden="true">'+safe(av)+'</span><span class="sp-person-body"><strong title="'+safe(nm)+'">'+safe(nm)+'</strong><small title="'+safe(inst)+'">'+safe(inst)+'</small><em>'+safe(s.dL||s.title||'体育学')+'</em></span></button>';
 }
@@ -194,7 +312,7 @@ function spRefresh(){
     [4,'研究生学科大类','layers','disciplines'],
     [18,'本科专业目录','cap','majorcat']
   ];
-  spSet('sp-metrics',metrics.map(m=>'<button onclick="spNavigate(\''+m[3]+'\')">'+strokeIcon(m[2])+'<span><b>'+m[0].toLocaleString('zh-CN')+'</b><small>'+m[1]+'</small></span></button>').join(''));
+  spSet('sp-metrics',metrics.map(m=>'<button onclick="spNavigate(\''+m[3]+'\')">'+strokeIcon(m[2])+'<span><b>'+window.cssdFormatNumber(m[0])+'</b><small>'+m[1]+'</small></span></button>').join(''));
   spPeople('all');
   const ds=[
     ['sci','运动人体科学','flask'],['psych','运动心理学','user'],['pe','体育教育学','cap'],['hu','体育人文社会学','book'],
@@ -495,7 +613,7 @@ function start(){
   const head=document.createElement('header');
   head.className='sp-header';
   const topSet=new Set(nav.map(n=>n[0]));
-  /* 窄屏全部导航：分组项 + 主栏后三项（桌面由 CSS 隐藏 sp-more-promoted） */
+  /* 窄屏全部导航：分组项 + 主栏后四项（桌面由 CSS 隐藏 sp-more-promoted） */
   const moreGroupedHtml=navGroups.map(g=>{
     const btns=g.items.filter(n=>!topSet.has(n[0])).map(n=>
       '<button class="sp-more-grouped" data-route="'+n[0]+'" onclick="spNavigate(\''+n[0]+'\')">'+n[1]+'</button>'
@@ -505,7 +623,8 @@ function start(){
   }).join('');
   const morePromoteHtml=navPromote.map(n=>
     '<button class="sp-more-promoted" data-route="'+n[0]+'" onclick="spNavigate(\''+n[0]+'\')">'+n[1]+'</button>'
-  ).join('');
+  ).join('')+
+    '<button class="sp-more-confcal" data-route="confcal" onclick="spNavigate(\'confcal\')">会议日历</button>';
   const moreInner=moreGroupedHtml+morePromoteHtml;
   const moreEmpty=!moreInner.trim()?' sp-more--empty':'';
   const groupHtml=navGroups.map(g=>{
@@ -540,6 +659,31 @@ function start(){
       '<details class="sp-more'+moreEmpty+'"><summary>全部导航</summary><div>'+moreInner+'</div></details>'+
     '</div>';
   document.body.prepend(head);
+
+  /* 导航分组：同屏只开一个；Escape / 点外关闭（点击切换，非悬停） */
+  (function bindNavGroups(){
+    var groups=[].slice.call(document.querySelectorAll('details.sp-nav-group'));
+    if(!groups.length) return;
+    groups.forEach(function(g){
+      g.addEventListener('toggle', function(){
+        if(!g.open) return;
+        groups.forEach(function(o){ if(o!==g) o.open=false; });
+        var more=document.querySelector('details.sp-more');
+        if(more) more.open=false;
+      });
+    });
+    document.addEventListener('pointerdown', function(e){
+      var t=e.target;
+      if(!t || !t.closest) return;
+      if(t.closest('details.sp-nav-group')) return;
+      groups.forEach(function(g){ g.open=false; });
+    }, true);
+    document.addEventListener('keydown', function(e){
+      if(e.key!=='Escape') return;
+      groups.forEach(function(g){ g.open=false; });
+    });
+  })();
+
 
   const portal=document.createElement('main');
   portal.id='sportsPortal';
@@ -585,11 +729,14 @@ function start(){
       '</div>'+
     '</div>'+
     '<footer class="sp-footer"><div class="sp-wrap">'+
-      '<div><strong>体育学人</strong><p>中国体育学术资源数据库 · SPORTS SCHOLARS</p></div>'+
+      '<div><strong>体育学人</strong><p>中国体育学术资源数据库 · SPORTS SCHOLARS</p>'+
+        '<p class="sp-footer-copy">© '+(new Date().getFullYear())+' 体育学人</p></div>'+
       '<div>'+
-        '<button onclick="spNavigate(\'founders\')">学科溯源</button>'+
-        '<button onclick="spNavigate(\'classify\')">分类统计</button>'+
-        '<button onclick="spNavigate(\'journals\')">学术资源</button>'+
+        '<button type="button" onclick="spNavigate(\'founders\')">学科溯源</button>'+
+        '<button type="button" onclick="spNavigate(\'classify\')">分类统计</button>'+
+        '<button type="button" onclick="spNavigate(\'journals\')">学术资源</button>'+
+        '<button type="button" onclick="if(typeof openPrivacyModal===\'function\')openPrivacyModal()">隐私政策</button>'+
+        '<button type="button" onclick="if(typeof openClaimModal===\'function\')openClaimModal(null)">信息认领/纠错</button>'+
         '<br><small>数据沿用所提供资料，统计反映当前收录记录。</small>'+
       '</div>'+
     '</div></footer>';
@@ -606,6 +753,10 @@ function start(){
   if(typeof go==='function' && !go.__spPatched){
     const origGo=go;
     window.go=function(name,opts){
+      if(name==='confcal'){
+        spOpenConfCal();
+        return;
+      }
       /* Prefer table mode before first scholars paint to avoid grid→table double renderSc */
       if(name==='scholars' && typeof window!=='undefined' && window.innerWidth>=860){
         try{window.scholarsViewMode='table';}catch(e){}
@@ -622,7 +773,33 @@ function start(){
   }
 
   try{spRefresh();}catch(e){console.warn('spRefresh',e);}
-  spSyncShell('home');
+  if(spConfHash()) spOpenConfCal();
+  else spSyncShell('home');
+  window.addEventListener('hashchange',function(){
+    if(spConfHash()) spOpenConfCal();
+  });
+  window.addEventListener('popstate',function(){
+    if(spConfHash()){
+      spSyncShell('confcal');
+      spScrollConfCal(0);
+      return;
+    }
+    if(document.querySelector('header.sp-header button[data-route="confcal"].active')) spSyncShell('home');
+  });
+  var _confLeaveT;
+  window.addEventListener('scroll',function(){
+    if(!spConfHash()||_confNavLock) return;
+    clearTimeout(_confLeaveT);
+    _confLeaveT=setTimeout(function(){
+      if(!spConfHash()||_confNavLock) return;
+      var el=document.getElementById('confcal');
+      if(!el) return;
+      var r=el.getBoundingClientRect();
+      var vh=window.innerHeight||800;
+      if(r.bottom<80 || r.top>vh-48) spReleaseConfCal();
+    },140);
+  },{passive:true});
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
 })();
+

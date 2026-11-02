@@ -1,0 +1,36 @@
+name: Cache-bust Guard
+
+# 目的：拦住「改了资产内容但忘了换新哈希文件名」的提交。
+#
+# 背景：带内容哈希的资产（portal.<hash>.js/css、sports-*.js、home-news.<hash>.js、
+# home-xuejie.<hash>.js、portal.premium.<hash>.css）在 EdgeOne 上是 immutable 长缓存。
+# 内容变了却仍用旧文件名 → 用户浏览器和 CDN 会一直拿到旧字节，改了等于没改。
+# scripts/cache-bust.mjs --check 会按 sha256 复算文件名里的哈希，漂移则 exit 1。
+#
+# 注意：check 依赖「文件字节」与「仓库字节」一致，因此依赖 .gitattributes 的
+# `* text=auto eol=lf`。若在 Windows 上以 core.autocrlf=true 检出，会让全部资产
+# 误判为漂移（行尾差异改变了 sha256），此时本检查会失败并提示行尾问题。
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Verify content hashes match filenames
+        run: node scripts/cache-bust.mjs --check
