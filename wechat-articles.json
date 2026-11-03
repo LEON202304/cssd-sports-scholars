@@ -1,0 +1,111 @@
+{
+  "updatedAt": "2026-11-03",
+  "account": {
+    "name": "体育学人",
+    "displayName": "体育学人前沿",
+    "wechatId": "",
+    "slogan": "洞见体育 · 连接学人 · 推动未来",
+    "description": "聚焦体育学人人物志、学科建设、基金课题与学术动态的原创公众号。",
+    "qrcode": ""
+  },
+  "columns": [
+    "人物志",
+    "人物志·图解",
+    "机构动态",
+    "政策解读",
+    "课题巡礼",
+    "竞争格局"
+  ],
+  "articles": [
+    {
+      "id": "wx-20261101-luyuanzhen-story",
+      "title": "卢元镇：他追问了半世纪体育是什么",
+      "summary": "中国体育社会学奠基人卢元镇：从一本讲义到全国精品教材，半世纪追问“体育是什么”。",
+      "cover": "assets/wechat/wx-20261101-luyuanzhen-story.jpg",
+      "url": "https://mp.weixin.qq.com/s/FQ5icwvj6-PRyaXPedafig",
+      "date": "2026-11-01",
+      "column": "人物志",
+      "featured": true
+    },
+    {
+      "id": "wx-20261101-luyuanzhen-visual",
+      "title": "卢元镇：八十四岁，还在场上",
+      "summary": "时间线、五大贡献、学术地图七节点与词云，五张图读尽卢元镇的学术人生。",
+      "cover": "assets/wechat/wx-20261101-luyuanzhen-visual.jpg",
+      "url": "https://mp.weixin.qq.com/s/fM0ZfBa3ywPpkaI93bNjPA",
+      "date": "2026-11-01",
+      "column": "人物志·图解",
+      "featured": false
+    },
+    {
+      "id": "wx-20261028-tianmaijiu-story",
+      "title": "他把“怎么练”写成了一门学科｜田麦久",
+      "summary": "从留德车祸到创建中国运动训练学，田麦久建立项群理论，晚年又开辟竞技参赛理论。",
+      "cover": "assets/wechat/wx-20261028-tianmaijiu-story.jpg",
+      "url": "https://mp.weixin.qq.com/s/Rg2c7bn0lqkj6qOM3GXppA",
+      "date": "2026-10-28",
+      "column": "人物志",
+      "featured": true
+    },
+    {
+      "id": "wx-20261028-tianmaijiu-data",
+      "title": "203篇论文，一门学科的生长曲线｜田麦久",
+      "summary": "知网203篇论文、48年跨度、5405次被引，用一条曲线读出田麦久的学术生涯。",
+      "cover": "assets/wechat/wx-20261028-tianmaijiu-data.jpg",
+      "url": "https://mp.weixin.qq.com/s/67xD_GUZqhoKCsnpOzIHqw",
+      "date": "2026-10-28",
+      "column": "人物志·图解",
+      "featured": false
+    },
+    {
+      "id": "wx-20261027-luqiyi-whsu",
+      "title": "武体迎来新校长骆启义：从基层操场到冠军校园",
+      "summary": "2026年10月骆启义由湖北省体育局副局长转任武汉体育学院院长，梳理其履历与武体新考题。",
+      "cover": "assets/wechat/wx-20261027-luqiyi-whsu.jpg",
+      "url": "https://mp.weixin.qq.com/s/uNo7JMVU2MLMSeiTZY6hCA",
+      "date": "2026-10-27",
+      "column": "机构动态",
+      "featured": false
+    },
+    {
+      "id": "wx-20261026-bidrank333",
+      "title": "2026体育社科立项榜：333个项目，183家单位，谁在领跑？",
+      "summary": "合并国社科与教育部两份名单，333项、183家单位，一张体育社科生产力地图，山东体院9项领跑。",
+      "cover": "assets/wechat/wx-20261026-bidrank333.jpg",
+      "url": "https://mp.weixin.qq.com/s/X2fImX0P2nEoaipiC7JFLA",
+      "date": "2026-10-26",
+      "column": "竞争格局",
+      "featured": false
+    },
+    {
+      "id": "wx-20261025-nssf225",
+      "title": "225项！2026国社科基金「体育学与健康管理」立项全名单与五大主线",
+      "summary": "2026国社科体育学与健康管理立项225项、139家单位，梳理五大主线，运动促进健康跃升第一。",
+      "cover": "assets/wechat/wx-20261025-nssf225.jpg",
+      "url": "https://mp.weixin.qq.com/s/Hi-9JUszawQGn-QnxTWVmw",
+      "date": "2026-10-25",
+      "column": "政策解读",
+      "featured": false
+    },
+    {
+      "id": "wx-20261020-jiliu-story",
+      "title": "体育学唯一的一级教授：季浏，和他的“高质量体育课堂”",
+      "summary": "体育学唯一一级教授、首位长江学者特聘教授季浏，二十五年主持中小学体育课标，构建中国健康体育课程模式。",
+      "cover": "assets/wechat/wx-20261020-jiliu-story.jpg",
+      "url": "https://mp.weixin.qq.com/s/zr1moM-ZGTWFqhLR7ybfcw",
+      "date": "2026-10-20",
+      "column": "人物志",
+      "featured": true
+    },
+    {
+      "id": "wx-20261019-moe108",
+      "title": "108项！2026年度教育部人文社科项目体育学立项全解析",
+      "summary": "2026年度教育部人文社科体育学立项108项（规划58、青年50），按热点、单位、选题三维解读并附全名单。",
+      "cover": "assets/wechat/wx-20261019-moe108.jpg",
+      "url": "https://mp.weixin.qq.com/s/ZS9AwO5rVeQGpCPtWRdhcg",
+      "date": "2026-10-19",
+      "column": "课题巡礼",
+      "featured": false
+    }
+  ]
+}
