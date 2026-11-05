@@ -344,7 +344,16 @@ const UNIV_CATALOG=[
 {rk:8,n:"广州体育学院",tp:"",iu:"https://www.gzsport.edu.cn",dept:"全校",url:"https://www.gzsport.edu.cn/",prov:"广东",grp:"spt"},
 {rk:9,n:"哈尔滨体育学院",tp:"",iu:"https://www.hrbipe.edu.cn",dept:"全校",url:"https://www.hrbipe.edu.cn/",prov:"黑龙江",grp:"spt"},
 {rk:10,n:"南京体育学院",tp:"",iu:"https://www.nsi.edu.cn",dept:"全校",url:"https://www.nsi.edu.cn/",prov:"江苏",grp:"spt"}
-,{rk:334,n:"四北普进学院",tp:"其他",iu:"https://www.sctu.edu.cn",dept:"运动与休闲学院",url:"https://www.sctu.edu.cn/sl/",prov:"四川",grp:"sport_dept"},{rk:335,n:"湖北民族大学",tp:"其他",iu:"https://www.hbmzu.edu.cn",dept:"体育学院",url:"https://www.hbmzu.edu.cn/sports/",prov:"湖北",grp:"sport_dept"},{rk:336,n:"广东第二师范学院",tp:"其他",iu:"https://www.gdei.edu.cn",dept:"体育系",url:"https://www.gdei.edu.cn",prov:"广东",grp:"sport_dept"},{rk:337,n:"国防科技大学",tp:"985",iu:"https://www.nudt.edu.cn",dept:"体育教研室",url:"",prov:"湖南",grp:"main"}];
+,{rk:334,n:"四北普进学院",tp:"其他",iu:"https://www.sctu.edu.cn",dept:"运动与休闲学院",url:"https://www.sctu.edu.cn/sl/",prov:"四川",grp:"sport_dept"},{rk:335,n:"湖北民族大学",tp:"其他",iu:"https://www.hbmzu.edu.cn",dept:"体育学院",url:"https://www.hbmzu.edu.cn/sports/",prov:"湖北",grp:"sport_dept"},{rk:336,n:"广东第二师范学院",tp:"其他",iu:"https://www.gdei.edu.cn",dept:"体育系",url:"https://www.gdei.edu.cn",prov:"广东",grp:"sport_dept"},{rk:337,n:"国防科技大学",tp:"985",iu:"https://www.nudt.edu.cn",dept:"体育教研室",url:"",prov:"湖南",grp:"main"}
+,{rk:1,n:"香港中文大学",tp:"",iu:"https://www.cuhk.edu.hk/",dept:"体育运动科学系",url:"https://spe.cuhk.edu.hk/people/academic-staff/",prov:"香港",grp:"hmt"}
+,{rk:2,n:"香港浸会大学",tp:"",iu:"https://www.hkbu.edu.hk/",dept:"体育及健康科学系",url:"https://speh.hkbu.edu.hk/en/people/academic_and_teaching_staff/",prov:"香港",grp:"hmt"}
+,{rk:3,n:"香港教育大学",tp:"",iu:"https://www.eduhk.hk/",dept:"健康与体育学系",url:"https://hpe.eduhk.hk/about-us/staff/",prov:"香港",grp:"hmt"}
+,{rk:4,n:"香港理工大学",tp:"",iu:"https://www.polyu.edu.hk/",dept:"体育科技研究院",url:"https://www.polyu.edu.hk/risports/people/risports-people/",prov:"香港",grp:"hmt"}
+,{rk:1,n:"国立台湾师范大学",tp:"",iu:"https://www.ntnu.edu.tw/",dept:"体育与运动科学系",url:"https://www.pe.ntnu.edu.tw/teachers/Full-time.htm",prov:"台湾",grp:"hmt"}
+,{rk:2,n:"国立清华大学",tp:"",iu:"https://www.nthu.edu.tw/",dept:"运动科学系",url:"https://dpe.site.nthu.edu.tw/p/412-1144-18629.php?Lang=zh-tw",prov:"台湾",grp:"hmt"}
+,{rk:3,n:"国立彰化师范大学",tp:"",iu:"https://www.ncue.edu.tw/",dept:"运动学系",url:"https://sports.ncue.edu.tw/teacher",prov:"台湾",grp:"hmt"}
+,{rk:4,n:"中国文化大学",tp:"",iu:"https://www.pccu.edu.tw/",dept:"体育学系",url:"https://dpe.pccu.edu.tw/p/403-1244-2769.php?Lang=zh-tw",prov:"台湾",grp:"hmt"}
+,{rk:5,n:"国立体育大学",tp:"",iu:"https://www.ntsu.edu.tw/",dept:"体育学院",url:"https://www.ntsu.edu.tw/",prov:"台湾",grp:"hmt"}];
 
 /* ===== 视图切换 ===== */
 function switchInstView(v){
@@ -412,7 +421,7 @@ if(rc)rc.textContent=shown<total?'找到 '+shown+' 所':'共 '+total+' 所院校
 function renderUnivCatalog(){
 var el=document.getElementById('univCatalogPanel');
 if(!el)return;
-var PR={'北京':'华北','天津':'华北','河北':'华北','山西':'华北','内蒙古':'华北','辽宁':'东北','吉林':'东北','黑龙江':'东北','上海':'华东','江苏':'华东','浙江':'华东','安徽':'华东','福建':'华东','江西':'华东','山东':'华东','河南':'华中','湖北':'华中','湖南':'华中','广东':'华南','广西':'华南','海南':'华南','重庆':'西南','四川':'西南','贵州':'西南','云南':'西南','西藏':'西南','陕西':'西北','甘肃':'西北','青海':'西北','宁夏':'西北','新疆':'西北'};
+var PR={'北京':'华北','天津':'华北','河北':'华北','山西':'华北','内蒙古':'华北','辽宁':'东北','吉林':'东北','黑龙江':'东北','上海':'华东','江苏':'华东','浙江':'华东','安徽':'华东','福建':'华东','江西':'华东','山东':'华东','河南':'华中','湖北':'华中','湖南':'华中','广东':'华南','广西':'华南','海南':'华南','重庆':'西南','四川':'西南','贵州':'西南','云南':'西南','西藏':'西南','陕西':'西北','甘肃':'西北','青海':'西北','宁夏':'西北','新疆':'西北','香港':'香港','澳门':'澳门','台湾':'台湾'};
 var REGS=[
 {k:'华北',icon:'',clr:'#60a5fa',rgb:'96,165,250',provs:'北京·天津·河北·山西·内蒙古'},
 {k:'东北',icon:'',clr:'#3E82B0',rgb:'56,189,248',provs:'辽宁·吉林·黑龙江'},
@@ -420,7 +429,10 @@ var REGS=[
 {k:'华中',icon:'',clr:'#f472b6',rgb:'244,114,182',provs:'河南·湖北·湖南'},
 {k:'华南',icon:'',clr:'#fb923c',rgb:'251,146,60',provs:'广东·广西·海南'},
 {k:'西南',icon:'',clr:'#2C6E9E',rgb:'44,110,158',provs:'重庆·四川·贵州·云南·西藏'},
-{k:'西北',icon:'',clr:'#D4AE5A',rgb:'251,191,36',provs:'陕西·甘肃·青海·宁夏·新疆'}
+{k:'西北',icon:'',clr:'#D4AE5A',rgb:'251,191,36',provs:'陕西·甘肃·青海·宁夏·新疆'},
+{k:'香港',icon:'',clr:'#2E9A89',rgb:'46,154,137',provs:'香港'},
+{k:'澳门',icon:'',clr:'#E0A533',rgb:'224,165,51',provs:'澳门'},
+{k:'台湾',icon:'',clr:'#2C6E9E',rgb:'44,110,158',provs:'台湾'}
 ];
 var SPGRP=[
 {k:'spt',icon:'',label:'体育专业院校',clr:'#2E9A89'},
@@ -479,9 +491,9 @@ H+=jH;
 // ── 4. Card Renderer ──
 var card=function(u){
   var isMain=u.grp==='main';
-  var rk=isMain?'#'+u.rk:(u.grp==='spt'?'体'+u.rk:'专'+u.rk);
-  var rkClr=!isMain?'#64748b':u.rk<=10?'#f59e0b':u.rk<=50?'#2C6E9E':u.rk<=100?'#3E82B0':'#64748b';
-  var rkBg=!isMain?'rgba(71,85,105,.1)':u.rk<=10?'rgba(200,162,75,.14)':u.rk<=50?'rgba(44,110,158,.13)':u.rk<=100?'rgba(56,189,248,.12)':'rgba(71,85,105,.1)';
+  var rk=u.grp==='hmt'?u.prov:(isMain?'#'+u.rk:(u.grp==='spt'?'体'+u.rk:'专'+u.rk));
+  var rkClr=u.grp==='hmt'?'#5B6575':(!isMain?'#64748b':u.rk<=10?'#f59e0b':u.rk<=50?'#2C6E9E':u.rk<=100?'#3E82B0':'#64748b');
+  var rkBg=u.grp==='hmt'?'transparent':(!isMain?'rgba(71,85,105,.1)':u.rk<=10?'rgba(200,162,75,.14)':u.rk<=50?'rgba(44,110,158,.13)':u.rk<=100?'rgba(56,189,248,.12)':'rgba(71,85,105,.1)');
   var tpB='';
   if(u.tp==='985')tpB='<span style="font-size:.5rem;padding:1px 4px;border-radius:3px;background:rgba(244,63,94,.12);color:#f87171;font-weight:700;border:1px solid rgba(244,63,94,.2);">985</span>';
   else if(u.tp==='211')tpB='<span style="font-size:.5rem;padding:1px 4px;border-radius:3px;background:rgba(56,189,248,.11);color:#3E82B0;font-weight:700;border:1px solid rgba(56,189,248,.2);">211</span>';
@@ -503,7 +515,7 @@ var card=function(u){
 };
 // ── 5. Main list by region ──
 REGS.forEach(function(reg){
-  var unis=UNIV_CATALOG.filter(function(u){return u.grp==='main'&&PR[u.prov]===reg.k;});
+  var unis=UNIV_CATALOG.filter(function(u){return (u.grp==='main'||u.grp==='hmt')&&PR[u.prov]===reg.k;});
   if(!unis.length)return;
   unis.sort(function(a,b){return a.rk-b.rk;});
   H+='<div class="uc-region" id="ucr-'+reg.k+'" style="margin-bottom:22px;">'
@@ -743,7 +755,8 @@ window._ucTp='all';
   function sdTags(s){
     return '<span class="tag '+(DC[s.disc]||'')+'">'+s.dL+'</span>'+
       (s.hats||[]).map(function(h){var l=hS(h);if(/…$/.test(l))l=h;return '<span class="tag t-hat" title="'+sdAttr(h)+'">'+esc(l)+'</span>';}).join('')+
-      (s.hon||[]).filter(function(h){return !sdHonProse(h);}).slice(0,2).map(function(h){return '<span class="tag t-honor" style="font-size:.7rem" title="'+sdAttr(h)+'">'+esc(h)+'</span>';}).join('');
+      (s.hon||[]).filter(function(h){return !sdHonProse(h)&&!(window.dictRoleLabel&&window.dictRoleLabel(h));}).slice(0,2).map(function(h){return '<span class="tag t-honor" style="font-size:.7rem" title="'+sdAttr(h)+'">'+esc(h)+'</span>';}).join('')+
+      (window.sourceRoleTags?window.sourceRoleTags(s):'');
   }
   function sdBio(s){
     var p=(s.hon||[]).filter(sdHonProse).map(function(h){h=String(h).replace(/\s+/g,' ').trim().replace(/\.{3,}$|…$/,'…');return /[。…！？]$/.test(h)?h:h+'。';});
