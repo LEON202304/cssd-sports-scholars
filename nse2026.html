@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026年全国教育科学规划项目「体育相关」立项一览</title>
+<style>
+  :root{
+    --green:#1E8A6D; --sig:#2E9A89; --dark:#0A2A43; --gold:#E0A533; --gold2:#FFC000;
+    --panel:#E4F2EE; --ink:#1C2A44; --gray:#5C6B84;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Microsoft YaHei","Noto Sans SC",Arial,sans-serif;background:#f4f8f7;color:var(--ink);line-height:1.6}
+  header{background:linear-gradient(135deg,var(--green),var(--sig));color:#fff;padding:28px 24px 22px}
+  header h1{font-size:24px;font-weight:700;letter-spacing:.5px}
+  header .sub{margin-top:6px;font-size:13px;opacity:.92}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 18px 50px}
+  .cards{display:flex;flex-wrap:wrap;gap:12px;margin:-22px 0 18px}
+  .card{background:#fff;border-radius:12px;padding:14px 18px;box-shadow:0 4px 14px rgba(30,138,109,.12);min-width:120px;border-top:3px solid var(--green)}
+  .card .n{font-size:26px;font-weight:800;color:var(--green)}
+  .card .l{font-size:13px;color:var(--gray)}
+  .card.total{border-top-color:var(--gold)}
+  .card.total .n{color:#B8860B}
+  .bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0 14px;background:#fff;padding:12px 14px;border-radius:10px;box-shadow:0 2px 8px rgba(30,138,109,.08)}
+  select,input[type=text]{padding:7px 10px;border:1px solid var(--panel);border-radius:8px;font-size:13px;outline:none}
+  input[type=text]{min-width:230px}
+  .btn{background:var(--gold);color:#3a2a00;border:none;padding:7px 14px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600}
+  .btn:hover{background:var(--gold2)}
+  .cnt{margin-left:auto;font-size:13px;color:var(--gray)}
+  table{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(30,138,109,.10)}
+  th,td{padding:10px 12px;text-align:left;font-size:13.5px;border-bottom:1px solid #eef5f2}
+  th{background:var(--green);color:#fff;position:sticky;top:0;cursor:pointer;white-space:nowrap;user-select:none}
+  th .ar{opacity:.5;font-size:11px}
+  tbody tr:hover{background:var(--panel)}
+  td.no{color:var(--gray);font-variant-numeric:tabular-nums;white-space:nowrap}
+  td.title{font-weight:600;color:var(--ink)}
+  .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;background:var(--panel);color:var(--green);white-space:nowrap}
+  footer{max-width:1200px;margin:0 auto;padding:18px;font-size:12.5px;color:var(--gray)}
+  footer a{color:var(--sig)}
+  .empty{padding:30px;text-align:center;color:var(--gray)}
+</style>
+</head>
+<body>
+<header>
+  <h1>2026年全国教育科学规划项目「体育相关」立项一览</h1>
+  <div class="sub">数据来源：2026年全国教育科学规划项目拟立项名单（公示）&nbsp;·&nbsp; 从全部 483 项中筛出课题含体育、运动、体质、动作发展等方向的立项 13 项</div>
+</header>
+<div class="wrap">
+  <div class="cards" id="cards"></div>
+  <div class="bar">
+    <select id="cat"><option value="">全部项目类别</option></select>
+    <input type="text" id="q" placeholder="搜索 课题 / 负责人 / 单位…">
+    <button class="btn" id="exp">导出 CSV</button>
+    <span class="cnt" id="cnt"></span>
+  </div>
+  <table>
+    <thead><tr>
+      <th data-k="no">公示序号 <span class="ar">↕</span></th>
+      <th data-k="cat">项目类别 <span class="ar">↕</span></th>
+      <th data-k="title">课题名称 <span class="ar">↕</span></th>
+      <th data-k="who">负责人 <span class="ar">↕</span></th>
+      <th data-k="org">责任单位 <span class="ar">↕</span></th>
+    </tr></thead>
+    <tbody id="body"></tbody>
+  </table>
+  <div class="empty" id="empty" style="display:none">无匹配记录</div>
+</div>
+<footer>
+  说明：本页数据从《2026年全国教育科学规划项目拟立项名单》（共 483 项）中提取，仅收录课题名称直接涉及学校体育、运动干预、体质健康、动作发展、体育教学、大课间活动等体育方向的立项；
+  不含仅单位为体育院校但课题与体育无关的条目。公示序号为原名单编号，便于回溯核对。
+  <br>相关专栏：<a href="nssf2026.html">2026年国家社科基金「体育学与健康管理」立项一览</a>
+</footer>
+<script>
+const DATA = [
+  {"no":"59","cat":"国家一般","title":"高原地区青少年认知与学业协同发展的学校体育促进机制与干预模式研究","who":"狄文婧","org":"青海民族大学"},
+  {"no":"206","cat":"国家一般","title":"学龄人口变化下我国学校体育资源配置的结构性失衡与动态调适研究","who":"刘红建","org":"南京体育学院"},
+  {"no":"208","cat":"国家一般","title":"体育与健康数字教材建设与应用的互动发展体系构建研究","who":"李大帅","org":"天津体育学院"},
+  {"no":"209","cat":"国家一般","title":"数字赋能3-10岁儿童动作发展智能测评与幼小衔接运动干预研究","who":"赵星","org":"北京体育大学"},
+  {"no":"211","cat":"国家一般","title":"体育课堂运动负荷实时反馈对中小学生身心健康的促进机制与干预策略研究","who":"孙利红","org":"湖北第二师范学院"},
+  {"no":"212","cat":"国家一般","title":"中小学生每天2小时体育活动政策落实成效评估指标体系研究","who":"周超群","org":"南昌大学"},
+  {"no":"215","cat":"国家一般","title":"数智时代大学生体育审美素养评价指标体系构建及培育路径研究","who":"周婷","org":"华东师范大学"},
+  {"no":"344","cat":"国家青年","title":"青少年网络沉迷行为分型及体育锻炼干预的重塑机制与路径研究","who":"仲冰冰","org":"扬州大学"},
+  {"no":"346","cat":"国家青年","title":"寄宿制初中生心理问题的形成机制及体育活动干预的调节效应研究","who":"袁志超","org":"中国教育科学研究院"},
+  {"no":"349","cat":"国家青年","title":"人工智能技术介入学生体质健康监测的梳理、比较及优化路径研究","who":"张新新","org":"陕西师范大学"},
+  {"no":"383","cat":"西部项目","title":"健康中国战略下西部中小学课间活动质量评估及保障机制研究","who":"彭霓","org":"铜仁学院"},
+  {"no":"461","cat":"教育部青年","title":"中小学大课间体育活动组织形式对学生健康发展的影响机制与优化路径","who":"邵梦灵","org":"天津市教育科学研究院"},
+  {"no":"472","cat":"教育部青年","title":"生成式人工智能驱动高校体育教学范式转型的内在逻辑、风险审视与路径优化研究","who":"宋晓阳","org":"辽宁中医药大学"}
+];
+const CATS = ["国家一般","国家青年","西部项目","教育部青年"];
+let state = {cat:"", q:"", sort:"no", dir:1};
+
+function renderCards(){
+  let h = "";
+  CATS.forEach(c=>{
+    const n = DATA.filter(r=>r.cat===c).length;
+    h += `<div class="card"><div class="n">${n}</div><div class="l">${c}</div></div>`;
+  });
+  h += `<div class="card total"><div class="n">${DATA.length}</div><div class="l">合计</div></div>`;
+  document.getElementById("cards").innerHTML = h;
+}
+
+function init(){
+  const sel = document.getElementById("cat");
+  CATS.forEach(c=>{ const o=document.createElement("option"); o.value=c; o.textContent=c; sel.appendChild(o); });
+  renderCards();
+  sel.onchange=()=>{state.cat=sel.value;draw();};
+  document.getElementById("q").oninput=e=>{state.q=e.target.value.trim();draw();};
+  document.querySelectorAll("th").forEach(th=>th.onclick=()=>{
+    const k=th.dataset.k; if(state.sort===k)state.dir*=-1; else{state.sort=k;state.dir=1;} draw();
+  });
+  document.getElementById("exp").onclick=exportCSV;
+  draw();
+}
+
+function filt(){
+  let a = DATA.filter(r=>{
+    if(state.cat && r.cat!==state.cat) return false;
+    if(state.q){
+      const q=state.q.toLowerCase();
+      const hay=(r.title+r.who+r.org).toLowerCase();
+      if(!hay.includes(q)) return false;
+    }
+    return true;
+  });
+  const k=state.sort, d=state.dir;
+  a.sort((x,y)=>{
+    let xv=x[k], yv=y[k];
+    if(k==="no"){xv=+xv;yv=+yv;}
+    if(typeof xv==="number") return (xv-yv)*d;
+    return String(xv).localeCompare(String(yv),"zh")*d;
+  });
+  return a;
+}
+
+function draw(){
+  const a=filt();
+  const tb=document.getElementById("body");
+  document.getElementById("cnt").textContent = `共 ${a.length} 条`;
+  document.getElementById("empty").style.display = a.length? "none":"block";
+  tb.innerHTML = a.map(r=>{
+    return `<tr>
+      <td class="no">${r.no}</td>
+      <td><span class="tag">${r.cat}</span></td>
+      <td class="title">${r.title}</td>
+      <td>${r.who}</td>
+      <td>${r.org}</td>
+    </tr>`;
+  }).join("");
+}
+
+function exportCSV(){
+  const a=filt();
+  const head=["公示序号","项目类别","课题名称","负责人","责任单位"];
+  const rows=a.map(r=>[r.no,r.cat,r.title,r.who,r.org]);
+  const esc=v=>/[,\"\n]/.test(v)?('"'+v.replace(/"/g,'""')+'"'):v;
+  let csv="﻿"+head.join(",")+"\n"+rows.map(r=>r.map(esc).join(",")).join("\n");
+  const blob=new Blob([csv],{type:"text/csv;charset=utf-8"});
+  const u=URL.createObjectURL(blob);
+  const a2=document.createElement("a"); a2.href=u; a2.download="nse2026_体育相关.csv"; a2.click();
+  URL.revokeObjectURL(u);
+}
+init();
+</script>
+</body>
+</html>
