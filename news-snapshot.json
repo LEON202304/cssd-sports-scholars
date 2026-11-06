@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06",
+  "generatedAt": "2026-11-07",
   "source": "期刊官网 TOC + Crossref 自动抓取（GitHub Actions 每日）：体育科学、上海体育大学学报、中国体育科技、北京体育大学学报、沈阳体育学院学报、体育学研究、体育学刊、天津体育学院学报、体育与科学、西安体育学院学报、British Journal of Sports Medicine、Sports Medicine、Journal of Sport and Health Science、Medicine & Science in Sports & Exercise、Journal of Sports Sciences、Scandinavian Journal of Medicine & Science in Sports",
   "statusHint": "live",
   "items": [
@@ -14,21 +14,21 @@
     },
     {
       "journal": "Journal of Sport and Health Science",
-      "title": "Combined strength and aerobic training vs. aerobic training alone in patients with heart failure: A systematic review and meta-analysis",
-      "authors": "Tasuku Terada, Tim Kambic, Takumi Noda, Genki Kai, Rod S. Taylor, Jennifer L. Reed, Kentaro Kamiya",
-      "link": "https://doi.org/10.1016/j.jshs.2026.101136",
-      "date": "2026-12",
-      "journalZh": "《运动与健康科学》",
-      "titleZh": "心力衰竭患者的力量和有氧综合训练与单独有氧训练：系统评价和荟萃分析"
-    },
-    {
-      "journal": "Journal of Sport and Health Science",
       "title": "Dose‒response associations of self-reported and device-measured physical activity with major adverse cardiovascular events in people with prevalent diseases",
       "authors": "Miguel Adriano Sanchez-Lastra, Borja del Pozo Cruz, Jakob Tarp, Knut Eirik Dalene, Tormod S. Nilsen, Ding Ding, Ulf Ekelund",
       "link": "https://doi.org/10.1016/j.jshs.2025.101116",
       "date": "2026-12",
       "journalZh": "《运动与健康科学》",
       "titleZh": "自我报告和器械测量的体力活动与流行性疾病患者主要不良心血管事件的剂量反应关联"
+    },
+    {
+      "journal": "Journal of Sport and Health Science",
+      "title": "Combined strength and aerobic training vs. aerobic training alone in patients with heart failure: A systematic review and meta-analysis",
+      "authors": "Tasuku Terada, Tim Kambic, Takumi Noda, Genki Kai, Rod S. Taylor, Jennifer L. Reed, Kentaro Kamiya",
+      "link": "https://doi.org/10.1016/j.jshs.2026.101136",
+      "date": "2026-12",
+      "journalZh": "《运动与健康科学》",
+      "titleZh": "心力衰竭患者的力量和有氧综合训练与单独有氧训练：系统评价和荟萃分析"
     },
     {
       "journal": "British Journal of Sports Medicine",
@@ -139,6 +139,15 @@
       "titleZh": "多组分训练对2型糖尿病成人体成分和心肺功能的影响：一项随机对照试验"
     },
     {
+      "journal": "Scandinavian Journal of Medicine & Science in Sports",
+      "title": "Durability of Physiological Determinants of Distance‐Running Performance in Warm and Temperate Environments",
+      "authors": "Ben Hunter, Naoto Fujii, Ed Maunder, Daniel Muniz‐Pumares",
+      "link": "https://doi.org/10.1111/sms.70394",
+      "date": "2026-11",
+      "journalZh": "《斯堪的纳维亚运动医学与科学杂志》",
+      "titleZh": "温暖和温带环境下远距离跑步性能的生理决定因素的耐久性"
+    },
+    {
       "journal": "中国体育科技",
       "title": "孤独症伴运动功能障碍儿童静息态fNIRS脑功能连接特征分析",
       "authors": "董贵俊, 江慧兰, 李可峰, 吴俊英, 周波, 孙海英, 刘树芹, 宗文浩",
@@ -153,15 +162,6 @@
       "date": "2026-10-30",
       "journalZh": "《斯堪的纳维亚运动医学与科学杂志》",
       "titleZh": "基于可穿戴传感器的多方向运动中竞技橄榄球运动员的膝关节时刻预测"
-    },
-    {
-      "journal": "Scandinavian Journal of Medicine & Science in Sports",
-      "title": "Effects and Moderators of High‐Intensity Interval Training ( <scp>HIIT</scp> ) on Physiological Adaptations Among Team‐Sport Athletes: A Systematic Review and Meta‐Analysis",
-      "authors": "Xinyu Zeng, Mingyue Yin, Kai Xu, Meiling Tao, Jiaxin Wang, Yuming Zhong, Olivier Girard, George P. Nassis, Martin Buchheit, Yongming Li",
-      "link": "https://doi.org/10.1111/sms.70384",
-      "date": "2026-10-30",
-      "journalZh": "《斯堪的纳维亚运动医学与科学杂志》",
-      "titleZh": "高强度间歇训练（ <scp>HIIT</scp> ）对团队运动员生理适应的影响和主持人：系统评价和荟萃分析"
     },
     {
       "journal": "Medicine & Science in Sports & Exercise",
@@ -222,13 +222,6 @@
       "date": "2026-10-10"
     },
     {
-      "journal": "体育与科学",
-      "title": "作为共享文明的赛场:基于网球项目观赛秩序建构的考察",
-      "authors": "董嘉颖, 李爱群",
-      "link": "https://tyyk.cbpt.cnki.net/portal/journal/portal/client/paper/6e25474d6c2d5ffd11c01d965f5a328f",
-      "date": "2026-10-10"
-    },
-    {
       "journal": "北京体育大学学报",
       "title": "学校体育思想“知识化”及其对学校体育自主知识体系构建的引领",
       "authors": "邵天逸, 李启迪",
@@ -269,6 +262,20 @@
       "authors": "路云亭, 周思羽",
       "link": "https://tyxk.scnu.edu.cn/a/20260928/1047.html",
       "date": "2026-09-28"
+    },
+    {
+      "journal": "体育与科学",
+      "title": "迈向体育强国的文化自觉：中国特色体育文化建设的四重审视",
+      "authors": "彭国强",
+      "link": "https://tyyk.cbpt.cnki.net/portal/journal/portal/client/paper/a438a4eeac960b6241fbe48f5cd30a26",
+      "date": "2026-09-25"
+    },
+    {
+      "journal": "体育与科学",
+      "title": "“造梗—融梗—避梗”:体育赛事传播中主流媒体舆论引导的适应性转型——以“苏超”为分析对象",
+      "authors": "胡奇, 罗朝中, 张德胜",
+      "link": "https://tyyk.cbpt.cnki.net/portal/journal/portal/client/paper/8fa53ab70398f2fe2aaef4d0dcfc084a",
+      "date": "2026-09-25"
     },
     {
       "journal": "体育科学",
@@ -332,13 +339,6 @@
       "authors": "",
       "link": "http://ntxb.nsi.edu.cn/tyxyj/njtyxyxbsk/article/abstract/202608210000001",
       "date": "2026-08-21"
-    },
-    {
-      "journal": "体育与科学",
-      "title": "传统体育文化主体性危机与创造性转化路径——与杨文轩教授的学术对话",
-      "authors": "杜长亮, 赵妍, 徐诺渲",
-      "link": "https://tyyk.cbpt.cnki.net/portal/journal/portal/client/paper/df4e8799565c7285266fb7d1cf156541",
-      "date": "2026-07-25"
     },
     {
       "journal": "体育学研究",
