@@ -353,7 +353,9 @@ const UNIV_CATALOG=[
 ,{rk:2,n:"国立清华大学",tp:"",iu:"https://www.nthu.edu.tw/",dept:"运动科学系",url:"https://dpe.site.nthu.edu.tw/p/412-1144-18629.php?Lang=zh-tw",prov:"台湾",grp:"hmt"}
 ,{rk:3,n:"国立彰化师范大学",tp:"",iu:"https://www.ncue.edu.tw/",dept:"运动学系",url:"https://sports.ncue.edu.tw/teacher",prov:"台湾",grp:"hmt"}
 ,{rk:4,n:"中国文化大学",tp:"",iu:"https://www.pccu.edu.tw/",dept:"体育学系",url:"https://dpe.pccu.edu.tw/p/403-1244-2769.php?Lang=zh-tw",prov:"台湾",grp:"hmt"}
-,{rk:5,n:"国立体育大学",tp:"",iu:"https://www.ntsu.edu.tw/",dept:"体育学院",url:"https://www.ntsu.edu.tw/",prov:"台湾",grp:"hmt"}];
+,{rk:5,n:"国立体育大学",tp:"",iu:"https://www.ntsu.edu.tw/",dept:"体育学院",url:"https://www.ntsu.edu.tw/",prov:"台湾",grp:"hmt"}
+,{rk:1,n:"澳门理工大学",tp:"",iu:"https://www.mpu.edu.mo/",dept:"健康科学及体育学院",url:"https://info.mpu.edu.mo/teldir2005/contact_list-ac.asp?dept_id=fcsd&lang=chi",prov:"澳门",grp:"hmt"}
+,{rk:2,n:"澳门大学",tp:"",iu:"https://www.um.edu.mo/",dept:"教育学院",url:"https://fed.um.edu.mo/",prov:"澳门",grp:"hmt"}];
 
 /* ===== 视图切换 ===== */
 function switchInstView(v){
@@ -689,7 +691,7 @@ window._ucTp='all';
     });
     var fpEl=document.getElementById('fprov');
     if(!fpEl)return;
-    var provs=Object.keys(_PROV_INST_SET).sort();
+    var provs=Object.keys(_PROV_INST_SET).filter(function(p){var set=_PROV_INST_SET[p];return S.some(function(s){return s.institution&&set.has(s.institution);});}).sort();
     var opts='<option value="">全部省份</option>';
     provs.forEach(function(p){opts+='<option value="'+p+'">'+p+'</option>';});
     fpEl.innerHTML=opts;
