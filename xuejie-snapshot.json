@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-09",
+  "generatedAt": "2026-11-10",
   "source": "cssd-xuejie-scraper",
   "statusHint": "live",
   "items": [
@@ -23,6 +23,13 @@
       "org": "山东体育学院",
       "date": "2026-11-13",
       "link": "https://www.sdpei.edu.cn/2026/1023/c1393a87393/page.htm"
+    },
+    {
+      "type": "meet",
+      "title": "中国体育科学学会标准化工作委员会关于举办2026年体育标准化发展研讨会的通知",
+      "org": "中国体育科学学会",
+      "date": "2026-11-09",
+      "link": "https://www.csss.cn/a2423.html"
     },
     {
       "type": "meet",
@@ -60,6 +67,13 @@
       "link": "https://news.cupes.edu.cn/zhxw/1f1cc3aeae5b4e6dbe3b212452717aa9.htm"
     },
     {
+      "type": "meet",
+      "title": "我校举办第十七届科学论文报告会",
+      "org": "南京体育学院",
+      "date": "2026-11-04",
+      "link": "https://www.nsi.edu.cn/6d/f8/c2348a93688/page.htm"
+    },
+    {
       "type": "event",
       "title": "七秩赓薪 校友传声——运动健康学院举办“运康成长论坛”系列活动（三）",
       "org": "南京体育学院",
@@ -74,20 +88,6 @@
       "link": "https://www.nsi.edu.cn/6d/e5/c2342a93669/page.htm"
     },
     {
-      "type": "event",
-      "title": "首届中国学校体育理论创新与自主知识体系构建学术交流会在山东体育学院举行",
-      "org": "山东体育学院",
-      "date": "2026-11-03",
-      "link": "https://www.sdpei.edu.cn/2026/1102/c592a93802/page.htm"
-    },
-    {
-      "type": "event",
-      "title": "【山东教育新闻】2026年中国学校体育理论创新与自主知识体系构建学术交流会在山东体育学院举办",
-      "org": "山东体育学院",
-      "date": "2026-11-03",
-      "link": "https://www.sdpei.edu.cn/2026/1103/c593a93810/page.htm"
-    },
-    {
       "type": "meet",
       "title": "关于国家体育总局体操运动管理中心与中国体育科学学会“大体操项目发展专项课题”立项结果的通知",
       "org": "中国体育科学学会",
@@ -100,6 +100,20 @@
       "org": "中国体育科学学会",
       "date": "2026-11-03",
       "link": "https://www.csss.cn/a2416.html"
+    },
+    {
+      "type": "event",
+      "title": "首届中国学校体育理论创新与自主知识体系构建学术交流会在山东体育学院举行",
+      "org": "山东体育学院",
+      "date": "2026-11-03",
+      "link": "https://www.sdpei.edu.cn/2026/1102/c592a93802/page.htm"
+    },
+    {
+      "type": "event",
+      "title": "【山东教育新闻】2026年中国学校体育理论创新与自主知识体系构建学术交流会在山东体育学院举办",
+      "org": "山东体育学院",
+      "date": "2026-11-03",
+      "link": "https://www.sdpei.edu.cn/2026/1103/c593a93810/page.htm"
     },
     {
       "type": "meet",
@@ -184,20 +198,6 @@
       "org": "广州体育学院",
       "date": "2026-10-23",
       "link": "http://www.gzsport.edu.cn/info/17960"
-    },
-    {
-      "type": "meet",
-      "title": "第28届全国体育统计论文报告会录用结果及参会事宜通知",
-      "org": "中国体育科学学会",
-      "date": "2026-10-20",
-      "link": "https://www.csss.cn/a2406.html"
-    },
-    {
-      "type": "meet",
-      "title": "▸ 广州体育学院主办体育康养论坛暨系列教材研讨会 专家学者齐聚清远共话“健康时代”",
-      "org": "广州体育学院",
-      "date": "2026-09-30",
-      "link": "http://news.gzsport.edu.cn/info/17811"
     }
   ]
 }
