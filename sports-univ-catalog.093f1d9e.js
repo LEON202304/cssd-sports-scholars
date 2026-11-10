@@ -588,7 +588,7 @@ window._ucTp='all';
     return {raw:base,tokens:tokens,expanded:Array.from(new Set(expanded.filter(Boolean)))};
   }
   function cssdScholarText(s){
-    return [s.n,s.e,s.institution,s.s,s.dept,s.title,s.r,s.dL,s.edu,s.ach,s.academicCommittee,s.dL,RL[s.role]||"",s.g==="female"||s.g===0?"女 female":"男 male"].concat(s.hats||[],s.hon||[],s.tags||[]).join(" ");
+    return [s.n,s.e,s.eIdx,s.institution,s.s,s.dept,s.title,s.r,s.dL,s.edu,s.ach,s.academicCommittee,s.dL,RL[s.role]||"",s.g==="female"||s.g===0?"女 female":"男 male"].concat(s.hats||[],s.hon||[],s.tags||[]).join(" ");
   }
   function cssdIndexScholar(s){
     if(s._cssdSearchIndex)return s._cssdSearchIndex;
@@ -597,7 +597,7 @@ window._ucTp='all';
     Object.keys(CSSD_ALIAS).forEach(function(k){
       CSSD_ALIAS[k].forEach(function(v){ if(text.indexOf(v)>=0) alias.push(k); });
     });
-    var py=[s.e,cssdPinyin(s.n),cssdPinyin(s.institution),cssdPinyin(s.s),cssdPinyin(s.dL),cssdPinyin(s.r)].join(" ");
+    var py=[s.e,s.eIdx,cssdPinyin(s.n),cssdPinyin(s.institution),cssdPinyin(s.s),cssdPinyin(s.dL),cssdPinyin(s.r)].join(" ");
     var initials=[cssdInitials(s.n),cssdInitials(s.institution),cssdInitials(s.s),cssdInitials(s.dL)].join(" ");
     s._cssdSearchIndex={
       raw:text+" "+alias.join(" "),
@@ -755,7 +755,8 @@ window._ucTp='all';
   function sdHonProse(h){return (window.honIsProse||function(){return false})(h);} /* 共享实现见 sports-scholars-data */
   function sdAttr(t){return String(t).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');}
   function sdTags(s){
-    return '<span class="tag '+(DC[s.disc]||'')+'">'+s.dL+'</span>'+
+    var disc=String(s.dL||'').trim();
+    return (disc?'<span class="tag '+(DC[s.disc]||'')+'">'+disc+'</span>':'')+
       (s.hats||[]).map(function(h){var l=hS(h);if(/…$/.test(l))l=h;return '<span class="tag t-hat" title="'+sdAttr(h)+'">'+esc(l)+'</span>';}).join('')+
       (s.hon||[]).filter(function(h){return !sdHonProse(h)&&!(window.dictRoleLabel&&window.dictRoleLabel(h));}).slice(0,2).map(function(h){return '<span class="tag t-honor" style="font-size:.7rem" title="'+sdAttr(h)+'">'+esc(h)+'</span>';}).join('')+
       (window.sourceRoleTags?window.sourceRoleTags(s):'');
@@ -769,7 +770,10 @@ window._ucTp='all';
       .map(function(x){var score=(x.disc===s.disc?3:0)+(x.institution===s.institution?4:0)+((x.hats||[]).length?1:0);return {x:x,score:score};})
       .sort(function(a,b){return b.score-a.score;}).slice(0,5).map(function(o){return o.x;});
     if(!peers.length)return '<div class="sd-text" style="color:#64748b">暂无相近学者</div>';
-    return peers.map(function(p){return '<button onclick="openCardById('+p.id+')"><span class="sd-mini-av" style="background:'+p.c+'22;color:'+p.c+'">'+p.i+'</span><span style="min-width:0"><b>'+p.n+'</b><small>'+p.s+' · '+p.dL+'</small></span></button>';}).join('');
+    return peers.map(function(p){
+      var sub=[p.s,p.dL].map(function(v){return String(v||'').trim();}).filter(Boolean).join(' · ');
+      return '<button onclick="openCardById('+p.id+')"><span class="sd-mini-av" style="background:'+p.c+'22;color:'+p.c+'">'+p.i+'</span><span style="min-width:0"><b>'+p.n+'</b>'+(sub?'<small>'+sub+'</small>':'')+'</span></button>';
+    }).join('');
   }
   function sdStrength(s){
     var talent=Math.min(100,((s.hats||[]).length*28+(s.hon||[]).length*12)+(s.role?12:0));
@@ -787,8 +791,8 @@ window._ucTp='all';
     var items=[
       ['当前','任职于 '+s.institution+(s.dept?' · '+s.dept:'')],
       ['方向','主要研究：'+s.r],
-      ['学科','归入 '+s.dL+' 方向'],
     ];
+    if(String(s.dL||'').trim()) items.push(['学科','归入 '+s.dL+' 方向']);
     if((s.hats||[]).length)items.push(['人才',s.hats.join(' · ')]);
     if(s.role)items.push(['治理',RL[s.role]||s.role]);
     return items.map(function(it){return '<div class="sd-tl-item"><div class="sd-tl-year">'+it[0]+'</div><div class="sd-tl-card">'+it[1]+'</div></div>';}).join('');
@@ -801,7 +805,7 @@ window._ucTp='all';
     var role=s.role?'<div class="'+(RC[s.role]||'')+' rbadge" style="display:inline-flex;margin-bottom:7px">◈ '+(RL[s.role]||'')+'</div>':'';
     mtp.innerHTML='<div class="sd-hero">'+
       '<div class="sd-avatar" style="background:'+s.c+'22;color:'+s.c+'">'+s.i+'</div>'+
-      '<div style="min-width:0">'+role+'<div class="sd-name">'+s.n+'</div>'+(s.rankTag&&typeof rankTagH==='function'?'<div class="sp-rank-row">'+rankTagH(s)+'</div>':'')+'<div class="sd-meta">'+(s.e||'')+'<br>🏛 '+s.institution+(s.dept?' · '+s.dept:'')+'<br>🎓 '+s.title+'</div><div class="sd-tags">'+sdTags(s)+'</div>'+sdBio(s)+'</div>'+
+      '<div style="min-width:0">'+role+'<div class="sd-name">'+s.n+'</div>'+(s.rankTag&&typeof rankTagH==='function'?'<div class="sp-rank-row">'+rankTagH(s)+'</div>':'')+'<div class="sd-meta">'+(s.e||'')+'<br>🏛 '+s.institution+(s.dept?' · '+s.dept:'')+'<br>🎓 '+s.title+'</div>'+(sdTags(s)?'<div class="sd-tags">'+sdTags(s)+'</div>':'')+sdBio(s)+'</div>'+
       '<div class="sd-actions">'+
         '<button class="sd-action primary" data-term="'+cssdAttr(s.institution)+'" onclick="cssdScholarSearchPreset(this.dataset.term);closeMod();">同机构学者</button>'+
         '<button class="sd-action" data-term="'+cssdAttr(s.dL)+'" onclick="cssdScholarSearchPreset(this.dataset.term);closeMod();">同方向学者</button>'+
@@ -815,7 +819,7 @@ window._ucTp='all';
           '<b>机构</b><span>'+s.institution+'</span>'+
           '<b>院系</b><span>'+(s.dept||'—')+'</span>'+
           '<b>职称</b><span>'+s.title+'</span>'+
-          '<b>学科</b><span>'+s.dL+'</span>'+
+          (String(s.dL||'').trim()?'<b>学科</b><span>'+s.dL+'</span>':'')+
           '<b>角色</b><span>'+(s.role?(RL[s.role]||s.role):'—')+'</span>'+
           '<b>学委会</b><span>'+(s.academicCommittee||'—')+'</span>'+
         '</div></div>'+
