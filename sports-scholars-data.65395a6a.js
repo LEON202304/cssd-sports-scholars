@@ -161,7 +161,7 @@ function cardPlaceLine(s){
   if(s&&(s.region==='香港'||s.region==='澳门'||s.region==='台湾'))return [s.institution,s.region,cardTitleS(s)].filter(Boolean).join(' · ');
   return '';
 }
-function showRoleBadge(s){return !!(s&&s.role&&!(s.role==='scholar'&&sourceRoleList(s).length));}
+function showRoleBadge(s){var label=s&&s.role?String(RL[s.role]||'').trim():'';return !!(label&&!(s.role==='scholar'&&sourceRoleList(s).length));}
 function filt(){
   /* Fast path: opening 学者库 with no filters — skip full scan/alloc */
   if(!discGroup&&!disc&&!hat&&!inst&&!gender&&!cat&&!role&&!prov&&!q&&!sortMode)return S;
@@ -773,8 +773,8 @@ document.addEventListener("click",function(e){
 },false);
 function bCard(s){
   if(scholarsViewMode==='table') return '';
-  const hH=s.hats.map(h=>`<span class="tag t-hat">${esc(hS(h))}</span>`).join('');
-  const oH=s.hon.filter(function(h){return !honIsProse(h)&&!dictRoleLabel(h);}).slice(0,1).map(h=>`<span class="tag t-honor">${esc(h.length>14?h.slice(0,14)+'\u2026':h)}</span>`).join('');
+  const hH=(s.hats||[]).map(function(h){var l=String(hS(h)||'').trim();return l?'<span class="tag t-hat">'+esc(l)+'</span>':'';}).join('');
+  const oH=(s.hon||[]).filter(function(h){return !honIsProse(h)&&!dictRoleLabel(h);}).slice(0,1).map(function(h){var l=String(h||'').trim();if(!l)return '';return '<span class="tag t-honor">'+esc(l.length>14?l.slice(0,14)+'\u2026':l)+'</span>';}).join('');
   const srcH=(s.imp&&s.hats.length===0)?`<span class="tag t-src" title="\u8be5\u6761\u76ee\u7531\u9662\u6821\u5b98\u7f51\u6279\u91cf\u91c7\u96c6\uff0c\u6682\u672a\u6838\u9a8c\u4eba\u624d\u79f0\u53f7">\ud83d\udce5 \u5b98\u7f51\u91c7\u96c6</span>`:'';
   const roleH=sourceRoleTags(s);
   const rb=showRoleBadge(s)?`<div class="${RC[s.role]||''} rbadge">\u25c8 ${esc(RL[s.role]||'')}</div>`:'';
@@ -1351,7 +1351,8 @@ function renderPsychDir(){
     }).join('');
     const tierDot=s.pt==='found'?'🏛':s.pt==='young'?'🌱':'⭐';
     const impact=s.hon[0]?`<div class="pimpact">⭐ ${s.hon[0].length>40?s.hon[0].slice(0,40)+'…':s.hon[0]}</div>`:'';
-    return '<div class="pcard"><div class="pcard-top"><div class="pav">'+s.i+'</div><div style="flex:1;min-width:0"><div class="pname">'+tierDot+' '+s.n+'</div><div class="pins">🏛 '+orgTrunc(s)+' · '+esc(s.dept||'')+'</div></div></div><div class="pcard-body"><div class="ptags">'+plTags+'</div><div class="pres">📌 '+s.r+'</div>'+impact+'</div></div>';
+    var pinLine=[orgTrunc(s), String(s.dept||'').trim()?esc(s.dept):''].filter(Boolean).join(' · ');
+    return '<div class="pcard"><div class="pcard-top"><div class="pav">'+s.i+'</div><div style="flex:1;min-width:0"><div class="pname">'+tierDot+' '+s.n+'</div>'+(pinLine?'<div class="pins">🏛 '+pinLine+'</div>':'')+'</div></div><div class="pcard-body"><div class="ptags">'+plTags+'</div><div class="pres">📌 '+s.r+'</div>'+impact+'</div></div>';
   }).join('');
 
   const fCount=(arr)=>arr.filter(s=>matchSF(s,psychSF)).length;
@@ -1432,17 +1433,18 @@ function buildPECard(s){
     const label=k==='policy'?'📋 政策':k==='curric'?'📚 课程与教学':k==='teach'?'🎓 教师教育':k==='fit'?'💪 体质健康':k==='std'?'📊 标准研制':k==='icl'?'🌐 比较研究':k==='sport'?'🏃 运动训练':'🔍 其他';
     return`<span class="pe-tag ${cls}">${label}</span>`;
   }).join('');
-  const hatTags=s.hats.slice(0,2).map(h=>`<span class="pe-tag pe-t-hat">${hS(h)}</span>`).join('');
+  const hatTags=(s.hats||[]).slice(0,2).map(function(h){var l=String(hS(h)||'').trim();return l?'<span class="pe-tag pe-t-hat">'+esc(l)+'</span>':'';}).join('');
   const tierIcon=s.pe_tier==='found'?'🏛':s.pe_tier==='young'?'🌱':'⭐';
   const topHon=s.hon[0]?`<div style="font-size:.71rem;color:#3E82B0;opacity:.85;font-style:italic;margin-top:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">⭐ ${s.hon[0].length>38?s.hon[0].slice(0,38)+'…':s.hon[0]}</div>`:'';
-  const rb=s.role?`<div class="${RC[s.role]||''} rbadge" style="margin-bottom:4px">◈ ${RL[s.role]||''}</div>`:'';
+  const roleLabel=s.role?String(RL[s.role]||'').trim():'';
+  const rb=roleLabel?`<div class="${RC[s.role]||''} rbadge" style="margin-bottom:4px">◈ ${esc(roleLabel)}</div>`:'';
   return`<div class="pcard" style="border-color:rgba(44,110,158,.12)" onmouseover="this.style.borderColor='rgba(44,110,158,.3)'" onmouseout="this.style.borderColor='rgba(44,110,158,.12)'" onclick='openMod(${JSON.stringify(s).replace(/'/g,"\\'")})'> 
     <div class="pcard-top">
       <div class="pav" style="background:rgba(44,110,158,.12);color:#3E82B0;border-color:rgba(44,110,158,.25)">${s.i}</div>
       <div style="flex:1;min-width:0">${rb}
         <div class="pname">${tierIcon} ${s.n}</div>
         <div class="pen">${s.e}</div>
-        <div class="pins">🏛 ${orgTrunc(s)} · ${esc(s.dept)}</div>
+        ${(function(){var pinLine=[orgTrunc(s), String(s.dept||'').trim()?esc(s.dept):''].filter(Boolean).join(' · ');return pinLine?'<div class="pins">🏛 '+pinLine+'</div>':'';})()}
       </div>
     </div>
     <div class="pcard-body">
@@ -1560,6 +1562,9 @@ let classifyDim = 'disc'; // current dimension
 function renderClassify(){
   const el = document.getElementById('classify-content');
   if(!el) return;
+  function classifyLine(s){
+    return [s.s||s.institution, s.title||s.dL].map(function(v){return String(v||'').trim();}).filter(Boolean).join(' · ');
+  }
 
   const DISC_META = {
     psych:{icon:'🧠',label:'运动心理学',color:'#2C6E9E'},sci:{icon:'🔬',label:'运动人体科学',color:'#2C6E9E'},
@@ -1663,7 +1668,7 @@ function renderClassify(){
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px">
           ${arr.map(s=>`<div onclick="openMod(${JSON.stringify(s).replace(/'/g,"\\'")})" style="padding:10px 12px;background:${m.color}08;border:1px solid ${m.color}20;border-radius:6px;cursor:pointer;transition:var(--tr)" onmouseover="this.style.background='${m.color}18'" onmouseout="this.style.background='${m.color}08'">
             <div style="font-weight:600;font-size:.82rem;margin-bottom:2px">${s.n}</div>
-            <div style="font-size:.7rem;color:var(--mu)">${s.s} · ${s.dL}</div>
+            ${classifyLine(s)?'<div style="font-size:.7rem;color:var(--mu)">'+classifyLine(s)+'</div>':''}
           </div>`).join('')}
         </div>
       </div>`;
@@ -1731,7 +1736,7 @@ function renderClassify(){
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px">
         ${female.map(s=>`<div onclick="openMod(${JSON.stringify(s).replace(/'/g,"\\'")})" style="padding:9px 12px;background:rgba(244,63,94,.05);border:1px solid rgba(244,63,94,.15);border-radius:6px;cursor:pointer;transition:var(--tr)" onmouseover="this.style.background='rgba(244,63,94,.1)'" onmouseout="this.style.background='rgba(244,63,94,.05)'">
           <div style="font-weight:600;font-size:.82rem">${s.n}</div>
-          <div style="font-size:.68rem;color:var(--mu);margin-top:2px">${s.s} · ${s.dL}</div>
+          ${classifyLine(s)?'<div style="font-size:.68rem;color:var(--mu);margin-top:2px">'+classifyLine(s)+'</div>':''}
         </div>`).join('')}
       </div>
     </div>`;
@@ -1780,14 +1785,14 @@ function renderClassify(){
 function honIsProse(h){h=String(h||'');return /[，。；,;]/.test(h)||h.length>20;}
 window.honIsProse=honIsProse;
 /* 数据驱动头衔小标：scholar.rankTag（字符串或数组） */
-function rankTagH(s){var t=s&&s.rankTag;if(!t)return '';return (Array.isArray(t)?t:[t]).map(function(x){return '<span class="sp-honor sp-rank-tag">'+esc(x)+'</span>';}).join('');}
+function rankTagH(s){var t=s&&s.rankTag;if(!t)return '';return (Array.isArray(t)?t:[t]).map(function(x){x=String(x||'').trim();return x?'<span class="sp-honor sp-rank-tag">'+esc(x)+'</span>':'';}).join('');}
 /* 卡片职称：有 rankTag 时去掉重复头衔（数据 title 保持完整） */
 function cardTitleS(s){var t=String(s.title||'');var r=s.rankTag;if(!r)return t.split('\u3001')[0];(Array.isArray(r)?r:[r]).forEach(function(x){t=t.split('\u3001').filter(function(p){return p&&p!==x;}).join('\u3001');});return t||String(s.title||'').split('\u3001')[0];}
 /* ═══ MODAL ═══ */
 function openMod(s){
-  const hH=s.hats.map(h=>`<span class="tag t-hat">${esc(hS(h))}</span>`).join('');
-  const plainHon=s.hon.filter(function(h){return !dictRoleLabel(h);});
-  const oH=plainHon.map(h=>`<span class="tag t-honor" style="font-size:.7rem">${esc(h)}</span>`).join('');
+  const hH=(s.hats||[]).map(function(h){var l=String(hS(h)||'').trim();return l?'<span class="tag t-hat">'+esc(l)+'</span>':'';}).join('');
+  const plainHon=(s.hon||[]).filter(function(h){return !dictRoleLabel(h)&&String(h||'').trim();});
+  const oH=plainHon.map(function(h){return '<span class="tag t-honor" style="font-size:.7rem">'+esc(String(h).trim())+'</span>';}).join('');
   const srcH=(s.imp&&s.hats.length===0)?`<span class="tag t-src" style="font-size:.7rem" title="该条目由院校官网批量采集，暂未核验人才称号">📥 官网采集</span>`:'';
   const roleH=sourceRoleTags(s);
   const rb=showRoleBadge(s)?`<div class="${RC[s.role]||''} rbadge" style="display:inline-flex;margin-bottom:8px">◈ ${esc(RL[s.role]||'')}</div><br>`:'';
@@ -3043,7 +3048,8 @@ function youthRenderGrid(grid,list){
     H+='</div>';
     // 职称 + 学科
     H+='<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">';
-    H+='<span style="font-size:.68rem;padding:2px 7px;border-radius:4px;background:rgba(255,255,255,.06);color:#8A94A8;">'+s.title.split('、')[0]+'</span>';
+    var titleBit=String((s.title||'').split('、')[0]||'').trim();
+    if(titleBit) H+='<span style="font-size:.68rem;padding:2px 7px;border-radius:4px;background:rgba(255,255,255,.06);color:#8A94A8;">'+esc(titleBit)+'</span>';
     if(DISC_LABELS[s.disc]) H+='<span class="sp-card-disc">'+DISC_LABELS[s.disc]+'</span>';
     H+='</div>';
     // 人才计划标签
@@ -3069,9 +3075,11 @@ function youthRenderList(grid,list){
     var youthTag=allTags.find(function(t){return YOUTH_KEYWORDS.some(function(k){return t.includes(k);});})||'—';
     H+='<div class="youth-list-row" onclick="var f=S.find(function(x){return x.id==='+s.id+';});if(!f){f=YOUTH_EXTRA_DATA.find(function(x){return x.id==='+s.id+';});}if(f)openMod(f);">';
     H+='<div class="youth-av" style="width:28px;height:28px;border-radius:7px;background:#F5F7FA;color:#0A2A43;border:1px solid #E3E8EF;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;">'+s.i+'</div>';
-    H+='<div><div style="font-size:.82rem;font-weight:600;color:#e2e8f0;">'+s.n+(s.g==='female'?'<span style="color:#ec4899;margin-left:3px;font-size:.62rem;">♀</span>':'')+'</div><div style="font-size:.65rem;color:#64748b;margin-top:1px;" title="'+esc(orgFull(s))+'"><span class="cssd-org-trunc">'+esc(orgFull(s))+'</span> · '+esc(s.title.split('、')[0])+'</div></div>';
+    var youthMeta=[String(orgFull(s)||'').trim()?'<span class="cssd-org-trunc">'+esc(orgFull(s))+'</span>':'', String((s.title||'').split('、')[0]||'').trim()?esc(String(s.title).split('、')[0].trim()):''].filter(Boolean).join(' · ');
+    H+='<div><div style="font-size:.82rem;font-weight:600;color:#e2e8f0;">'+s.n+(s.g==='female'?'<span style="color:#ec4899;margin-left:3px;font-size:.62rem;">♀</span>':'')+'</div>'+(youthMeta?'<div style="font-size:.65rem;color:#64748b;margin-top:1px;" title="'+esc(orgFull(s))+'">'+youthMeta+'</div>':'')+'</div>';
     H+='<div style="font-size:.68rem;color:#f59e0b;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+youthTag+'</div>';
-    H+='<div><span class="sp-card-disc">'+(DISC_LABELS[s.disc]||s.dL)+'</span></div>';
+    var discLabel=String(DISC_LABELS[s.disc]||s.dL||'').trim();
+    H+='<div>'+(discLabel?'<span class="sp-card-disc">'+esc(discLabel)+'</span>':'')+'</div>';
     H+='<div style="text-align:right;"><span class="sp-level-pill">'+LEVEL_LABELS[s.youthLevel||'C']+'</span></div>';
     H+='</div>';
   });

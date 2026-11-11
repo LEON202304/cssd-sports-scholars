@@ -757,8 +757,8 @@ window._ucTp='all';
   function sdTags(s){
     var disc=String(s.dL||'').trim();
     return (disc?'<span class="tag '+(DC[s.disc]||'')+'">'+disc+'</span>':'')+
-      (s.hats||[]).map(function(h){var l=hS(h);if(/…$/.test(l))l=h;return '<span class="tag t-hat" title="'+sdAttr(h)+'">'+esc(l)+'</span>';}).join('')+
-      (s.hon||[]).filter(function(h){return !sdHonProse(h)&&!(window.dictRoleLabel&&window.dictRoleLabel(h));}).slice(0,2).map(function(h){return '<span class="tag t-honor" style="font-size:.7rem" title="'+sdAttr(h)+'">'+esc(h)+'</span>';}).join('')+
+      (s.hats||[]).map(function(h){var l=hS(h);if(/…$/.test(l))l=h;l=String(l||'').trim();if(!l)return '';return '<span class="tag t-hat" title="'+sdAttr(h)+'">'+esc(l)+'</span>';}).join('')+
+      (s.hon||[]).filter(function(h){return !sdHonProse(h)&&!(window.dictRoleLabel&&window.dictRoleLabel(h))&&String(h||'').trim();}).slice(0,2).map(function(h){return '<span class="tag t-honor" style="font-size:.7rem" title="'+sdAttr(h)+'">'+esc(String(h).trim())+'</span>';}).join('')+
       (window.sourceRoleTags?window.sourceRoleTags(s):'');
   }
   function sdBio(s){
@@ -771,7 +771,7 @@ window._ucTp='all';
       .sort(function(a,b){return b.score-a.score;}).slice(0,5).map(function(o){return o.x;});
     if(!peers.length)return '<div class="sd-text" style="color:#64748b">暂无相近学者</div>';
     return peers.map(function(p){
-      var sub=[p.s,p.dL].map(function(v){return String(v||'').trim();}).filter(Boolean).join(' · ');
+      var sub=[p.s||p.institution, p.title||p.dL].map(function(v){return String(v||'').trim();}).filter(Boolean).join(' · ');
       return '<button onclick="openCardById('+p.id+')"><span class="sd-mini-av" style="background:'+p.c+'22;color:'+p.c+'">'+p.i+'</span><span style="min-width:0"><b>'+p.n+'</b>'+(sub?'<small>'+sub+'</small>':'')+'</span></button>';
     }).join('');
   }
@@ -802,7 +802,8 @@ window._ucTp='all';
     var ov=document.getElementById('ov'), mo=ov?ov.querySelector('.mo'):null;
     if(mo)mo.classList.add('scholar-dossier');
     var mtp=document.getElementById('mtp'), mb=document.getElementById('mb');
-    var role=s.role?'<div class="'+(RC[s.role]||'')+' rbadge" style="display:inline-flex;margin-bottom:7px">◈ '+(RL[s.role]||'')+'</div>':'';
+    var roleLabel=s.role?String((typeof RL!=='undefined'?RL[s.role]:'')||'').trim():'';
+    var role=roleLabel?'<div class="'+(RC[s.role]||'')+' rbadge" style="display:inline-flex;margin-bottom:7px">◈ '+roleLabel+'</div>':'';
     mtp.innerHTML='<div class="sd-hero">'+
       '<div class="sd-avatar" style="background:'+s.c+'22;color:'+s.c+'">'+s.i+'</div>'+
       '<div style="min-width:0">'+role+'<div class="sd-name">'+s.n+'</div>'+(s.rankTag&&typeof rankTagH==='function'?'<div class="sp-rank-row">'+rankTagH(s)+'</div>':'')+'<div class="sd-meta">'+(s.e||'')+'<br>🏛 '+s.institution+(s.dept?' · '+s.dept:'')+'<br>🎓 '+s.title+'</div>'+(sdTags(s)?'<div class="sd-tags">'+sdTags(s)+'</div>':'')+sdBio(s)+'</div>'+
