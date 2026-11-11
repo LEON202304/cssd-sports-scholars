@@ -10,21 +10,21 @@
   },
   {
     "journal": "Journal of Sport and Health Science",
-    "title": "Dose‒response associations of self-reported and device-measured physical activity with major adverse cardiovascular events in people with prevalent diseases",
-    "authors": "Miguel Adriano Sanchez-Lastra, Borja del Pozo Cruz, Jakob Tarp, Knut Eirik Dalene, Tormod S. Nilsen, Ding Ding, Ulf Ekelund",
-    "link": "https://doi.org/10.1016/j.jshs.2025.101116",
-    "date": "2026-12",
-    "journalZh": "《运动与健康科学》",
-    "titleZh": "自我报告和器械测量的体力活动与流行性疾病患者主要不良心血管事件的剂量反应关联"
-  },
-  {
-    "journal": "Journal of Sport and Health Science",
     "title": "Combined strength and aerobic training vs. aerobic training alone in patients with heart failure: A systematic review and meta-analysis",
     "authors": "Tasuku Terada, Tim Kambic, Takumi Noda, Genki Kai, Rod S. Taylor, Jennifer L. Reed, Kentaro Kamiya",
     "link": "https://doi.org/10.1016/j.jshs.2026.101136",
     "date": "2026-12",
     "journalZh": "《运动与健康科学》",
     "titleZh": "心力衰竭患者的力量和有氧综合训练与单独有氧训练：系统评价和荟萃分析"
+  },
+  {
+    "journal": "Journal of Sport and Health Science",
+    "title": "Dose‒response associations of self-reported and device-measured physical activity with major adverse cardiovascular events in people with prevalent diseases",
+    "authors": "Miguel Adriano Sanchez-Lastra, Borja del Pozo Cruz, Jakob Tarp, Knut Eirik Dalene, Tormod S. Nilsen, Ding Ding, Ulf Ekelund",
+    "link": "https://doi.org/10.1016/j.jshs.2025.101116",
+    "date": "2026-12",
+    "journalZh": "《运动与健康科学》",
+    "titleZh": "自我报告和器械测量的体力活动与流行性疾病患者主要不良心血管事件的剂量反应关联"
   },
   {
     "journal": "Sports Medicine",
@@ -43,6 +43,15 @@
     "date": "2026-11-10",
     "journalZh": "《运动医学》",
     "titleZh": "前交叉韧带重建患者行走时损伤与手术之间的时间间隔对膝关节生物力学的影响：一项系统评价和荟萃分析"
+  },
+  {
+    "journal": "Medicine & Science in Sports & Exercise",
+    "title": "Low Muscle Mechanical Power, Worse Clinical Outcomes? A Cohort of Patients on Hemodialysis",
+    "authors": "Henrique S. Disessa, Marvery P. Duarte, Jéssica G. Roure, Fábio A. Vieira, Maryanne Z. C. Silva, Dario R. Mondini, Angélica N. Adamoli, Daiana C. Bündchen, Bruna R. M. Sant'Helena, Rodrigo R. Krug, Maristela Bohlke, Marco C. Uchida, Ricardo M. Lima, Antônio J. Inda-Filho, Otávio T. Nóbrega, Maycon M. Reboredo, Heitor S. Ribeiro, on behalf of the SARC-HD Study Group",
+    "link": "https://doi.org/10.1249/mss.0000000000004208",
+    "date": "2026-11-10",
+    "journalZh": "《运动医学与科学》",
+    "titleZh": "肌肉机械力低下，临床结局恶化？一组接受血液透析的患者"
   },
   {
     "journal": "British Journal of Sports Medicine",
@@ -158,15 +167,6 @@
     "date": "2026-10-30",
     "journalZh": "《斯堪的纳维亚运动医学与科学杂志》",
     "titleZh": "基于可穿戴传感器的多方向运动中竞技橄榄球运动员的膝关节时刻预测"
-  },
-  {
-    "journal": "Medicine & Science in Sports & Exercise",
-    "title": "Sex-specific Lower Limb Strength, Flexibility, and Running Biomechanics in Adolescents With and Without Osgood-Schlatter Disease",
-    "authors": "Sungwan Kim, Alexandra F. DeJong Lempke, Kristin E. Whitney, William P. Meehan",
-    "link": "https://doi.org/10.1249/mss.0000000000004199",
-    "date": "2026-10-28",
-    "journalZh": "《运动医学与科学》",
-    "titleZh": "有或没有Osgood-Schlatter病的青少年的性别特异性下肢力量、灵活性和跑步生物力学"
   },
   {
     "journal": "天津体育学院学报",
