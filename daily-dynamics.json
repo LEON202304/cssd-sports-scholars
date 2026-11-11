@@ -45,6 +45,30 @@
     },
     {
       "cat": "院校",
+      "source": "山东体育学院",
+      "section": "学校主页",
+      "title": "学校组织开展消防知识宣传暨应急疏散演练",
+      "date": "2026-11-11",
+      "link": "https://www.sdpei.edu.cn/2026/1111/c592a98751/page.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "沈阳体育学院",
+      "section": "学校主页",
+      "title": "社会体育学院张崇龙博士获得国家社会科学基金一般项目",
+      "date": "2026-11-11",
+      "link": "https://www.syty.edu.cn/info/1036/18953.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "首都体育学院",
+      "section": "通知公告",
+      "title": "首都体育学院2027年办公用品与通用耗材供应商选聘项目比选公告(货物类)",
+      "date": "2026-11-11",
+      "link": "https://www.cupes.edu.cn/docs/2026-11/3b72e958af5e4e1582645779f8fb2537.pdf"
+    },
+    {
+      "cat": "院校",
       "source": "北京体育大学",
       "section": "通知公告",
       "title": "北京体育大学学生公寓用电智能管理系统维保服务项目采购比选结果公示",
@@ -82,14 +106,6 @@
       "title": "图书馆开展消防应急演练 筑牢秋冬安全防线",
       "date": "2026-11-10",
       "link": "https://www.hrbipe.edu.cn/info/1050/8726.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "山东体育学院",
-      "section": "学校主页",
-      "title": "山体学子执裁台克球世界系列赛获台克球国际联合会高度认可",
-      "date": "2026-11-10",
-      "link": "https://www.sdpei.edu.cn/2026/1110/c592a97355/page.htm"
     },
     {
       "cat": "院校",
@@ -157,6 +173,14 @@
     },
     {
       "cat": "院校",
+      "source": "山东体育学院",
+      "section": "学校主页",
+      "title": "山体学子执裁台克球世界系列赛获台克球国际联合会高度认可",
+      "date": "2026-11-10",
+      "link": "https://www.sdpei.edu.cn/2026/1110/c592a97355/page.htm"
+    },
+    {
+      "cat": "院校",
       "source": "天津体育学院",
       "section": "学校要闻",
       "title": "我校在学体联2026年全国大学生艺术体操锦标赛上创佳绩",
@@ -186,14 +210,6 @@
       "title": "体育教育学院教师孙长新担任2026安阳汤阴“周易杯”半程马拉松赛技术代表",
       "date": "2026-11-09",
       "link": "https://www.syty.edu.cn/info/1036/18873.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "沈阳体育学院",
-      "section": "学校主页",
-      "title": "体育教育学院举行2024级实习准备系列培训第一讲",
-      "date": "2026-11-09",
-      "link": "https://www.syty.edu.cn/info/1036/18863.htm"
     },
     {
       "cat": "院校",
@@ -269,14 +285,6 @@
     },
     {
       "cat": "院校",
-      "source": "山东体育学院",
-      "section": "学校主页",
-      "title": "省文化和旅游厅党组书记、厅长喻剑南一行调研山东体育学院日照校区",
-      "date": "2026-11-06",
-      "link": "https://www.sdpei.edu.cn/2026/1106/c592a96930/page.htm"
-    },
-    {
-      "cat": "院校",
       "source": "广州体育学院",
       "section": "公告栏",
       "title": "岭南民族传统体育数字化知识图谱保护与智能应用平台建设项目—服务器验收公示",
@@ -324,12 +332,12 @@
       "link": "https://www.hrbipe.edu.cn/info/1045/8712.htm"
     },
     {
-      "cat": "院校",
-      "source": "首都体育学院",
-      "section": "新闻网",
-      "title": "七秩首体|体美赋能・艺创未来——2026 年体育院校艺术专业建设研讨会在我校举行",
-      "date": "2026-11-04",
-      "link": "https://news.cupes.edu.cn/zhxw/1f1cc3aeae5b4e6dbe3b212452717aa9.htm"
+      "cat": "期刊",
+      "source": "中国体育科技",
+      "section": "网络首发",
+      "title": "孤独症伴运动功能障碍儿童静息态fNIRS脑功能连接特征分析",
+      "date": "2026-10-30",
+      "link": "https://zgty.cbpt.cnki.net/portal/journal/portal/client/paper/4d22f5e294895c5c033d3933bed056f6"
     },
     {
       "cat": "院校",
@@ -498,14 +506,6 @@
       "title": "空间生产理论视域下国家级体育训练基地功能转型的基本路向、制约因素与创新对策",
       "date": "",
       "link": "https://zgty.cbpt.cnki.net/portal/journal/portal/client/paper/78cfc15e333ee5de7a600868457c49a0"
-    },
-    {
-      "cat": "期刊",
-      "source": "中国体育科技",
-      "section": "当期目录",
-      "title": "不同运动方式对老年人认知功能的影响研究",
-      "date": "",
-      "link": "https://zgty.cbpt.cnki.net/portal/journal/portal/client/paper/660a918b1e13f98e2285f8a046b31acf"
     },
     {
       "cat": "期刊",
