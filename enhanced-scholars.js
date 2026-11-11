@@ -361,7 +361,7 @@
 
         var matchedSch = scholars.filter(function(s) {
           if (!q) return s.hats && s.hats.length > 0;
-          return ((s.n || '') + ' ' + (s.e || '') + ' ' + (s.institution || s.s || '') + ' ' + (s.dL || '') + ' ' + (s.r || '')).toLowerCase().indexOf(q) >= 0;
+          return ((s.n || '') + ' ' + (s.e || '') + ' ' + (s.eIdx || '') + ' ' + (s.institution || s.s || '') + ' ' + (s.dL || '') + ' ' + (s.r || '')).toLowerCase().indexOf(q) >= 0;
         }).slice(0, 6);
 
         var matchedNssfc = nssfcList.filter(function(r) {
@@ -759,8 +759,11 @@
       scholarMap.set((s.n || '').trim() + '_' + (s.institution || s.s || '').trim(), s);
       if (s.e && !s._pyEnriched) {
         var tk = s.e.toLowerCase().split(/\s+/).filter(Boolean);
-        s.e = s.e + ' ' + tk.map(function(w) { return w[0] || ''; }).join('') + ' ' + tk.join('');
+        /* Visible s.e stays the official English name. Initials and the
+           space-stripped spelling are search-only (eIdx), never rendered. */
+        s.eIdx = tk.map(function(w) { return w[0] || ''; }).join('') + ' ' + tk.join('');
         s._pyEnriched = true;
+        if (s._cssdSearchIndex) delete s._cssdSearchIndex;
       }
     }
     var maxId = scholars.reduce(function(a, c) { var n = Number(c.id); return (!isNaN(n) && n > a) ? n : a; }, 10000);
