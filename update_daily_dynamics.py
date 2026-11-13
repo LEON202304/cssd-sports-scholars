@@ -17,6 +17,10 @@
 
 安全约束：
   - 每个源独立 try/except + 超时，单源失败不影响其他源；
+  - 单个源返回 0 条或抛错时，按退避再抓几次；
+  - 重试后仍为空、且上一版已提交快照里该源有条目时，原样沿用那些条目
+    （日期、链接、标题、来源及其他字段都不改；空日期保持为空），
+    再套用原有的日期窗口与条数上限；
   - 所有源都失败时不写文件（绝不清空）；
   - 期刊每刊最多 4 条；院校每校最多 5 条且优先近 14 天有日期条目；
   - 不访问登录页，不处理验证码，不绕过访问控制；遇防火墙/人机验证的源直接跳过。
@@ -41,6 +45,9 @@ UNIV_WINDOW_DAYS = 14   # 院校新闻保留近 14 天
 UNIV_UNDATED_CAP = 2    # 每校无日期条目上限（主页轮播类）
 TOTAL_CAP = 120         # 输出总量上限
 WORKERS = 4
+# 整源重试：夜间官网常直接返回空页。含首次共 3 次，两次间隔 2s、5s。
+SOURCE_ATTEMPTS = 3
+SOURCE_BACKOFF_SEC = (2.0, 5.0)
 
 BJT = dt.timezone(dt.timedelta(hours=8))
 
@@ -102,7 +109,9 @@ def date_key(d: str) -> str:
     return d
 
 
-def in_window(d: str, days: int) -> bool:
+def in_window(d: str, days: int, today: dt.date | None = None) -> bool:
+    if today is None:
+        today = today_bjt()
     k = date_key(d)
     m = re.match(r"^(\d{4})-(\d{2})(?:-(\d{2}))?", k)
     if not m:
@@ -111,7 +120,7 @@ def in_window(d: str, days: int) -> bool:
         base = dt.date(int(m.group(1)), int(m.group(2)), int(m.group(3) or "01"))
     except ValueError:
         return False
-    return (today_bjt() - base).days <= days
+    return (today - base).days <= days
 
 
 def collect(src: dict) -> list[dict]:
@@ -130,29 +139,98 @@ def collect(src: dict) -> list[dict]:
     return out
 
 
-def main() -> int:
-    log(f"== 体育学人 · 每日动态日报  {dt.datetime.now(BJT):%Y-%m-%d %H:%M} 北京时间 ==")
-    jobs = [(s["name"], s) for s in SM_CONFIG.JOURNALS if s.get("enabled")]
-    jobs += [(s["name"], s) for s in SM_CONFIG.UNIVERSITIES]
-    ok, bad = [], []
+def load_previous_by_source(path: Path | None = None) -> dict[str, list[dict]]:
+    """按 source 分组读取已提交快照。读不到文件时返回空，不编造条目。"""
+    path = OUT_FILE if path is None else path
+    if not path.is_file():
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as e:
+        log(f"::warning::无法读取上一版 {path.name}（{type(e).__name__}），本次不沿用历史条目。")
+        return {}
+    items = data.get("items") if isinstance(data, dict) else None
+    if not isinstance(items, list):
+        return {}
+    grouped: dict[str, list[dict]] = {}
+    for it in items:
+        if not isinstance(it, dict):
+            continue
+        name = it.get("source")
+        if not isinstance(name, str) or not name:
+            continue
+        grouped.setdefault(name, []).append(dict(it))
+    return grouped
 
-    results: dict[str, list[dict]] = {}
-    with ThreadPoolExecutor(max_workers=WORKERS) as ex:
-        futs = {ex.submit(collect, src): name for name, src in jobs}
-        for fut in as_completed(futs):
-            name = futs[fut]
-            try:
-                got = fut.result()
-                results[name] = got
-                if got:
-                    ok.append(name)
-                    log(f"  ✓ {name}  {len(got)} 条")
-                else:
-                    ok.append(name + "(0)")
-                    log(f"  · {name}  0 条")
-            except Exception as e:  # noqa: BLE001
-                bad.append(name)
-                log(f"  ✗ {name}  失败 {type(e).__name__}: {str(e)[:120]}")
+
+def copy_items(items: list[dict]) -> list[dict]:
+    """原样拷贝。空日期仍是空字符串，不补今天，不加字段。"""
+    return [dict(it) for it in items]
+
+
+def scrape_source(src: dict, *, name: str | None = None, collect_fn=None,
+                  attempts: int = SOURCE_ATTEMPTS, backoff=SOURCE_BACKOFF_SEC,
+                  sleeper=None):
+    """抓一个源。0 条或抛错都重试，成功即停。返回 (items, error, used, notes)。"""
+    collect_fn = collect if collect_fn is None else collect_fn
+    sleeper = time.sleep if sleeper is None else sleeper
+    label = name or src.get("name") or "?"
+    last_error: Exception | None = None
+    notes: list[str] = []
+    for attempt in range(1, attempts + 1):
+        try:
+            got = collect_fn(src)
+        except Exception as e:  # noqa: BLE001
+            got = []
+            last_error = e
+        else:
+            last_error = None
+        if not got:
+            got = []
+        if got:
+            return got, None, attempt, notes
+        if attempt < attempts:
+            delay = backoff[min(attempt - 1, len(backoff) - 1)]
+            why = "失败" if last_error else "0 条"
+            notes.append(f"  · {label}  第 {attempt} 次{why}，{delay:g}s 后重试")
+            sleeper(delay)
+    return [], last_error, attempts, notes
+
+
+def settle_source(fetched: list[dict], error: Exception | None,
+                  previous_items: list[dict]) -> tuple[list[dict], str]:
+    """非空抓取用本次结果。仍为空且上一版有该源时，原样沿用。
+
+    返回的 status：fresh / carry / error / empty。
+    日期窗口与条数上限不在这里做，交给 assemble_items，和当场抓到这些条目时一样。
+    """
+    if fetched:
+        return list(fetched), "fresh"
+    if previous_items:
+        return copy_items(previous_items), "carry"
+    if error is not None:
+        return [], "error"
+    return [], "empty"
+
+
+def carry_warning(name: str, count: int, attempts: int,
+                  error: BaseException | None) -> str:
+    if error is None:
+        reason = "空结果（0 条）"
+    else:
+        detail = str(error).replace("\n", " ")[:120]
+        reason = f"失败（{type(error).__name__}: {detail}）"
+    return (
+        f"::warning::{name} 连续 {attempts} 次抓取{reason}，"
+        f"沿用上一版快照中的 {count} 条；条目字段保持原样，仍按既有日期窗口与条数上限过滤。"
+    )
+
+
+def assemble_items(results: dict[str, list[dict]], *,
+                   today: dt.date | None = None) -> list[dict]:
+    """与原先 main 里的筛选相同：期刊条数上限、院校日期窗口、去重、总量上限。"""
+    if today is None:
+        today = today_bjt()
 
     # —— 期刊：每刊最多 MAX_PER_JOURNAL 条 ——
     j_items: list[dict] = []
@@ -164,7 +242,7 @@ def main() -> int:
     u_items: list[dict] = []
     for name in sorted(results):
         items = results[name]
-        dated = [x for x in items if x["date"] and in_window(x["date"], UNIV_WINDOW_DAYS)]
+        dated = [x for x in items if x["date"] and in_window(x["date"], UNIV_WINDOW_DAYS, today)]
         dated.sort(key=lambda x: date_key(x["date"]), reverse=True)
         undated = [x for x in items if not x["date"]][:UNIV_UNDATED_CAP]
         u_items.extend((dated + undated)[:MAX_PER_UNIV])
@@ -180,6 +258,65 @@ def main() -> int:
         merged.append(it)
     merged = merged[:TOTAL_CAP]
     merged.sort(key=lambda x: date_key(x["date"]), reverse=True)
+    return merged
+
+
+def gather(jobs, previous: dict[str, list[dict]], *, collect_fn=None,
+           attempts: int = SOURCE_ATTEMPTS, backoff=SOURCE_BACKOFF_SEC,
+           sleeper=None, log_fn=None, workers: int = WORKERS):
+    """抓取全部源。返回 (results, ok, bad, carried)。"""
+    log_fn = log if log_fn is None else log_fn
+    outcomes: dict[str, tuple] = {}
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        futs = {
+            ex.submit(scrape_source, src, name=name, collect_fn=collect_fn,
+                      attempts=attempts, backoff=backoff, sleeper=sleeper): name
+            for name, src in jobs
+        }
+        for fut in as_completed(futs):
+            name = futs[fut]
+            try:
+                outcomes[name] = fut.result()
+            except Exception as e:  # noqa: BLE001
+                outcomes[name] = ([], e, attempts, [])
+
+    results: dict[str, list[dict]] = {}
+    ok: list[str] = []
+    bad: list[str] = []
+    carried: list[str] = []
+    for name, _src in jobs:
+        fetched, error, used, notes = outcomes[name]
+        for line in notes:
+            log_fn(line)
+        items, status = settle_source(fetched, error, previous.get(name) or [])
+        if status == "fresh":
+            results[name] = items
+            ok.append(name)
+            suffix = f"（第 {used} 次）" if used > 1 else ""
+            log_fn(f"  ✓ {name}  {len(items)} 条{suffix}")
+        elif status == "carry":
+            results[name] = items
+            ok.append(f"{name}(沿用)")
+            carried.append(name)
+            log_fn(carry_warning(name, len(items), attempts, error))
+        elif status == "error":
+            bad.append(name)
+            detail = str(error).replace("\n", " ")[:120]
+            log_fn(f"  ✗ {name}  失败 {type(error).__name__}: {detail}")
+        else:
+            ok.append(f"{name}(0)")
+            log_fn(f"  · {name}  0 条")
+    return results, ok, bad, carried
+
+
+def main() -> int:
+    log(f"== 体育学人 · 每日动态日报  {dt.datetime.now(BJT):%Y-%m-%d %H:%M} 北京时间 ==")
+    jobs = [(s["name"], s) for s in SM_CONFIG.JOURNALS if s.get("enabled")]
+    jobs += [(s["name"], s) for s in SM_CONFIG.UNIVERSITIES]
+    previous = load_previous_by_source(OUT_FILE)
+    log(f"上一版快照：{sum(len(v) for v in previous.values())} 条 / {len(previous)} 个源")
+    results, ok, bad, carried = gather(jobs, previous)
+    merged = assemble_items(results)
 
     if not merged:
         log("::warning::全部源均失败或 0 条，不写文件，保留现有 daily-dynamics.json。")
@@ -200,13 +337,16 @@ def main() -> int:
             f"（期刊{sum(1 for x in merged if x['cat'] == '期刊')}/"
             f"院校{sum(1 for x in merged if x['cat'] == '院校')}）")
 
-    log(f"可用源 {len(ok)}/{len(jobs)}；失败：{'、'.join(bad) or '无'}")
+    log(f"可用源 {len(ok)}/{len(jobs)}；失败：{'、'.join(bad) or '无'}"
+        f"；沿用上一版：{'、'.join(carried) or '无'}")
     for it in merged[:5]:
         log(f"  · [{it['cat']}] {it['date']} {it['source']} | {it['title'][:46]}")
     if os.environ.get("GITHUB_STEP_SUMMARY"):
         with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
             f.write(f"### 每日动态日报\n\n- 可用源：{'、'.join(ok) or '无'}\n"
-                    f"- 失败源：{'、'.join(bad) or '无'}\n- 输出条数：{len(merged)}\n")
+                    f"- 失败源：{'、'.join(bad) or '无'}\n"
+                    f"- 沿用上一版：{'、'.join(carried) or '无'}\n"
+                    f"- 输出条数：{len(merged)}\n")
     return 0
 
 
