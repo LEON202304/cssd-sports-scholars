@@ -21,6 +21,8 @@
   - 重试后仍为空、且上一版已提交快照里该源有条目时，原样沿用那些条目
     （日期、链接、标题、来源及其他字段都不改；空日期保持为空），
     再套用原有的日期窗口与条数上限；
+  - 本次至少有一个源抓到非空结果时才写文件；全部为空或全部失败时，
+    即使可以沿用上一版，也不改 daily-dynamics.json（generatedAt 保持不变）；
   - 所有源都失败时不写文件（绝不清空）；
   - 期刊每刊最多 4 条；院校每校最多 5 条且优先近 14 天有日期条目；
   - 不访问登录页，不处理验证码，不绕过访问控制；遇防火墙/人机验证的源直接跳过。
@@ -264,7 +266,11 @@ def assemble_items(results: dict[str, list[dict]], *,
 def gather(jobs, previous: dict[str, list[dict]], *, collect_fn=None,
            attempts: int = SOURCE_ATTEMPTS, backoff=SOURCE_BACKOFF_SEC,
            sleeper=None, log_fn=None, workers: int = WORKERS):
-    """抓取全部源。返回 (results, ok, bad, carried)。"""
+    """抓取全部源。返回 (results, ok, bad, carried, fresh)。
+
+    fresh 是本次抓到非空结果的源。与上一版条目相同也算 fresh；
+    沿用上一版不算。
+    """
     log_fn = log if log_fn is None else log_fn
     outcomes: dict[str, tuple] = {}
     with ThreadPoolExecutor(max_workers=workers) as ex:
@@ -284,6 +290,7 @@ def gather(jobs, previous: dict[str, list[dict]], *, collect_fn=None,
     ok: list[str] = []
     bad: list[str] = []
     carried: list[str] = []
+    fresh: list[str] = []
     for name, _src in jobs:
         fetched, error, used, notes = outcomes[name]
         for line in notes:
@@ -292,6 +299,7 @@ def gather(jobs, previous: dict[str, list[dict]], *, collect_fn=None,
         if status == "fresh":
             results[name] = items
             ok.append(name)
+            fresh.append(name)
             suffix = f"（第 {used} 次）" if used > 1 else ""
             log_fn(f"  ✓ {name}  {len(items)} 条{suffix}")
         elif status == "carry":
@@ -306,48 +314,74 @@ def gather(jobs, previous: dict[str, list[dict]], *, collect_fn=None,
         else:
             ok.append(f"{name}(0)")
             log_fn(f"  · {name}  0 条")
-    return results, ok, bad, carried
+    return results, ok, bad, carried, fresh
+
+
+def _step_summary(ok, bad, carried, fresh, merged) -> None:
+    if not os.environ.get("GITHUB_STEP_SUMMARY"):
+        return
+    with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
+        f.write(f"### 每日动态日报\n\n- 可用源：{'、'.join(ok) or '无'}\n"
+                f"- 非空抓取：{'、'.join(fresh) or '无'}\n"
+                f"- 失败源：{'、'.join(bad) or '无'}\n"
+                f"- 沿用上一版：{'、'.join(carried) or '无'}\n")
+        if not fresh:
+            f.write("- 未写文件：本次没有非空抓取，daily-dynamics.json 保持原样。\n")
+        else:
+            f.write(f"- 输出条数：{len(merged)}\n")
+
+
+def update_snapshot(path: Path, jobs, *, collect_fn=None, today: dt.date | None = None,
+                    sleeper=None, log_fn=None, workers: int = WORKERS) -> int:
+    """main 的写文件边界。没有任何源抓到非空结果时，不打开 path 去写。"""
+    log_fn = log if log_fn is None else log_fn
+    if today is None:
+        today = today_bjt()
+    previous = load_previous_by_source(path)
+    log_fn(f"上一版快照：{sum(len(v) for v in previous.values())} 条 / {len(previous)} 个源")
+    results, ok, bad, carried, fresh = gather(
+        jobs, previous, collect_fn=collect_fn, sleeper=sleeper,
+        log_fn=log_fn, workers=workers)
+    log_fn(f"可用源 {len(ok)}/{len(jobs)}；失败：{'、'.join(bad) or '无'}"
+           f"；沿用上一版：{'、'.join(carried) or '无'}"
+           f"；非空抓取：{'、'.join(fresh) or '无'}")
+    if not fresh:
+        log_fn("::warning::本次没有任何源抓到非空结果，不写 daily-dynamics.json，"
+               "generatedAt 与文件内容保持不变。")
+        _step_summary(ok, bad, carried, fresh, None)
+        return 0
+
+    merged = assemble_items(results, today=today)
+    if not merged:
+        log_fn("::warning::全部源均失败或 0 条，不写文件，保留现有 daily-dynamics.json。")
+        _step_summary(ok, bad, carried, fresh, merged)
+        return 0
+
+    for it in merged[:5]:
+        log_fn(f"  · [{it['cat']}] {it['date']} {it['source']} | {it['title'][:46]}")
+    snap = {
+        "generatedAt": today.isoformat(),
+        "source": "C刊官网 + 体育院校官网（GitHub Actions 每日）",
+        "statusHint": "live",
+        "items": merged,
+    }
+    txt = json.dumps(snap, ensure_ascii=False, indent=2) + "\n"
+    if path.exists() and path.read_text(encoding="utf-8") == txt:
+        log_fn("daily-dynamics.json 内容无变化，未重写")
+    else:
+        path.write_text(txt, encoding="utf-8")
+        log_fn(f"daily-dynamics.json 已更新：{len(merged)} 条"
+               f"（期刊{sum(1 for x in merged if x['cat'] == '期刊')}/"
+               f"院校{sum(1 for x in merged if x['cat'] == '院校')}）")
+    _step_summary(ok, bad, carried, fresh, merged)
+    return 0
 
 
 def main() -> int:
     log(f"== 体育学人 · 每日动态日报  {dt.datetime.now(BJT):%Y-%m-%d %H:%M} 北京时间 ==")
     jobs = [(s["name"], s) for s in SM_CONFIG.JOURNALS if s.get("enabled")]
     jobs += [(s["name"], s) for s in SM_CONFIG.UNIVERSITIES]
-    previous = load_previous_by_source(OUT_FILE)
-    log(f"上一版快照：{sum(len(v) for v in previous.values())} 条 / {len(previous)} 个源")
-    results, ok, bad, carried = gather(jobs, previous)
-    merged = assemble_items(results)
-
-    if not merged:
-        log("::warning::全部源均失败或 0 条，不写文件，保留现有 daily-dynamics.json。")
-        return 0
-
-    snap = {
-        "generatedAt": today_bjt().isoformat(),
-        "source": "C刊官网 + 体育院校官网（GitHub Actions 每日）",
-        "statusHint": "live",
-        "items": merged,
-    }
-    txt = json.dumps(snap, ensure_ascii=False, indent=2) + "\n"
-    if OUT_FILE.exists() and OUT_FILE.read_text(encoding="utf-8") == txt:
-        log("daily-dynamics.json 内容无变化，未重写")
-    else:
-        OUT_FILE.write_text(txt, encoding="utf-8")
-        log(f"daily-dynamics.json 已更新：{len(merged)} 条"
-            f"（期刊{sum(1 for x in merged if x['cat'] == '期刊')}/"
-            f"院校{sum(1 for x in merged if x['cat'] == '院校')}）")
-
-    log(f"可用源 {len(ok)}/{len(jobs)}；失败：{'、'.join(bad) or '无'}"
-        f"；沿用上一版：{'、'.join(carried) or '无'}")
-    for it in merged[:5]:
-        log(f"  · [{it['cat']}] {it['date']} {it['source']} | {it['title'][:46]}")
-    if os.environ.get("GITHUB_STEP_SUMMARY"):
-        with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
-            f.write(f"### 每日动态日报\n\n- 可用源：{'、'.join(ok) or '无'}\n"
-                    f"- 失败源：{'、'.join(bad) or '无'}\n"
-                    f"- 沿用上一版：{'、'.join(carried) or '无'}\n"
-                    f"- 输出条数：{len(merged)}\n")
-    return 0
+    return update_snapshot(OUT_FILE, jobs)
 
 
 if __name__ == "__main__":

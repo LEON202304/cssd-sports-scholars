@@ -188,9 +188,10 @@ class DailyDynamicsFallbackTest(unittest.TestCase):
             ("沈阳体育学院学报", {"name": "沈阳体育学院学报", "key": "syty_xb"}),
             ("上海体育大学", {"name": "上海体育大学", "key": "sus"}),
         ]
-        results, ok, bad, carried = daily.gather(
+        results, ok, bad, carried, fresh = daily.gather(
             jobs, loaded, collect_fn=collect_fn, sleeper=lambda _s: None,
             log_fn=logs.append, workers=1)
+        self.assertEqual(fresh, ["沈阳体育学院学报"])
 
         self.assertEqual(carried, ["北京体育大学"])
         self.assertEqual(bad, [])
@@ -306,6 +307,133 @@ class DailyDynamicsFallbackTest(unittest.TestCase):
         kept_oct = next(it for it in got if it["date"] == "2026-10-26")
         self.assertEqual(kept_oct["title"], BSU[2]["title"])
         self.assertEqual(kept_oct["link"], BSU[2]["link"])
+
+
+# 写文件边界用的源。全部失败时，沿用仍会凑出非空 merged。
+WRITE_JOBS = [
+    ("北京体育大学", {"name": "北京体育大学", "key": "bsu"}),
+    ("山东体育学院", {"name": "山东体育学院", "key": "sdpei"}),
+    ("沈阳体育学院", {"name": "沈阳体育学院", "key": "syty"}),
+    ("广州体育学院", {"name": "广州体育学院", "key": "gzsport"}),
+    ("沈阳体育学院学报", {"name": "沈阳体育学院学报", "key": "syty_xb"}),
+]
+
+
+def history_snapshot_bytes() -> bytes:
+    """上一版快照。含空日期，以及写入器不会保留的 note，用来核对字节未改。"""
+    doc = {
+        "generatedAt": "2026-11-12",
+        "source": "C刊官网 + 体育院校官网（GitHub Actions 每日）",
+        "statusHint": "live",
+        "note": "keep-me",
+        "items": BSU + JOURNAL,
+    }
+    return (json.dumps(doc, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
+
+
+class WriteBoundaryTest(unittest.TestCase):
+    """main() 经 update_snapshot 决定是否改 daily-dynamics.json。"""
+
+    def setUp(self):
+        self.snapshot = (ROOT / "daily-dynamics.json").read_bytes()
+
+    def tearDown(self):
+        self.assertEqual((ROOT / "daily-dynamics.json").read_bytes(), self.snapshot)
+
+    def test_main_delegates_write_to_update_snapshot(self):
+        called = {}
+
+        def fake(path, jobs, **kwargs):
+            called["path"] = path
+            called["jobs"] = jobs
+            return 0
+
+        orig = daily.update_snapshot
+        daily.update_snapshot = fake
+        try:
+            self.assertEqual(daily.main(), 0)
+        finally:
+            daily.update_snapshot = orig
+        self.assertEqual(called["path"], daily.OUT_FILE)
+        self.assertGreater(len(called["jobs"]), 0)
+
+    def _run(self, collect_fn):
+        logs = []
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "daily-dynamics.json"
+            raw = history_snapshot_bytes()
+            path.write_bytes(raw)
+            rc = daily.update_snapshot(
+                path, WRITE_JOBS, collect_fn=collect_fn, today=DAY,
+                sleeper=lambda _s: None, log_fn=logs.append, workers=1)
+            after = path.read_bytes()
+        return rc, logs, raw, after
+
+    def test_all_empty_with_history_does_not_write(self):
+        rc, logs, raw, after = self._run(lambda src: [])
+        self.assertEqual(rc, 0)
+        self.assertEqual(after, raw)
+        text = "\n".join(logs)
+        self.assertIn("::warning::本次没有任何源抓到非空结果", text)
+        self.assertIn("generatedAt", text)
+        self.assertNotIn("daily-dynamics.json 已更新", text)
+        kept = json.loads(after.decode("utf-8"))
+        self.assertEqual(kept["generatedAt"], "2026-11-12")
+        self.assertEqual(kept["note"], "keep-me")
+        self.assertEqual(kept["statusHint"], "live")
+        blanks = [it for it in kept["items"] if it["source"] == "北京体育大学" and it["date"] == ""]
+        self.assertEqual(len(blanks), 2)
+
+    def test_all_errors_with_history_does_not_write(self):
+        def boom(src):
+            raise TimeoutError(f"{src['name']} down")
+
+        rc, logs, raw, after = self._run(boom)
+        self.assertEqual(rc, 0)
+        self.assertEqual(after, raw)
+        text = "\n".join(logs)
+        self.assertIn("::warning::本次没有任何源抓到非空结果", text)
+        self.assertIn("::warning::北京体育大学", text)
+        self.assertNotIn("daily-dynamics.json 已更新", text)
+        kept = json.loads(after.decode("utf-8"))
+        self.assertEqual(kept["generatedAt"], "2026-11-12")
+        self.assertEqual(kept["source"], "C刊官网 + 体育院校官网（GitHub Actions 每日）")
+
+    def test_one_fresh_source_writes_and_keeps_carried_rows(self):
+        def collect_fn(src):
+            # 与上一版条目完全相同，仍然算本次的非空抓取。
+            if src["name"] == "沈阳体育学院学报":
+                return [dict(it) for it in JOURNAL]
+            return []
+
+        rc, logs, raw, after = self._run(collect_fn)
+        self.assertEqual(rc, 0)
+        self.assertNotEqual(after, raw)
+        text = "\n".join(logs)
+        self.assertIn("daily-dynamics.json 已更新", text)
+        self.assertIn("沈阳体育学院学报", text)
+        self.assertNotIn("本次没有任何源抓到非空结果", text)
+        wrote = json.loads(after.decode("utf-8"))
+        self.assertEqual(wrote["generatedAt"], DAY.isoformat())
+        self.assertEqual(wrote["statusHint"], "live")
+        self.assertEqual(wrote["source"], "C刊官网 + 体育院校官网（GitHub Actions 每日）")
+        self.assertNotIn("note", wrote)
+        by_source = {}
+        for it in wrote["items"]:
+            by_source.setdefault(it["source"], []).append(it)
+        self.assertEqual(by_source["沈阳体育学院学报"], JOURNAL)
+        self.assertEqual(by_source["沈阳体育学院学报"][0]["date"], "")
+        bsu = by_source["北京体育大学"]
+        by_link = {it["link"]: it for it in BSU}
+        self.assertEqual(len(bsu), len(BSU))
+        for it in bsu:
+            self.assertEqual(it, by_link[it["link"]])
+            self.assertNotIn("stale", it)
+            self.assertNotIn("outdated", it)
+        self.assertEqual(sum(it["date"] == "" for it in bsu), 2)
+        self.assertNotIn("山东体育学院", by_source)
+        self.assertNotIn("沈阳体育学院", by_source)
+        self.assertNotIn("广州体育学院", by_source)
 
 
 if __name__ == "__main__":
