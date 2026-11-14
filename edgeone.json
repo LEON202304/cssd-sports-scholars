@@ -172,6 +172,16 @@
       ]
     },
     {
+      "_rule": "学术动态人工修订（稳定文件名，改稿后需较快生效）：短缓存",
+      "source": "/curated-dynamics.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300, stale-while-revalidate=3600"
+        }
+      ]
+    },
+    {
       "_rule": "学界动态快照（每日自动更新）：短缓存",
       "source": "/xuejie-snapshot.json",
       "headers": [
