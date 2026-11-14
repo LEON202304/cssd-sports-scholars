@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-14",
+  "generatedAt": "2026-11-15",
   "source": "期刊官网 TOC + Crossref 自动抓取（GitHub Actions 每日）：体育科学、上海体育大学学报、中国体育科技、北京体育大学学报、沈阳体育学院学报、体育学研究、体育学刊、天津体育学院学报、体育与科学、西安体育学院学报、British Journal of Sports Medicine、Sports Medicine、Journal of Sport and Health Science、Medicine & Science in Sports & Exercise、Journal of Sports Sciences、Scandinavian Journal of Medicine & Science in Sports",
   "statusHint": "live",
   "items": [
@@ -14,21 +14,21 @@
     },
     {
       "journal": "Journal of Sport and Health Science",
-      "title": "Combined strength and aerobic training vs. aerobic training alone in patients with heart failure: A systematic review and meta-analysis",
-      "authors": "Tasuku Terada, Tim Kambic, Takumi Noda, Genki Kai, Rod S. Taylor, Jennifer L. Reed, Kentaro Kamiya",
-      "link": "https://doi.org/10.1016/j.jshs.2026.101136",
-      "date": "2026-12",
-      "journalZh": "《运动与健康科学》",
-      "titleZh": "心力衰竭患者的力量和有氧综合训练与单独有氧训练：系统评价和荟萃分析"
-    },
-    {
-      "journal": "Journal of Sport and Health Science",
       "title": "Human development and gender inequality are associated with cardiorespiratory fitness: A global systematic review of V̇O2peak",
       "authors": "Nicolas J. Pillon, Joaquin Ortiz de Zevallos, Juleen R. Zierath, Barbara E. Ainsworth",
       "link": "https://doi.org/10.1016/j.jshs.2025.101098",
       "date": "2026-12",
       "journalZh": "《运动与健康科学》",
       "titleZh": "人类发展与性别不平等与心肺健康的关系：一项关于V̇O2峰值的全球系统性综述"
+    },
+    {
+      "journal": "Journal of Sport and Health Science",
+      "title": "Combined strength and aerobic training vs. aerobic training alone in patients with heart failure: A systematic review and meta-analysis",
+      "authors": "Tasuku Terada, Tim Kambic, Takumi Noda, Genki Kai, Rod S. Taylor, Jennifer L. Reed, Kentaro Kamiya",
+      "link": "https://doi.org/10.1016/j.jshs.2026.101136",
+      "date": "2026-12",
+      "journalZh": "《运动与健康科学》",
+      "titleZh": "心力衰竭患者的力量和有氧综合训练与单独有氧训练：系统评价和荟萃分析"
     },
     {
       "journal": "Sports Medicine",
@@ -38,6 +38,15 @@
       "date": "2026-11-14",
       "journalZh": "《运动医学》",
       "titleZh": "如何提高阻力训练的效率？探索超大负荷强化离心负荷的简约方法：综述性文献综述"
+    },
+    {
+      "journal": "Sports Medicine",
+      "title": "An Intrapersonal Network Approach to Acute Symptom Dynamics After Sport-Related Concussion",
+      "authors": "Eric O. Ingram, Marwin Carmo, Philippe Rast, Lisa Manderino, Justin E. Karr",
+      "link": "https://doi.org/10.1007/s40279-026-02583-5",
+      "date": "2026-11-14",
+      "journalZh": "《运动医学》",
+      "titleZh": "运动性脑震荡后急性症状动态的个体内部网络方法"
     },
     {
       "journal": "Medicine & Science in Sports & Exercise",
@@ -74,15 +83,6 @@
       "date": "2026-11-12",
       "journalZh": "《运动医学》",
       "titleZh": "战斗机飞行员的心率变异性：从战术准备到抗荷力预测"
-    },
-    {
-      "journal": "Sports Medicine",
-      "title": "Creating Consensus: Establishing a Definition of Sports Pharmacy and Its Emerging Role in Sports Medicine",
-      "authors": "Claire May, Jessica Beal-Stahl, Athena Cannon, Alexis Shook, Mitchell S. Howard",
-      "link": "https://doi.org/10.1007/s40279-026-02574-6",
-      "date": "2026-11-12",
-      "journalZh": "《运动医学》",
-      "titleZh": "达成共识：确立运动药学的定义及其在运动医学中日益重要的作用"
     },
     {
       "journal": "Journal of Sports Sciences",
