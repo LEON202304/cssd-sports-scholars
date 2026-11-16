@@ -18711,5 +18711,105 @@ html:not(.cssd-light) #ov .tag.t-srcrole{
   border-radius:999px!important;
 }
 </style>
+
+<!-- ===== 顶部方格栏目吸顶（滚动时固定在上方） ===== -->
+<style id="cssd-quick-dock-style">
+#spQuickDock{position:fixed;left:0;right:0;top:64px;z-index:1090;
+  background:rgba(255,255,255,.95);
+  -webkit-backdrop-filter:blur(18px) saturate(170%);backdrop-filter:blur(18px) saturate(170%);
+  border-bottom:1px solid #E4EBF3;box-shadow:0 10px 26px rgba(21,50,79,.08);
+  transform:translateY(-104%);opacity:0;pointer-events:none;
+  transition:transform .26s cubic-bezier(.22,.61,.36,1),opacity .2s ease;}
+#spQuickDock.on{transform:none;opacity:1;pointer-events:auto}
+#spQuickDock .sqd-in{max-width:1280px;margin:0 auto;padding:9px 24px;display:flex;gap:10px;align-items:stretch;
+  overflow-x:auto;scrollbar-width:none}
+#spQuickDock .sqd-in::-webkit-scrollbar{display:none}
+#spQuickDock .sqd-card{flex:1 1 0;min-width:0;height:34px;padding:0 8px;
+  border:0;border-bottom:2px solid transparent;border-radius:0;background:transparent;cursor:pointer;
+  font-family:'PingFang SC','Microsoft YaHei',sans-serif;font-size:13px;font-weight:600;color:#3D5876;
+  letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  transition:color .18s,border-color .18s,background .18s;}
+#spQuickDock .sqd-card:hover{color:#12263A;border-bottom-color:#2E9A89;background:rgba(46,154,137,.05)}
+#spQuickDock .sqd-card:focus-visible{outline:2px solid #2E9A89;outline-offset:2px}
+@media (max-width:980px){
+  #spQuickDock .sqd-in{padding:7px 14px;gap:2px 6px}
+  #spQuickDock .sqd-card{flex:0 0 auto;font-size:12.5px;height:32px;padding:0 10px}
+}
+@media (max-width:700px){
+  #spQuickDock .sqd-in{flex-wrap:wrap;gap:2px 0;padding:6px 10px}
+  #spQuickDock .sqd-card{flex:1 1 25%;height:30px;font-size:12px;padding:0 2px;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){#spQuickDock{transition:none}}
+</style>
+<script id="cssd-quick-dock-js">
+(function(){
+  var dock=null,grid=null,ticking=false,tries=0;
+  function hdrEl(){return document.querySelector('header.sp-header')||document.querySelector('.nav');}
+  function syncTop(){
+    var h=hdrEl();
+    if(h&&dock)dock.style.top=Math.round(h.getBoundingClientRect().bottom)+'px';
+  }
+  function build(){
+    if(dock)return true;
+    grid=document.querySelector('#sportsPortal .sp-quick');
+    if(!grid)return false;
+    var cards=grid.querySelectorAll('.sp-quick-card');
+    if(!cards.length)return false;
+    dock=document.createElement('div');
+    dock.id='spQuickDock';
+    dock.setAttribute('role','navigation');
+    dock.setAttribute('aria-label','栏目快捷入口');
+    dock.setAttribute('aria-hidden','true');
+    var inner=document.createElement('div');
+    inner.className='sqd-in';
+    Array.prototype.forEach.call(cards,function(c){
+      var b=document.createElement('button');
+      b.type='button';b.className='sqd-card';
+      var t=c.querySelector('b');
+      b.textContent=t?t.textContent.trim():'';
+      b.setAttribute('title',b.textContent);
+      b.addEventListener('click',function(){
+        var raw=c.getAttribute('onclick')||'';
+        var m=/spNavigate\(\s*'([^']+)'\s*\)/.exec(raw);
+        if(m&&typeof window.spNavigate==='function'){window.spNavigate(m[1]);return;}
+        c.click();
+      });
+      inner.appendChild(b);
+    });
+    dock.appendChild(inner);
+    document.body.appendChild(dock);
+    syncTop();
+    return true;
+  }
+  function update(){
+    ticking=false;
+    if(!dock||!grid)return;
+    syncTop();
+    var home=document.getElementById('vw-home');
+    var portal=document.getElementById('sportsPortal');
+    var onHome=!!(home&&home.classList.contains('on'))&&!!(portal&&portal.style.display!=='none');
+    if(!onHome){dock.classList.remove('on');dock.setAttribute('aria-hidden','true');return;}
+    var navBottom=(hdrEl()?hdrEl().getBoundingClientRect().bottom:64)||64;
+    var r=grid.getBoundingClientRect();
+    var show=r.bottom<=navBottom+2&&r.top<navBottom-8;
+    dock.classList.toggle('on',!!show);
+    dock.setAttribute('aria-hidden',show?'false':'true');
+  }
+  function onScroll(){if(ticking)return;ticking=true;requestAnimationFrame(update);}
+  function boot(){
+    if(!build()){
+      var t=setInterval(function(){
+        if(build()||++tries>50){clearInterval(t);update();}
+      },250);
+    }
+    update();
+    window.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',onScroll);
+    document.addEventListener('click',function(){setTimeout(onScroll,300);},true);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
+  window.cssdQuickDockRefresh=update;
+})();
+</script>
 </body>
 </html>
