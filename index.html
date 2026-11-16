@@ -18411,6 +18411,14 @@ html.cssd-light body .hmt-mlink{background:#EAF6F3;border-color:#A9D8CD;color:#1
   body .hmt-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
   body .hmt-stat b{font-size:23px}
 }
+
+body .hmt-stat{transition:border-color .16s ease,background .16s ease,box-shadow .16s ease,transform .16s ease}
+body .hmt-stat,body .hmt-region-chip{cursor:pointer}
+body .hmt-stat:hover{border-color:rgba(120,170,255,.52);transform:translateY(-1px);box-shadow:0 10px 22px rgba(0,0,0,.20)}
+body .hmt-region-chip{transition:filter .16s ease,transform .16s ease}
+body .hmt-region-chip:hover{filter:brightness(1.14);transform:translateY(-1px)}
+body .hmt-stat:focus-visible,body .hmt-region-chip:focus-visible{outline:2px solid #8FB4D9;outline-offset:3px}
+html.cssd-light body .hmt-stat:hover{box-shadow:0 10px 22px rgba(21,50,79,.10)}
 </style>
 <script id="cssd-hmt-directory-js">
 (function(){
@@ -18443,20 +18451,20 @@ html.cssd-light body .hmt-mlink{background:#EAF6F3;border-color:#A9D8CD;color:#1
     var el=document.createElement('div');
     el.className='vw';el.id='vw-hmt';el.setAttribute('data-parent','scholars');
     var stat=[
-      ['<b>'+TOTAL+'</b>','官网直采教师'],
-      ['<b>'+D.units.length+'</b>','覆盖院系（港澳台）'],
-      ['<b>'+HKC+'</b>','中国香港'],
-      ['<b>'+TWC+'</b>','中国台湾']
-    ].map(function(s){return '<div class="hmt-stat">'+s[0]+'<span>'+s[1]+'</span></div>';}).join('');
+      ['<b>'+TOTAL+'</b>','官网直采教师','','reset'],
+      ['<b>'+D.units.length+'</b>','覆盖院系（港澳台）','','units'],
+      ['<b>'+HKC+'</b>','中国香港','HK',''],
+      ['<b>'+TWC+'</b>','中国台湾','TW','']
+    ].map(function(x){return '<div class="hmt-stat" role="button" tabindex="0" data-reg="'+x[2]+'" data-act="'+x[3]+'">'+x[0]+'<span>'+x[1]+'</span></div>';}).join('');
     el.innerHTML='<section class="hmt-page"><div class="hmt-wrap">'+
       '<div class="hmt-hero"><div class="hmt-kicker">GREATER CHINA · OFFICIAL FACULTY DIRECTORY</div>'+
       '<h2 class="hmt-title">港澳台体育学人 · 官网师资名录</h2>'+
       '<p class="hmt-lead">逐条采集自中国香港、中国澳门、中国台湾各高校体育与健康院系<b class="hmt-strong">官方网站教职员页面</b>，收录姓名、职称、研究方向与信源链接；每条记录均可回溯到院系官网原页。作为学者目录下的独立分栏呈现，不并入国内 5,000+ 学者主库统计。</p>'+
       '<div class="hmt-stats">'+stat+'</div>'+
       '<div class="hmt-region-row">'+
-        '<span class="hmt-region-chip r-hk">中国香港 <b>'+HKC+'</b></span>'+
-        '<span class="hmt-region-chip r-mo">中国澳门 <b>'+MOC+'</b>'+(SUPPMO?' · 另 '+SUPPMO+' 条补充':'')+'</span>'+
-        '<span class="hmt-region-chip r-tw">中国台湾 <b>'+TWC+'</b></span>'+
+        '<span class="hmt-region-chip r-hk" role="button" tabindex="0" data-reg="HK">中国香港 <b>'+HKC+'</b></span>'+
+        '<span class="hmt-region-chip r-mo" role="button" tabindex="0" data-reg="MO">中国澳门 <b>'+MOC+'</b></span>'+
+        '<span class="hmt-region-chip r-tw" role="button" tabindex="0" data-reg="TW">中国台湾 <b>'+TWC+'</b></span>'+
       '</div></div>'+
       '<div class="hmt-panel">'+
         '<div class="hmt-tools">'+
@@ -18614,6 +18622,35 @@ html.cssd-light body .hmt-mlink{background:#EAF6F3;border-color:#A9D8CD;color:#1
       ['hmtQ','hmtRegion','hmtUniv','hmtTier'].forEach(function(id){var e=document.getElementById(id);if(e)e.value='';});
       render();
     });
+    var hero=document.querySelector('#vw-hmt .hmt-hero');
+    if(hero){
+      var jump=function(){
+        var panel=document.querySelector('#vw-hmt .hmt-panel');
+        if(!panel||!panel.scrollIntoView)return;
+        try{panel.scrollIntoView({behavior:'smooth',block:'start'});}catch(e){panel.scrollIntoView(true);}
+      };
+      var pick=function(t){
+        var act=t.getAttribute('data-act')||'';
+        if(act==='reset'){
+          ['hmtQ','hmtRegion','hmtUniv','hmtTier'].forEach(function(id){var e=document.getElementById(id);if(e)e.value='';});
+        }else{
+          var rs=document.getElementById('hmtRegion');
+          if(rs)rs.value=t.getAttribute('data-reg')||'';
+        }
+        render();jump();
+      };
+      hero.addEventListener('click',function(e){
+        var t=e.target.closest?e.target.closest('[data-reg]'):null;
+        if(!t||!hero.contains(t))return;
+        pick(t);
+      });
+      hero.addEventListener('keydown',function(e){
+        if(e.key!=='Enter'&&e.key!==' ')return;
+        var t=e.target.closest?e.target.closest('[data-reg]'):null;
+        if(!t||!hero.contains(t))return;
+        e.preventDefault();pick(t);
+      });
+    }
     var list=document.getElementById('hmtList');
     if(list){
       list.addEventListener('click',function(e){
