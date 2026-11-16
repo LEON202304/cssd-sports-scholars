@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>体育学人 · 首页改版样张 V3（首屏 + 科研项目动态）</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2312263A'/%3E%3Cpath d='M16 8.5a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 0 0 0-5.2M16 15.2c-3.4 0-6 2.2-6 5v3.3h12v-3.3c0-2.8-2.6-5-6-5' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --ink:#12263A;
+  --ink2:#435568;
+  --muted:#7A8998;
+  --line:#E4EAF0;
+  --line2:#EEF2F6;
+  --paper:#F6F8FA;
+  --accent:#1A6E5A;
+  --serif:"Noto Serif SC","Songti SC","SimSun",serif;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  --wrap:1200px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+img{display:block}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 32px}
+.tnum{font-variant-numeric:tabular-nums}
+
+/* ---------- 顶栏 ---------- */
+.nav{background:#fff;border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:36px;height:68px;max-width:1340px;margin:0 auto;padding:0 32px}
+.brand{display:flex;align-items:center;gap:11px;flex:0 0 auto}
+.brand-mark{width:32px;height:32px;border-radius:50%;background:var(--ink);display:grid;place-items:center}
+.brand-mark svg{width:19px;height:19px;stroke:#fff;fill:none;stroke-width:1.6}
+.brand-txt strong{display:block;font-size:16px;font-weight:700;letter-spacing:.05em;line-height:1.2}
+.brand-txt span{display:block;font-size:9.5px;letter-spacing:.26em;color:var(--muted);margin-top:3px}
+.nav-links{display:flex;align-items:center;gap:26px;font-size:13.5px;color:var(--ink2);min-width:0;overflow:hidden}
+.nav-links a{white-space:nowrap;padding:7px 0;border-bottom:1px solid transparent;transition:color .15s,border-color .15s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a.on{color:var(--ink);font-weight:600;border-color:var(--ink)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:18px;font-size:13px;color:var(--muted)}
+.nav-right a{display:inline-flex;align-items:center;gap:6px}
+.nav-right svg{width:14px;height:14px;stroke:var(--muted);fill:none;stroke-width:1.6}
+
+/* ---------- 首屏 ---------- */
+.hero{position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url(mountains.5f7d4f16.webp) center 34%/cover no-repeat;opacity:.2;filter:saturate(.25) contrast(.92)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(246,248,250,.62) 0%,rgba(246,248,250,.9) 62%,var(--paper) 100%);pointer-events:none}
+.hero-in{position:relative;z-index:1;padding-top:96px;padding-bottom:84px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:76px;align-items:end}
+.hero-main{text-align:left;min-width:0}
+.eyebrow{font-size:11px;letter-spacing:.28em;color:var(--muted);font-weight:500;text-transform:uppercase;margin:0}
+.hero h1{margin:26px 0 0;font-family:var(--serif);font-weight:700;font-size:58px;line-height:1.12;letter-spacing:.045em}
+.hero-sub{margin:22px 0 0;color:var(--ink2);font-size:15px;letter-spacing:.14em}
+.search-row{margin:40px 0 0;max-width:660px;display:flex;position:relative}
+.search-ico{position:absolute;left:20px;top:50%;transform:translateY(-50%);width:17px;height:17px;stroke:var(--muted);fill:none;stroke-width:1.8;pointer-events:none}
+.search-input{flex:1;height:56px;min-width:0;padding:0 20px 0 50px;border:1px solid var(--line);border-right:0;border-radius:8px 0 0 8px;background:#fff;font-family:inherit;font-size:14.5px;color:var(--ink);outline:none;transition:border-color .18s,box-shadow .18s}
+.search-input::placeholder{color:#9CA8B4}
+.search-input:focus{border-color:#C2CFDA;box-shadow:0 0 0 3px rgba(18,38,58,.05)}
+.search-btn{width:124px;height:56px;border:0;border-radius:0 8px 8px 0;background:var(--accent);color:#fff;font-size:14.5px;font-weight:600;letter-spacing:.14em;cursor:pointer;transition:background .18s;flex:0 0 auto}
+.search-btn:hover{background:#155c4b}
+.topics{margin:26px 0 0;display:flex;flex-wrap:wrap;justify-content:flex-start;gap:9px 22px;font-size:13px;color:var(--muted)}
+.topics b{font-weight:400;color:#98A5B2;letter-spacing:.08em}
+.topics a{color:var(--ink2);padding-bottom:2px;border-bottom:1px solid transparent;transition:color .15s,border-color .15s}
+.topics a:hover{color:var(--accent);border-color:rgba(26,110,90,.34)}
+
+/* 首屏右侧数据索引 */
+.hero-index{border-left:1px solid var(--line);padding-left:34px;min-width:0}
+.index-k{margin:0;font-size:10.5px;letter-spacing:.26em;color:var(--muted);text-transform:uppercase}
+.index-k span{display:block;margin-top:7px;font-size:12px;letter-spacing:.1em;color:var(--ink2);text-transform:none}
+.hero-index ul{list-style:none;margin:16px 0 0;padding:0}
+.hero-index li{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line2)}
+.hero-index li span{font-size:12.5px;color:var(--muted);letter-spacing:.06em}
+.hero-index li b{font-family:var(--serif);font-size:25px;font-weight:600;line-height:1;letter-spacing:.01em;font-variant-numeric:tabular-nums}
+.index-foot{margin:16px 0 0;font-size:11.5px;color:var(--muted);letter-spacing:.08em}
+
+/* ---------- 入口索引 ---------- */
+.index{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
+.index-in{display:grid;grid-template-columns:repeat(4,1fr);column-gap:0;max-width:var(--wrap);margin:0 auto;padding:6px 32px 0}
+.ix{display:flex;align-items:baseline;gap:14px;padding:22px 34px 22px 0;border-bottom:1px solid var(--line2);transition:opacity .16s}
+.ix:nth-last-child(-n+4){border-bottom:0}
+.ix:hover .ix-name{color:var(--accent)}
+.ix-no{font-family:var(--serif);font-size:12px;color:var(--muted);letter-spacing:.1em;flex:0 0 auto}
+.ix-body{min-width:0}
+.ix-name{font-size:15px;font-weight:600;letter-spacing:.03em;transition:color .16s}
+.ix-desc{margin-top:5px;font-size:11.5px;color:var(--muted);line-height:1.5;letter-spacing:.02em}
+
+/* ---------- 科研项目动态 ---------- */
+.sec{padding:92px 0 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:24px}
+.sec-head h2{margin:14px 0 0;font-family:var(--serif);font-size:38px;font-weight:700;letter-spacing:.06em;line-height:1.2}
+.sec-desc{margin:14px 0 0;font-size:14px;color:var(--ink2);line-height:1.75}
+.sec-right{display:flex;flex-direction:column;align-items:flex-end;gap:12px;flex:0 0 auto}
+.tabs{display:flex;align-items:center;gap:30px;flex-wrap:wrap}
+.tab{background:none;border:0;border-bottom:2px solid transparent;padding:0 0 10px;font-size:13.5px;color:var(--muted);cursor:pointer;transition:color .15s,border-color .15s;font-variant-numeric:tabular-nums}
+.tab:hover{color:var(--ink2)}
+.tab.on{color:var(--ink);font-weight:600;border-color:var(--ink)}
+.tab span{color:var(--muted);font-weight:400;margin-left:5px;font-size:12px}
+.stamp{margin:0;font-size:12px;color:var(--muted);letter-spacing:.06em}
+
+.panel{margin-top:34px;background:#fff;border:1px solid var(--line);border-radius:14px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;overflow:hidden;box-shadow:0 2px 10px rgba(18,38,58,.035)}
+.col{padding:32px 30px 26px;border-left:1px solid var(--line2);display:flex;flex-direction:column;min-height:200px}
+.col:first-child{border-left:0}
+.col-k{font-size:12px;font-weight:600;color:var(--ink2);letter-spacing:.14em}
+.col-n{margin-top:18px;display:flex;align-items:baseline;gap:7px}
+.col-n b{font-family:var(--serif);font-size:46px;font-weight:600;line-height:1;letter-spacing:.005em;font-variant-numeric:tabular-nums}
+.col-n i{font-style:normal;font-size:12px;color:var(--muted)}
+.col-s{margin-top:14px;font-size:13px;color:var(--muted);line-height:1.95;font-variant-numeric:tabular-nums}
+.col-a{margin-top:auto;padding-top:20px;font-size:12.5px;color:var(--accent);font-weight:500;letter-spacing:.04em;display:inline-flex;align-items:center;gap:6px}
+.col-a svg{width:12px;height:12px;stroke:var(--accent);fill:none;stroke-width:1.8}
+.col-a:hover{text-decoration:underline;text-underline-offset:4px}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:2px 14px;margin-top:16px}
+.chip{font-size:12.5px;color:var(--ink2);padding:7px 0;border-bottom:1px solid transparent;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:.02em}
+.chip:hover{color:var(--accent);border-color:rgba(26,110,90,.26)}
+
+.entries{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:0 44px}
+.entry{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 2px;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--ink2);transition:color .15s}
+.entry b{font-weight:600;color:var(--ink)}
+.entry:hover{color:var(--accent)}
+.entry svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8;flex:0 0 auto}
+
+/* ---------- 样张说明 ---------- */
+.notes{margin:84px 0 0;padding:32px 0 0;border-top:1px solid var(--line)}
+.notes h3{margin:0 0 18px;font-size:12px;font-weight:600;letter-spacing:.18em;color:var(--ink2)}
+.notes ol{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:14px 44px}
+.notes li{font-size:13px;color:var(--muted);line-height:1.9;display:flex;gap:10px}
+.notes li em{font-style:normal;color:var(--ink2);font-weight:600;flex:0 0 auto}
+.scope{margin:22px 0 0;font-size:12.5px;color:var(--muted);line-height:1.8}
+
+.foot{margin-top:60px;padding:30px 0 40px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);text-align:center;letter-spacing:.06em}
+
+/* ---------- 提示 ---------- */
+.toast{position:fixed;left:50%;bottom:34px;transform:translate(-50%,14px);background:var(--ink);color:#fff;font-size:13px;padding:11px 20px;border-radius:8px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:60;max-width:88vw;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- 响应式 ---------- */
+@media (max-width:1180px){
+  .nav-links{gap:18px;font-size:13px}
+  .hero-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:44px}
+  .hero h1{font-size:50px}
+  .index-in{grid-template-columns:repeat(2,1fr);column-gap:40px}
+  .ix:nth-last-child(-n+4){border-bottom:1px solid var(--line2)}
+  .ix:nth-last-child(-n+2){border-bottom:0}
+  .panel{grid-template-columns:1fr 1fr}
+  .col:nth-child(3){border-left:0}
+  .col{border-top:1px solid var(--line2);min-height:0}
+  .col:nth-child(-n+2){border-top:0}
+}
+@media (max-width:860px){
+  .nav-links{display:none}
+  .nav-in{gap:12px;height:60px;padding:0 20px}
+  .nav-right{font-size:12px;gap:12px}
+  .wrap{padding:0 20px}
+  .hero-in{padding-top:56px;padding-bottom:52px}
+  .hero-grid{grid-template-columns:1fr;gap:34px;align-items:start}
+  .hero h1{font-size:34px;letter-spacing:.03em;margin-top:18px}
+  .hero-sub{font-size:13px;letter-spacing:.06em;margin-top:16px}
+  .search-row{margin-top:28px}
+  .search-input{padding:0 14px 0 44px;font-size:13.5px}
+  .search-btn{width:96px;font-size:13.5px;letter-spacing:.1em}
+  .topics{gap:8px 16px;font-size:12.5px;margin-top:20px}
+  .hero-index{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:26px}
+  .hero-index ul{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;margin-top:14px}
+  .hero-index li{padding:11px 0}
+  .hero-index li b{font-size:22px}
+  .index-in{grid-template-columns:1fr 1fr;column-gap:24px;padding:4px 20px 0}
+  .ix{padding:18px 0;gap:10px}
+  .ix:nth-last-child(-n+2){border-bottom:0}
+  .ix-name{font-size:14px}
+  .sec{padding-top:60px}
+  .sec-head{display:block}
+  .sec-head h2{font-size:26px}
+  .sec-right{align-items:flex-start;margin-top:20px;gap:0}
+  .tabs{gap:16px 20px}
+  .panel{grid-template-columns:1fr;margin-top:26px}
+  .col{border-left:0;border-top:1px solid var(--line2);padding:26px 22px 24px}
+  .col:first-child{border-top:0}
+  .col-n b{font-size:38px}
+  .entries{grid-template-columns:1fr;gap:0}
+  .notes{margin-top:56px}
+  .notes ol{grid-template-columns:1fr}
+  .foot{margin-top:44px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 顶栏 ===== -->
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="https://www.tiyuxueren.com/">
+      <span class="brand-mark"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="3.2"/><path d="M5.5 20v-2.6c0-2.6 2.9-4.6 6.5-4.6s6.5 2 6.5 4.6V20"/></svg></span>
+      <span class="brand-txt"><strong>体育学人</strong><span>SPORTS SCHOLARS</span></span>
+    </a>
+    <div class="nav-links">
+      <a class="on" href="https://www.tiyuxueren.com/">首页</a>
+      <a href="https://www.tiyuxueren.com/#/scholars">学者库</a>
+      <a href="https://www.tiyuxueren.com/#/institutions">院校机构</a>
+      <a href="https://www.tiyuxueren.com/#/journals">期刊数据库</a>
+      <a href="https://www.tiyuxueren.com/#/projects">科研项目</a>
+      <a href="https://www.tiyuxueren.com/#/thinktanks">体育智库</a>
+      <a href="https://www.tiyuxueren.com/#/disciplines">学科分类</a>
+      <a href="https://www.tiyuxueren.com/#/academicnews">学术动态</a>
+      <a href="https://www.tiyuxueren.com/#/confcal">会议日历</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://www.tiyuxueren.com/#/search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></svg>检索</a>
+      <a href="https://www.tiyuxueren.com/#/more">全部导航</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== 首屏 ===== -->
+<header class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-in wrap">
+    <div class="hero-grid">
+      <div class="hero-main">
+        <p class="eyebrow">China Sports Scholars Database / 2026</p>
+        <h1>中国体育学术<br>资源数据库</h1>
+        <p class="hero-sub">发现学者　·　洞见研究　·　连接合作</p>
+        <div class="search-row">
+          <svg class="search-ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></svg>
+          <input id="q" class="search-input" type="search" placeholder="检索学者姓名、院校机构、研究方向、人才称号…">
+          <button id="qbtn" class="search-btn" type="button">检索</button>
+        </div>
+        <p class="topics">
+          <b>研究主题</b>
+          <a href="https://www.tiyuxueren.com/#/classify">青少年体育</a>
+          <a href="https://www.tiyuxueren.com/#/classify">运动心理</a>
+          <a href="https://www.tiyuxueren.com/#/classify">体育教育</a>
+          <a href="https://www.tiyuxueren.com/#/classify">运动训练</a>
+          <a href="https://www.tiyuxueren.com/#/classify">全民健身</a>
+          <a href="https://www.tiyuxueren.com/#/classify">体育产业</a>
+        </p>
+      </div>
+      <aside class="hero-index">
+        <p class="index-k">Database Index<span>数据索引</span></p>
+        <ul>
+          <li><span>收录学者</span><b class="tnum">6,273</b></li>
+          <li><span>覆盖机构</span><b class="tnum">595</b></li>
+          <li><span>收录期刊</span><b class="tnum">164</b></li>
+          <li><span>项目记录</span><b class="tnum">3,164</b></li>
+          <li><span>研究生学科大类</span><b class="tnum">4</b></li>
+          <li><span>本科专业目录</span><b class="tnum">18</b></li>
+        </ul>
+        <p class="index-foot">数据更新 2026-11-16</p>
+      </aside>
+    </div>
+  </div>
+</header>
+
+<!-- ===== 入口索引 ===== -->
+<nav class="index" aria-label="快捷入口">
+  <div class="index-in">
+    <a class="ix" href="https://www.tiyuxueren.com/#/scholars">
+      <span class="ix-no">01</span>
+      <div class="ix-body"><div class="ix-name">学者目录</div><div class="ix-desc">检索与浏览学者信息</div></div>
+    </a>
+    <a class="ix" href="https://www.tiyuxueren.com/#/classify">
+      <span class="ix-no">02</span>
+      <div class="ix-body"><div class="ix-name">学者分类总览</div><div class="ix-desc">按人才计划与领域</div></div>
+    </a>
+    <a class="ix" href="https://www.tiyuxueren.com/#/institutions">
+      <span class="ix-no">03</span>
+      <div class="ix-body"><div class="ix-name">院校机构导航</div><div class="ix-desc">高校与科研院所</div></div>
+    </a>
+    <a class="ix" href="https://www.tiyuxueren.com/#/academicnews">
+      <span class="ix-no">04</span>
+      <div class="ix-body"><div class="ix-name">学术动态</div><div class="ix-desc">会议 · 成果 · 新闻</div></div>
+    </a>
+    <a class="ix" href="https://www.tiyuxueren.com/#/journals">
+      <span class="ix-no">05</span>
+      <div class="ix-body"><div class="ix-name">期刊数据库</div><div class="ix-desc">影响力与投稿</div></div>
+    </a>
+    <a class="ix" href="https://www.tiyuxueren.com/#/projects">
+      <span class="ix-no">06</span>
+      <div class="ix-body"><div class="ix-name">科研项目查询</div><div class="ix-desc">国家级 · 省部级</div></div>
+    </a>
+    <a class="ix" href="https://www.tiyuxueren.com/#/degreepoint">
+      <span class="ix-no">07</span>
+      <div class="ix-body"><div class="ix-name">学位点专栏</div><div class="ix-desc">博士点与硕士点</div></div>
+    </a>
+    <a class="ix" href="https://www.tiyuxueren.com/#/hats">
+      <span class="ix-no">08</span>
+      <div class="ix-body"><div class="ix-name">人才计划</div><div class="ix-desc">院士 · 长江 · 青年</div></div>
+    </a>
+  </div>
+</nav>
+
+<!-- ===== 科研项目动态 ===== -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Funded Research Projects</p>
+        <h2>科研项目动态</h2>
+        <p class="sec-desc">2026 年度国家社科基金与教育部人文社科 · 体育学立项课题透视</p>
+      </div>
+      <div class="sec-right">
+        <div class="tabs" role="tablist">
+          <button class="tab on" type="button" data-tab="nssfc">国家社科基金<span>169</span></button>
+          <button class="tab" type="button" data-tab="moe">教育部人文社科<span>108</span></button>
+          <button class="tab" type="button" data-tab="conf">学术会议<span>50</span></button>
+          <button class="tab" type="button" data-tab="rank">高校立项榜<span>TOP25</span></button>
+        </div>
+        <p class="stamp">数据更新 2026-11-16</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="col" data-col="nssfc">
+        <div class="col-k">国家社科基金 · 体育学</div>
+        <div class="col-n"><b>169</b><i>项</i></div>
+        <div class="col-s">重点 16 · 一般 62 · 青年 68<br>累计 116 家高校获批</div>
+        <a class="col-a" href="https://www.tiyuxueren.com/#/projects">查看统计报告<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="col" data-col="moe">
+        <div class="col-k">教育部人文社科 · 体育学</div>
+        <div class="col-n"><b>108</b><i>项</i></div>
+        <div class="col-s">规划基金 58（53.7%）· 青年 50<br>累计 81 家高校获批</div>
+        <a class="col-a" href="https://www.tiyuxueren.com/#/projects">查看统计报告<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="col" data-col="schools">
+        <div class="col-k">2026 立项领跑院校</div>
+        <div class="chips">
+          <a class="chip" href="https://www.tiyuxueren.com/#/projects">山东体育学院</a>
+          <a class="chip" href="https://www.tiyuxueren.com/#/projects">北京体育大学</a>
+          <a class="chip" href="https://www.tiyuxueren.com/#/projects">上海体育大学</a>
+          <a class="chip" href="https://www.tiyuxueren.com/#/projects">苏州大学</a>
+          <a class="chip" href="https://www.tiyuxueren.com/#/projects">武汉体育学院</a>
+          <a class="chip" href="https://www.tiyuxueren.com/#/projects">南京体育学院</a>
+          <a class="chip" href="https://www.tiyuxueren.com/#/projects">广州体育学院</a>
+          <a class="chip" href="https://www.tiyuxueren.com/#/projects">四川师范大学</a>
+        </div>
+        <a class="col-a" href="https://www.tiyuxueren.com/#/projects">高校立项榜 TOP25<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="col" data-col="themes">
+        <div class="col-k">2026 研究热点</div>
+        <div class="chips">
+          <a class="chip" href="https://www.tiyuxueren.com/#/projects">数智 / AI 赋能</a>
+          <a class="chip" href="https://www.tiyuxueren.com/#/projects">机制 / 路径</a>
+          <a class="chip" href="https://www.tiyuxueren.com/#/projects">运动干预 / 处方</a>
+          <a class="chip" href="https://www.tiyuxueren.com/#/projects">青少年 / 体教</a>
+          <a class="chip" href="https://www.tiyuxueren.com/#/projects">全民健身 / 社区</a>
+          <a class="chip" href="https://www.tiyuxueren.com/#/projects">赛事 / 体育消费</a>
+          <a class="chip" href="https://www.tiyuxueren.com/#/projects">老年 / 银发慢病</a>
+          <a class="chip" href="https://www.tiyuxueren.com/#/projects">传统体育 / 非遗</a>
+        </div>
+        <a class="col-a" href="https://www.tiyuxueren.com/#/projects">全部热点方向<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+
+    <div class="entries">
+      <a class="entry" href="https://www.tiyuxueren.com/#/projects"><span><b>2026 国家社科基金</b> · 169 项立项名单</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="entry" href="https://www.tiyuxueren.com/#/projects"><span><b>2026 教育部人文社科</b> · 108 项立项名单</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <!-- 样张说明 -->
+    <div class="notes">
+      <h3>样张改动说明</h3>
+      <ol>
+        <li><em>①</em>全站收敛为「墨色 + 墨绿」两色，模块色块、彩色图标底与彩色标签全部取消。</li>
+        <li><em>②</em>6 个数字从浮起卡片改为首屏右侧「数据索引」竖列，与标题形成左右不对称构图。</li>
+        <li><em>③</em>8 个快捷入口改为编号索引（01–08），去掉图标底与卡片边框，像目录而不是导航条。</li>
+        <li><em>④</em>科研项目动态的 4 张彩色卡合并为一个 4 栏面板，只用细线分隔；两个立项长列表降为两条入口行。</li>
+      </ol>
+      <p class="scope">本页仅覆盖「首屏 + 科研项目动态」这一屏，数据与线上一致；其余区块未改动。原版对照请查看线上首页。</p>
+    </div>
+  </div>
+</section>
+
+<div class="foot">体育学人 · 中国体育学术资源数据库　｜　首页改版样张（仅供版式比选）</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+  var toastEl = document.getElementById('toast'), timer = null;
+  function toast(msg){
+    if(!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    if(timer) clearTimeout(timer);
+    timer = setTimeout(function(){ toastEl.classList.remove('show'); }, 2400);
+  }
+
+  var btn = document.getElementById('qbtn'), input = document.getElementById('q');
+  if(btn && input){
+    btn.addEventListener('click', function(){
+      var v = (input.value || '').trim();
+      toast(v ? ('样张未接入检索：线上将跳转到「' + v + '」的检索结果') : '样张未接入检索，线上直接进入学者库');
+    });
+    input.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); btn.click(); } });
+  }
+
+  var tabs = document.querySelectorAll('.tab');
+  for(var i=0;i<tabs.length;i++){
+    tabs[i].addEventListener('click', function(){
+      var key = this.getAttribute('data-tab');
+      Array.prototype.forEach.call(tabs, function(t){ t.classList.remove('on'); });
+      this.classList.add('on');
+      var cols = document.querySelectorAll('.col');
+      for(var j=0;j<cols.length;j++){
+        cols[j].style.background = (cols[j].getAttribute('data-col') === key) ? '#FCFDFE' : '#ffffff';
+      }
+      if(key === 'conf') toast('样张仅含立项统计：学术会议 50 场保留为独立入口，待确认是否并入本区块');
+      if(key === 'rank') toast('样张仅含前四栏：高校立项榜 TOP25 在线上为独立弹层');
+    });
+  }
+})();
+</script>
+</body>
+</html>
