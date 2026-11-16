@@ -18712,32 +18712,31 @@ html:not(.cssd-light) #ov .tag.t-srcrole{
 }
 </style>
 
-<!-- ===== 顶部方格栏目吸顶（滚动时固定在上方） ===== -->
+<!-- ===== 顶部方格栏目吸顶（滚动时悬浮固定） ===== -->
 <style id="cssd-quick-dock-style">
-#spQuickDock{position:fixed;left:0;right:0;top:64px;z-index:1090;
-  background:rgba(255,255,255,.95);
-  -webkit-backdrop-filter:blur(18px) saturate(170%);backdrop-filter:blur(18px) saturate(170%);
-  border-bottom:1px solid #E4EBF3;box-shadow:0 10px 26px rgba(21,50,79,.08);
-  transform:translateY(-104%);opacity:0;pointer-events:none;
-  transition:transform .26s cubic-bezier(.22,.61,.36,1),opacity .2s ease;}
-#spQuickDock.on{transform:none;opacity:1;pointer-events:auto}
-#spQuickDock .sqd-in{max-width:1280px;margin:0 auto;padding:9px 24px;display:flex;gap:10px;align-items:stretch;
-  overflow-x:auto;scrollbar-width:none}
+#spQuickDock{position:fixed;left:0;right:0;top:64px;z-index:1090;box-sizing:border-box;
+  background:#FFFFFF;border-bottom:1px solid #E4EAF0;
+  box-shadow:0 10px 22px rgba(21,50,79,.07);
+  transform:translateY(calc(-100% - 2px));opacity:0;pointer-events:none;
+  transition:transform .24s cubic-bezier(.22,.61,.36,1),opacity .18s ease;}
+#spQuickDock.on{transform:translateY(0);opacity:1;pointer-events:auto}
+#spQuickDock .sqd-in{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:2px;
+  padding:5px 20px;overflow-x:auto;scrollbar-width:none}
 #spQuickDock .sqd-in::-webkit-scrollbar{display:none}
-#spQuickDock .sqd-card{flex:1 1 0;min-width:0;height:34px;padding:0 8px;
-  border:0;border-bottom:2px solid transparent;border-radius:0;background:transparent;cursor:pointer;
-  font-family:'PingFang SC','Microsoft YaHei',sans-serif;font-size:13px;font-weight:600;color:#3D5876;
+#spQuickDock .sqd-card{flex:1 1 0;min-width:0;height:32px;padding:0 8px;border:0;border-radius:7px;
+  background:transparent;cursor:pointer;
+  font-family:'PingFang SC','Microsoft YaHei',sans-serif;font-size:12.5px;font-weight:600;color:#3D5876;
   letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-  transition:color .18s,border-color .18s,background .18s;}
-#spQuickDock .sqd-card:hover{color:#12263A;border-bottom-color:#2E9A89;background:rgba(46,154,137,.05)}
-#spQuickDock .sqd-card:focus-visible{outline:2px solid #2E9A89;outline-offset:2px}
+  transition:background .16s,color .16s;}
+#spQuickDock .sqd-card:hover{background:#F1F7F5;color:#1A6E5A}
+#spQuickDock .sqd-card:focus-visible{outline:2px solid #2E9A89;outline-offset:1px}
 @media (max-width:980px){
-  #spQuickDock .sqd-in{padding:7px 14px;gap:2px 6px}
-  #spQuickDock .sqd-card{flex:0 0 auto;font-size:12.5px;height:32px;padding:0 10px}
+  #spQuickDock .sqd-in{gap:0;padding:5px 14px}
+  #spQuickDock .sqd-card{flex:0 0 auto;height:30px;font-size:12px;padding:0 10px}
 }
 @media (max-width:700px){
-  #spQuickDock .sqd-in{flex-wrap:wrap;gap:2px 0;padding:6px 10px}
-  #spQuickDock .sqd-card{flex:1 1 25%;height:30px;font-size:12px;padding:0 2px;text-align:center}
+  #spQuickDock .sqd-in{flex-wrap:wrap;padding:5px 10px}
+  #spQuickDock .sqd-card{flex:1 1 25%;height:29px;font-size:12px;padding:0 2px;text-align:center}
 }
 @media (prefers-reduced-motion:reduce){#spQuickDock{transition:none}}
 </style>
@@ -18745,9 +18744,10 @@ html:not(.cssd-light) #ov .tag.t-srcrole{
 (function(){
   var dock=null,grid=null,ticking=false,tries=0;
   function hdrEl(){return document.querySelector('header.sp-header')||document.querySelector('.nav');}
+  function gap(){return 0;}
   function syncTop(){
     var h=hdrEl();
-    if(h&&dock)dock.style.top=Math.round(h.getBoundingClientRect().bottom)+'px';
+    if(h&&dock)dock.style.top=Math.round(h.getBoundingClientRect().bottom+gap())+'px';
   }
   function build(){
     if(dock)return true;
