@@ -6156,6 +6156,8 @@ html.cssd-light .nb.on{color:#2E9A89!important}
 #vw-home #wechat-section .wx-lead-body p{font-size:14px;line-height:1.75;color:#5B6B80;margin-bottom:12px}
 #vw-home #wechat-section .wx-meta{display:flex;justify-content:flex-start;align-items:center;font-size:13px;color:#5B6B80;gap:10px}
 #vw-home #wechat-section .wx-tag{display:inline-block;font-size:12px;font-weight:600;color:#1E8A6D;background:rgba(30,138,109,.09);border-radius:5px;padding:2px 8px;margin-right:8px;vertical-align:1px}
+/* 阅读/点赞：有数据才出现，右对齐轻灰小字 */
+#vw-home #wechat-section .wx-stat{margin-left:auto;padding-left:10px;color:#94A3B8;font-size:12px;font-weight:500;white-space:nowrap;font-variant-numeric:tabular-nums}
 /* 中卡：两篇并排 */
 #vw-home #wechat-section .wx-duo{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px;padding-top:24px;border-top:1px solid #E6EEF7}
 #vw-home #wechat-section .wx-mid{
@@ -6465,6 +6467,26 @@ html.cssd-light .nb.on{color:#2E9A89!important}
       if(!m) return esc(d);
       return `${+m[2]}月${+m[3]}日`;
     }
+    // 阅读/点赞数：支持手工填数字或直接填「1.2万」这类文本；无值返回空串，界面不留空位
+    function fmtNum(n){
+      if(n==null||n==='') return '';
+      if(typeof n==='string'){
+        n=n.trim();
+        if(!n) return '';
+        if(/[万wW+]/.test(n)) return n;
+        n=Number(n.replace(/[^\d.]/g,''));
+      }
+      if(!isFinite(n)||n<=0) return '';
+      if(n>=100000) return '10万+';
+      if(n>=10000) return (Math.round(n/1000)/10).toString().replace(/\.0$/,'')+'万';
+      return String(Math.round(n));
+    }
+    function statHtml(a){
+      const r=fmtNum(a.read), l=fmtNum(a.like);
+      if(!r&&!l) return '';
+      const t=[r?r+'阅读':'', l?l+'赞':''].filter(Boolean).join(' · ');
+      return `<span class="wx-stat">${esc(t)}</span>`;
+    }
 
     function build(data){
       const all=data.articles||[];
@@ -6484,7 +6506,7 @@ html.cssd-light .nb.on{color:#2E9A89!important}
             <span class="wx-hot">头条</span>
             <h3>${esc(lead.title)}</h3>
             <p>${esc(lead.summary)}</p>
-            <div class="wx-meta"><span class="wx-tag">${esc(lead.column)}</span><span>${fmtDate(lead.date)}</span><span>·</span><span>体育学人公众号</span></div>
+            <div class="wx-meta"><span class="wx-tag">${esc(lead.column)}</span><span>${fmtDate(lead.date)}</span><span>·</span><span>体育学人公众号</span>${statHtml(lead)}</div>
           </div>
         </a>`;
       }
@@ -6498,7 +6520,7 @@ html.cssd-light .nb.on{color:#2E9A89!important}
             <div class="wx-mid-media">${cover}</div>
             <div class="wx-mid-body">
               <h3>${esc(a.title)}</h3>
-              <div class="wx-meta"><span class="wx-tag">${esc(a.column)}</span><span>${fmtDate(a.date)}</span></div>
+              <div class="wx-meta"><span class="wx-tag">${esc(a.column)}</span><span>${fmtDate(a.date)}</span>${statHtml(a)}</div>
             </div>
           </a>`;
         }).join('')+'</div>';
@@ -6512,7 +6534,7 @@ html.cssd-light .nb.on{color:#2E9A89!important}
             <div class="wx-item-thumb">${cover}</div>
             <div class="wx-item-body">
               <h4>${esc(a.title)}</h4>
-              <div class="wx-meta"><span>${esc(a.column)}</span><span>·</span><span>${fmtDate(a.date)}</span></div>
+              <div class="wx-meta"><span>${esc(a.column)}</span><span>·</span><span>${fmtDate(a.date)}</span>${statHtml(a)}</div>
             </div>
           </a>`;
         }).join('')+'</div>';
