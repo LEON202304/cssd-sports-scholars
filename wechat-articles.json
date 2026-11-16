@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-13",
   "account": {
     "name": "体育学人",
     "displayName": "体育学人前沿",
@@ -17,6 +17,16 @@
     "竞争格局"
   ],
   "articles": [
+    {
+      "id": "wx-20261113-maozhenming-story",
+      "title": "毛振明：他把体育课还给了每一个孩子",
+      "summary": "北京师范大学体育与运动学院首任院长、全国学校体育联盟（教学改革）主席毛振明：从体育中考、全员运动会到体育走班制，把“每个孩子都上场”做进三千余所学校的课表。",
+      "cover": "assets/wechat/wx-20261113-maozhenming-story.jpg",
+      "url": "https://mp.weixin.qq.com/s/ic5fHJQ3vg4eUGSVwZ1Whw",
+      "date": "2026-11-13",
+      "column": "人物志",
+      "featured": true
+    },
     {
       "id": "wx-20261101-luyuanzhen-story",
       "title": "卢元镇：他追问了半世纪体育是什么",
@@ -95,7 +105,7 @@
       "url": "https://mp.weixin.qq.com/s/zr1moM-ZGTWFqhLR7ybfcw",
       "date": "2026-10-20",
       "column": "人物志",
-      "featured": true
+      "featured": false
     },
     {
       "id": "wx-20261019-moe108",

@@ -6172,6 +6172,9 @@ html.cssd-light .nb.on{color:#2E9A89!important}
 #vw-home #wechat-section .wx-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:28px;margin-top:20px}
 #vw-home #wechat-section .wx-item{display:flex;gap:14px;align-items:center;padding:15px 0;border-bottom:1px solid #F0F5FB;text-decoration:none;color:inherit;min-width:0;min-height:94px}
 #vw-home #wechat-section .wx-item:nth-last-child(-n+2){border-bottom:none}
+/* 条目为奇数时最后一条占满整行，避免单格悬空 */
+#vw-home #wechat-section .wx-item:last-child:nth-child(odd){grid-column:1/-1}
+#vw-home #wechat-section .wx-grid:has(.wx-item:last-child:nth-child(odd)) .wx-item:nth-last-child(2){border-bottom:1px solid #F0F5FB}
 #vw-home #wechat-section .wx-item-thumb{width:108px;height:64px;border-radius:8px;flex:none;overflow:hidden;background:#F4F7FB;border:1px solid #EEF3F9;display:flex;align-items:center;justify-content:center}
 #vw-home #wechat-section .wx-item-thumb img{width:100%;height:100%;object-fit:contain;display:block}
 #vw-home #wechat-section .wx-item-body{flex:1;min-width:0}
