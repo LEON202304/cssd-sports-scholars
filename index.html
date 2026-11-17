@@ -18270,6 +18270,13 @@ html.cssd-light body .hmt-unit-note{color:#5A6575}
 body .hmt-empty{padding:26px;text-align:center;color:rgba(226,238,255,.62);border:1px dashed rgba(255,255,255,.14);border-radius:12px}
 body .hmt-note{margin-top:16px;color:rgba(226,238,255,.58);font-size:12px;line-height:1.85}
 body .hmt-note b{color:#cfe9ff}
+body .hmt-note-d>summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px}
+body .hmt-note-d>summary::-webkit-details-marker{display:none}
+body .hmt-note-tg{font:700 11px/1.6 'DM Mono',monospace;letter-spacing:.04em;color:#2E9A89;border-bottom:1px dashed rgba(46,154,137,.55);white-space:nowrap}
+body .hmt-note-tg::after{content:"展开全文"}
+body .hmt-note-d[open] .hmt-note-tg::after{content:"收起"}
+body .hmt-note-d>summary:hover .hmt-note-tg{color:#1E8A6D;border-bottom-color:#1E8A6D}
+body .hmt-note-full{margin:10px 0 0}
 body .hmt-supp{margin-top:16px;border:1px solid rgba(224,165,51,.30);background:rgba(224,165,51,.055);border-radius:14px;padding:14px 18px}
 body .hmt-supp summary{cursor:pointer;font-weight:900;color:#ffd894;font-size:13.5px;outline:none}
 body .hmt-supp summary::-webkit-details-marker{display:none}
@@ -18492,7 +18499,8 @@ html.cssd-light body .hmt-stat:hover{box-shadow:0 10px 22px rgba(21,50,79,.10)}
         '<div class="hmt-meta"><span id="hmtInfo"></span><button class="hmt-reset" id="hmtReset" type="button">重置筛选</button></div>'+
         '<div class="hmt-list" id="hmtList"></div>'+
         '<div class="hmt-supp" id="hmtSupp"></div>'+
-        '<div class="hmt-note"><b>口径说明：</b>A 级＝院系官网教职员页面逐页采集（姓名、职称、方向均照录官网，中文名保留繁体原文）；B 级＝官网动态站/不可直连院校的公开检索补充，未经官网逐页核验，仅供参考。港校英文名为主、台校中文名为主；澳门以澳理大健康科学及体育学院师资页与澳大教育学院人员页为直采来源，澳门科技大学、澳门城市大学等校未设独立体育院系（体育师资分散于通识/大健康学院），暂未列入。国立台湾体育运动大学九系已按各系师资页逐一收录（含专业技术人员；兼任与名誉教授不计）。台中教育大学体育学系官网当前返回 502 无法直连；香港岭南大学运动教练学课程仅设课程主任、未单列体育师资页，都会大学（Cloudflare 拦截）、恒生大学（未设独立体育院系）暂未列入，均待下轮补录。名录持续更新，发现错漏可来信指正。</div>'+
+        '<div class="hmt-note"><details class="hmt-note-d"><summary><b>口径说明</b><span class="hmt-note-sum">A 级＝院系官网逐页采集，B 级＝公开检索补充，仅供参考。</span><span class="hmt-note-tg"></span></summary>'+
+        '<p class="hmt-note-full">A 级＝院系官网教职员页面逐页采集（姓名、职称、方向均照录官网，中文名保留繁体原文）；B 级＝官网动态站/不可直连院校的公开检索补充，未经官网逐页核验，仅供参考。港校英文名为主、台校中文名为主；澳门以澳理大健康科学及体育学院师资页与澳大教育学院人员页为直采来源，澳门科技大学、澳门城市大学等校未设独立体育院系（体育师资分散于通识/大健康学院），暂未列入。国立台湾体育运动大学九系已按各系师资页逐一收录（含专业技术人员；兼任与名誉教授不计）。台中教育大学体育学系官网当前返回 502 无法直连；香港岭南大学运动教练学课程仅设课程主任、未单列体育师资页，都会大学（Cloudflare 拦截）、恒生大学（未设独立体育院系）暂未列入，均待下轮补录。名录持续更新，发现错漏可来信指正。</p></details></div>'+
       '</div></div></section>'+
       '<div class="hmt-mask" id="hmtMask" aria-hidden="true"><div class="hmt-mbox" id="hmtMbox" role="dialog" aria-modal="true" aria-label="教师详情"></div></div>';
     document.body.appendChild(el);
@@ -18587,7 +18595,7 @@ html.cssd-light body .hmt-stat:hover{box-shadow:0 10px 22px rgba(21,50,79,.10)}
       }else{
         people='<div class="hmt-people">'+ps.map(rowHtml).join('')+'</div>';
       }
-      var noteTxt=(u.n||'').split('人像取自同页原图并统一裁切为 4:5，版权归各校院系，此处仅作学术名录索引。').join('').trim();
+      var noteTxt=(u.n||'').split('人像取自同页原图并统一裁切为 4:5，版权归各校院系，此处仅作学术名录索引。').join('').replace(/人像版权归[^。]{0,40}，此处仅作学术名录索引与引用。?/g,'').trim();
       var noteHtml=(noteTxt&&noteTxt.length>8&&noteTxt.indexOf('去重')<0&&noteTxt.indexOf('重复')<0)?'<p class="hmt-unit-note">'+esc(noteTxt)+'</p>':'';
       parts.push('<article class="hmt-unit"><div class="hmt-unit-hd"><div><h3>'+esc(u.u)+
         '<span class="hmt-badge '+ru[1]+'">'+ru[0]+'</span></h3><p>'+esc(u.d)+'</p>'+noteHtml+'</div>'+
