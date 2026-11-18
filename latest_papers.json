@@ -10,6 +10,15 @@
   },
   {
     "journal": "Journal of Sport and Health Science",
+    "title": "Human development and gender inequality are associated with cardiorespiratory fitness: A global systematic review of V̇O2peak",
+    "authors": "Nicolas J. Pillon, Joaquin Ortiz de Zevallos, Juleen R. Zierath, Barbara E. Ainsworth",
+    "link": "https://doi.org/10.1016/j.jshs.2025.101098",
+    "date": "2026-12",
+    "journalZh": "《运动与健康科学》",
+    "titleZh": "人类发展与性别不平等与心肺健康的关系：一项关于V̇O2峰值的全球系统性综述"
+  },
+  {
+    "journal": "Journal of Sport and Health Science",
     "title": "Combined strength and aerobic training vs. aerobic training alone in patients with heart failure: A systematic review and meta-analysis",
     "authors": "Tasuku Terada, Tim Kambic, Takumi Noda, Genki Kai, Rod S. Taylor, Jennifer L. Reed, Kentaro Kamiya",
     "link": "https://doi.org/10.1016/j.jshs.2026.101136",
@@ -18,13 +27,31 @@
     "titleZh": "心力衰竭患者的力量和有氧综合训练与单独有氧训练：系统评价和荟萃分析"
   },
   {
-    "journal": "Journal of Sport and Health Science",
-    "title": "Human development and gender inequality are associated with cardiorespiratory fitness: A global systematic review of V̇O2peak",
-    "authors": "Nicolas J. Pillon, Joaquin Ortiz de Zevallos, Juleen R. Zierath, Barbara E. Ainsworth",
-    "link": "https://doi.org/10.1016/j.jshs.2025.101098",
-    "date": "2026-12",
-    "journalZh": "《运动与健康科学》",
-    "titleZh": "人类发展与性别不平等与心肺健康的关系：一项关于V̇O2峰值的全球系统性综述"
+    "journal": "Sports Medicine",
+    "title": "Individualized Amplitude–Time Models of Post-activation Performance Enhancement Using the Velocity-Loss Method in Trained Populations: A Systematic Review and Individual Participant Data Meta-analysis",
+    "authors": "Jun Li, Kai Xu, Yuming Zhong, Mingyue Yin, Fanhao Meng, Yuhang Liu, Hengzhi Deng, Mingyang Zhang, Michal Krzysztofik, Han Wu, Zihang Yuan, Lifu Cheng, Chenfu Huang, Rafael Peixoto, Violeta Muñoz de la Cruz, Fernando González-Mohíno, Anthony J. Blazevich, Olivier Girard",
+    "link": "https://doi.org/10.1007/s40279-026-02569-3",
+    "date": "2026-11-18",
+    "journalZh": "《运动医学》",
+    "titleZh": "使用速度损失法对训练人群进行个体化振幅–时间模型研究，以实现激活后表现增强：系统综述和个体参与者数据荟萃分析"
+  },
+  {
+    "journal": "Sports Medicine",
+    "title": "3D Biomechanics of Anterior Cruciate Ligament Injuries in Football: What We Have Learned in the Last Five Years",
+    "authors": "Matteo Zago, Francesco Della Villa",
+    "link": "https://doi.org/10.1007/s40279-026-02582-6",
+    "date": "2026-11-18",
+    "journalZh": "《运动医学》",
+    "titleZh": "足球运动中前交叉韧带损伤的3D生物力学：我们在过去五年中学到的知识"
+  },
+  {
+    "journal": "Medicine & Science in Sports & Exercise",
+    "title": "Neural Profiles of Pistol Shooting Performance Across Skill Levels in Hearing and Deaf Shooters: Insights into Cognitive–Motor Processes",
+    "authors": "Ting-Yu Chueh, Jia-Hao Wu, Tsung-Min Hung, Bradley D. Hatfield",
+    "link": "https://doi.org/10.1249/mss.0000000000004214",
+    "date": "2026-11-17",
+    "journalZh": "《运动医学与科学》",
+    "titleZh": "听力正常和失聪射手在不同技能水平上的手枪射击表现的神经特征：对认知-运动过程的洞察"
   },
   {
     "journal": "Medicine & Science in Sports & Exercise",
@@ -54,15 +81,6 @@
     "titleZh": "前交叉韧带重建术后反应时间缺陷表现出的神经认知改变：一项观察性研究的系统综述和荟萃分析"
   },
   {
-    "journal": "Medicine & Science in Sports & Exercise",
-    "title": "Effect Of Joint-Angle Configuration on Hamstring Torque-Duration Relationship Parameters and the Etiology of Motor Performance Fatigue",
-    "authors": "Baptiste Corcelle, Gregory M. Blain, Pierre Demeusoy, Enzo Piponnier",
-    "link": "https://doi.org/10.1249/mss.0000000000004206",
-    "date": "2026-11-16",
-    "journalZh": "《运动医学与科学》",
-    "titleZh": "关节角度配置对腘绳肌扭矩-持续时间关系参数的影响以及运动表现疲劳的病因"
-  },
-  {
     "journal": "Journal of Sports Sciences",
     "title": "Agreement between and test–retest reliability within Theia3D markerless and Vicon marker-based three-dimensional motion capture systems during barbell back squats in trained lifters",
     "authors": "Christian Houmann Amdi, Anja Zoellner, Danielle Yang, Chris Whatman, Eric R. Helms, Alyssa-Joy Spence",
@@ -70,24 +88,6 @@
     "date": "2026-11-16",
     "journalZh": "《体育科学杂志》",
     "titleZh": "训练有素的举重运动员进行杠铃深蹲时，Theia3D无标记系统与Vicon有标记三维动作捕捉系统之间的一致性以及各自的重测信度"
-  },
-  {
-    "journal": "Sports Medicine",
-    "title": "Increasing Efficiency in Resistance Training? Exploring a Minimalistic Approach in Supramaximal Accentuated Eccentric Loading: A Narrative Review",
-    "authors": "Christian Burger, Josef Colana Ayvar, Markus Tilp, Andreas Konrad",
-    "link": "https://doi.org/10.1007/s40279-026-02578-2",
-    "date": "2026-11-14",
-    "journalZh": "《运动医学》",
-    "titleZh": "如何提高阻力训练的效率？探索超大负荷强化离心负荷的简约方法：综述性文献综述"
-  },
-  {
-    "journal": "Sports Medicine",
-    "title": "An Intrapersonal Network Approach to Acute Symptom Dynamics After Sport-Related Concussion",
-    "authors": "Eric O. Ingram, Marwin Carmo, Philippe Rast, Lisa Manderino, Justin E. Karr",
-    "link": "https://doi.org/10.1007/s40279-026-02583-5",
-    "date": "2026-11-14",
-    "journalZh": "《运动医学》",
-    "titleZh": "运动性脑震荡后急性症状动态的个体内部网络方法"
   },
   {
     "journal": "Journal of Sports Sciences",
