@@ -18586,7 +18586,7 @@ html.cssd-light body .hmt-stat:hover{box-shadow:0 10px 22px rgba(21,50,79,.10)}
           var head=g?'<div class="hmt-grp"><span>'+esc(g)+'</span><i>'+gp.length+' 位</i></div>':'';
           var wph=gp.filter(function(p){return p.ph;}), nph=gp.filter(function(p){return !p.ph;});
           var gridHtml=wph.length?'<div class="hmt-cards">'+wph.map(cardHtml).join('')+'</div>':'';
-          var minorHtml=nph.length?'<div class="hmt-minor"><span class="hmt-minor-lead">未配官网人像 '+nph.length+' 位</span>'+nph.map(function(p){
+          var minorHtml=nph.length?'<div class="hmt-minor"><span class="hmt-minor-lead">官网无可用人像 '+nph.length+' 位</span>'+nph.map(function(p){
             return '<span class="hmt-mn" data-u="'+p.__u+'" data-i="'+p.__i+'" role="button" tabindex="0" aria-label="查看 '+esc(p.n)+' 详情"><b>'+esc(p.n)+'</b>'+
               (p.e&&p.e!==p.n?'<i>'+esc(p.e)+'</i>':'')+(p.t?'<em>'+esc(p.t)+'</em>':'')+'</span>';
           }).join('')+'</div>':'';
