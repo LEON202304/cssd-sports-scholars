@@ -10,21 +10,21 @@
   },
   {
     "journal": "Journal of Sport and Health Science",
-    "title": "Human development and gender inequality are associated with cardiorespiratory fitness: A global systematic review of V̇O2peak",
-    "authors": "Nicolas J. Pillon, Joaquin Ortiz de Zevallos, Juleen R. Zierath, Barbara E. Ainsworth",
-    "link": "https://doi.org/10.1016/j.jshs.2025.101098",
-    "date": "2026-12",
-    "journalZh": "《运动与健康科学》",
-    "titleZh": "人类发展与性别不平等与心肺健康的关系：一项关于V̇O2峰值的全球系统性综述"
-  },
-  {
-    "journal": "Journal of Sport and Health Science",
     "title": "Combined strength and aerobic training vs. aerobic training alone in patients with heart failure: A systematic review and meta-analysis",
     "authors": "Tasuku Terada, Tim Kambic, Takumi Noda, Genki Kai, Rod S. Taylor, Jennifer L. Reed, Kentaro Kamiya",
     "link": "https://doi.org/10.1016/j.jshs.2026.101136",
     "date": "2026-12",
     "journalZh": "《运动与健康科学》",
     "titleZh": "心力衰竭患者的力量和有氧综合训练与单独有氧训练：系统评价和荟萃分析"
+  },
+  {
+    "journal": "Journal of Sport and Health Science",
+    "title": "Human development and gender inequality are associated with cardiorespiratory fitness: A global systematic review of V̇O2peak",
+    "authors": "Nicolas J. Pillon, Joaquin Ortiz de Zevallos, Juleen R. Zierath, Barbara E. Ainsworth",
+    "link": "https://doi.org/10.1016/j.jshs.2025.101098",
+    "date": "2026-12",
+    "journalZh": "《运动与健康科学》",
+    "titleZh": "人类发展与性别不平等与心肺健康的关系：一项关于V̇O2峰值的全球系统性综述"
   },
   {
     "journal": "Medicine & Science in Sports & Exercise",
@@ -52,6 +52,15 @@
     "date": "2026-11-16",
     "journalZh": "《运动医学》",
     "titleZh": "前交叉韧带重建术后反应时间缺陷表现出的神经认知改变：一项观察性研究的系统综述和荟萃分析"
+  },
+  {
+    "journal": "Medicine & Science in Sports & Exercise",
+    "title": "Effect Of Joint-Angle Configuration on Hamstring Torque-Duration Relationship Parameters and the Etiology of Motor Performance Fatigue",
+    "authors": "Baptiste Corcelle, Gregory M. Blain, Pierre Demeusoy, Enzo Piponnier",
+    "link": "https://doi.org/10.1249/mss.0000000000004206",
+    "date": "2026-11-16",
+    "journalZh": "《运动医学与科学》",
+    "titleZh": "关节角度配置对腘绳肌扭矩-持续时间关系参数的影响以及运动表现疲劳的病因"
   },
   {
     "journal": "Journal of Sports Sciences",
@@ -97,15 +106,6 @@
     "date": "2026-11-14",
     "journalZh": "《体育科学杂志》",
     "titleZh": "不同方法在力量训练中预测接近力竭的准确性"
-  },
-  {
-    "journal": "Medicine & Science in Sports & Exercise",
-    "title": "A Comparison of Different Models to Compute Cardiac Output by Open-Circuit Inert Gas Wash-In",
-    "authors": "Robin Faricier, Daniel W. Gregory, Daniel A. Keir",
-    "link": "https://doi.org/10.1249/mss.0000000000004209",
-    "date": "2026-11-13",
-    "journalZh": "《运动医学与科学》",
-    "titleZh": "通过开放式惰性气体吸入计算心输出量的不同模型比较"
   },
   {
     "journal": "British Journal of Sports Medicine",
