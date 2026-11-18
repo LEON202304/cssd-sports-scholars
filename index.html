@@ -11108,6 +11108,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
     if(info)info.innerHTML='当前显示 <b>'+rows.length+'</b> / '+DATA.length+' 位海外华人学者 · 已补充 <b>'+DATA.filter(function(d){return d.url;}).length+'</b> 条官方主页/官方目录链接';
     if(!rows.length){list.innerHTML='<div class="ov-empty">没有匹配的学者，请调整关键词或筛选条件。</div>';return;}
     list.innerHTML=rows.map(function(d){
+      var ph=d.ph||(window.CSSD_OV_PH||{})[d.id]||'';
       var cc=credClass(d.cred),bucket=fieldBucket(d.field),st=String(d.url_status||'').toLowerCase(),hasUrl=!!d.url;
       var linkable=hasUrl&&st!=='dead';
       var pending=st==='blocked'||st==='unknown';
@@ -11126,7 +11127,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
         btn='<span class="ov-profile-btn muted">主页待补</span>';
         note='<div class="ov-link-note">'+esc(d.urlNote||'官方主页待补')+'</div>';
       }
-      return '<article class="ov-card '+(linkable?'has-profile':'')+'"><div>'+(d.ph?'<figure class="ov-face"><img src="'+esc(d.ph)+'" alt="'+esc(d.cn)+' 官网人像" loading="lazy"><figcaption>官网人像 · 4:5</figcaption></figure>':'')+'<div class="ov-name">'+name+'<small>'+esc(d.en)+' · '+esc(d.id)+'</small></div><div class="ov-role">'+esc(d.title)+'</div></div>'+
+      return '<article class="ov-card '+(linkable?'has-profile':'')+'"><div>'+(ph?'<figure class="ov-face"><img src="'+esc(ph)+'" alt="'+esc(d.cn)+' 官网人像" loading="lazy"><figcaption>官网人像 · 4:5</figcaption></figure>':'')+'<div class="ov-name">'+name+'<small>'+esc(d.en)+' · '+esc(d.id)+'</small></div><div class="ov-role">'+esc(d.title)+'</div></div>'+
         '<div class="ov-main"><div class="ov-univ">'+esc(d.univ)+'</div><div class="ov-text">'+esc(d.role)+'</div><div class="ov-bio"><b>简介：</b>'+esc(d.bio||'暂未补充简介，后续需结合官方主页继续核验。')+'</div><div class="ov-tags"><span class="ov-tag">'+esc(bucket)+'</span><span class="ov-tag">'+esc(d.field)+'</span></div></div>'+
         '<div class="ov-source"><div class="ov-cred-row"><span class="ov-cred '+cc+'">'+esc(String(d.cred).charAt(0))+'</span><span class="ov-cred-label">'+esc(d.cred)+'</span></div><div class="ov-src-line">信源：'+esc(d.source)+'</div><div class="ov-actions">'+btn+'</div>'+note+'</div></article>';
     }).join('');
@@ -11151,6 +11152,30 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
 
 <script id="cssd-v46-48-final-version-lock-js">
 /* v4.6-53: 彻底禁用此脚本。原逻辑每80ms用TreeWalker遍历整个DOM持续45秒，是性能杀手 */
+</script>
+
+<script id="cssd-ov-photos-js">
+/* 海外学者官网页人像映射：photo 由各人官方主页头像抓取、4:5 裁切压缩后入库 */
+window.CSSD_OV_PH={
+    "A003":"assets/overseas/a003_zhang.jpg", "A004":"assets/overseas/a004_wang.jpg", "A008":"assets/overseas/a008_chen.jpg", "A010":"assets/overseas/bo_shen.jpg",
+    "A012":"assets/overseas/a012_zhang.jpg", "A018":"assets/overseas/a018_guan.jpg", "A019":"assets/overseas/a019_zhang.jpg", "A033":"assets/overseas/a033_chen.jpg",
+    "A034":"assets/overseas/a034_xiang.jpg", "A037":"assets/overseas/a037_chen.jpg", "A039":"assets/overseas/a039_wang.jpg", "A040":"assets/overseas/a040_chen.jpg",
+    "A042":"assets/overseas/a042_li.jpg", "A043":"assets/overseas/a043_zhu.jpg", "A046":"assets/overseas/a046_guan.jpg", "A047":"assets/overseas/a047_wang.jpg",
+    "A048":"assets/overseas/a048_ji.jpg", "A049":"assets/overseas/a049_yan.jpg", "A052":"assets/overseas/a052_lai.jpg", "A056":"assets/overseas/a056_he.jpg",
+    "A058":"assets/overseas/a058_zhou.jpg", "A059":"assets/overseas/a059_hu.jpg", "A060":"assets/overseas/a060_zheng.jpg", "A061":"assets/overseas/a061_yin.jpg",
+    "A062":"assets/overseas/a062_zhu.jpg", "A067":"assets/overseas/a067_zhang.jpg", "A068":"assets/overseas/a068_zhang.jpg", "A069":"assets/overseas/a069_wang.jpg",
+    "A070":"assets/overseas/a070_li.jpg", "A076":"assets/overseas/a076_wong.jpg", "A078":"assets/overseas/a078_yang.jpg", "A079":"assets/overseas/a079_zhang.jpg",
+    "A080":"assets/overseas/a080_wang.jpg", "A081":"assets/overseas/a081_shum.jpg", "A082":"assets/overseas/a082_chen.jpg", "A083":"assets/overseas/a083_peng.jpg",
+    "A087":"assets/overseas/a087_guan.jpg", "A089":"assets/overseas/a089_pang.jpg", "A092":"assets/overseas/a092_lu.jpg", "A096":"assets/overseas/a096_wong.jpg",
+    "A098":"assets/overseas/a098_han.jpg", "A102":"assets/overseas/a102_li.jpg", "A106":"assets/overseas/a106_chen.jpg", "A107":"assets/overseas/a107_wang.jpg",
+    "A108":"assets/overseas/a108_wang.jpg", "A109":"assets/overseas/a109_liu.jpg", "A110":"assets/overseas/a110_chou.jpg", "A112":"assets/overseas/a112_zhang.jpg",
+    "A113":"assets/overseas/a113_sun.jpg", "A114":"assets/overseas/a114_chen.jpg", "A115":"assets/overseas/a115_wu.jpg", "A117":"assets/overseas/a117_kao.jpg",
+    "A120":"assets/overseas/a120_li.jpg", "A121":"assets/overseas/a121_liu.jpg", "A125":"assets/overseas/a125_wu.jpg", "A126":"assets/overseas/a126_liu.jpg",
+    "A127":"assets/overseas/a127_wu.jpg", "A129":"assets/overseas/a129_pan.jpg", "A130":"assets/overseas/a130_jin.jpg", "A133":"assets/overseas/a133_xing.jpg",
+    "A134":"assets/overseas/a134_jiang.jpg", "A136":"assets/overseas/a136_xu.jpg", "A137":"assets/overseas/a137_chen.jpg", "A138":"assets/overseas/a138_gao.jpg",
+    "A140":"assets/overseas/a140_chen.jpg", "A142":"assets/overseas/a142_chen.jpg", "A143":"assets/overseas/a143_wang.jpg", "A144":"assets/overseas/a144_ge.jpg",
+    "A145":"assets/overseas/a145_kao.jpg", "A146":"assets/overseas/a146_li.jpg", "A148":"assets/overseas/a148_yu.jpg"
+};
 </script>
 
 <!-- CSSD v4.6-49 overseas candidates from screenshots -->
@@ -11355,6 +11380,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
     if(info)info.innerHTML='当前显示 <b>'+rows.length+'</b> / '+DATA.length+' 位海外华人学者 · 可用上方搜索/高校/方向/可信度筛选（名单变长后勿一屏硬翻）';
     if(!rows.length){list.innerHTML='<div class="ov-empty">没有匹配的学者，请调整关键词或筛选条件。</div>';return;}
     list.innerHTML=rows.map(function(d){
+      var ph=d.ph||(window.CSSD_OV_PH||{})[d.id]||'';
       var cc=credClass(d.cred),bucket=fieldBucket(d.field),st=String(d.url_status||'').toLowerCase(),hasUrl=!!d.url;
       var linkable=hasUrl&&st!=='dead';
       var pending=st==='blocked'||st==='unknown';
@@ -11373,7 +11399,7 @@ body.cssd-v46-48 .ov-card.has-profile .ov-name a:hover{color:#5FB8AA}
         btn='<span class="ov-profile-btn muted">主页待补</span>';
         note='<div class="ov-link-note">'+esc(d.urlNote||'官方主页待补')+'</div>';
       }
-      return '<article class="ov-card '+(linkable?'has-profile':'')+'"><div>'+(d.ph?'<figure class="ov-face"><img src="'+esc(d.ph)+'" alt="'+esc(d.cn)+' 官网人像" loading="lazy"><figcaption>官网人像 · 4:5</figcaption></figure>':'')+'<div class="ov-name">'+name+'<small>'+esc(d.en)+' · '+esc(d.id)+'</small></div><div class="ov-role">'+esc(d.title)+'</div></div>'+
+      return '<article class="ov-card '+(linkable?'has-profile':'')+'"><div>'+(ph?'<figure class="ov-face"><img src="'+esc(ph)+'" alt="'+esc(d.cn)+' 官网人像" loading="lazy"><figcaption>官网人像 · 4:5</figcaption></figure>':'')+'<div class="ov-name">'+name+'<small>'+esc(d.en)+' · '+esc(d.id)+'</small></div><div class="ov-role">'+esc(d.title)+'</div></div>'+
         '<div class="ov-main"><div class="ov-univ">'+esc(d.univ)+'</div><div class="ov-text">'+esc(d.role)+'</div><div class="ov-bio"><b>简介：</b>'+esc(d.bio||'暂未补充简介，后续需结合官方主页继续核验。')+'</div><div class="ov-tags"><span class="ov-tag">'+esc(bucket)+'</span><span class="ov-tag">'+esc(d.field)+'</span></div></div>'+
         '<div class="ov-source"><div class="ov-cred-row"><span class="ov-cred '+cc+'">'+esc(String(d.cred).charAt(0))+'</span><span class="ov-cred-label">'+esc(d.cred)+'</span></div><div class="ov-src-line">信源：'+esc(d.source)+'</div><div class="ov-actions">'+btn+'</div>'+note+'</div></article>';
     }).join('');
