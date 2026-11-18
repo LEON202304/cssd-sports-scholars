@@ -11377,7 +11377,8 @@ window.CSSD_OV_PH={
       return (!q||blob.indexOf(q)>-1)&&(!univ||d.univ===univ)&&(!field||fieldBucket(d.field)===field)&&(!cred||String(d.cred).charAt(0)===cred);
     });
     var info=document.getElementById('ovInfo');
-    if(info)info.innerHTML='当前显示 <b>'+rows.length+'</b> / '+DATA.length+' 位海外华人学者 · 可用上方搜索/高校/方向/可信度筛选（名单变长后勿一屏硬翻）';
+    var withPh=rows.filter(function(d){return !!(d.ph||(window.CSSD_OV_PH||{})[d.id]);}).length;
+    if(info)info.innerHTML='当前显示 <b>'+rows.length+'</b> / '+DATA.length+' 位海外华人学者 · 其中 <b>'+withPh+'</b> 位配官网页人像 · 可用上方搜索/高校/方向/可信度筛选（名单变长后勿一屏硬翻）';
     if(!rows.length){list.innerHTML='<div class="ov-empty">没有匹配的学者，请调整关键词或筛选条件。</div>';return;}
     list.innerHTML=rows.map(function(d){
       var ph=d.ph||(window.CSSD_OV_PH||{})[d.id]||'';
