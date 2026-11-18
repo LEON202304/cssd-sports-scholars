@@ -14868,6 +14868,11 @@ html.cssd-light #vw-overseas .ov-bio,html.cssd-light #vw-overseas .ov-sub,html.c
 html.cssd-light #vw-overseas .ov-face img{border-color:rgba(10,42,67,.14);box-shadow:0 6px 16px rgba(10,42,67,.08)}
 html.cssd-light #vw-overseas .ov-face figcaption{color:#5A6575!important;}
 @media(max-width:900px){#vw-overseas .ov-face img{width:112px;height:140px}}
+@media(max-width:900px){
+  html body #vw-overseas .ov-card{grid-template-columns:1fr!important;gap:12px}
+  html body #vw-overseas .ov-card>*{min-width:0}
+  html body #vw-overseas .ov-source{justify-self:stretch;text-align:left}
+}
 
 /* ── 21 · 科研项目（vw-projects）面板 ────────────────────────── */
 html.cssd-light #vw-projects .proj-panel{
