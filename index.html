@@ -5870,6 +5870,11 @@ html.cssd-light .nb.on{color:#2E9A89!important}
 .cn-ph{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 22%;border-radius:inherit;background:#F5F7FA}
 .sc2 .av,.sch-av,.sci-avatar,.mal,.youth-av{overflow:hidden}
 .cn-ph{image-rendering:auto}
+/* 有官网人像的学者卡：人像移到右上，竖向肖像比例，左侧留给姓名与机构 */
+.sc2 .ct.ct-ph{position:relative!important;padding-right:118px!important}
+.sc2 .ct-ph .ph-av{position:absolute!important;top:22px!important;right:20px!important;width:84px!important;height:106px!important;border-radius:14px!important;border:1px solid #E3E8EF;background:#F2F4F7;margin:0!important;box-shadow:0 6px 18px rgba(10,42,67,.10)}
+.sc2 .ct-ph .ph-av .cn-ph{object-position:50% 16%}
+@media(max-width:640px){.sc2 .ct.ct-ph{padding-right:96px!important}.sc2 .ct-ph .ph-av{top:18px!important;right:16px!important;width:72px!important;height:92px!important;border-radius:12px!important}}
 </style>
 </head>
 <body>
@@ -8148,7 +8153,7 @@ html.cssd-light #vw-phdschools .phd-tab.on{
      加 defer 后解析不再中断，整份文档（含全部样式）先解析完，脚本再按顺序执行，
      DOMContentLoaded 之前一定就绪。页面里所有对 S / JNL_* / NOPSS_* 的引用
      都带 typeof 守卫（共 30 处，已逐条核对），因此执行时机后移是安全的。 -->
-<script defer src="sports-scholars-data.829eaf4e.js"></script>
+<script defer src="sports-scholars-data.1377d2ad.js"></script>
 <div class="compare-bar" id="compareBar">
   <span style="font-size:.75rem;color:#8A94A8;">📊 已选：</span>
   <span class="cmp-cnt" id="compareCnt"><b style="color:#2E9A89">0</b>/5 位学者</span>

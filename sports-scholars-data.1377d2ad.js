@@ -783,8 +783,8 @@ function bCard(s){
   const cins=place?'<div class="cins cins-place">'+esc(place)+'</div>':((s.institution||s.dept)?'<div class="cins">\uD83C\uDFDB '+orgTruncHl(s)+(s.dept?(' \u00b7 '+esc(s.dept)):'')+'</div>':(s.sourceName?'<div class="cins">'+esc(s.sourceName)+'</div>':''));
   return`<div class="sc2" id="scholar-${s.id}" data-sid="${s.id}" onclick="openCardById(this.dataset.sid)"
     oncontextmenu="showCtxMenu(event,${s.id})" title="${s.n} | 右键查看更多">
-    <div class="ct">
-      <div class="av sch-av" style="background:#F5F7FA;color:#0A2A43;border:1px solid #E3E8EF">${s.ph?'<img class="cn-ph" src="'+s.ph+'" alt="'+esc(s.n)+'" loading="lazy">':s.i}</div>
+    <div class="ct${s.ph?' ct-ph':''}">
+      ${s.ph?'':'<div class="av sch-av" style="background:#F5F7FA;color:#0A2A43;border:1px solid #E3E8EF">'+s.i+'</div>'}
       <div style="flex:1;min-width:0">
         ${rb}
         <div class="cn sn-link">${hl(s.n)}</div>
@@ -792,6 +792,7 @@ function bCard(s){
         ${s.e?`<div class="cen">${esc(s.e)}</div>`:''}
         ${cins}
       </div>
+      ${s.ph?'<div class="av sch-av ph-av"><img class="cn-ph" src="'+s.ph+'" alt="'+esc(s.n)+'" loading="lazy"></div>':''}
     </div>
     <div class="cb">
       <div class="tr2">${s.dL?`<span class="sp-card-disc">${esc(s.dL)}</span>`:''}${hH}${oH}${roleH}${srcH}${catBadge}</div>
