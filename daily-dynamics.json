@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-19",
+  "generatedAt": "2026-11-20",
   "source": "C刊官网 + 体育院校官网（GitHub Actions 每日）",
   "statusHint": "live",
   "items": [
@@ -18,6 +18,14 @@
       "title": "第二届中国体育科学学会女科技工作者工作委员会学术交流会征文通知 时间：-6日 地点：山东体育学院",
       "date": "2026-12-04",
       "link": "https://www.sdpei.edu.cn/2026/1023/c1393a87395/page.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "南京体育学院",
+      "section": "学校主页",
+      "title": "南京体育学院欧美同学会（留学人员联谊会）赴高邮市开展同心教育实践活动",
+      "date": "2026-11-19",
+      "link": "https://www.nsi.edu.cn/6f/40/c2347a94016/page.htm"
     },
     {
       "cat": "院校",
@@ -66,6 +74,14 @@
       "title": "我校召开第五届教职工代表大会第七次会议提案答复会",
       "date": "2026-11-18",
       "link": "https://www.hrbipe.edu.cn/info/1050/8750.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "天津体育学院",
+      "section": "学校要闻",
+      "title": "一等奖！我校教师在第十三届全国体育院校思想政治理论课教学研讨会教学比赛中获佳绩",
+      "date": "2026-11-18",
+      "link": "https://mp.weixin.qq.com/s/3AW2UHNncvx0waFK1CxVog"
     },
     {
       "cat": "院校",
@@ -141,14 +157,6 @@
     },
     {
       "cat": "院校",
-      "source": "南京体育学院",
-      "section": "学校主页",
-      "title": "游泳学院党总支召开2026年理论学习中心组第十二次（扩大）学习会",
-      "date": "2026-11-17",
-      "link": "https://www.nsi.edu.cn/6e/fb/c2343a93947/page.htm"
-    },
-    {
-      "cat": "院校",
       "source": "广州体育学院",
       "section": "公告栏",
       "title": "关于公示我校交流团赴澳门交流访问相关情况的通知",
@@ -183,9 +191,9 @@
       "cat": "院校",
       "source": "南京体育学院",
       "section": "学校主页",
-      "title": "民进南京体育学院基层委员会新一届班子召开第一次工作会议",
+      "title": "游泳学院党总支召开2026年理论学习中心组第十二次（扩大）学习会",
       "date": "2026-11-17",
-      "link": "https://www.nsi.edu.cn/6e/f7/c2347a93943/page.htm"
+      "link": "https://www.nsi.edu.cn/6e/fb/c2343a93947/page.htm"
     },
     {
       "cat": "院校",
@@ -429,14 +437,6 @@
     },
     {
       "cat": "院校",
-      "source": "天津体育学院",
-      "section": "学校要闻",
-      "title": "天津市教育系统2026年消防安全技能展示演练活动在我校举行",
-      "date": "2026-11-09",
-      "link": "https://mp.weixin.qq.com/s/Lw7q4Uh505XABrDP7jC-TA"
-    },
-    {
-      "cat": "院校",
       "source": "河北体育学院",
       "section": "通知公告",
       "title": "河北体育学院冰雪学院崇礼校区引进餐饮服务（二次）询价公告",
@@ -447,9 +447,9 @@
       "cat": "院校",
       "source": "天津体育学院",
       "section": "学校要闻",
-      "title": "2026年全国普通高等学校运动训练、武术与民族传统体育专业招生工作总结会在我校召开",
+      "title": "天津市教育系统2026年消防安全技能展示演练活动在我校举行",
       "date": "2026-11-09",
-      "link": "https://mp.weixin.qq.com/s/T6Gf2dQDQbmVf6nbst3ZXQ"
+      "link": "https://mp.weixin.qq.com/s/Lw7q4Uh505XABrDP7jC-TA"
     },
     {
       "cat": "院校",
@@ -509,14 +509,6 @@
     },
     {
       "cat": "期刊",
-      "source": "体育学研究",
-      "section": "当期目录",
-      "title": "中国体育口述史知识生产的再语境化逻辑与实...",
-      "date": "2026-08-21",
-      "link": "http://ntxb.nsi.edu.cn/tyxyj/njtyxyxbsk/article/abstract/202608210000001"
-    },
-    {
-      "cat": "期刊",
       "source": "体育学刊",
       "section": "新闻公告",
       "title": "体育学刊2026年第4期目次",
@@ -554,6 +546,14 @@
       "title": "喜报 ||《体育学研究》荣获2025年度江苏省高校精品·优秀·特色文科学术期刊",
       "date": "2026-04-22",
       "link": "http://ntxb.nsi.edu.cn/ch/reader/view_news.aspx?id=20260422135953001&meeting_id="
+    },
+    {
+      "cat": "期刊",
+      "source": "体育学研究",
+      "section": "编辑部公告",
+      "title": "喜报 ||《体育学研究》荣获“第八届华东地区优秀期刊”称号",
+      "date": "2026-04-22",
+      "link": "http://ntxb.nsi.edu.cn/ch/reader/view_news.aspx?id=20260422135827001&meeting_id="
     },
     {
       "cat": "期刊",
