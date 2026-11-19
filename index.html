@@ -5870,11 +5870,15 @@ html.cssd-light .nb.on{color:#2E9A89!important}
 .cn-ph{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 22%;border-radius:inherit;background:#F5F7FA}
 .sc2 .av,.sch-av,.sci-avatar,.mal,.youth-av{overflow:hidden}
 .cn-ph{image-rendering:auto}
-/* 有官网人像的学者卡：人像移到右上，竖向肖像比例，左侧留给姓名与机构 */
-.sc2 .ct.ct-ph{position:relative!important;padding-right:118px!important}
-.sc2 .ct-ph .ph-av{position:absolute!important;top:22px!important;right:20px!important;width:84px!important;height:106px!important;border-radius:14px!important;border:1px solid #E3E8EF;background:#F2F4F7;margin:0!important;box-shadow:0 6px 18px rgba(10,42,67,.10)}
-.sc2 .ct-ph .ph-av .cn-ph{object-position:50% 16%}
-@media(max-width:640px){.sc2 .ct.ct-ph{padding-right:96px!important}.sc2 .ct-ph .ph-av{top:18px!important;right:16px!important;width:72px!important;height:92px!important;border-radius:12px!important}}
+/* 有官网人像的学者卡：左侧大肖像，右侧姓名 / 职称 / 机构，下方研究方向与荣誉 */
+.sc2 .ct.ct-ph,#scgrid .sc2 .ct.ct-ph{display:flex!important;flex-direction:row!important;align-items:flex-start!important;gap:16px!important;padding:20px 20px 12px!important}
+.sc2 .ct-ph .ph-av,#scgrid .sc2 .ct-ph .ph-av{position:static!important;order:-1!important;flex:0 0 auto!important;width:104px!important;height:130px!important;border-radius:18px!important;border:1px solid #E1E7EF;background:#F5F7FA;margin:0!important;box-shadow:0 8px 20px rgba(10,42,67,.12)}
+.sc2 .ct-ph .ph-av .cn-ph{object-position:50% 14%}
+.sc2 .ct-ph>div,#scgrid .sc2 .ct-ph>div{flex:1 1 auto!important;min-width:0!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:4px!important;justify-content:flex-start!important;align-self:stretch!important;padding:4px 0 1px!important}
+.sc2 .ct-ph .cn,#scgrid .sc2 .ct-ph .cn{font-size:1.3rem!important;line-height:1.1!important}
+.sc2 .ct-ph .rbadge,#scgrid .sc2 .ct-ph .rbadge{display:inline-flex!important;align-self:flex-start!important;width:auto!important;max-width:100%!important;flex:0 0 auto!important;margin-left:0!important;margin-right:auto!important}
+.sc2 .ct-ph .cins{align-self:flex-start!important;max-width:100%!important}
+@media(max-width:640px){.sc2 .ct.ct-ph{gap:12px!important;padding:16px 16px 10px!important}.sc2 .ct-ph .ph-av{width:80px!important;height:100px!important;border-radius:13px!important}}
 </style>
 </head>
 <body>
