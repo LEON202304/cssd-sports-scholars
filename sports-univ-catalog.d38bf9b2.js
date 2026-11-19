@@ -805,7 +805,7 @@ window._ucTp='all';
     var roleLabel=s.role?String((typeof RL!=='undefined'?RL[s.role]:'')||'').trim():'';
     var role=roleLabel?'<div class="'+(RC[s.role]||'')+' rbadge" style="display:inline-flex;margin-bottom:7px">◈ '+roleLabel+'</div>':'';
     mtp.innerHTML='<div class="sd-hero">'+
-      '<div class="sd-avatar" style="background:'+s.c+'22;color:'+s.c+'">'+s.i+'</div>'+
+      '<div class="sd-avatar" style="background:'+s.c+'22;color:'+s.c+'">'+(s.ph?'<img class="cn-ph" src="'+s.ph+'" alt="'+s.n+'" loading="lazy">':s.i)+'</div>'+
       '<div style="min-width:0">'+role+'<div class="sd-name">'+s.n+'</div>'+(s.rankTag&&typeof rankTagH==='function'?'<div class="sp-rank-row">'+rankTagH(s)+'</div>':'')+'<div class="sd-meta">'+(s.e||'')+'<br>🏛 '+s.institution+(s.dept?' · '+s.dept:'')+'<br>🎓 '+s.title+'</div>'+(sdTags(s)?'<div class="sd-tags">'+sdTags(s)+'</div>':'')+sdBio(s)+'</div>'+
       '<div class="sd-actions">'+
         '<button class="sd-action primary" data-term="'+cssdAttr(s.institution)+'" onclick="cssdScholarSearchPreset(this.dataset.term);closeMod();">同机构学者</button>'+
