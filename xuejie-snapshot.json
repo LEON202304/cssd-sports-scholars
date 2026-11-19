@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-14",
+  "generatedAt": "2026-11-19",
   "source": "cssd-xuejie-scraper",
   "statusHint": "live",
   "items": [
@@ -19,10 +19,17 @@
     },
     {
       "type": "meet",
-      "title": "体育教育与人文学院召开专业建设与人才培养研讨会",
-      "org": "南京体育学院",
-      "date": "2026-11-13",
-      "link": "https://www.nsi.edu.cn/6e/c4/c2342a93892/page.htm"
+      "title": "中国体育科学学会运动康复分会关于举办下肢肌骨疼痛物理治疗技术培训班的通知",
+      "org": "中国体育科学学会",
+      "date": "2026-11-17",
+      "link": "https://www.csss.cn/a2428.html"
+    },
+    {
+      "type": "meet",
+      "title": "2026年广州运动与健康国际学术研讨会论文录用结果及参会事宜的通知",
+      "org": "中国体育科学学会",
+      "date": "2026-11-16",
+      "link": "https://www.csss.cn/a2427.html"
     },
     {
       "type": "meet",
@@ -30,6 +37,13 @@
       "org": "山东体育学院",
       "date": "2026-11-13",
       "link": "https://www.sdpei.edu.cn/2026/1023/c1393a87393/page.htm"
+    },
+    {
+      "type": "meet",
+      "title": "体育教育与人文学院召开专业建设与人才培养研讨会",
+      "org": "南京体育学院",
+      "date": "2026-11-13",
+      "link": "https://www.nsi.edu.cn/6e/c4/c2342a93892/page.htm"
     },
     {
       "type": "meet",
@@ -89,13 +103,6 @@
     },
     {
       "type": "meet",
-      "title": "第四届中国青少年体能论坛征文通知",
-      "org": "中国体育科学学会",
-      "date": "2026-11-05",
-      "link": "https://www.csss.cn/a2420.html"
-    },
-    {
-      "type": "meet",
       "title": "七秩首体|体美赋能・艺创未来——2026 年体育院校艺术专业建设研讨会在我校举行",
       "org": "首都体育学院",
       "date": "2026-11-04",
@@ -142,13 +149,6 @@
       "org": "南京体育学院",
       "date": "2026-11-04",
       "link": "https://www.nsi.edu.cn/6d/e5/c2342a93669/page.htm"
-    },
-    {
-      "type": "meet",
-      "title": "关于国家体育总局体操运动管理中心与中国体育科学学会“大体操项目发展专项课题”立项结果的通知",
-      "org": "中国体育科学学会",
-      "date": "2026-11-03",
-      "link": "https://www.csss.cn/a2417.html"
     },
     {
       "type": "meet",
