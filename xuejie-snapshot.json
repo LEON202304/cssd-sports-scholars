@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-20",
+  "generatedAt": "2026-11-21",
   "source": "cssd-xuejie-scraper",
   "statusHint": "live",
   "items": [
@@ -172,6 +172,13 @@
       "link": "https://mp.weixin.qq.com/s/3AW2UHNncvx0waFK1CxVog"
     },
     {
+      "type": "meet",
+      "title": "20 11.20 马克思主义学院赴河北体育学院参加第十三届全国体育院校思想政治理论课教学研讨会",
+      "org": "西安体育学院",
+      "date": "2026-11",
+      "link": "https://www.xaipe.edu.cn/info/1125/136094.htm"
+    },
+    {
       "type": "event",
       "title": "02 11.02 汇智生物力学 赋能体育科创——体育教育学院举办“智能体育与科学训练”学术论坛",
       "org": "西安体育学院",
@@ -191,13 +198,6 @@
       "org": "首都体育学院",
       "date": "2026-10-30",
       "link": "https://news.cupes.edu.cn/qygz/0c87c9f3ae024e769935a5a27bb58a71.htm"
-    },
-    {
-      "type": "event",
-      "title": "【聚焦北奥院】2026国际奥林匹克教育发展论坛专家视点（第二期）",
-      "org": "首都体育学院",
-      "date": "2026-10-30",
-      "link": "https://news.cupes.edu.cn/qygz/34dd675871084e56ab38fb8b286e1871.htm"
     }
   ]
 }

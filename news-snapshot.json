@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-20",
+  "generatedAt": "2026-11-21",
   "source": "期刊官网 TOC + Crossref 自动抓取（GitHub Actions 每日）：体育科学、上海体育大学学报、中国体育科技、北京体育大学学报、沈阳体育学院学报、体育学研究、体育学刊、天津体育学院学报、体育与科学、西安体育学院学报、British Journal of Sports Medicine、Sports Medicine、Journal of Sport and Health Science、Medicine & Science in Sports & Exercise、Journal of Sports Sciences、Scandinavian Journal of Medicine & Science in Sports",
   "statusHint": "live",
   "items": [
@@ -14,21 +14,21 @@
     },
     {
       "journal": "Journal of Sport and Health Science",
-      "title": "Combined strength and aerobic training vs. aerobic training alone in patients with heart failure: A systematic review and meta-analysis",
-      "authors": "Tasuku Terada, Tim Kambic, Takumi Noda, Genki Kai, Rod S. Taylor, Jennifer L. Reed, Kentaro Kamiya",
-      "link": "https://doi.org/10.1016/j.jshs.2026.101136",
-      "date": "2026-12",
-      "journalZh": "《运动与健康科学》",
-      "titleZh": "心力衰竭患者的力量和有氧综合训练与单独有氧训练：系统评价和荟萃分析"
-    },
-    {
-      "journal": "Journal of Sport and Health Science",
       "title": "Human development and gender inequality are associated with cardiorespiratory fitness: A global systematic review of V̇O2peak",
       "authors": "Nicolas J. Pillon, Joaquin Ortiz de Zevallos, Juleen R. Zierath, Barbara E. Ainsworth",
       "link": "https://doi.org/10.1016/j.jshs.2025.101098",
       "date": "2026-12",
       "journalZh": "《运动与健康科学》",
       "titleZh": "人类发展与性别不平等与心肺健康的关系：一项关于V̇O2峰值的全球系统性综述"
+    },
+    {
+      "journal": "Journal of Sport and Health Science",
+      "title": "Combined strength and aerobic training vs. aerobic training alone in patients with heart failure: A systematic review and meta-analysis",
+      "authors": "Tasuku Terada, Tim Kambic, Takumi Noda, Genki Kai, Rod S. Taylor, Jennifer L. Reed, Kentaro Kamiya",
+      "link": "https://doi.org/10.1016/j.jshs.2026.101136",
+      "date": "2026-12",
+      "journalZh": "《运动与健康科学》",
+      "titleZh": "心力衰竭患者的力量和有氧综合训练与单独有氧训练：系统评价和荟萃分析"
     },
     {
       "journal": "Medicine & Science in Sports & Exercise",
@@ -38,6 +38,15 @@
       "date": "2026-11-19",
       "journalZh": "《运动医学与科学》",
       "titleZh": "体育活动和久坐行为的遗传和表观遗传决定因素：系统综述"
+    },
+    {
+      "journal": "Journal of Sports Sciences",
+      "title": "Temporal trends in adolescents’ lateral jumping performance from 1979 to 2020",
+      "authors": "Mikko Huhtiniemi, Arto Gråstén, Pertti Huotari, Francisco B. Ortega, Grant Tomkinson, Timo Jaakkola",
+      "link": "https://doi.org/10.1080/02640414.2026.2764473",
+      "date": "2026-11-19",
+      "journalZh": "《体育科学杂志》",
+      "titleZh": "1979年至2020年青少年侧向跳跃表现的时间趋势"
     },
     {
       "journal": "Sports Medicine",
@@ -101,15 +110,6 @@
       "date": "2026-11-14",
       "journalZh": "《体育科学杂志》",
       "titleZh": "使用因子分析对精英足球中与空间相关的指标进行降维"
-    },
-    {
-      "journal": "Journal of Sports Sciences",
-      "title": "Accuracy of different methods for predicting proximity to failure during resistance training",
-      "authors": "Grant Holmes, Matthew D. Jones, Rebecca Cross, Alexander Engel, Emily D. Walker, Amanda D. Hagstrom, Eric R. Helms, Mitchell T. Gibbs",
-      "link": "https://doi.org/10.1080/02640414.2026.2763157",
-      "date": "2026-11-14",
-      "journalZh": "《体育科学杂志》",
-      "titleZh": "不同方法在力量训练中预测接近力竭的准确性"
     },
     {
       "journal": "British Journal of Sports Medicine",
