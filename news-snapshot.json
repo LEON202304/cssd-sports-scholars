@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21",
+  "generatedAt": "2026-11-22",
   "source": "期刊官网 TOC + Crossref 自动抓取（GitHub Actions 每日）：体育科学、上海体育大学学报、中国体育科技、北京体育大学学报、沈阳体育学院学报、体育学研究、体育学刊、天津体育学院学报、体育与科学、西安体育学院学报、British Journal of Sports Medicine、Sports Medicine、Journal of Sport and Health Science、Medicine & Science in Sports & Exercise、Journal of Sports Sciences、Scandinavian Journal of Medicine & Science in Sports",
   "statusHint": "live",
   "items": [
@@ -40,6 +40,33 @@
       "titleZh": "中等强度间歇训练足以提高未训练的年轻男性的肌肉线粒体呼吸能力和运动耐受力"
     },
     {
+      "journal": "Sports Medicine",
+      "title": "Force and Power Testing in Anterior Cruciate Ligament Reconstruction Literature: A Scoping Review",
+      "authors": "Alessandro Compagnin, Francesco Della Villa, Stefano Di Paolo, Eric Hamrin Senorski, Giorgio Olivari, Paul Read, Stephen Patterson, Giovanni La Rosa, Alberto Scavone, Matthew Buckthorpe",
+      "link": "https://doi.org/10.1007/s40279-026-02571-9",
+      "date": "2026-11-21",
+      "journalZh": "《运动医学》",
+      "titleZh": "前交叉韧带重建文献中的力量和强度测试：范围综述"
+    },
+    {
+      "journal": "Sports Medicine",
+      "title": "How Effective is Stretching for Injury Prevention? A Large-Scale Systematic Review with Meta-analysis",
+      "authors": "José Afonso, Ricardo Martins, Rohit K. Thapa, Lars Hubertus Lohmann, Renato Andrade, David George Behm, Markus Tilp, Anthony J. Blazevich, Konstantin Warneke, Tania Pizzari, Andreia Pizarro, Rodrigo Ramirez-Campillo",
+      "link": "https://doi.org/10.1007/s40279-026-02559-5",
+      "date": "2026-11-21",
+      "journalZh": "《运动医学》",
+      "titleZh": "拉伸对于预防损伤的效果如何？一项包含荟萃分析的大规模系统性综述"
+    },
+    {
+      "journal": "Sports Medicine",
+      "title": "Insights into Channelopathies and Sport: The Genotype-Positive/Phenotype-Negative Athlete from Molecular Diagnosis to Management",
+      "authors": "Isabel Diebold, Franziska Hahn, Eimo Martens, Ulrike Schön, Annette Wacker-Gußmann, Karl-Ludwig Laugwitz, Martin Halle, Juliane Winkelmann, Flavio D`Ascenzi, Satyam Sarma, David Niederseer, Ardan M. Saguner, Manuel Rattka, Silvia Castelletti, Simon Wernhart",
+      "link": "https://doi.org/10.1007/s40279-026-02584-4",
+      "date": "2026-11-21",
+      "journalZh": "《运动医学》",
+      "titleZh": "对离子通道病和体育运动的深入了解：从分子诊断到管理的基因型阳性/表型阴性运动员"
+    },
+    {
       "journal": "Medicine & Science in Sports & Exercise",
       "title": "Effects of Exercise on Symptom Burden During Cancer Treatment: Real-World Evidence from a Statewide Exercise Oncology Program",
       "authors": "Hao Luo, Robert U. Newton, Dennis R. Taaffe, Prue Cormie, Oliver Schumacher, Vinicius Cavalheri, Daniel A. Galvão",
@@ -65,33 +92,6 @@
       "date": "2026-11-19",
       "journalZh": "《体育科学杂志》",
       "titleZh": "1979年至2020年青少年侧向跳跃表现的时间趋势"
-    },
-    {
-      "journal": "Sports Medicine",
-      "title": "Individualized Amplitude–Time Models of Post-activation Performance Enhancement Using the Velocity-Loss Method in Trained Populations: A Systematic Review and Individual Participant Data Meta-analysis",
-      "authors": "Jun Li, Kai Xu, Yuming Zhong, Mingyue Yin, Fanhao Meng, Yuhang Liu, Hengzhi Deng, Mingyang Zhang, Michal Krzysztofik, Han Wu, Zihang Yuan, Lifu Cheng, Chenfu Huang, Rafael Peixoto, Violeta Muñoz de la Cruz, Fernando González-Mohíno, Anthony J. Blazevich, Olivier Girard",
-      "link": "https://doi.org/10.1007/s40279-026-02569-3",
-      "date": "2026-11-18",
-      "journalZh": "《运动医学》",
-      "titleZh": "使用速度损失法对训练人群进行个体化振幅–时间模型研究，以实现激活后表现增强：系统综述和个体参与者数据荟萃分析"
-    },
-    {
-      "journal": "Sports Medicine",
-      "title": "3D Biomechanics of Anterior Cruciate Ligament Injuries in Football: What We Have Learned in the Last Five Years",
-      "authors": "Matteo Zago, Francesco Della Villa",
-      "link": "https://doi.org/10.1007/s40279-026-02582-6",
-      "date": "2026-11-18",
-      "journalZh": "《运动医学》",
-      "titleZh": "足球运动中前交叉韧带损伤的3D生物力学：我们在过去五年中学到的知识"
-    },
-    {
-      "journal": "Sports Medicine",
-      "title": "Neurocognitive Alterations Manifested as Reaction Time Deficits Following ACL Reconstruction: A Systematic Review and Meta-Analysis of Observational Studies",
-      "authors": "Mostafa Jalili Bafrouei, Manouchehr Moradi Sabzevar, Hooman Minoonejad, Reza Rajabi, Alli Gokeler, Mohamad Rostami",
-      "link": "https://doi.org/10.1007/s40279-026-02541-1",
-      "date": "2026-11-16",
-      "journalZh": "《运动医学》",
-      "titleZh": "前交叉韧带重建术后反应时间缺陷表现出的神经认知改变：一项观察性研究的系统综述和荟萃分析"
     },
     {
       "journal": "Journal of Sports Sciences",
