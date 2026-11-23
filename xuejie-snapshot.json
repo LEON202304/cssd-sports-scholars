@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-23",
+  "generatedAt": "2026-11-24",
   "source": "cssd-xuejie-scraper",
   "statusHint": "live",
   "items": [
@@ -40,13 +40,6 @@
     },
     {
       "type": "event",
-      "title": "关于参加2026年武汉体育学院学生田径运动会开幕式的通知",
-      "org": "武汉体育学院",
-      "date": "2026-11-19",
-      "link": "https://www.whsu.edu.cn/info/1055/158411.htm"
-    },
-    {
-      "type": "event",
       "title": "【新华网】2026年山东省第三届休闲体育与体育旅游学术论坛在烟台举办",
       "org": "山东体育学院",
       "date": "2026-11-19",
@@ -58,6 +51,13 @@
       "org": "山东体育学院",
       "date": "2026-11-19",
       "link": "https://www.sdpei.edu.cn/2026/1119/c593a98898/page.htm"
+    },
+    {
+      "type": "event",
+      "title": "关于参加2026年武汉体育学院学生田径运动会开幕式的通知",
+      "org": "武汉体育学院",
+      "date": "2026-11-19",
+      "link": "https://www.whsu.edu.cn/info/1055/158411.htm"
     },
     {
       "type": "meet",
