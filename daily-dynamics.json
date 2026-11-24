@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24",
+  "generatedAt": "2026-11-25",
   "source": "C刊官网 + 体育院校官网（GitHub Actions 每日）",
   "statusHint": "live",
   "items": [
@@ -21,6 +21,14 @@
     },
     {
       "cat": "院校",
+      "source": "天津体育学院",
+      "section": "学校要闻",
+      "title": "青春护航，志愿助跑｜我校80名志愿者圆满完成团泊健康城·第1届天津团泊湖百公里长跑接力赛志愿服务工作",
+      "date": "2026-11-24",
+      "link": "https://mp.weixin.qq.com/s/Zqm3-fOy80nmTyYk9Qi1UA"
+    },
+    {
+      "cat": "院校",
       "source": "西安体育学院",
       "section": "学校主页",
       "title": "西体健儿在全国体操冠军赛斩获佳绩",
@@ -29,19 +37,19 @@
     },
     {
       "cat": "院校",
-      "source": "南京体育学院",
+      "source": "首都体育学院",
       "section": "通知公告",
-      "title": "南京体育学院仙林校区公益性理发店公开遴选服务商项目二次流标公告",
-      "date": "2026-11-23",
-      "link": "https://www.nsi.edu.cn/70/1e/c2349a94238/page.htm"
+      "title": "《体育教学》2027年印刷服务中标公告",
+      "date": "2026-11-24",
+      "link": "https://www.cupes.edu.cn/docs/2026-11/98d3845fde3e4ae7a7359d6b0056fc25.pdf"
     },
     {
       "cat": "院校",
       "source": "南京体育学院",
       "section": "通知公告",
-      "title": "打复印扫描多功能一体机采购项目流标公告",
+      "title": "南京体育学院仙林校区公益性理发店公开遴选服务商项目二次流标公告",
       "date": "2026-11-23",
-      "link": "https://www.nsi.edu.cn/70/1f/c2349a94239/page.htm"
+      "link": "https://www.nsi.edu.cn/70/1e/c2349a94238/page.htm"
     },
     {
       "cat": "院校",
@@ -61,6 +69,14 @@
     },
     {
       "cat": "院校",
+      "source": "南京体育学院",
+      "section": "学校主页",
+      "title": "校工会组织青年教职工参观南京理工大学劳模精神教育实践基地",
+      "date": "2026-11-23",
+      "link": "https://www.nsi.edu.cn/6f/d6/c2347a94166/page.htm"
+    },
+    {
+      "cat": "院校",
       "source": "山东体育学院",
       "section": "学校主页",
       "title": "山东体育学院举办第五届休闲体育文化节暨第三届邻里文化节",
@@ -74,6 +90,14 @@
       "title": "传承革命薪火 锤炼党性修养——济南校区机关党总支赴泰安徂徕山开展主题党日活动",
       "date": "2026-11-23",
       "link": "https://www.sdpei.edu.cn/2026/1123/c592a98980/page.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "广州体育学院",
+      "section": "广体要闻",
+      "title": "▸ 广州体育学院举行2026年广东省康复专业技术人员省级规范化培训班（脑瘫康复方向）开...",
+      "date": "2026-11-23",
+      "link": "http://news.gzsport.edu.cn:80/info/18330"
     },
     {
       "cat": "院校",
@@ -165,14 +189,6 @@
     },
     {
       "cat": "院校",
-      "source": "南京体育学院",
-      "section": "学校主页",
-      "title": "校工会组织青年教职工参观南京理工大学劳模精神教育实践基地",
-      "date": "2026-11-23",
-      "link": "https://www.nsi.edu.cn/6f/d6/c2347a94166/page.htm"
-    },
-    {
-      "cat": "院校",
       "source": "山东体育学院",
       "section": "学校主页",
       "title": "我校健美操队勇夺2026年全国健美操冠军赛冠军",
@@ -197,14 +213,6 @@
     },
     {
       "cat": "院校",
-      "source": "广州体育学院",
-      "section": "广体要闻",
-      "title": "▸ 数智赋能运动健康 共赴学术之约｜2026年广州运动与健康国际学术研讨会在广州体育学...",
-      "date": "2026-11-22",
-      "link": "https://mp.weixin.qq.com/s/p6-VX0kn59YgfDzOLBVBVA"
-    },
-    {
-      "cat": "院校",
       "source": "沈阳体育学院",
       "section": "学校新闻",
       "title": "树牢正确政绩观 同心实干建新功——我校组织统战成员代表赴铁岭开展社会实践调研 为巩固深化“学规定、强作风、树形象”主题教育成果，持续推动“参政为公、实干为民”主题教育走深走实，11月21日，学校组织统战成员代表...",
@@ -223,9 +231,9 @@
       "cat": "院校",
       "source": "广州体育学院",
       "section": "广体要闻",
-      "title": "▸ 粤港澳大湾区体育文化研讨会在广州体育学院举行",
+      "title": "▸ 数智赋能运动健康 共赴学术之约｜2026年广州运动与健康国际学术研讨会在广州体育学...",
       "date": "2026-11-22",
-      "link": "https://mp.weixin.qq.com/s/QJH-lsGplGRh07GgTFHIUQ"
+      "link": "https://mp.weixin.qq.com/s/p6-VX0kn59YgfDzOLBVBVA"
     },
     {
       "cat": "院校",
@@ -309,11 +317,11 @@
     },
     {
       "cat": "院校",
-      "source": "首都体育学院",
-      "section": "通知公告",
-      "title": "首都体育学院2026年第二批公开招聘拟聘用人选公示",
+      "source": "南京体育学院",
+      "section": "学校主页",
+      "title": "游泳学院花样游泳队召开2026年全国花游锦标赛赛后总结会",
       "date": "2026-11-20",
-      "link": "https://www.cupes.edu.cn/docs/2026-11/5138a88575c04acb8c7107574a354181.pdf"
+      "link": "https://www.nsi.edu.cn/6f/da/c2343a94170/page.htm"
     },
     {
       "cat": "院校",
@@ -330,6 +338,14 @@
       "title": "【湖北日报】新任中国女足主帅为武体校友 现",
       "date": "2026-11-20",
       "link": "https://news.hubeidaily.net/pc/c_6169206.html"
+    },
+    {
+      "cat": "院校",
+      "source": "首都体育学院",
+      "section": "通知公告",
+      "title": "首都体育学院2026年第二批公开招聘拟聘用人选公示",
+      "date": "2026-11-20",
+      "link": "https://www.cupes.edu.cn/docs/2026-11/5138a88575c04acb8c7107574a354181.pdf"
     },
     {
       "cat": "院校",
@@ -370,14 +386,6 @@
       "title": "河北体育学院2026年购买第三方辅助服务中标公示",
       "date": "2026-11-18",
       "link": "https://www.hepec.edu.cn/columns/365111dc-9479-4d47-8b5a-d816fe466465/2026-11-18/bb757300-44b3-41c9-85f1-58278802d1bd.html"
-    },
-    {
-      "cat": "院校",
-      "source": "首都体育学院",
-      "section": "通知公告",
-      "title": "首都体育学院2027年办公用品与通用耗材供应商选聘项目比选废标公告",
-      "date": "2026-11-18",
-      "link": "https://www.cupes.edu.cn/docs/2026-11/424b6d9b98dd45569e0f097712eb3f23.pdf"
     },
     {
       "cat": "院校",
@@ -442,14 +450,6 @@
       "title": "北京体育大学学生公寓用电智能管理系统维保服务项目采购比选结果公示",
       "date": "2026-11-10",
       "link": "https://www.bsu.edu.cn/tzgg/dbc974e506914b5d985ae5531ff6f127.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "天津体育学院",
-      "section": "学校要闻",
-      "title": "我校在学体联2026年全国大学生艺术体操锦标赛上创佳绩",
-      "date": "2026-11-09",
-      "link": "https://mp.weixin.qq.com/s/50romuCxHv_4vGejfWqAeQ"
     },
     {
       "cat": "期刊",
