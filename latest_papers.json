@@ -10,21 +10,21 @@
   },
   {
     "journal": "Journal of Sport and Health Science",
-    "title": "Human development and gender inequality are associated with cardiorespiratory fitness: A global systematic review of V̇O2peak",
-    "authors": "Nicolas J. Pillon, Joaquin Ortiz de Zevallos, Juleen R. Zierath, Barbara E. Ainsworth",
-    "link": "https://doi.org/10.1016/j.jshs.2025.101098",
-    "date": "2026-12",
-    "journalZh": "《运动与健康科学》",
-    "titleZh": "人类发展与性别不平等与心肺健康的关系：一项关于V̇O2峰值的全球系统性综述"
-  },
-  {
-    "journal": "Journal of Sport and Health Science",
     "title": "Combined strength and aerobic training vs. aerobic training alone in patients with heart failure: A systematic review and meta-analysis",
     "authors": "Tasuku Terada, Tim Kambic, Takumi Noda, Genki Kai, Rod S. Taylor, Jennifer L. Reed, Kentaro Kamiya",
     "link": "https://doi.org/10.1016/j.jshs.2026.101136",
     "date": "2026-12",
     "journalZh": "《运动与健康科学》",
     "titleZh": "心力衰竭患者的力量和有氧综合训练与单独有氧训练：系统评价和荟萃分析"
+  },
+  {
+    "journal": "Journal of Sport and Health Science",
+    "title": "Human development and gender inequality are associated with cardiorespiratory fitness: A global systematic review of V̇O2peak",
+    "authors": "Nicolas J. Pillon, Joaquin Ortiz de Zevallos, Juleen R. Zierath, Barbara E. Ainsworth",
+    "link": "https://doi.org/10.1016/j.jshs.2025.101098",
+    "date": "2026-12",
+    "journalZh": "《运动与健康科学》",
+    "titleZh": "人类发展与性别不平等与心肺健康的关系：一项关于V̇O2峰值的全球系统性综述"
   },
   {
     "journal": "Medicine & Science in Sports & Exercise",
@@ -34,6 +34,15 @@
     "date": "2026-11-24",
     "journalZh": "《运动医学与科学》",
     "titleZh": "心肌梗死前进行耐力运动训练可减轻老年小鼠心肌功能下降"
+  },
+  {
+    "journal": "Journal of Sports Sciences",
+    "title": "Effects of different exercise and ischemic preconditioning strategies on muscle damage after low-load blood flow restriction exercise: A randomized controlled trial",
+    "authors": "Kevin Happ, Sarah Barawi, Daniel Niederer, Christine Heinrich, Alexander Franz, Patrick Wahl, Michael Behringer",
+    "link": "https://doi.org/10.1080/02640414.2026.2768689",
+    "date": "2026-11-24",
+    "journalZh": "《体育科学杂志》",
+    "titleZh": "不同运动和缺血预适应策略对低负荷血流限制运动后肌肉损伤的影响：一项随机对照试验"
   },
   {
     "journal": "Medicine & Science in Sports & Exercise",
@@ -72,15 +81,6 @@
     "titleZh": "大学生运动能力的多因素预测指标：体能的重要性超过认知能力和双任务能力"
   },
   {
-    "journal": "Journal of Sports Sciences",
-    "title": "How do profiles of bullying exposure relate to basic psychological needs thwarting and psychological functioning? A person-centered approach",
-    "authors": "James L. Rumbold, James A. Newman, Jasmine Howarth",
-    "link": "https://doi.org/10.1080/02640414.2026.2765995",
-    "date": "2026-11-22",
-    "journalZh": "《体育科学杂志》",
-    "titleZh": "遭受欺凌的特征与基本心理需求的受挫和心理机能有何关系？以人为本的方法"
-  },
-  {
     "journal": "Sports Medicine",
     "title": "Force and Power Testing in Anterior Cruciate Ligament Reconstruction Literature: A Scoping Review",
     "authors": "Alessandro Compagnin, Francesco Della Villa, Stefano Di Paolo, Eric Hamrin Senorski, Giorgio Olivari, Paul Read, Stephen Patterson, Giovanni La Rosa, Alberto Scavone, Matthew Buckthorpe",
@@ -106,6 +106,27 @@
     "date": "2026-11-21",
     "journalZh": "《运动医学》",
     "titleZh": "对离子通道病和体育运动的深入了解：从分子诊断到管理的基因型阳性/表型阴性运动员"
+  },
+  {
+    "journal": "上海体育大学学报",
+    "title": "数字化转型进程中青少年体质健康测评的全球图景与中国路径",
+    "authors": "刘芳丽",
+    "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2025.06.05.0004",
+    "date": "2026-11-15"
+  },
+  {
+    "journal": "上海体育大学学报",
+    "title": "新型视听媒介驱动群众体育赛事新生的传播动力机制",
+    "authors": "黄河, 刘琳琳, 杨小涵",
+    "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2026.05.11.0003",
+    "date": "2026-11-15"
+  },
+  {
+    "journal": "上海体育大学学报",
+    "title": "体育赛事数据治理的国际经验与中国方案",
+    "authors": "冯加付, 张钢蹦, 职国宇, 宋业猛, 路莹",
+    "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2026.02.14.0007",
+    "date": "2026-11-15"
   },
   {
     "journal": "British Journal of Sports Medicine",
@@ -188,27 +209,6 @@
     "authors": "高绿路, 宣澍",
     "link": "https://tjty.cbpt.cnki.net/portal/journal/portal/client/paper/7737c13992350771117accef9757dbfa",
     "date": "2026-10-20"
-  },
-  {
-    "journal": "上海体育大学学报",
-    "title": "体育科学定量研究的理论框架：内涵、价值及构建",
-    "authors": "张连成, 朱良昊, 陶莹莹, 郭艺",
-    "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2025.05.19.0002",
-    "date": "2026-10-15"
-  },
-  {
-    "journal": "上海体育大学学报",
-    "title": "我国社区公共体育服务治理机制的类型结构、运行困境与建设路向",
-    "authors": "马德浩, 徐胜昔",
-    "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2025.12.18.0001",
-    "date": "2026-10-15"
-  },
-  {
-    "journal": "上海体育大学学报",
-    "title": "体育赛事能否促进体育产业创新？",
-    "authors": "李树旺, 王禹辰, 杨丽君, 刘圣文, 陈浩云",
-    "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2026.03.11.0002",
-    "date": "2026-10-15"
   },
   {
     "journal": "体育与科学",

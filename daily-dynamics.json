@@ -46,14 +46,6 @@
     {
       "cat": "院校",
       "source": "南京体育学院",
-      "section": "通知公告",
-      "title": "南京体育学院仙林校区公益性理发店公开遴选服务商项目二次流标公告",
-      "date": "2026-11-23",
-      "link": "https://www.nsi.edu.cn/70/1e/c2349a94238/page.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "南京体育学院",
       "section": "学校主页",
       "title": "我校足球队与苏超扬州队举行友谊赛",
       "date": "2026-11-23",
@@ -98,6 +90,14 @@
       "title": "▸ 广州体育学院举行2026年广东省康复专业技术人员省级规范化培训班（脑瘫康复方向）开...",
       "date": "2026-11-23",
       "link": "http://news.gzsport.edu.cn:80/info/18330"
+    },
+    {
+      "cat": "院校",
+      "source": "广州体育学院",
+      "section": "广体要闻",
+      "title": "▸ 广州体育学院集中开展系列外事交流活动深化与英国、加拿大高校合作",
+      "date": "2026-11-23",
+      "link": "http://news.gzsport.edu.cn:80/info/18338"
     },
     {
       "cat": "院校",
@@ -205,14 +205,6 @@
     },
     {
       "cat": "院校",
-      "source": "广州体育学院",
-      "section": "广体要闻",
-      "title": "▸ 广州体育学院建校70周年高质量发展大会隆重举行",
-      "date": "2026-11-22",
-      "link": "https://mp.weixin.qq.com/s/svhes7VER8MSMwAZ6n3uaA"
-    },
-    {
-      "cat": "院校",
       "source": "沈阳体育学院",
       "section": "学校新闻",
       "title": "树牢正确政绩观 同心实干建新功——我校组织统战成员代表赴铁岭开展社会实践调研 为巩固深化“学规定、强作风、树形象”主题教育成果，持续推动“参政为公、实干为民”主题教育走深走实，11月21日，学校组织统战成员代表...",
@@ -231,9 +223,9 @@
       "cat": "院校",
       "source": "广州体育学院",
       "section": "广体要闻",
-      "title": "▸ 数智赋能运动健康 共赴学术之约｜2026年广州运动与健康国际学术研讨会在广州体育学...",
+      "title": "▸ 广州体育学院建校70周年高质量发展大会隆重举行",
       "date": "2026-11-22",
-      "link": "https://mp.weixin.qq.com/s/p6-VX0kn59YgfDzOLBVBVA"
+      "link": "https://mp.weixin.qq.com/s/svhes7VER8MSMwAZ6n3uaA"
     },
     {
       "cat": "院校",
@@ -242,6 +234,14 @@
       "title": "树牢正确政绩观 同心实干建新功——我校组织统战成员代表赴铁岭开展社会实践调研",
       "date": "2026-11-22",
       "link": "https://www.syty.edu.cn/info/1069/19703.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "南京体育学院",
+      "section": "学校主页",
+      "title": "游泳学院花样游泳队召开2026年全国花游锦标赛赛后总结会",
+      "date": "2026-11-20",
+      "link": "https://www.nsi.edu.cn/6f/da/c2343a94170/page.htm"
     },
     {
       "cat": "院校",
@@ -319,9 +319,9 @@
       "cat": "院校",
       "source": "南京体育学院",
       "section": "学校主页",
-      "title": "游泳学院花样游泳队召开2026年全国花游锦标赛赛后总结会",
+      "title": "全民消防、生命至上——我校开展2026年“119”消防宣传月系列活动",
       "date": "2026-11-20",
-      "link": "https://www.nsi.edu.cn/6f/da/c2343a94170/page.htm"
+      "link": "https://www.nsi.edu.cn/6f/d4/c2347a94164/page.htm"
     },
     {
       "cat": "院校",
@@ -567,33 +567,33 @@
       "cat": "期刊",
       "source": "上海体育大学学报",
       "section": "最新发表",
-      "title": "体育科学定量研究的理论框架：内涵、价值及构建",
+      "title": "数字化转型进程中青少年体质健康测评的全球图景与中国路径",
       "date": "",
-      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2025.05.19.0002"
+      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2025.06.05.0004"
     },
     {
       "cat": "期刊",
       "source": "上海体育大学学报",
       "section": "最新发表",
-      "title": "我国社区公共体育服务治理机制的类型结构、运行困境与建设路向",
+      "title": "新型视听媒介驱动群众体育赛事新生的传播动力机制",
       "date": "",
-      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2025.12.18.0001"
+      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2026.05.11.0003"
     },
     {
       "cat": "期刊",
       "source": "上海体育大学学报",
       "section": "最新发表",
-      "title": "体育赛事能否促进体育产业创新？",
+      "title": "体育赛事数据治理的国际经验与中国方案",
       "date": "",
-      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2026.03.11.0002"
+      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2026.02.14.0007"
     },
     {
       "cat": "期刊",
       "source": "上海体育大学学报",
       "section": "最新发表",
-      "title": "政校社企融合提升高等体育院校创新创业教育效率的组态路径",
+      "title": "体育消费试点城市政策的产业创新效应及其作用机制",
       "date": "",
-      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2024.11.09.0002"
+      "link": "https://shtyxyxb.xml-journal.net/article/doi/10.16099/j.sus.2026.02.27.0002"
     },
     {
       "cat": "期刊",
