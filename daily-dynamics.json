@@ -21,6 +21,22 @@
     },
     {
       "cat": "院校",
+      "source": "广州体育学院",
+      "section": "广体要闻",
+      "title": "▸ 体育高等教育开放融合发展论坛暨粤港澳大湾区（广东）—东盟体育联盟2026年年会在广...",
+      "date": "2026-11-26",
+      "link": "https://mp.weixin.qq.com/s/j7lCKlCoKTmgYUB3tBg4DA"
+    },
+    {
+      "cat": "院校",
+      "source": "西安体育学院",
+      "section": "学校主页",
+      "title": "我校跳绳代表队在2026年陕西省学生跳绳比赛中喜获佳绩",
+      "date": "2026-11-26",
+      "link": "https://www.xaipe.edu.cn/info/1007/136314.htm"
+    },
+    {
+      "cat": "院校",
       "source": "南京体育学院",
       "section": "学校主页",
       "title": "燃情赛道 青春助跑｜南体学子圆满完成2026南京马拉松志愿服务保障工作",
@@ -37,11 +53,27 @@
     },
     {
       "cat": "院校",
+      "source": "山东体育学院",
+      "section": "学校主页",
+      "title": "2026年全国体育院校书记校长会召开 我校在会上作交流发言",
+      "date": "2026-11-25",
+      "link": "https://www.sdpei.edu.cn/2026/1125/c592a101139/page.htm"
+    },
+    {
+      "cat": "院校",
       "source": "广州体育学院",
       "section": "广体要闻",
       "title": "▸ 喜报｜跨界逐雪首登亚洲杯领奖台！广体联合培养运动员吴胜聪斩获1银2铜",
       "date": "2026-11-25",
       "link": "http://news.gzsport.edu.cn:80/info/18358"
+    },
+    {
+      "cat": "院校",
+      "source": "广州体育学院",
+      "section": "公告栏",
+      "title": "2026年术科教师服装采购项目验收公示",
+      "date": "2026-11-25",
+      "link": "http://www.gzsport.edu.cn:80/info/18380"
     },
     {
       "cat": "院校",
@@ -74,6 +106,14 @@
       "title": "青春护航，志愿助跑｜我校80名志愿者圆满完成团泊健康城·第1届天津团泊湖百公里长跑接力赛志愿服务工作",
       "date": "2026-11-24",
       "link": "https://mp.weixin.qq.com/s/Zqm3-fOy80nmTyYk9Qi1UA"
+    },
+    {
+      "cat": "院校",
+      "source": "广州体育学院",
+      "section": "公告栏",
+      "title": "立项公示（清远校区实验楼三楼教学实验室修缮工程）",
+      "date": "2026-11-24",
+      "link": "http://www.gzsport.edu.cn:80/info/18379"
     },
     {
       "cat": "院校",
@@ -133,38 +173,6 @@
     },
     {
       "cat": "院校",
-      "source": "山东体育学院",
-      "section": "学校主页",
-      "title": "传承革命薪火 锤炼党性修养——济南校区机关党总支赴泰安徂徕山开展主题党日活动",
-      "date": "2026-11-23",
-      "link": "https://www.sdpei.edu.cn/2026/1123/c592a98980/page.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "广州体育学院",
-      "section": "广体要闻",
-      "title": "▸ 广州体育学院举行2026年广东省康复专业技术人员省级规范化培训班（脑瘫康复方向）开...",
-      "date": "2026-11-23",
-      "link": "http://news.gzsport.edu.cn:80/info/18330"
-    },
-    {
-      "cat": "院校",
-      "source": "广州体育学院",
-      "section": "广体要闻",
-      "title": "▸ 广州体育学院集中开展系列外事交流活动深化与英国、加拿大高校合作",
-      "date": "2026-11-23",
-      "link": "http://news.gzsport.edu.cn:80/info/18338"
-    },
-    {
-      "cat": "院校",
-      "source": "广州体育学院",
-      "section": "公告栏",
-      "title": "清远校区教学办公网络建设一期验收公示",
-      "date": "2026-11-23",
-      "link": "http://www.gzsport.edu.cn:80/info/18323"
-    },
-    {
-      "cat": "院校",
       "source": "武汉体育学院",
       "section": "校园新闻",
       "title": "楚超绿茵燃荆楚 武体师生显担当",
@@ -213,35 +221,27 @@
     },
     {
       "cat": "院校",
+      "source": "山东体育学院",
+      "section": "学校主页",
+      "title": "传承革命薪火 锤炼党性修养——济南校区机关党总支赴泰安徂徕山开展主题党日活动",
+      "date": "2026-11-23",
+      "link": "https://www.sdpei.edu.cn/2026/1123/c592a98980/page.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "广州体育学院",
+      "section": "广体要闻",
+      "title": "▸ 广州体育学院举行2026年广东省康复专业技术人员省级规范化培训班（脑瘫康复方向）开...",
+      "date": "2026-11-23",
+      "link": "http://news.gzsport.edu.cn:80/info/18330"
+    },
+    {
+      "cat": "院校",
       "source": "西安体育学院",
       "section": "学校主页",
       "title": "2026-年西安体育学院跆拳道比赛圆满落幕",
       "date": "2026-11-23",
       "link": "https://www.xaipe.edu.cn/info/1007/136194.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "山东体育学院",
-      "section": "学校主页",
-      "title": "我校健美操队勇夺2026年全国健美操冠军赛冠军",
-      "date": "2026-11-23",
-      "link": "https://www.sdpei.edu.cn/2026/1123/c367a98978/page.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "广州体育学院",
-      "section": "公告栏",
-      "title": "宿管中心两个空调采购项目验收公示（补挂网）",
-      "date": "2026-11-23",
-      "link": "http://www.gzsport.edu.cn:80/info/18322"
-    },
-    {
-      "cat": "院校",
-      "source": "西安体育学院",
-      "section": "学校主页",
-      "title": "我校教师圆满完成世跆联国际级裁判员复训",
-      "date": "2026-11-23",
-      "link": "https://www.xaipe.edu.cn/info/1007/136184.htm"
     },
     {
       "cat": "院校",
@@ -399,6 +399,14 @@
       "cat": "院校",
       "source": "哈尔滨体育学院",
       "section": "学校主页",
+      "title": "黑龙江省重点研发计划“冰上运动AI大模型研发”项目推进会在我校召开 黑龙江省重点研发计划“冰上运动AI大模型研发”项目推进会在我校召开",
+      "date": "2026-11-16",
+      "link": "https://www.hrbipe.edu.cn/info/1045/8738.htm"
+    },
+    {
+      "cat": "院校",
+      "source": "哈尔滨体育学院",
+      "section": "学校主页",
       "title": "《普通高等学校冰雪运动专业教学要点》专家研讨会在我校召开",
       "date": "2026-11-16",
       "link": "https://www.hrbipe.edu.cn/info/1048/8737.htm"
@@ -410,14 +418,6 @@
       "title": "学校召开2027届毕业生就业创业工作第一次推进会 学校召开2027届毕业生就业创业工作第一次推进会",
       "date": "2026-11-13",
       "link": "https://www.hrbipe.edu.cn/info/1045/8736.htm"
-    },
-    {
-      "cat": "院校",
-      "source": "哈尔滨体育学院",
-      "section": "学校主页",
-      "title": "学校召开“清风护航·笃行致远”专项整治行动动员大会 学校召开“清风护航·笃行致远”专项整治行动动员大会",
-      "date": "2026-11-13",
-      "link": "https://www.hrbipe.edu.cn/info/1045/8734.htm"
     },
     {
       "cat": "院校",
@@ -791,17 +791,17 @@
       "cat": "院校",
       "source": "北京体育大学",
       "section": "校园要闻",
-      "title": "京津冀地区体育类高校2026年秋季校园双选会在北京体育大学举办",
+      "title": "第五届北京体育大学温泉医康养学术大会成功举办",
       "date": "",
-      "link": "https://www.bsu.edu.cn/xyyw/6e984bd76e374f78a429ab8e5e0b35fd.htm"
+      "link": "https://www.bsu.edu.cn/xyyw/27ffb2a3ef0145f3b89f0916cc6decc9.htm"
     },
     {
       "cat": "院校",
       "source": "北京体育大学",
       "section": "校园要闻",
-      "title": "第十一届中德体育发展国际学术论坛成功举办",
+      "title": "京津冀地区体育类高校2026年秋季校园双选会在北京体育大学举办",
       "date": "",
-      "link": "https://www.bsu.edu.cn/xyyw/d731c8b55ff8465b968d46085f2a6711.htm"
+      "link": "https://www.bsu.edu.cn/xyyw/6e984bd76e374f78a429ab8e5e0b35fd.htm"
     }
   ]
 }
