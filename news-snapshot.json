@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-27",
-  "source": "期刊官网 TOC + Crossref 自动抓取（GitHub Actions 每日）：体育科学、上海体育大学学报、北京体育大学学报、沈阳体育学院学报、体育学研究、体育学刊、British Journal of Sports Medicine、Sports Medicine、Journal of Sport and Health Science、Medicine & Science in Sports & Exercise、Journal of Sports Sciences、Scandinavian Journal of Medicine & Science in Sports",
+  "generatedAt": "2026-11-28",
+  "source": "期刊官网 TOC + Crossref 自动抓取（GitHub Actions 每日）：体育科学、中国体育科技、北京体育大学学报、沈阳体育学院学报、体育学研究、体育学刊、天津体育学院学报、体育与科学、西安体育学院学报、British Journal of Sports Medicine、Sports Medicine、Journal of Sport and Health Science、Medicine & Science in Sports & Exercise、Journal of Sports Sciences、Scandinavian Journal of Medicine & Science in Sports",
   "statusHint": "live",
   "items": [
     {
@@ -32,21 +32,30 @@
     },
     {
       "journal": "British Journal of Sports Medicine",
-      "title": "Association between recorded physical activity levels, glycaemic control and complications of type 2 diabetes: a retrospective longitudinal registry-based South African cohort study",
-      "authors": "Claudia Pastellides, Michael Greyling, Deepak Patel, Lizelle Steenkamp, Mosima Mabunda, Reyna Daya, Zaheer Bayat, Jon S Patricios",
-      "link": "https://doi.org/10.1136/bjsports-2026-111813",
-      "date": "2026-11-26",
+      "title": "Effects of a 24-week resistance exercise programme on brain amyloid and Alzheimer’s disease blood-based biomarkers: the AGUEDA randomised controlled trial",
+      "authors": "Patricio Solis-Urra, Marcos Olvera-Rojas, Yolanda García-Rivero, Xuemei Zeng, Yijun Chen, Anuradha Sehrawat, Mahnaz Shekari, Lauren E Oberlin, Kirk I Erickson, Thomas K Karikari, Manuel Gómez-Río, Francisco B Ortega, Irene Esteban-Cornejo",
+      "link": "https://doi.org/10.1136/bjsports-2026-112113",
+      "date": "2026-11-27",
       "journalZh": "《英国运动医学杂志》",
-      "titleZh": "记录的体力活动水平、血糖控制和2型糖尿病并发症之间的关联：一项基于登记册的回顾性纵向南非队列研究"
+      "titleZh": "24周抗阻运动方案对脑淀粉样蛋白和阿尔茨海默病血液生物标志物的影响：AGUEDA随机对照试验"
     },
     {
       "journal": "British Journal of Sports Medicine",
-      "title": "Muscle and thigh injury incidence rate and burden are higher during pre-season than in-season in a prospective cohort study of senior women’s football players",
-      "authors": "Joonsung Lee, Linda Fettus, Jon Larruskain, Josean Lekue, Susana M Gil, Christopher Underwood, Stephen J McQuilliam, Philipp Baumert, Robert M Erskine",
-      "link": "https://doi.org/10.1136/bjsports-2026-112071",
-      "date": "2026-11-26",
+      "title": "An update on the British athletics muscle injury classification system part 1: general considerations and rectus femoris injury",
+      "authors": "Noel Pollock, Justin Lee, Steven L J James, Robin Chakraverty",
+      "link": "https://doi.org/10.1136/bjsports-2025-111293",
+      "date": "2026-11-27",
       "journalZh": "《英国运动医学杂志》",
-      "titleZh": "在一项针对高龄女子足球运动员的前瞻性队列研究中，季前赛期间的肌肉和大腿损伤发生率和负担高于赛季期间"
+      "titleZh": "英国田径运动肌肉损伤分类系统最新情况第1部分：一般考虑因素和股直肌损伤"
+    },
+    {
+      "journal": "British Journal of Sports Medicine",
+      "title": "Insights into the injuries sustained by athletes with a vision impairment at three Summer Paralympic Games: an observational study of 354 injuries over 30 093 athlete-days",
+      "authors": "Eirik Halvorsen Wik, Pieter-Henk Boer, Johannes Lodewikus Van Zyl, Faatima Adam, Osman Hassan Ahmed, Maaike M Eken, Kristina Fagher, Wayne Derman, Phoebe Runciman",
+      "link": "https://doi.org/10.1136/bjsports-2026-111677",
+      "date": "2026-11-27",
+      "journalZh": "《英国运动医学杂志》",
+      "titleZh": "对三届夏季残奥会上视障运动员所受损伤的洞察：一项对30 093个运动员-日期间354例损伤的观察性研究"
     },
     {
       "journal": "Journal of Sports Sciences",
@@ -65,15 +74,6 @@
       "date": "2026-11-25",
       "journalZh": "《运动医学》",
       "titleZh": "缺血预适应对运动后损伤生物标志物、延迟性肌肉酸痛和内皮功能的影响：系统综述和荟萃分析"
-    },
-    {
-      "journal": "British Journal of Sports Medicine",
-      "title": "Is participation in muscle-strengthening exercise or aerobic physical activity associated with lower fracture risk? A nationwide cohort study",
-      "authors": "Chaiho Jeong, Bong-Seong Kim, Jinyoung Kim, Jeongmin Lee, Yejee Lim, Jeonghoon Ha, Kyungdo Han, Ki Hyun Baek",
-      "link": "https://doi.org/10.1136/bjsports-2026-112051",
-      "date": "2026-11-24",
-      "journalZh": "《英国运动医学杂志》",
-      "titleZh": "参与肌肉强化锻炼或有氧体育活动是否与骨折风险降低相关？一项全国性队列研究"
     },
     {
       "journal": "Medicine & Science in Sports & Exercise",

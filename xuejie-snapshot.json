@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27",
+  "generatedAt": "2026-11-28",
   "source": "cssd-xuejie-scraper",
   "statusHint": "live",
   "items": [
@@ -19,6 +19,13 @@
     },
     {
       "type": "event",
+      "title": "广州体育学院师生参演广东省第八届民族传统体育运动会开幕式",
+      "org": "广州体育学院",
+      "date": "2026-11-28",
+      "link": "http://news.gzsport.edu.cn/info/18394"
+    },
+    {
+      "type": "event",
       "title": "体育高等教育开放融合发展论坛暨粤港澳大湾区（广东）—东盟体...",
       "org": "广州体育学院",
       "date": "2026-11-26",
@@ -26,17 +33,17 @@
     },
     {
       "type": "meet",
-      "title": "粤港澳大湾区体育文化研讨会在广州体育学院举行",
-      "org": "广州体育学院",
-      "date": "2026-11-22",
-      "link": "https://mp.weixin.qq.com/s/QJH-lsGplGRh07GgTFHIUQ"
-    },
-    {
-      "type": "meet",
       "title": "▸ 数智赋能运动健康 共赴学术之约｜2026年广州运动与健康国际学术研讨会在广州体育学...",
       "org": "广州体育学院",
       "date": "2026-11-22",
       "link": "https://mp.weixin.qq.com/s/p6-VX0kn59YgfDzOLBVBVA"
+    },
+    {
+      "type": "meet",
+      "title": "▸ 粤港澳大湾区体育文化研讨会在广州体育学院举行",
+      "org": "广州体育学院",
+      "date": "2026-11-22",
+      "link": "https://mp.weixin.qq.com/s/QJH-lsGplGRh07GgTFHIUQ"
     },
     {
       "type": "meet",
@@ -191,13 +198,6 @@
       "org": "沈阳体育学院",
       "date": "2026-11-02",
       "link": "https://www.syty.edu.cn/info/1061/18403.htm"
-    },
-    {
-      "type": "meet",
-      "title": "18 一等奖！我校教师在第十三届全国体育院校思想政治理论课教学研讨会教学比赛中获佳绩",
-      "org": "天津体育学院",
-      "date": "2026-11",
-      "link": "https://mp.weixin.qq.com/s/3AW2UHNncvx0waFK1CxVog"
     }
   ]
 }
